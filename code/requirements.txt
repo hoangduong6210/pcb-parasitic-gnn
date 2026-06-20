@@ -1,0 +1,10 @@
+# Research environment for Topic 13 PCB Parasitic GNN
+numpy>=1.24
+scipy>=1.10
+# PyTorch for GNN research (CPU ok for prototype; CUDA optional)
+torch>=2.1
+# For future EGNN / e3nn work (commented until baseline solid)
+# e3nn>=0.5
+# torch-geometric  # MIT; optional for advanced message passing
+# For geometry utils
+# shapely  # if polygon ops needed later

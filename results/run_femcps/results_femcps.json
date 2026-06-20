@@ -1,0 +1,27 @@
+{
+  "note": "all four targets field-grade: GNN vs FEM-3D (Cps) + FastHenry-3D (L)",
+  "host": "compute-node",
+  "n_samples": 332,
+  "n_test": 67,
+  "analytical_Cps_vs_fastcap_median_pct": 266.6,
+  "Cps_pF": {
+    "R2": 0.9527,
+    "median_rel_err_pct": 3.22,
+    "label_source": "fem3d_electrostatic"
+  },
+  "L_pri_nH": {
+    "R2": 0.9954,
+    "median_rel_err_pct": 2.83,
+    "label_source": "fasthenry_3d"
+  },
+  "L_sec_nH": {
+    "R2": 0.9942,
+    "median_rel_err_pct": 3.81,
+    "label_source": "fasthenry_3d"
+  },
+  "L_mut_nH": {
+    "R2": 0.9943,
+    "median_rel_err_pct": 2.56,
+    "label_source": "fasthenry_3d"
+  }
+}

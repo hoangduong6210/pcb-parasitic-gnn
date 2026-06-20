@@ -1,0 +1,52 @@
+{
+  "note": "3-D FEM AL vs datasheet/analytical AL for a real EER40 GP95 core (PFC 600uH worked example, textbook ch.13.3)",
+  "core": "EER40 GP95 (Suzhou Wanda)",
+  "AL_ungapped_datasheet_nH": 7481.0,
+  "Ae_mm2": 138.9,
+  "le_mm": 84.0,
+  "mu_i": 3599,
+  "host": "compute-node",
+  "fem_vs_analytical_median_pct": 5.69,
+  "rows": [
+    {
+      "gap_mm": 0.05,
+      "AL_analytical_nH": 2380.6,
+      "AL_fem_nH": 2516.0,
+      "fem_vs_analytical_pct": 5.69,
+      "turns_for_600uH": 15.9,
+      "Bpk_T": 2.448
+    },
+    {
+      "gap_mm": 0.1,
+      "AL_analytical_nH": 1415.5,
+      "AL_fem_nH": 1473.4,
+      "fem_vs_analytical_pct": 4.09,
+      "turns_for_600uH": 20.6,
+      "Bpk_T": 1.888
+    },
+    {
+      "gap_mm": 0.2,
+      "AL_analytical_nH": 781.7,
+      "AL_fem_nH": 824.0,
+      "fem_vs_analytical_pct": 5.41,
+      "turns_for_600uH": 27.7,
+      "Bpk_T": 1.403
+    },
+    {
+      "gap_mm": 0.5,
+      "AL_analytical_nH": 333.6,
+      "AL_fem_nH": 379.1,
+      "fem_vs_analytical_pct": 13.64,
+      "turns_for_600uH": 42.4,
+      "Bpk_T": 0.917
+    },
+    {
+      "gap_mm": 1.0,
+      "AL_analytical_nH": 170.6,
+      "AL_fem_nH": 222.6,
+      "fem_vs_analytical_pct": 30.49,
+      "turns_for_600uH": 59.3,
+      "Bpk_T": 0.655
+    }
+  ]
+}

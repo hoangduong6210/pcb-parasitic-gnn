@@ -1,0 +1,106 @@
+{
+  "note": "Total Cps (sum over ALL pri-sec pairs) vs independent 2-D scikit-fem; compares analytical PEEC label AND trained GNN to the FEM solver.",
+  "n_layouts": 12,
+  "peec_vs_fem_median_pct": 23.83,
+  "peec_vs_fem_mean_pct": 23.95,
+  "gnn_vs_fem_median_pct": 24.16,
+  "gnn_vs_fem_mean_pct": 24.06,
+  "rows": [
+    {
+      "id": 1988,
+      "fem_total_cps_pF": 1348.69,
+      "peec_total_cps_pF": 1027.35,
+      "gnn_cps_pF": 1022.05,
+      "peec_vs_fem_pct": 23.83,
+      "gnn_vs_fem_pct": 24.22
+    },
+    {
+      "id": 1989,
+      "fem_total_cps_pF": 3565.2,
+      "peec_total_cps_pF": 2720.5,
+      "gnn_cps_pF": 2706.25,
+      "peec_vs_fem_pct": 23.69,
+      "gnn_vs_fem_pct": 24.09
+    },
+    {
+      "id": 1990,
+      "fem_total_cps_pF": 2240.62,
+      "peec_total_cps_pF": 1703.83,
+      "gnn_cps_pF": 1684.25,
+      "peec_vs_fem_pct": 23.96,
+      "gnn_vs_fem_pct": 24.83
+    },
+    {
+      "id": 1991,
+      "fem_total_cps_pF": 2078.23,
+      "peec_total_cps_pF": 1581.36,
+      "gnn_cps_pF": 1597.82,
+      "peec_vs_fem_pct": 23.91,
+      "gnn_vs_fem_pct": 23.12
+    },
+    {
+      "id": 1992,
+      "fem_total_cps_pF": 1184.96,
+      "peec_total_cps_pF": 904.08,
+      "gnn_cps_pF": 917.55,
+      "peec_vs_fem_pct": 23.7,
+      "gnn_vs_fem_pct": 22.57
+    },
+    {
+      "id": 1993,
+      "fem_total_cps_pF": 1504.26,
+      "peec_total_cps_pF": 1145.76,
+      "gnn_cps_pF": 1156.45,
+      "peec_vs_fem_pct": 23.83,
+      "gnn_vs_fem_pct": 23.12
+    },
+    {
+      "id": 1994,
+      "fem_total_cps_pF": 2548.39,
+      "peec_total_cps_pF": 1959.02,
+      "gnn_cps_pF": 1946.12,
+      "peec_vs_fem_pct": 23.13,
+      "gnn_vs_fem_pct": 23.63
+    },
+    {
+      "id": 1995,
+      "fem_total_cps_pF": 8575.3,
+      "peec_total_cps_pF": 6581.52,
+      "gnn_cps_pF": 6615.42,
+      "peec_vs_fem_pct": 23.25,
+      "gnn_vs_fem_pct": 22.85
+    },
+    {
+      "id": 1996,
+      "fem_total_cps_pF": 4840.85,
+      "peec_total_cps_pF": 3659.82,
+      "gnn_cps_pF": 3666.74,
+      "peec_vs_fem_pct": 24.4,
+      "gnn_vs_fem_pct": 24.25
+    },
+    {
+      "id": 1997,
+      "fem_total_cps_pF": 7778.87,
+      "peec_total_cps_pF": 5958.36,
+      "gnn_cps_pF": 5816.3,
+      "peec_vs_fem_pct": 23.4,
+      "gnn_vs_fem_pct": 25.23
+    },
+    {
+      "id": 1998,
+      "fem_total_cps_pF": 2710.08,
+      "peec_total_cps_pF": 2020.67,
+      "gnn_cps_pF": 2016.57,
+      "peec_vs_fem_pct": 25.44,
+      "gnn_vs_fem_pct": 25.59
+    },
+    {
+      "id": 1999,
+      "fem_total_cps_pF": 2392.48,
+      "peec_total_cps_pF": 1796.94,
+      "gnn_cps_pF": 1790.14,
+      "peec_vs_fem_pct": 24.89,
+      "gnn_vs_fem_pct": 25.18
+    }
+  ]
+}

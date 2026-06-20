@@ -1,0 +1,12 @@
+{
+  "n_samples": 250,
+  "train_time_s": 0.128,
+  "infer_time_ms_per_sample": 0.0,
+  "rmse_Cps_pF_gnn": 1.3,
+  "rmse_Cps_pF_old": 45.51,
+  "rel_improvement_Cps_pct": 97.1,
+  "old_baseline_time_ms": 0.003,
+  "speedup_factor": 0.7,
+  "notes": "Surrogate = Ridge on graph aggregates. Old = simplified parallel-plate peec_cps. All on CPU.",
+  "hostname": "see slurm output"
+}

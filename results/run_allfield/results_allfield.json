@@ -1,0 +1,27 @@
+{
+  "note": "all four targets field-grade: GNN vs FastCap-3D (Cps) + FastHenry-3D (L)",
+  "host": "compute-node",
+  "n_samples": 286,
+  "n_test": 58,
+  "analytical_Cps_vs_fastcap_median_pct": 157804.3,
+  "Cps_pF": {
+    "R2": -0.388,
+    "median_rel_err_pct": 85.74,
+    "label_source": "fastcap_3d"
+  },
+  "L_pri_nH": {
+    "R2": 0.9876,
+    "median_rel_err_pct": 6.5,
+    "label_source": "fasthenry_3d"
+  },
+  "L_sec_nH": {
+    "R2": 0.9765,
+    "median_rel_err_pct": 7.05,
+    "label_source": "fasthenry_3d"
+  },
+  "L_mut_nH": {
+    "R2": 0.9763,
+    "median_rel_err_pct": 4.14,
+    "label_source": "fasthenry_3d"
+  }
+}

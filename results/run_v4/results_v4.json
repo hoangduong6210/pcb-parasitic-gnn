@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "host": "compute-node",
+    "torch": "2.8.0+cu128",
+    "n_samples": 2000
+  },
+  "inductance_fem_validation": {
+    "n_layouts": 12,
+    "peec_vs_fem_median_pct": 62.62,
+    "gnn_vs_fem_median_pct": 62.91,
+    "note": "total mutual L_m vs independent multi-filament (FastHenry-style) Neumann-integral solve",
+    "rows": [
+      {
+        "id": 1988,
+        "fem_Lm_nH": 1752.28,
+        "peec_Lm_nH": 596.98,
+        "gnn_Lm_nH": 606.57,
+        "peec_vs_fem_pct": 65.93,
+        "gnn_vs_fem_pct": 65.38
+      },
+      {
+        "id": 1989,
+        "fem_Lm_nH": 3973.12,
+        "peec_Lm_nH": 1352.08,
+        "gnn_Lm_nH": 1346.11,
+        "peec_vs_fem_pct": 65.97,
+        "gnn_vs_fem_pct": 66.12
+      },
+      {
+        "id": 1990,
+        "fem_Lm_nH": 4095.08,
+        "peec_Lm_nH": 1723.28,
+        "gnn_Lm_nH": 1675.92,
+        "peec_vs_fem_pct": 57.92,
+        "gnn_vs_fem_pct": 59.07
+      },
+      {
+        "id": 1991,
+        "fem_Lm_nH": 3153.79,
+        "peec_Lm_nH": 1188.2,
+        "gnn_Lm_nH": 1183.03,
+        "peec_vs_fem_pct": 62.32,
+        "gnn_vs_fem_pct": 62.49
+      },
+      {
+        "id": 1992,
+        "fem_Lm_nH": 1533.32,
+        "peec_Lm_nH": 562.83,
+        "gnn_Lm_nH": 562.38,
+        "peec_vs_fem_pct": 63.29,
+        "gnn_vs_fem_pct": 63.32
+      },
+      {
+        "id": 1993,
+        "fem_Lm_nH": 2051.14,
+        "peec_Lm_nH": 736.01,
+        "gnn_Lm_nH": 745.31,
+        "peec_vs_fem_pct": 64.12,
+        "gnn_vs_fem_pct": 63.66
+      },
+      {
+        "id": 1994,
+        "fem_Lm_nH": 4212.97,
+        "peec_Lm_nH": 1662.4,
+        "gnn_Lm_nH": 1663.75,
+        "peec_vs_fem_pct": 60.54,
+        "gnn_vs_fem_pct": 60.51
+      },
+      {
+        "id": 1995,
+        "fem_Lm_nH": 9891.0,
+        "peec_Lm_nH": 3284.54,
+        "gnn_Lm_nH": 3308.76,
+        "peec_vs_fem_pct": 66.79,
+        "gnn_vs_fem_pct": 66.55
+      },
+      {
+        "id": 1996,
+        "fem_Lm_nH": 11813.14,
+        "peec_Lm_nH": 5243.53,
+        "gnn_Lm_nH": 5280.48,
+        "peec_vs_fem_pct": 55.61,
+        "gnn_vs_fem_pct": 55.3
+      },
+      {
+        "id": 1997,
+        "fem_Lm_nH": 9460.76,
+        "peec_Lm_nH": 3508.46,
+        "gnn_Lm_nH": 3371.61,
+        "peec_vs_fem_pct": 62.92,
+        "gnn_vs_fem_pct": 64.36
+      },
+      {
+        "id": 1998,
+        "fem_Lm_nH": 8268.55,
+        "peec_Lm_nH": 4046.47,
+        "gnn_Lm_nH": 4055.46,
+        "peec_vs_fem_pct": 51.06,
+        "gnn_vs_fem_pct": 50.95
+      },
+      {
+        "id": 1999,
+        "fem_Lm_nH": 6601.92,
+        "peec_Lm_nH": 3149.02,
+        "gnn_Lm_nH": 3058.93,
+        "peec_vs_fem_pct": 52.3,
+        "gnn_vs_fem_pct": 53.67
+      }
+    ]
+  },
+  "generalization_size_split": {
+    "train_nodes_max": 32,
+    "test_nodes_min": 32,
+    "test_nodes_max": 42,
+    "per_target_r2": {
+      "Cps_pF": 0.9988,
+      "L_pri_nH": 0.9946,
+      "L_sec_nH": 0.9957,
+      "L_mut_nH": 0.9958
+    },
+    "per_target_rmse": {
+      "Cps_pF": 50.9206,
+      "L_pri_nH": 108.7796,
+      "L_sec_nH": 92.4638,
+      "L_mut_nH": 61.8491
+    }
+  },
+  "random_split_reference": {
+    "per_target_r2": {
+      "Cps_pF": 0.9998,
+      "L_pri_nH": 0.9996,
+      "L_sec_nH": 0.9993,
+      "L_mut_nH": 0.9995
+    }
+  }
+}

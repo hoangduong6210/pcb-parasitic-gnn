@@ -1,0 +1,12 @@
+{
+  "note": "pairwise-ranking GNN for interleaving order (FEM-3D Cps, family-disjoint)",
+  "host": "compute-node",
+  "n_families": 110,
+  "n_test_families": 33,
+  "variants_per_family": 8,
+  "spearman_mean": 0.889,
+  "spearman_median": 0.929,
+  "spearman_min": 0.524,
+  "frac_families_rho_ge_0.7": 0.91,
+  "baseline_regression_rho": 0.27
+}

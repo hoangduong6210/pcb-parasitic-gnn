@@ -1,0 +1,202 @@
+{
+  "note": "FastHenry 3-D (field standard) vs our filament-15x6 and the analytical Grover label",
+  "n": 24,
+  "host": "compute-node",
+  "elapsed_s": 30.4,
+  "filament_vs_fasthenry_median_pct": 1.63,
+  "grover_vs_fasthenry_median_pct": 55.98,
+  "rows": [
+    {
+      "id": 0,
+      "fasthenry_Lm_nH": 2273.41,
+      "filament15x6_Lm_nH": 2305.24,
+      "grover_Lm_nH": 823.92,
+      "filament_vs_fasthenry_pct": 1.4,
+      "grover_vs_fasthenry_pct": 63.76
+    },
+    {
+      "id": 1,
+      "fasthenry_Lm_nH": 5123.15,
+      "filament15x6_Lm_nH": 5217.45,
+      "grover_Lm_nH": 2550.11,
+      "filament_vs_fasthenry_pct": 1.84,
+      "grover_vs_fasthenry_pct": 50.22
+    },
+    {
+      "id": 2,
+      "fasthenry_Lm_nH": 2570.88,
+      "filament15x6_Lm_nH": 2627.92,
+      "grover_Lm_nH": 1056.82,
+      "filament_vs_fasthenry_pct": 2.22,
+      "grover_vs_fasthenry_pct": 58.89
+    },
+    {
+      "id": 3,
+      "fasthenry_Lm_nH": 7987.31,
+      "filament15x6_Lm_nH": 8093.39,
+      "grover_Lm_nH": 2859.9,
+      "filament_vs_fasthenry_pct": 1.33,
+      "grover_vs_fasthenry_pct": 64.19
+    },
+    {
+      "id": 4,
+      "fasthenry_Lm_nH": 6549.03,
+      "filament15x6_Lm_nH": 6680.04,
+      "grover_Lm_nH": 2906.4,
+      "filament_vs_fasthenry_pct": 2.0,
+      "grover_vs_fasthenry_pct": 55.62
+    },
+    {
+      "id": 5,
+      "fasthenry_Lm_nH": 2738.81,
+      "filament15x6_Lm_nH": 2773.97,
+      "grover_Lm_nH": 1124.1,
+      "filament_vs_fasthenry_pct": 1.28,
+      "grover_vs_fasthenry_pct": 58.96
+    },
+    {
+      "id": 6,
+      "fasthenry_Lm_nH": 1827.48,
+      "filament15x6_Lm_nH": 1853.87,
+      "grover_Lm_nH": 741.85,
+      "filament_vs_fasthenry_pct": 1.44,
+      "grover_vs_fasthenry_pct": 59.41
+    },
+    {
+      "id": 7,
+      "fasthenry_Lm_nH": 1230.01,
+      "filament15x6_Lm_nH": 1258.86,
+      "grover_Lm_nH": 573.83,
+      "filament_vs_fasthenry_pct": 2.35,
+      "grover_vs_fasthenry_pct": 53.35
+    },
+    {
+      "id": 8,
+      "fasthenry_Lm_nH": 10704.6,
+      "filament15x6_Lm_nH": 10861.47,
+      "grover_Lm_nH": 4352.54,
+      "filament_vs_fasthenry_pct": 1.47,
+      "grover_vs_fasthenry_pct": 59.34
+    },
+    {
+      "id": 9,
+      "fasthenry_Lm_nH": 5595.27,
+      "filament15x6_Lm_nH": 5715.38,
+      "grover_Lm_nH": 2632.42,
+      "filament_vs_fasthenry_pct": 2.15,
+      "grover_vs_fasthenry_pct": 52.95
+    },
+    {
+      "id": 10,
+      "fasthenry_Lm_nH": 9455.57,
+      "filament15x6_Lm_nH": 9614.79,
+      "grover_Lm_nH": 3889.93,
+      "filament_vs_fasthenry_pct": 1.68,
+      "grover_vs_fasthenry_pct": 58.86
+    },
+    {
+      "id": 11,
+      "fasthenry_Lm_nH": 2198.06,
+      "filament15x6_Lm_nH": 2241.86,
+      "grover_Lm_nH": 1002.08,
+      "filament_vs_fasthenry_pct": 1.99,
+      "grover_vs_fasthenry_pct": 54.41
+    },
+    {
+      "id": 12,
+      "fasthenry_Lm_nH": 2261.26,
+      "filament15x6_Lm_nH": 2309.65,
+      "grover_Lm_nH": 1116.04,
+      "filament_vs_fasthenry_pct": 2.14,
+      "grover_vs_fasthenry_pct": 50.65
+    },
+    {
+      "id": 13,
+      "fasthenry_Lm_nH": 13337.0,
+      "filament15x6_Lm_nH": 13533.91,
+      "grover_Lm_nH": 6025.21,
+      "filament_vs_fasthenry_pct": 1.48,
+      "grover_vs_fasthenry_pct": 54.82
+    },
+    {
+      "id": 14,
+      "fasthenry_Lm_nH": 3738.03,
+      "filament15x6_Lm_nH": 3785.39,
+      "grover_Lm_nH": 1196.26,
+      "filament_vs_fasthenry_pct": 1.27,
+      "grover_vs_fasthenry_pct": 68.0
+    },
+    {
+      "id": 15,
+      "fasthenry_Lm_nH": 2167.17,
+      "filament15x6_Lm_nH": 2205.42,
+      "grover_Lm_nH": 814.33,
+      "filament_vs_fasthenry_pct": 1.77,
+      "grover_vs_fasthenry_pct": 62.42
+    },
+    {
+      "id": 16,
+      "fasthenry_Lm_nH": 4133.02,
+      "filament15x6_Lm_nH": 4186.23,
+      "grover_Lm_nH": 1833.94,
+      "filament_vs_fasthenry_pct": 1.29,
+      "grover_vs_fasthenry_pct": 55.63
+    },
+    {
+      "id": 17,
+      "fasthenry_Lm_nH": 8936.16,
+      "filament15x6_Lm_nH": 9083.0,
+      "grover_Lm_nH": 4326.35,
+      "filament_vs_fasthenry_pct": 1.64,
+      "grover_vs_fasthenry_pct": 51.59
+    },
+    {
+      "id": 18,
+      "fasthenry_Lm_nH": 1619.65,
+      "filament15x6_Lm_nH": 1659.78,
+      "grover_Lm_nH": 811.76,
+      "filament_vs_fasthenry_pct": 2.48,
+      "grover_vs_fasthenry_pct": 49.88
+    },
+    {
+      "id": 19,
+      "fasthenry_Lm_nH": 3472.05,
+      "filament15x6_Lm_nH": 3523.55,
+      "grover_Lm_nH": 1303.0,
+      "filament_vs_fasthenry_pct": 1.48,
+      "grover_vs_fasthenry_pct": 62.47
+    },
+    {
+      "id": 20,
+      "fasthenry_Lm_nH": 5202.11,
+      "filament15x6_Lm_nH": 5283.75,
+      "grover_Lm_nH": 1917.77,
+      "filament_vs_fasthenry_pct": 1.57,
+      "grover_vs_fasthenry_pct": 63.13
+    },
+    {
+      "id": 21,
+      "fasthenry_Lm_nH": 6252.21,
+      "filament15x6_Lm_nH": 6325.42,
+      "grover_Lm_nH": 2789.01,
+      "filament_vs_fasthenry_pct": 1.17,
+      "grover_vs_fasthenry_pct": 55.39
+    },
+    {
+      "id": 22,
+      "fasthenry_Lm_nH": 8268.99,
+      "filament15x6_Lm_nH": 8408.43,
+      "grover_Lm_nH": 4103.59,
+      "filament_vs_fasthenry_pct": 1.69,
+      "grover_vs_fasthenry_pct": 50.37
+    },
+    {
+      "id": 23,
+      "fasthenry_Lm_nH": 843.27,
+      "filament15x6_Lm_nH": 856.99,
+      "grover_Lm_nH": 368.29,
+      "filament_vs_fasthenry_pct": 1.63,
+      "grover_vs_fasthenry_pct": 56.33
+    }
+  ]
+}
