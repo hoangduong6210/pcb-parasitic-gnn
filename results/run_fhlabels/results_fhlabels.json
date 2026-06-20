@@ -1,0 +1,26 @@
+{
+  "note": "GNN retrained on FastHenry-3D inductance labels, validated vs held-out FastHenry",
+  "host": "compute-node",
+  "n_samples": 177,
+  "n_test": 36,
+  "Cps_pF": {
+    "R2": 0.9888,
+    "median_rel_err_pct": 3.51,
+    "label_source": "analytical_2dFEM"
+  },
+  "L_pri_nH": {
+    "R2": 0.9888,
+    "median_rel_err_pct": 5.55,
+    "label_source": "fasthenry_3d"
+  },
+  "L_sec_nH": {
+    "R2": 0.9865,
+    "median_rel_err_pct": 7.14,
+    "label_source": "fasthenry_3d"
+  },
+  "L_mut_nH": {
+    "R2": 0.9829,
+    "median_rel_err_pct": 4.49,
+    "label_source": "fasthenry_3d"
+  }
+}

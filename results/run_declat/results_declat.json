@@ -1,0 +1,28 @@
+{
+  "note": "GNN vs PEEC ranking by variation type (FEM-3D truth, family-disjoint)",
+  "host": "compute-node",
+  "Z_interleaving": {
+    "peec_rho_mean": 0.78,
+    "peec_blind_frac": 0.0,
+    "gnn_rho_mean": 0.81,
+    "n": 28
+  },
+  "XY_registration": {
+    "peec_rho_mean": null,
+    "peec_blind_frac": 1.0,
+    "gnn_rho_mean": 0.95,
+    "n": 28
+  },
+  "XY_decision": {
+    "peec_pick_regret_pct": 1176.1,
+    "gnn_pick_regret_pct": 3.5,
+    "random_pick_regret_pct": 1126.2,
+    "n": 28
+  },
+  "Z_decision": {
+    "peec_pick_regret_pct": 5.4,
+    "gnn_pick_regret_pct": 5.8,
+    "random_pick_regret_pct": 122.1,
+    "n": 28
+  }
+}

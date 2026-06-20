@@ -1,0 +1,15 @@
+{
+  "note": "decision-consequence: which screener picks the best interleaving",
+  "host": "compute-node",
+  "n_families": 120,
+  "n_test_families": 36,
+  "peec_mean_regret_pct": 4.0,
+  "gnn_mean_regret_pct": 3.0,
+  "random_mean_regret_pct": 94.2,
+  "peec_median_regret_pct": 0.0,
+  "gnn_median_regret_pct": 0.0,
+  "peec_top1_hit_rate": 0.75,
+  "gnn_top1_hit_rate": 0.67,
+  "peec_rank_spearman": 0.88,
+  "gnn_rank_spearman": 0.92
+}

@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "epochs": 200,
+    "device": "cpu",
+    "torch": "2.8.0+cu128",
+    "host": "compute-node",
+    "n_samples": 2000
+  },
+  "fem_ground_truth": {
+    "n": 24,
+    "mean_abs_rel_err_pct": 30.45,
+    "median_abs_rel_err_pct": 30.37,
+    "max_abs_rel_err_pct": 34.66,
+    "note": "analytical Cps label vs independent 2-D scikit-fem electrostatic solve, representative pri-sec pair"
+  },
+  "dense_gnn_multiseed": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "n_params": 275339,
+    "per_target_r2_mean_std": {
+      "Cps_pF": {
+        "mean": 0.9998,
+        "std": 0.0
+      },
+      "L_pri_nH": {
+        "mean": 0.9996,
+        "std": 0.0
+      },
+      "L_sec_nH": {
+        "mean": 0.9995,
+        "std": 0.0002
+      },
+      "L_mut_nH": {
+        "mean": 0.9997,
+        "std": 0.0001
+      }
+    },
+    "per_target_rmse_mean_std": {
+      "Cps_pF": {
+        "mean": 23.109,
+        "std": 0.8779
+      },
+      "L_pri_nH": {
+        "mean": 37.485,
+        "std": 2.7397
+      },
+      "L_sec_nH": {
+        "mean": 39.3184,
+        "std": 5.6132
+      },
+      "L_mut_nH": {
+        "mean": 22.6196,
+        "std": 4.4408
+      }
+    },
+    "cps_acc_improvement_x_mean": 110.16,
+    "runs": [
+      {
+        "per_target": {
+          "Cps_pF": {
+            "rmse": 22.3617,
+            "r2": 0.9998
+          },
+          "L_pri_nH": {
+            "rmse": 40.992,
+            "r2": 0.9996
+          },
+          "L_sec_nH": {
+            "rmse": 47.078,
+            "r2": 0.9993
+          },
+          "L_mut_nH": {
+            "rmse": 28.7551,
+            "r2": 0.9995
+          }
+        },
+        "cps_r2": 0.9998,
+        "cps_rmse": 22.3617,
+        "old_cps_rmse": 2501.2313,
+        "n_params": 275339
+      },
+      {
+        "per_target": {
+          "Cps_pF": {
+            "rmse": 24.3413,
+            "r2": 0.9998
+          },
+          "L_pri_nH": {
+            "rmse": 34.3051,
+            "r2": 0.9997
+          },
+          "L_sec_nH": {
+            "rmse": 33.988,
+            "r2": 0.9997
+          },
+          "L_mut_nH": {
+            "rmse": 18.3911,
+            "r2": 0.9998
+          }
+        },
+        "cps_r2": 0.9998,
+        "cps_rmse": 24.3413,
+        "old_cps_rmse": 2537.2962,
+        "n_params": 275339
+      },
+      {
+        "per_target": {
+          "Cps_pF": {
+            "rmse": 22.624,
+            "r2": 0.9998
+          },
+          "L_pri_nH": {
+            "rmse": 37.158,
+            "r2": 0.9996
+          },
+          "L_sec_nH": {
+            "rmse": 36.8893,
+            "r2": 0.9996
+          },
+          "L_mut_nH": {
+            "rmse": 20.7125,
+            "r2": 0.9997
+          }
+        },
+        "cps_r2": 0.9998,
+        "cps_rmse": 22.624,
+        "old_cps_rmse": 2587.8292,
+        "n_params": 275339
+      }
+    ]
+  },
+  "knn_gnn": {
+    "per_target": {
+      "Cps_pF": {
+        "rmse": 58.8689,
+        "r2": 0.9986
+      },
+      "L_pri_nH": {
+        "rmse": 169.6797,
+        "r2": 0.9927
+      },
+      "L_sec_nH": {
+        "rmse": 150.692,
+        "r2": 0.9932
+      },
+      "L_mut_nH": {
+        "rmse": 55.6756,
+        "r2": 0.9983
+      }
+    },
+    "cps_r2": 0.9986,
+    "cps_rmse": 58.8689,
+    "old_cps_rmse": 2501.2313,
+    "n_params": 275339
+  },
+  "baseline_pooled_mlp": {
+    "per_target": {
+      "Cps_pF": {
+        "rmse": 172.4995,
+        "r2": 0.9879
+      },
+      "L_pri_nH": {
+        "rmse": 662.0298,
+        "r2": 0.8883
+      },
+      "L_sec_nH": {
+        "rmse": 634.5818,
+        "r2": 0.8802
+      },
+      "L_mut_nH": {
+        "rmse": 149.8601,
+        "r2": 0.9877
+      }
+    },
+    "cps_r2": 0.9879,
+    "cps_rmse": 172.4995,
+    "old_cps_rmse": 2501.2313,
+    "n_params": 20612
+  },
+  "ablation_no_geometry": {
+    "per_target": {
+      "Cps_pF": {
+        "rmse": 23.5865,
+        "r2": 0.9998
+      },
+      "L_pri_nH": {
+        "rmse": 76.7235,
+        "r2": 0.9985
+      },
+      "L_sec_nH": {
+        "rmse": 74.1659,
+        "r2": 0.9984
+      },
+      "L_mut_nH": {
+        "rmse": 52.7148,
+        "r2": 0.9985
+      }
+    },
+    "cps_r2": 0.9998,
+    "cps_rmse": 23.5865,
+    "old_cps_rmse": 2501.2313,
+    "n_params": 275339
+  },
+  "ablation_shallow_2layer": {
+    "per_target": {
+      "Cps_pF": {
+        "rmse": 23.8375,
+        "r2": 0.9998
+      },
+      "L_pri_nH": {
+        "rmse": 39.2552,
+        "r2": 0.9996
+      },
+      "L_sec_nH": {
+        "rmse": 42.9848,
+        "r2": 0.9995
+      },
+      "L_mut_nH": {
+        "rmse": 32.1412,
+        "r2": 0.9994
+      }
+    },
+    "cps_r2": 0.9998,
+    "cps_rmse": 23.8375,
+    "old_cps_rmse": 2501.2313,
+    "n_params": 162251
+  }
+}

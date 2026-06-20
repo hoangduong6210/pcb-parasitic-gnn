@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "host": "compute-node",
+    "n": 1500
+  },
+  "full_data": {
+    "equivariant_r2": {
+      "Cps_pF": 0.9993,
+      "L_pri_nH": 0.9986,
+      "L_sec_nH": 0.9983,
+      "L_mut_nH": 0.9996
+    },
+    "mpnn_r2": {
+      "Cps_pF": 0.9997,
+      "L_pri_nH": 0.9992,
+      "L_sec_nH": 0.9995,
+      "L_mut_nH": 0.9998
+    },
+    "equivariant_params": 313071
+  },
+  "sample_efficiency": {
+    "200": {
+      "equivariant_Lp_r2": 0.9871,
+      "mpnn_Lp_r2": 0.9872,
+      "equivariant_Lm_r2": 0.9974,
+      "mpnn_Lm_r2": 0.9979
+    },
+    "800": {
+      "equivariant_Lp_r2": 0.9977,
+      "mpnn_Lp_r2": 0.9989,
+      "equivariant_Lm_r2": 0.9995,
+      "mpnn_Lm_r2": 0.9998
+    }
+  },
+  "equivariance_check": {
+    "median_pred_drift_under_rotation_pct": 0.3262,
+    "note": "equivariant model output should be ~invariant to board rotation"
+  }
+}

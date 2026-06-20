@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "host": "compute-node",
+    "n": 1500,
+    "avg_nodes": 39.13933333333333,
+    "max_nodes": 70,
+    "label_Lm": "filament_fasthenry_5x2"
+  },
+  "accuracy_multiseed": {
+    "Cps_pF": {
+      "mean": 0.9997,
+      "std": 0.0
+    },
+    "L_pri_nH": {
+      "mean": 0.9995,
+      "std": 0.0001
+    },
+    "L_sec_nH": {
+      "mean": 0.9995,
+      "std": 0.0
+    },
+    "L_mut_nH": {
+      "mean": 0.9999,
+      "std": 0.0
+    }
+  },
+  "Lm_field_grade": {
+    "n": 12,
+    "filament_5x2_vs_15x6_median_pct": 0.4,
+    "gnn_vs_15x6_filament_median_pct": 0.65,
+    "prev_grover_vs_filament_pct": 62.6
+  },
+  "large_N_measured": {
+    "test_nodes_min": 51,
+    "test_nodes_max": 70,
+    "per_target_r2": {
+      "Cps_pF": 0.9947,
+      "L_pri_nH": 0.9933,
+      "L_sec_nH": 0.996,
+      "L_mut_nH": 0.9885
+    }
+  },
+  "downstream_rank_spearman": {
+    "n_designs": 8,
+    "mean_rho": 0.507,
+    "min_rho": -0.029
+  }
+}

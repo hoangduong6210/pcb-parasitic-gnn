@@ -1,0 +1,50 @@
+{
+  "model": "PCBParasiticGNN (geometry-aware MPNN, pure-torch, PyG-free)",
+  "n_params": 275339,
+  "n_samples": 2000,
+  "n_train": 1600,
+  "n_test": 400,
+  "avg_nodes": 25.172,
+  "avg_edges": 662.715,
+  "targets": [
+    "Cps_pF",
+    "L_pri_nH",
+    "L_sec_nH",
+    "L_mut_nH"
+  ],
+  "per_target": {
+    "Cps_pF": {
+      "rmse": 23.7869,
+      "r2": 0.9998,
+      "ref_mean": 2174.4634
+    },
+    "L_pri_nH": {
+      "rmse": 42.4073,
+      "r2": 0.9995,
+      "ref_mean": 2717.7063
+    },
+    "L_sec_nH": {
+      "rmse": 42.702,
+      "r2": 0.9995,
+      "ref_mean": 2580.7183
+    },
+    "L_mut_nH": {
+      "rmse": 30.4659,
+      "r2": 0.9995,
+      "ref_mean": 1963.3041
+    }
+  },
+  "old_baseline_rmse_Cps_pF": 2501.2313,
+  "gnn_rmse_Cps_pF": 23.7869,
+  "cps_accuracy_improvement_x": 105.15,
+  "train_time_s": 1839.24,
+  "gnn_infer_ms_per_sample": 1.16845,
+  "ref_allpairs_ms_per_sample": 0.783,
+  "speedup_vs_ref_allpairs_x": 0.67,
+  "speedup_note": "GNN forward (batched, median of 20) vs measured O(N^2) all-pairs PEEC reference; <1 would mean slower.",
+  "seed": 42,
+  "epochs": 300,
+  "device": "cpu",
+  "torch_version": "2.8.0+cu128",
+  "hostname": "a0199.ten.osc.edu"
+}

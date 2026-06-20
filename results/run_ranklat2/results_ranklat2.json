@@ -1,0 +1,16 @@
+{
+  "note": "GNN vs PEEC ranking by variation type (FEM-3D truth, family-disjoint)",
+  "host": "compute-node",
+  "Z_interleaving": {
+    "peec_rho_mean": 0.78,
+    "peec_blind_frac": 0.0,
+    "gnn_rho_mean": 0.85,
+    "n": 28
+  },
+  "XY_registration": {
+    "peec_rho_mean": null,
+    "peec_blind_frac": 1.0,
+    "gnn_rho_mean": 0.95,
+    "n": 28
+  }
+}
