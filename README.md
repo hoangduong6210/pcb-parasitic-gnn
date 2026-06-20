@@ -2,7 +2,7 @@
 
 A geometry-aware, message-passing graph neural network (GNN) that predicts the four
 lumped parasitics — inter-winding capacitance `C_ps` and the self/leakage inductances
-`L_p`, `L_s`, `L_m` — of an 8-layer planar-LLC PCB winding in about **1 ms**, fast
+`L_p`, `L_s`, `L_m` - of an 8-layer planar-LLC PCB winding in about **1 ms**, fast
 enough to screen hundreds of candidate layouts inside a design loop where a 3-D field
 solver is too slow and the analytical model is the wrong number.
 
@@ -14,7 +14,7 @@ The implementation is deliberately **license-clean** (pure PyTorch, no GPL, no
 - **Field-grade accuracy vs 3-D solvers.** Trained against 3-D reference solvers
   (a partial-element inductance solver and a 3-D electrostatic finite-element solver),
   the network reaches **3.2 % median error on `C_ps`** (R² ≈ 0.95) and **2.6–3.8 % on
-  the inductances** — not just self-consistency with its analytical teacher.
+  the inductances** - not just self-consistency with its analytical teacher.
 - **Speed–accuracy trade-off.** It returns this solver-grade vector roughly
   **4,300× faster** than the 3-D solvers it matches: ~1,000 interleavings in about a
   second instead of well over an hour.
