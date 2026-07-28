@@ -1,0 +1,72 @@
+{
+  "note": "Core-inclusive 3D FEM (EER40 GP95 mu~3600) vs air-core FastHenry on planar-LLC layouts. L_mut is geometric mutual (parasitic target); Lm is mu-enhanced magnetizing. Planar winding mapped as series turns; EER40 AL anchor re-confirmed <10%.",
+  "core_anchor": "EER40 GP95 (Suzhou Wanda equiv)",
+  "AL_ungapped_datasheet_nH": 7481.0,
+  "Ae_mm2": 138.9,
+  "le_mm": 84.0,
+  "mu_i": 3599,
+  "aw_mm2_for_planar": 250.0,
+  "air_gap_mm": 0.05,
+  "n_layouts": 3,
+  "EER40_AL_fem_vs_ana_median_pct": 3.79,
+  "host": "a0101.ten.osc.edu",
+  "elapsed_s": 18.0,
+  "rows": [
+    {
+      "id": 1,
+      "n_pri_traces": 20,
+      "n_sec_traces": 24,
+      "air_L_mut_nH": 12559.42,
+      "air_L_pri_nH": 10623.26,
+      "air_L_sec_nH": 15392.15,
+      "core_Lm_nH": 916116.6,
+      "core_over_air_mut_ratio": 72.9,
+      "air_gap_mm_used": 0.05,
+      "core": "EER40 GP95 equiv (mu_r~3600, validated AL anchor)"
+    },
+    {
+      "id": 6,
+      "n_pri_traces": 8,
+      "n_sec_traces": 16,
+      "air_L_mut_nH": 3896.29,
+      "air_L_pri_nH": 2017.24,
+      "air_L_sec_nH": 7896.41,
+      "core_Lm_nH": 146578.6,
+      "core_over_air_mut_ratio": 37.6,
+      "air_gap_mm_used": 0.05,
+      "core": "EER40 GP95 equiv (mu_r~3600, validated AL anchor)"
+    },
+    {
+      "id": 8,
+      "n_pri_traces": 29,
+      "n_sec_traces": 29,
+      "air_L_mut_nH": 27848.47,
+      "air_L_pri_nH": 28154.67,
+      "air_L_sec_nH": 28111.17,
+      "core_Lm_nH": 1926135.0,
+      "core_over_air_mut_ratio": 69.2,
+      "air_gap_mm_used": 0.05,
+      "core": "EER40 GP95 equiv (mu_r~3600, validated AL anchor)"
+    }
+  ],
+  "al_validation": [
+    {
+      "gap_mm": 0.05,
+      "AL_analytical_nH": 2380.6,
+      "AL_fem_nH": 2290.3,
+      "fem_vs_analytical_pct": 3.79
+    },
+    {
+      "gap_mm": 0.1,
+      "AL_analytical_nH": 1415.5,
+      "AL_fem_nH": 1359.9,
+      "fem_vs_analytical_pct": 3.93
+    },
+    {
+      "gap_mm": 0.2,
+      "AL_analytical_nH": 781.7,
+      "AL_fem_nH": 764.1,
+      "fem_vs_analytical_pct": 2.25
+    }
+  ]
+}

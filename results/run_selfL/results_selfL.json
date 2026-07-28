@@ -1,6 +1,6 @@
 {
   "note": "analytical Grover self/mutual L label vs FastHenry 3-D",
-  "host": "compute-node",
+  "host": "a0225.ten.osc.edu",
   "elapsed_s": 14.1,
   "L_pri_nH": {
     "median_rel_err_pct": 51.5,

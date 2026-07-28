@@ -1,0 +1,94 @@
+{
+  "experiment": "wall-time scaling: O(N^2) all-pairs PEEC vs GNN forward (dense vs k-NN)",
+  "k": 8,
+  "device": "cpu",
+  "ckpt_loaded": true,
+  "timing_only_note": "forward-pass wall time only. The k-NN model's ACCURACY is separately validated in run_v2/results_v2.json (knn_gnn: R2>=0.993 on all targets); it is no longer 'future work'.",
+  "rows": [
+    {
+      "N_traces": 10,
+      "n_nodes": 10,
+      "edges_dense": 90,
+      "edges_knn": 80,
+      "t_ref_ms": 0.1371,
+      "t_gnn_dense_ms": 1.6201,
+      "t_gnn_knn_ms": 1.5711,
+      "knn_speedup_vs_ref_x": 0.087
+    },
+    {
+      "N_traces": 20,
+      "n_nodes": 20,
+      "edges_dense": 380,
+      "edges_knn": 160,
+      "t_ref_ms": 0.4765,
+      "t_gnn_dense_ms": 2.4227,
+      "t_gnn_knn_ms": 1.8321,
+      "knn_speedup_vs_ref_x": 0.26
+    },
+    {
+      "N_traces": 40,
+      "n_nodes": 40,
+      "edges_dense": 1560,
+      "edges_knn": 320,
+      "t_ref_ms": 1.687,
+      "t_gnn_dense_ms": 4.7133,
+      "t_gnn_knn_ms": 2.5647,
+      "knn_speedup_vs_ref_x": 0.658
+    },
+    {
+      "N_traces": 80,
+      "n_nodes": 80,
+      "edges_dense": 6320,
+      "edges_knn": 640,
+      "t_ref_ms": 6.919,
+      "t_gnn_dense_ms": 12.3765,
+      "t_gnn_knn_ms": 3.1451,
+      "knn_speedup_vs_ref_x": 2.2
+    },
+    {
+      "N_traces": 160,
+      "n_nodes": 160,
+      "edges_dense": 25440,
+      "edges_knn": 1280,
+      "t_ref_ms": 26.7134,
+      "t_gnn_dense_ms": 48.987,
+      "t_gnn_knn_ms": 4.8673,
+      "knn_speedup_vs_ref_x": 5.488
+    },
+    {
+      "N_traces": 320,
+      "n_nodes": 320,
+      "edges_dense": 102080,
+      "edges_knn": 2560,
+      "t_ref_ms": 106.9088,
+      "t_gnn_dense_ms": 199.2456,
+      "t_gnn_knn_ms": 7.0875,
+      "knn_speedup_vs_ref_x": 15.084
+    },
+    {
+      "N_traces": 640,
+      "n_nodes": 640,
+      "edges_dense": 408960,
+      "edges_knn": 5120,
+      "t_ref_ms": 435.4069,
+      "t_gnn_dense_ms": 736.3062,
+      "t_gnn_knn_ms": 12.3466,
+      "knn_speedup_vs_ref_x": 35.265
+    },
+    {
+      "N_traces": 1280,
+      "n_nodes": 1280,
+      "edges_dense": 1637120,
+      "edges_knn": 10240,
+      "t_ref_ms": 1754.8375,
+      "t_gnn_dense_ms": 2795.8968,
+      "t_gnn_knn_ms": 21.9538,
+      "knn_speedup_vs_ref_x": 79.933
+    }
+  ],
+  "knn_beats_ref_at_N": 80,
+  "max_knn_speedup_x": 79.933,
+  "torch_version": "2.8.0+cu128",
+  "hostname": "a0215.ten.osc.edu",
+  "seed": 7
+}

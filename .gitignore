@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+
+# regenerated corpora (see README "Data") — hundreds of MB, rebuilt from seed 42
+datasets/*/layouts.jsonl
+
+# locally built reference solver binaries
+code/tools/fasthenry
+code/tools/fastcap
+code/tools/fastercap
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+!logs/*.out

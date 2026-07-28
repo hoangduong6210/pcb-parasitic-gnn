@@ -1,0 +1,5 @@
+${REPO_ROOT}/code/gnn_baseline.py:110: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+  out = init.index_reduce(0, index, src, reduce="amax", include_self=True)
+${REPO_ROOT}/code/gnn_baseline.py:110: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+  out = init.index_reduce(0, index, src, reduce="amax", include_self=True)
+[2026-06-18T14:00:40.004] error: *** JOB 5701303 ON a0120 CANCELLED AT 2026-06-18T14:00:40 DUE TO TIME LIMIT ***

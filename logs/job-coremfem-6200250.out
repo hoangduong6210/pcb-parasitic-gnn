@@ -1,0 +1,39 @@
+=== Q2: core-inclusive magnetostatic FEM (planar-LLC + EER40 AL anchor) ===
+a0101.ten.osc.edu
+Thu Jul  2 12:56:59 PM EDT 2026
+PYTHONPATH=code:../../magai
+=== pre-flight smoke (<10s, login OK): import only, no heavy solve ===
+engine 3-D solver import OK (EER40 path)
+fasthenry_ref OK
+=== run experiment (ALL FEM solves inside this sbatch job) ===
+[coremfem] EER40 GP95 anchor: Ae=138.9 mm2 le=84 mm mu_i=3599 AL_ung=7481 nH
+
+  id=1 pri=20 sec=24 | air_mut=12559.4 nH pri=10623.3 | core_Lm=916116.6 nH | ratio=72.9
+
+  id=6 pri=8 sec=16 | air_mut=3896.3 nH pri=2017.2 | core_Lm=146578.6 nH | ratio=37.6
+
+  id=8 pri=29 sec=29 | air_mut=27848.5 nH pri=28154.7 | core_Lm=1926135.0 nH | ratio=69.2
+
+  EER40 AL gap=0.05: ana=2380.6 fem=2290.3 (3.79%)
+
+  EER40 AL gap=0.10: ana=1415.5 fem=1359.9 (3.93%)
+
+  EER40 AL gap=0.20: ana=781.7 fem=764.1 (2.25%)
+{
+  "note": "Core-inclusive 3D FEM (EER40 GP95 mu~3600) vs air-core FastHenry on planar-LLC layouts. L_mut is geometric mutual (parasitic target); Lm is mu-enhanced magnetizing. Planar winding mapped as series turns; EER40 AL anchor re-confirmed <10%.",
+  "core_anchor": "EER40 GP95 (Suzhou Wanda equiv)",
+  "AL_ungapped_datasheet_nH": 7481.0,
+  "Ae_mm2": 138.9,
+  "le_mm": 84.0,
+  "mu_i": 3599,
+  "aw_mm2_for_planar": 250.0,
+  "air_gap_mm": 0.05,
+  "n_layouts": 3,
+  "EER40_AL_fem_vs_ana_median_pct": 3.79,
+  "host": "a0101.ten.osc.edu",
+  "elapsed_s": 18.0
+}
+=> wrote results/run_coremfem/results_coremfem.json
+EER40 AL median error 3.79% (<10% target met)
+DONE
+Thu Jul  2 12:57:31 PM EDT 2026

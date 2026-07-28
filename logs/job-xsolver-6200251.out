@@ -1,0 +1,8 @@
+=== Q3 xsolver: FastHenry field-grade train + Neumann cross-solver validation ===
+a0110.ten.osc.edu
+Thu Jul  2 12:57:31 PM EDT 2026
+=== pre-flight smoke (<10s on allocated node) ===
+neumann preflight ok: Lm=29.32 Lp=31.78 Ls=31.78 nH
+=== running xsolver (all Neumann + FH solves on this compute node only) ===
+[xsolver] field-grade FastHenry L + Neumann independent on held-out; n_cand=346
+   346 samples (0 fh-skipped, 34s)

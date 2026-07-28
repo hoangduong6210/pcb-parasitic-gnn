@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "${REPO_ROOT}/code/generate_synth.py", line 19, in <module>
+    from planar_to_graph import build_graph_from_planar_layout, compute_improved_labels
+  File "${REPO_ROOT}/code/planar_to_graph.py", line 14, in <module>
+    from .pcb_graph import PCBGraph, Node, Edge
+ImportError: attempted relative import with no known parent package

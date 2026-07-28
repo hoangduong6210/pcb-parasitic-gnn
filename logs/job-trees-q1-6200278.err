@@ -1,0 +1,2 @@
+[LightGBM] [Fatal] label should be int type (met 341.691956) for ranking task,
+for the gain of label, please set the label_gain parameter

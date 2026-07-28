@@ -1,0 +1,51 @@
+=== Q3 xsolver: FastHenry field-grade train + Neumann cross-solver validation ===
+a0287.ten.osc.edu
+Thu Jul  2 01:01:32 PM EDT 2026
+=== pre-flight smoke (<10s on allocated node) ===
+neumann preflight ok: Lm=29.32 Lp=31.78 Ls=31.78 nH
+=== running xsolver (all Neumann + FH solves on this compute node only) ===
+[xsolver] field-grade FastHenry L + Neumann independent on held-out; n_cand=346
+   346 samples (0 fh-skipped, 36s)
+    train ep 1/80 (40s so far)
+    train ep 20/80 (64s so far)
+    train ep 40/80 (90s so far)
+    train ep 60/80 (115s so far)
+    train ep 80/80 (141s so far)
+{
+  "note": "Q3 xsolver: GNN trained on FastHenry L (field-grade femcps setup) vs independent Neumann multi-filament; also FastHenry vs Neumann gap on held-out 20%",
+  "host": "a0287.ten.osc.edu",
+  "n_samples": 346,
+  "n_test": 70,
+  "nw_nt_filament": [
+    5,
+    2
+  ],
+  "seed": 42,
+  "GNN_vs_Neumann_L_pri_nH": {
+    "R2": 0.9849,
+    "median_rel_err_pct": 6.61
+  },
+  "FastHenry_vs_Neumann_L_pri_nH": {
+    "R2": 0.9941,
+    "median_rel_err_pct": 4.95
+  },
+  "GNN_vs_Neumann_L_sec_nH": {
+    "R2": 0.9879,
+    "median_rel_err_pct": 4.96
+  },
+  "FastHenry_vs_Neumann_L_sec_nH": {
+    "R2": 0.9955,
+    "median_rel_err_pct": 4.78
+  },
+  "GNN_vs_Neumann_L_mut_nH": {
+    "R2": 0.9925,
+    "median_rel_err_pct": 2.03
+  },
+  "FastHenry_vs_Neumann_L_mut_nH": {
+    "R2": 0.9977,
+    "median_rel_err_pct": 2.07
+  }
+}
+=== xsolver DONE -> ${REPO_ROOT}/results/run_xsolver/results_xsolver.json
+DONE
+Thu Jul  2 01:04:17 PM EDT 2026

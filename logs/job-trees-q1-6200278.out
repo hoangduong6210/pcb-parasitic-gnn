@@ -1,0 +1,22 @@
+=== Q1 trees baselines on field-grade pooled vector ===
+a0337.ten.osc.edu
+Thu Jul  2 12:58:36 PM EDT 2026
+[trees] built 332 samples (14 skipped, use_field=True, 1173.6s)
+[trees] pointwise done (7.8s)
+{
+  "meta": {
+    "n_samples": 332,
+    "n_test": 66,
+    "seed": 42,
+    "use_field_labels": true,
+    "host": "a0337.ten.osc.edu",
+    "python": "3.9.21",
+    "timestamp": 1783013192.2772565,
+    "note": "pooled 27D tabular (mean+max+sumlog of 9D node_feat after train-std) exactly as PooledMLP; field-grade labels via femcps path when --use-field-labels"
+  },
+  "verdict": "See the per-axis summary in this file"
+}
+WROTE ../results/run_trees/results_trees.json
+DONE
+Thu Jul  2 01:26:36 PM EDT 2026
+-rw-r--r-- 1 user group 3860 Jul  2 13:26 ../results/run_trees/results_trees.json

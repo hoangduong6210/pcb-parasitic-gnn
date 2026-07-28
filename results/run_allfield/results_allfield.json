@@ -1,6 +1,6 @@
 {
   "note": "all four targets field-grade: GNN vs FastCap-3D (Cps) + FastHenry-3D (L)",
-  "host": "compute-node",
+  "host": "a0115.ten.osc.edu",
   "n_samples": 286,
   "n_test": 58,
   "analytical_Cps_vs_fastcap_median_pct": 157804.3,

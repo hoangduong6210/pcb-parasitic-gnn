@@ -1,6 +1,6 @@
 {
   "note": "T4b fixed interleaving screening: family-augmented training, 30 variants, family-disjoint eval, + large-board speedup",
-  "host": "compute-node",
+  "host": "a0129.ten.osc.edu",
   "n_train": 960,
   "n_test_designs": 40,
   "variants_per_design": 30,

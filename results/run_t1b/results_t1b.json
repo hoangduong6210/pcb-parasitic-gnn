@@ -1,7 +1,7 @@
 {
   "note": "trained GNN total L_m vs FastHenry 3-D (field standard)",
   "n": 24,
-  "host": "compute-node",
+  "host": "a0346.ten.osc.edu",
   "elapsed_s": 8.3,
   "gnn_vs_fasthenry_median_pct": 2.21,
   "gnn_vs_fasthenry_mean_pct": 2.31,

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "${REPO_ROOT}/code/fem_validate_total.py", line 96, in <module>
+    main()
+  File "${REPO_ROOT}/code/fem_validate_total.py", line 55, in main
+    sel = [rec for rec in layouts if any(t["net"] == "pri" for t in rec["traces"])
+  File "${REPO_ROOT}/code/fem_validate_total.py", line 55, in <listcomp>
+    sel = [rec for rec in layouts if any(t["net"] == "pri" for t in rec["traces"])
+KeyError: 'traces'

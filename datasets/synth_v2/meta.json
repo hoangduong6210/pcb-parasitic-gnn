@@ -1,0 +1,9 @@
+{
+  "n_samples": 1500,
+  "label_Lm": "filament_fasthenry_5x2",
+  "avg_nodes": 39.13933333333333,
+  "max_nodes": 70,
+  "min_nodes": 8,
+  "max_per_net": 36,
+  "freq_points": 21
+}

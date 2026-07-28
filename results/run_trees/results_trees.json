@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "n_samples": 332,
+    "n_test": 67,
+    "seed": 42,
+    "use_field_labels": true,
+    "host": "a0250.ten.osc.edu",
+    "python": "3.9.21",
+    "timestamp": 1784991675.880919,
+    "note": "pooled 27D tabular (mean+max+sumlog of 9D node_feat after train-std) exactly as PooledMLP; field-grade labels via femcps path when --use-field-labels"
+  },
+  "pointwise": {
+    "RandomForest": {
+      "Cps_pF": {
+        "R2": 0.462,
+        "median_rel_err_pct": 12.85
+      },
+      "L_pri_nH": {
+        "R2": 0.8871,
+        "median_rel_err_pct": 24.8
+      },
+      "L_sec_nH": {
+        "R2": 0.9141,
+        "median_rel_err_pct": 15.85
+      },
+      "L_mut_nH": {
+        "R2": 0.8797,
+        "median_rel_err_pct": 9.34
+      }
+    },
+    "XGBoost": {
+      "Cps_pF": {
+        "R2": 0.9268,
+        "median_rel_err_pct": 3.77
+      },
+      "L_pri_nH": {
+        "R2": 0.8775,
+        "median_rel_err_pct": 16.27
+      },
+      "L_sec_nH": {
+        "R2": 0.9076,
+        "median_rel_err_pct": 16.46
+      },
+      "L_mut_nH": {
+        "R2": 0.9139,
+        "median_rel_err_pct": 7.76
+      }
+    },
+    "LightGBM": {
+      "Cps_pF": {
+        "R2": 0.9418,
+        "median_rel_err_pct": 2.93
+      },
+      "L_pri_nH": {
+        "R2": 0.8933,
+        "median_rel_err_pct": 23.91
+      },
+      "L_sec_nH": {
+        "R2": 0.8903,
+        "median_rel_err_pct": 20.22
+      },
+      "L_mut_nH": {
+        "R2": 0.9175,
+        "median_rel_err_pct": 7.13
+      }
+    },
+    "CatBoost": {
+      "Cps_pF": {
+        "R2": 0.8915,
+        "median_rel_err_pct": 4.73
+      },
+      "L_pri_nH": {
+        "R2": 0.8958,
+        "median_rel_err_pct": 24.52
+      },
+      "L_sec_nH": {
+        "R2": 0.8934,
+        "median_rel_err_pct": 20.39
+      },
+      "L_mut_nH": {
+        "R2": 0.9195,
+        "median_rel_err_pct": 8.12
+      }
+    },
+    "GNN_field_grade_reference": {
+      "Cps_pF": {
+        "R2": 0.9527,
+        "median_rel_err_pct": 3.22
+      },
+      "L_pri_nH": {
+        "R2": 0.9954,
+        "median_rel_err_pct": 2.83
+      },
+      "L_sec_nH": {
+        "R2": 0.9942,
+        "median_rel_err_pct": 3.81
+      },
+      "L_mut_nH": {
+        "R2": 0.9943,
+        "median_rel_err_pct": 2.56
+      },
+      "note": "field-grade GNN (FEM-3D Cps + FastHenry L) from run_femcps; same labels/split used for trees"
+    }
+  },
+  "ranking": {
+    "n_families_train": 28,
+    "n_families_test": 7,
+    "LGBM_lambdarank_or_fallback_rho_mean": 0.0875,
+    "lgb_native": true,
+    "GNN_reference_rho": 0.93
+  },
+  "size_generalization": {
+    "train_n": 273,
+    "test_n": 59,
+    "train_nodes_max": 26,
+    "test_nodes_min": 27,
+    "test_nodes_max": 28,
+    "per_target_on_large": {
+      "RandomForest": {
+        "Cps_pF": {
+          "R2": 0.5182,
+          "median_rel_err_pct": 12.33
+        },
+        "L_pri_nH": {
+          "R2": 0.6686,
+          "median_rel_err_pct": 30.91
+        },
+        "L_sec_nH": {
+          "R2": 0.7674,
+          "median_rel_err_pct": 24.82
+        },
+        "L_mut_nH": {
+          "R2": 0.1124,
+          "median_rel_err_pct": 17.94
+        }
+      },
+      "XGBoost": {
+        "Cps_pF": {
+          "R2": 0.9288,
+          "median_rel_err_pct": 4.24
+        },
+        "L_pri_nH": {
+          "R2": 0.7347,
+          "median_rel_err_pct": 32.08
+        },
+        "L_sec_nH": {
+          "R2": 0.7412,
+          "median_rel_err_pct": 32.92
+        },
+        "L_mut_nH": {
+          "R2": 0.2311,
+          "median_rel_err_pct": 18.43
+        }
+      },
+      "LightGBM": {
+        "Cps_pF": {
+          "R2": 0.9389,
+          "median_rel_err_pct": 3.9
+        },
+        "L_pri_nH": {
+          "R2": 0.7396,
+          "median_rel_err_pct": 23.28
+        },
+        "L_sec_nH": {
+          "R2": 0.7857,
+          "median_rel_err_pct": 27.76
+        },
+        "L_mut_nH": {
+          "R2": 0.247,
+          "median_rel_err_pct": 15.74
+        }
+      },
+      "CatBoost": {
+        "Cps_pF": {
+          "R2": 0.899,
+          "median_rel_err_pct": 4.88
+        },
+        "L_pri_nH": {
+          "R2": 0.7473,
+          "median_rel_err_pct": 27.11
+        },
+        "L_sec_nH": {
+          "R2": 0.8181,
+          "median_rel_err_pct": 24.3
+        },
+        "L_mut_nH": {
+          "R2": 0.3243,
+          "median_rel_err_pct": 16.25
+        }
+      }
+    },
+    "GNN_field_grade_on_large": {
+      "Cps_pF": {
+        "R2": 0.9635,
+        "median_rel_err_pct": 2.86
+      },
+      "L_pri_nH": {
+        "R2": 0.9778,
+        "median_rel_err_pct": 4.77
+      },
+      "L_sec_nH": {
+        "R2": 0.9873,
+        "median_rel_err_pct": 6.16
+      },
+      "L_mut_nH": {
+        "R2": 0.9425,
+        "median_rel_err_pct": 4.4
+      },
+      "note": "field-grade GNN replicated (200ep, size-split train) vs trees on same large-N te"
+    }
+  },
+  "verdict": "See the per-axis summary in this file"
+}

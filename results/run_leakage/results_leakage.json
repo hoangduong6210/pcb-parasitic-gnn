@@ -1,0 +1,65 @@
+{
+  "note": "Derived parasitics: coupling k and primary-referred leakage L_leak = L_p(1-k^2), from the SAME field-grade model/corpus/split as run_femcps. Tests whether the raw air-core triple composes into a usable parasitic.",
+  "host": "a0124.ten.osc.edu",
+  "n_samples": 332,
+  "n_test": 67,
+  "seed": 42,
+  "raw_targets": {
+    "Cps_pF": {
+      "R2": 0.9527,
+      "median_rel_err_pct": 3.22,
+      "mean_rel_err_pct": 3.82,
+      "p90_rel_err_pct": 8.7
+    },
+    "L_pri_nH": {
+      "R2": 0.9954,
+      "median_rel_err_pct": 2.83,
+      "mean_rel_err_pct": 3.54,
+      "p90_rel_err_pct": 6.87
+    },
+    "L_sec_nH": {
+      "R2": 0.9942,
+      "median_rel_err_pct": 3.81,
+      "mean_rel_err_pct": 4.52,
+      "p90_rel_err_pct": 9.38
+    },
+    "L_mut_nH": {
+      "R2": 0.9943,
+      "median_rel_err_pct": 2.56,
+      "mean_rel_err_pct": 2.82,
+      "p90_rel_err_pct": 5.13
+    }
+  },
+  "k_reference": {
+    "median": 0.9866,
+    "min": 0.9624,
+    "max": 0.9934,
+    "n_unphysical_gt1_reference": 0,
+    "n_unphysical_gt1_predicted": 1
+  },
+  "derived": {
+    "k": {
+      "R2": 0.0119,
+      "median_rel_err_pct": 0.44,
+      "mean_rel_err_pct": 0.59,
+      "p90_rel_err_pct": 1.3
+    },
+    "L_leak_nH": {
+      "R2": 0.6073,
+      "median_rel_err_pct": 28.45,
+      "mean_rel_err_pct": 40.67,
+      "p90_rel_err_pct": 90.31
+    }
+  },
+  "leakage_fraction_of_Lp_pct": {
+    "median": 2.67,
+    "min": 1.31,
+    "max": 7.38
+  },
+  "error_amplification": {
+    "median_k_rel_err_pct": 0.44,
+    "median_L_leak_rel_err_pct": 28.45,
+    "measured_amplification": 64.7,
+    "first_order_prediction_2k2_over_1mk2": 72.9
+  }
+}

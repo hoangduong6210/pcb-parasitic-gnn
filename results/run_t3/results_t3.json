@@ -1,6 +1,6 @@
 {
   "note": "GNN R_ac/R_dc(f) curve vs FastHenry 3-D sweep",
-  "host": "compute-node",
+  "host": "a0253.ten.osc.edu",
   "n_samples": 136,
   "n_test": 27,
   "n_freq_points": 17,

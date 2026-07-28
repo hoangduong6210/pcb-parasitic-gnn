@@ -1,0 +1,3 @@
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+AssertionError: ('mutual should drop with separation', 5.652135661692623, 10.14085184120677)

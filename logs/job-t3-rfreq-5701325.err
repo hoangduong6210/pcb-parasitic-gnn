@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "${REPO_ROOT}/code/experiments_t3.py", line 89, in <module>
+    main()
+  File "${REPO_ROOT}/code/experiments_t3.py", line 31, in main
+    cur = fasthenry_Rac_curve(rec["layout"], FREQS, nhinc=3, nwinc=3)
+  File "${REPO_ROOT}/code/fasthenry_ref.py", line 108, in fasthenry_Rac_curve
+    res, ports = fasthenry_L_matrix(layout, tuple(freqs_hz), nhinc=nhinc, nwinc=nwinc)
+  File "${REPO_ROOT}/code/fasthenry_ref.py", line 72, in fasthenry_L_matrix
+    subprocess.run([FASTHENRY, "in.inp"], cwd=d, capture_output=True, timeout=300)
+  File "/usr/lib64/python3.9/subprocess.py", line 507, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/lib64/python3.9/subprocess.py", line 1134, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/lib64/python3.9/subprocess.py", line 1996, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib64/python3.9/subprocess.py", line 1178, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['${REPO_ROOT}/code/tools/fasthenry', 'in.inp']' timed out after 300 seconds

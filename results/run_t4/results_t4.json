@@ -1,6 +1,6 @@
 {
   "note": "GNN-driven interleaving screening by C_ps: rank agreement vs analytical all-pairs PEEC reference + inference speedup",
-  "host": "compute-node",
+  "host": "a0199.ten.osc.edu",
   "n_designs": 12,
   "variants_per_design": 6,
   "spearman_mean": 0.519,

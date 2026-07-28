@@ -1,0 +1,11 @@
+{
+  "n_samples": 2000,
+  "n_layers": 8,
+  "seed": 42,
+  "freq_points": 21,
+  "avg_nodes": 25.172,
+  "avg_edges": 662.715,
+  "ref_allpairs_total_s": 1.5659,
+  "ref_allpairs_ms_per_sample": 0.783,
+  "generated_on": "2026-06-17T07:30:44"
+}

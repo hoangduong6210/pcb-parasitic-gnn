@@ -1,0 +1,2 @@
+${REPO_ROOT}/code/gnn_baseline.py:110: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+  out = init.index_reduce(0, index, src, reduce="amax", include_self=True)

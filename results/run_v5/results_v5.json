@@ -1,6 +1,6 @@
 {
   "meta": {
-    "host": "compute-node",
+    "host": "a0127.ten.osc.edu",
     "n": 1500,
     "avg_nodes": 39.13933333333333,
     "max_nodes": 70,

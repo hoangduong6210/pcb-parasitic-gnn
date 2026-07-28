@@ -3,7 +3,7 @@
     "epochs": 200,
     "device": "cpu",
     "torch": "2.8.0+cu128",
-    "host": "compute-node",
+    "host": "a0168.ten.osc.edu",
     "n_samples": 2000
   },
   "fem_ground_truth": {

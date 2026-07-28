@@ -1,0 +1,19 @@
+# Core model + drivers (BSD/Apache/MIT only — no GPL)
+torch>=2.0
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+
+# 3-D reference solvers (electrostatic FEM / meshing)
+scikit-fem>=8.0
+gmsh>=4.11
+meshio>=5.3
+
+# Tree baselines (Sec. "why not gradient-boosted trees")
+scikit-learn>=1.3
+xgboost>=1.7
+lightgbm>=4.0
+catboost>=1.2
+
+# NOTE: FastHenry / FastCap are external MIT-licensed binaries, built from
+# source — see README "External reference solvers". Not pip-installable.

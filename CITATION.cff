@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the paper below."
+title: "A License-Clean Graph Neural Network for Fast Parasitic Extraction in PCB-Embedded Planar Magnetics"
+authors:
+  - family-names: Duong
+    given-names: Viet Hoang
+    affiliation: "Department of Computer Science, Da-Yeh University, Taiwan"
+  - family-names: Shih
+    given-names: Lun-Min
+    affiliation: "Department of Computer Science, Da-Yeh University, Taiwan"
+license: BSD-3-Clause

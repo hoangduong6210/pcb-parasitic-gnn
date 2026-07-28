@@ -1,4 +1,4 @@
-# Research environment for Topic 13 PCB Parasitic GNN
+# Research environment for this project PCB Parasitic GNN (isolated from main MagAI engine)
 numpy>=1.24
 scipy>=1.10
 # PyTorch for GNN research (CPU ok for prototype; CUDA optional)
