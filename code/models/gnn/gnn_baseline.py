@@ -7,11 +7,10 @@ is hand-rolled so the research env only needs `torch`.
 
 What this is (honest framing):
   - A real message-passing neural network (MPNN), NOT a Ridge/linear surrogate.
-  - Geometry-aware & permutation-invariant: every node/edge feature fed to the
-    network is a rotation/translation-INVARIANT scalar (distances, |rel_vec|,
-    overlap, dims, layer index). We do not claim full E(3)-EQUIVARIANCE (no
-    steerable/vector features); we claim invariance, which is what graph-level
-    RLGC regression needs. The equivariant (EGNN/e3nn) upgrade is future work.
+  - Geometry-aware with a permutation-invariant graph readout. The released input
+    representation contains absolute node coordinates and signed relative edge
+    vectors, so the baseline is NOT invariant to an arbitrary change of coordinate
+    frame. The separate EGNN experiment tests an E(n)-equivariant alternative.
   - Predicts a graph-level target vector [Cps, L_pri, L_sec, L_mut] (the same
     quantities the analytical PEEC labeler produces), trained on standardized
     targets and inverted at report time.
