@@ -23,7 +23,7 @@ top-level README).
 | File | Role |
 |---|---|
 | `gnn_baseline.py` | **The proposed model** — geometry-aware edge-conditioned MPNN, 275,339 params, pure PyTorch (no GPL, no torch-geometric) |
-| `gnn_equivariant.py` | `E(n)`-equivariant variant (EGNN). Shipped because it is a **negative result**: no gain over the invariant MPNN |
+| `gnn_equivariant.py` | `E(n)`-equivariant variant (EGNN). Shipped because it is a **negative result**: no gain over the coordinate-aware MPNN baseline in the released experiment |
 
 ## `solvers/` — 3-D ground truth
 
@@ -54,8 +54,8 @@ top-level README).
 | `experiments_selfL.py` | Audit: analytical Grover self-L labels are 51–59 % off FastHenry | `run_selfL` |
 | `experiments_fh.py` | Establish FastHenry as the inductance ground truth | `run_fh` |
 | `experiments_t1b.py` | GNN retrained on filament labels → 2.2 % vs FastHenry | `run_t1b` |
-| `experiments_fhlabels.py` | **All three** inductances field-grade (2.8/3.8/2.6 %) | `run_fhlabels` |
-| `experiments_femcps.py` | `C_ps` field-grade vs 3-D FEM (3.2 %, R²=0.95) | `run_femcps` |
+| `experiments_fhlabels.py` | **All three** inductances against FastHenry (2.8/3.8/2.6 %) | `run_fhlabels` |
+| `experiments_femcps.py` | `C_ps` against 3-D FEM (3.2 %, R²=0.953) | `run_femcps` |
 | `experiments_allfield.py` | FastCap attempt — **negative** (R² = −0.388) | `run_allfield` |
 | `fem_validate_total.py` | GNN vs independent FEM on total `C_ps` | `run_femval` |
 
