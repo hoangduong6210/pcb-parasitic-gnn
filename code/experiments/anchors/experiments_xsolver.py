@@ -4,7 +4,10 @@ experiments_xsolver.py — Q3 cross-solver validation (GNN trained on FastHenry 
 from the field-grade femcps setup, validated on independent multi-filament Neumann
 free-space L on the exact held-out 20%).
 
-Proves GNN learns physics (agreement within inter-solver gap) not FastHenry idiosyncrasy.
+Tests whether agreement extends beyond FastHenry by comparing predictions with an
+independent multi-filament Neumann calculation. Agreement within the inter-solver
+gap is supporting evidence, not proof that the model has learned the underlying
+physics.
 HARD RULE: Neumann (and FH label) solves execute only inside SLURM jobs on compute nodes.
 """
 import json
