@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-T2 — E(n)-equivariant + physics-informed GNN vs the invariant MPNN baseline.
+T2 — E(n)-equivariant + physics-informed GNN vs the coordinate-aware MPNN baseline.
 
 Three comparisons (the novelty evidence):
   (A) full-data accuracy: equivariant vs MPNN (R2 per target).
