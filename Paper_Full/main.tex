@@ -60,9 +60,9 @@
 \vspace{9pt}
 }]
 
-\noindent\textbf{Abstract}---PCB-embedded planar magnetics compress a converter but make winding parasitics unusually sensitive to foil placement, layer order, and lateral registration. Closed-form partial-element approximations are fast enough for a design loop, yet they can miss the same three-dimensional effects that the designer is trying to control. Full field extraction has the opposite problem. This paper develops a geometry-aware graph surrogate for the inter-winding capacitance $\Cps$, the two free-space winding self-inductances $\Lp$ and $\Ls$, and the winding mutual inductance $\Mut$. The training labels are regenerated with a three-dimensional electrostatic finite-element solve for $\Cps$ and FastHenry for the inductive quantities. On a held-out field-solver corpus, median errors are 3.22, 2.83, 3.81, and 2.56\%, respectively, whereas the replaced analytical labels differ from those references by 51.5--266.6\%. An independent Neumann-integral implementation places the learned inductive estimates within the spread between two solver formulations. A pairwise head addresses a separate design question: ordering variants of an unseen layout. It raises family-disjoint Spearman correlation from 0.27 for pointwise regression to 0.93 and, on lateral registration where the analytical capacitance is constant, reduces selection regret from 1176.1 to 3.5\%.
+\noindent\textbf{Abstract}---PCB-embedded planar magnetics compress a converter but make winding parasitics unusually sensitive to foil placement, layer order, and lateral registration. Closed-form partial-element approximations are fast enough for a design loop, yet they can miss the same three-dimensional effects that the designer is trying to control. Full field extraction has the opposite problem. This paper develops a geometry-aware graph surrogate for the inter-winding capacitance $\Cps$, the two free-space winding self-inductances $\Lp$ and $\Ls$, and the winding mutual inductance $\Mut$. The training labels are regenerated with a three-dimensional electrostatic finite-element solve for $\Cps$ and FastHenry for the inductive quantities. On a held-out field-solver corpus, median errors are 2.63, 2.45, 3.31, and 1.75\%, respectively, whereas the replaced analytical labels differ from those references by 51.5--266.6\%. An independent Neumann-integral implementation places the learned inductive estimates within the spread between two solver formulations. A pairwise head addresses a separate design question: ordering variants of an unseen layout. It raises family-disjoint Spearman correlation from 0.27 for pointwise regression to 0.93 and, on lateral registration where the analytical capacitance is constant, reduces selection regret from 1176.1 to 3.5\%.
 
-The expanded study also separates properties that were previously easy to conflate. A corrected coordinate-update network is strictly $E(3)$-equivariant on the encoded graph: maximum transformed-output and coordinate residuals are $4.38\times10^{-7}$ and $1.42\times10^{-7}$. Its accuracy effect against a parameter-matched invariant distance-message network is nevertheless unresolved ($-0.007$\%, 95\% confidence interval $[-8.98,8.98]$\%); the interval also fails a predeclared $\pm2$\% practical-equivalence criterion. Finally, measured latency is reported at three boundaries. The median is 0.64\,ms/design for pre-collated batch throughput, 2.37\,ms for a single forward pass, and 5.90\,ms from raw layout through graph construction and inference, versus 4.17\,s for the paired field-solvers. The corresponding paired end-to-end speedup is $735\times$ (95\% confidence interval $682$--$796\times$). These results establish a solver-grade screening tool, not a hardware-calibrated extractor; fabricated-board validation remains necessary.
+The expanded study also separates properties that were previously easy to conflate. A corrected coordinate-update network is strictly $E(3)$-equivariant on the encoded graph: maximum transformed-output and coordinate residuals are $3.92\times10^{-7}$ and $1.41\times10^{-7}$. Its accuracy effect against a parameter-matched invariant distance-message network is nevertheless unresolved ($+6.27$\%, 95\% confidence interval $[-4.44,17.68]$\%); the interval also fails a predeclared $\pm2$\% practical-equivalence criterion. Finally, measured latency is reported at three boundaries. The median is 0.33\,ms/design for pre-collated batch throughput, 2.28\,ms for a single forward pass, and 5.62\,ms from raw layout through graph construction and inference, versus 3.66\,s for the paired field-solvers. The corresponding paired end-to-end speedup is $670\times$ (95\% confidence interval $641$--$710\times$). These results establish a solver-grade screening tool, not a hardware-calibrated extractor; fabricated-board validation remains necessary.
 
 \vspace{4pt}
 \noindent\textbf{Index Terms}---Graph neural network, parasitic extraction, planar magnetics, partial-element equivalent circuit, finite element method, layout optimization, equivariance.
@@ -242,7 +242,7 @@ The primary speedup pairs each design's solver time with its end-to-end GNN time
 
 \section{Results}
 \subsection{Field-Solver Accuracy}
-Relabeling changes the result more than changing the architecture. Figure~\ref{fig:field} compares the analytical discrepancy with the held-out solver-supervised GNN error. The improvement spans all four targets. Capacitance falls from 266.6 to 3.22\% median error; the three inductive quantities fall from 51.5--58.6 to 2.56--3.81\%. Table~\ref{tab:field} gives the corresponding $R^2$ values.
+Relabeling changes the result more than changing the architecture. Figure~\ref{fig:field} compares the analytical discrepancy with the held-out solver-supervised GNN error. The improvement spans all four targets. Capacitance falls from 266.6 to 2.63\% median error; the three inductive quantities fall from 51.5--58.6 to 1.75--3.31\%. Table~\ref{tab:field} gives the corresponding $R^2$ values.
 
 \begin{figure}[t]
 \centering
@@ -260,10 +260,10 @@ Relabeling changes the result more than changing the architecture. Figure~\ref{f
 \toprule
 Target & reference & median error & $R^2$\\
 \midrule
-$\Cps$ & electrostatic FEM & 3.22\% & 0.9527\\
-$\Lp$ & FastHenry & 2.83\% & 0.9954\\
-$\Ls$ & FastHenry & 3.81\% & 0.9942\\
-$\Mut$ & FastHenry & 2.56\% & 0.9943\\
+$\Cps$ & electrostatic FEM & 2.63\% & 0.9622\\
+$\Lp$ & FastHenry & 2.45\% & 0.9939\\
+$\Ls$ & FastHenry & 3.31\% & 0.9953\\
+$\Mut$ & FastHenry & 1.75\% & 0.9954\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -271,7 +271,7 @@ $\Mut$ & FastHenry & 2.56\% & 0.9943\\
 The capacitance $R^2$ is lower than the inductive values even though its typical relative error is similar. This is not contradictory. $R^2$ is dominated by squared residuals and the high-capacitance tail, whereas the median relative error weights a typical design. Reporting both prevents a favorable scalar from obscuring a different failure mode.
 
 \subsection{Why Use a Graph?}
-Table~\ref{tab:trees} compares the GNN with four tree ensembles built from the same pooled 27-dimensional summary on an identical 332/67 solver-labeled split. LightGBM slightly improves the typical $\Cps$ relative error (2.9 versus 3.2\%), while the GNN has higher $R^2$ (0.953 versus 0.942). A graph is not necessary to obtain a competitive scalar capacitance predictor.
+Table~\ref{tab:trees} compares the GNN with four tree ensembles built from the same pooled 27-dimensional summary on an identical 332-layout corpus with a 67-layout test set. The GNN reaches 2.63\% median $\Cps$ error and $R^2=0.962$, versus 2.9\% and 0.942 for LightGBM. A graph is not necessary to obtain a competitive scalar capacitance predictor.
 
 The picture changes for relational quantities. Tree $R^2$ remains between 0.878 and 0.920 on the inductances, while the GNN reaches 0.994--0.995. On a graph-size extrapolation split, tree $R^2(\Mut)$ falls to 0.112--0.324; the GNN retains 0.943. The shared message function applies without redesign when trace count changes. A pooled MLP likewise reproduced scalar capacitance but degraded toward $R^2\approx0.88$ on $\Lp$ and $\Ls$. These controls identify pairwise geometry, rather than parameter count alone, as the useful inductive bias.
 
@@ -289,19 +289,19 @@ Random Forest & .462 (12.9) & .887 (24.8) & .914 (15.9) & .880 (9.3) & --- & .11
 XGBoost & .927 (3.8) & .878 (16.3) & .908 (16.5) & .914 (7.8) & --- & .231\\
 LightGBM & .942 (\textbf{2.9}) & .893 (23.9) & .890 (20.2) & .918 (7.1) & .088 & .247\\
 CatBoost & .892 (4.7) & .896 (24.5) & .893 (20.4) & .920 (8.1) & --- & .324\\
-\textbf{GNN} & \textbf{.953} (3.2) & \textbf{.995} (\textbf{2.8}) & \textbf{.994} (\textbf{3.8}) & \textbf{.994} (\textbf{2.6}) & \textbf{.929} & \textbf{.943}\\
+\textbf{GNN} & \textbf{.962} (\textbf{2.63}) & \textbf{.994} (\textbf{2.45}) & \textbf{.995} (\textbf{3.31}) & \textbf{.995} (\textbf{1.75}) & \textbf{.929} & \textbf{.943}\\
 \bottomrule
 \end{tabular}
 \end{table*}
 
 \subsection{Strict $E(3)$: Verified Symmetry, Unresolved Accuracy Effect}
-All five strict models pass the transformation gate. Across 200 cases, the maximum relative residual is $4.38\times10^{-7}$ for graph outputs and $1.42\times10^{-7}$ for updated coordinates, more than an order of magnitude below the $2\times10^{-5}$ tolerance. This establishes strict $E(3)$ behavior on the encoded graph, including reflections.
+All five strict models pass the transformation gate. Across 200 cases, the maximum relative residual is $3.92\times10^{-7}$ for graph outputs and $1.41\times10^{-7}$ for updated coordinates, more than an order of magnitude below the $2\times10^{-5}$ tolerance. This establishes strict $E(3)$ behavior on the encoded graph, including reflections.
 
-Symmetry verification does not imply a predictive gain. On the full training set, the primary error is 0.028886 for strict EGNN and 0.028888 for the parameter-matched invariant model. The relative change is $-0.007$\%, with 95\% CI $[-8.98,8.98]$\%. The 90\% interval $[-7.50,7.61]$\% is not contained in the predeclared $\pm2$\% equivalence region. Neither improvement nor practical equivalence is established.
+Symmetry verification does not imply a predictive gain. On the full training set, the primary error is 0.028911 for strict EGNN and 0.027205 for the parameter-matched invariant model. The relative change is $+6.27$\%, with 95\% CI $[-4.44,17.68]$\%. The 90\% interval $[-2.81,15.94]$\% is not contained in the predeclared $\pm2$\% equivalence region. Neither improvement nor practical equivalence is established.
 
-The same-width sensitivity arm favors the invariant network: strict EGNN error is 12.77\% higher, 95\% CI $[2.25,24.46]$\%. Because this baseline has fewer parameters, the result should not replace the parameter-matched primary analysis. It does show that the coordinate update does not produce a robust advantage merely by adding capacity. Figure~\ref{fig:egnn} displays both comparisons.
+The same-width sensitivity arm is also inconclusive: strict EGNN error is 6.98\% higher, 95\% CI $[-1.08,14.98]$\%. Because this baseline has fewer parameters, the result should not replace the parameter-matched primary analysis. It does show that the coordinate update does not produce a robust advantage merely by adding capacity. Figure~\ref{fig:egnn} displays both comparisons.
 
-Sample efficiency is similarly unresolved. The normalized area under error versus $\log_2(n_{\mathrm{train}})$ is 1.91\% higher for strict EGNN, 95\% CI $[-1.23,4.42]$\%. Individual training sizes change direction, which is why a learning curve and paired seeds are more informative than a selected single run.
+Sample efficiency is similarly unresolved. The normalized area under error versus $\log_2(n_{\mathrm{train}})$ is 0.07\% lower for strict EGNN, 95\% CI $[-1.94,1.81]$\%. Individual training sizes change direction, which is why a learning curve and paired seeds are more informative than a selected single run.
 
 \begin{figure*}[t]
 \centering
@@ -319,12 +319,12 @@ Sample efficiency is similarly unresolved. The normalized area under error versu
 \toprule
 Comparison & effect & 95\% CI\\
 \midrule
-Full, parameter matched & $-0.007$\% & $[-8.98,8.98]$\\
-Full, same width & $+12.77$\% & $[2.25,24.46]$\\
-Sample-efficiency AULC & $+1.91$\% & $[-1.23,4.42]$\\
+Full, parameter matched & $+6.27$\% & $[-4.44,17.68]$\\
+Full, same width & $+6.98$\% & $[-1.08,14.98]$\\
+Sample-efficiency AULC & $-0.07$\% & $[-1.94,1.81]$\\
 \midrule
-Output residual, max & \multicolumn{2}{r}{$4.38\times10^{-7}$}\\
-Coordinate residual, max & \multicolumn{2}{r}{$1.42\times10^{-7}$}\\
+Output residual, max & \multicolumn{2}{r}{$3.92\times10^{-7}$}\\
+Coordinate residual, max & \multicolumn{2}{r}{$1.41\times10^{-7}$}\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -342,9 +342,9 @@ Two layout levers illustrate where learning matters. For layer-order interleavin
 \end{figure*}
 
 \subsection{Latency and Speedup}
-Figure~\ref{fig:latency} shows why a single number is insufficient. Pre-collated batch throughput is 0.64\,ms/design, but a prepared graph evaluated alone takes 2.37\,ms and the raw-layout path takes 5.90\,ms. The paired FastHenry and FEM reference has a 4.17\,s median, 4.27\,s mean, and 5.36\,s 95th percentile. Describing the reference as ``about 5\,s'' is a coarse summary of this distribution, not an exact constant.
+Figure~\ref{fig:latency} shows why a single number is insufficient. Pre-collated batch throughput is 0.33\,ms/design, but a prepared graph evaluated alone takes 2.28\,ms and the raw-layout path takes 5.62\,ms. The paired FastHenry and FEM reference has a 3.66\,s median, 3.75\,s mean, and 4.66\,s 95th percentile. Describing the reference as ``about 5\,s'' is a coarse summary of this distribution, not an exact constant.
 
-The primary comparison uses the per-design ratio between paired solver time and raw-layout end-to-end inference. Its median is $734.6\times$, with 95\% bootstrap interval $[682.4,795.9]\times$. This is the appropriate speedup for an interactive batch-one path. A historical 1.17\,ms figure came from pre-collated batch throughput and reproduced at 1.33\,ms on the same machine class; combining the rounded 5\,s solver estimate with that throughput yields the familiar approximate $4300\times$, but it is not the primary end-to-end statistic.
+The primary comparison uses the per-design ratio between paired solver time and raw-layout end-to-end inference. Its median is $670.2\times$, with 95\% bootstrap interval $[640.8,710.4]\times$. This is the appropriate speedup for an interactive batch-one path. A historical 1.17\,ms figure came from pre-collated batch throughput; the same protocol produced 0.675\,ms on the current node and runtime stack, confirming that the absolute number is hardware dependent rather than invariant. Combining the rounded 5\,s solver estimate with the historical throughput yields the familiar approximate $4300\times$, but it is not the primary end-to-end statistic.
 
 Against the analytical implementation, the dense graph is slower at the benchmark's mean size. Sparse $k$-NN inference changes the asymptotic edge count from $O(N^2)$ to $O(Nk)$ and crosses the unaccelerated all-pairs analytical implementation near $N=80$ in the measured scaling study. This crossover concerns runtime; solver-grade accuracy is the reason to use the surrogate below that size.
 
@@ -364,12 +364,12 @@ Against the analytical implementation, the dense graph is slower at the benchmar
 \toprule
 Timed boundary & value\\
 \midrule
-GNN, pre-collated batch & 0.644\,ms\\
-GNN, single prepared graph & 2.372\,ms\\
-GNN, raw-layout end to end & 5.900\,ms\\
-Paired field solvers & 4.173\,s\\
-Paired end-to-end speedup & $734.6\times$\\
-95\% speedup interval & $[682.4,795.9]\times$\\
+GNN, pre-collated batch & 0.331\,ms\\
+GNN, single prepared graph & 2.285\,ms\\
+GNN, raw-layout end to end & 5.617\,ms\\
+Paired field solvers & 3.659\,s\\
+Paired end-to-end speedup & $670.2\times$\\
+95\% speedup interval & $[640.8,710.4]\times$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -390,10 +390,10 @@ Figure~\ref{fig:freq} shows the mean curve rising from approximately one to six 
 \subsection{What the Graph Contributes}
 The evidence does not support a blanket statement that a graph is superior for every output. A well-tuned tree ensemble is competitive for typical $\Cps$ error because the capacitance target can be strongly correlated with pooled size and overlap statistics. The graph earns its complexity on the inductive quantities, size transfer, and pairwise decision task. Those are precisely the cases in which relations among traces cannot be compressed safely into fixed global moments.
 
-The same caution applies to equivariance. Exact symmetry is desirable as an implementation guarantee. It removes coordinate-frame dependence from the encoded-graph model and gives a clean transformation contract. Yet the present field corpus does not resolve an accuracy benefit over a strong invariant distance-message network, nor does it establish practical equivalence. More seeds or a benchmark with arbitrary three-dimensional orientations would be required to distinguish effects within roughly nine percent.
+The same caution applies to equivariance. Exact symmetry is desirable as an implementation guarantee. It removes coordinate-frame dependence from the encoded-graph model and gives a clean transformation contract. Yet the present field corpus does not resolve an accuracy benefit over a strong invariant distance-message network, nor does it establish practical equivalence. More seeds or a benchmark with arbitrary three-dimensional orientations would be required to narrow the observed uncertainty.
 
 \subsection{Deployment in a Design Loop}
-The intended workflow is screen, rank, then confirm. The GNN evaluates a broad candidate bank; the pairwise head orders close variants; a field solve confirms a small finalist set. This division avoids using a surrogate as the final sign-off tool. It also makes the latency boundary explicit: batched throughput predicts the cost of a large bank, whereas 5.90\,ms estimates an isolated raw-layout query.
+The intended workflow is screen, rank, then confirm. The GNN evaluates a broad candidate bank; the pairwise head orders close variants; a field solve confirms a small finalist set. This division avoids using a surrogate as the final sign-off tool. It also makes the latency boundary explicit: batched throughput predicts the cost of a large bank, whereas 5.62\,ms estimates an isolated raw-layout query.
 
 The implementation uses PyTorch without PyG or DGL. The dependency choice simplifies embedding and licensing, although it is not a scientific accuracy claim. Sparse graphs should be selected when trace count is high enough for graph construction and all-pairs messages to matter. For the modest boards in the accuracy corpus, dense connectivity remains a reasonable reference architecture.
 
@@ -414,9 +414,9 @@ The repository contains the dataset generators, graph and model code, solver int
 Heavy reference generation is intentionally separated from document building. Recreating the 332-design field corpus requires repeated three-dimensional solves and should run on a managed compute system. Rebuilding the figures and PDF consumes only released result files. External FastHenry and capacitance-solver binaries are not redistributed; their interfaces and build instructions are provided.
 
 \section{Conclusion}
-Solver supervision, rather than architectural novelty alone, is the decisive change in this study. Replacing analytical labels reduces held-out median error to 2.56--3.81\% across $\Cps$, $\Lp$, $\Ls$, and $\Mut$, and an independent Neumann formulation bounds the remaining inductive discrepancy. Graph structure matters most for relational targets, size transfer, and fine layout decisions. A pairwise objective turns high absolute accuracy into useful within-family ordering and nearly recovers the optimal lateral-registration choice where the analytical model is blind.
+Solver supervision, rather than architectural novelty alone, is the decisive change in this study. Replacing analytical labels reduces held-out median error to 1.75--3.31\% across $\Cps$, $\Lp$, $\Ls$, and $\Mut$, and an independent Neumann formulation bounds the remaining inductive discrepancy. Graph structure matters most for relational targets, size transfer, and fine layout decisions. A pairwise objective turns high absolute accuracy into useful within-family ordering and nearly recovers the optimal lateral-registration choice where the analytical model is blind.
 
-The corrected EGNN supplies strict $E(3)$ behavior on encoded graphs, but its predictive effect remains unresolved against a parameter-matched invariant model. Latency likewise depends on the stated boundary: the conservative raw-layout path is 5.90\,ms/design and gives a paired end-to-end median speedup of $735\times$ over the evaluated field workflow. These are encouraging screening results, bounded by a clear qualification: the surrogate is solver-grade and synthetic-geometry validated. Measured boards, richer layout primitives, layered dielectric references, and joint core-winding models are the next steps.
+The corrected EGNN supplies strict $E(3)$ behavior on encoded graphs, but its predictive effect remains unresolved against a parameter-matched invariant model. Latency likewise depends on the stated boundary: the conservative raw-layout path is 5.62\,ms/design and gives a paired end-to-end median speedup of $670\times$ over the evaluated field workflow. These are encouraging screening results, bounded by a clear qualification: the surrogate is solver-grade and synthetic-geometry validated. Measured boards, richer layout primitives, layered dielectric references, and joint core-winding models are the next steps.
 
 \appendix
 \section{Feature and Symmetry Contract}
@@ -454,7 +454,7 @@ for graph output and
 for coordinates after the last layer. The largest observed values are reported in Table~\ref{tab:egnn}; no rounded prediction percentage is used as the strictness criterion.
 
 \section{Seed-Level Architecture Results}
-Table~\ref{tab:seed} exposes the five full-data primary errors rather than presenting only a pooled effect. Strict EGNN is better for two seeds and worse for three. The variation explains the nearly zero mean effect and the broad hierarchical interval. It also prevents a single favorable initialization from being presented as an architectural result.
+Table~\ref{tab:seed} exposes the five full-data primary errors rather than presenting only a pooled effect. Strict EGNN is better for one seed and worse for four. The variation explains the broad hierarchical interval and prevents a single favorable initialization from being presented as an architectural result.
 
 \begin{table}[t]
 \caption{Full-data primary error by initialization seed. Lower is better.}
@@ -465,13 +465,13 @@ Table~\ref{tab:seed} exposes the five full-data primary errors rather than prese
 \toprule
 Seed & invariant, matched & strict EGNN\\
 \midrule
-42 & 0.031097 & 0.031532\\
-43 & 0.030910 & 0.032871\\
-44 & 0.027454 & 0.025291\\
-45 & 0.028530 & 0.026124\\
-46 & 0.026451 & 0.028615\\
+42 & 0.030449 & 0.032618\\
+43 & 0.027932 & 0.030436\\
+44 & 0.029287 & 0.026443\\
+45 & 0.023085 & 0.027717\\
+46 & 0.025271 & 0.027341\\
 \midrule
-Mean & 0.028888 & 0.028886\\
+Mean & 0.027205 & 0.028911\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -486,9 +486,9 @@ Those values should be read as fidelity to a deterministic analytical teacher. T
 The failed capacitance-BEM route is also retained in the release. Uniform-panel estimates varied by factors of six to forty as panel density changed at the thinnest dielectric gaps, and the resulting corpus produced negative held-out $R^2$. Adaptive refinement improved conditioning but increased solve time substantially. The volume FEM was selected because its conductor regions and dielectric volume yielded stable geometry sensitivity over the required gap range. This is a numerical-method choice, not evidence that volume FEM is universally preferable to BEM.
 
 \section{Additional Timing Interpretation}
-The paired solver median is 4.173\,s, while its mean is 4.268\,s and 95th percentile 5.360\,s. The spread comes mainly from the electrostatic mesh and solve; FastHenry is the smaller component for these layouts. Reporting a distribution matters for two reasons. First, a projected bank runtime based on a rounded 5\,s constant is conservative near the median but not a direct measurement of every candidate. Second, ratios of independent medians and medians of paired ratios need not agree.
+The paired solver median is 3.659\,s, while its mean is 3.750\,s and 95th percentile 4.656\,s. The spread comes mainly from the electrostatic mesh and solve; FastHenry is the smaller component for these layouts. Reporting a distribution matters for two reasons. First, a projected bank runtime based on a rounded 5\,s constant is conservative near the median but not a direct measurement of every candidate. Second, ratios of independent medians and medians of paired ratios need not agree.
 
-For this reason the paper's primary $734.6\times$ result is the median of paired per-design solver/end-to-end ratios. Its 95\% interval $[682.4,795.9]\times$ resamples designs. The pre-collated throughput is reported separately and should be used only when graph preparation is outside the timed loop or amortized over a candidate bank. Hardware, thread count, warm-up, batch size, repeat count, and timer boundary remain necessary context when comparing latency with another system.
+For this reason the paper's primary $670.2\times$ result is the median of paired per-design solver/end-to-end ratios. Its 95\% interval $[640.8,710.4]\times$ resamples designs. The pre-collated throughput is reported separately and should be used only when graph preparation is outside the timed loop or amortized over a candidate bank. Hardware, thread count, warm-up, batch size, repeat count, and timer boundary remain necessary context when comparing latency with another system.
 
 \bibliographystyle{unsrt}
 \bibliography{references}

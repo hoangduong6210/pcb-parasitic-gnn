@@ -1,0 +1,580 @@
+[solver 001/346] id=6 FH=122.7ms FEM=5246.0ms valid=True
+[solver 002/346] id=7 FH=75.2ms FEM=4205.1ms valid=True
+[solver 003/346] id=12 FH=92.2ms FEM=4203.3ms valid=True
+[solver 004/346] id=18 FH=82.4ms FEM=3477.2ms valid=True
+[solver 005/346] id=23 FH=54.3ms FEM=3314.0ms valid=True
+[solver 006/346] id=27 FH=120.2ms FEM=5879.6ms valid=True
+[solver 007/346] id=39 FH=81.8ms FEM=4131.5ms valid=True
+[solver 008/346] id=52 FH=60.4ms FEM=4367.6ms valid=True
+[solver 009/346] id=60 FH=118.2ms FEM=4097.9ms valid=True
+[solver 010/346] id=69 FH=111.3ms FEM=4431.4ms valid=True
+[solver 011/346] id=70 FH=62.5ms FEM=4581.3ms valid=True
+[solver 012/346] id=71 FH=66.6ms FEM=3726.2ms valid=True
+[solver 013/346] id=74 FH=84.2ms FEM=4691.2ms valid=True
+[solver 014/346] id=84 FH=68.3ms FEM=1117.2ms valid=False
+[solver 015/346] id=85 FH=97.4ms FEM=6328.0ms valid=True
+[solver 016/346] id=100 FH=46.8ms FEM=3451.0ms valid=True
+[solver 017/346] id=107 FH=65.2ms FEM=3354.4ms valid=True
+[solver 018/346] id=108 FH=115.1ms FEM=4522.9ms valid=True
+[solver 019/346] id=113 FH=84.0ms FEM=1225.8ms valid=False
+[solver 020/346] id=115 FH=77.7ms FEM=4415.3ms valid=True
+[solver 021/346] id=118 FH=108.0ms FEM=3620.6ms valid=True
+[solver 022/346] id=120 FH=122.4ms FEM=3689.1ms valid=True
+[solver 023/346] id=122 FH=118.7ms FEM=3678.5ms valid=True
+[solver 024/346] id=126 FH=122.2ms FEM=1167.9ms valid=False
+[solver 025/346] id=130 FH=108.0ms FEM=4074.3ms valid=True
+[solver 026/346] id=142 FH=85.9ms FEM=4188.9ms valid=True
+[solver 027/346] id=143 FH=121.5ms FEM=3366.3ms valid=True
+[solver 028/346] id=144 FH=117.8ms FEM=4268.9ms valid=True
+[solver 029/346] id=146 FH=101.5ms FEM=4376.5ms valid=True
+[solver 030/346] id=153 FH=68.8ms FEM=3518.1ms valid=True
+[solver 031/346] id=160 FH=99.0ms FEM=4226.7ms valid=True
+[solver 032/346] id=165 FH=75.9ms FEM=3876.7ms valid=True
+[solver 033/346] id=169 FH=122.9ms FEM=3712.7ms valid=True
+[solver 034/346] id=170 FH=112.3ms FEM=3526.6ms valid=True
+[solver 035/346] id=172 FH=48.9ms FEM=3235.7ms valid=True
+[solver 036/346] id=188 FH=115.3ms FEM=4016.2ms valid=True
+[solver 037/346] id=191 FH=62.6ms FEM=3548.4ms valid=True
+[solver 038/346] id=208 FH=128.7ms FEM=3575.3ms valid=True
+[solver 039/346] id=209 FH=142.4ms FEM=3839.1ms valid=True
+[solver 040/346] id=222 FH=90.2ms FEM=3456.0ms valid=True
+[solver 041/346] id=224 FH=137.0ms FEM=3745.5ms valid=True
+[solver 042/346] id=230 FH=98.3ms FEM=3779.8ms valid=True
+[solver 043/346] id=231 FH=80.4ms FEM=3876.0ms valid=True
+[solver 044/346] id=235 FH=111.4ms FEM=3314.1ms valid=True
+[solver 045/346] id=237 FH=140.4ms FEM=3651.7ms valid=True
+[solver 046/346] id=248 FH=131.2ms FEM=3248.3ms valid=True
+[solver 047/346] id=249 FH=60.0ms FEM=4041.3ms valid=True
+[solver 048/346] id=253 FH=67.8ms FEM=3415.4ms valid=True
+[solver 049/346] id=255 FH=63.3ms FEM=3482.9ms valid=True
+[solver 050/346] id=259 FH=112.9ms FEM=3420.7ms valid=True
+[solver 051/346] id=261 FH=110.7ms FEM=4230.1ms valid=True
+[solver 052/346] id=268 FH=146.9ms FEM=4834.1ms valid=True
+[solver 053/346] id=269 FH=94.1ms FEM=4329.2ms valid=True
+[solver 054/346] id=270 FH=124.3ms FEM=4014.3ms valid=True
+[solver 055/346] id=280 FH=89.4ms FEM=3263.7ms valid=True
+[solver 056/346] id=283 FH=101.7ms FEM=5725.1ms valid=True
+[solver 057/346] id=284 FH=65.4ms FEM=4199.5ms valid=True
+[solver 058/346] id=289 FH=95.4ms FEM=4034.4ms valid=True
+[solver 059/346] id=290 FH=117.6ms FEM=4232.2ms valid=True
+[solver 060/346] id=293 FH=82.1ms FEM=4059.6ms valid=True
+[solver 061/346] id=295 FH=58.3ms FEM=4365.7ms valid=True
+[solver 062/346] id=297 FH=68.2ms FEM=5661.3ms valid=True
+[solver 063/346] id=306 FH=78.9ms FEM=1210.2ms valid=False
+[solver 064/346] id=310 FH=108.1ms FEM=4583.1ms valid=True
+[solver 065/346] id=314 FH=58.4ms FEM=4009.0ms valid=True
+[solver 066/346] id=322 FH=112.3ms FEM=4181.8ms valid=True
+[solver 067/346] id=324 FH=53.4ms FEM=3339.9ms valid=True
+[solver 068/346] id=340 FH=84.9ms FEM=4123.1ms valid=True
+[solver 069/346] id=341 FH=78.9ms FEM=5050.9ms valid=True
+[solver 070/346] id=342 FH=130.3ms FEM=4888.5ms valid=True
+[solver 071/346] id=344 FH=98.2ms FEM=3937.4ms valid=True
+[solver 072/346] id=347 FH=59.2ms FEM=6349.3ms valid=True
+[solver 073/346] id=349 FH=68.4ms FEM=4764.9ms valid=True
+[solver 074/346] id=353 FH=113.7ms FEM=4677.8ms valid=True
+[solver 075/346] id=365 FH=69.4ms FEM=4078.1ms valid=True
+[solver 076/346] id=367 FH=86.0ms FEM=3404.4ms valid=True
+[solver 077/346] id=369 FH=75.9ms FEM=4701.9ms valid=True
+[solver 078/346] id=371 FH=67.2ms FEM=3361.7ms valid=True
+[solver 079/346] id=374 FH=138.6ms FEM=4078.2ms valid=True
+[solver 080/346] id=379 FH=68.2ms FEM=3935.4ms valid=True
+[solver 081/346] id=383 FH=67.8ms FEM=3767.1ms valid=True
+[solver 082/346] id=384 FH=139.3ms FEM=3408.8ms valid=True
+[solver 083/346] id=387 FH=124.6ms FEM=4004.2ms valid=True
+[solver 084/346] id=391 FH=107.0ms FEM=3839.6ms valid=True
+[solver 085/346] id=401 FH=68.4ms FEM=4050.6ms valid=True
+[solver 086/346] id=408 FH=102.1ms FEM=3684.8ms valid=True
+[solver 087/346] id=412 FH=94.2ms FEM=3699.6ms valid=True
+[solver 088/346] id=415 FH=142.6ms FEM=3919.0ms valid=True
+[solver 089/346] id=418 FH=62.0ms FEM=4082.7ms valid=True
+[solver 090/346] id=427 FH=109.2ms FEM=4388.9ms valid=True
+[solver 091/346] id=433 FH=85.7ms FEM=4161.0ms valid=True
+[solver 092/346] id=436 FH=141.5ms FEM=3662.4ms valid=True
+[solver 093/346] id=441 FH=64.6ms FEM=3985.3ms valid=True
+[solver 094/346] id=453 FH=118.7ms FEM=5062.2ms valid=True
+[solver 095/346] id=455 FH=148.2ms FEM=4219.2ms valid=True
+[solver 096/346] id=460 FH=69.7ms FEM=4713.8ms valid=True
+[solver 097/346] id=470 FH=88.3ms FEM=4327.7ms valid=True
+[solver 098/346] id=474 FH=56.0ms FEM=4325.2ms valid=True
+[solver 099/346] id=476 FH=90.1ms FEM=4519.8ms valid=True
+[solver 100/346] id=478 FH=96.0ms FEM=4005.9ms valid=True
+[solver 101/346] id=480 FH=80.7ms FEM=4571.9ms valid=True
+[solver 102/346] id=481 FH=72.9ms FEM=4638.8ms valid=True
+[solver 103/346] id=482 FH=51.7ms FEM=3847.6ms valid=True
+[solver 104/346] id=487 FH=61.6ms FEM=4167.6ms valid=True
+[solver 105/346] id=495 FH=137.7ms FEM=4381.0ms valid=True
+[solver 106/346] id=496 FH=157.0ms FEM=4910.3ms valid=True
+[solver 107/346] id=497 FH=60.5ms FEM=4454.5ms valid=True
+[solver 108/346] id=498 FH=99.5ms FEM=4034.6ms valid=True
+[solver 109/346] id=502 FH=94.4ms FEM=1228.4ms valid=False
+[solver 110/346] id=503 FH=107.3ms FEM=4932.1ms valid=True
+[solver 111/346] id=505 FH=74.8ms FEM=1255.2ms valid=False
+[solver 112/346] id=506 FH=100.2ms FEM=4685.0ms valid=True
+[solver 113/346] id=507 FH=85.7ms FEM=4394.6ms valid=True
+[solver 114/346] id=510 FH=48.5ms FEM=3851.7ms valid=True
+[solver 115/346] id=513 FH=96.4ms FEM=3392.9ms valid=True
+[solver 116/346] id=521 FH=89.8ms FEM=4322.4ms valid=True
+[solver 117/346] id=538 FH=50.8ms FEM=1008.9ms valid=False
+[solver 118/346] id=539 FH=128.7ms FEM=4345.4ms valid=True
+[solver 119/346] id=541 FH=65.3ms FEM=3749.9ms valid=True
+[solver 120/346] id=543 FH=82.5ms FEM=4578.1ms valid=True
+[solver 121/346] id=549 FH=61.1ms FEM=4204.5ms valid=True
+[solver 122/346] id=550 FH=73.7ms FEM=3711.9ms valid=True
+[solver 123/346] id=558 FH=87.7ms FEM=4562.7ms valid=True
+[solver 124/346] id=560 FH=88.3ms FEM=4768.4ms valid=True
+[solver 125/346] id=561 FH=94.3ms FEM=4352.5ms valid=True
+[solver 126/346] id=562 FH=88.7ms FEM=3525.8ms valid=True
+[solver 127/346] id=563 FH=76.9ms FEM=5636.6ms valid=True
+[solver 128/346] id=575 FH=112.9ms FEM=4631.5ms valid=True
+[solver 129/346] id=577 FH=111.9ms FEM=4726.4ms valid=True
+[solver 130/346] id=580 FH=88.7ms FEM=4055.4ms valid=True
+[solver 131/346] id=582 FH=57.4ms FEM=3694.8ms valid=True
+[solver 132/346] id=590 FH=87.1ms FEM=4449.7ms valid=True
+[solver 133/346] id=594 FH=98.4ms FEM=3433.5ms valid=True
+[solver 134/346] id=595 FH=92.1ms FEM=4703.9ms valid=True
+[solver 135/346] id=601 FH=90.3ms FEM=4118.8ms valid=True
+[solver 136/346] id=605 FH=106.0ms FEM=3974.4ms valid=True
+[solver 137/346] id=611 FH=95.8ms FEM=4313.6ms valid=True
+[solver 138/346] id=612 FH=122.4ms FEM=5034.7ms valid=True
+[solver 139/346] id=613 FH=120.8ms FEM=4572.6ms valid=True
+[solver 140/346] id=614 FH=53.6ms FEM=3666.8ms valid=True
+[solver 141/346] id=616 FH=147.7ms FEM=6300.3ms valid=True
+[solver 142/346] id=619 FH=59.0ms FEM=4234.2ms valid=True
+[solver 143/346] id=620 FH=80.7ms FEM=3552.0ms valid=True
+[solver 144/346] id=625 FH=112.2ms FEM=1302.9ms valid=False
+[solver 145/346] id=628 FH=91.6ms FEM=4016.4ms valid=True
+[solver 146/346] id=634 FH=64.5ms FEM=3799.5ms valid=True
+[solver 147/346] id=635 FH=74.4ms FEM=4040.7ms valid=True
+[solver 148/346] id=646 FH=46.8ms FEM=3467.8ms valid=True
+[solver 149/346] id=647 FH=95.3ms FEM=4467.2ms valid=True
+[solver 150/346] id=653 FH=53.4ms FEM=4724.6ms valid=True
+[solver 151/346] id=658 FH=78.4ms FEM=4896.8ms valid=True
+[solver 152/346] id=660 FH=55.3ms FEM=3717.3ms valid=True
+[solver 153/346] id=668 FH=125.3ms FEM=3859.4ms valid=True
+[solver 154/346] id=670 FH=92.2ms FEM=3221.1ms valid=True
+[solver 155/346] id=673 FH=107.5ms FEM=4316.1ms valid=True
+[solver 156/346] id=675 FH=112.8ms FEM=4050.7ms valid=True
+[solver 157/346] id=682 FH=79.7ms FEM=5755.3ms valid=True
+[solver 158/346] id=683 FH=106.7ms FEM=4592.1ms valid=True
+[solver 159/346] id=684 FH=76.1ms FEM=3543.1ms valid=True
+[solver 160/346] id=685 FH=84.2ms FEM=4005.8ms valid=True
+[solver 161/346] id=693 FH=133.0ms FEM=5386.2ms valid=True
+[solver 162/346] id=698 FH=88.6ms FEM=4087.2ms valid=True
+[solver 163/346] id=711 FH=75.0ms FEM=3761.5ms valid=True
+[solver 164/346] id=720 FH=115.0ms FEM=3725.1ms valid=True
+[solver 165/346] id=730 FH=61.0ms FEM=4007.1ms valid=True
+[solver 166/346] id=740 FH=48.1ms FEM=4018.1ms valid=True
+[solver 167/346] id=747 FH=120.4ms FEM=5636.5ms valid=True
+[solver 168/346] id=754 FH=117.5ms FEM=3862.9ms valid=True
+[solver 169/346] id=758 FH=73.7ms FEM=3613.4ms valid=True
+[solver 170/346] id=759 FH=101.0ms FEM=3681.5ms valid=True
+[solver 171/346] id=763 FH=57.9ms FEM=3668.5ms valid=True
+[solver 172/346] id=768 FH=95.8ms FEM=3913.0ms valid=True
+[solver 173/346] id=776 FH=135.2ms FEM=4225.8ms valid=True
+[solver 174/346] id=781 FH=109.7ms FEM=5436.1ms valid=True
+[solver 175/346] id=783 FH=116.7ms FEM=4439.8ms valid=True
+[solver 176/346] id=786 FH=52.7ms FEM=3428.4ms valid=True
+[solver 177/346] id=788 FH=93.4ms FEM=1322.9ms valid=False
+[solver 178/346] id=791 FH=119.7ms FEM=4148.8ms valid=True
+[solver 179/346] id=794 FH=93.5ms FEM=3951.3ms valid=True
+[solver 180/346] id=805 FH=106.1ms FEM=4344.1ms valid=True
+[solver 181/346] id=806 FH=102.1ms FEM=3790.2ms valid=True
+[solver 182/346] id=808 FH=97.5ms FEM=3959.1ms valid=True
+[solver 183/346] id=814 FH=130.1ms FEM=3535.2ms valid=True
+[solver 184/346] id=817 FH=52.4ms FEM=3837.3ms valid=True
+[solver 185/346] id=829 FH=47.7ms FEM=4453.8ms valid=True
+[solver 186/346] id=839 FH=128.9ms FEM=5382.7ms valid=True
+[solver 187/346] id=847 FH=100.0ms FEM=3856.1ms valid=True
+[solver 188/346] id=848 FH=100.9ms FEM=3729.2ms valid=True
+[solver 189/346] id=852 FH=99.3ms FEM=3567.0ms valid=True
+[solver 190/346] id=858 FH=124.9ms FEM=3671.0ms valid=True
+[solver 191/346] id=871 FH=72.2ms FEM=2975.0ms valid=True
+[solver 192/346] id=879 FH=85.8ms FEM=3329.0ms valid=True
+[solver 193/346] id=886 FH=84.5ms FEM=3277.3ms valid=True
+[solver 194/346] id=887 FH=123.0ms FEM=4005.3ms valid=True
+[solver 195/346] id=888 FH=92.0ms FEM=3812.4ms valid=True
+[solver 196/346] id=899 FH=156.8ms FEM=4153.9ms valid=True
+[solver 197/346] id=905 FH=110.3ms FEM=5050.0ms valid=True
+[solver 198/346] id=913 FH=81.8ms FEM=3945.3ms valid=True
+[solver 199/346] id=918 FH=93.8ms FEM=4561.6ms valid=True
+[solver 200/346] id=919 FH=119.6ms FEM=3472.7ms valid=True
+[solver 201/346] id=920 FH=96.6ms FEM=3237.6ms valid=True
+[solver 202/346] id=921 FH=83.6ms FEM=6777.2ms valid=True
+[solver 203/346] id=923 FH=105.1ms FEM=3525.5ms valid=True
+[solver 204/346] id=929 FH=68.4ms FEM=3379.7ms valid=True
+[solver 205/346] id=942 FH=93.9ms FEM=4702.7ms valid=True
+[solver 206/346] id=944 FH=117.5ms FEM=3501.5ms valid=True
+[solver 207/346] id=946 FH=110.7ms FEM=3929.0ms valid=True
+[solver 208/346] id=950 FH=123.7ms FEM=1325.2ms valid=False
+[solver 209/346] id=961 FH=90.0ms FEM=3610.9ms valid=True
+[solver 210/346] id=963 FH=100.0ms FEM=3757.5ms valid=True
+[solver 211/346] id=965 FH=53.2ms FEM=3549.5ms valid=True
+[solver 212/346] id=966 FH=111.8ms FEM=3672.1ms valid=True
+[solver 213/346] id=969 FH=102.2ms FEM=3694.8ms valid=True
+[solver 214/346] id=977 FH=95.8ms FEM=3649.4ms valid=True
+[solver 215/346] id=979 FH=103.0ms FEM=3637.9ms valid=True
+[solver 216/346] id=981 FH=123.3ms FEM=4421.7ms valid=True
+[solver 217/346] id=985 FH=112.5ms FEM=3924.5ms valid=True
+[solver 218/346] id=988 FH=113.1ms FEM=3448.3ms valid=True
+[solver 219/346] id=993 FH=120.8ms FEM=3828.4ms valid=True
+[solver 220/346] id=1002 FH=80.3ms FEM=3374.1ms valid=True
+[solver 221/346] id=1004 FH=49.5ms FEM=3645.7ms valid=True
+[solver 222/346] id=1012 FH=71.8ms FEM=3542.9ms valid=True
+[solver 223/346] id=1028 FH=89.9ms FEM=3811.4ms valid=True
+[solver 224/346] id=1047 FH=66.7ms FEM=3598.8ms valid=True
+[solver 225/346] id=1053 FH=88.9ms FEM=3446.3ms valid=True
+[solver 226/346] id=1055 FH=100.4ms FEM=3513.8ms valid=True
+[solver 227/346] id=1057 FH=66.0ms FEM=3678.0ms valid=True
+[solver 228/346] id=1058 FH=122.2ms FEM=4000.7ms valid=True
+[solver 229/346] id=1061 FH=132.6ms FEM=4450.1ms valid=True
+[solver 230/346] id=1072 FH=63.3ms FEM=4200.2ms valid=True
+[solver 231/346] id=1073 FH=60.4ms FEM=3828.9ms valid=True
+[solver 232/346] id=1079 FH=74.8ms FEM=4740.7ms valid=True
+[solver 233/346] id=1081 FH=106.4ms FEM=4240.5ms valid=True
+[solver 234/346] id=1084 FH=86.5ms FEM=4361.3ms valid=True
+[solver 235/346] id=1100 FH=65.9ms FEM=4028.4ms valid=True
+[solver 236/346] id=1103 FH=128.8ms FEM=4445.8ms valid=True
+[solver 237/346] id=1104 FH=117.1ms FEM=3858.3ms valid=True
+[solver 238/346] id=1111 FH=66.6ms FEM=3884.7ms valid=True
+[solver 239/346] id=1112 FH=106.2ms FEM=3943.3ms valid=True
+[solver 240/346] id=1118 FH=115.4ms FEM=4489.3ms valid=True
+[solver 241/346] id=1136 FH=89.7ms FEM=3730.1ms valid=True
+[solver 242/346] id=1141 FH=70.0ms FEM=3562.9ms valid=True
+[solver 243/346] id=1146 FH=100.3ms FEM=3885.8ms valid=True
+[solver 244/346] id=1149 FH=62.1ms FEM=4088.0ms valid=True
+[solver 245/346] id=1155 FH=100.8ms FEM=3561.0ms valid=True
+[solver 246/346] id=1164 FH=92.2ms FEM=3928.5ms valid=True
+[solver 247/346] id=1168 FH=91.0ms FEM=1275.9ms valid=False
+[solver 248/346] id=1170 FH=75.8ms FEM=3708.3ms valid=True
+[solver 249/346] id=1171 FH=119.2ms FEM=4231.5ms valid=True
+[solver 250/346] id=1173 FH=58.6ms FEM=3325.4ms valid=True
+[solver 251/346] id=1174 FH=77.8ms FEM=9925.0ms valid=True
+[solver 252/346] id=1180 FH=71.5ms FEM=4139.0ms valid=True
+[solver 253/346] id=1181 FH=63.9ms FEM=3632.7ms valid=True
+[solver 254/346] id=1182 FH=142.8ms FEM=5010.6ms valid=True
+[solver 255/346] id=1184 FH=102.5ms FEM=4155.2ms valid=True
+[solver 256/346] id=1187 FH=156.9ms FEM=4556.0ms valid=True
+[solver 257/346] id=1188 FH=97.2ms FEM=4245.8ms valid=True
+[solver 258/346] id=1193 FH=109.3ms FEM=3638.4ms valid=True
+[solver 259/346] id=1198 FH=81.0ms FEM=3834.9ms valid=True
+[solver 260/346] id=1201 FH=83.6ms FEM=3670.7ms valid=True
+[solver 261/346] id=1207 FH=76.0ms FEM=3745.5ms valid=True
+[solver 262/346] id=1213 FH=106.4ms FEM=4159.2ms valid=True
+[solver 263/346] id=1215 FH=44.7ms FEM=3638.7ms valid=True
+[solver 264/346] id=1225 FH=134.8ms FEM=4471.5ms valid=True
+[solver 265/346] id=1227 FH=131.4ms FEM=1244.3ms valid=False
+[solver 266/346] id=1233 FH=79.0ms FEM=4104.7ms valid=True
+[solver 267/346] id=1234 FH=103.4ms FEM=4086.3ms valid=True
+[solver 268/346] id=1242 FH=65.1ms FEM=3742.0ms valid=True
+[solver 269/346] id=1243 FH=67.4ms FEM=3718.7ms valid=True
+[solver 270/346] id=1244 FH=99.9ms FEM=3649.6ms valid=True
+[solver 271/346] id=1246 FH=64.9ms FEM=3600.3ms valid=True
+[solver 272/346] id=1247 FH=148.1ms FEM=5254.2ms valid=True
+[solver 273/346] id=1249 FH=113.1ms FEM=4618.2ms valid=True
+[solver 274/346] id=1252 FH=53.8ms FEM=3826.6ms valid=True
+[solver 275/346] id=1253 FH=76.9ms FEM=3697.4ms valid=True
+[solver 276/346] id=1257 FH=86.2ms FEM=4589.5ms valid=True
+[solver 277/346] id=1259 FH=48.9ms FEM=3577.0ms valid=True
+[solver 278/346] id=1268 FH=147.1ms FEM=4515.3ms valid=True
+[solver 279/346] id=1270 FH=52.2ms FEM=4123.3ms valid=True
+[solver 280/346] id=1272 FH=71.3ms FEM=5442.9ms valid=True
+[solver 281/346] id=1277 FH=101.7ms FEM=5539.1ms valid=True
+[solver 282/346] id=1282 FH=66.5ms FEM=3693.0ms valid=True
+[solver 283/346] id=1285 FH=111.6ms FEM=4667.1ms valid=True
+[solver 284/346] id=1287 FH=89.8ms FEM=4280.2ms valid=True
+[solver 285/346] id=1288 FH=115.3ms FEM=4005.8ms valid=True
+[solver 286/346] id=1294 FH=124.4ms FEM=3879.8ms valid=True
+[solver 287/346] id=1298 FH=105.6ms FEM=5243.5ms valid=True
+[solver 288/346] id=1299 FH=80.0ms FEM=4068.0ms valid=True
+[solver 289/346] id=1302 FH=60.3ms FEM=3889.0ms valid=True
+[solver 290/346] id=1305 FH=70.3ms FEM=4816.8ms valid=True
+[solver 291/346] id=1315 FH=120.7ms FEM=4383.9ms valid=True
+[solver 292/346] id=1318 FH=69.0ms FEM=4025.0ms valid=True
+[solver 293/346] id=1323 FH=61.3ms FEM=4288.6ms valid=True
+[solver 294/346] id=1327 FH=118.3ms FEM=1986.1ms valid=False
+[solver 295/346] id=1331 FH=78.4ms FEM=4148.9ms valid=True
+[solver 296/346] id=1333 FH=57.8ms FEM=4104.8ms valid=True
+[solver 297/346] id=1334 FH=129.2ms FEM=4162.9ms valid=True
+[solver 298/346] id=1352 FH=124.9ms FEM=1323.0ms valid=False
+[solver 299/346] id=1353 FH=50.5ms FEM=3649.2ms valid=True
+[solver 300/346] id=1356 FH=65.0ms FEM=3510.9ms valid=True
+[solver 301/346] id=1358 FH=86.5ms FEM=4081.8ms valid=True
+[solver 302/346] id=1360 FH=121.3ms FEM=4835.4ms valid=True
+[solver 303/346] id=1363 FH=62.2ms FEM=4444.7ms valid=True
+[solver 304/346] id=1366 FH=102.4ms FEM=4159.7ms valid=True
+[solver 305/346] id=1368 FH=115.3ms FEM=4874.3ms valid=True
+[solver 306/346] id=1374 FH=103.6ms FEM=3894.6ms valid=True
+[solver 307/346] id=1375 FH=98.0ms FEM=4141.4ms valid=True
+[solver 308/346] id=1378 FH=70.7ms FEM=3910.4ms valid=True
+[solver 309/346] id=1383 FH=98.3ms FEM=4738.8ms valid=True
+[solver 310/346] id=1388 FH=48.5ms FEM=3740.6ms valid=True
+[solver 311/346] id=1391 FH=95.7ms FEM=3598.5ms valid=True
+[solver 312/346] id=1393 FH=134.7ms FEM=4195.6ms valid=True
+[solver 313/346] id=1394 FH=46.0ms FEM=3407.6ms valid=True
+[solver 314/346] id=1395 FH=53.8ms FEM=4368.1ms valid=True
+[solver 315/346] id=1403 FH=126.1ms FEM=4805.7ms valid=True
+[solver 316/346] id=1405 FH=69.1ms FEM=4085.0ms valid=True
+[solver 317/346] id=1406 FH=83.4ms FEM=4798.8ms valid=True
+[solver 318/346] id=1407 FH=82.5ms FEM=3907.1ms valid=True
+[solver 319/346] id=1408 FH=108.3ms FEM=3662.1ms valid=True
+[solver 320/346] id=1410 FH=96.2ms FEM=3912.3ms valid=True
+[solver 321/346] id=1413 FH=119.2ms FEM=4261.7ms valid=True
+[solver 322/346] id=1414 FH=96.8ms FEM=4390.3ms valid=True
+[solver 323/346] id=1415 FH=99.5ms FEM=4159.5ms valid=True
+[solver 324/346] id=1421 FH=69.6ms FEM=4238.4ms valid=True
+[solver 325/346] id=1422 FH=110.5ms FEM=4287.4ms valid=True
+[solver 326/346] id=1424 FH=83.9ms FEM=4490.9ms valid=True
+[solver 327/346] id=1427 FH=65.4ms FEM=4063.5ms valid=True
+[solver 328/346] id=1444 FH=83.3ms FEM=3711.9ms valid=True
+[solver 329/346] id=1446 FH=97.9ms FEM=4058.0ms valid=True
+[solver 330/346] id=1447 FH=81.0ms FEM=4305.7ms valid=True
+[solver 331/346] id=1448 FH=100.6ms FEM=4456.0ms valid=True
+[solver 332/346] id=1449 FH=129.1ms FEM=3852.4ms valid=True
+[solver 333/346] id=1456 FH=50.6ms FEM=3899.0ms valid=True
+[solver 334/346] id=1458 FH=51.5ms FEM=3655.7ms valid=True
+[solver 335/346] id=1464 FH=85.6ms FEM=4398.6ms valid=True
+[solver 336/346] id=1466 FH=90.0ms FEM=4460.9ms valid=True
+[solver 337/346] id=1467 FH=59.0ms FEM=3853.8ms valid=True
+[solver 338/346] id=1469 FH=70.5ms FEM=4065.2ms valid=True
+[solver 339/346] id=1473 FH=117.5ms FEM=4778.6ms valid=True
+[solver 340/346] id=1474 FH=129.6ms FEM=4911.4ms valid=True
+[solver 341/346] id=1476 FH=124.0ms FEM=4451.5ms valid=True
+[solver 342/346] id=1477 FH=65.0ms FEM=3329.8ms valid=True
+[solver 343/346] id=1484 FH=75.5ms FEM=4565.3ms valid=True
+[solver 344/346] id=1485 FH=59.3ms FEM=3744.8ms valid=True
+[solver 345/346] id=1491 FH=101.3ms FEM=3826.5ms valid=True
+[solver 346/346] id=1496 FH=92.1ms FEM=4565.7ms valid=True
+[train] seed=42 cap=25 model=invariant_matched MALE=0.601096 macroMdRE=36.298% wall=11.7s
+[train] seed=42 cap=25 model=strict_egnn MALE=0.569831 macroMdRE=32.813% wall=12.7s
+[train] seed=42 cap=50 model=invariant_matched MALE=0.147273 macroMdRE=8.192% wall=23.9s
+[train] seed=42 cap=50 model=strict_egnn MALE=0.150345 macroMdRE=7.887% wall=25.9s
+[train] seed=42 cap=100 model=invariant_matched MALE=0.075161 macroMdRE=4.011% wall=43.7s
+[train] seed=42 cap=100 model=strict_egnn MALE=0.067285 macroMdRE=4.246% wall=51.1s
+[train] seed=42 cap=200 model=invariant_matched MALE=0.030675 macroMdRE=2.138% wall=81.1s
+[train] seed=42 cap=200 model=strict_egnn MALE=0.039112 macroMdRE=2.792% wall=101.3s
+[train] seed=42 cap=full model=invariant_matched MALE=0.030449 macroMdRE=2.270% wall=109.8s
+[train] seed=42 cap=full model=strict_egnn MALE=0.032618 macroMdRE=2.418% wall=131.8s
+[train] seed=42 cap=full model=invariant_same_width MALE=0.029168 macroMdRE=2.029% wall=105.5s
+[train] seed=43 cap=25 model=invariant_matched MALE=0.595649 macroMdRE=34.365% wall=11.4s
+[train] seed=43 cap=25 model=strict_egnn MALE=0.559359 macroMdRE=32.497% wall=14.0s
+[train] seed=43 cap=50 model=invariant_matched MALE=0.160892 macroMdRE=7.848% wall=21.9s
+[train] seed=43 cap=50 model=strict_egnn MALE=0.171778 macroMdRE=9.160% wall=26.0s
+[train] seed=43 cap=100 model=invariant_matched MALE=0.073997 macroMdRE=4.243% wall=46.5s
+[train] seed=43 cap=100 model=strict_egnn MALE=0.065155 macroMdRE=3.716% wall=54.4s
+[train] seed=43 cap=200 model=invariant_matched MALE=0.043384 macroMdRE=2.698% wall=83.9s
+[train] seed=43 cap=200 model=strict_egnn MALE=0.043114 macroMdRE=2.654% wall=120.0s
+[train] seed=43 cap=full model=invariant_matched MALE=0.027932 macroMdRE=1.970% wall=107.0s
+[train] seed=43 cap=full model=strict_egnn MALE=0.030436 macroMdRE=2.442% wall=128.9s
+[train] seed=43 cap=full model=invariant_same_width MALE=0.028337 macroMdRE=2.099% wall=99.0s
+[train] seed=44 cap=25 model=invariant_matched MALE=0.571217 macroMdRE=34.675% wall=10.9s
+[train] seed=44 cap=25 model=strict_egnn MALE=0.587090 macroMdRE=34.764% wall=12.2s
+[train] seed=44 cap=50 model=invariant_matched MALE=0.164724 macroMdRE=7.890% wall=21.5s
+[train] seed=44 cap=50 model=strict_egnn MALE=0.174063 macroMdRE=8.889% wall=26.3s
+[train] seed=44 cap=100 model=invariant_matched MALE=0.071829 macroMdRE=4.212% wall=44.0s
+[train] seed=44 cap=100 model=strict_egnn MALE=0.067974 macroMdRE=3.495% wall=52.8s
+[train] seed=44 cap=200 model=invariant_matched MALE=0.040116 macroMdRE=2.585% wall=84.8s
+[train] seed=44 cap=200 model=strict_egnn MALE=0.031654 macroMdRE=2.334% wall=97.5s
+[train] seed=44 cap=full model=invariant_matched MALE=0.029287 macroMdRE=2.091% wall=118.3s
+[train] seed=44 cap=full model=strict_egnn MALE=0.026443 macroMdRE=1.920% wall=124.9s
+[train] seed=44 cap=full model=invariant_same_width MALE=0.025502 macroMdRE=1.834% wall=101.5s
+[train] seed=45 cap=25 model=invariant_matched MALE=0.582142 macroMdRE=34.181% wall=11.8s
+[train] seed=45 cap=25 model=strict_egnn MALE=0.573312 macroMdRE=33.287% wall=13.1s
+[train] seed=45 cap=50 model=invariant_matched MALE=0.135665 macroMdRE=6.853% wall=23.9s
+[train] seed=45 cap=50 model=strict_egnn MALE=0.142430 macroMdRE=7.147% wall=37.6s
+[train] seed=45 cap=100 model=invariant_matched MALE=0.069822 macroMdRE=3.884% wall=46.3s
+[train] seed=45 cap=100 model=strict_egnn MALE=0.067594 macroMdRE=4.532% wall=53.1s
+[train] seed=45 cap=200 model=invariant_matched MALE=0.040056 macroMdRE=2.636% wall=86.6s
+[train] seed=45 cap=200 model=strict_egnn MALE=0.046721 macroMdRE=2.855% wall=97.9s
+[train] seed=45 cap=full model=invariant_matched MALE=0.023085 macroMdRE=1.798% wall=109.4s
+[train] seed=45 cap=full model=strict_egnn MALE=0.027717 macroMdRE=2.040% wall=127.5s
+[train] seed=45 cap=full model=invariant_same_width MALE=0.024596 macroMdRE=1.758% wall=101.2s
+[train] seed=46 cap=25 model=invariant_matched MALE=0.541234 macroMdRE=34.285% wall=10.7s
+[train] seed=46 cap=25 model=strict_egnn MALE=0.557354 macroMdRE=34.496% wall=13.5s
+[train] seed=46 cap=50 model=invariant_matched MALE=0.194056 macroMdRE=9.444% wall=24.2s
+[train] seed=46 cap=50 model=strict_egnn MALE=0.184125 macroMdRE=9.989% wall=29.8s
+[train] seed=46 cap=100 model=invariant_matched MALE=0.061446 macroMdRE=3.535% wall=45.0s
+[train] seed=46 cap=100 model=strict_egnn MALE=0.077965 macroMdRE=4.002% wall=58.3s
+[train] seed=46 cap=200 model=invariant_matched MALE=0.039239 macroMdRE=2.570% wall=85.4s
+[train] seed=46 cap=200 model=strict_egnn MALE=0.039555 macroMdRE=2.715% wall=101.3s
+[train] seed=46 cap=full model=invariant_matched MALE=0.025271 macroMdRE=1.961% wall=110.0s
+[train] seed=46 cap=full model=strict_egnn MALE=0.027341 macroMdRE=1.935% wall=125.2s
+[train] seed=46 cap=full model=invariant_same_width MALE=0.027518 macroMdRE=2.167% wall=94.7s
+STRICT_EGNN_ABLATION_RESULT=<repo>/results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json
+{
+  "parameter_match": {
+    "strict_hidden": 96,
+    "strict_params": 310763,
+    "matched_baseline_hidden": 102,
+    "matched_baseline_params": 307945,
+    "matched_baseline_minus_strict_pct": -0.9068003591161109,
+    "same_width_baseline_hidden": 96,
+    "same_width_baseline_params": 273127
+  },
+  "paired_analysis": {
+    "25": {
+      "definition": "strict minus matched invariant baseline in per-design mean absolute log1p error; negative favors strict EGNN",
+      "observed_baseline": 0.5782673954963684,
+      "observed_strict": 0.5693889260292053,
+      "observed_absolute_delta": -0.008878469467163086,
+      "absolute_delta_95pct_ci": [
+        -0.0324807518720627,
+        0.014745486974716195
+      ],
+      "observed_relative_delta_pct": -1.5353570919456834,
+      "relative_delta_95pct_ci": [
+        -5.444602512814422,
+        2.632962618475588
+      ],
+      "relative_delta_90pct_ci_for_equivalence": [
+        -4.911202715905808,
+        1.9579302028240324
+      ],
+      "predeclared_equivalence_margin_pct": [
+        -2.0,
+        2.0
+      ],
+      "verdict": "inconclusive",
+      "probability_relative_delta_below_zero": 0.7577,
+      "resamples": 10000,
+      "resampling_units": "seed, then design within seed"
+    },
+    "50": {
+      "definition": "strict minus matched invariant baseline in per-design mean absolute log1p error; negative favors strict EGNN",
+      "observed_baseline": 0.16052184998989105,
+      "observed_strict": 0.1645483523607254,
+      "observed_absolute_delta": 0.004026502370834351,
+      "absolute_delta_95pct_ci": [
+        -0.007292779386043526,
+        0.015096138454973693
+      ],
+      "observed_relative_delta_pct": 2.5083827348662635,
+      "relative_delta_95pct_ci": [
+        -4.266176984402616,
+        10.141544372981642
+      ],
+      "relative_delta_90pct_ci_for_equivalence": [
+        -3.1959611510525963,
+        8.881554888532573
+      ],
+      "predeclared_equivalence_margin_pct": [
+        -2.0,
+        2.0
+      ],
+      "verdict": "inconclusive",
+      "probability_relative_delta_below_zero": 0.2333,
+      "resamples": 10000,
+      "resampling_units": "seed, then design within seed"
+    },
+    "100": {
+      "definition": "strict minus matched invariant baseline in per-design mean absolute log1p error; negative favors strict EGNN",
+      "observed_baseline": 0.07045108824968338,
+      "observed_strict": 0.06919453293085098,
+      "observed_absolute_delta": -0.0012565553188323975,
+      "absolute_delta_95pct_ci": [
+        -0.009248284734785563,
+        0.008410691022872918
+      ],
+      "observed_relative_delta_pct": -1.783585392434367,
+      "relative_delta_95pct_ci": [
+        -12.559694321129706,
+        12.815121718462024
+      ],
+      "relative_delta_90pct_ci_for_equivalence": [
+        -11.126257860251831,
+        10.100898600425058
+      ],
+      "predeclared_equivalence_margin_pct": [
+        -2.0,
+        2.0
+      ],
+      "verdict": "inconclusive",
+      "probability_relative_delta_below_zero": 0.6276,
+      "resamples": 10000,
+      "resampling_units": "seed, then design within seed"
+    },
+    "200": {
+      "definition": "strict minus matched invariant baseline in per-design mean absolute log1p error; negative favors strict EGNN",
+      "observed_baseline": 0.038693927228450775,
+      "observed_strict": 0.04003142565488815,
+      "observed_absolute_delta": 0.001337498426437378,
+      "absolute_delta_95pct_ci": [
+        -0.004831817923113698,
+        0.007123120483011006
+      ],
+      "observed_relative_delta_pct": 3.456610693819534,
+      "relative_delta_95pct_ci": [
+        -11.755638294599954,
+        19.84654314010039
+      ],
+      "relative_delta_90pct_ci_for_equivalence": [
+        -9.430306206687316,
+        17.321399356168694
+      ],
+      "predeclared_equivalence_margin_pct": [
+        -2.0,
+        2.0
+      ],
+      "verdict": "inconclusive",
+      "probability_relative_delta_below_zero": 0.3198,
+      "resamples": 10000,
+      "resampling_units": "seed, then design within seed"
+    },
+    "full": {
+      "definition": "strict minus matched invariant baseline in per-design mean absolute log1p error; negative favors strict EGNN",
+      "observed_baseline": 0.027204666286706924,
+      "observed_strict": 0.02891097590327263,
+      "observed_absolute_delta": 0.0017063096165657043,
+      "absolute_delta_95pct_ci": [
+        -0.0012872788123786442,
+        0.0045084064360708
+      ],
+      "observed_relative_delta_pct": 6.272121108133064,
+      "relative_delta_95pct_ci": [
+        -4.436596358317357,
+        17.678930320212615
+      ],
+      "relative_delta_90pct_ci_for_equivalence": [
+        -2.80635962760735,
+        15.936776571098745
+      ],
+      "predeclared_equivalence_margin_pct": [
+        -2.0,
+        2.0
+      ],
+      "verdict": "inconclusive",
+      "probability_relative_delta_below_zero": 0.1233,
+      "resamples": 10000,
+      "resampling_units": "seed, then design within seed"
+    }
+  },
+  "sample_efficiency": {
+    "definition": "strict minus matched invariant normalized area under learning curve; negative favors strict",
+    "baseline_seed_values": [
+      0.1614846588299135,
+      0.16681463718620487,
+      0.1631272192347806,
+      0.15523555976379724,
+      0.16386368802482276
+    ],
+    "strict_seed_values": [
+      0.15737024332286798,
+      0.16219024241898614,
+      0.16513934776899214,
+      0.15692944855999655,
+      0.16834778312873158
+    ],
+    "observed_relative_delta_pct": -0.06769653291301544,
+    "relative_delta_95pct_ci": [
+      -1.9442064265725274,
+      1.8148814569698024
+    ],
+    "resamples": 10000
+  },
+  "verdict": {
+    "full_data_primary": "inconclusive",
+    "benchmark_specific_no_practical_gain_supported": false,
+    "benchmark_specific_practical_improvement_supported": false,
+    "universal_claim_allowed": false,
+    "inconclusive": true
+  }
+}

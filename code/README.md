@@ -54,8 +54,8 @@ top-level README).
 | `experiments_selfL.py` | Audit: analytical Grover self-L labels are 51–59 % off FastHenry | `run_selfL` |
 | `experiments_fh.py` | Establish FastHenry as the inductance ground truth | `run_fh` |
 | `experiments_t1b.py` | GNN retrained on filament labels → 2.2 % vs FastHenry | `run_t1b` |
-| `experiments_fhlabels.py` | **All three** inductances against FastHenry (2.8/3.8/2.6 %) | `run_fhlabels` |
-| `experiments_femcps.py` | `C_ps` against 3-D FEM (3.2 %, R²=0.953) | `run_femcps` |
+| `experiments_fhlabels.py` | Historical single-run FastHenry label study (2.8/3.8/2.6 %); superseded by the paired proof for current claims | `run_fhlabels` |
+| `experiments_femcps.py` | Historical single-run 3-D FEM study (3.2 %, R²=0.953); superseded by the paired proof for current claims | `run_femcps` |
 | `experiments_allfield.py` | FastCap attempt — **negative** (R² = −0.388) | `run_allfield` |
 | `fem_validate_total.py` | GNN vs independent FEM on total `C_ps` | `run_femval` |
 

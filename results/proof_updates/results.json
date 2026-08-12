@@ -1,6 +1,29 @@
 {
-  "schema": "proof-update-results-v1",
-  "scope": "Public numerical aggregate used by the independent extended manuscript and its figures.",
+  "schema": "proof-update-results-v2",
+  "scope": "Deterministic manuscript aggregate built from job-scoped proof records.",
+  "provenance": {
+    "builder": "code/quality/build_proof_updates.py",
+    "sources": [
+      {
+        "path": "results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json",
+        "sha256": "940a59358d5c6a2660bf4ca0da2c6f02862ae23c3a5066bf87f21581d0e78202",
+        "job_id": "51174495",
+        "git_head": "181dc79556989908000b9ce857ca216b87a60cf7"
+      },
+      {
+        "path": "results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json",
+        "sha256": "d4a80929e39b8135ba64e40a415a1b72f7a9ec5171a4753ffa54bb589be416a1",
+        "job_id": "51174496",
+        "git_head": "181dc79556989908000b9ce857ca216b87a60cf7"
+      },
+      {
+        "path": "results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json",
+        "sha256": "51a8922b760e9eea766ea8b8c3c4bd9d8c98b0ba04fce0243745e5da1a006b9a",
+        "job_id": "51174497",
+        "git_head": "181dc79556989908000b9ce857ca216b87a60cf7"
+      }
+    ]
+  },
   "field_accuracy_corpus": {
     "valid": 332,
     "train": 265,
@@ -12,16 +35,16 @@
       "M": 58.6
     },
     "gnn_median_error_pct": {
-      "Cps": 3.22,
-      "Lp": 2.83,
-      "Ls": 3.81,
-      "M": 2.56
+      "Cps": 2.630866,
+      "Lp": 2.446639,
+      "Ls": 3.313963,
+      "M": 1.746952
     },
     "gnn_r2": {
-      "Cps": 0.9527,
-      "Lp": 0.9954,
-      "Ls": 0.9942,
-      "M": 0.9943
+      "Cps": 0.962174,
+      "Lp": 0.993949,
+      "Ls": 0.995281,
+      "M": 0.995436
     }
   },
   "strict_e3": {
@@ -33,47 +56,80 @@
     "matched_invariant_parameters": 307945,
     "same_width_invariant_parameters": 273127,
     "symmetry_cases": 200,
-    "symmetry_tolerance": 0.00002,
-    "output_residual_max": 4.3843630237461184e-7,
-    "coordinate_residual_max": 1.4227690314783104e-7,
+    "symmetry_tolerance": 2e-05,
+    "output_residual_max": 3.919229811799596e-07,
+    "coordinate_residual_max": 1.4070887743855565e-07,
     "full_data_primary": {
-      "invariant": 0.028888359665870667,
-      "strict": 0.028886353597044945,
-      "relative_delta_pct": -0.006944211609535428,
-      "ci95_pct": [-8.980586404670785, 8.97846649384968],
-      "equivalence_ci90_pct": [-7.498637970830395, 7.608999208124571],
+      "invariant": 0.027204666286706924,
+      "strict": 0.02891097590327263,
+      "relative_delta_pct": 6.272121108133064,
+      "ci95_pct": [
+        -4.436596358317357,
+        17.678930320212615
+      ],
+      "equivalence_ci90_pct": [
+        -2.80635962760735,
+        15.936776571098745
+      ],
       "equivalence_margin_pct": 2.0
     },
     "same_width_sensitivity": {
-      "relative_delta_pct": 12.770466177279987,
-      "ci95_pct": [2.2466998061632926, 24.456669490060865]
+      "relative_delta_pct": 6.980996671219364,
+      "ci95_pct": [
+        -1.0759066501267789,
+        14.983989361343431
+      ]
     },
     "learning_curve": {
-      "n_train": [25, 50, 100, 200, 266],
-      "invariant_mean_error": [0.5803562998771667, 0.1510740965604782, 0.0669647678732872, 0.0397434, 0.028888359665870667],
-      "strict_mean_error": [0.5679733753204346, 0.167802631855011, 0.0683564618229866, 0.0374935, 0.028886353597044945],
-      "aulc_relative_delta_pct": 1.9071185241642852,
-      "aulc_ci95_pct": [-1.2331689762405291, 4.41826836888846]
+      "n_train": [
+        25,
+        50,
+        100,
+        200,
+        266
+      ],
+      "invariant_mean_error": [
+        0.5782673597335816,
+        0.16052183806896209,
+        0.07045108377933502,
+        0.03869392983615398,
+        0.027204664051532747
+      ],
+      "strict_mean_error": [
+        0.5693889141082764,
+        0.1645483434200287,
+        0.06919453144073487,
+        0.04003142789006233,
+        0.0289109792560339
+      ],
+      "aulc_relative_delta_pct": -0.06769653291301544,
+      "aulc_ci95_pct": [
+        -1.9442064265725274,
+        1.8148814569698024
+      ]
     }
   },
   "latency": {
     "paired_solver_ms": {
-      "median": 4173.162056,
-      "mean": 4267.915717,
-      "p95": 5360.082333
+      "median": 3658.997927,
+      "mean": 3749.799306,
+      "p95": 4655.700089
     },
     "gnn_ms": {
-      "precollated_batch_per_design": 0.644498,
-      "single_forward": 2.371968,
-      "raw_layout_end_to_end": 5.899826
+      "precollated_batch_per_design": 0.331327,
+      "single_forward": 2.284865,
+      "raw_layout_end_to_end": 5.617149
     },
     "paired_end_to_end_speedup": {
-      "median_x": 734.63912,
-      "ci95_x": [682.413187, 795.85965]
+      "median_x": 670.160891,
+      "ci95_x": [
+        640.779346,
+        710.369083
+      ]
     },
     "legacy_batch_throughput": {
       "historical_ms": 1.16845,
-      "reproduced_ms": 1.3336522975032494
+      "reproduced_ms": 0.6745652450081252
     }
   },
   "ranking": {

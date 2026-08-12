@@ -3,9 +3,9 @@
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics of
 an 8-layer planar-LLC PCB winding: inter-winding capacitance `C_ps`, self-inductances
 `L_p` / `L_s`, and primary-secondary mutual inductance `M`. In the audited
-batch-one protocol, raw-layout-to-prediction inference takes **5.90 ms**, versus a
-**4.173 s** paired median for the evaluated 3-D reference-solver workflow: a
-**735×** median speedup. The earlier 1.17 ms number is a legacy pre-collated
+batch-one protocol, raw-layout-to-prediction inference takes **5.62 ms**, versus a
+**3.659 s** median for the evaluated 3-D reference-solver workflow. The median of
+the paired per-design ratios is **670×**. The earlier 1.17 ms number is a legacy pre-collated
 throughput measurement, not end-to-end latency.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
@@ -39,7 +39,7 @@ The extended build regenerates its figures from
 
 ![Pipeline from PCB layout through graph construction and message passing to parasitic estimates](figures/fig1_pipeline.png)
 
-> **Notation.** `M` is the *winding* mutual inductance   a free-space, geometry-driven
+> **Notation.** `M` is the *winding* mutual inductance—a free-space, geometry-driven
 > coupling term. It is **not** the magnetizing inductance, which is set by the core
 > permeability and is a separate, roughly 37–73× larger quantity (quantified in
 > `results/run_coremfem/`). Earlier drafts of this work wrote `L_m`; that notation was
@@ -49,16 +49,16 @@ The extended build regenerates its figures from
 
 | Claim | Number | Where it comes from |
 |---|---|---|
-| `C_ps` vs 3-D electrostatic FEM | **3.2 %** median, R² = 0.953 | [`results/run_femcps/`](results/run_femcps/) |
-| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.8 / 3.8 / 2.6 %** median | [`results/run_femcps/`](results/run_femcps/) |
-| Paired solver-to-end-to-end speed | **735×** (4.173 s vs 5.90 ms) | [`results/proof_updates/`](results/proof_updates/) |
-| Legacy batched-throughput comparison | **~4,300×** (rounded 5 s / 1.17 ms) | [`results/run_v1/`](results/run_v1/) |
+| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 | [`results/proof_updates/`](results/proof_updates/) |
+| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median | [`results/proof_updates/`](results/proof_updates/) |
+| Paired solver-to-end-to-end speed | **670×** median paired ratio; component medians are 3.659 s and 5.62 ms | [`results/proof_updates/`](results/proof_updates/) |
+| Historical batched-throughput estimate | **~4,300×** (rounded 5 s / 1.17 ms) | [`results/proof_updates/`](results/proof_updates/) |
 | Family-disjoint ranking | Spearman **ρ = 0.93** | [`results/run_rank/`](results/run_rank/) |
 | Lateral-registration ranking | **ρ = 0.95** (analytical model is blind) | [`results/run_ranklat2/`](results/run_ranklat2/), [`results/run_declat/`](results/run_declat/) |
 | Cross-solver check (independent Neumann) | GNN inside the FastHenry↔Neumann gap | [`results/run_xsolver/`](results/run_xsolver/) |
 | Frequency-resolved `R_ac/R_dc(f)` | **0.37 %** median | [`results/run_t3/`](results/run_t3/) |
 
-The metrics are reported per target. In particular, `C_ps` has R² = 0.953; this
+The metrics are reported per target. In particular, `C_ps` has R² = 0.962; this
 repository does not summarize the four targets as a single "R² >= 0.98" claim.
 
 ### Why a graph, and not gradient-boosted trees
@@ -71,22 +71,21 @@ On an identical 332/67 solver-labeled split (`results/run_trees/`):
 | XGBoost | 0.927 (3.8) | 0.878 | 0.908 | 0.914 |  | 0.231 |
 | LightGBM | 0.942 (**2.9**) | 0.893 | 0.890 | 0.918 | 0.088 | 0.247 |
 | CatBoost | 0.892 (4.7) | 0.896 | 0.893 | 0.920 | — | 0.324 |
-| **GNN** | **0.953** (3.2) | **0.995** | **0.994** | **0.994** | **0.93** | **0.943** |
+| **GNN** | **0.962** (2.63) | **0.994** | **0.995** | **0.995** | **0.93** | **0.943** |
 
-Trees are level with the GNN on the scalar capacitance, and the two metrics disagree
-there: the GNN wins on R² (0.953 vs 0.942) while LightGBM wins on median relative
-error (2.9 % vs 3.2 %). That is not a contradiction R² is a squared-error measure
-dominated by the largest-`C_ps` layouts, the median is scale-free and outlier-robust
-so LightGBM is slightly better on a *typical* layout while the GNN controls the tail.
+Trees are level with the GNN on the scalar capacitance, and the two metrics remain
+close there: the GNN reaches R² = 0.962 and 2.63 % median relative error, versus
+LightGBM at 0.942 and 2.9 %. R² is a squared-error measure dominated by the
+largest-`C_ps` layouts, whereas the median is scale-free and outlier-robust.
 The graph earns its place on everything **relational**: the inductances, the
 within-family ordering, and transfer to board sizes never trained on.
 
 ### Negative results and corrected findings
 
 - A controlled **strict encoded-graph `E(3)`** ablation does not resolve an accuracy
-  advantage: the parameter-matched effect is -0.007%, with a 95% interval of
-  [-8.98%, +8.98%]. A same-width comparison favors the invariant model by 12.77%,
-  but also changes parameter count. These results support neither categorical
+  advantage: strict error is 6.27% higher in the parameter-matched comparison,
+  with a 95% interval of [-4.44%, +17.68%]. A same-width sensitivity arm is also
+  inconclusive (+6.98%, 95% interval [-1.08%, +14.98%]). These results support neither categorical
   superiority nor practical equivalence. The strict claim applies after graph
   construction; the axis-aligned layout-to-graph builder is outside that boundary.
 - The **dense** all-pairs graph is **slower** than the analytical baseline at the
@@ -257,9 +256,28 @@ record therefore captures the node, dependency versions, and timing distribution
 
 ### Provenance
 
-`logs/` holds the available SLURM stdout/stderr, including documented failed runs.
-Proof outputs additionally record the source commit, code/data/binary hashes,
-arguments, dependency versions, split, per-design values, and timing protocol.
+Every updated manuscript number resolves to one completed compute job and its raw
+artifacts:
+
+| Protocol | Job record | Raw supporting records | Frozen source and submit wrapper |
+|---|---|---|---|
+| Paired solvers, four-target accuracy, and end-to-end latency | [`job_51174495/results_claim_proof.json`](results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json) | [`raw_solver_timings.jsonl`](results/proof_updates/jobs/claim_proof/job_51174495/raw_solver_timings.jsonl) | [`experiments_claim_proof.py`](code/experiments/proofs/experiments_claim_proof.py), [`submit_claim_proof.sh`](code/jobs/submit_claim_proof.sh) |
+| Strict encoded-graph `E(3)` and five-seed ablation | [`job_51174496/results_strict_egnn_ablation.json`](results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json) | [`field_grade_targets.jsonl`](results/proof_updates/jobs/strict_e3/job_51174496/field_grade_targets.jsonl); per-seed predictions and bootstrap draws are embedded in the result | [`experiments_strict_egnn_ablation.py`](code/experiments/proofs/experiments_strict_egnn_ablation.py), [`submit_strict_egnn_ablation.sh`](code/jobs/submit_strict_egnn_ablation.sh) |
+| Historical pre-collated latency protocol | [`job_51174497/results_legacy_latency_reproduction.json`](results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json) | repetition-level timings are embedded in the result | [`experiments_reproduce_legacy_latency.py`](code/experiments/proofs/experiments_reproduce_legacy_latency.py), [`submit_reproduce_legacy_latency.sh`](code/jobs/submit_reproduce_legacy_latency.sh) |
+
+The job records capture the clean source commit, code/data/binary hashes, arguments,
+dependency versions, split, per-design values, timing protocol, and compute
+environment. Selected stdout/stderr transcripts are retained in [`logs/`](logs/).
+The manuscript aggregate is regenerated and verified from the three final records:
+
+```bash
+python3 code/quality/build_proof_updates.py \
+  --claim results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json \
+  --strict results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json \
+  --legacy results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json \
+  --output results/proof_updates/results.json
+```
+
 `MANIFEST.json` carries a SHA-256 for every tracked file except itself and can be
 verified with:
 

@@ -1,0 +1,48 @@
+LEGACY_LATENCY_REPRODUCTION=<repo>/results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json
+{
+  "reproduction": {
+    "legacy_batch_total_ms": {
+      "n": 20,
+      "mean": 276.5045698499307,
+      "median": 269.8260980032501,
+      "p05": 267.41782914396026,
+      "p95": 278.2088138512337,
+      "min": 267.2291810013121,
+      "max": 413.2363009994151
+    },
+    "legacy_ms_per_design": {
+      "n": 20,
+      "mean": 0.6912614246248268,
+      "median": 0.6745652450081252,
+      "p05": 0.6685445728599007,
+      "p95": 0.6955220346280842,
+      "min": 0.6680729525032802,
+      "max": 1.0330907524985378
+    },
+    "extended_batch_total_ms": {
+      "n": 100,
+      "mean": 274.47555743085104,
+      "median": 269.66001099935966,
+      "p05": 267.5454449105018,
+      "p95": 279.33175539947115,
+      "min": 266.99695200659335,
+      "max": 407.478352994076
+    },
+    "extended_ms_per_design": {
+      "n": 100,
+      "mean": 0.6861888935771276,
+      "median": 0.6741500274983991,
+      "p05": 0.6688636122762546,
+      "p95": 0.6983293884986779,
+      "min": 0.6674923800164834,
+      "max": 1.01869588248519
+    },
+    "median_ratio_reproduced_to_historical": 0.5773163122154351,
+    "relative_difference_pct": -42.268368778456484
+  },
+  "verdict": {
+    "protocol_reproduced": true,
+    "exact_numeric_equality_expected_across_hardware": false,
+    "note": "Latency is hardware/thread/runtime dependent; compare protocol and report hardware."
+  }
+}
