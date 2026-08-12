@@ -1,0 +1,19 @@
+# Intermediate LaTeX files
+main.aux
+main.bbl
+main.blg
+main.log
+main.out
+main.pdf
+
+# Local matplotlib cache
+.mplconfig/
+
+# Visual-inspection artifacts; keep the release PDF only
+build/Paper_Full.txt
+build/page-*.png
+build/figure-hashes.*
+build/*.log
+
+# Python bytecode
+tools/__pycache__/
