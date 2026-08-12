@@ -376,8 +376,8 @@
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
-      "bytes": 1331,
-      "sha256": "be7c1cf528dae29b6e74b63e415508418dfa21b5320cafa60c8ef90db9759ca5"
+      "bytes": 1333,
+      "sha256": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d"
     },
     {
       "path": "code/jobs/submit_allfield.sh",
@@ -1121,5 +1121,5 @@
     }
   ],
   "n_files": 221,
-  "total_bytes": 3205907
+  "total_bytes": 3205909
 }

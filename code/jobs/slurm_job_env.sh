@@ -1,5 +1,5 @@
 #!/bin/bash
-"${BASH_VERSION:?slurm_job_env.sh requires bash}"
+: "${BASH_VERSION:?slurm_job_env.sh requires bash}"
 
 # Resolve from the helper itself, not from the batch script: Slurm may execute a
 # spool copy of the submitted script, while this sourced helper remains in the
