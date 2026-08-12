@@ -68,7 +68,7 @@ We distinguish strict symmetry from predictive benefit. A corrected coordinate-u
 \noindent\textbf{Index Terms:} Graph neural network, parasitic extraction, planar magnetics, partial-element equivalent circuit, finite element method, layout optimization, equivariance.
 
 \section{Introduction}
-Planar transformers and inductors replace wound wire with copper foils patterned across a printed-circuit stack. Their low profile and repeatable geometry suit high-density GaN and SiC converters, but the same construction couples the windings over broad overlapping areas. Inter-winding capacitance drives common-mode current, while self and mutual inductance shape leakage, ringing, and energy transfer. At high switching slew rates, moving one foil or changing one layer can alter the electromagnetic behavior enough to change the preferred layout~\cite{ouyang,hurley,ott}.
+Planar transformers and inductors replace wound wire with copper foils patterned across a printed-circuit stack. Their low profile and repeatable geometry suit high-density GaN and SiC converters, but the same construction couples the windings over broad overlapping areas~\cite{ouyang,hurley,mclyman,erickson}. Inter-winding capacitance drives common-mode current, while self and mutual inductance shape leakage, ringing, and energy transfer. At high switching slew rates, moving one foil or changing one layer can alter the electromagnetic behavior enough to change the preferred layout~\cite{ott,paul}.
 
 The practical tension is familiar. Closed-form strip and parallel-plate models return an answer almost immediately. They are useful for hand calculation and early sizing, but their compactness comes from assumptions about current distribution, fringing, and overlap. Three-dimensional solvers resolve more of the geometry, at a cost that makes an exhaustive inner-loop search unattractive. A learned surrogate can occupy the gap only if its labels reflect the field solution. Matching a cheap approximation more accurately does not repair the approximation.
 
@@ -96,12 +96,12 @@ Figure~\ref{fig:pipeline} summarizes the scope. The predicted vector is $[\Cps,\
 
 \section{Related Work}
 \subsection{Parasitic Extraction for Planar Windings}
-The partial-element equivalent-circuit (PEEC) method converts electromagnetic interactions into circuit quantities~\cite{ruehli}. Closed-form inductance expressions such as Grover's formulas remain useful for rapid estimates~\cite{grover}, while FastHenry assembles and accelerates a three-dimensional partial-inductance solve~\cite{fasthenry}. For capacitance, FastCap introduced multipole-accelerated boundary-element extraction~\cite{fastcap}; finite-element formulations offer an alternative when thin gaps or panel conditioning make a surface discretization difficult. Winding-resistance models trace back to Dowell and related treatments of skin and proximity effect~\cite{dowell,kazimierczuk}.
+The partial-element equivalent-circuit (PEEC) method converts electromagnetic interactions into circuit quantities~\cite{ruehli}. Closed-form inductance expressions such as Grover's formulas remain useful for rapid estimates~\cite{grover}, while FastHenry assembles and accelerates a three-dimensional partial-inductance solve~\cite{fasthenry}. For capacitance, FastCap introduced multipole-accelerated boundary-element extraction~\cite{fastcap}; finite-element formulations offer an alternative when thin gaps or panel conditioning make a surface discretization difficult. Open numerical tools used in such workflows include scikit-fem and Gmsh~\cite{skfem,gmsh}. Winding-resistance models trace back to Dowell and related treatments of skin, proximity, and fringing fields~\cite{dowell,roshen,kazimierczuk}.
 
 We do not propose a new field solver. The model approximates solver outputs over a constrained family of multilayer foil geometries. Numerical fidelity of the references and generalization of the surrogate are separate questions.
 
 \subsection{Graph Learning for Physical and EDA Problems}
-Message-passing networks represent a system as entities connected by learned interactions~\cite{gilmer,battaglia}. They have been used to learn physical dynamics~\cite{sanchez,pfaff}, IC placement and sizing~\cite{mirhoseini,gcnrl}, net-length estimation~\cite{net2}, and layout-dependent parasitics~\cite{paragraph,circuitgnn}. Graphs are attractive here because conductor count varies and the targets accumulate pair interactions.
+Message-passing networks represent a system as entities connected by learned interactions~\cite{gilmer,battaglia}. Graph convolution and graph-isomorphism models provide related neighborhood-aggregation constructions~\cite{kipf,gin}. Graph networks have been used to learn physical dynamics~\cite{sanchez,pfaff}, while neural operators provide a complementary route for learning mappings between discretized physical fields~\cite{fno,deeponet}. Applications in electronic-design automation include placement and sizing~\cite{mirhoseini,gcnrl}, net-length estimation~\cite{net2}, and layout-dependent parasitics~\cite{huang_survey,paragraph,circuitgnn}. Graphs are attractive here because conductor count varies and the targets accumulate pair interactions.
 
 Rigid-motion-aware networks place a stronger constraint on those interactions. In an EGNN, scalar messages depend on invariant quantities such as squared distance, and coordinate updates are scalar-weighted relative vectors~\cite{egnn}. The construction is exact only if every learned message input respects the assumed group action. Raw Cartesian components passed to an unconstrained scalar MLP break that premise. We therefore test strict symmetry in the implementation rather than infer it from the architecture's name.
 
@@ -149,7 +149,7 @@ FastHenry discretizes each conductor cross-section and solves for the three-dime
 An independent reference evaluates the Neumann double integral using a $5\times2$ filament subdivision. It shares neither the FastHenry executable nor its linear-system implementation. Across 70 held-out layouts, the GNN versus Neumann median errors are 6.61, 4.96, and 2.03\% for $\Lp$, $\Ls$, and $\Mut$; FastHenry versus Neumann gives 4.95, 4.78, and 2.07\%. The learned $\Mut$ therefore lies within the inter-solver discrepancy, while $\Lp$ retains a modest additional model error.
 
 \subsection{Capacitance Reference}
-The electrostatic reference solves
+The electrostatic reference, implemented with scikit-fem on tetrahedral meshes generated by Gmsh~\cite{skfem,gmsh}, solves
 \begin{equation}
 \nabla\!\cdot\!\left(\epsilon\nabla\phi\right)=0
 \end{equation}
@@ -217,7 +217,7 @@ where $z_{ab}\in\{-1,1\}$ encodes the solver ordering. Families, rather than ind
 
 \section{Experimental Protocol}
 \subsection{Training and Metrics}
-All networks use AdamW, learning rate $2\times10^{-3}$ with cosine decay, weight decay $10^{-5}$, batch size 32, gradient-norm clipping at 5, and SmoothL1 loss on standardized signed-$\log(1+|y|)$ targets. Scalar feature and target moments are estimated from training data only. Coordinates are divided by one isotropic training-derived scale; separate axis scales would destroy exact rotational symmetry.
+All networks are implemented in PyTorch~\cite{pytorch} and trained with AdamW~\cite{adamw}, learning rate $2\times10^{-3}$ with cosine decay, weight decay $10^{-5}$, batch size 32, gradient-norm clipping at 5, and SmoothL1 loss on standardized signed-$\log(1+|y|)$ targets. Scalar feature and target moments are estimated from training data only. Coordinates are divided by one isotropic training-derived scale; separate axis scales would destroy exact rotational symmetry.
 
 The primary EGNN metric is a per-design macro error,
 \begin{equation}
@@ -488,7 +488,9 @@ The paired solver median is 3.659\,s, while its mean is 3.750\,s and 95th percen
 
 The primary $670.2\times$ result is therefore the median of paired per-design solver/end-to-end ratios. Its 95\% interval $[640.8,710.4]\times$ resamples designs. The pre-collated throughput is reported separately and applies only when graph preparation is outside the timed loop or amortized over a candidate bank. Hardware, thread count, warm-up, batch size, repeat count, and timer boundary remain necessary context when comparing latency with another system.
 
-\bibliographystyle{unsrt}
+{\fontsize{8}{9.5}\selectfont
+\bibliographystyle{ieeetr}
 \bibliography{references}
+}
 
 \end{document}
