@@ -11,7 +11,7 @@ genuinely different C_ps). Evaluation is FAMILY-DISJOINT (train families vs unse
 test families). Compares the ranking model to the regression baseline (rho~0.27).
 SLURM only (HARD RULE).
 """
-import json, platform, time, copy, subprocess, os, tempfile
+import json, platform, time, copy, subprocess, os, sys, tempfile
 from pathlib import Path
 import numpy as np
 import torch, torch.nn as nn
@@ -21,6 +21,7 @@ from gnn_baseline import PCBParasiticGNN, collate
 from pipeline import load_dataset
 from planar_to_graph import build_graph_from_planar_layout
 from experiments_v5 import Norm, mk
+from runtime_paths import fem_cps_worker_path
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -29,9 +30,9 @@ def safe_fem_cps(layout, refine=0, timeout=90):
     fd, p = tempfile.mkstemp(suffix=".json"); os.close(fd)
     try:
         json.dump(layout, open(p, "w"))
-        r = subprocess.run(["/usr/bin/python3", "fem_cps_worker.py", p, str(refine)],
+        r = subprocess.run([sys.executable, str(fem_cps_worker_path()), p, str(refine)],
                            capture_output=True, text=True, timeout=timeout,
-                           env={**os.environ, "PYTHONPATH": "."})
+                           env=os.environ.copy())
         for line in r.stdout.splitlines():
             if line.startswith("CPS="):
                 return float(line[4:])

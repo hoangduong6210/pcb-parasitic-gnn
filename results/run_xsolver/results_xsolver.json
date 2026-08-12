@@ -1,6 +1,6 @@
 {
   "note": "Q3 xsolver: GNN trained on FastHenry L (field-grade femcps setup) vs independent Neumann multi-filament; also FastHenry vs Neumann gap on held-out 20%",
-  "host": "a0287.ten.osc.edu",
+  "host": "compute-node",
   "n_samples": 346,
   "n_test": 70,
   "nw_nt_filament": [

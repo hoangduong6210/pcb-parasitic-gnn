@@ -36,6 +36,15 @@ from gnn_baseline import PCBParasiticGNN, collate, count_params
 TARGETS = ["Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH"]
 
 
+def fit_target_stats(samples, indices):
+    """Fit signed-log target statistics using training samples only."""
+    if len(indices) == 0:
+        raise ValueError("training indices must contain at least one sample")
+    targets = np.stack([samples[index]["y"] for index in indices])
+    logged = np.sign(targets) * np.log1p(np.abs(targets))
+    return logged.mean(0), logged.std(0) + 1e-8
+
+
 def load_dataset(data_dir: Path):
     layouts = []
     with open(data_dir / "layouts.jsonl") as f:
@@ -113,11 +122,14 @@ def main():
     n = len(samples)
     print(f"[load] {n} samples, device={device}")
 
-    # --- target standardization (log1p for the heavy-tailed extensive sums) ---
-    Y = np.stack([s["y"] for s in samples])                  # [n, 4], physical units
-    Ylog = np.sign(Y) * np.log1p(np.abs(Y))
-    y_mean = Ylog.mean(0)
-    y_std = Ylog.std(0) + 1e-8
+    # --- split before fitting any preprocessing statistics -------------------
+    idx = np.arange(n)
+    rng.shuffle(idx)
+    n_test = max(1, int(0.2 * n))
+    test_idx, train_idx = idx[:n_test], idx[n_test:]
+
+    # --- target standardization (fit on train only; no holdout leakage) -------
+    y_mean, y_std = fit_target_stats(samples, train_idx)
 
     def to_norm(y_phys):
         yl = np.sign(y_phys) * np.log1p(np.abs(y_phys))
@@ -130,12 +142,7 @@ def main():
     for s in samples:
         s["y"] = to_norm(s["y"]).astype(np.float32)
 
-    # --- split, then node/edge feature standardization (fit on train only) ---
-    idx = np.arange(n)
-    rng.shuffle(idx)
-    n_test = max(1, int(0.2 * n))
-    test_idx, train_idx = idx[:n_test], idx[n_test:]
-
+    # --- node/edge feature standardization (fit on train only) ----------------
     nf_all = np.concatenate([samples[j]["node_feat"] for j in train_idx], 0)
     nf_mean = nf_all.mean(0)
     nf_std = nf_all.std(0) + 1e-6

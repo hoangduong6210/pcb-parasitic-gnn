@@ -5,7 +5,7 @@
   "Ae_mm2": 138.9,
   "le_mm": 84.0,
   "mu_i": 3599,
-  "host": "a0179.ten.osc.edu",
+  "host": "compute-node",
   "fem_vs_analytical_median_pct": 5.69,
   "rows": [
     {

@@ -1,6 +1,6 @@
 {
   "note": "Derived parasitics: coupling k and primary-referred leakage L_leak = L_p(1-k^2), from the SAME field-grade model/corpus/split as run_femcps. Tests whether the raw air-core triple composes into a usable parasitic.",
-  "host": "a0124.ten.osc.edu",
+  "host": "compute-node",
   "n_samples": 332,
   "n_test": 67,
   "seed": 42,

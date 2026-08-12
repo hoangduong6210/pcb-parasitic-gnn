@@ -1,5 +1,5 @@
 === Q2: core-inclusive magnetostatic FEM (planar-LLC + EER40 AL anchor) ===
-a0101.ten.osc.edu
+compute-node
 Thu Jul  2 12:56:59 PM EDT 2026
 PYTHONPATH=code:../../magai
 === pre-flight smoke (<10s, login OK): import only, no heavy solve ===
@@ -30,7 +30,7 @@ fasthenry_ref OK
   "air_gap_mm": 0.05,
   "n_layouts": 3,
   "EER40_AL_fem_vs_ana_median_pct": 3.79,
-  "host": "a0101.ten.osc.edu",
+  "host": "compute-node",
   "elapsed_s": 18.0
 }
 => wrote results/run_coremfem/results_coremfem.json

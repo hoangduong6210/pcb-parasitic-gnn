@@ -2,15 +2,18 @@
 #SBATCH -J job-leakage
 # #SBATCH -A <your-slurm-account>   # set via: sbatch -A <acct> ...
 #SBATCH -p nextgen
-#SBATCH -N1 -n8 --mem=32G -t 03:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=32G
+#SBATCH --time=03:00:00
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
-# --- portability shim added by build_release.py ---------------------------
-# REPO_ROOT defaults to this script's parent repo; override to relocate.
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-# Set SLURM_ACCOUNT for your own allocation before submitting:
-#   sbatch -A <your-account> <script>.sh
-# --------------------------------------------------------------------------
+# Resolve the submitted checkout, not Slurm's spool copy of this script.
+JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:-$PWD}/code/jobs/slurm_job_env.sh}"
+[[ -f "$JOB_ENV" ]] || JOB_ENV="${SLURM_SUBMIT_DIR:-$PWD}/slurm_job_env.sh"
+source "$JOB_ENV"
+REPO_ROOT="$PCB_GNN_ROOT"  # compatibility for the released legacy job bodies
 
 set -euo pipefail
 echo "=== derived leakage + coupling k from the field-grade model ==="; hostname; date
@@ -23,7 +26,7 @@ source "${REPO_ROOT}/code/env.sh"   # composite PYTHONPATH
 export OMP_NUM_THREADS=4
 
 # FULL field-grade (FEM+FH solves) — heavy, allowed only here on nextgen
-/usr/bin/python3 -u experiments/derived/experiments_leakage.py --out ../results/run_leakage
+"$PCB_GNN_PYTHON" -u experiments/derived/experiments_leakage.py --out ../results/run_leakage
 
 echo DONE; date
 ls -l ../results/run_leakage/results_leakage.json || true

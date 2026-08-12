@@ -19,7 +19,9 @@ from pathlib import Path
 
 import numpy as np
 
-FASTHENRY = str(Path(__file__).resolve().parent / "tools" / "fasthenry")
+FASTHENRY = os.environ.get(
+    "FASTHENRY_BIN", str(Path(__file__).resolve().parent / "tools" / "fasthenry")
+)
 
 
 def layout_to_inp(layout, freqs_hz=(1e5,), nhinc=1, nwinc=1):

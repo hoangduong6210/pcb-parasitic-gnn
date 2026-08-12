@@ -2,16 +2,19 @@
 #SBATCH -J job-pcb-gnn-v1
 # #SBATCH -A <your-slurm-account>   # set via: sbatch -A <acct> ...
 #SBATCH -p debug-nextgen
-#SBATCH -N1 -n8 --mem=16G -t 00:55:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
+#SBATCH --time=00:55:00
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
 
-# --- portability shim added by build_release.py ---------------------------
-# REPO_ROOT defaults to this script's parent repo; override to relocate.
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-# Set SLURM_ACCOUNT for your own allocation before submitting:
-#   sbatch -A <your-account> <script>.sh
-# --------------------------------------------------------------------------
+# Resolve the submitted checkout, not Slurm's spool copy of this script.
+JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:-$PWD}/code/jobs/slurm_job_env.sh}"
+[[ -f "$JOB_ENV" ]] || JOB_ENV="${SLURM_SUBMIT_DIR:-$PWD}/slurm_job_env.sh"
+source "$JOB_ENV"
+REPO_ROOT="$PCB_GNN_ROOT"  # compatibility for the released legacy job bodies
 
 # HARD RULE compliance (2026-06-17 directive): the real GNN training pipeline
 # for this project runs on a compute node, NEVER on the login node.
@@ -26,7 +29,7 @@ echo "Start:     $(date)"
 
 cd ${REPO_ROOT}/code
 source "${REPO_ROOT}/code/env.sh"   # composite PYTHONPATH
-PY=/usr/bin/python3
+PY="$PCB_GNN_PYTHON"
 
 echo "=== Pre-flight: torch + tiny forward/backward smoke (fail fast before heavy work) ==="
 $PY - <<'PYEOF'

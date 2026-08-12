@@ -1,0 +1,9 @@
+# Environment recorded by the field-solver proof protocol. Exact source/data
+# hashes remain authoritative; floating-point reruns are compared with the
+# tolerances documented in the result schema.
+numpy==2.0.2
+scipy==1.13.1
+torch==2.8.0
+scikit-fem==11.0.0
+gmsh==4.15.2
+meshio==5.3.5

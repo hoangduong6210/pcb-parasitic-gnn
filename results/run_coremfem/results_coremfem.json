@@ -9,7 +9,7 @@
   "air_gap_mm": 0.05,
   "n_layouts": 3,
   "EER40_AL_fem_vs_ana_median_pct": 3.79,
-  "host": "a0101.ten.osc.edu",
+  "host": "compute-node",
   "elapsed_s": 18.0,
   "rows": [
     {

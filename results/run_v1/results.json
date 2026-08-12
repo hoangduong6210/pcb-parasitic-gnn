@@ -46,5 +46,5 @@
   "epochs": 300,
   "device": "cpu",
   "torch_version": "2.8.0+cu128",
-  "hostname": "a0199.ten.osc.edu"
+  "hostname": "compute-node"
 }

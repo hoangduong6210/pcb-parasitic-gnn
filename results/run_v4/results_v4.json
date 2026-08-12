@@ -1,6 +1,6 @@
 {
   "meta": {
-    "host": "a0127.ten.osc.edu",
+    "host": "compute-node",
     "torch": "2.8.0+cu128",
     "n_samples": 2000
   },

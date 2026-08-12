@@ -14,16 +14,16 @@ from gnn_baseline import PCBParasiticGNN, collate
 from pipeline import load_dataset, TARGETS
 from planar_to_graph import build_graph_from_planar_layout, compute_reference_labels_allpairs
 from fasthenry_ref import fasthenry_totals
-import subprocess, tempfile, os, json as _json
+import subprocess, tempfile, os, sys, json as _json
+from runtime_paths import fem_cps_worker_path
 def safe_fem_cps(layout, refine=1, timeout=90):
     """Run FEM-3D Cps in an isolated subprocess (survives gmsh segfaults)."""
     fd, p = tempfile.mkstemp(suffix='.json'); os.close(fd)
     try:
         _json.dump(layout, open(p, 'w'))
-        _here = str(Path(__file__).resolve().parent)
-        r = subprocess.run(['/usr/bin/python3', str(Path(_here) / 'fem_cps_worker.py'), p, str(refine)],
+        r = subprocess.run([sys.executable, str(fem_cps_worker_path()), p, str(refine)],
                            capture_output=True, text=True, timeout=timeout,
-                           cwd=_here, env={**os.environ, 'PYTHONPATH': _here})
+                           env=os.environ.copy())
         for line in r.stdout.splitlines():
             if line.startswith('CPS='):
                 return float(line[4:])

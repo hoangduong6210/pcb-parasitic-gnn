@@ -1,4 +1,4 @@
-name: ci
+name: reproducibility-contracts
 
 on:
   push:
@@ -8,19 +8,36 @@ permissions:
   contents: read
 
 jobs:
-  smoke-test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+  lightweight-contracts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONHASHSEED: "0"
+      PYTHONDONTWRITEBYTECODE: "1"
+      OMP_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-      - name: Install minimal CPU dependencies
+          cache-dependency-path: requirements-ci.txt
+      - name: Install pinned CPU test dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy
-          pip install torch --index-url https://download.pytorch.org/whl/cpu
-      - name: Run smoke tests
-        run: python -m unittest discover -s tests -v
+          python -m pip install numpy==2.0.2 scipy==1.13.1 pytest==8.3.5
+          python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Compile and check shell syntax
+        run: |
+          python -m compileall -q code tests
+          for job in code/jobs/*.sh; do bash -n "$job"; done
+      - name: Run no-solver contract tests
+        run: python -m pytest -q -p no:cacheprovider tests
+      - name: Verify included immutable corpus manifests
+        run: python code/quality/verify_corpora.py
+      - name: Validate SLURM-only CLIs without computation
+        run: |
+          source code/env.sh
+          python code/experiments/proofs/experiments_claim_proof.py --validate-only
+          python code/experiments/proofs/experiments_reproduce_legacy_latency.py --validate-only
+          python code/experiments/proofs/experiments_strict_egnn_ablation.py --validate-only

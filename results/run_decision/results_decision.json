@@ -1,6 +1,6 @@
 {
   "note": "decision-consequence: which screener picks the best interleaving",
-  "host": "a0156.ten.osc.edu",
+  "host": "compute-node",
   "n_families": 120,
   "n_test_families": 36,
   "peec_mean_regret_pct": 4.0,

@@ -71,6 +71,14 @@ top-level README).
 |---|---|---|
 | `experiments_t2.py` | Legacy one-seed EGNN-style comparison; retained as historical evidence, not as the controlled strict-`E(3)` proof | `run_t2` |
 
+### `proofs/`
+
+| File | Claim | Result |
+|---|---|---|
+| `experiments_claim_proof.py` | Paired 3-D solver and end-to-end batch-one latency on the same layouts/node | `proof_updates/jobs/claim_proof` |
+| `experiments_strict_egnn_ablation.py` | Five-seed strict encoded-graph `E(3)` ablation, symmetry residuals, and hierarchical bootstrap | `proof_updates/jobs/strict_e3` |
+| `experiments_reproduce_legacy_latency.py` | Reproduction of the historical pre-collated batch-forward protocol | `proof_updates/jobs/legacy_latency` |
+
 ### `ranking/`
 
 | File | Claim | Result |
@@ -89,7 +97,7 @@ top-level README).
 | `experiments_pfc.py` | Solver anchored to a **real** EER40 GP95 core (datasheet `A_L` ~5 %) | `run_pfc` |
 | `experiments_coremfem.py` | Core-inclusive FEM: magnetizing L is 37–73× the winding `M` | `run_coremfem` |
 | `experiments_xsolver.py` | Cross-solver check vs the independent Neumann integral | `run_xsolver` |
-| `experiments_v2/v3/v4.py` | Multi-part validation and ablation bundles (seeds, ablations, sweeps) | `run_v2`…`run_v4` |
+| `experiments_v2/v3/v4.py` | Multi-seed validation, ablations, and architecture sweeps | `run_v2`…`run_v4` |
 
 ## `figures/`, `quality/`, `jobs/`
 
@@ -98,6 +106,8 @@ top-level README).
 | `make_figures.py` | Regenerates the historical release figures from released result JSONs |
 | `make_paper_full_figures.py` | Regenerates the extended manuscript figures from `results/proof_updates/results.json` and released run outputs |
 | `dump_predictions.py` | Reloads a checkpoint and dumps per-sample test predictions |
-| `quality/paper_style_audit.py` | Deterministic content/style gate used by `Paper_Full/build.sh`; writes its internal report under the ignored `.internal/` tree |
 | `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
-| `jobs/submit_*.sh` | 27 SLURM scripts, one per experiment. No account code — pass `sbatch -A <your-account> …` |
+| `quality/verify_corpora.py` | Verifies SHA-256 identities for the v1/v2 claim corpora; optionally requires the large layout files |
+| `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
+| `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |
+| `jobs/slurm_job_env.sh` | Shared root, Python, and `PYTHONPATH` resolver for portable batch execution |

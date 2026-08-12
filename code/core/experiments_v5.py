@@ -31,7 +31,9 @@ LM = TARGETS.index("L_mut_nH")
 class Norm:
     """Holds all standardization stats fit on a fixed training split."""
     def __init__(self, samples, train_idx):
-        Y = np.stack([s["y"] for s in samples]); Yl = np.sign(Y)*np.log1p(np.abs(Y))
+        if len(train_idx) == 0:
+            raise ValueError("train_idx must contain at least one sample")
+        Y = np.stack([samples[j]["y"] for j in train_idx]); Yl = np.sign(Y)*np.log1p(np.abs(Y))
         self.ym, self.ys = Yl.mean(0), Yl.std(0)+1e-8
         nf = np.concatenate([samples[j]["node_feat"] for j in train_idx], 0)
         self.nfm, self.nfs = nf.mean(0), nf.std(0)+1e-6

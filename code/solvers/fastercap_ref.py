@@ -9,11 +9,13 @@ FasterCap warns / returns a non-diagonally-dominant matrix otherwise. C_ps =
 |C_12| (off-diagonal of the Maxwell matrix). Headless via xvfb-run.
 """
 from __future__ import annotations
-import re, subprocess, tempfile
+import os, re, subprocess, tempfile
 from pathlib import Path
 import numpy as np
 
-FASTERCAP = str(Path(__file__).resolve().parent / "tools" / "fastercap")
+FASTERCAP = os.environ.get(
+    "FASTERCAP_BIN", str(Path(__file__).resolve().parent / "tools" / "fastercap")
+)
 M = 1e-3   # mm -> m (FasterCap outputs Farads when coords are in metres)
 
 

@@ -2,23 +2,26 @@
 #SBATCH -J job-scaling
 # #SBATCH -A <your-slurm-account>   # set via: sbatch -A <acct> ...
 #SBATCH -p debug-nextgen
-#SBATCH -N1 -n8 --mem=16G -t 00:30:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
+#SBATCH --time=00:30:00
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
 
-# --- portability shim added by build_release.py ---------------------------
-# REPO_ROOT defaults to this script's parent repo; override to relocate.
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-# Set SLURM_ACCOUNT for your own allocation before submitting:
-#   sbatch -A <your-account> <script>.sh
-# --------------------------------------------------------------------------
+# Resolve the submitted checkout, not Slurm's spool copy of this script.
+JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:-$PWD}/code/jobs/slurm_job_env.sh}"
+[[ -f "$JOB_ENV" ]] || JOB_ENV="${SLURM_SUBMIT_DIR:-$PWD}/slurm_job_env.sh"
+source "$JOB_ENV"
+REPO_ROOT="$PCB_GNN_ROOT"  # compatibility for the released legacy job bodies
 
 # HARD RULE compliance: scaling/timing study runs on a compute node, not login.
 set -euo pipefail
 echo "=== this project scaling experiment ==="; echo "Host: $(hostname)"; date
 cd ${REPO_ROOT}/code
 source "${REPO_ROOT}/code/env.sh"   # composite PYTHONPATH
-/usr/bin/python3 - <<'PYEOF'
+"$PCB_GNN_PYTHON" - <<'PYEOF'
 # fast pre-flight: knn_sparsify + one forward, fail before the sweep
 import numpy as np, torch
 from scaling_experiment import knn_sparsify
@@ -29,6 +32,6 @@ b=collate([{"node_feat":nf,"edge_feat":ef,"edge_index":ei,"edge_dim":7,"y":np.ze
 with torch.no_grad(): out=PCBParasiticGNN()(b)
 assert out.shape==(1,4); print("scaling smoke OK", tuple(out.shape), "knn_edges", ei.shape[1])
 PYEOF
-/usr/bin/python3 experiments/scaling/scaling_experiment.py --out ../results/scaling_v1 \
+"$PCB_GNN_PYTHON" experiments/scaling/scaling_experiment.py --out ../results/scaling_v1 \
     --ckpt ../results/run_v1/gnn_checkpoint.pt
 echo "=== DONE ==="; date

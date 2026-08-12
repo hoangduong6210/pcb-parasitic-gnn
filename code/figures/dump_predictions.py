@@ -31,7 +31,7 @@ def main():
     layouts = [json.loads(l) for l in open(data_dir / "layouts.jsonl")]
     labels = {d["id"]: d for d in json.load(open(data_dir / "labels.json"))}
 
-    ck = torch.load(args.ckpt, map_location="cpu")
+    ck = torch.load(args.ckpt, map_location="cpu", weights_only=True)
     nf_mean, nf_std = (np.array(x) for x in ck["node_norm"])
     ef_mean, ef_std = (np.array(x) for x in ck["edge_norm"])
     y_mean, y_std = (np.array(x) for x in ck["y_log_norm"])

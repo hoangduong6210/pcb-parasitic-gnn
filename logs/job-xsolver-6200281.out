@@ -1,5 +1,5 @@
 === Q3 xsolver: FastHenry field-grade train + Neumann cross-solver validation ===
-a0287.ten.osc.edu
+compute-node
 Thu Jul  2 01:01:32 PM EDT 2026
 === pre-flight smoke (<10s on allocated node) ===
 neumann preflight ok: Lm=29.32 Lp=31.78 Ls=31.78 nH
@@ -13,7 +13,7 @@ neumann preflight ok: Lm=29.32 Lp=31.78 Ls=31.78 nH
     train ep 80/80 (141s so far)
 {
   "note": "Q3 xsolver: GNN trained on FastHenry L (field-grade femcps setup) vs independent Neumann multi-filament; also FastHenry vs Neumann gap on held-out 20%",
-  "host": "a0287.ten.osc.edu",
+  "host": "compute-node",
   "n_samples": 346,
   "n_test": 70,
   "nw_nt_filament": [

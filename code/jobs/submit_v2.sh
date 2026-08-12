@@ -2,16 +2,19 @@
 #SBATCH -J job-v2-rigor
 # #SBATCH -A <your-slurm-account>   # set via: sbatch -A <acct> ...
 #SBATCH -p nextgen
-#SBATCH -N1 -n16 --mem=24G -t 04:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=24G
+#SBATCH --time=04:00:00
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
 
-# --- portability shim added by build_release.py ---------------------------
-# REPO_ROOT defaults to this script's parent repo; override to relocate.
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-# Set SLURM_ACCOUNT for your own allocation before submitting:
-#   sbatch -A <your-account> <script>.sh
-# --------------------------------------------------------------------------
+# Resolve the submitted checkout, not Slurm's spool copy of this script.
+JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:-$PWD}/code/jobs/slurm_job_env.sh}"
+[[ -f "$JOB_ENV" ]] || JOB_ENV="${SLURM_SUBMIT_DIR:-$PWD}/slurm_job_env.sh"
+source "$JOB_ENV"
+REPO_ROOT="$PCB_GNN_ROOT"  # compatibility for the released legacy job bodies
 
 # HARD RULE: rigor pass (FEM ground truth + multi-seed + baselines) on a
 # compute node, never on login.
@@ -20,7 +23,7 @@ echo "=== this project v2 rigor pass ==="; echo "Host: $(hostname)"; date
 cd ${REPO_ROOT}/code
 source "${REPO_ROOT}/code/env.sh"   # composite PYTHONPATH
 export OMP_NUM_THREADS=4
-PY=/usr/bin/python3
+PY="$PCB_GNN_PYTHON"
 
 echo "=== Pre-flight: FEM self-test + tiny GNN/MLP forward (fail fast) ==="
 $PY - <<'PYEOF'

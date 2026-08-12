@@ -9,11 +9,13 @@ capacitance matrix in picofarads (coordinates in metres); the physical
 inter-winding capacitance is C_ps = |C_12| (off-diagonal magnitude).
 """
 from __future__ import annotations
-import re, subprocess, tempfile
+import os, re, subprocess, tempfile
 from pathlib import Path
 import numpy as np
 
-FASTCAP = str(Path(__file__).resolve().parent / "tools" / "fastcap")
+FASTCAP = os.environ.get(
+    "FASTCAP_BIN", str(Path(__file__).resolve().parent / "tools" / "fastcap")
+)
 M = 1e-3   # mm -> m (FastCap outputs pF when coordinates are in metres)
 
 

@@ -4,7 +4,7 @@
     "n_test": 67,
     "seed": 42,
     "use_field_labels": true,
-    "host": "a0250.ten.osc.edu",
+    "host": "compute-node",
     "python": "3.9.21",
     "timestamp": 1784991675.880919,
     "note": "pooled 27D tabular (mean+max+sumlog of 9D node_feat after train-std) exactly as PooledMLP; field-grade labels via femcps path when --use-field-labels"

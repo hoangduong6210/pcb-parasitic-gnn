@@ -42,7 +42,11 @@ def main():
     data = ROOT / "datasets" / "synth_v1"
     layouts = [json.loads(l) for l in open(data / "layouts.jsonl")]
     labels = {d["id"]: d for d in json.load(open(data / "labels.json"))}
-    ck = torch.load(ROOT / "results" / "run_v1" / "gnn_checkpoint.pt", map_location="cpu")
+    ck = torch.load(
+        ROOT / "results" / "run_v1" / "gnn_checkpoint.pt",
+        map_location="cpu",
+        weights_only=True,
+    )
     nf_mean, nf_std = (np.array(x) for x in ck["node_norm"])
     ef_mean, ef_std = (np.array(x) for x in ck["edge_norm"])
     y_mean, y_std = (np.array(x) for x in ck["y_log_norm"])

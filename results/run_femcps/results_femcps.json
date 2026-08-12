@@ -1,6 +1,6 @@
 {
   "note": "all four targets field-grade: GNN vs FEM-3D (Cps) + FastHenry-3D (L)",
-  "host": "a0145.ten.osc.edu",
+  "host": "compute-node",
   "n_samples": 332,
   "n_test": 67,
   "analytical_Cps_vs_fastcap_median_pct": 266.6,

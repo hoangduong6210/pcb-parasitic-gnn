@@ -52,7 +52,11 @@ def main():
 
     # ---- (A) independent inductance validation ----
     print("[A] independent multi-filament (FastHenry-style) L_m validation")
-    ck = torch.load(ROOT / "results" / "run_v1" / "gnn_checkpoint.pt", map_location="cpu")
+    ck = torch.load(
+        ROOT / "results" / "run_v1" / "gnn_checkpoint.pt",
+        map_location="cpu",
+        weights_only=True,
+    )
     nf_mean, nf_std = (np.array(x) for x in ck["node_norm"])
     ef_mean, ef_std = (np.array(x) for x in ck["edge_norm"])
     y_mean, y_std = (np.array(x) for x in ck["y_log_norm"])

@@ -84,7 +84,7 @@ def main():
 
     model = PCBParasiticGNN(node_dim=9, edge_dim=7, hidden=96, n_layers=4, n_targets=4).to(device)
     if Path(args.ckpt).exists():
-        ck = torch.load(args.ckpt, map_location=device)
+        ck = torch.load(args.ckpt, map_location=device, weights_only=True)
         try:
             model.load_state_dict(ck["state_dict"])
             ckpt_loaded = True

@@ -1,5 +1,5 @@
 === Q1 trees baselines on field-grade pooled vector ===
-a0161.ten.osc.edu
+compute-node
 Thu Jul  2 01:41:19 PM EDT 2026
 [trees] built 0 samples (346 skipped, use_field=True, 52.5s)
 [trees] too few samples, abort

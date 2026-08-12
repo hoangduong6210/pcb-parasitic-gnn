@@ -1,6 +1,6 @@
 {
   "note": "GNN retrained on FastHenry-3D inductance labels, validated vs held-out FastHenry",
-  "host": "a0115.ten.osc.edu",
+  "host": "compute-node",
   "n_samples": 177,
   "n_test": 36,
   "Cps_pF": {

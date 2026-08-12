@@ -1,7 +1,7 @@
 {
   "note": "FastHenry 3-D (field standard) vs our filament-15x6 and the analytical Grover label",
   "n": 24,
-  "host": "a0348.ten.osc.edu",
+  "host": "compute-node",
   "elapsed_s": 30.4,
   "filament_vs_fasthenry_median_pct": 1.63,
   "grover_vs_fasthenry_median_pct": 55.98,

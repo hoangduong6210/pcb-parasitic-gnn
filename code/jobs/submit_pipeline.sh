@@ -2,16 +2,19 @@
 #SBATCH -J job-pcb-gnn-pipeline
 # #SBATCH -A <your-slurm-account>   # set via: sbatch -A <acct> ...
 #SBATCH -p debug-nextgen
-#SBATCH -N1 -n4 --mem=8G -t 00:45:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=8G
+#SBATCH --time=00:45:00
 #SBATCH -o %x-%j.out
 #SBATCH -e %x-%j.err
 
-# --- portability shim added by build_release.py ---------------------------
-# REPO_ROOT defaults to this script's parent repo; override to relocate.
-REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-# Set SLURM_ACCOUNT for your own allocation before submitting:
-#   sbatch -A <your-account> <script>.sh
-# --------------------------------------------------------------------------
+# Resolve the submitted checkout, not Slurm's spool copy of this script.
+JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:-$PWD}/code/jobs/slurm_job_env.sh}"
+[[ -f "$JOB_ENV" ]] || JOB_ENV="${SLURM_SUBMIT_DIR:-$PWD}/slurm_job_env.sh"
+source "$JOB_ENV"
+REPO_ROOT="$PCB_GNN_ROOT"  # compatibility for the released legacy job bodies
 
 # HARD RULE compliance (2026-06-17 directive)
 # Heavy research pipeline for this project must run on compute node, never login.
@@ -34,11 +37,11 @@ source "${REPO_ROOT}/code/env.sh"   # composite PYTHONPATH
 
 # 1. Generate modest dataset (low RAM, ~200 samples)
 echo "=== Step 1: generate_synth ==="
-/usr/bin/python3 data/generate_synth.py --n 250 --out ../datasets/synth_v0 --seed 42
+"$PCB_GNN_PYTHON" data/generate_synth.py --n 250 --out ../datasets/synth_v0 --seed 42
 
 # 2. Run the full experiment pipeline
 echo "=== Step 2: run pipeline ==="
-/usr/bin/python3 core/pipeline.py --data ../datasets/synth_v0 --out ../results/run_v0 --seed 42
+"$PCB_GNN_PYTHON" core/pipeline.py --data ../datasets/synth_v0 --out ../results/run_v0 --seed 42
 
 echo "=== DONE ==="
 echo "Results in ../results/run_v0/results.json"
