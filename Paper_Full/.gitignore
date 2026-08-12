@@ -14,6 +14,3 @@ build/Paper_Full.txt
 build/page-*.png
 build/figure-hashes.*
 build/*.log
-
-# Python bytecode
-tools/__pycache__/

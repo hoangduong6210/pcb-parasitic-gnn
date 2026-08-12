@@ -23,7 +23,7 @@ top-level README).
 | File | Role |
 |---|---|
 | `gnn_baseline.py` | **The proposed model** — geometry-aware edge-conditioned MPNN, 275,339 params, pure PyTorch (no GPL, no torch-geometric) |
-| `gnn_equivariant.py` | `E(n)`-equivariant variant (EGNN). Shipped because it is a **negative result**: no gain over the coordinate-aware MPNN baseline in the released experiment |
+| `gnn_equivariant.py` | Legacy exploratory EGNN-style model. Its unconstrained edge-vector path is frame-dependent, so it is not the strict encoded-graph `E(3)` implementation described by the extended paper |
 
 ## `solvers/` — 3-D ground truth
 
@@ -69,7 +69,7 @@ top-level README).
 
 | File | Claim | Result |
 |---|---|---|
-| `experiments_t2.py` | `E(n)`-equivariance gives **no gain** (negative result) | `run_t2` |
+| `experiments_t2.py` | Legacy one-seed EGNN-style comparison; retained as historical evidence, not as the controlled strict-`E(3)` proof | `run_t2` |
 
 ### `ranking/`
 
@@ -91,10 +91,13 @@ top-level README).
 | `experiments_xsolver.py` | Cross-solver check vs the independent Neumann integral | `run_xsolver` |
 | `experiments_v2/v3/v4.py` | Multi-part validation and ablation bundles (seeds, ablations, sweeps) | `run_v2`…`run_v4` |
 
-## `figures/`, `jobs/`
+## `figures/`, `quality/`, `jobs/`
 
 | File | Role |
 |---|---|
-| `make_figures.py` | Regenerates every paper figure from the released result JSONs |
+| `make_figures.py` | Regenerates the historical release figures from released result JSONs |
+| `make_paper_full_figures.py` | Regenerates the extended manuscript figures from `results/proof_updates/audited_results.json` and released run outputs |
 | `dump_predictions.py` | Reloads a checkpoint and dumps per-sample test predictions |
+| `quality/paper_style_audit.py` | Deterministic content/style gate used by `Paper_Full/build.sh`; writes its report under `results/proof_updates/` |
+| `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
 | `jobs/submit_*.sh` | 27 SLURM scripts, one per experiment. No account code — pass `sbatch -A <your-account> …` |
