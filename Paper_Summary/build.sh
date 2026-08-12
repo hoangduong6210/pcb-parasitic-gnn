@@ -4,6 +4,9 @@ set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 BUILD="$HERE/build"
 SOURCE="$HERE/main.tex"
+export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-1786492800}"
+export FORCE_SOURCE_DATE=1
+export TZ=UTC
 
 mkdir -p "$BUILD"
 

@@ -2,11 +2,14 @@
 from __future__ import annotations
 
 import importlib
+import hashlib
 import os
+import re
 import shutil
 import stat
 import subprocess
 import sys
+import urllib.parse
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -113,3 +116,27 @@ def test_coremfem_dependency_and_path_are_explicit() -> None:
         assert "PCB_GNN_MAGAI_ROOT" in text
         assert "code/experiments/anchors/experiments_coremfem.py" in text or name == "submit_pfc.sh"
         assert "../../magai" not in text
+
+
+def test_summary_snapshot_identity_and_ledger_links() -> None:
+    summary = ROOT / "Paper_Summary"
+    ledger = summary / "README.md"
+    text = ledger.read_text()
+    expected = {
+        "main.tex": "5caa894fb44b7370085497906a3f09cb60a90daa8d398cbb3e5e8432286a25ae",
+        "GNN_Parasitic.pdf": "abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54",
+    }
+    for name, digest in expected.items():
+        actual = hashlib.sha256((summary / name).read_bytes()).hexdigest()
+        assert actual == digest
+        assert digest in text
+
+    for target in re.findall(r"\[[^]]*\]\(([^)]+)\)", text):
+        if target.startswith(("http://", "https://", "#", "mailto:")):
+            continue
+        relative = urllib.parse.unquote(target.split("#", 1)[0])
+        assert (summary / relative).exists(), target
+
+    historical_ms = 1.16845
+    assert round(5000.0 / historical_ms, -2) == 4300.0
+    assert "5000 ms / 1.16845 ms = 4279.2×" in text

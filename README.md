@@ -20,7 +20,7 @@ The repository keeps manuscript packages separate from experiment evidence:
 
 | Package | Purpose | Contents |
 |---|---|---|
-| [`Paper_Summary/`](Paper_Summary/) | Archival conference-format snapshot | `main.tex`, `GNN_Parasitic.pdf`, and a compatibility build wrapper |
+| [`Paper_Summary/`](Paper_Summary/) | Archival conference-format snapshot | `main.tex`, `GNN_Parasitic.pdf`, compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
 | [`Paper_Full/`](Paper_Full/) | Current authoritative manuscript | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
 
 `Paper_Full/` is authoritative for the current claims, protocols, and reported
@@ -42,28 +42,30 @@ The extended build regenerates its figures from
 > **Notation.** `M` is the *winding* mutual inductance—a free-space, geometry-driven
 > coupling term. It is **not** the magnetizing inductance, which is set by the core
 > permeability and is a separate, roughly 37–73× larger quantity (quantified in
-> `results/run_coremfem/`). Earlier drafts of this work wrote `L_m`; that notation was
+> [`results_coremfem.json`](results/run_coremfem/results_coremfem.json)). Earlier drafts of this work wrote `L_m`; that notation was
 > ambiguous and has been retired.
 
 ## Results at a glance
 
 | Claim | Number | Where it comes from |
 |---|---|---|
-| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 | [`results/proof_updates/`](results/proof_updates/) |
-| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median | [`results/proof_updates/`](results/proof_updates/) |
-| Paired solver-to-end-to-end speed | **670×** median paired ratio; component medians are 3.659 s and 5.62 ms | [`results/proof_updates/`](results/proof_updates/) |
-| Historical batched-throughput estimate | **~4,300×** (rounded 5 s / 1.17 ms) | [`results/proof_updates/`](results/proof_updates/) |
-| Family-disjoint ranking | Spearman **ρ = 0.93** | [`results/run_rank/`](results/run_rank/) |
-| Lateral-registration ranking | **ρ = 0.95** (analytical model is blind) | [`results/run_ranklat2/`](results/run_ranklat2/), [`results/run_declat/`](results/run_declat/) |
-| Cross-solver check (independent Neumann) | GNN inside the FastHenry↔Neumann gap | [`results/run_xsolver/`](results/run_xsolver/) |
-| Frequency-resolved `R_ac/R_dc(f)` | **0.37 %** median | [`results/run_t3/`](results/run_t3/) |
+| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
+| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
+| Paired solver-to-end-to-end speed | **670×** median paired ratio; component medians are 3.659 s and 5.62 ms | [`results.json → latency`](results/proof_updates/results.json) |
+| Historical batched-throughput estimate | **~4,300×** (rounded 5 s / 1.17 ms) | [`results.json → latency.legacy_batch_throughput`](results/proof_updates/results.json), [Summary derivation](Paper_Summary/README.md) |
+| Family-disjoint ranking | Spearman **ρ = 0.93** | [`results_rank.json`](results/run_rank/results_rank.json) |
+| Lateral-registration ranking | **ρ = 0.95** (analytical model is blind) | [`results_ranklat2.json`](results/run_ranklat2/results_ranklat2.json), [`results_declat.json`](results/run_declat/results_declat.json) |
+| Cross-solver check (independent Neumann) | GNN inside the FastHenry↔Neumann gap | [`results_xsolver.json`](results/run_xsolver/results_xsolver.json) |
+| Frequency-resolved `R_ac/R_dc(f)` | **0.37 %** median | [`results_t3.json`](results/run_t3/results_t3.json) |
 
 The metrics are reported per target. In particular, `C_ps` has R² = 0.962; this
 repository does not summarize the four targets as a single "R² >= 0.98" claim.
 
 ### Why a graph, and not gradient-boosted trees
 
-On an identical 332/67 solver-labeled split (`results/run_trees/`):
+On an identical 332/67 solver-labeled split
+([tree record](results/run_trees/results_trees.json),
+[updated GNN record](results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json)):
 
 | Model | `C_ps` R² (med %) | `L_p` | `L_s` | `M` | rank ρ | size-gen R²(`M`) |
 |---|---|---|---|---|---|---|
@@ -90,12 +92,13 @@ within-family ordering, and transfer to board sizes never trained on.
   construction; the axis-aligned layout-to-graph builder is outside that boundary.
 - The **dense** all-pairs graph is **slower** than the analytical baseline at the
   benchmark scale; only the sparse k-NN variant overtakes it, at N ≈ 80
-  (`results/scaling_v1/`).
+  ([`scaling.json`](results/scaling_v1/scaling.json)).
 - **FastCap** did not converge on ~0.1 mm inter-layer gaps (R² = −0.388); we switched
   to a volume FEM for `C_ps` and say so rather than hiding the failed path
-  (`results/run_allfield/`).
+  ([`results_allfield.json`](results/run_allfield/results_allfield.json)).
 - A pointwise regressor ranks at only **ρ = 0.27**; the ρ = 0.93 requires a dedicated
-  pairwise objective. The earlier ρ = 0.51–0.74 was a leakage artifact.
+  pairwise objective ([`results_rank.json`](results/run_rank/results_rank.json)).
+  The earlier ρ = 0.51–0.74 was a leakage artifact.
 
 **All accuracy here is solver-grade, not hardware-anchored.** No measured board has
 been compared against. That campaign is the stated next step.
@@ -292,7 +295,8 @@ python3 code/quality/build_manifest.py --check
 2. **Air-core references.** FastHenry and the electrostatic FEM carry no magnetic
    material; the targets are winding-geometry parasitics. The core magnetizing term is
    validated separately against a real EER40 GP95 datasheet `A_L` (~5 % at production
-   gaps, `results/run_pfc/`) and is 37–73× larger than `M` (`results/run_coremfem/`).
+   gaps, [`results_pfc.json`](results/run_pfc/results_pfc.json)) and is 37–73× larger
+   than `M` ([`results_coremfem.json`](results/run_coremfem/results_coremfem.json)).
 3. **Synthetic geometry.** Random interleaved rectangular foils; no vias, return
    planes, or board-level parasitics.
 4. **`C_ps` dielectric.** The FEM uses a uniform effective permittivity, not a layered
