@@ -96,8 +96,8 @@ top-level README).
 | File | Role |
 |---|---|
 | `make_figures.py` | Regenerates the historical release figures from released result JSONs |
-| `make_paper_full_figures.py` | Regenerates the extended manuscript figures from `results/proof_updates/audited_results.json` and released run outputs |
+| `make_paper_full_figures.py` | Regenerates the extended manuscript figures from `results/proof_updates/results.json` and released run outputs |
 | `dump_predictions.py` | Reloads a checkpoint and dumps per-sample test predictions |
-| `quality/paper_style_audit.py` | Deterministic content/style gate used by `Paper_Full/build.sh`; writes its report under `results/proof_updates/` |
+| `quality/paper_style_audit.py` | Deterministic content/style gate used by `Paper_Full/build.sh`; writes its internal report under the ignored `.internal/` tree |
 | `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
 | `jobs/submit_*.sh` | 27 SLURM scripts, one per experiment. No account code — pass `sbatch -A <your-account> …` |

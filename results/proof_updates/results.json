@@ -1,6 +1,6 @@
 {
-  "schema": "paper-full-audited-results-v1",
-  "scope": "Values used by the independent extended manuscript; no scheduler provenance is embedded in the paper.",
+  "schema": "proof-update-results-v1",
+  "scope": "Public numerical aggregate used by the independent extended manuscript and its figures.",
   "field_accuracy_corpus": {
     "valid": 332,
     "train": 265,

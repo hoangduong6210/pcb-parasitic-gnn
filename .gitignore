@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 .venv/
 .DS_Store
+.internal/
 
 # regenerated corpora (see README "Data") — hundreds of MB, rebuilt from seed 42
 datasets/*/layouts.jsonl
