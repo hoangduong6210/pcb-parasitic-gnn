@@ -56,8 +56,8 @@
     },
     {
       "path": "Paper_Full/build/Paper_Full.pdf",
-      "bytes": 345402,
-      "sha256": "4933fb4dfc97241e165ce44daebf3a9b4b68ea8d64d5e04ecf271e63117ec562"
+      "bytes": 344695,
+      "sha256": "592e473ecac07988f62a7a2c4b23403a4438a0e705f52d30e23398032eb377e8"
     },
     {
       "path": "Paper_Full/build.sh",
@@ -126,13 +126,13 @@
     },
     {
       "path": "Paper_Full/main.tex",
-      "bytes": 46163,
-      "sha256": "9e24edbad6de45b31d1381621eb72e01c38d79fa711409eabfcfea6c2d535c5f"
+      "bytes": 45540,
+      "sha256": "f252dbe332197a49d7b21ace0a0efdda5fc99c9fa51176e5c1155ae5f12762d1"
     },
     {
       "path": "Paper_Full/references.bib",
-      "bytes": 4281,
-      "sha256": "26664e497ddc5b74b1447a9176a3f9d6f20fa9a53398202556a3e8c25c6fb3b7"
+      "bytes": 4340,
+      "sha256": "01fa1b688b95a74480710c6d46c7cb34caa815648988fd2b9fc1aa856b48ba0f"
     },
     {
       "path": "Paper_Summary/.gitignore",
@@ -1181,5 +1181,5 @@
     }
   ],
   "n_files": 233,
-  "total_bytes": 9127092
+  "total_bytes": 9125821
 }
