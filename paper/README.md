@@ -4,7 +4,7 @@ This directory restores the original public manuscript blobs from commit
 `54e617e` without editing their contents:
 
 - `main.tex` — blob `ccffa2a4c030f2e6e9658ba0a45c7f1ccc4e9106`;
-- `Parasitic GNN.pdf` — blob `7b9edebb5f487b665d077e101da936bb455c03da`.
+- `GNN_Parasitic.pdf` — blob `7b9edebb5f487b665d077e101da936bb455c03da`.
 
 
 The historical TeX retained its development-tree figure path. To rebuild it
