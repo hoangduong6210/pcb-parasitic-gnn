@@ -90,6 +90,8 @@ top-level README).
 | `experiments_corpus_v3_latency.py` | Same-node paired FastHenry+FEM versus raw-layout batch-one GNN on 100 held-out v3 designs | `corpus_v3/latency/jobs` |
 | `experiments_corpus_v3_strict_e3.py` | Five-seed invariant/strict encoded-graph E(3) ablation on a held-out turn-family split | `corpus_v3/strict_e3/jobs` |
 | `finalize_corpus_v3_strict_e3.py` | Paired seed/design bootstrap, equivalence test, and symmetry gate | `corpus_v3/strict_e3/final` |
+| `experiments_corpus_v3_trees.py` | RandomForest/ExtraTrees on identical random and turn-family v3 splits | `corpus_v3/trees/jobs` |
+| `finalize_corpus_v3_trees.py` | Verifies same-corpus/same-split comparison against finalized GNN accuracy | `corpus_v3/trees/final` |
 
 ### `ranking/`
 
