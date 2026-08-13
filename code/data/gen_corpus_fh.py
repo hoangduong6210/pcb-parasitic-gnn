@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""
-gen_corpus_fh.py — corpus v2 for the panel round-3 push:
-  * LARGER boards (more traces) so large-N accuracy is MEASURED, not extrapolated.
-  * mutual-inductance label L_m from the multi-filament (FastHenry-style) partial
-    -element method instead of the Grover closed form (which the panel showed is
-    ~63% off). C_ps and the self/intra-net L_p,L_s keep the analytical path
-    (honestly noted; L_m is the dominant inductive coupling and the one fixed).
+"""Generate the second synthetic corpus used for scaling studies.
+
+The generator includes larger boards so that large-graph accuracy can be
+measured.  Its winding-mutual-inductance label uses a multi-filament
+FastHenry-style partial-element calculation instead of the Grover closed form.
+The capacitance and within-net self-inductance labels retain the analytical path;
+field-solver experiments replace those labels when evaluating physical fidelity.
 
 Heavy (all-pairs filament over many larger layouts) -> SLURM only.
 """

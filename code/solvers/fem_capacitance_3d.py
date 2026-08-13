@@ -109,8 +109,8 @@ def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
     return m, np.array(elem_region)
 
 
-def fem_cps_3d(layout, eps_r=4.2, refine=0):
-    """3-D electrostatic C_ps (pF) between the primary and secondary windings."""
+def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
+    """Return C_ps and mesh diagnostics for an explicit mesh/domain setting."""
     import skfem
     from skfem import Basis, ElementTetP1, BilinearForm
     from skfem.helpers import dot, grad
@@ -118,7 +118,9 @@ def fem_cps_3d(layout, eps_r=4.2, refine=0):
        not any(t.get("net") == "sec" for t in layout["traces"]):
         return None
     try:                          # gmsh fails to mesh intersecting (invalid) boxes
-        m, elem_region = _build_mesh(layout, eps_r=eps_r, refine=refine)
+        m, elem_region = _build_mesh(
+            layout, eps_r=eps_r, refine=refine, pad_mm=pad_mm
+        )
     except Exception:
         try:
             import gmsh
@@ -146,7 +148,22 @@ def fem_cps_3d(layout, eps_r=4.2, refine=0):
     D = np.concatenate([pri_nodes, sec_nodes])
     u = skfem.solve(*skfem.condense(K, basis.zeros(), x=u, D=D))
     W = 0.5 * EPS0 * eps_r * float(u @ (K @ u))   # Joules (V=1, uniform eps)
-    return 2.0 * W * 1e12                          # C = 2W/V^2 (V=1) -> pF
+    return {
+        "cps_pf": 2.0 * W * 1e12,                 # C = 2W/V^2 (V=1) -> pF
+        "mesh_nodes": int(m.p.shape[1]),
+        "mesh_tetrahedra": int(m.t.shape[1]),
+        "refine": int(refine),
+        "pad_mm": float(pad_mm),
+        "eps_r": float(eps_r),
+    }
+
+
+def fem_cps_3d(layout, eps_r=4.2, refine=0, pad_mm=8.0):
+    """3-D electrostatic C_ps (pF) between the primary and secondary windings."""
+    diagnostics = fem_cps_3d_diagnostics(
+        layout, eps_r=eps_r, refine=refine, pad_mm=pad_mm
+    )
+    return diagnostics["cps_pf"] if diagnostics is not None else None
 
 
 def parallel_plate_pf(area_mm2, gap_mm, eps_r=4.2):

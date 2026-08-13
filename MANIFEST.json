@@ -5,19 +5,19 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 88,
+    "code": 94,
     "datasets": 6,
     "figures": 12,
     "logs": 54,
     "results": 34,
     "root": 10,
-    "tests": 4
+    "tests": 5
   },
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 1507,
-      "sha256": "a9f12521d8f511aa8bcef32dd801881621f9080d785d403d7f28703bfc044e69"
+      "bytes": 1687,
+      "sha256": "ef546b80b9b7ea26151bfdf17883cd7e27b358b45dccfbf725a24eb68fef448d"
     },
     {
       "path": ".gitignore",
@@ -46,8 +46,8 @@
     },
     {
       "path": "Paper_Full/CHANGELOG.md",
-      "bytes": 747,
-      "sha256": "20bf8338839021faeaf1d8c70e7577d4eaa7f79c910b38224fa1bf7a8c44d87c"
+      "bytes": 1146,
+      "sha256": "7e7b9b8c83c01777401c84cb1323769db941a83105f9c9a623bdf79c9db32988"
     },
     {
       "path": "Paper_Full/VERSION",
@@ -56,8 +56,8 @@
     },
     {
       "path": "Paper_Full/build/Paper_Full.pdf",
-      "bytes": 475522,
-      "sha256": "215fc483c7d668ff5a14a76aef568390d5e7260c50f18fa8424dcd92dc691347"
+      "bytes": 476997,
+      "sha256": "8bc2346b8e1cb289e3f9a0c4a28bd3bd408905c9286f9f4723f1816f623f157d"
     },
     {
       "path": "Paper_Full/build.sh",
@@ -126,8 +126,8 @@
     },
     {
       "path": "Paper_Full/main.tex",
-      "bytes": 46191,
-      "sha256": "91b8f57efc1a5399a275dac8f0a3197f8ce55bd6fd0e4a65d95193900aa73f21"
+      "bytes": 47217,
+      "sha256": "1783b9c368915db5fe88cba0dbc81d35e6d60e7feffafd1bfa9c23decbd5bdb0"
     },
     {
       "path": "Paper_Full/references.bib",
@@ -140,19 +140,19 @@
       "sha256": "181314065df2f2fdaf920b1a8b5311daa216a2d6489a06ada5b49cc514d89417"
     },
     {
-      "path": "Paper_Summary/GNN_Parasitic.pdf",
+      "path": "Paper_Summary/Conference_Submission_ARCHIVE.pdf",
       "bytes": 296363,
       "sha256": "abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54"
     },
     {
       "path": "Paper_Summary/README.md",
-      "bytes": 8702,
-      "sha256": "b2417b95cfa5ef4ef9a09d43185bdbba087cf74063f67d78377442cf55319ec5"
+      "bytes": 9115,
+      "sha256": "062d51028fddbea43f688082cdf0c81a887c545bd9f225b742ed7cf4c52c8537"
     },
     {
       "path": "Paper_Summary/build.sh",
-      "bytes": 640,
-      "sha256": "9c95674e2c8ae0d2e4a4c99506187edf00fd4ea02430119a92559c9f2ab0e2c2"
+      "bytes": 672,
+      "sha256": "9ec967eff2d115b584f7ecf340d8c2eafe4c4ca8499cff8b77df674a5fb22232"
     },
     {
       "path": "Paper_Summary/main.tex",
@@ -161,8 +161,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 16723,
-      "sha256": "0d64df374ec9ed8a996a7ab597a0f011d62eb834d35250c74f0bf2bd57c77feb"
+      "bytes": 17804,
+      "sha256": "81d0e3afd8111fb1fddff2ba307d058de59d1afeb5466f6a535dce0e088ab4f5"
     },
     {
       "path": "SECURITY.md",
@@ -176,13 +176,13 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 6593,
-      "sha256": "da0670b341e954af2388378a28f646704b7769d6532505ac7215b8a3b4ed1089"
+      "bytes": 7239,
+      "sha256": "22f6a2c97ff99facc0e3755cf8adecf53bdd3e647b943ae68639a4525eda67ae"
     },
     {
       "path": "code/core/experiments_v5.py",
-      "bytes": 7936,
-      "sha256": "3058dd45f9742265b8df7ed25ebf93f53bee6a15eac030c10dfdfffdb4111c33"
+      "bytes": 7925,
+      "sha256": "b9695c8636a2c677a35b93f3ed27df8a48ad185890b61ac88c6bd901c35190f5"
     },
     {
       "path": "code/core/pcb_graph.py",
@@ -201,8 +201,8 @@
     },
     {
       "path": "code/core/runtime_paths.py",
-      "bytes": 1015,
-      "sha256": "602be7c7d106add3e4192ffeb8a0b87e56f3761cfec20e377a6b13bceeec44c9"
+      "bytes": 1205,
+      "sha256": "66c7008ac9712a6a9b0bb09c5762936166a5f00388095f7951fd3f65c37b27ca"
     },
     {
       "path": "code/core/trace_peec.py",
@@ -211,8 +211,8 @@
     },
     {
       "path": "code/data/gen_corpus_fh.py",
-      "bytes": 4329,
-      "sha256": "629663f51345b0e2921bbcc1952fc5791660920386bfa67ac83fc834e9de8fb4"
+      "bytes": 4315,
+      "sha256": "98eeba1d54ee7cf48447233515e9e842db41a09d968dcc4166c73ca56ebc15cc"
     },
     {
       "path": "code/data/generate_synth.py",
@@ -221,8 +221,8 @@
     },
     {
       "path": "code/env.sh",
-      "bytes": 592,
-      "sha256": "4316ebb537a79dc04016b28a3be5f64d2fcd8478d941aa3db329ec137e35ba76"
+      "bytes": 614,
+      "sha256": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2"
     },
     {
       "path": "code/experiments/anchors/experiments_coremfem.py",
@@ -300,6 +300,16 @@
       "sha256": "fb37b8102d18a602f9fbe8821e4bb37553b778479a0534c1406c6e487fc3ad83"
     },
     {
+      "path": "code/experiments/proofs/experiments_fem_convergence.py",
+      "bytes": 10074,
+      "sha256": "584709b9a114d8a6d0d38979b7a0fc3e67741b33d85e48ab3def5f141da244b5"
+    },
+    {
+      "path": "code/experiments/proofs/experiments_multisplit_accuracy.py",
+      "bytes": 15003,
+      "sha256": "158d7cc35f9ebab6aa7baa9e9528fdd15bef5e74e4e63ceed29d1e9abf097052"
+    },
+    {
       "path": "code/experiments/proofs/experiments_reproduce_legacy_latency.py",
       "bytes": 9462,
       "sha256": "c903ae55adef5117b17ac84b49f75227462ab80c67d0359a5e05eebc63d92d65"
@@ -356,8 +366,8 @@
     },
     {
       "path": "code/experiments/rounds/experiments_v4.py",
-      "bytes": 5508,
-      "sha256": "a4a2b2c3467c80816a218046ba0aecd5752280b959ee6544cfca06836d48e227"
+      "bytes": 5514,
+      "sha256": "34d289c56cea73c973e8d0d921aa238b5ba2fceed47b0010a477389ce4fbd151"
     },
     {
       "path": "code/experiments/scaling/scaling_experiment.py",
@@ -378,6 +388,11 @@
       "path": "code/figures/make_paper_full_figures.py",
       "bytes": 11430,
       "sha256": "c7a109465bf1c4a4802fec4755a103e31f754ce5181059a25cc42dfac919dfc5"
+    },
+    {
+      "path": "code/inference/predict_safe_bundle.py",
+      "bytes": 2723,
+      "sha256": "e935f63461a47b7516f777b2c795f45d151ef3e8aedac74f338e62e9e54f575e"
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
@@ -420,6 +435,11 @@
       "sha256": "69675be76103b0a0156712000f1a2f68b5526e455c5b49f8a7e702f742956664"
     },
     {
+      "path": "code/jobs/submit_fem_convergence.sh",
+      "bytes": 629,
+      "sha256": "7d69b379fdc4723015177f0fc3231a17b750713c07436a5223dc81225ef54953"
+    },
+    {
       "path": "code/jobs/submit_femcps.sh",
       "bytes": 847,
       "sha256": "92c39eff49cd43c77971170a1a7ee21331125f810e948ab8b9e3216e3b46c2ae"
@@ -443,6 +463,11 @@
       "path": "code/jobs/submit_leakage.sh",
       "bytes": 1133,
       "sha256": "fcfe6cf0add21a4afd66f8760a86c8b22c859a105c60b3a0108c66608bc3ec16"
+    },
+    {
+      "path": "code/jobs/submit_multisplit_accuracy.sh",
+      "bytes": 757,
+      "sha256": "3cf190bd2ce6a07bae7b780f7deb8a35dc5f0577356006bff68af9f39820d4d9"
     },
     {
       "path": "code/jobs/submit_pfc.sh",
@@ -591,13 +616,18 @@
     },
     {
       "path": "code/solvers/fem_capacitance_3d.py",
-      "bytes": 7585,
-      "sha256": "ef5bf22ffb105666491cbad5f558690dc5cec5434df086be601e0b686af37e4e"
+      "bytes": 8161,
+      "sha256": "a0ef3fc21a0d20dfa6ffccbc5a197250ac321a38a77205193cc28a9ef9ba8cd8"
     },
     {
       "path": "code/solvers/fem_capacitance_ref.py",
       "bytes": 3436,
       "sha256": "dec58e92d3959829d7b17ddbbbb82e5862baf7046b7fadf91601422bb96b76d6"
+    },
+    {
+      "path": "code/solvers/fem_cps_diagnostic_worker.py",
+      "bytes": 600,
+      "sha256": "014f0f30e8370056e75163a294a61c75100ea95403be3c63318787a4ce025a7f"
     },
     {
       "path": "code/solvers/fem_cps_worker.py",
@@ -1160,6 +1190,11 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "tests/test_followup_protocols.py",
+      "bytes": 2882,
+      "sha256": "b145e2ff84fe50f7c0794dd3449b653fa2c8e5166a494e5d29356fe3f49dd67f"
+    },
+    {
       "path": "tests/test_graph.py",
       "bytes": 1386,
       "sha256": "5af834b3263f07345d863eea722461638f39a9f1b699e8749b336dda23e01a50"
@@ -1171,8 +1206,8 @@
     },
     {
       "path": "tests/test_reproducibility_contracts.py",
-      "bytes": 5351,
-      "sha256": "b8d40a2e8bd3fc750c766afad08dc384ccfb6886f332b258fff442a2c2b397d5"
+      "bytes": 5367,
+      "sha256": "ae7e541cd861fa3c54f3539ece25761d78084099524fc003715caf95686261e8"
     },
     {
       "path": "tests/test_strict_egnn_ablation.py",
@@ -1180,6 +1215,6 @@
       "sha256": "99f2b445368d722efc173e923b6bd4d657495ab53442b95f94e12fbf85557245"
     }
   ],
-  "n_files": 233,
-  "total_bytes": 9394915
+  "n_files": 240,
+  "total_bytes": 9433620
 }

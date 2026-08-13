@@ -124,7 +124,7 @@ def test_summary_snapshot_identity_and_ledger_links() -> None:
     text = ledger.read_text()
     expected = {
         "main.tex": "5caa894fb44b7370085497906a3f09cb60a90daa8d398cbb3e5e8432286a25ae",
-        "GNN_Parasitic.pdf": "abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54",
+        "Conference_Submission_ARCHIVE.pdf": "abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54",
     }
     for name, digest in expected.items():
         actual = hashlib.sha256((summary / name).read_bytes()).hexdigest()

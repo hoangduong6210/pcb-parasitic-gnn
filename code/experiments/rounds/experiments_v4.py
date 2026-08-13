@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-experiments_v4.py — panel round-1 response experiments.
+"""Generalization, solver-validation, and failure-mode experiments.
 
 (A) Independent INDUCTANCE validation: total mutual inductance L_m (sum over all
     primary-secondary pairs) from an independent multi-filament (FastHenry-style) Neumann solve vs the

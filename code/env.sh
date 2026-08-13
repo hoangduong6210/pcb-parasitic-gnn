@@ -9,7 +9,7 @@
 #
 CODE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PYTHONPATH="$CODE_DIR"
-for d in "$CODE_DIR"/core "$CODE_DIR"/models/gnn "$CODE_DIR"/solvers \
+for d in "$CODE_DIR"/core "$CODE_DIR"/models/gnn "$CODE_DIR"/solvers "$CODE_DIR"/inference \
          "$CODE_DIR"/data "$CODE_DIR"/figures "$CODE_DIR"/experiments/*/; do
     PYTHONPATH="$PYTHONPATH:${d%/}"
 done

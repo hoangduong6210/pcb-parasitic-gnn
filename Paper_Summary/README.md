@@ -1,5 +1,10 @@
 # Summary manuscript package
 
+> **ARCHIVAL SNAPSHOT — SUPERSEDED FOR CURRENT CLAIMS.** This package preserves
+> the submitted manuscript exactly. Its legacy timing and equivariance language
+> must not be used as the current project result. Use
+> [`Paper_Full/`](../Paper_Full/) for the authoritative manuscript.
+
 This directory preserves the four-page conference-format manuscript as a
 versioned snapshot. The manuscript text and its reported values are not updated
 when later experiments change the current conclusions. For current claims and
@@ -11,7 +16,7 @@ protocols, use [`Paper_Full/`](../Paper_Full/) and the repository-level
 | Artifact | SHA-256 | Role |
 |---|---|---|
 | [`main.tex`](main.tex) | `5caa894fb44b7370085497906a3f09cb60a90daa8d398cbb3e5e8432286a25ae` | LaTeX source of this snapshot |
-| [`GNN_Parasitic.pdf`](GNN_Parasitic.pdf) | `abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54` | Four-page rendered manuscript |
+| [`Conference_Submission_ARCHIVE.pdf`](Conference_Submission_ARCHIVE.pdf) | `abf291ea3df4dacdbb6228885e17528f9fcfd18d44aa56998b79097d9dabba54` | Immutable rendered submission; superseded for current claims |
 
 The hashes above identify this exact manuscript version. They deliberately do
 not identify the evolving evidence files linked below.
@@ -83,7 +88,8 @@ bash Paper_Summary/build.sh
 
 The compatibility wrapper patches only the figure search path in a generated
 build copy. It does not edit `main.tex`, and it fixes the PDF timestamp for
-deterministic rebuilds within one TeX toolchain. The archived PDF was produced
+deterministic rebuilds within one TeX toolchain. The rebuilt output is named
+`Conference_Submission_ARCHIVE.pdf`. The archived PDF was produced
 by `pdfTeX-1.40.27`; its exact byte hash therefore also depends on using that
 font/toolchain version. Other TeX Live versions should reproduce the four-page
 content and layout but are not claimed to produce the same PDF bytes.

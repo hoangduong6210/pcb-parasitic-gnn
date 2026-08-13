@@ -3,16 +3,17 @@
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics of
 an 8-layer planar-LLC PCB winding: inter-winding capacitance `C_ps`, self-inductances
 `L_p` / `L_s`, and primary-secondary mutual inductance `M`. In the audited
-batch-one protocol, raw-layout-to-prediction inference takes **5.62 ms**, versus a
-**3.659 s** median for the evaluated 3-D reference-solver workflow. The median of
-the paired per-design ratios is **670×**. The earlier 1.17 ms number is a legacy pre-collated
-throughput measurement, not end-to-end latency.
+batch-one protocol, raw-layout-to-prediction inference takes **5.62 ms**. The
+median paired speedup is **670× over the FastHenry-plus-electrostatic-FEM
+workflow used to obtain all four targets**, measured on the evaluated CPU node.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
 
 **Research status:** The released results are
-solver-validated, not measurements from a fabricated board.
+solver-validated, not measurements from a fabricated board. This repository is
+an auditable research artifact with regeneration instructions; it is not yet a
+download-and-run pretrained reproduction package.
 
 ## Manuscript packages
 
@@ -20,7 +21,7 @@ The repository keeps manuscript packages separate from experiment evidence:
 
 | Package | Purpose | Contents |
 |---|---|---|
-| [`Paper_Summary/`](Paper_Summary/) | Archival conference-format snapshot | `main.tex`, `GNN_Parasitic.pdf`, compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
+| [`Paper_Summary/`](Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
 | [`Paper_Full/`](Paper_Full/) | Current authoritative manuscript | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
 
 `Paper_Full/` is authoritative for the current claims, protocols, and reported
@@ -49,17 +50,20 @@ The extended build regenerates its figures from
 
 | Claim | Number | Where it comes from |
 |---|---|---|
-| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
-| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
-| Paired solver-to-end-to-end speed | **670×** median paired ratio; component medians are 3.659 s and 5.62 ms | [`results.json → latency`](results/proof_updates/results.json) |
-| Historical batched-throughput estimate | **~4,300×** (rounded 5 s / 1.17 ms) | [`results.json → latency.legacy_batch_throughput`](results/proof_updates/results.json), [Summary derivation](Paper_Summary/README.md) |
+| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 on one seed-42 265/67 random split | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
+| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median on the same single split and training run | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
+| Four-target paired workflow to end-to-end GNN | **670×** median paired ratio on the evaluated node; component medians are 3.659 s and 5.62 ms | [`results.json → latency`](results/proof_updates/results.json) |
 | Family-disjoint ranking | Spearman **ρ = 0.93** | [`results_rank.json`](results/run_rank/results_rank.json) |
 | Lateral-registration ranking | **ρ = 0.95** (analytical model is blind) | [`results_ranklat2.json`](results/run_ranklat2/results_ranklat2.json), [`results_declat.json`](results/run_declat/results_declat.json) |
 | Cross-solver check (independent Neumann) | GNN inside the FastHenry↔Neumann gap | [`results_xsolver.json`](results/run_xsolver/results_xsolver.json) |
 | Frequency-resolved `R_ac/R_dc(f)` | **0.37 %** median | [`results_t3.json`](results/run_t3/results_t3.json) |
 
-The metrics are reported per target. In particular, `C_ps` has R² = 0.962; this
-repository does not summarize the four targets as a single "R² >= 0.98" claim.
+The headline accuracy metrics come from one initialization and one random split;
+they do not establish initialization or split robustness. The metrics are
+reported per target. In particular, `C_ps` has R² = 0.962; this repository does
+not summarize the four targets as a single "R² >= 0.98" claim. The runtime
+interval reported in the manuscript is a design-bootstrap interval conditional
+on the evaluated node, fixed checkpoint, and fixed software environment.
 
 ### Why a graph, and not gradient-boosted trees
 
@@ -109,8 +113,9 @@ been compared against. That campaign is the stated next step.
 code/          source, grouped by role see code/README.md for the file index
 ├── core/            graph representation, analytical PEEC labels, train/eval driver
 ├── models/gnn/      the proposed MPNN + the E(n)-equivariant variant
-├── solvers/         3-D ground truth: FastHenry, FastCap/FasterCap, scikit-fem
+├── solvers/         3-D numerical references: FastHenry, FastCap/FasterCap, scikit-fem
 ├── data/            seeded corpus generators
+├── inference/       safe state-dict-only NumPy bundle loader
 ├── experiments/     one directory per claim:
 │   ├── labels/          the label-quality thread (the paper's core story)
 │   ├── baselines/       gradient-boosted trees "why a graph?"
@@ -145,6 +150,22 @@ source code/env.sh
 ```
 
 The SLURM scripts in `code/jobs/` do this themselves.
+
+### Robustness and capacitance-reference protocols
+
+Two heavier follow-up protocols are intentionally SLURM-only:
+
+```bash
+sbatch code/jobs/submit_multisplit_accuracy.sh
+sbatch code/jobs/submit_fem_convergence.sh
+```
+
+The first crosses five random split seeds with five initialization/training-order
+seeds and retains every held-out prediction. It also emits a numeric
+state-dict-only inference bundle for the seed-42 arm. The second executes 81 FEM
+solves across nine stratified layouts, three mesh refinements, and three outer
+domain paddings. Both scripts reject a non-SLURM execution; `--validate-only`
+checks the protocol without training or solving.
 
 ## Install
 

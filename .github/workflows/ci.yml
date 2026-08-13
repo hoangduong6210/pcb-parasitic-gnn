@@ -41,3 +41,5 @@ jobs:
           python code/experiments/proofs/experiments_claim_proof.py --validate-only
           python code/experiments/proofs/experiments_reproduce_legacy_latency.py --validate-only
           python code/experiments/proofs/experiments_strict_egnn_ablation.py --validate-only
+          python code/experiments/proofs/experiments_multisplit_accuracy.py --validate-only
+          python code/experiments/proofs/experiments_fem_convergence.py --validate-only

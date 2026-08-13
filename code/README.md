@@ -25,7 +25,7 @@ top-level README).
 | `gnn_baseline.py` | **The proposed model** — geometry-aware edge-conditioned MPNN, 275,339 params, pure PyTorch (no GPL, no torch-geometric) |
 | `gnn_equivariant.py` | Legacy exploratory EGNN-style model. Its unconstrained edge-vector path is frame-dependent, so it is not the strict encoded-graph `E(3)` implementation described by the extended paper |
 
-## `solvers/` — 3-D ground truth
+## `solvers/` — 3-D numerical references
 
 | File | Role |
 |---|---|
@@ -33,6 +33,7 @@ top-level README).
 | `fastcap_ref.py` | Capacitance via **FastCap**. Did **not** converge on ~0.1 mm gaps — kept as the documented failed path |
 | `fastercap_ref.py` | Adaptive-mesh FasterCap; ~3 min/solve, too slow for corpus labelling |
 | `fem_capacitance_3d.py` | **The `C_ps` label source** — 3-D electrostatic FEM (scikit-fem + gmsh) |
+| `fem_cps_diagnostic_worker.py` | Isolated mesh/domain-sensitivity worker; used only by the SLURM convergence protocol |
 | `fem_capacitance_ref.py` | Independent 2-D electrostatic FEM cross-check |
 | `fem_inductance_ref.py` | Independent multi-filament **Neumann** double-integral — the third solver used for the cross-solver check |
 | `fem_cps_worker.py` | Subprocess wrapper so a gmsh C-level segfault cannot kill the parent run |
@@ -52,7 +53,7 @@ top-level README).
 | File | Claim | Result |
 |---|---|---|
 | `experiments_selfL.py` | Audit: analytical Grover self-L labels are 51–59 % off FastHenry | `run_selfL` |
-| `experiments_fh.py` | Establish FastHenry as the inductance ground truth | `run_fh` |
+| `experiments_fh.py` | Establish FastHenry as the designated inductance reference | `run_fh` |
 | `experiments_t1b.py` | GNN retrained on filament labels → 2.2 % vs FastHenry | `run_t1b` |
 | `experiments_fhlabels.py` | Historical single-run FastHenry label study (2.8/3.8/2.6 %); superseded by the paired proof for current claims | `run_fhlabels` |
 | `experiments_femcps.py` | Historical single-run 3-D FEM study (3.2 %, R²=0.953); superseded by the paired proof for current claims | `run_femcps` |
@@ -78,6 +79,8 @@ top-level README).
 | `experiments_claim_proof.py` | Paired 3-D solver and end-to-end batch-one latency on the same layouts/node | `proof_updates/jobs/claim_proof` |
 | `experiments_strict_egnn_ablation.py` | Five-seed strict encoded-graph `E(3)` ablation, symmetry residuals, and hierarchical bootstrap | `proof_updates/jobs/strict_e3` |
 | `experiments_reproduce_legacy_latency.py` | Reproduction of the historical pre-collated batch-forward protocol | `proof_updates/jobs/legacy_latency` |
+| `experiments_multisplit_accuracy.py` | Five split seeds crossed with five initialization seeds; emits per-design predictions and a state-dict-only inference bundle | `proof_updates/jobs/multisplit_accuracy` |
+| `experiments_fem_convergence.py` | Nine-layout, 81-solve mesh-refinement and domain-padding sensitivity study | `proof_updates/jobs/fem_convergence` |
 
 ### `ranking/`
 
@@ -108,6 +111,7 @@ top-level README).
 | `dump_predictions.py` | Reloads a checkpoint and dumps per-sample test predictions |
 | `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
 | `quality/verify_corpora.py` | Verifies SHA-256 identities for the v1/v2 claim corpora; optionally requires the large layout files |
+| `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
 | `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |
 | `jobs/slurm_job_env.sh` | Shared root, Python, and `PYTHONPATH` resolver for portable batch execution |

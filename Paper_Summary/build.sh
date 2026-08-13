@@ -16,6 +16,6 @@ sed 's|{../08_figures/}|{../../figures/}|' "$SOURCE" > "$BUILD/main.tex"
 cd "$BUILD"
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
-cp main.pdf GNN_Parasitic.pdf
+cp main.pdf Conference_Submission_ARCHIVE.pdf
 
-echo "Built $BUILD/GNN_Parasitic.pdf"
+echo "Built $BUILD/Conference_Submission_ARCHIVE.pdf"

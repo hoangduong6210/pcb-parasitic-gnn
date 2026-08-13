@@ -24,3 +24,8 @@ def resolve_module_file(module_name: str) -> Path:
 def fem_cps_worker_path() -> Path:
     """Resolve the isolated gmsh worker in source or release layouts."""
     return resolve_module_file("fem_cps_worker")
+
+
+def fem_cps_diagnostic_worker_path() -> Path:
+    """Resolve the mesh/domain diagnostic worker in source or release layouts."""
+    return resolve_module_file("fem_cps_diagnostic_worker")

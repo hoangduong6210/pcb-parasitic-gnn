@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-experiments_v5.py — panel round-3 push on the FastHenry-labelled v2 corpus.
+"""Validation and scaling studies on the FastHenry-labelled v2 corpus.
 Self-contained standardization (no hidden state) so fresh-layout inference is
 consistent.
 
