@@ -199,7 +199,7 @@ stage starts only when its upstream stage exits successfully:
 
 ```bash
 FASTHENRY_BIN=/absolute/path/to/fasthenry \
-  bash code/jobs/submit_v3_pipeline.sh --account <your-account>
+  bash code/jobs/run_v3_pipeline.sh --account <your-account>
 ```
 
 The graph ends after the 50-run random/family-disjoint accuracy finalizer. It

@@ -3,7 +3,7 @@
 #
 # Usage:
 #   FASTHENRY_BIN=/absolute/path/to/fasthenry \
-#     bash code/jobs/submit_v3_pipeline.sh --account <slurm-account>
+#     bash code/jobs/run_v3_pipeline.sh --account <slurm-account>
 set -euo pipefail
 
 ACCOUNT=""
