@@ -94,6 +94,8 @@ top-level README).
 | `finalize_corpus_v3_trees.py` | Verifies same-corpus/same-split comparison against finalized GNN accuracy | `corpus_v3/trees/final` |
 | `experiments_corpus_v3_lateral_labels.py` | Paired solver labels for 70 families × 7 controlled lateral offsets | `corpus_v3/lateral/jobs` |
 | `finalize_corpus_v3_lateral.py` | Geometry/passivity/hash gate for the 490-variant ranking corpus | `corpus_v3/lateral/final` |
+| `experiments_corpus_v3_ranking.py` | Five-seed pairwise versus pointwise GNN on held-out lateral families | `corpus_v3/ranking/jobs` |
+| `finalize_corpus_v3_ranking.py` | Paired seed/family bootstrap and selection-regret aggregate | `corpus_v3/ranking/final` |
 
 ### `ranking/`
 

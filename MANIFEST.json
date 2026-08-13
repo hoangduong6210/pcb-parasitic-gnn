@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 124,
+    "code": 128,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
@@ -16,8 +16,8 @@
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 2894,
-      "sha256": "7f72c9b5131e170ae9ad328f4990554a52fb1c169dcb1e5454012cabc8719bc8"
+      "bytes": 3102,
+      "sha256": "97be4d50d1e831e69c675ffca4ac22d4a84ff2dc713ea801473684b55efaa64e"
     },
     {
       "path": ".gitignore",
@@ -176,8 +176,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 8977,
-      "sha256": "542bcd961df02d0a59352708d2933284a8b78ed416fd79ca76be4803ce151c7c"
+      "bytes": 9240,
+      "sha256": "64ed84793bbe3c0e2b24012f0e9e4cb4480c82800d6b9df3d1360f86d25f5451"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -345,6 +345,11 @@
       "sha256": "53104a342feb8e361980bb4a724d08cc319ce6642a62f653089272aaebb72ea8"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_ranking.py",
+      "bytes": 9517,
+      "sha256": "c1744ccdb02d40188d5881199eed5c09f7f78a6bfa945c68e16dcdaf31952e27"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v3_strict_e3.py",
       "bytes": 6030,
       "sha256": "51e922b77c9bf57ea93fa93ded1b92666528e9801d418647a18821471090c072"
@@ -388,6 +393,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3_lateral.py",
       "bytes": 4860,
       "sha256": "d9a303dcd2766754c34aa4e39c7c7600306d91dbe0242cfba4bb54a341949d40"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v3_ranking.py",
+      "bytes": 4819,
+      "sha256": "b5853a4abe83a81d91521565c69dddcd76694e0160c1634edfe8daa9933242e9"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v3_strict_e3.py",
@@ -476,8 +486,8 @@
     },
     {
       "path": "code/jobs/run_v3_pipeline.sh",
-      "bytes": 3870,
-      "sha256": "e3f587666c81fd78109f4206b6ef9679a2a17a80b67cfc784aa76960bd5aea31"
+      "bytes": 4365,
+      "sha256": "68b820d895dea7e106683196988e31b2191d4c0e8ed78cbeb684eb27069e47c6"
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
@@ -528,6 +538,11 @@
       "path": "code/jobs/submit_corpus_v3_preflight.sh",
       "bytes": 925,
       "sha256": "32d43d6055c128aa70d38639595a56fffbc7793cd4f6282697a39450e7d8f00a"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v3_ranking.sh",
+      "bytes": 731,
+      "sha256": "3c00d1a39408c58cd90bb8fd92798c9342a05b1c995eae9877ac3174c4fb9f1f"
     },
     {
       "path": "code/jobs/submit_corpus_v3_strict_e3.sh",
@@ -593,6 +608,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3_lateral.sh",
       "bytes": 621,
       "sha256": "3d78e46b412da888427a1de3e4d5f8cfcc2cae193a1e0f0b6e68e1176b8139aa"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v3_ranking.sh",
+      "bytes": 645,
+      "sha256": "e8e176c57b752e8960c89a605f663ab080c3adb4d87a9b52471095aafeaab738"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v3_strict_e3.sh",
@@ -1395,6 +1415,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 276,
-  "total_bytes": 9560350
+  "n_files": 280,
+  "total_bytes": 9577028
 }

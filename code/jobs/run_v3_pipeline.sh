@@ -64,6 +64,13 @@ trees_final_id="$(submit --dependency="afterok:$trees_id:$accuracy_final_id" \
 lateral_final_id="$(submit --dependency="afterok:$lateral_id" \
     --export="ALL,PCB_GNN_V3_LATERAL_ARRAY_JOB_ID=$lateral_id" \
     code/jobs/submit_finalize_corpus_v3_lateral.sh)"
+lateral_dir="$ROOT/results/corpus_v3/lateral/final/job_$lateral_final_id"
+ranking_id="$(submit --dependency="afterok:$lateral_final_id" \
+    --export="ALL,PCB_GNN_V3_LATERAL_DIR=$lateral_dir" \
+    code/jobs/submit_corpus_v3_ranking.sh)"
+ranking_final_id="$(submit --dependency="afterok:$ranking_id" \
+    --export="ALL,PCB_GNN_V3_RANKING_ARRAY_JOB_ID=$ranking_id" \
+    code/jobs/submit_finalize_corpus_v3_ranking.sh)"
 bundle_dir="$ROOT/results/corpus_v3/accuracy/jobs/job_$accuracy_id/inference_bundle"
 latency_id="$(submit --dependency="afterok:$accuracy_final_id" \
     --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN,PCB_GNN_V3_CORPUS_DIR=$corpus_dir,PCB_GNN_V3_BUNDLE_DIR=$bundle_dir" \
@@ -82,4 +89,6 @@ printf '%s\n' \
     "v3_trees_final=$trees_final_id" \
     "v3_lateral_labels=$lateral_id" \
     "v3_lateral_final=$lateral_final_id" \
+    "v3_ranking=$ranking_id" \
+    "v3_ranking_final=$ranking_final_id" \
     "v3_paired_latency=$latency_id"

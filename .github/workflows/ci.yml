@@ -55,3 +55,5 @@ jobs:
           python code/experiments/proofs/finalize_corpus_v3_trees.py --source-array-job-id VALIDATE --validate-only
           python code/experiments/proofs/experiments_corpus_v3_lateral_labels.py --validate-only
           python code/experiments/proofs/finalize_corpus_v3_lateral.py --source-array-job-id VALIDATE --validate-only
+          python code/experiments/proofs/experiments_corpus_v3_ranking.py --validate-only
+          python code/experiments/proofs/finalize_corpus_v3_ranking.py --source-array-job-id VALIDATE --validate-only
