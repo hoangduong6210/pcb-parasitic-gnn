@@ -31,13 +31,29 @@ def _filaments(w_mm, t_mm, xc_mm, zc_mm, nw=5, nt=2):
     return XX.reshape(-1), ZZ.reshape(-1)
 
 
-def _pair_M_nh(L_m, d_m):
-    """Exact mutual inductance (nH) of two parallel equal-length filaments."""
+def _segment_kernel_m(u_m, d_m):
+    """Twice-integrated parallel-filament kernel in metres."""
     if d_m < 1e-9:
         d_m = 1e-9
-    M = (MU0 / (2 * math.pi)) * (L_m * math.asinh(L_m / d_m)
-                                 - math.sqrt(L_m**2 + d_m**2) + d_m)
-    return M * 1e9
+    return u_m * math.asinh(u_m / d_m) - math.sqrt(u_m**2 + d_m**2)
+
+
+def parallel_segments_mutual_nh(x1_m, length1_m, x2_m, length2_m, d_m):
+    """Exact Neumann mutual of two finite, parallel, longitudinally offset filaments."""
+    a, b = x1_m, x1_m + length1_m
+    c, d = x2_m, x2_m + length2_m
+    integral = (
+        _segment_kernel_m(b - c, d_m)
+        - _segment_kernel_m(a - c, d_m)
+        - _segment_kernel_m(b - d, d_m)
+        + _segment_kernel_m(a - d, d_m)
+    )
+    return (MU0 / (4 * math.pi)) * integral * 1e9
+
+
+def _pair_M_nh(L_m, d_m):
+    """Exact mutual inductance (nH) of two aligned equal-length filaments."""
+    return parallel_segments_mutual_nh(0.0, L_m, 0.0, L_m, d_m)
 
 
 def fem_pair_mutual_nh(w1_mm, w2_mm, t_mm, h_mm, overlap_len_mm, nw=5, nt=2):
@@ -93,9 +109,27 @@ def _trace_self_L_nh(trace, nw=5, nt=2):
 
 
 def _pair_trace_mutual_nh(t1, t2, nw=5, nt=2):
-    h = abs(t2.get("z_mm", 0.3) - t1.get("z_mm", 0.1))
-    ov = min(t1["length_mm"], t2["length_mm"])
-    return fem_pair_mutual_nh(t1["width_mm"], t2["width_mm"], t1.get("thick_mm", 0.07), h, ov, nw, nt)
+    y1 = float(t1.get("y0", 0.0)) + float(t1["width_mm"]) / 2.0
+    y2 = float(t2.get("y0", 0.0)) + float(t2["width_mm"]) / 2.0
+    z1 = float(t1.get("z_mm", 0.1))
+    z2 = float(t2.get("z_mm", 0.3))
+    fy1, fz1 = _filaments(t1["width_mm"], t1.get("thick_mm", 0.07), y1, z1, nw, nt)
+    fy2, fz2 = _filaments(t2["width_mm"], t2.get("thick_mm", 0.07), y2, z2, nw, nt)
+    x1 = float(t1.get("x0", 0.0)) * 1e-3
+    x2 = float(t2.get("x0", 0.0)) * 1e-3
+    length1 = float(t1["length_mm"]) * 1e-3
+    length2 = float(t2["length_mm"]) * 1e-3
+    total = 0.0
+    for index1 in range(len(fy1)):
+        for index2 in range(len(fy2)):
+            transverse_m = math.hypot(
+                float(fy1[index1] - fy2[index2]) * 1e-3,
+                float(fz1[index1] - fz2[index2]) * 1e-3,
+            )
+            total += parallel_segments_mutual_nh(
+                x1, length1, x2, length2, transverse_m,
+            )
+    return total / (len(fy1) * len(fy2))
 
 
 def neumann_totals(layout, nw=5, nt=2):

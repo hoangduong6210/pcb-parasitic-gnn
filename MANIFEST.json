@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 132,
+    "code": 134,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 9
+    "tests": 10
   },
   "files": [
     {
@@ -330,6 +330,11 @@
       "sha256": "fa48b66ee68d8194a6204c3cf276361e915e4e943f6075e224bcc1c2e09d335d"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_cross_solver.py",
+      "bytes": 6962,
+      "sha256": "a6a4a46727b7d87f61964a6acae9f97c22832d5845ca939a0caeffab8e5359d7"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v3_field_labels.py",
       "bytes": 8038,
       "sha256": "964d5f672afedec342a48430ccd711fc986558aaa01d18e00d5a9c6f8c41abce"
@@ -528,6 +533,11 @@
       "path": "code/jobs/submit_corpus_v3_accuracy.sh",
       "bytes": 726,
       "sha256": "18fbfd1baaea85d7986be240666fa6c50b9fb27885fb799b61d543fe97d39a3c"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v3_cross_solver.sh",
+      "bytes": 763,
+      "sha256": "e8f4a46ba7d167447f5db57d5a3f0605f90df20ee3ba3d5b69d6445e0aea2ddb"
     },
     {
       "path": "code/jobs/submit_corpus_v3_field_labels.sh",
@@ -826,8 +836,8 @@
     },
     {
       "path": "code/solvers/fem_inductance_ref.py",
-      "bytes": 5115,
-      "sha256": "640fa8ee5a1154d80818cacacfa7c582ec0d5152dc1f9523db43050a5ddcaa1f"
+      "bytes": 6408,
+      "sha256": "edbc1adaf8f6ede7af371372f8ce0bc7d46567dcf73e7989e04ce952f9fc1020"
     },
     {
       "path": "code/solvers/tools/README.md",
@@ -1420,6 +1430,11 @@
       "sha256": "68ffe35629f9db343d9537e0049a1da1b409de6b689755a1c88f69b18a510951"
     },
     {
+      "path": "tests/test_neumann_geometry.py",
+      "bytes": 1049,
+      "sha256": "73639b62a6528b3ade532195bedfa003a1c866afd69d64ba5b5064c11da46389"
+    },
+    {
       "path": "tests/test_reproducibility_contracts.py",
       "bytes": 5367,
       "sha256": "ae7e541cd861fa3c54f3539ece25761d78084099524fc003715caf95686261e8"
@@ -1440,6 +1455,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 285,
-  "total_bytes": 9594016
+  "n_files": 288,
+  "total_bytes": 9604083
 }
