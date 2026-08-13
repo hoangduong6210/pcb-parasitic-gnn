@@ -5,19 +5,19 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 103,
+    "code": 108,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 6
+    "tests": 7
   },
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 1963,
-      "sha256": "3ea4bf40bba375ecb0980b5701b710c616299ba625cad6c7a8035a14c7133815"
+      "bytes": 2173,
+      "sha256": "db8ef59ee9c399e1bc4f54f754232978312da5ace88b8d3a1fe8b8e0d9e8305c"
     },
     {
       "path": ".gitignore",
@@ -176,8 +176,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 7715,
-      "sha256": "342f96e672f3f156392034522dc97f950c06723de1e29e18ed6f7b77ad719920"
+      "bytes": 7980,
+      "sha256": "6dc52f3ba3f13342519bf86be98d98d4c5e50798f41c4195f0691b4c6c595e78"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -233,6 +233,11 @@
       "path": "code/data/generate_synth.py",
       "bytes": 6288,
       "sha256": "bfee627828b7bf4675ab72776bd1a957a4c0564e9963b7b142b8cdbf6ba4f078"
+    },
+    {
+      "path": "code/data/v3_dataset.py",
+      "bytes": 4269,
+      "sha256": "21c5e87a7d32f19bb449bd29c15e75d8dfb3bbf6735edaef8ace5287893177b3"
     },
     {
       "path": "code/env.sh",
@@ -315,6 +320,11 @@
       "sha256": "fb37b8102d18a602f9fbe8821e4bb37553b778479a0534c1406c6e487fc3ad83"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_accuracy.py",
+      "bytes": 10894,
+      "sha256": "4c52a7de7fdb3c07cb2c3f8036cd70aca690376844a35d261633d75c289baa31"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v3_field_labels.py",
       "bytes": 8038,
       "sha256": "964d5f672afedec342a48430ccd711fc986558aaa01d18e00d5a9c6f8c41abce"
@@ -343,6 +353,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3.py",
       "bytes": 8132,
       "sha256": "369ee3538f1859e9d0a57ddcbaddde6ddbfc84e4149a39c7f2ccfbbbb4b200a9"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v3_accuracy.py",
+      "bytes": 5805,
+      "sha256": "015791a87b73424d635f84273011b85d8fc1d885ebb15dcd8c353d96e14064fc"
     },
     {
       "path": "code/experiments/ranking/experiments_decision.py",
@@ -445,6 +460,11 @@
       "sha256": "6b0a411873bdc028a1f59bdac8ab01c962e5c254438d003f58e132f8faef592d"
     },
     {
+      "path": "code/jobs/submit_corpus_v3_accuracy.sh",
+      "bytes": 726,
+      "sha256": "18fbfd1baaea85d7986be240666fa6c50b9fb27885fb799b61d543fe97d39a3c"
+    },
+    {
       "path": "code/jobs/submit_corpus_v3_field_labels.sh",
       "bytes": 796,
       "sha256": "f05c7e235a09cb79eca15dc4d30df6cd44cc315bb4e011631d5f7d4aa56c3121"
@@ -498,6 +518,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3.sh",
       "bytes": 642,
       "sha256": "34eb6a2495a787ad2602f9ec3c83f585164c477bb1f4e2f0e13149264d8557cf"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v3_accuracy.sh",
+      "bytes": 628,
+      "sha256": "eda75953a9be23c86fe7f7fe98c940799476e2f6a2fd7af8b564594f0529c487"
     },
     {
       "path": "code/jobs/submit_leakage.sh",
@@ -1278,8 +1303,13 @@
       "path": "tests/test_strict_egnn_ablation.py",
       "bytes": 4511,
       "sha256": "99f2b445368d722efc173e923b6bd4d657495ab53442b95f94e12fbf85557245"
+    },
+    {
+      "path": "tests/test_v3_dataset.py",
+      "bytes": 1220,
+      "sha256": "1f6d09bb2a3c457d4914493c94a17ade4ff179f34ba27ed24590beec9678903d"
     }
   ],
-  "n_files": 253,
-  "total_bytes": 9479031
+  "n_files": 259,
+  "total_bytes": 9503048
 }

@@ -85,6 +85,8 @@ top-level README).
 | `experiments_fem_convergence.py` | Nine-layout, 81-solve mesh-refinement and domain-padding sensitivity study | `proof_updates/jobs/fem_convergence` |
 | `experiments_corpus_v3_field_labels.py` | Geometry-gated 30-task array for 1,500 paired FastHenry/FEM labels | `corpus_v3/jobs` |
 | `finalize_corpus_v3.py` | Refuses incomplete/dirty/mixed-source arrays and emits the immutable v3 corpus | `corpus_v3/final` |
+| `experiments_corpus_v3_accuracy.py` | Ten-task, 50-run random and family-disjoint v3 accuracy study | `corpus_v3/accuracy/jobs` |
+| `finalize_corpus_v3_accuracy.py` | Verifies and aggregates crossed split/initialization uncertainty | `corpus_v3/accuracy/final` |
 
 ### `ranking/`
 
