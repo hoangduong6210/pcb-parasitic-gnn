@@ -106,9 +106,9 @@ def main() -> None:
         records.append({
             "layout_id": sample["layout_id"],
             "geometry_sha256": sample["geometry_sha256"],
-            "fasthenry": {target: float(value) for target, value in zip(TARGETS, fh_matrix[index], strict=True)},
-            "neumann": {target: float(value) for target, value in zip(TARGETS, neumann_matrix[index], strict=True)},
-            "gnn": {target: float(value) for target, value in zip(TARGETS, gnn_matrix[index], strict=True)},
+            "fasthenry": {target: float(value) for target, value in zip(TARGETS, fh_matrix[index])},
+            "neumann": {target: float(value) for target, value in zip(TARGETS, neumann_matrix[index])},
+            "gnn": {target: float(value) for target, value in zip(TARGETS, gnn_matrix[index])},
         })
     summary = {target: {
         "fasthenry_vs_neumann": metrics(fh_matrix[:, offset], neumann_matrix[:, offset]),

@@ -102,7 +102,7 @@ def main() -> None:
     nonpassive = 0
     for sample in samples:
         analytical = compute_reference_labels_allpairs(sample["layout"])
-        reference = dict(zip(TARGETS, sample["y"].astype(float), strict=True))
+        reference = dict(zip(TARGETS, sample["y"].astype(float)))
         for target in TARGETS:
             analytical_values[target].append(
                 abs(analytical[target] - reference[target]) / abs(reference[target]) * 100.0
