@@ -7,8 +7,9 @@ from fem_capacitance_3d import fem_cps_3d
 if __name__ == "__main__":
     layout = json.load(open(sys.argv[1]))
     refine = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+    pad_mm = float(sys.argv[3]) if len(sys.argv) > 3 else 8.0
     try:
-        c = fem_cps_3d(layout, eps_r=4.2, refine=refine)
+        c = fem_cps_3d(layout, eps_r=4.2, refine=refine, pad_mm=pad_mm)
         if c is not None and c > 0:
             print("CPS=%.6f" % c)
     except Exception:

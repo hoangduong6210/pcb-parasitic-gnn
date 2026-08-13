@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Five-task strict encoded-graph E(3) ablation on finalized corpus v3."""
+"""Five-task strict encoded-graph E(3) ablation on a finalized corpus series."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,13 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[3]
 CODE = ROOT / "code"
-for directory in (CODE / "core", CODE / "data", CODE / "models/gnn", CODE / "experiments/proofs"):
+for directory in (
+    CODE / "core",
+    CODE / "data",
+    CODE / "models/gnn",
+    CODE / "solvers",
+    CODE / "experiments/proofs",
+):
     sys.path.insert(0, str(directory))
 
 from experiments_strict_egnn_ablation import (
@@ -27,21 +33,23 @@ from experiments_strict_egnn_ablation import (
 from v3_dataset import load_final_corpus, sha256, split_indices
 
 
-SCHEMA = "pcb-gnn.corpus-v3-strict-e3-task.v1"
+SUPPORTED_SERIES = ("corpus_v3", "corpus_v4")
 SEEDS = (40, 41, 42, 43, 44)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path)
+    parser.add_argument("--series", choices=SUPPORTED_SERIES, default="corpus_v3")
     parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--strict-hidden", type=int, default=96)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
+    schema = f"pcb-gnn.{args.series.replace('_', '-')}-strict-e3-task.v1"
     matched_hidden, parameter_match = matched_baseline_hidden(args.strict_hidden)
     if args.validate_only:
-        print(json.dumps({"schema": SCHEMA, "status": "validation-ok", "parameter_match": parameter_match}))
+        print(json.dumps({"schema": schema, "status": "validation-ok", "parameter_match": parameter_match}))
         return
     required = ("SLURM_JOB_ID", "SLURM_ARRAY_JOB_ID", "SLURM_ARRAY_TASK_ID")
     if any(not os.environ.get(name) for name in required):
@@ -86,11 +94,12 @@ def main() -> None:
             f"macroMdRE={metrics['macro_median_relative_error_pct']:.3f}%",
             flush=True,
         )
-    sources = [Path(__file__), CODE / "experiments/proofs/experiments_strict_egnn_ablation.py",
+    sources = [Path(__file__), ROOT / "requirements-proof.txt",
+               CODE / "experiments/proofs/experiments_strict_egnn_ablation.py",
                CODE / "data/v3_dataset.py", CODE / "core/geometry_contract.py",
                CODE / "core/planar_to_graph.py"]
     result = {
-        "schema": SCHEMA,
+        "schema": schema,
         "provenance": {
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
@@ -100,8 +109,9 @@ def main() -> None:
             "numpy": np.__version__, "torch": torch.__version__,
             "git_head": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip(),
             "git_dirty_paths": dirty,
-            "arguments": {"corpus": args.corpus.resolve().as_posix(), "epochs": args.epochs,
-                          "strict_hidden": args.strict_hidden, "batch_size": args.batch_size},
+            "arguments": {"corpus": args.corpus.resolve().as_posix(), "series": args.series,
+                          "epochs": args.epochs, "strict_hidden": args.strict_hidden,
+                          "batch_size": args.batch_size},
             "corpus_artifacts_sha256": corpus_summary["artifacts_sha256"],
             "file_sha256": {path.relative_to(ROOT).as_posix(): sha256(path) for path in sources},
         },
@@ -117,7 +127,7 @@ def main() -> None:
         "test_layout_ids": [samples[index]["layout_id"] for index in test],
         "runs": runs,
     }
-    output = ROOT / "results/corpus_v3/strict_e3/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
+    output = ROOT / "results" / args.series / "strict_e3/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
     output.mkdir(parents=True, exist_ok=True)
     path = output / f"task_{task_id:02d}.json"
     path.write_text(json.dumps(result, indent=2) + "\n")

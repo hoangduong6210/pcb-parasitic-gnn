@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SLURM-array accuracy study on a finalized geometry-valid v3 corpus."""
+"""SLURM-array accuracy study on a finalized geometry-valid corpus series."""
 from __future__ import annotations
 
 import argparse
@@ -29,7 +29,7 @@ from gnn_baseline import PCBParasiticGNN, collate
 from v3_dataset import load_final_corpus, sha256, split_indices
 
 
-SCHEMA = "pcb-gnn.corpus-v3-accuracy-task.v1"
+SUPPORTED_SERIES = ("corpus_v3", "corpus_v4")
 TARGETS = ("Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH")
 SPLIT_SEEDS = (40, 41, 42, 43, 44)
 INIT_SEEDS = (40, 41, 42, 43, 44)
@@ -60,6 +60,7 @@ class TrainOnlyNorm:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path)
+    parser.add_argument("--series", choices=SUPPORTED_SERIES, default="corpus_v3")
     parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--validate-only", action="store_true")
     return parser.parse_args()
@@ -176,12 +177,13 @@ def save_bundle(
 
 def main() -> None:
     args = parse_args()
+    schema = f"pcb-gnn.{args.series.replace('_', '-')}-accuracy-task.v1"
     if args.validate_only:
-        print(json.dumps({"schema": SCHEMA, "status": "validation-ok", "array_tasks": 10}))
+        print(json.dumps({"schema": schema, "status": "validation-ok", "array_tasks": 10}))
         return
     required = ("SLURM_JOB_ID", "SLURM_ARRAY_JOB_ID", "SLURM_ARRAY_TASK_ID")
     if any(not os.environ.get(name) for name in required):
-        raise SystemExit("Refusing v3 training outside a SLURM array")
+        raise SystemExit("Refusing corpus training outside a SLURM array")
     if args.corpus is None:
         raise SystemExit("--corpus is required")
     dirty = subprocess.run(
@@ -197,7 +199,7 @@ def main() -> None:
     split_seed = SPLIT_SEEDS[task_id % 5]
     samples, corpus_summary = load_final_corpus(args.corpus)
     train, test = split_indices(samples, split_seed, split_kind)
-    output = ROOT / "results/corpus_v3/accuracy/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
+    output = ROOT / "results" / args.series / "accuracy/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
     output.mkdir(parents=True, exist_ok=True)
     runs = []
     bundle_artifacts = None
@@ -212,10 +214,11 @@ def main() -> None:
         )
         if split_kind == "random" and split_seed == 42 and init_seed == 42:
             bundle_artifacts = save_bundle(output, model, norm, run, samples, test)
-    source_paths = [Path(__file__), CODE / "data/v3_dataset.py", CODE / "core/geometry_contract.py",
+    source_paths = [Path(__file__), ROOT / "requirements-proof.txt",
+                    CODE / "data/v3_dataset.py", CODE / "core/geometry_contract.py",
                     CODE / "core/planar_to_graph.py", CODE / "models/gnn/gnn_baseline.py"]
     result = {
-        "schema": SCHEMA,
+        "schema": schema,
         "provenance": {
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
@@ -225,7 +228,11 @@ def main() -> None:
             "numpy": np.__version__, "torch": torch.__version__, "scipy": package_version("scipy"),
             "git_head": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip(),
             "git_dirty_paths": dirty,
-            "arguments": {"corpus": args.corpus.resolve().as_posix(), "epochs": args.epochs},
+            "arguments": {
+                "corpus": args.corpus.resolve().as_posix(),
+                "series": args.series,
+                "epochs": args.epochs,
+            },
             "corpus_artifacts_sha256": corpus_summary["artifacts_sha256"],
             "file_sha256": {path.relative_to(ROOT).as_posix(): sha256(path) for path in source_paths},
         },

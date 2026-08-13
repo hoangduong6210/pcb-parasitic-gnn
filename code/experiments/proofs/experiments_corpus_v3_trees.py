@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SLURM tree baselines on the exact corpus-v3 split registry."""
+"""SLURM tree baselines on the exact finalized-corpus split registry."""
 from __future__ import annotations
 
 import argparse
@@ -23,7 +23,7 @@ for directory in (CODE / "core", CODE / "data"):
 from v3_dataset import load_final_corpus, sha256, split_indices
 
 
-SCHEMA = "pcb-gnn.corpus-v3-trees-task.v1"
+SUPPORTED_SERIES = ("corpus_v3", "corpus_v4")
 TARGETS = ("Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH")
 SEEDS = (40, 41, 42, 43, 44)
 
@@ -61,10 +61,12 @@ def metrics(prediction: np.ndarray, reference: np.ndarray) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path)
+    parser.add_argument("--series", choices=SUPPORTED_SERIES, default="corpus_v3")
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
+    schema = f"pcb-gnn.{args.series.replace('_', '-')}-trees-task.v1"
     if args.validate_only:
-        print(json.dumps({"schema": SCHEMA, "status": "validation-ok", "array_tasks": 10}))
+        print(json.dumps({"schema": schema, "status": "validation-ok", "array_tasks": 10}))
         return
     required = ("SLURM_JOB_ID", "SLURM_ARRAY_JOB_ID", "SLURM_ARRAY_TASK_ID")
     if any(not os.environ.get(name) for name in required):
@@ -121,10 +123,10 @@ def main() -> None:
                 f"kind={split_kind} split={split_seed} seed={seed} model={name} "
                 f"primary={run_metrics['primary_macro_absolute_log_error_mean']:.6f}", flush=True,
             )
-    sources = [Path(__file__), CODE / "data/v3_dataset.py", CODE / "core/geometry_contract.py",
-               CODE / "core/planar_to_graph.py"]
+    sources = [Path(__file__), ROOT / "requirements-proof.txt", CODE / "data/v3_dataset.py",
+               CODE / "core/geometry_contract.py", CODE / "core/planar_to_graph.py"]
     result = {
-        "schema": SCHEMA,
+        "schema": schema,
         "provenance": {
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
@@ -134,6 +136,7 @@ def main() -> None:
             "numpy": np.__version__, "scikit_learn": importlib.metadata.version("scikit-learn"),
             "git_head": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip(),
             "git_dirty_paths": dirty,
+            "arguments": {"corpus": args.corpus.resolve().as_posix(), "series": args.series},
             "corpus_artifacts_sha256": corpus_summary["artifacts_sha256"],
             "file_sha256": {path.relative_to(ROOT).as_posix(): sha256(path) for path in sources},
         },
@@ -146,7 +149,7 @@ def main() -> None:
         "test_layout_ids": [samples[index]["layout_id"] for index in test],
         "runs": runs,
     }
-    output = ROOT / "results/corpus_v3/trees/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
+    output = ROOT / "results" / args.series / "trees/jobs" / f"job_{os.environ['SLURM_ARRAY_JOB_ID']}"
     output.mkdir(parents=True, exist_ok=True)
     path = output / f"task_{task_id:02d}.json"
     path.write_text(json.dumps(result, indent=2) + "\n")

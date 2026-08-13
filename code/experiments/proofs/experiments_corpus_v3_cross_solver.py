@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cross-check v3 inductive labels and held-out GNN predictions with Neumann integration."""
+"""Cross-check inductive labels and held-out predictions with Neumann integration."""
 from __future__ import annotations
 
 import argparse
@@ -27,7 +27,7 @@ from predict_safe_bundle import load_bundle, predict_layout  # noqa: E402
 from v3_dataset import load_final_corpus, sha256  # noqa: E402
 
 
-SCHEMA = "pcb-gnn.corpus-v3-cross-solver.v1"
+SUPPORTED_SERIES = ("corpus_v3", "corpus_v4")
 TARGETS = ("L_pri_nH", "L_sec_nH", "L_mut_nH")
 
 
@@ -58,9 +58,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--corpus", type=Path)
     parser.add_argument("--bundle", type=Path)
+    parser.add_argument("--series", choices=SUPPORTED_SERIES, default="corpus_v3")
     parser.add_argument("--n-designs", type=int, default=70)
     parser.add_argument("--validate-only", action="store_true")
     args = parser.parse_args()
+    schema = f"pcb-gnn.{args.series.replace('_', '-')}-cross-solver.v1"
     if args.validate_only:
         aligned = parallel_smoke = solve_neumann({"traces": [
             {"net": "pri", "x0": 0.0, "y0": 0.0, "z_mm": 0.05,
@@ -70,10 +72,10 @@ def main() -> None:
         ]})
         if aligned["L_mut_nH"] <= 0:
             raise ValueError("Neumann smoke result is not positive")
-        print(json.dumps({"schema": SCHEMA, "status": "validation-ok", "smoke": parallel_smoke}))
+        print(json.dumps({"schema": schema, "status": "validation-ok", "smoke": parallel_smoke}))
         return
     if not os.environ.get("SLURM_JOB_ID"):
-        raise SystemExit("Submit the v3 cross-solver study through SLURM")
+        raise SystemExit("Submit the cross-solver study through SLURM")
     if args.corpus is None or args.bundle is None:
         raise SystemExit("--corpus and --bundle are required")
     dirty = subprocess.run(
@@ -115,14 +117,21 @@ def main() -> None:
         "gnn_vs_neumann": metrics(gnn_matrix[:, offset], neumann_matrix[:, offset]),
     } for offset, target in enumerate(TARGETS)}
 
-    sources = [Path(__file__), CODE / "solvers/fem_inductance_ref.py", CODE / "data/v3_dataset.py",
+    sources = [Path(__file__), ROOT / "requirements-proof.txt",
+               CODE / "solvers/fem_inductance_ref.py", CODE / "data/v3_dataset.py",
                CODE / "inference/predict_safe_bundle.py", CODE / "core/planar_to_graph.py",
                CODE / "core/geometry_contract.py", CODE / "models/gnn/gnn_baseline.py"]
     result = {
-        "schema": SCHEMA,
+        "schema": schema,
         "provenance": {
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "slurm_job_id": os.environ["SLURM_JOB_ID"],
+            "arguments": {
+                "corpus": args.corpus.resolve().as_posix(),
+                "bundle": args.bundle.resolve().as_posix(),
+                "series": args.series,
+                "n_designs": args.n_designs,
+            },
             "git_head": subprocess.run(
                 ["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True,
                 text=True, check=True,
@@ -143,9 +152,9 @@ def main() -> None:
         "summary": summary,
         "records": records,
     }
-    output = ROOT / "results/corpus_v3/cross_solver/jobs" / f"job_{os.environ['SLURM_JOB_ID']}"
+    output = ROOT / "results" / args.series / "cross_solver/jobs" / f"job_{os.environ['SLURM_JOB_ID']}"
     output.mkdir(parents=True, exist_ok=True)
-    path = output / "results_corpus_v3_cross_solver.json"
+    path = output / f"results_{args.series}_cross_solver.json"
     path.write_text(json.dumps(result, indent=2) + "\n")
     print(path.relative_to(ROOT), flush=True)
 
