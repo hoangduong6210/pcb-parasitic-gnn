@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=48G
-#SBATCH --time=02:00:00
+#SBATCH --time=04:00:00
 #SBATCH --array=0-8%9
 #SBATCH --output=logs/%x-%A_%a.out
 #SBATCH --error=logs/%x-%A_%a.err
@@ -19,4 +19,4 @@ export MKL_NUM_THREADS="$OMP_NUM_THREADS"
 : "${PCB_GNN_V3_CORPUS_DIR:?Set the finalized v3 corpus directory}"
 
 "$PCB_GNN_PYTHON" -u code/experiments/proofs/experiments_corpus_v3_reference_validation.py \
-  --corpus "$PCB_GNN_V3_CORPUS_DIR" --timeout-s 300
+  --corpus "$PCB_GNN_V3_CORPUS_DIR" --timeout-s 1200
