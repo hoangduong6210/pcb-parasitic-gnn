@@ -163,6 +163,8 @@ def save_bundle(
         "schema": "pcb-gnn.safe-inference-bundle.v2", "format": "NumPy; allow_pickle=False",
         "targets": TARGETS, "split_kind": run["split_kind"],
         "split_seed": run["split_seed"], "init_seed": run["init_seed"],
+        "train_layout_ids": run["train_layout_ids"],
+        "test_layout_ids": run["test_layout_ids"],
         "architecture": {
             "node_dim": 9, "edge_dim": 7, "hidden": 96,
             "n_layers": 4, "n_targets": 4,

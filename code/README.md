@@ -87,6 +87,7 @@ top-level README).
 | `finalize_corpus_v3.py` | Refuses incomplete/dirty/mixed-source arrays and emits the immutable v3 corpus | `corpus_v3/final` |
 | `experiments_corpus_v3_accuracy.py` | Ten-task, 50-run random and family-disjoint v3 accuracy study | `corpus_v3/accuracy/jobs` |
 | `finalize_corpus_v3_accuracy.py` | Verifies and aggregates crossed split/initialization uncertainty | `corpus_v3/accuracy/final` |
+| `experiments_corpus_v3_latency.py` | Same-node paired FastHenry+FEM versus raw-layout batch-one GNN on 100 held-out v3 designs | `corpus_v3/latency/jobs` |
 
 ### `ranking/`
 

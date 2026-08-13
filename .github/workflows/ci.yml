@@ -48,3 +48,4 @@ jobs:
           python code/experiments/proofs/finalize_corpus_v3.py --source-array-job-id VALIDATE --validate-only
           python code/experiments/proofs/experiments_corpus_v3_accuracy.py --validate-only
           python code/experiments/proofs/finalize_corpus_v3_accuracy.py --source-array-job-id VALIDATE --validate-only
+          python code/experiments/proofs/experiments_corpus_v3_latency.py --validate-only

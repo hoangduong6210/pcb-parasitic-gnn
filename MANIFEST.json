@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 109,
+    "code": 111,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
@@ -16,8 +16,8 @@
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 2173,
-      "sha256": "db8ef59ee9c399e1bc4f54f754232978312da5ace88b8d3a1fe8b8e0d9e8305c"
+      "bytes": 2263,
+      "sha256": "c68a34f2a1b6faea42cd635f32c869bb9270523dabbc06df5e845f09d96792e8"
     },
     {
       "path": ".gitignore",
@@ -176,8 +176,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 7980,
-      "sha256": "6dc52f3ba3f13342519bf86be98d98d4c5e50798f41c4195f0691b4c6c595e78"
+      "bytes": 8138,
+      "sha256": "2425af931334612b771e5c51639c346ba0ba3efd5bff111983b7811a5ad0b466"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -321,13 +321,18 @@
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v3_accuracy.py",
-      "bytes": 11030,
-      "sha256": "8c6fcfbaf7cb9339cd51eb9ab7c9452597cabf40ff83b3418912cca5c317a345"
+      "bytes": 11134,
+      "sha256": "fa48b66ee68d8194a6204c3cf276361e915e4e943f6075e224bcc1c2e09d335d"
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v3_field_labels.py",
       "bytes": 8038,
       "sha256": "964d5f672afedec342a48430ccd711fc986558aaa01d18e00d5a9c6f8c41abce"
+    },
+    {
+      "path": "code/experiments/proofs/experiments_corpus_v3_latency.py",
+      "bytes": 9116,
+      "sha256": "0e3a88bc072d426548cad53cac3092ce27f2e9735456fa1889266539355bdef6"
     },
     {
       "path": "code/experiments/proofs/experiments_fem_convergence.py",
@@ -436,8 +441,8 @@
     },
     {
       "path": "code/jobs/run_v3_pipeline.sh",
-      "bytes": 2075,
-      "sha256": "cfff8896a9df1dfb82bb12bed724aa9b1d2f7910ef265dab3f4d2d6c5b6c91ff"
+      "bytes": 2425,
+      "sha256": "8a5d859af5ea0b7220c0b62e7ae4b97d4ef0ff69ab6699b5274c666654f2eb03"
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
@@ -473,6 +478,11 @@
       "path": "code/jobs/submit_corpus_v3_field_labels.sh",
       "bytes": 796,
       "sha256": "f05c7e235a09cb79eca15dc4d30df6cd44cc315bb4e011631d5f7d4aa56c3121"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v3_latency.sh",
+      "bytes": 931,
+      "sha256": "68011bdf4d4d023addf47fdf8e42152d2b2def0612fb007a014c5e02c58f034b"
     },
     {
       "path": "code/jobs/submit_corpus_v3_preflight.sh",
@@ -1315,6 +1325,6 @@
       "sha256": "1f6d09bb2a3c457d4914493c94a17ade4ff179f34ba27ed24590beec9678903d"
     }
   ],
-  "n_files": 260,
-  "total_bytes": 9505719
+  "n_files": 262,
+  "total_bytes": 9516468
 }
