@@ -1,0 +1,55 @@
+#!/bin/bash
+# Submit the geometry-v3 evidence DAG with scheduler-enforced dependencies.
+#
+# Usage:
+#   FASTHENRY_BIN=/absolute/path/to/fasthenry \
+#     bash code/jobs/submit_v3_pipeline.sh --account <slurm-account>
+set -euo pipefail
+
+ACCOUNT=""
+while (($#)); do
+    case "$1" in
+        --account) ACCOUNT="${2:?missing account}"; shift 2 ;;
+        *) echo "Unknown argument: $1" >&2; exit 2 ;;
+    esac
+done
+: "${ACCOUNT:?Pass --account <slurm-account>}"
+: "${FASTHENRY_BIN:?Set FASTHENRY_BIN to an executable built from the external solver source}"
+[[ -x "$FASTHENRY_BIN" ]] || { echo "FASTHENRY_BIN is not executable" >&2; exit 2; }
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+cd "$ROOT"
+[[ -z "$(git status --short --untracked-files=no)" ]] || {
+    echo "Refusing pipeline submission from a dirty tracked worktree" >&2
+    exit 2
+}
+mkdir -p logs
+
+submit() {
+    sbatch --parsable -A "$ACCOUNT" "$@"
+}
+
+audit_id="$(submit code/jobs/submit_legacy_v2_geometry_audit.sh)"
+preflight_id="$(submit --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN" \
+    code/jobs/submit_corpus_v3_preflight.sh)"
+labels_id="$(submit --dependency="afterok:$preflight_id" \
+    --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN" \
+    code/jobs/submit_corpus_v3_field_labels.sh)"
+corpus_final_id="$(submit --dependency="afterok:$labels_id" \
+    --export="ALL,PCB_GNN_V3_SOURCE_ARRAY_JOB_ID=$labels_id" \
+    code/jobs/submit_finalize_corpus_v3.sh)"
+corpus_dir="$ROOT/results/corpus_v3/final/job_$corpus_final_id"
+accuracy_id="$(submit --dependency="afterok:$corpus_final_id" \
+    --export="ALL,PCB_GNN_V3_CORPUS_DIR=$corpus_dir" \
+    code/jobs/submit_corpus_v3_accuracy.sh)"
+accuracy_final_id="$(submit --dependency="afterok:$accuracy_id" \
+    --export="ALL,PCB_GNN_V3_ACCURACY_ARRAY_JOB_ID=$accuracy_id" \
+    code/jobs/submit_finalize_corpus_v3_accuracy.sh)"
+
+printf '%s\n' \
+    "legacy_audit=$audit_id" \
+    "v3_preflight=$preflight_id" \
+    "v3_labels=$labels_id" \
+    "v3_corpus_final=$corpus_final_id" \
+    "v3_accuracy=$accuracy_id" \
+    "v3_accuracy_final=$accuracy_final_id"

@@ -194,6 +194,18 @@ passivity violations, dirty tracked trees, mixed commits, source-hash drift, and
 record-hash drift.  Full schema and status details are in
 [`datasets/README.md`](datasets/README.md).
 
+The same gates can be submitted as one scheduler dependency graph; a downstream
+stage starts only when its upstream stage exits successfully:
+
+```bash
+FASTHENRY_BIN=/absolute/path/to/fasthenry \
+  bash code/jobs/submit_v3_pipeline.sh --account <your-account>
+```
+
+The graph ends after the 50-run random/family-disjoint accuracy finalizer. It
+does not update figures or manuscript claims automatically; those remain a
+separate admission step after result review.
+
 ## Reproducing a result
 
 Do not rerun a v2 experiment as though it were current evidence.  The active
