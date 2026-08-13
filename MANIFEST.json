@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 128,
+    "code": 132,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 8
+    "tests": 9
   },
   "files": [
     {
@@ -350,6 +350,11 @@
       "sha256": "c1744ccdb02d40188d5881199eed5c09f7f78a6bfa945c68e16dcdaf31952e27"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_reference_validation.py",
+      "bytes": 6376,
+      "sha256": "59730a9cebb88846e6624fa6a1503a7d7bfd27dcb8cfd9707bec27e89b46b899"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v3_strict_e3.py",
       "bytes": 6030,
       "sha256": "51e922b77c9bf57ea93fa93ded1b92666528e9801d418647a18821471090c072"
@@ -398,6 +403,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3_ranking.py",
       "bytes": 4819,
       "sha256": "b5853a4abe83a81d91521565c69dddcd76694e0160c1634edfe8daa9933242e9"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v3_reference_validation.py",
+      "bytes": 7657,
+      "sha256": "f964d23d9b3df561905451365dc740efccac4b1a4bd7b14a6e7868fdc3e6f164"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v3_strict_e3.py",
@@ -545,6 +555,11 @@
       "sha256": "3c00d1a39408c58cd90bb8fd92798c9342a05b1c995eae9877ac3174c4fb9f1f"
     },
     {
+      "path": "code/jobs/submit_corpus_v3_reference_validation.sh",
+      "bytes": 738,
+      "sha256": "4ae2393422efc55da6433c6f7e25b12ca089f7782dfa90d0ab765dd05472d54e"
+    },
+    {
       "path": "code/jobs/submit_corpus_v3_strict_e3.sh",
       "bytes": 762,
       "sha256": "9fc5adb2cb49f3e3ca4dfb9dcc9486aa90679c7c9fee0c36d51c6fc96167466f"
@@ -613,6 +628,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3_ranking.sh",
       "bytes": 645,
       "sha256": "e8e176c57b752e8960c89a605f663ab080c3adb4d87a9b52471095aafeaab738"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v3_reference_validation.sh",
+      "bytes": 758,
+      "sha256": "54dd4dc7994381148cbeacfe30daff725c8d8c2b8045bdea4ec839fa3a52d992"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v3_strict_e3.sh",
@@ -1375,6 +1395,11 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "tests/test_corpus_v3_reference_validation.py",
+      "bytes": 1459,
+      "sha256": "a3ceda05c32f4f711b9730830cc34b826f01e5a829a9c2ed7a18fccc3acee8ba"
+    },
+    {
       "path": "tests/test_followup_protocols.py",
       "bytes": 3250,
       "sha256": "ff053237d9fdf0ef089771130b090fb6e23fe7d0a770978c12f1432d874e09c5"
@@ -1415,6 +1440,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 280,
-  "total_bytes": 9577028
+  "n_files": 285,
+  "total_bytes": 9594016
 }
