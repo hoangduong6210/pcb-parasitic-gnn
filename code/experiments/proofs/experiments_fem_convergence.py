@@ -160,7 +160,13 @@ def main() -> None:
     if not os.environ.get("SLURM_JOB_ID"):
         raise SystemExit("Refusing FEM solves outside SLURM; submit submit_fem_convergence.sh")
 
-    records = [json.loads(line) for line in args.targets.read_text().splitlines() if line.strip()]
+    attempted = [json.loads(line) for line in args.targets.read_text().splitlines() if line.strip()]
+    records = [record for record in attempted if record.get("valid") and record.get("target") is not None]
+    if len(records) != 332:
+        raise ValueError(
+            f"Expected 332 valid field-grade records, found {len(records)} "
+            f"among {len(attempted)} attempted records"
+        )
     selections = select_layouts(records)
     output_dir = ROOT / "results/proof_updates/jobs/fem_convergence" / f"job_{os.environ['SLURM_JOB_ID']}"
     output_dir.mkdir(parents=True, exist_ok=True)

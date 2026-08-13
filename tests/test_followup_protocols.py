@@ -17,7 +17,7 @@ for directory in (
 ):
     sys.path.insert(0, str(directory))
 
-from experiments_multisplit_accuracy import split_indices  # noqa: E402
+from experiments_multisplit_accuracy import load_samples, split_indices  # noqa: E402
 from gnn_baseline import PCBParasiticGNN  # noqa: E402
 from predict_safe_bundle import load_bundle  # noqa: E402
 
@@ -28,6 +28,13 @@ def test_seed42_split_matches_original_proof_protocol() -> None:
     expected = np.random.permutation(332)
     assert train == expected[:265].tolist()
     assert test == expected[265:].tolist()
+
+
+def test_field_target_ledger_filters_failed_candidates() -> None:
+    targets = ROOT / "results/proof_updates/jobs/strict_e3/job_51174496/field_grade_targets.jsonl"
+    records, layouts, samples = load_samples(targets)
+    assert len(records) == len(layouts) == len(samples) == 332
+    assert all(record["valid"] and record["target"] is not None for record in records)
 
 
 def test_protocol_validation_does_not_train_or_solve() -> None:

@@ -82,7 +82,8 @@ def package_version(name: str) -> str | None:
 
 
 def load_samples(path: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
-    records = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    attempted = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
+    records = [record for record in attempted if record.get("valid") and record.get("target") is not None]
     layouts: list[dict[str, Any]] = []
     samples: list[dict[str, Any]] = []
     for record in records:
@@ -95,7 +96,10 @@ def load_samples(path: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]]
         ))
         layouts.append(layout)
     if len(samples) != 332:
-        raise ValueError(f"Expected 332 field-grade samples, found {len(samples)}")
+        raise ValueError(
+            f"Expected 332 valid field-grade samples, found {len(samples)} "
+            f"among {len(attempted)} attempted records"
+        )
     return records, layouts, samples
 
 

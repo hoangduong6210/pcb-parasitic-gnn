@@ -301,13 +301,13 @@
     },
     {
       "path": "code/experiments/proofs/experiments_fem_convergence.py",
-      "bytes": 10074,
-      "sha256": "584709b9a114d8a6d0d38979b7a0fc3e67741b33d85e48ab3def5f141da244b5"
+      "bytes": 10380,
+      "sha256": "e677c505cea14352dafa74289522e80dc07bc9e3a32ca971abbf899f5e4997fe"
     },
     {
       "path": "code/experiments/proofs/experiments_multisplit_accuracy.py",
-      "bytes": 15003,
-      "sha256": "158d7cc35f9ebab6aa7baa9e9528fdd15bef5e74e4e63ceed29d1e9abf097052"
+      "bytes": 15197,
+      "sha256": "fe846d2307ee2c392e2a50812ad3e38b6e9c7c77181345ce47ab57b7aaea3f45"
     },
     {
       "path": "code/experiments/proofs/experiments_reproduce_legacy_latency.py",
@@ -1191,8 +1191,8 @@
     },
     {
       "path": "tests/test_followup_protocols.py",
-      "bytes": 2882,
-      "sha256": "b145e2ff84fe50f7c0794dd3449b653fa2c8e5166a494e5d29356fe3f49dd67f"
+      "bytes": 3267,
+      "sha256": "fd431af036d7a137430ce3cbfb914fcf37509bf0c3733b95cddb26f30f5969b2"
     },
     {
       "path": "tests/test_graph.py",
@@ -1216,5 +1216,5 @@
     }
   ],
   "n_files": 240,
-  "total_bytes": 9433620
+  "total_bytes": 9434505
 }
