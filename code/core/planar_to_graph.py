@@ -13,6 +13,7 @@ from typing import Dict, List, Any
 
 from pcb_graph import PCBGraph, Node, Edge
 from trace_peec import Trace, strip_self_inductance_nh, mutual_inductance_rect_nh, trace_capacitance_pf
+from geometry_contract import trace_box, trace_center_mm, trace_z_mm, validate_layout
 
 
 def _make_trace_from_spec(tr: Dict, z_layer: float) -> Trace:
@@ -29,6 +30,7 @@ def _make_trace_from_spec(tr: Dict, z_layer: float) -> Trace:
 
 def build_graph_from_planar_layout(layout: Dict[str, Any]) -> PCBGraph:
     """Build PCBGraph from a compact planar layout dict."""
+    validate_layout(layout)
     g = PCBGraph()
     n_layers = layout.get("n_layers", 8)
     g.freqs_hz = np.asarray(layout.get("freqs_hz", np.logspace(4, 8, 21)))
@@ -45,16 +47,12 @@ def build_graph_from_planar_layout(layout: Dict[str, Any]) -> PCBGraph:
 
     # Create trace nodes (one per trace segment)
     for i, tr in enumerate(traces):
-        z = tr.get("z_mm", (tr["layer"] + 0.5) * 0.2)  # approx layer spacing
+        center = trace_center_mm(layout, tr)
         node = Node(
             id=i,
             kind="trace",
             layer=tr["layer"],
-            center_mm=np.array([
-                tr.get("x0", 0) + tr["length_mm"] / 2,
-                tr.get("y0", 0),
-                z
-            ]),
+            center_mm=np.array(center),
             dims_mm=np.array([tr["width_mm"], tr["length_mm"], tr.get("thick_mm", 0.07)]),
             material="copper",
             sigma_s_m=5.8e7,
@@ -68,10 +66,11 @@ def build_graph_from_planar_layout(layout: Dict[str, Any]) -> PCBGraph:
         for j, t2 in enumerate(traces):
             if i >= j:
                 continue
-            z1 = t1.get("z_mm", (t1["layer"] + 0.5) * 0.2)
-            z2 = t2.get("z_mm", (t2["layer"] + 0.5) * 0.2)
-            dx = (t2.get("x0", 0) + t2["length_mm"]/2) - (t1.get("x0", 0) + t1["length_mm"]/2)
-            dy = t2.get("y0", 0) - t1.get("y0", 0)
+            c1 = trace_center_mm(layout, t1)
+            c2 = trace_center_mm(layout, t2)
+            z1, z2 = c1[2], c2[2]
+            dx = c2[0] - c1[0]
+            dy = c2[1] - c1[1]
             dz = z2 - z1
             dist = float(np.sqrt(dx*dx + dy*dy + dz*dz))
 
@@ -79,10 +78,9 @@ def build_graph_from_planar_layout(layout: Dict[str, Any]) -> PCBGraph:
             # not the old position-blind min(L)*min(w): C_ps depends on whether the
             # pri/sec traces actually overlap, which FastCap captures and the
             # position-blind feature hid (analytical C_ps was ~10^3x off).
-            ax1, ax2 = t1.get("x0", 0.0), t1.get("x0", 0.0) + t1["length_mm"]
-            bx1, bx2 = t2.get("x0", 0.0), t2.get("x0", 0.0) + t2["length_mm"]
-            ay1, ay2 = t1.get("y0", 0.0), t1.get("y0", 0.0) + t1["width_mm"]
-            by1, by2 = t2.get("y0", 0.0), t2.get("y0", 0.0) + t2["width_mm"]
+            box1, box2 = trace_box(layout, t1), trace_box(layout, t2)
+            ax1, ax2, ay1, ay2 = box1[:4]
+            bx1, bx2, by1, by2 = box2[:4]
             ox = max(0.0, min(ax2, bx2) - max(ax1, bx1))
             oy = max(0.0, min(ay2, by2) - max(ay1, by1))
             overlap = ox * oy
@@ -106,6 +104,7 @@ def build_graph_from_planar_layout(layout: Dict[str, Any]) -> PCBGraph:
 
 def compute_improved_labels(layout: Dict[str, Any]) -> Dict[str, np.ndarray]:
     """Compute R/L/C labels using the new trace models (better than old peec_cps)."""
+    validate_layout(layout)
     traces = layout.get("traces", [])
     freqs = np.asarray(layout.get("freqs_hz", np.logspace(4, 8, 21)))
     eps_r = layout.get("eps_r", 4.2)
@@ -119,8 +118,8 @@ def compute_improved_labels(layout: Dict[str, Any]) -> Dict[str, np.ndarray]:
         return {"Cps_pF": np.zeros(n), "L_pri_nH": np.zeros(n), "L_sec_nH": np.zeros(n),
                 "L_mut_nH": np.zeros(n), "freq_hz": freqs}
 
-    t_pri = _make_trace_from_spec(pri_spec, pri_spec.get("z_mm", 0.1))
-    t_sec = _make_trace_from_spec(sec_spec, sec_spec.get("z_mm", 0.3))
+    t_pri = _make_trace_from_spec(pri_spec, trace_z_mm(layout, pri_spec))
+    t_sec = _make_trace_from_spec(sec_spec, trace_z_mm(layout, sec_spec))
 
     L_pri = strip_self_inductance_nh(t_pri)
     L_sec = strip_self_inductance_nh(t_sec)
@@ -155,7 +154,8 @@ def compute_reference_labels_allpairs(layout: Dict[str, Any]) -> Dict[str, float
     traces = layout.get("traces", [])
     eps_r = layout.get("eps_r", 4.2)
 
-    tr = [_make_trace_from_spec(t, t.get("z_mm", (t["layer"] + 0.5) * 0.2)) for t in traces]
+    validate_layout(layout)
+    tr = [_make_trace_from_spec(t, trace_z_mm(layout, t)) for t in traces]
     pri = [t for t in tr if t.net == "pri"]
     sec = [t for t in tr if t.net == "sec"]
 

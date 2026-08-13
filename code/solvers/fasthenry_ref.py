@@ -19,6 +19,8 @@ from pathlib import Path
 
 import numpy as np
 
+from geometry_contract import trace_center_mm, validate_layout
+
 FASTHENRY = os.environ.get(
     "FASTHENRY_BIN", str(Path(__file__).resolve().parent / "tools" / "fasthenry")
 )
@@ -28,17 +30,18 @@ def layout_to_inp(layout, freqs_hz=(1e5,), nhinc=1, nwinc=1):
     """Build a FastHenry .inp: one straight segment per trace (its real w,h,z).
     nhinc/nwinc subdivide each conductor's cross-section into filaments so the
     frequency sweep captures skin/proximity (set >1 for R(f); default 1 = T1)."""
+    validate_layout(layout)
     trs = layout["traces"]
     lines = ["* planar-PCB layout -> FastHenry", ".units mm"]
     fil = f" nhinc={nhinc} nwinc={nwinc}" if (nhinc > 1 or nwinc > 1) else ""
     ports = []
     for i, t in enumerate(trs):
-        x0 = t.get("x0", 0.0); y0 = t.get("y0", 0.0)
-        z = t.get("z_mm", (t["layer"] + 0.5) * 0.2)
+        x0 = float(t["x0"])
+        _, y_center, z_center = trace_center_mm(layout, t)
         L = t["length_mm"]; w = t["width_mm"]; h = t.get("thick_mm", 0.07)
         na, nb = f"N{i}a", f"N{i}b"
-        lines.append(f"{na} x={x0:.4f} y={y0:.4f} z={z:.4f}")
-        lines.append(f"{nb} x={x0+L:.4f} y={y0:.4f} z={z:.4f}")
+        lines.append(f"{na} x={x0:.4f} y={y_center:.4f} z={z_center:.4f}")
+        lines.append(f"{nb} x={x0+L:.4f} y={y_center:.4f} z={z_center:.4f}")
         lines.append(f"E{i} {na} {nb} w={w:.4f} h={h:.4f}{fil}")
         ports.append((i, na, nb, t.get("net", "")))
     for i, na, nb, _ in ports:
@@ -126,8 +129,18 @@ def fasthenry_Rac_curve(layout, freqs_hz, nhinc=4, nwinc=3, timeout=120):
 
 if __name__ == "__main__":
     # smoke: two stacked traces -> finite mutual
-    lay = {"traces": [
-        {"x0": 0, "y0": 0, "z_mm": 0.10, "length_mm": 40, "width_mm": 3, "thick_mm": 0.07, "layer": 0, "net": "pri"},
-        {"x0": 0, "y0": 0, "z_mm": 0.30, "length_mm": 40, "width_mm": 3, "thick_mm": 0.07, "layer": 1, "net": "sec"},
-    ]}
+    lay = {
+        "geometry_schema": "pcb-planar-active-legs.v3",
+        "n_layers": 2, "board_w_mm": 45.0, "board_h_mm": 12.0,
+        "stackup": {"layer_pitch_mm": 0.20, "layer_z0_mm": 0.10},
+        "design_rules": {"same_layer_clearance_mm": 0.20, "board_edge_margin_mm": 0.0},
+        "traces": [
+            {"trace_id": "pri-0", "x0": 2, "y0": 2, "length_mm": 40,
+             "width_mm": 3, "thick_mm": 0.07, "layer": 0, "net": "pri",
+             "current_sign": 1},
+            {"trace_id": "sec-0", "x0": 2, "y0": 2, "length_mm": 40,
+             "width_mm": 3, "thick_mm": 0.07, "layer": 1, "net": "sec",
+             "current_sign": 1},
+        ],
+    }
     print(fasthenry_totals(lay, 1e5))

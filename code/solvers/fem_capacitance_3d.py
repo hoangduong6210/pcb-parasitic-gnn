@@ -14,6 +14,8 @@ Validated against the parallel-plate analytic eps0*eps_r*A/d.
 from __future__ import annotations
 import numpy as np
 
+from geometry_contract import trace_box, validate_layout
+
 EPS0 = 8.854187817e-12   # F/m
 
 
@@ -23,11 +25,12 @@ def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
     import gmsh
     from skfem import MeshTet
     import tempfile, os
+    validate_layout(layout)
     trs = layout["traces"]
-    xs = [t.get("x0", 0.0) for t in trs] + [t.get("x0", 0.0) + t["length_mm"] for t in trs]
-    ys = [t.get("y0", 0.0) for t in trs] + [t.get("y0", 0.0) + t["width_mm"] for t in trs]
-    zs = [t.get("z_mm", (t["layer"] + 0.5) * 0.2) for t in trs] + \
-         [t.get("z_mm", (t["layer"] + 0.5) * 0.2) + t.get("thick_mm", 0.07) for t in trs]
+    boxes = [trace_box(layout, trace) for trace in trs]
+    xs = [box[0] for box in boxes] + [box[1] for box in boxes]
+    ys = [box[2] for box in boxes] + [box[3] for box in boxes]
+    zs = [box[4] for box in boxes] + [box[5] for box in boxes]
     x0, x1 = min(xs) - pad_mm, max(xs) + pad_mm
     y0, y1 = min(ys) - pad_mm, max(ys) + pad_mm
     z0, z1 = min(zs) - pad_mm, max(zs) + pad_mm
@@ -39,13 +42,14 @@ def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
     occ = gmsh.model.occ
     air = occ.addBox(x0, y0, z0, x1 - x0, y1 - y0, z1 - z0)
     pri_boxes, sec_boxes = [], []
-    for t in trs:
+    for t, box in zip(trs, boxes):
         net = t.get("net")
         if net not in ("pri", "sec"):
             continue
-        bx = occ.addBox(t.get("x0", 0.0), t.get("y0", 0.0),
-                        t.get("z_mm", (t["layer"] + 0.5) * 0.2),
-                        t["length_mm"], t["width_mm"], t.get("thick_mm", 0.07))
+        bx = occ.addBox(
+            box[0], box[2], box[4],
+            box[1] - box[0], box[3] - box[2], box[5] - box[4],
+        )
         (pri_boxes if net == "pri" else sec_boxes).append(bx)
     occ.synchronize()
     # FUSE each winding into one conductor (resolves same-net same-layer overlaps,
@@ -69,14 +73,12 @@ def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
     region_of_vol = {}
     for v in vols:
         c = centroid(v); tag = 0   # gmsh model units are mm here
-        for t in trs:
+        for t, box in zip(trs, boxes):
             if t.get("net") not in ("pri", "sec"):
                 continue
-            cx = t.get("x0", 0.0); cy = t.get("y0", 0.0)
-            cz = t.get("z_mm", (t["layer"] + 0.5) * 0.2)
-            if (cx - 1e-3 <= c[0] <= cx + t["length_mm"] + 1e-3 and
-                cy - 1e-3 <= c[1] <= cy + t["width_mm"] + 1e-3 and
-                cz - 1e-3 <= c[2] <= cz + t.get("thick_mm", 0.07) + 1e-3):
+            if (box[0] - 1e-3 <= c[0] <= box[1] + 1e-3 and
+                box[2] - 1e-3 <= c[1] <= box[3] + 1e-3 and
+                box[4] - 1e-3 <= c[2] <= box[5] + 1e-3):
                 tag = 1 if t["net"] == "pri" else 2; break
         region_of_vol[v] = tag
     # mesh size: fine near the (thin) gaps
@@ -172,10 +174,20 @@ def parallel_plate_pf(area_mm2, gap_mm, eps_r=4.2):
 
 if __name__ == "__main__":
     # parallel-plate validation: 40x5 mm plates, 0.11 mm gap, eps_r=4.2
-    lay = {"traces": [
-        {"x0": 0, "y0": 0, "z_mm": 0.10, "length_mm": 40, "width_mm": 5, "thick_mm": 0.07, "layer": 0, "net": "pri"},
-        {"x0": 0, "y0": 0, "z_mm": 0.28, "length_mm": 40, "width_mm": 5, "thick_mm": 0.07, "layer": 1, "net": "sec"},
-    ]}
+    lay = {
+        "geometry_schema": "pcb-planar-active-legs.v3",
+        "n_layers": 2, "board_w_mm": 45.0, "board_h_mm": 10.0,
+        "stackup": {"layer_pitch_mm": 0.18, "layer_z0_mm": 0.10},
+        "design_rules": {"same_layer_clearance_mm": 0.20, "board_edge_margin_mm": 0.0},
+        "traces": [
+            {"trace_id": "pri-0", "x0": 2, "y0": 2, "length_mm": 40,
+             "width_mm": 5, "thick_mm": 0.07, "layer": 0, "net": "pri",
+             "current_sign": 1},
+            {"trace_id": "sec-0", "x0": 2, "y0": 2, "length_mm": 40,
+             "width_mm": 5, "thick_mm": 0.07, "layer": 1, "net": "sec",
+             "current_sign": 1},
+        ],
+    }
     truth = parallel_plate_pf(40*5, 0.28-0.17, 4.2)
     for r in (0, 1):
         c = fem_cps_3d(lay, eps_r=4.2, refine=r)

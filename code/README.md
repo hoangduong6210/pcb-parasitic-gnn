@@ -45,6 +45,8 @@ top-level README).
 |---|---|
 | `generate_synth.py` | Seeded corpus generator (`--seed 42`) for `synth_v0` / `v1` / `v2` |
 | `gen_corpus_fh.py` | Corpus v2: larger boards + FastHenry-labelled inductances |
+| `gen_corpus_v3.py` | Geometry-valid v3 active-leg layouts; no labels are mixed into generation |
+| `audit_legacy_v2_geometry.py` | Reconstructs and quantifies v2 geometry/passivity failures without field solves |
 
 ## `experiments/`
 
@@ -81,6 +83,8 @@ top-level README).
 | `experiments_reproduce_legacy_latency.py` | Reproduction of the historical pre-collated batch-forward protocol | `proof_updates/jobs/legacy_latency` |
 | `experiments_multisplit_accuracy.py` | Five split seeds crossed with five initialization seeds; emits per-design predictions and a state-dict-only inference bundle | `proof_updates/jobs/multisplit_accuracy` |
 | `experiments_fem_convergence.py` | Nine-layout, 81-solve mesh-refinement and domain-padding sensitivity study | `proof_updates/jobs/fem_convergence` |
+| `experiments_corpus_v3_field_labels.py` | Geometry-gated 30-task array for 1,500 paired FastHenry/FEM labels | `corpus_v3/jobs` |
+| `finalize_corpus_v3.py` | Refuses incomplete/dirty/mixed-source arrays and emits the immutable v3 corpus | `corpus_v3/final` |
 
 ### `ranking/`
 

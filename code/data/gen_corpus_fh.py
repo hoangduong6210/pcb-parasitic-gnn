@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the second synthetic corpus used for scaling studies.
+"""Reconstruct the quarantined v2 corpus for integrity audits only.
 
 The generator includes larger boards so that large-graph accuracy can be
 measured.  Its winding-mutual-inductance label uses a multi-filament
@@ -7,7 +7,10 @@ FastHenry-style partial-element calculation instead of the Grover closed form.
 The capacitance and within-net self-inductance labels retain the analytical path;
 field-solver experiments replace those labels when evaluating physical fidelity.
 
-Heavy (all-pairs filament over many larger layouts) -> SLURM only.
+The historical generator is intentionally blocked at its command-line entry
+point.  ``big_layout`` remains importable so ``audit_legacy_v2_geometry.py`` can
+reproduce and quantify the old failure modes.  New layouts come from
+``gen_corpus_v3.py`` and labels only from the geometry-gated field-solver job.
 """
 import argparse
 import json
@@ -66,6 +69,10 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--max_per_net", type=int, default=36)   # up to ~70 traces
     args = ap.parse_args()
+    raise SystemExit(
+        "synth_v2 is quarantined: layer/z conflicts, overlapping conductor "
+        "volumes, and mixed non-passive labels. Use gen_corpus_v3.py."
+    )
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
 
     layouts, labels = [], []

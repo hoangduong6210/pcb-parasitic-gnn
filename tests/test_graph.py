@@ -15,24 +15,42 @@ from planar_to_graph import build_graph_from_planar_layout  # noqa: E402
 
 def sample_layout() -> dict:
     return {
+        "geometry_schema": "pcb-planar-active-legs.v3",
+        "board_w_mm": 30.0,
+        "board_h_mm": 10.0,
         "n_layers": 2,
         "eps_r": 4.2,
+        "stackup": {"layer_pitch_mm": 0.18, "layer_z0_mm": 0.05},
+        "design_rules": {
+            "same_layer_clearance_mm": 0.20,
+            "board_edge_margin_mm": 0.0,
+        },
         "traces": [
             {
+                "trace_id": "pri_000",
+                "net": "pri",
                 "layer": 0,
-                "x0": 0.0,
-                "y0": 0.0,
+                "x0": 2.0,
+                "y0": 2.0,
                 "length_mm": 20.0,
                 "width_mm": 2.0,
-                "net": "pri",
+                "thick_mm": 0.035,
+                "current_sign": 1,
+                "segment_role": "active_leg",
+                "turn_index": 0,
             },
             {
+                "trace_id": "sec_000",
+                "net": "sec",
                 "layer": 1,
-                "x0": 1.0,
-                "y0": 0.5,
+                "x0": 3.0,
+                "y0": 5.0,
                 "length_mm": 18.0,
                 "width_mm": 2.0,
-                "net": "sec",
+                "thick_mm": 0.035,
+                "current_sign": 1,
+                "segment_role": "active_leg",
+                "turn_index": 0,
             },
         ],
     }

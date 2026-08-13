@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-generate_synth.py — Synthetic planar PCB trace dataset generator (low RAM).
+generate_synth.py — Quarantined legacy synthetic generator.
 
 Generates random multi-layer rectangular trace layouts for planar magnetics
 (LLC-style interleaving) and labels using the improved trace_peec models.
@@ -8,7 +8,10 @@ Generates random multi-layer rectangular trace layouts for planar magnetics
 Usage (light):
   python generate_synth.py --n 200 --out ../datasets/synth_v0 --seed 42
 
-Heavy runs: submit via sbatch (see submit_pipeline.sh).
+The generated geometries do not satisfy the v3 geometry contract.  The helper
+function remains importable solely so the published v2 audit can reconstruct
+the historical corpus byte-for-byte; new corpus generation must use
+``gen_corpus_v3.py``.
 """
 import argparse
 import json
@@ -93,6 +96,11 @@ def main():
     parser.add_argument("--big", action="store_true",
                         help="wider trace-count range (larger graphs)")
     args = parser.parse_args()
+
+    raise SystemExit(
+        "Legacy v0/v1 generation is quarantined because it does not satisfy "
+        "the geometry-v3 contract. Use code/data/gen_corpus_v3.py."
+    )
 
     out_dir = Path(args.out)
     out_dir.mkdir(parents=True, exist_ok=True)

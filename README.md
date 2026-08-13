@@ -1,11 +1,18 @@
 # A License-Clean Graph Neural Network for Fast Parasitic Extraction in PCB-Embedded Planar Magnetics
 
-A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics of
-an 8-layer planar-LLC PCB winding: inter-winding capacitance `C_ps`, self-inductances
-`L_p` / `L_s`, and primary-secondary mutual inductance `M`. In the audited
-batch-one protocol, raw-layout-to-prediction inference takes **5.62 ms**. The
-median paired speedup is **670× over the FastHenry-plus-electrostatic-FEM
-workflow used to obtain all four targets**, measured on the evaluated CPU node.
+> **DATA-INTEGRITY HOLD.** A post hoc audit found that the superseded v2
+> generator can assign inconsistent layer and z coordinates, overlapping copper
+> volumes, and mixed analytical labels that violate inductance passivity. The v2
+> accuracy values and downstream accuracy/ranking claims are quarantined as
+> pipeline-debugging records, not current scientific evidence. Geometry-valid v3
+> layouts and dual-solver labels must pass the published gates before these
+> claims are reinstated. The legacy runtime record describes only that historical
+> workflow.
+
+A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
+of PCB winding active-leg abstractions. The repository is currently
+regenerating its numerical corpus under one geometry contract shared by graph
+construction, FastHenry, and electrostatic FEM.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -46,66 +53,20 @@ The extended build regenerates its figures from
 > [`results_coremfem.json`](results/run_coremfem/results_coremfem.json)). Earlier drafts of this work wrote `L_m`; that notation was
 > ambiguous and has been retired.
 
-## Results at a glance
+## Current evidence status
 
-| Claim | Number | Where it comes from |
-|---|---|---|
-| `C_ps` vs 3-D electrostatic FEM | **2.63 %** median, R² = 0.962 on one seed-42 265/67 random split | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
-| `L_p` / `L_s` / `M` vs FastHenry 3-D | **2.45 / 3.31 / 1.75 %** median on the same single split and training run | [`results.json → field_accuracy_corpus`](results/proof_updates/results.json) |
-| Four-target paired workflow to end-to-end GNN | **670×** median paired ratio on the evaluated node; component medians are 3.659 s and 5.62 ms | [`results.json → latency`](results/proof_updates/results.json) |
-| Family-disjoint ranking | Spearman **ρ = 0.93** | [`results_rank.json`](results/run_rank/results_rank.json) |
-| Lateral-registration ranking | **ρ = 0.95** (analytical model is blind) | [`results_ranklat2.json`](results/run_ranklat2/results_ranklat2.json), [`results_declat.json`](results/run_declat/results_declat.json) |
-| Cross-solver check (independent Neumann) | GNN inside the FastHenry↔Neumann gap | [`results_xsolver.json`](results/run_xsolver/results_xsolver.json) |
-| Frequency-resolved `R_ac/R_dc(f)` | **0.37 %** median | [`results_t3.json`](results/run_t3/results_t3.json) |
+There is deliberately no accuracy or speed headline while corpus v3 is being
+generated.  Every result derived from v0--v2 geometry, including the former
+accuracy, ranking, strict-symmetry comparison, and paired speed ratio, is
+quarantined.  The files remain available for audit, but they are not evidence
+for geometry-valid PCB layouts and are not mixed with v3 results.
 
-The headline accuracy metrics come from one initialization and one random split;
-they do not establish initialization or split robustness. The metrics are
-reported per target. In particular, `C_ps` has R² = 0.962; this repository does
-not summarize the four targets as a single "R² >= 0.98" claim. The runtime
-interval reported in the manuscript is a design-bootstrap interval conditional
-on the evaluated node, fixed checkpoint, and fixed software environment.
-
-### Why a graph, and not gradient-boosted trees
-
-On an identical 332/67 solver-labeled split
-([tree record](results/run_trees/results_trees.json),
-[updated GNN record](results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json)):
-
-| Model | `C_ps` R² (med %) | `L_p` | `L_s` | `M` | rank ρ | size-gen R²(`M`) |
-|---|---|---|---|---|---|---|
-| RandomForest | 0.462 (12.9) | 0.887 | 0.914 | 0.880 |   | 0.112 |
-| XGBoost | 0.927 (3.8) | 0.878 | 0.908 | 0.914 |  | 0.231 |
-| LightGBM | 0.942 (**2.9**) | 0.893 | 0.890 | 0.918 | 0.088 | 0.247 |
-| CatBoost | 0.892 (4.7) | 0.896 | 0.893 | 0.920 | — | 0.324 |
-| **GNN** | **0.962** (2.63) | **0.994** | **0.995** | **0.995** | **0.93** | **0.943** |
-
-Trees are level with the GNN on the scalar capacitance, and the two metrics remain
-close there: the GNN reaches R² = 0.962 and 2.63 % median relative error, versus
-LightGBM at 0.942 and 2.9 %. R² is a squared-error measure dominated by the
-largest-`C_ps` layouts, whereas the median is scale-free and outlier-robust.
-The graph earns its place on everything **relational**: the inductances, the
-within-family ordering, and transfer to board sizes never trained on.
-
-### Negative results and corrected findings
-
-- A controlled **strict encoded-graph `E(3)`** ablation does not resolve an accuracy
-  advantage: strict error is 6.27% higher in the parameter-matched comparison,
-  with a 95% interval of [-4.44%, +17.68%]. A same-width sensitivity arm is also
-  inconclusive (+6.98%, 95% interval [-1.08%, +14.98%]). These results support neither categorical
-  superiority nor practical equivalence. The strict claim applies after graph
-  construction; the axis-aligned layout-to-graph builder is outside that boundary.
-- The **dense** all-pairs graph is **slower** than the analytical baseline at the
-  benchmark scale; only the sparse k-NN variant overtakes it, at N ≈ 80
-  ([`scaling.json`](results/scaling_v1/scaling.json)).
-- **FastCap** did not converge on ~0.1 mm inter-layer gaps (R² = −0.388); we switched
-  to a volume FEM for `C_ps` and say so rather than hiding the failed path
-  ([`results_allfield.json`](results/run_allfield/results_allfield.json)).
-- A pointwise regressor ranks at only **ρ = 0.27**; the ρ = 0.93 requires a dedicated
-  pairwise objective ([`results_rank.json`](results/run_rank/results_rank.json)).
-  The earlier ρ = 0.51–0.74 was a leakage artifact.
-
-**All accuracy here is solver-grade, not hardware-anchored.** No measured board has
-been compared against. That campaign is the stated next step.
+The reinstatement gate is mechanical: 1,500 unique layouts must pass the shared
+geometry contract; every paired FastHenry/FEM label must be finite and passive;
+all array tasks must report one clean source commit and identical source hashes;
+then accuracy must be rerun over declared split and initialization seeds.  See
+[`datasets/README.md`](datasets/README.md) for the corpus contract and
+[`results/README.md`](results/README.md) for evidence status.
 
 ## Layout
 
@@ -200,107 +161,64 @@ export FASTERCAP_BIN=/absolute/path/to/fastercap  # optional
 
 ## Data
 
-The generated corpora are **not** in this repository: `synth_v1` and `synth_v2`
-together are ~430 MB of `layouts.jsonl`. What ships is each corpus's `meta.json` and
-`labels.json`, plus the generator and its fixed seed, so the geometry regenerates
-bit-for-bit:
+The tracked v0--v2 metadata and labels are retained only for audit.  Their
+command-line generators now stop with an explicit quarantine error; they cannot
+silently feed a current training run.  Corpus v3 derives every physical z
+coordinate from `layer`, gives every active leg its own conductor volume, checks
+board containment and clearance, and emits geometry without labels.
 
 ```bash
 source code/env.sh
-python3 code/data/generate_synth.py --n 250  --seed 42 --out datasets/synth_v0
-python3 code/data/generate_synth.py --n 2000 --seed 42 --out datasets/synth_v1
-# Heavy: submit code/jobs/submit_corpus_v2.sh instead of running on a login node.
-python3 code/data/gen_corpus_fh.py --n 1500 --seed 42 --max_per_net 36 \
-  --out datasets/synth_v2
+python3 code/data/gen_corpus_v3.py --n 20 \
+  --out results/smoke/corpus_v3/layouts.jsonl
+python3 code/experiments/proofs/experiments_corpus_v3_field_labels.py --validate-only
+python3 code/experiments/proofs/finalize_corpus_v3.py \
+  --source-array-job-id VALIDATION --validate-only
 ```
 
-For claim reproduction, verify the regenerated `synth_v2/layouts.jsonl` SHA-256
-is `d0751f18c8e80a8801c2142b95b0ff126b14e452bb2190ea806c88d1c9297ddc`.
-The released `meta.json` records 1500 samples, mean 39.1 and maximum 70 trace
-nodes, with `label_Lm = filament_fasthenry_5x2`.
+Field labelling is intentionally impossible on a login node.  From a clean
+checkout, submit the four-layout preflight with a verified FastHenry executable.
+Submit the full array only if both preflight tasks accept every record, then
+submit the finalizer only if all 30 full-array tasks succeed:
 
 ```bash
-python3 code/quality/verify_corpora.py --data-root datasets --require-layouts
+export FASTHENRY_BIN=/absolute/path/to/fasthenry
+sbatch -A <your-account> code/jobs/submit_corpus_v3_preflight.sh
+sbatch -A <your-account> code/jobs/submit_corpus_v3_field_labels.sh
+export PCB_GNN_V3_SOURCE_ARRAY_JOB_ID=<completed-array-job-id>
+sbatch -A <your-account> code/jobs/submit_finalize_corpus_v3.sh
 ```
 
-For a clean SLURM regeneration, export an unused staging destination before
-submission; the job refuses to overwrite an existing corpus:
-
-```bash
-export PCB_GNN_CORPUS_OUT=/scratch/$USER/pcb-gnn/synth_v2
-sbatch -A <your-account> code/jobs/submit_corpus_v2.sh
-```
+The finalizer rejects missing layouts, duplicate geometry, solver failures,
+passivity violations, dirty tracked trees, mixed commits, source-hash drift, and
+record-hash drift.  Full schema and status details are in
+[`datasets/README.md`](datasets/README.md).
 
 ## Reproducing a result
 
-Legacy claims trace to their run directories. The strict-E(3), paired-latency,
-and legacy-timing protocols live in `code/experiments/proofs/`; their SLURM jobs
-write job-scoped raw records under `results/proof_updates/jobs/`. The deterministic
-aggregate in `results/proof_updates/results.json` is built only from those records.
-
-```bash
-source code/env.sh
-
-python3 code/experiments/labels/experiments_femcps.py
-python3 code/experiments/labels/experiments_fhlabels.py
-python3 code/experiments/anchors/experiments_xsolver.py
-python3 code/experiments/baselines/experiments_trees.py --use-field-labels \
-  --out results/run_trees
-python3 code/experiments/ranking/experiments_rank.py
-python3 code/experiments/architecture/experiments_t2.py
-python3 code/experiments/scaling/scaling_experiment.py \
-  --out results/scaling_v1 --ckpt results/run_v1/gnn_checkpoint.pt
-```
-
-From the repository root, regenerate either figure set with:
-
-```bash
-python3 code/figures/make_figures.py                 # legacy release figures
-python3 code/figures/make_paper_full_figures.py      # Paper_Full figures
-```
-
-**These are not laptop jobs.** The solver-reference runs call a 3-D FEM and FastHenry per
-layout; building the 332-sample `run_trees` corpus alone takes ~20 min on 8 cores. The
-matching `submit_*.sh` SLURM scripts are shipped in `code/jobs/`. They carry no account
-code  pass your own:
-
-```bash
-sbatch -A <your-account> code/jobs/submit_trees.sh
-```
+Do not rerun a v2 experiment as though it were current evidence.  The active
+pipeline is ordered and gated: v3 geometry generation, paired field labelling,
+corpus finalization, multi-seed training, baselines/ranking, then paired latency
+and manuscript figures.  A downstream submission is created only after the
+upstream summary and artifact hashes pass.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make
 external corpora, environments, and binaries explicit.
 
-The claim-proof environment is pinned in `requirements-proof.txt`. Reproduction
-means identical versioned source, verified input and executable hashes, fixed
+The proof environment is pinned in `requirements-proof.txt`. Reproduction means
+identical versioned source, verified input and executable hashes, fixed
 splits/seeds, raw records, and declared numerical tolerances. Exact wall time and
-last-bit floating-point equality are not portable across CPU models; each proof
-record therefore captures the node, dependency versions, and timing distribution.
+last-bit floating-point equality are not portable across CPU models; each record
+therefore captures the node, dependency versions, binary hash, and timing
+distribution rather than promising identical clocks.
 
 ### Provenance
 
-Every updated manuscript number resolves to one completed compute job and its raw
-artifacts:
-
-| Protocol | Job record | Raw supporting records | Frozen source and submit wrapper |
-|---|---|---|---|
-| Paired solvers, four-target accuracy, and end-to-end latency | [`job_51174495/results_claim_proof.json`](results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json) | [`raw_solver_timings.jsonl`](results/proof_updates/jobs/claim_proof/job_51174495/raw_solver_timings.jsonl) | [`experiments_claim_proof.py`](code/experiments/proofs/experiments_claim_proof.py), [`submit_claim_proof.sh`](code/jobs/submit_claim_proof.sh) |
-| Strict encoded-graph `E(3)` and five-seed ablation | [`job_51174496/results_strict_egnn_ablation.json`](results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json) | [`field_grade_targets.jsonl`](results/proof_updates/jobs/strict_e3/job_51174496/field_grade_targets.jsonl); per-seed predictions and bootstrap draws are embedded in the result | [`experiments_strict_egnn_ablation.py`](code/experiments/proofs/experiments_strict_egnn_ablation.py), [`submit_strict_egnn_ablation.sh`](code/jobs/submit_strict_egnn_ablation.sh) |
-| Historical pre-collated latency protocol | [`job_51174497/results_legacy_latency_reproduction.json`](results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json) | repetition-level timings are embedded in the result | [`experiments_reproduce_legacy_latency.py`](code/experiments/proofs/experiments_reproduce_legacy_latency.py), [`submit_reproduce_legacy_latency.sh`](code/jobs/submit_reproduce_legacy_latency.sh) |
-
-The job records capture the clean source commit, code/data/binary hashes, arguments,
-dependency versions, split, per-design values, timing protocol, and compute
-environment. Selected stdout/stderr transcripts are retained in [`logs/`](logs/).
-The manuscript aggregate is regenerated and verified from the three final records:
-
-```bash
-python3 code/quality/build_proof_updates.py \
-  --claim results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json \
-  --strict results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json \
-  --legacy results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json \
-  --output results/proof_updates/results.json
-```
+The v3 job ledger is empty until its gates pass. Historical job records remain
+under `results/` for forensic traceability and are indexed as quarantined in
+[`results/README.md`](results/README.md).  No historical number is copied into a
+v3 result row.
 
 `MANIFEST.json` carries a SHA-256 for every tracked file except itself and can be
 verified with:
@@ -311,19 +229,16 @@ python3 code/quality/build_manifest.py --check
 
 ## Known limitations
 
-1. **Solver-validated, not hardware-validated.** Agreement with a 3-D field solver
-   does not establish agreement with a measured board.
-2. **Air-core references.** FastHenry and the electrostatic FEM carry no magnetic
-   material; the targets are winding-geometry parasitics. The core magnetizing term is
-   validated separately against a real EER40 GP95 datasheet `A_L` (~5 % at production
-   gaps, [`results_pfc.json`](results/run_pfc/results_pfc.json)) and is 37–73× larger
-   than `M` ([`results_coremfem.json`](results/run_coremfem/results_coremfem.json)).
-3. **Synthetic geometry.** Random interleaved rectangular foils; no vias, return
-   planes, or board-level parasitics.
-4. **`C_ps` dielectric.** The FEM uses a uniform effective permittivity, not a layered
-   stack-up.
-5. **Extrapolation beyond N ≈ 70.** Accuracy is *measured* to 70 trace nodes; the
-   scaling study's N = 1280 point extrapolates accuracy, and says so.
+1. **No current accuracy claim.** v3 labels, training, and statistics are not yet
+   complete; v2 values are quarantined.
+2. **Active-leg abstraction.** v3 contains distinct co-directed winding legs but
+   excludes returns, vias, terminals, core windows, planes, and full-board routing.
+3. **Solver-validated, not hardware-validated.** Agreement with numerical
+   references will not establish agreement with a measured board.
+4. **Air-core, uniform-dielectric references.** FastHenry carries no magnetic
+   material and the FEM uses a uniform effective permittivity.
+5. **Synthetic in-distribution study.** Generalization to fabricated winding
+   families must be measured separately after the corpus gate passes.
 
 ## License
 
