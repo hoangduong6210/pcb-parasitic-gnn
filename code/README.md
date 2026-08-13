@@ -92,6 +92,8 @@ top-level README).
 | `finalize_corpus_v3_strict_e3.py` | Paired seed/design bootstrap, equivalence test, and symmetry gate | `corpus_v3/strict_e3/final` |
 | `experiments_corpus_v3_trees.py` | RandomForest/ExtraTrees on identical random and turn-family v3 splits | `corpus_v3/trees/jobs` |
 | `finalize_corpus_v3_trees.py` | Verifies same-corpus/same-split comparison against finalized GNN accuracy | `corpus_v3/trees/final` |
+| `experiments_corpus_v3_lateral_labels.py` | Paired solver labels for 70 families × 7 controlled lateral offsets | `corpus_v3/lateral/jobs` |
+| `finalize_corpus_v3_lateral.py` | Geometry/passivity/hash gate for the 490-variant ranking corpus | `corpus_v3/lateral/final` |
 
 ### `ranking/`
 

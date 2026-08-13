@@ -48,6 +48,9 @@ strict_e3_id="$(submit --dependency="afterok:$corpus_final_id" \
 trees_id="$(submit --dependency="afterok:$corpus_final_id" \
     --export="ALL,PCB_GNN_V3_CORPUS_DIR=$corpus_dir" \
     code/jobs/submit_corpus_v3_trees.sh)"
+lateral_id="$(submit --dependency="afterok:$corpus_final_id" \
+    --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN" \
+    code/jobs/submit_corpus_v3_lateral_labels.sh)"
 accuracy_final_id="$(submit --dependency="afterok:$accuracy_id" \
     --export="ALL,PCB_GNN_V3_ACCURACY_ARRAY_JOB_ID=$accuracy_id" \
     code/jobs/submit_finalize_corpus_v3_accuracy.sh)"
@@ -58,6 +61,9 @@ accuracy_final_path="$ROOT/results/corpus_v3/accuracy/final/job_$accuracy_final_
 trees_final_id="$(submit --dependency="afterok:$trees_id:$accuracy_final_id" \
     --export="ALL,PCB_GNN_V3_TREES_ARRAY_JOB_ID=$trees_id,PCB_GNN_V3_ACCURACY_FINAL=$accuracy_final_path" \
     code/jobs/submit_finalize_corpus_v3_trees.sh)"
+lateral_final_id="$(submit --dependency="afterok:$lateral_id" \
+    --export="ALL,PCB_GNN_V3_LATERAL_ARRAY_JOB_ID=$lateral_id" \
+    code/jobs/submit_finalize_corpus_v3_lateral.sh)"
 bundle_dir="$ROOT/results/corpus_v3/accuracy/jobs/job_$accuracy_id/inference_bundle"
 latency_id="$(submit --dependency="afterok:$accuracy_final_id" \
     --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN,PCB_GNN_V3_CORPUS_DIR=$corpus_dir,PCB_GNN_V3_BUNDLE_DIR=$bundle_dir" \
@@ -74,4 +80,6 @@ printf '%s\n' \
     "v3_strict_e3_final=$strict_e3_final_id" \
     "v3_trees=$trees_id" \
     "v3_trees_final=$trees_final_id" \
+    "v3_lateral_labels=$lateral_id" \
+    "v3_lateral_final=$lateral_final_id" \
     "v3_paired_latency=$latency_id"

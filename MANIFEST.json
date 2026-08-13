@@ -5,19 +5,19 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 119,
+    "code": 124,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 7
+    "tests": 8
   },
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 2679,
-      "sha256": "cc4fdcf0c9d47286a7088b3b8027a84741c34304da8697f38c6b0013df8761bb"
+      "bytes": 2894,
+      "sha256": "7f72c9b5131e170ae9ad328f4990554a52fb1c169dcb1e5454012cabc8719bc8"
     },
     {
       "path": ".gitignore",
@@ -176,8 +176,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 8703,
-      "sha256": "a23e44fb7efab835281412d91b61e18f9355a1c1abfcae704647ab9131fc5721"
+      "bytes": 8977,
+      "sha256": "542bcd961df02d0a59352708d2933284a8b78ed416fd79ca76be4803ce151c7c"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -238,6 +238,11 @@
       "path": "code/data/v3_dataset.py",
       "bytes": 4269,
       "sha256": "21c5e87a7d32f19bb449bd29c15e75d8dfb3bbf6735edaef8ace5287893177b3"
+    },
+    {
+      "path": "code/data/v3_lateral_families.py",
+      "bytes": 2202,
+      "sha256": "58a5e6b7196dda8e33310bdcc4df7122e92f5147b94035f40506ce594c4fd0c4"
     },
     {
       "path": "code/env.sh",
@@ -335,6 +340,11 @@
       "sha256": "0e3a88bc072d426548cad53cac3092ce27f2e9735456fa1889266539355bdef6"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_lateral_labels.py",
+      "bytes": 5200,
+      "sha256": "53104a342feb8e361980bb4a724d08cc319ce6642a62f653089272aaebb72ea8"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v3_strict_e3.py",
       "bytes": 6030,
       "sha256": "51e922b77c9bf57ea93fa93ded1b92666528e9801d418647a18821471090c072"
@@ -373,6 +383,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3_accuracy.py",
       "bytes": 5805,
       "sha256": "015791a87b73424d635f84273011b85d8fc1d885ebb15dcd8c353d96e14064fc"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v3_lateral.py",
+      "bytes": 4860,
+      "sha256": "d9a303dcd2766754c34aa4e39c7c7600306d91dbe0242cfba4bb54a341949d40"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v3_strict_e3.py",
@@ -461,8 +476,8 @@
     },
     {
       "path": "code/jobs/run_v3_pipeline.sh",
-      "bytes": 3443,
-      "sha256": "b6390cc9ad071157d5d39b6e88ed71ce2c360b763575e7b906df0e04c2344c24"
+      "bytes": 3870,
+      "sha256": "e3f587666c81fd78109f4206b6ef9679a2a17a80b67cfc784aa76960bd5aea31"
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
@@ -503,6 +518,11 @@
       "path": "code/jobs/submit_corpus_v3_latency.sh",
       "bytes": 931,
       "sha256": "68011bdf4d4d023addf47fdf8e42152d2b2def0612fb007a014c5e02c58f034b"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v3_lateral_labels.sh",
+      "bytes": 673,
+      "sha256": "61653ddaff85db1c4532bdaa6ce9dc2fc0682721c526dc8e9661bdf1dc2a2802"
     },
     {
       "path": "code/jobs/submit_corpus_v3_preflight.sh",
@@ -568,6 +588,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3_accuracy.sh",
       "bytes": 628,
       "sha256": "eda75953a9be23c86fe7f7fe98c940799476e2f6a2fd7af8b564594f0529c487"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v3_lateral.sh",
+      "bytes": 621,
+      "sha256": "3d78e46b412da888427a1de3e4d5f8cfcc2cae193a1e0f0b6e68e1176b8139aa"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v3_strict_e3.sh",
@@ -1363,8 +1388,13 @@
       "path": "tests/test_v3_dataset.py",
       "bytes": 1220,
       "sha256": "1f6d09bb2a3c457d4914493c94a17ade4ff179f34ba27ed24590beec9678903d"
+    },
+    {
+      "path": "tests/test_v3_lateral_families.py",
+      "bytes": 968,
+      "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 270,
-  "total_bytes": 9544910
+  "n_files": 276,
+  "total_bytes": 9560350
 }
