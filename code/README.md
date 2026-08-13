@@ -88,6 +88,8 @@ top-level README).
 | `experiments_corpus_v3_accuracy.py` | Ten-task, 50-run random and family-disjoint v3 accuracy study | `corpus_v3/accuracy/jobs` |
 | `finalize_corpus_v3_accuracy.py` | Verifies and aggregates crossed split/initialization uncertainty | `corpus_v3/accuracy/final` |
 | `experiments_corpus_v3_latency.py` | Same-node paired FastHenry+FEM versus raw-layout batch-one GNN on 100 held-out v3 designs | `corpus_v3/latency/jobs` |
+| `experiments_corpus_v3_strict_e3.py` | Five-seed invariant/strict encoded-graph E(3) ablation on a held-out turn-family split | `corpus_v3/strict_e3/jobs` |
+| `finalize_corpus_v3_strict_e3.py` | Paired seed/design bootstrap, equivalence test, and symmetry gate | `corpus_v3/strict_e3/final` |
 
 ### `ranking/`
 

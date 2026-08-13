@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 111,
+    "code": 115,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
@@ -16,8 +16,8 @@
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 2263,
-      "sha256": "c68a34f2a1b6faea42cd635f32c869bb9270523dabbc06df5e845f09d96792e8"
+      "bytes": 2475,
+      "sha256": "07eb3cc2c71be03238020128c89b4e21ce37f5d1a5d4d572d684c38547c6cb67"
     },
     {
       "path": ".gitignore",
@@ -176,8 +176,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 8138,
-      "sha256": "2425af931334612b771e5c51639c346ba0ba3efd5bff111983b7811a5ad0b466"
+      "bytes": 8433,
+      "sha256": "3bf6870817d46d28645feb8e89028a5e952724285cb49eee08f54b4acae85455"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -335,6 +335,11 @@
       "sha256": "0e3a88bc072d426548cad53cac3092ce27f2e9735456fa1889266539355bdef6"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v3_strict_e3.py",
+      "bytes": 6030,
+      "sha256": "51e922b77c9bf57ea93fa93ded1b92666528e9801d418647a18821471090c072"
+    },
+    {
       "path": "code/experiments/proofs/experiments_fem_convergence.py",
       "bytes": 10380,
       "sha256": "e677c505cea14352dafa74289522e80dc07bc9e3a32ca971abbf899f5e4997fe"
@@ -363,6 +368,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3_accuracy.py",
       "bytes": 5805,
       "sha256": "015791a87b73424d635f84273011b85d8fc1d885ebb15dcd8c353d96e14064fc"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v3_strict_e3.py",
+      "bytes": 5564,
+      "sha256": "e08d7d506362b5dc2a4e603a331d8dd05db12c62fe6f401f88833af3aa48d146"
     },
     {
       "path": "code/experiments/ranking/experiments_decision.py",
@@ -441,8 +451,8 @@
     },
     {
       "path": "code/jobs/run_v3_pipeline.sh",
-      "bytes": 2425,
-      "sha256": "8a5d859af5ea0b7220c0b62e7ae4b97d4ef0ff69ab6699b5274c666654f2eb03"
+      "bytes": 2865,
+      "sha256": "9aae66ade7c3890182f0def0e97939098c1dec00be848c35c0a722bb3ec162e6"
     },
     {
       "path": "code/jobs/slurm_job_env.sh",
@@ -488,6 +498,11 @@
       "path": "code/jobs/submit_corpus_v3_preflight.sh",
       "bytes": 925,
       "sha256": "32d43d6055c128aa70d38639595a56fffbc7793cd4f6282697a39450e7d8f00a"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v3_strict_e3.sh",
+      "bytes": 762,
+      "sha256": "9fc5adb2cb49f3e3ca4dfb9dcc9486aa90679c7c9fee0c36d51c6fc96167466f"
     },
     {
       "path": "code/jobs/submit_decision.sh",
@@ -538,6 +553,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3_accuracy.sh",
       "bytes": 628,
       "sha256": "eda75953a9be23c86fe7f7fe98c940799476e2f6a2fd7af8b564594f0529c487"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v3_strict_e3.sh",
+      "bytes": 689,
+      "sha256": "967a81ea5d1bd0f6fb313caf844aec61587ef38c15bee0c885050d24011cd462"
     },
     {
       "path": "code/jobs/submit_leakage.sh",
@@ -1325,6 +1345,6 @@
       "sha256": "1f6d09bb2a3c457d4914493c94a17ade4ff179f34ba27ed24590beec9678903d"
     }
   ],
-  "n_files": 262,
-  "total_bytes": 9516468
+  "n_files": 266,
+  "total_bytes": 9530460
 }

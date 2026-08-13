@@ -42,9 +42,15 @@ corpus_dir="$ROOT/results/corpus_v3/final/job_$corpus_final_id"
 accuracy_id="$(submit --dependency="afterok:$corpus_final_id" \
     --export="ALL,PCB_GNN_V3_CORPUS_DIR=$corpus_dir" \
     code/jobs/submit_corpus_v3_accuracy.sh)"
+strict_e3_id="$(submit --dependency="afterok:$corpus_final_id" \
+    --export="ALL,PCB_GNN_V3_CORPUS_DIR=$corpus_dir" \
+    code/jobs/submit_corpus_v3_strict_e3.sh)"
 accuracy_final_id="$(submit --dependency="afterok:$accuracy_id" \
     --export="ALL,PCB_GNN_V3_ACCURACY_ARRAY_JOB_ID=$accuracy_id" \
     code/jobs/submit_finalize_corpus_v3_accuracy.sh)"
+strict_e3_final_id="$(submit --dependency="afterok:$strict_e3_id" \
+    --export="ALL,PCB_GNN_V3_STRICT_E3_ARRAY_JOB_ID=$strict_e3_id" \
+    code/jobs/submit_finalize_corpus_v3_strict_e3.sh)"
 bundle_dir="$ROOT/results/corpus_v3/accuracy/jobs/job_$accuracy_id/inference_bundle"
 latency_id="$(submit --dependency="afterok:$accuracy_final_id" \
     --export="ALL,FASTHENRY_BIN=$FASTHENRY_BIN,PCB_GNN_V3_CORPUS_DIR=$corpus_dir,PCB_GNN_V3_BUNDLE_DIR=$bundle_dir" \
@@ -57,4 +63,6 @@ printf '%s\n' \
     "v3_corpus_final=$corpus_final_id" \
     "v3_accuracy=$accuracy_id" \
     "v3_accuracy_final=$accuracy_final_id" \
+    "v3_strict_e3=$strict_e3_id" \
+    "v3_strict_e3_final=$strict_e3_final_id" \
     "v3_paired_latency=$latency_id"
