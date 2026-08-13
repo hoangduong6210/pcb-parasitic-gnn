@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 134,
+    "code": 138,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 10
+    "tests": 11
   },
   "files": [
     {
@@ -370,6 +370,11 @@
       "sha256": "527673e2aac966054393c29550049ac8e78350397de10db0b7d187e3760600f1"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v4_refined_cps.py",
+      "bytes": 6530,
+      "sha256": "a6002f2b9b64de617b02fe73dcca03305751adc9269656028e62212baf575dd4"
+    },
+    {
       "path": "code/experiments/proofs/experiments_fem_convergence.py",
       "bytes": 10380,
       "sha256": "e677c505cea14352dafa74289522e80dc07bc9e3a32ca971abbf899f5e4997fe"
@@ -423,6 +428,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v3_trees.py",
       "bytes": 4986,
       "sha256": "e7415333afbe1bb33cfe2c7e0341bafbd9a8048d2e7e8e0af6d27b7b8df01451"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v4.py",
+      "bytes": 8265,
+      "sha256": "a25dbbaaed5d2b5e81180c145ff1921a5fe80cb1b920c65a6b77819b29d6a067"
     },
     {
       "path": "code/experiments/ranking/experiments_decision.py",
@@ -580,6 +590,11 @@
       "sha256": "bc609194f6ef3c848d56ccafff90f8adf4b96d7d69f6c3ae5e74bd7970902c53"
     },
     {
+      "path": "code/jobs/submit_corpus_v4_refined_cps.sh",
+      "bytes": 764,
+      "sha256": "c13c87c8cc79c32d7aa5db4da88fa9b7fe2bef2b649fa088995aabcfc91d5a0e"
+    },
+    {
       "path": "code/jobs/submit_decision.sh",
       "bytes": 862,
       "sha256": "5c9bbd63e67d09cf33a98d62a4fc4cf30a5149bd970d20062c75c56b14effeb6"
@@ -653,6 +668,11 @@
       "path": "code/jobs/submit_finalize_corpus_v3_trees.sh",
       "bytes": 733,
       "sha256": "9acf33a6c7be263cec110225d36642ae0cd104a9688b96fb4efe5d18cbb61b46"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v4.sh",
+      "bytes": 747,
+      "sha256": "1327292eb0ebaa9f0b097299d0bc8b9042bf57b33904d81c611579eda8648df9"
     },
     {
       "path": "code/jobs/submit_leakage.sh",
@@ -1410,6 +1430,11 @@
       "sha256": "a3ceda05c32f4f711b9730830cc34b826f01e5a829a9c2ed7a18fccc3acee8ba"
     },
     {
+      "path": "tests/test_corpus_v4_protocol.py",
+      "bytes": 1591,
+      "sha256": "0c5e13daedd8f76c20625387f0f5f66aea7ba56264ba1e172a2a6915f6120945"
+    },
+    {
       "path": "tests/test_followup_protocols.py",
       "bytes": 3250,
       "sha256": "ff053237d9fdf0ef089771130b090fb6e23fe7d0a770978c12f1432d874e09c5"
@@ -1455,6 +1480,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 288,
-  "total_bytes": 9604032
+  "n_files": 293,
+  "total_bytes": 9621929
 }
