@@ -163,6 +163,10 @@ def save_bundle(
         "schema": "pcb-gnn.safe-inference-bundle.v2", "format": "NumPy; allow_pickle=False",
         "targets": TARGETS, "split_kind": run["split_kind"],
         "split_seed": run["split_seed"], "init_seed": run["init_seed"],
+        "architecture": {
+            "node_dim": 9, "edge_dim": 7, "hidden": 96,
+            "n_layers": 4, "n_targets": 4,
+        },
         "weights_sha256": sha256(weights),
     }, indent=2) + "\n")
     return {path.relative_to(output).as_posix(): sha256(path) for path in (weights, expected, metadata, bundle / "example_layouts.jsonl")}
