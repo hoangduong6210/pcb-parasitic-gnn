@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 151,
+    "code": 155,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 12
+    "tests": 13
   },
   "files": [
     {
@@ -375,6 +375,11 @@
       "sha256": "3e2a785078b4a65d1f0b447bd9d3f9cfb6a0481c018c26e10af71be2537f8e2d"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v4_convergence_preflight.py",
+      "bytes": 6729,
+      "sha256": "039101db104419b1ce34a67b2c0b4ba1100305444c5bb4f5364f67c0f2902116"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
       "bytes": 9448,
       "sha256": "a92997daf5e021473e64ede8e9e74434c11f7dcfb30f1c048f9c61ad30b30f0e"
@@ -443,6 +448,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v4.py",
       "bytes": 8265,
       "sha256": "a25dbbaaed5d2b5e81180c145ff1921a5fe80cb1b920c65a6b77819b29d6a067"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py",
+      "bytes": 7058,
+      "sha256": "38171f7336ca2a012d9746e73e67768035fa7b444564da5304c71cb25842e19e"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_latency.py",
@@ -615,6 +625,11 @@
       "sha256": "d27d6f5e9780733d5839a4d1ef5d3d366280f510b4390e6b4d187c3522a1b0f4"
     },
     {
+      "path": "code/jobs/submit_corpus_v4_convergence_preflight.sh",
+      "bytes": 745,
+      "sha256": "f1e2705c2f757f96b646127008de5e1ef9fadcc5d299ff9f183ccdfaca822667"
+    },
+    {
       "path": "code/jobs/submit_corpus_v4_cross_solver.sh",
       "bytes": 839,
       "sha256": "a6a4e0a2073edd481573f8223d9ba69cbc451d6f01e5a75b5e495c687eac3a86"
@@ -723,6 +738,11 @@
       "path": "code/jobs/submit_finalize_corpus_v4_accuracy.sh",
       "bytes": 649,
       "sha256": "e5fe663d34ef560e3c9fab8b27ff84364c8435935fbe2b8b575a32e1b808556b"
+    },
+    {
+      "path": "code/jobs/submit_finalize_corpus_v4_convergence_preflight.sh",
+      "bytes": 694,
+      "sha256": "a775bc7cf6dc5ab00df9af0e78af4754ce8e32bef55e8423a41f3e6b4829b5ce"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_latency.sh",
@@ -1495,6 +1515,11 @@
       "sha256": "a3ceda05c32f4f711b9730830cc34b826f01e5a829a9c2ed7a18fccc3acee8ba"
     },
     {
+      "path": "tests/test_corpus_v4_convergence_preflight.py",
+      "bytes": 1449,
+      "sha256": "e2999455eabcc9af30558d30ced36747f3debe1e33cb2e094fbf18c82df89e76"
+    },
+    {
       "path": "tests/test_corpus_v4_evaluation_protocol.py",
       "bytes": 3776,
       "sha256": "c1cb4901d313717b1385d479299d0a9eb40d4ab6c5bf21895cab438ada157878"
@@ -1550,6 +1575,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 307,
-  "total_bytes": 9659099
+  "n_files": 312,
+  "total_bytes": 9675774
 }
