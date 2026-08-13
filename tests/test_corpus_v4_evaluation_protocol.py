@@ -74,6 +74,15 @@ def test_v4_latency_is_paired_array_at_reference_setting() -> None:
     assert "--fem-timeout-s 3600" in submit
 
 
+def test_v4_analytical_audit_has_no_login_node_fallback() -> None:
+    result = validate("experiments_corpus_v4_analytical_audit.py")
+    assert result["schema"] == "pcb-gnn.corpus-v4-analytical-audit.v1"
+    script = (PROOFS / "experiments_corpus_v4_analytical_audit.py").read_text()
+    assert "SLURM_JOB_ID" in script
+    assert "compute_reference_labels_allpairs" in script
+    assert "median_relative_error_pct" in script
+
+
 def test_v4_jobs_never_relabel_outputs_as_v3() -> None:
     jobs = (
         "submit_corpus_v4_accuracy.sh",

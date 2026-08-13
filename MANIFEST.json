@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 149,
+    "code": 151,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
@@ -370,6 +370,11 @@
       "sha256": "5b79f1aa83df7016a28a66c66b31a7c7d5666d39062f2e400fd1a39fb9c10fd8"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v4_analytical_audit.py",
+      "bytes": 4772,
+      "sha256": "3e2a785078b4a65d1f0b447bd9d3f9cfb6a0481c018c26e10af71be2537f8e2d"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
       "bytes": 9448,
       "sha256": "a92997daf5e021473e64ede8e9e74434c11f7dcfb30f1c048f9c61ad30b30f0e"
@@ -603,6 +608,11 @@
       "path": "code/jobs/submit_corpus_v4_accuracy.sh",
       "bytes": 745,
       "sha256": "f6b7d152788834cbdf5ce9d37d248fc96753fa1c338fb69e87ca0bf580c61fc6"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v4_analytical_audit.sh",
+      "bytes": 692,
+      "sha256": "d27d6f5e9780733d5839a4d1ef5d3d366280f510b4390e6b4d187c3522a1b0f4"
     },
     {
       "path": "code/jobs/submit_corpus_v4_cross_solver.sh",
@@ -1486,8 +1496,8 @@
     },
     {
       "path": "tests/test_corpus_v4_evaluation_protocol.py",
-      "bytes": 3347,
-      "sha256": "2b5ae504ef90a8bc79a6d54c8aa881f49ca6bb0c26bf3abf888b928e903a3d92"
+      "bytes": 3776,
+      "sha256": "c1cb4901d313717b1385d479299d0a9eb40d4ab6c5bf21895cab438ada157878"
     },
     {
       "path": "tests/test_corpus_v4_protocol.py",
@@ -1540,6 +1550,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 305,
-  "total_bytes": 9653206
+  "n_files": 307,
+  "total_bytes": 9659099
 }
