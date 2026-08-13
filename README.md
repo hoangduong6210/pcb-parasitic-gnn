@@ -1,13 +1,14 @@
 # A License-Clean Graph Neural Network for Fast Parasitic Extraction in PCB-Embedded Planar Magnetics
 
-> **DATA-INTEGRITY HOLD.** A post hoc audit found that the superseded v2
+> **DATA-INTEGRITY HOLD.** A full-corpus audit found that the superseded v2
 > generator can assign inconsistent layer and z coordinates, overlapping copper
 > volumes, and mixed analytical labels that violate inductance passivity. The v2
 > accuracy values and downstream accuracy/ranking claims are quarantined as
-> pipeline-debugging records, not current scientific evidence. Geometry-valid v3
-> layouts and dual-solver labels must pass the published gates before these
-> claims are reinstated. The legacy runtime record describes only that historical
-> workflow.
+> exploratory pipeline records, not current physical-accuracy evidence. Corpus
+> v3 repairs the geometry and label consistency, but its capacitance reference is
+> not mesh-converged. Corpus v4 and every downstream claim remain gated on a
+> predeclared convergence study. The legacy runtime record describes only its
+> historical workflow.
 
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
 of PCB winding active-leg abstractions. The repository is currently
@@ -28,12 +29,15 @@ The repository keeps manuscript packages separate from experiment evidence:
 
 | Package | Purpose | Contents |
 |---|---|---|
-| [`Paper_Summary/`](Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
-| [`Paper_Full/`](Paper_Full/) | Current authoritative manuscript | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
+| [`Paper_Summary/`](Paper_Summary/) | **Submitted archival feasibility snapshot** | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
+| [`Paper_Full/`](Paper_Full/) | Extended working manuscript | IEEE LaTeX package, bibliography, publication figures, build script, version metadata, and working PDF |
 
-`Paper_Full/` is authoritative for the current claims, protocols, and reported
-numbers. `Paper_Summary/` is retained as an archival snapshot; its timing and
-equivariance wording is superseded by the extended manuscript.
+`Paper_Summary/` preserves exactly what was submitted and is authoritative only
+for the wording and arithmetic of that historical version. `Paper_Full/` is the
+independent extended study, but it does not become authoritative for numerical
+claims until corpus v4 and its downstream evaluations pass their admission
+gates. The repository README and [`datasets/README.md`](datasets/README.md)
+record the live evidence status.
 
 Build either package from the repository root:
 
@@ -42,8 +46,9 @@ bash Paper_Summary/build.sh
 bash Paper_Full/build.sh
 ```
 
-The extended build regenerates its figures from
-[`results/proof_updates/results.json`](results/proof_updates/results.json).
+The Full Paper package is currently under numerical hold. Building it reproduces
+the working document but does not promote its provisional values to accepted
+results.
 
 ![Pipeline from PCB layout through graph construction and message passing to parasitic estimates](figures/fig1_pipeline.png)
 
@@ -55,18 +60,19 @@ The extended build regenerates its figures from
 
 ## Current evidence status
 
-There is deliberately no accuracy or speed headline while corpus v3 is being
-generated.  Every result derived from v0--v2 geometry, including the former
-accuracy, ranking, strict-symmetry comparison, and paired speed ratio, is
-quarantined.  The files remain available for audit, but they are not evidence
-for geometry-valid PCB layouts and are not mixed with v3 results.
+There is deliberately no current accuracy or speed headline. Corpus v3 contains
+1,500 unique geometry-valid, passive, paired-solver records. Multi-split
+experiments on that corpus are useful diagnostics, but a subsequent FEM study
+found that the stored `C_ps` values are not mesh-converged. Those four-target
+accuracy and timing results therefore remain nonfinal.
 
-The reinstatement gate is mechanical: 1,500 unique layouts must pass the shared
-geometry contract; every paired FastHenry/FEM label must be finite and passive;
-all array tasks must report one clean source commit and identical source hashes;
-then accuracy must be rerun over declared split and initialization seeds.  See
-[`datasets/README.md`](datasets/README.md) for the corpus contract and
-[`results/README.md`](results/README.md) for evidence status.
+The next admission gate compares domain and mesh sensitivity on nine stratified
+geometries. Only a passing finalizer may select the production FEM setting and
+unlock corpus v4 generation. Accuracy, baselines, strict encoded-graph `E(3)`,
+cross-solver checks, and paired latency must then be rerun from the same frozen
+v4 corpus and split registry. See [`datasets/README.md`](datasets/README.md) for
+the version boundaries and [`results/README.md`](results/README.md) for evidence
+status.
 
 ## Layout
 
@@ -112,21 +118,20 @@ source code/env.sh
 
 The SLURM scripts in `code/jobs/` do this themselves.
 
-### Robustness and capacitance-reference protocols
+### Active capacitance-reference protocol
 
-Two heavier follow-up protocols are intentionally SLURM-only:
+The convergence preflight and all downstream numerical work are intentionally
+SLURM-only:
 
 ```bash
-sbatch code/jobs/submit_multisplit_accuracy.sh
-sbatch code/jobs/submit_fem_convergence.sh
+export PCB_GNN_V3_CORPUS_DIR=/absolute/path/to/finalized/corpus_v3
+sbatch -A <your-account> code/jobs/submit_corpus_v4_convergence_preflight.sh
 ```
 
-The first crosses five random split seeds with five initialization/training-order
-seeds and retains every held-out prediction. It also emits a numeric
-state-dict-only inference bundle for the seed-42 arm. The second executes 81 FEM
-solves across nine stratified layouts, three mesh refinements, and three outer
-domain paddings. Both scripts reject a non-SLURM execution; `--validate-only`
-checks the protocol without training or solving.
+The preflight executes four declared FEM settings on each of nine layouts. Its
+dependent finalizer accepts a production setting only if both critical domain
+and mesh comparisons satisfy median <= 2% and maximum <= 5%. The scripts reject
+a non-SLURM solve; `--validate-only` checks only schema and protocol wiring.
 
 ## Install
 
@@ -161,11 +166,14 @@ export FASTERCAP_BIN=/absolute/path/to/fastercap  # optional
 
 ## Data
 
-The tracked v0--v2 metadata and labels are retained only for audit.  Their
-command-line generators now stop with an explicit quarantine error; they cannot
-silently feed a current training run.  Corpus v3 derives every physical z
+The tracked v0--v2 metadata and labels are retained only for historical audit.
+Their command-line generators stop with an explicit quarantine error and cannot
+silently feed a current training run. Corpus v3 derives every physical z
 coordinate from `layer`, gives every active leg its own conductor volume, checks
-board containment and clearance, and emits geometry without labels.
+board containment and clearance, and has completed its paired-label finalizer.
+The v3 `C_ps` discretization remains nonfinal, so the active pipeline is the
+convergence-gated corpus v4 refinement described in
+[`datasets/README.md`](datasets/README.md).
 
 ```bash
 source code/env.sh
@@ -189,9 +197,10 @@ export PCB_GNN_V3_SOURCE_ARRAY_JOB_ID=<completed-array-job-id>
 sbatch -A <your-account> code/jobs/submit_finalize_corpus_v3.sh
 ```
 
-The finalizer rejects missing layouts, duplicate geometry, solver failures,
+The finalizers reject missing layouts, duplicate geometry, solver failures,
 passivity violations, dirty tracked trees, mixed commits, source-hash drift, and
-record-hash drift.  Full schema and status details are in
+record-hash drift. Full schema, version boundaries, split policy, and the
+optional Würth Elektronik 750341134 commercial-anchor track are documented in
 [`datasets/README.md`](datasets/README.md).
 
 The same gates can be submitted as one scheduler dependency graph; a downstream
@@ -227,10 +236,10 @@ distribution rather than promising identical clocks.
 
 ### Provenance
 
-The v3 job ledger is empty until its gates pass. Historical job records remain
-under `results/` for forensic traceability and are indexed as quarantined in
-[`results/README.md`](results/README.md).  No historical number is copied into a
-v3 result row.
+Historical and superseded records remain under `results/` for forensic
+traceability and are indexed in [`results/README.md`](results/README.md). No
+historical number is copied into a current result row, and no v3 four-target
+headline is promoted while the capacitance reference is under refinement.
 
 `MANIFEST.json` carries a SHA-256 for every tracked file except itself and can be
 verified with:

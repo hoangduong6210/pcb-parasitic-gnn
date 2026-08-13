@@ -1,15 +1,37 @@
-# Summary manuscript package
+# Submitted summary manuscript package
 
-> **ARCHIVAL SNAPSHOT — SUPERSEDED FOR CURRENT CLAIMS.** This package preserves
-> the submitted manuscript exactly. Its legacy timing and equivariance language
-> must not be used as the current project result. Use
-> [`Paper_Full/`](../Paper_Full/) for the authoritative manuscript.
+> **ARCHIVAL FEASIBILITY SNAPSHOT.** This package preserves the submitted
+> manuscript exactly. It establishes the scope of that submission, not the
+> current physical-accuracy result. Consult the repository
+> [`dataset registry`](../datasets/README.md) before reusing a number.
 
 This directory preserves the four-page conference-format manuscript as a
 versioned snapshot. The manuscript text and its reported values are not updated
-when later experiments change the current conclusions. For current claims and
-protocols, use [`Paper_Full/`](../Paper_Full/) and the repository-level
-[`README.md`](../README.md).
+when later experiments change the conclusions. `Paper_Full/` is a separate,
+extended study rather than a replacement file for this submission. Its numerical
+claims remain under admission control until the production corpus is finalized.
+
+## How to interpret this version
+
+The submission was an exploratory solver-surrogate feasibility study. Its rapid
+synthetic corpus was suitable for testing whether graph message passing could
+learn a fixed reference workflow and whether inference could reduce screening
+cost. A later full-corpus audit identified layer/elevation conflicts, conductor
+overlaps, board-boundary violations, non-passive mixed labels, and inconsistent
+effective topology between the capacitance and inductance paths.
+
+Therefore this version may be cited for its submitted architecture, experimental
+history, and explicitly historical throughput protocol. It must not be cited as
+evidence of accuracy on physically valid PCB windings, production readiness, or
+hardware validation. The exact geometry findings and the progression from v2 to
+the validated corpus are documented in [`datasets/README.md`](../datasets/README.md).
+
+The `~4300x` value remains below only because this README is the ledger for the
+submitted text. It is the rounded historical calculation
+`5000 ms / 1.16845 ms = 4279.2x`, combining an approximately 5 s solver value
+with pre-collated batched GNN throughput from the original environment. It is not
+a paired raw-layout end-to-end benchmark and must not appear in the current
+repository headline, CV summary, or extended-paper conclusion.
 
 ## Snapshot identity
 

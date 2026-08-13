@@ -7,6 +7,12 @@ __pycache__/
 # regenerated corpora (see README "Data") — hundreds of MB, rebuilt from seed 42
 datasets/*/layouts.jsonl
 
+# optional vendor reference files; acquire from the manufacturer and verify
+# against datasets/vendor_750341134.manifest.json before local use
+datasets/750341134.pdf
+datasets/Download_STP_250-1446_750341134\ \(rev1\).STEP
+datasets/LTSpice_WE-PLN\ \(rev22a\).zip
+
 # locally built reference solver binaries
 code/tools/fasthenry
 code/tools/fastcap

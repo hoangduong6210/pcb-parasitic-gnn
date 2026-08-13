@@ -3,10 +3,10 @@
   "scope": "All Git-tracked files except MANIFEST.json itself",
   "sections": {
     ".github": 1,
-    "Paper_Full": 19,
+    "Paper_Full": 20,
     "Paper_Summary": 5,
     "code": 155,
-    "datasets": 8,
+    "datasets": 9,
     "figures": 12,
     "logs": 54,
     "results": 35,
@@ -21,8 +21,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 549,
-      "sha256": "5fc5749fa3a49dcea6a33a05f4bd69005956967d8d62dc00da40d92a87327977"
+      "bytes": 812,
+      "sha256": "dcdbe73e756aa5f8d6be0ece48f2d2cb556c06e00b858029f5c2bf08848a7c58"
     },
     {
       "path": "CITATION.cff",
@@ -48,6 +48,11 @@
       "path": "Paper_Full/CHANGELOG.md",
       "bytes": 1146,
       "sha256": "7e7b9b8c83c01777401c84cb1323769db941a83105f9c9a623bdf79c9db32988"
+    },
+    {
+      "path": "Paper_Full/README.md",
+      "bytes": 1829,
+      "sha256": "f5c70255ce00427fbbfb9619d1821626c943a77f2f00cacff1337f1a9d726261"
     },
     {
       "path": "Paper_Full/VERSION",
@@ -146,8 +151,8 @@
     },
     {
       "path": "Paper_Summary/README.md",
-      "bytes": 9115,
-      "sha256": "062d51028fddbea43f688082cdf0c81a887c545bd9f225b742ed7cf4c52c8537"
+      "bytes": 10519,
+      "sha256": "7c9c5a607d6ae50083f156f805c6cace8def498f44b80cb99529a89456504618"
     },
     {
       "path": "Paper_Summary/build.sh",
@@ -161,8 +166,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12099,
-      "sha256": "5b80d3b0259c1327f5074ddcbe12a627f997808c24cfd1019fc05efe082d02a3"
+      "bytes": 12752,
+      "sha256": "7a6be53854727682ece5797b38445be5cce38ba55a502c0486636831b5a9f34a"
     },
     {
       "path": "SECURITY.md",
@@ -951,8 +956,8 @@
     },
     {
       "path": "datasets/README.md",
-      "bytes": 1448,
-      "sha256": "4217d3337a7522e9891c224c73f96b5f10b1204b12800e66ef8853d9c0e1f44b"
+      "bytes": 10155,
+      "sha256": "6b1ccdfbcd2f561ae3e953cdffbb200cc2060ed2247314dc22acf534c1fa2f6a"
     },
     {
       "path": "datasets/synth_v0/labels.json",
@@ -988,6 +993,11 @@
       "path": "datasets/synth_v2/meta.json",
       "bytes": 176,
       "sha256": "d3034782d9989ca856b4cea917b525581eb2a396d5a802acf9361805d8213be4"
+    },
+    {
+      "path": "datasets/vendor_750341134.manifest.json",
+      "bytes": 1552,
+      "sha256": "5a3896586326de5d11b07cc0ebb1bb3e8625d09d353426efdea9b4beca2ae080"
     },
     {
       "path": "figures/fig1_pipeline.pdf",
@@ -1336,8 +1346,8 @@
     },
     {
       "path": "results/README.md",
-      "bytes": 1088,
-      "sha256": "bb40e11596b8d75cf4d65e144ebd9946105918ddbbdf81f5b1edf2c5c0050c55"
+      "bytes": 2662,
+      "sha256": "5f6b28a690868cd31331713600256a53b696b199cc58873931a774ed8b4c81ee"
     },
     {
       "path": "results/proof_updates/jobs/claim_proof/job_51174495/raw_solver_timings.jsonl",
@@ -1575,6 +1585,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 312,
-  "total_bytes": 9675774
+  "n_files": 314,
+  "total_bytes": 9691756
 }

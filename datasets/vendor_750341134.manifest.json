@@ -1,0 +1,41 @@
+{
+  "schema": "pcb-gnn.external-vendor-artifacts.v1",
+  "vendor": "Wurth Elektronik",
+  "part_number": "750341134",
+  "redistributed": false,
+  "source": {
+    "product_page": "https://www.we-online.com/en/components/products/WE-PLN?sq=750341134",
+    "datasheet": "https://www.we-online.com/components/products/datasheet/750341134.pdf",
+    "library_page": "https://www.we-online.com/en/support/design-tools/libraries"
+  },
+  "artifacts": [
+    {
+      "filename": "750341134.pdf",
+      "sha256": "c894e0e2f2f37067f386ff7249cd6d4677284e27271428fe9ae7ac145205115d",
+      "bytes": 561202,
+      "role": "manufacturer datasheet"
+    },
+    {
+      "filename": "Download_STP_250-1446_750341134 (rev1).STEP",
+      "sha256": "83cbe06541fe6e5a81c77add25984ff470215ec3714b62a2f43dd2de85a86767",
+      "bytes": 722981,
+      "role": "mechanical STEP AP214 assembly"
+    },
+    {
+      "filename": "LTSpice_WE-PLN (rev22a).zip",
+      "sha256": "4f1acfb3b3b1410420d8ace5ec80d67df7fe4031c1231be58d2dcac1edf272af",
+      "bytes": 30878,
+      "role": "vendor LTspice macro-model library"
+    }
+  ],
+  "step_inspection": {
+    "solid_volumes": 15,
+    "bounding_box_mm": {
+      "min": [-14.7155, -5.0242, 0.0],
+      "max": [14.6845, 20.1758, 10.15]
+    },
+    "electromagnetic_material_assignments_present": false,
+    "verified_terminal_to_winding_net_map_present": false
+  },
+  "usage_note": "Verify locally downloaded bytes before use. The files are not part of the repository distribution; confirm vendor redistribution terms before publishing copies."
+}
