@@ -376,8 +376,8 @@
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_convergence_preflight.py",
-      "bytes": 6729,
-      "sha256": "039101db104419b1ce34a67b2c0b4ba1100305444c5bb4f5364f67c0f2902116"
+      "bytes": 16815,
+      "sha256": "662dad3f5373d1f35624e50564f7ac565fadef26c7394b03fd42753c885961db"
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py",
@@ -456,8 +456,8 @@
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py",
-      "bytes": 7058,
-      "sha256": "38171f7336ca2a012d9746e73e67768035fa7b444564da5304c71cb25842e19e"
+      "bytes": 10631,
+      "sha256": "30199b1f9d1ce8ad8966fecb4c41d3579928a14544a82622f3e75527f224754c"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_fem_native_diagnostic.py",
@@ -636,8 +636,8 @@
     },
     {
       "path": "code/jobs/submit_corpus_v4_convergence_preflight.sh",
-      "bytes": 745,
-      "sha256": "f1e2705c2f757f96b646127008de5e1ef9fadcc5d299ff9f183ccdfaca822667"
+      "bytes": 1069,
+      "sha256": "30b9eace5a6348126ff25af7e65046fc8a7753beaf5b57a7e1a645a0916cbe72"
     },
     {
       "path": "code/jobs/submit_corpus_v4_cross_solver.sh",
@@ -761,8 +761,8 @@
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_convergence_preflight.sh",
-      "bytes": 694,
-      "sha256": "a775bc7cf6dc5ab00df9af0e78af4754ce8e32bef55e8423a41f3e6b4829b5ce"
+      "bytes": 763,
+      "sha256": "b924766e744ecfa2b2818a25a1ba86ad210d76ca98c61a4745a2dff2ac6a53f4"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_latency.sh",
@@ -1536,8 +1536,8 @@
     },
     {
       "path": "tests/test_corpus_v4_convergence_preflight.py",
-      "bytes": 1449,
-      "sha256": "e2999455eabcc9af30558d30ced36747f3debe1e33cb2e094fbf18c82df89e76"
+      "bytes": 10819,
+      "sha256": "ae02e7a62b9ff88b288da292c4babc731e2b1806d6f9ce7400e076a9f34963cb"
     },
     {
       "path": "tests/test_corpus_v4_evaluation_protocol.py",
@@ -1601,5 +1601,5 @@
     }
   ],
   "n_files": 317,
-  "total_bytes": 9714284
+  "total_bytes": 9737706
 }
