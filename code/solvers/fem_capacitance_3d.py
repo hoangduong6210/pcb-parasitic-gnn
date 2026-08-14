@@ -13,6 +13,7 @@ Validated against the parallel-plate analytic eps0*eps_r*A/d.
 """
 from __future__ import annotations
 from collections.abc import Callable
+import hashlib
 import os
 from typing import Any
 
@@ -167,6 +168,18 @@ def _solve_condensed_system(
     """Solve a symmetric positive-definite condensed Laplace system."""
     from scipy.sparse.linalg import spsolve
 
+    A = A.tocsr(copy=False)
+    if not A.has_canonical_format:
+        A = A.copy()
+        A.sum_duplicates()
+        A.sort_indices()
+    input_system_sha256 = _sparse_system_sha256(A, b)
+    _progress(
+        progress,
+        "solver_input_fingerprinted",
+        linear_solver=linear_solver,
+        system_sha256=input_system_sha256,
+    )
     if linear_solver == "direct":
         _progress(progress, "direct_solve_started")
         solution = spsolve(A, b)
@@ -225,11 +238,79 @@ def _solve_condensed_system(
     metadata["relative_residual"] = relative_residual
     metadata["rtol"] = float(rtol)
     metadata["maxiter"] = int(maxiter)
+    metadata["input_system_sha256"] = input_system_sha256
     if relative_residual > max(10.0 * rtol, 1e-10):
         raise RuntimeError(
             f"linear residual {relative_residual:.3e} exceeds acceptance tolerance"
         )
     return np.asarray(solution), metadata
+
+
+def _solve_primary_and_comparison(
+    A,
+    b: np.ndarray,
+    *,
+    primary_solver: str,
+    comparison_solver: str | None,
+    rtol: float,
+    maxiter: int,
+    progress: ProgressCallback | None = None,
+) -> tuple[
+    np.ndarray,
+    dict[str, Any],
+    np.ndarray | None,
+    dict[str, Any] | None,
+]:
+    """Run both backends from independently fingerprinted copies of one system."""
+    primary_matrix = A.copy() if comparison_solver is not None else A
+    primary_rhs = b.copy() if comparison_solver is not None else b
+    primary_solution, primary_metadata = _solve_condensed_system(
+        primary_matrix,
+        primary_rhs,
+        linear_solver=primary_solver,
+        rtol=rtol,
+        maxiter=maxiter,
+        progress=progress,
+    )
+    if comparison_solver is None:
+        return primary_solution, primary_metadata, None, None
+    _progress(progress, "comparison_solve_started", linear_solver=comparison_solver)
+    comparison_solution, comparison_metadata = _solve_condensed_system(
+        A,
+        b,
+        linear_solver=comparison_solver,
+        rtol=rtol,
+        maxiter=maxiter,
+        progress=progress,
+    )
+    return (
+        primary_solution,
+        primary_metadata,
+        comparison_solution,
+        comparison_metadata,
+    )
+
+
+def _sparse_system_sha256(matrix, rhs: np.ndarray) -> str:
+    """Fingerprint the exact CSR system used for backend equivalence checks."""
+    csr = matrix.tocsr(copy=False)
+    if not csr.has_sorted_indices:
+        csr = csr.copy()
+        csr.sort_indices()
+    digest = hashlib.sha256()
+    digest.update(f"shape={csr.shape};".encode())
+    for name, values in (
+        ("indptr", csr.indptr),
+        ("indices", csr.indices),
+        ("data", csr.data),
+        ("rhs", np.asarray(rhs)),
+    ):
+        contiguous = np.ascontiguousarray(values)
+        digest.update(
+            f"{name}:dtype={contiguous.dtype.str};shape={contiguous.shape};".encode()
+        )
+        digest.update(memoryview(contiguous).cast("B"))
+    return digest.hexdigest()
 
 
 def fem_cps_3d_diagnostics(
@@ -239,6 +320,7 @@ def fem_cps_3d_diagnostics(
     pad_mm=8.0,
     *,
     linear_solver="direct",
+    comparison_solver=None,
     solver_rtol=1e-10,
     solver_maxiter=500,
     progress: ProgressCallback | None = None,
@@ -292,28 +374,55 @@ def fem_cps_3d_diagnostics(
         nnz=A.nnz,
         linear_solver=linear_solver,
     )
-    free_solution, solver_metadata = _solve_condensed_system(
+    (
+        free_solution,
+        solver_metadata,
+        comparison_free,
+        comparison_metadata,
+    ) = _solve_primary_and_comparison(
         A,
         b,
-        linear_solver=linear_solver,
+        primary_solver=linear_solver,
+        comparison_solver=comparison_solver,
         rtol=solver_rtol,
         maxiter=solver_maxiter,
         progress=progress,
     )
-    expanded[free] = free_solution
-    u = expanded
+    u = expanded.copy()
+    u[free] = free_solution
     _progress(progress, "linear_solve_completed", **solver_metadata)
     W = 0.5 * EPS0 * eps_r * float(u @ (K @ u))   # Joules (V=1, uniform eps)
     _progress(progress, "energy_computed", energy_j=W)
-    return {
+    result = {
         "cps_pf": 2.0 * W * 1e12,                 # C = 2W/V^2 (V=1) -> pF
         "mesh_nodes": int(m.p.shape[1]),
         "mesh_tetrahedra": int(m.t.shape[1]),
         "refine": int(refine),
         "pad_mm": float(pad_mm),
         "eps_r": float(eps_r),
+        "system_sha256": solver_metadata["input_system_sha256"],
         **solver_metadata,
     }
+    if comparison_solver is not None:
+        if comparison_free is None or comparison_metadata is None:
+            raise RuntimeError("comparison solver did not return diagnostics")
+        comparison_u = expanded.copy()
+        comparison_u[free] = comparison_free
+        comparison_energy = 0.5 * EPS0 * eps_r * float(
+            comparison_u @ (K @ comparison_u)
+        )
+        result["comparison"] = {
+            "cps_pf": 2.0 * comparison_energy * 1e12,
+            "system_sha256": comparison_metadata["input_system_sha256"],
+            **comparison_metadata,
+        }
+        _progress(
+            progress,
+            "comparison_solve_completed",
+            cps_pf=result["comparison"]["cps_pf"],
+            **comparison_metadata,
+        )
+    return result
 
 
 def fem_cps_3d(layout, eps_r=4.2, refine=0, pad_mm=8.0):

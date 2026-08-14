@@ -10,6 +10,7 @@
 #SBATCH --output=logs/%x-%A_%a.out
 #SBATCH --error=logs/%x-%A_%a.err
 set -euo pipefail
+export PCB_GNN_EXECUTED_BATCH_SCRIPT="$(readlink -f "$0")"
 JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:?submit from repository root}/code/jobs/slurm_job_env.sh}"
 source "$JOB_ENV"; cd "$PCB_GNN_ROOT"
 export OMP_NUM_THREADS=1

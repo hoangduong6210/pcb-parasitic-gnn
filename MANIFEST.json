@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 157,
+    "code": 159,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
@@ -381,8 +381,8 @@
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py",
-      "bytes": 9236,
-      "sha256": "bd22d1318a6cb9a6980fd4a37191b0a2b0c2c2a9ae8a09b5d40f3b768ed36574"
+      "bytes": 14778,
+      "sha256": "30e6caddd553dbf254b8fe2d6026c175c785c36c6ec32365091141e2e99d4669"
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
@@ -458,6 +458,11 @@
       "path": "code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py",
       "bytes": 7058,
       "sha256": "38171f7336ca2a012d9746e73e67768035fa7b444564da5304c71cb25842e19e"
+    },
+    {
+      "path": "code/experiments/proofs/finalize_corpus_v4_fem_native_diagnostic.py",
+      "bytes": 5679,
+      "sha256": "ae98829a0e11e89f28dc5bbd5dfd2fcb76bd06e2dd4fa273d087b45d1fabcd26"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_latency.py",
@@ -641,8 +646,13 @@
     },
     {
       "path": "code/jobs/submit_corpus_v4_fem_native_diagnostic.sh",
-      "bytes": 869,
-      "sha256": "e772a17d6c5d67da180a3fd140f37422e38fde9b2bf4e1877673afa2aa45f0a1"
+      "bytes": 928,
+      "sha256": "4612c93bce2c7523261ae1dce622bf63a2afadeb9372801c2e6a896e07db133b"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v4_fem_native_diagnostic_finalizer.sh",
+      "bytes": 696,
+      "sha256": "f71cd074dd00deac533652a11abdf519b8261aea9d1e1dfd2b7e81b124a415eb"
     },
     {
       "path": "code/jobs/submit_corpus_v4_latency.sh",
@@ -931,8 +941,8 @@
     },
     {
       "path": "code/solvers/fem_capacitance_3d.py",
-      "bytes": 13325,
-      "sha256": "054b5d80072f81abf8bfad4dc600c5da16f99adfe2e2aec4e7ece4d23e51b99a"
+      "bytes": 16792,
+      "sha256": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665"
     },
     {
       "path": "code/solvers/fem_capacitance_ref.py",
@@ -941,8 +951,8 @@
     },
     {
       "path": "code/solvers/fem_cps_diagnostic_worker.py",
-      "bytes": 1267,
-      "sha256": "f36de6f42d360b2dbcdedaa64be448be90e244db613b1de9a5208def9999c85e"
+      "bytes": 1957,
+      "sha256": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648"
     },
     {
       "path": "code/solvers/fem_cps_worker.py",
@@ -1541,8 +1551,8 @@
     },
     {
       "path": "tests/test_fem_native_diagnostic.py",
-      "bytes": 2029,
-      "sha256": "8e8e94128fc3833f663af950744633346b67817064a94f4c4f81c8114065d590"
+      "bytes": 6625,
+      "sha256": "6129339a66566f3cfe7d2399e2e8e273617260d730eb70efb9a9a038c608927f"
     },
     {
       "path": "tests/test_followup_protocols.py",
@@ -1590,6 +1600,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 315,
-  "total_bytes": 9693555
+  "n_files": 317,
+  "total_bytes": 9714284
 }
