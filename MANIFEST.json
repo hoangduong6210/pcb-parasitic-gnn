@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 159,
+    "code": 162,
     "datasets": 8,
     "figures": 12,
     "logs": 84,
     "results": 50,
     "root": 10,
-    "tests": 14
+    "tests": 15
   },
   "files": [
     {
@@ -390,6 +390,11 @@
       "sha256": "a92997daf5e021473e64ede8e9e74434c11f7dcfb30f1c048f9c61ad30b30f0e"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v4_refine4_feasibility.py",
+      "bytes": 21230,
+      "sha256": "631d719b10e6b43d0e10a9226bc8035f86c4de1cf0062ccd816c67d14b613ab9"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v4_refined_cps.py",
       "bytes": 6530,
       "sha256": "a6002f2b9b64de617b02fe73dcca03305751adc9269656028e62212baf575dd4"
@@ -658,6 +663,11 @@
       "path": "code/jobs/submit_corpus_v4_latency.sh",
       "bytes": 959,
       "sha256": "358478c7a317050def740ffafe892e46ae2402409ec8bf03580f6a8b8eb8a714"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v4_refine4_feasibility.sh",
+      "bytes": 1713,
+      "sha256": "98638644c6191c6616ae673c778ef9bfe9d6ab73bc0598e02331af5d42cd7f8e"
     },
     {
       "path": "code/jobs/submit_corpus_v4_refined_cps.sh",
@@ -948,6 +958,11 @@
       "path": "code/solvers/fem_capacitance_ref.py",
       "bytes": 3436,
       "sha256": "dec58e92d3959829d7b17ddbbbb82e5862baf7046b7fadf91601422bb96b76d6"
+    },
+    {
+      "path": "code/solvers/fem_cps_bounded_worker.py",
+      "bytes": 2472,
+      "sha256": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec"
     },
     {
       "path": "code/solvers/fem_cps_diagnostic_worker.py",
@@ -1775,6 +1790,11 @@
       "sha256": "0c5e13daedd8f76c20625387f0f5f66aea7ba56264ba1e172a2a6915f6120945"
     },
     {
+      "path": "tests/test_corpus_v4_refine4_feasibility.py",
+      "bytes": 8386,
+      "sha256": "5182e0c8ba34fdc21e74a3febf80f295bc1d0bfc8ed32b4649255c313ab79a70"
+    },
+    {
       "path": "tests/test_fem_native_diagnostic.py",
       "bytes": 6625,
       "sha256": "6129339a66566f3cfe7d2399e2e8e273617260d730eb70efb9a9a038c608927f"
@@ -1825,6 +1845,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 362,
-  "total_bytes": 10066593
+  "n_files": 366,
+  "total_bytes": 10100394
 }
