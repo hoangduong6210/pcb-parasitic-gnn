@@ -5,13 +5,13 @@
     ".github": 1,
     "Paper_Full": 19,
     "Paper_Summary": 5,
-    "code": 155,
+    "code": 157,
     "datasets": 8,
     "figures": 12,
     "logs": 54,
     "results": 35,
     "root": 10,
-    "tests": 13
+    "tests": 14
   },
   "files": [
     {
@@ -380,6 +380,11 @@
       "sha256": "039101db104419b1ce34a67b2c0b4ba1100305444c5bb4f5364f67c0f2902116"
     },
     {
+      "path": "code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py",
+      "bytes": 9236,
+      "sha256": "bd22d1318a6cb9a6980fd4a37191b0a2b0c2c2a9ae8a09b5d40f3b768ed36574"
+    },
+    {
       "path": "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
       "bytes": 9448,
       "sha256": "a92997daf5e021473e64ede8e9e74434c11f7dcfb30f1c048f9c61ad30b30f0e"
@@ -633,6 +638,11 @@
       "path": "code/jobs/submit_corpus_v4_cross_solver.sh",
       "bytes": 839,
       "sha256": "a6a4e0a2073edd481573f8223d9ba69cbc451d6f01e5a75b5e495c687eac3a86"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v4_fem_native_diagnostic.sh",
+      "bytes": 869,
+      "sha256": "e772a17d6c5d67da180a3fd140f37422e38fde9b2bf4e1877673afa2aa45f0a1"
     },
     {
       "path": "code/jobs/submit_corpus_v4_latency.sh",
@@ -921,8 +931,8 @@
     },
     {
       "path": "code/solvers/fem_capacitance_3d.py",
-      "bytes": 8369,
-      "sha256": "2c48ee0a1c1749ccd2cd2860a2cba4ed7a84ced9c5fd7c6b1c6e69bb7c86760e"
+      "bytes": 13325,
+      "sha256": "054b5d80072f81abf8bfad4dc600c5da16f99adfe2e2aec4e7ece4d23e51b99a"
     },
     {
       "path": "code/solvers/fem_capacitance_ref.py",
@@ -931,8 +941,8 @@
     },
     {
       "path": "code/solvers/fem_cps_diagnostic_worker.py",
-      "bytes": 600,
-      "sha256": "014f0f30e8370056e75163a294a61c75100ea95403be3c63318787a4ce025a7f"
+      "bytes": 1267,
+      "sha256": "f36de6f42d360b2dbcdedaa64be448be90e244db613b1de9a5208def9999c85e"
     },
     {
       "path": "code/solvers/fem_cps_worker.py",
@@ -1326,13 +1336,13 @@
     },
     {
       "path": "requirements-proof.txt",
-      "bytes": 284,
-      "sha256": "d4dc98a4d4c370e44f433be19538f3ec9f3d8b27cf9fa4b43fc9c9c765ed245a"
+      "bytes": 297,
+      "sha256": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
     },
     {
       "path": "requirements.txt",
-      "bytes": 469,
-      "sha256": "606ceef1abf0270c8a51f307a1cc578f1dcf7a3f9e81a4901e45903f84fd3120"
+      "bytes": 480,
+      "sha256": "899929eb5cefb231535d6e4744b70d411b778747b7edfd5ab44c53c17a30acf7"
     },
     {
       "path": "results/README.md",
@@ -1530,6 +1540,11 @@
       "sha256": "0c5e13daedd8f76c20625387f0f5f66aea7ba56264ba1e172a2a6915f6120945"
     },
     {
+      "path": "tests/test_fem_native_diagnostic.py",
+      "bytes": 2029,
+      "sha256": "8e8e94128fc3833f663af950744633346b67817064a94f4c4f81c8114065d590"
+    },
+    {
       "path": "tests/test_followup_protocols.py",
       "bytes": 3250,
       "sha256": "ff053237d9fdf0ef089771130b090fb6e23fe7d0a770978c12f1432d874e09c5"
@@ -1575,6 +1590,6 @@
       "sha256": "487d7d1a3d2b5cda9775bedd40ae1f34aab75229c8b073253a5d4fa6024ce8f3"
     }
   ],
-  "n_files": 312,
-  "total_bytes": 9675774
+  "n_files": 315,
+  "total_bytes": 9693555
 }

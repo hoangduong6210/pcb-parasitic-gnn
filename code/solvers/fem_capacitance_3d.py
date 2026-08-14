@@ -12,20 +12,36 @@ W = 1/2 * integral(eps |grad phi|^2) over the dielectric.
 Validated against the parallel-plate analytic eps0*eps_r*A/d.
 """
 from __future__ import annotations
+from collections.abc import Callable
+import os
+from typing import Any
+
 import numpy as np
 
 from geometry_contract import trace_box, validate_layout
 
 EPS0 = 8.854187817e-12   # F/m
+ProgressCallback = Callable[[str, dict[str, Any]], None]
 
 
-def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
+def _progress(callback: ProgressCallback | None, stage: str, **payload: Any) -> None:
+    if callback is not None:
+        callback(stage, payload)
+
+
+def _build_mesh(
+    layout,
+    eps_r=4.2,
+    pad_mm=8.0,
+    refine=0,
+    progress: ProgressCallback | None = None,
+):
     """gmsh OCC: air box + pri/sec conductor boxes (fragmented, tagged).
     Returns (skfem MeshTet, element_region array: 0=air,1=pri,2=sec)."""
     import gmsh
     from skfem import MeshTet
-    import tempfile, os
     validate_layout(layout)
+    _progress(progress, "geometry_validated", n_traces=len(layout["traces"]))
     trs = layout["traces"]
     boxes = [trace_box(layout, trace) for trace in trs]
     xs = [box[0] for box in boxes] + [box[1] for box in boxes]
@@ -35,83 +51,199 @@ def _build_mesh(layout, eps_r=4.2, pad_mm=8.0, refine=0):
     y0, y1 = min(ys) - pad_mm, max(ys) + pad_mm
     z0, z1 = min(zs) - pad_mm, max(zs) + pad_mm
 
-    if gmsh.isInitialized():     # clean any stuck state from a prior failed solve
+    if gmsh.isInitialized():
         gmsh.finalize()
-    gmsh.initialize(); gmsh.option.setNumber("General.Terminal", 0)
+    gmsh.initialize()
+    gmsh.option.setNumber("General.Terminal", 0)
+    gmsh_threads = int(os.environ.get("PCB_GNN_GMSH_THREADS", "1"))
+    gmsh.option.setNumber("General.NumThreads", gmsh_threads)
+    gmsh.option.setNumber("Mesh.MaxNumThreads3D", gmsh_threads)
     gmsh.model.add("cps")
-    occ = gmsh.model.occ
-    air = occ.addBox(x0, y0, z0, x1 - x0, y1 - y0, z1 - z0)
-    pri_boxes, sec_boxes = [], []
-    for t, box in zip(trs, boxes):
-        net = t.get("net")
-        if net not in ("pri", "sec"):
-            continue
-        bx = occ.addBox(
-            box[0], box[2], box[4],
-            box[1] - box[0], box[3] - box[2], box[5] - box[4],
+    try:
+        occ = gmsh.model.occ
+        air = occ.addBox(x0, y0, z0, x1 - x0, y1 - y0, z1 - z0)
+        pri_boxes, sec_boxes = [], []
+        for trace, box in zip(trs, boxes):
+            net = trace.get("net")
+            if net not in ("pri", "sec"):
+                continue
+            volume = occ.addBox(
+                box[0], box[2], box[4],
+                box[1] - box[0], box[3] - box[2], box[5] - box[4],
+            )
+            (pri_boxes if net == "pri" else sec_boxes).append(volume)
+        occ.synchronize()
+
+        def fuse(volume_tags):
+            if not volume_tags:
+                return []
+            if len(volume_tags) == 1:
+                return [(3, volume_tags[0])]
+            result, _ = occ.fuse(
+                [(3, volume_tags[0])], [(3, tag) for tag in volume_tags[1:]]
+            )
+            return result
+
+        pri_f = fuse(pri_boxes)
+        sec_f = fuse(sec_boxes)
+        occ.synchronize()
+        occ.fragment([(3, air)], pri_f + sec_f)
+        occ.synchronize()
+        volumes = [entity[1] for entity in gmsh.model.getEntities(3)]
+        _progress(progress, "occ_fragmented", n_volumes=len(volumes))
+
+        region_of_volume = {}
+        for volume in volumes:
+            center = np.asarray(gmsh.model.occ.getCenterOfMass(3, volume))
+            region = 0
+            for trace, box in zip(trs, boxes):
+                if trace.get("net") not in ("pri", "sec"):
+                    continue
+                if (
+                    box[0] - 1e-3 <= center[0] <= box[1] + 1e-3
+                    and box[2] - 1e-3 <= center[1] <= box[3] + 1e-3
+                    and box[4] - 1e-3 <= center[2] <= box[5] + 1e-3
+                ):
+                    region = 1 if trace["net"] == "pri" else 2
+                    break
+            region_of_volume[volume] = region
+
+        gaps = sorted(set(round(z, 4) for z in zs))
+        dz = (
+            min(gaps[index + 1] - gaps[index] for index in range(len(gaps) - 1))
+            if len(gaps) > 1 else 0.2
         )
-        (pri_boxes if net == "pri" else sec_boxes).append(bx)
-    occ.synchronize()
-    # FUSE each winding into one conductor (resolves same-net same-layer overlaps,
-    # which are connected copper, not invalid geometry, and makes a clean 2-conductor problem)
-    def fuse(boxes):
-        if not boxes:
-            return []
-        if len(boxes) == 1:
-            return [(3, boxes[0])]
-        res, _ = occ.fuse([(3, boxes[0])], [(3, b) for b in boxes[1:]])
-        return res
-    pri_f = fuse(pri_boxes); sec_f = fuse(sec_boxes)
-    occ.synchronize()
-    # fragment so the air mesh conforms to every conductor surface
-    out, omap = occ.fragment([(3, air)], pri_f + sec_f)
-    occ.synchronize()
-    # identify which fragment volume is which conductor by centroid-in-box test
-    vols = [v[1] for v in gmsh.model.getEntities(3)]
-    def centroid(v):
-        return np.array(gmsh.model.occ.getCenterOfMass(3, v))
-    region_of_vol = {}
-    for v in vols:
-        c = centroid(v); tag = 0   # gmsh model units are mm here
-        for t, box in zip(trs, boxes):
-            if t.get("net") not in ("pri", "sec"):
-                continue
-            if (box[0] - 1e-3 <= c[0] <= box[1] + 1e-3 and
-                box[2] - 1e-3 <= c[1] <= box[3] + 1e-3 and
-                box[4] - 1e-3 <= c[2] <= box[5] + 1e-3):
-                tag = 1 if t["net"] == "pri" else 2; break
-        region_of_vol[v] = tag
-    # mesh size: fine near the (thin) gaps
-    gaps = sorted(set(round(z, 4) for z in zs))
-    dz = min((gaps[i+1]-gaps[i]) for i in range(len(gaps)-1)) if len(gaps) > 1 else 0.2
-    h = max(dz * 0.8, 0.05)
-    gmsh.option.setNumber("Mesh.MeshSizeMin", h)
-    gmsh.option.setNumber("Mesh.MeshSizeMax", max(h * 12, 2.0))
-    for _ in range(refine):
-        gmsh.option.setNumber("Mesh.MeshSizeMax", gmsh.option.getNumber("Mesh.MeshSizeMax")*0.6)
-    gmsh.model.mesh.generate(3)
-    tmp = tempfile.mktemp(suffix=".msh"); gmsh.write(tmp)
-    # map gmsh element tags to regions via volume membership
-    node_tags, node_coords, _ = gmsh.model.mesh.getNodes()
-    coords = np.array(node_coords).reshape(-1, 3).T * 1e-3  # mm -> m (SI energy)
-    id2idx = {int(t): i for i, t in enumerate(node_tags)}
-    elem_conn = []; elem_region = []
-    for v in vols:
-        etypes, etags, enodes = gmsh.model.mesh.getElements(3, v)
-        for et, en in zip(etypes, enodes):
-            if et != 4:   # 4-node tet
-                continue
-            conn = np.array(en, dtype=np.int64).reshape(-1, 4)
-            for row in conn:
-                elem_conn.append([id2idx[int(t)] for t in row])
-                elem_region.append(region_of_vol[v])
-    gmsh.finalize()
-    t = np.array(elem_conn).T
+        h = max(dz * 0.8, 0.05)
+        mesh_max = max(h * 12, 2.0) * (0.6 ** refine)
+        gmsh.option.setNumber("Mesh.MeshSizeMin", h)
+        gmsh.option.setNumber("Mesh.MeshSizeMax", mesh_max)
+        _progress(progress, "mesh_generate_started", h_min=h, h_max=mesh_max)
+        gmsh.model.mesh.generate(3)
+        node_tags, node_coords, _ = gmsh.model.mesh.getNodes()
+        _progress(progress, "mesh_generated", n_nodes=len(node_tags))
+
+        coords = np.asarray(node_coords).reshape(-1, 3).T * 1e-3
+        node_tags = np.asarray(node_tags, dtype=np.int64)
+        tag_to_index = np.full(int(node_tags.max()) + 1, -1, dtype=np.int64)
+        tag_to_index[node_tags] = np.arange(len(node_tags), dtype=np.int64)
+        connectivity_blocks = []
+        region_blocks = []
+        for volume in volumes:
+            element_types, _, element_nodes = gmsh.model.mesh.getElements(3, volume)
+            for element_type, nodes in zip(element_types, element_nodes):
+                if element_type != 4:
+                    continue
+                tags = np.asarray(nodes, dtype=np.int64).reshape(-1, 4)
+                indices = tag_to_index[tags]
+                if (indices < 0).any():
+                    raise ValueError("gmsh connectivity references an unknown node tag")
+                connectivity_blocks.append(indices)
+                region_blocks.append(
+                    np.full(indices.shape[0], region_of_volume[volume], dtype=np.int8)
+                )
+        if not connectivity_blocks:
+            raise ValueError("gmsh returned no first-order tetrahedra")
+        t = np.concatenate(connectivity_blocks, axis=0).T
+        elem_region = np.concatenate(region_blocks)
+        _progress(progress, "mesh_extracted", n_tetrahedra=t.shape[1])
+    finally:
+        if gmsh.isInitialized():
+            gmsh.finalize()
+    _progress(progress, "gmsh_finalized")
     m = MeshTet(coords, t)
-    return m, np.array(elem_region)
+    _progress(progress, "skfem_mesh_created")
+    return m, elem_region
 
 
-def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
+def _solve_condensed_system(
+    A,
+    b: np.ndarray,
+    *,
+    linear_solver: str,
+    rtol: float,
+    maxiter: int,
+    progress: ProgressCallback | None = None,
+) -> tuple[np.ndarray, dict[str, Any]]:
+    """Solve a symmetric positive-definite condensed Laplace system."""
+    from scipy.sparse.linalg import spsolve
+
+    if linear_solver == "direct":
+        _progress(progress, "direct_solve_started")
+        solution = spsolve(A, b)
+        metadata: dict[str, Any] = {"linear_solver": "scipy_superlu_direct"}
+    elif linear_solver == "amg_cg":
+        import pyamg
+        from scipy.sparse.linalg import cg
+
+        A = A.tocsr()
+        A.sort_indices()
+        _progress(progress, "amg_setup_started")
+        hierarchy = pyamg.smoothed_aggregation_solver(
+            A,
+            B=np.ones((A.shape[0], 1)),
+            symmetry="symmetric",
+            max_coarse=50,
+        )
+        _progress(
+            progress,
+            "amg_setup_completed",
+            amg_levels=len(hierarchy.levels),
+            operator_complexity=float(hierarchy.operator_complexity()),
+        )
+        iterations = 0
+
+        def count_iteration(_current: np.ndarray) -> None:
+            nonlocal iterations
+            iterations += 1
+
+        _progress(progress, "cg_solve_started")
+        solution, info = cg(
+            A,
+            b,
+            M=hierarchy.aspreconditioner(cycle="V"),
+            rtol=rtol,
+            atol=0.0,
+            maxiter=maxiter,
+            callback=count_iteration,
+        )
+        metadata = {
+            "linear_solver": "pyamg_smoothed_aggregation_cg",
+            "solver_info": int(info),
+            "iterations": iterations,
+            "amg_levels": len(hierarchy.levels),
+            "operator_complexity": float(hierarchy.operator_complexity()),
+        }
+        if info != 0:
+            raise RuntimeError(f"AMG-CG did not converge: info={info}")
+    else:
+        raise ValueError(f"unsupported linear solver: {linear_solver}")
+
+    if not np.isfinite(solution).all():
+        raise RuntimeError("linear solver returned non-finite values")
+    denominator = max(float(np.linalg.norm(b)), np.finfo(float).tiny)
+    relative_residual = float(np.linalg.norm(A @ solution - b) / denominator)
+    metadata["relative_residual"] = relative_residual
+    metadata["rtol"] = float(rtol)
+    metadata["maxiter"] = int(maxiter)
+    if relative_residual > max(10.0 * rtol, 1e-10):
+        raise RuntimeError(
+            f"linear residual {relative_residual:.3e} exceeds acceptance tolerance"
+        )
+    return np.asarray(solution), metadata
+
+
+def fem_cps_3d_diagnostics(
+    layout,
+    eps_r=4.2,
+    refine=0,
+    pad_mm=8.0,
+    *,
+    linear_solver="direct",
+    solver_rtol=1e-10,
+    solver_maxiter=500,
+    progress: ProgressCallback | None = None,
+    strict=False,
+):
     """Return C_ps and mesh diagnostics for an explicit mesh/domain setting."""
     import skfem
     from skfem import Basis, ElementTetP1, BilinearForm
@@ -121,7 +253,7 @@ def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
         return None
     try:                          # gmsh fails to mesh intersecting (invalid) boxes
         m, elem_region = _build_mesh(
-            layout, eps_r=eps_r, refine=refine, pad_mm=pad_mm
+            layout, eps_r=eps_r, refine=refine, pad_mm=pad_mm, progress=progress
         )
     except Exception:
         try:
@@ -130,8 +262,11 @@ def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
                 gmsh.finalize()
         except Exception:
             pass
+        if strict:
+            raise
         return None
     basis = Basis(m, ElementTetP1())
+    _progress(progress, "basis_created", n_dofs=basis.N)
 
     # uniform dielectric: conductor interiors have grad(phi)=0 (all nodes fixed to
     # one potential), so they add no energy and a constant eps is exact here.
@@ -139,6 +274,7 @@ def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
     def laplace(u, v, _):
         return dot(grad(u), grad(v))
     K = laplace.assemble(basis)
+    _progress(progress, "matrix_assembled", n_dofs=K.shape[0], nnz=K.nnz)
 
     # Dirichlet: nodes touched by pri elements -> 1V, sec elements -> 0V
     pri_nodes = np.unique(m.t[:, elem_region == 1].ravel()) if (elem_region == 1).any() else np.array([], int)
@@ -148,8 +284,27 @@ def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
         return None
     u = basis.zeros(); u[pri_nodes] = 1.0; u[sec_nodes] = 0.0
     D = np.concatenate([pri_nodes, sec_nodes])
-    u = skfem.solve(*skfem.condense(K, basis.zeros(), x=u, D=D))
+    A, b, expanded, free = skfem.condense(K, basis.zeros(), x=u, D=D)
+    _progress(
+        progress,
+        "system_condensed",
+        n_free=A.shape[0],
+        nnz=A.nnz,
+        linear_solver=linear_solver,
+    )
+    free_solution, solver_metadata = _solve_condensed_system(
+        A,
+        b,
+        linear_solver=linear_solver,
+        rtol=solver_rtol,
+        maxiter=solver_maxiter,
+        progress=progress,
+    )
+    expanded[free] = free_solution
+    u = expanded
+    _progress(progress, "linear_solve_completed", **solver_metadata)
     W = 0.5 * EPS0 * eps_r * float(u @ (K @ u))   # Joules (V=1, uniform eps)
+    _progress(progress, "energy_computed", energy_j=W)
     return {
         "cps_pf": 2.0 * W * 1e12,                 # C = 2W/V^2 (V=1) -> pF
         "mesh_nodes": int(m.p.shape[1]),
@@ -157,6 +312,7 @@ def fem_cps_3d_diagnostics(layout, eps_r=4.2, refine=0, pad_mm=8.0):
         "refine": int(refine),
         "pad_mm": float(pad_mm),
         "eps_r": float(eps_r),
+        **solver_metadata,
     }
 
 

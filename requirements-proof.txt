@@ -7,3 +7,4 @@ torch==2.8.0
 scikit-fem==11.0.0
 gmsh==4.15.2
 meshio==5.3.5
+pyamg==5.3.0

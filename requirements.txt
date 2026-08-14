@@ -8,6 +8,7 @@ matplotlib>=3.7
 scikit-fem>=8.0
 gmsh>=4.11
 meshio>=5.3
+pyamg>=5.3
 
 # Tree baselines (Sec. "why not gradient-boosted trees")
 scikit-learn>=1.3
