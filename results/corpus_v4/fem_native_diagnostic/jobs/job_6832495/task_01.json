@@ -1,0 +1,135 @@
+{
+  "schema": "pcb-gnn.corpus-v4-fem-native-diagnostic-task.v1",
+  "provenance": {
+    "created_utc": "2026-08-14T09:23:39.964118+00:00",
+    "slurm_array_job_id": "6832495",
+    "slurm_array_task_id": 1,
+    "hostname": "a0114.ten.osc.edu",
+    "platform": "Linux-5.14.0-570.128.1.el9_6.x86_64-x86_64-with-glibc2.34",
+    "python": "3.9.21",
+    "package_versions": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1",
+      "scikit-fem": "11.0.0",
+      "gmsh": "4.15.2",
+      "meshio": "5.3.5",
+      "pyamg": "5.3.0"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "25"
+    },
+    "git_head": "e503e06b576b3ef802c50fc88fc60940a3bda056",
+    "git_dirty_paths": [],
+    "corpus_artifacts_sha256": {
+      "layouts.jsonl": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+      "labels.jsonl": "48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327"
+    },
+    "file_sha256": {
+      "code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py": "bd22d1318a6cb9a6980fd4a37191b0a2b0c2c2a9ae8a09b5d40f3b768ed36574",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba",
+      "code/core/runtime_paths.py": "66c7008ac9712a6a9b0bb09c5762936166a5f00388095f7951fd3f65c37b27ca",
+      "code/data/v3_dataset.py": "21c5e87a7d32f19bb449bd29c15e75d8dfb3bbf6735edaef8ace5287893177b3",
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/solvers/fem_capacitance_3d.py": "054b5d80072f81abf8bfad4dc600c5da16f99adfe2e2aec4e7ece4d23e51b99a",
+      "code/solvers/fem_cps_diagnostic_worker.py": "f36de6f42d360b2dbcdedaa64be448be90e244db613b1de9a5208def9999c85e"
+    }
+  },
+  "selection": {
+    "layout_id": 1055,
+    "geometry_sha256": "b1d837fc6357a278ef823510dd7c5e162fa5b686c8e4827ec383d2d14fe2c590"
+  },
+  "task_id": 1,
+  "arms": [
+    {
+      "name": "amg_refine3",
+      "refine": 3,
+      "pad_mm": 12.0,
+      "solver": "amg_cg",
+      "success": false,
+      "timed_out": false,
+      "returncode": 1,
+      "signal": null,
+      "wall_ms": 196810.78823600546,
+      "last_stage": "skfem_mesh_created",
+      "stages": [
+        {
+          "max_rss_kb": 77780,
+          "n_traces": 8,
+          "stage": "geometry_validated"
+        },
+        {
+          "max_rss_kb": 77780,
+          "n_volumes": 9,
+          "stage": "occ_fragmented"
+        },
+        {
+          "h_max": 0.43199999999999994,
+          "h_min": 0.055999999999999966,
+          "max_rss_kb": 77780,
+          "stage": "mesh_generate_started"
+        },
+        {
+          "max_rss_kb": 3341936,
+          "n_nodes": 1045344,
+          "stage": "mesh_generated"
+        },
+        {
+          "max_rss_kb": 3341936,
+          "n_tetrahedra": 6253686,
+          "stage": "mesh_extracted"
+        },
+        {
+          "max_rss_kb": 3341936,
+          "stage": "gmsh_finalized"
+        },
+        {
+          "max_rss_kb": 3341936,
+          "stage": "skfem_mesh_created"
+        }
+      ],
+      "result": null,
+      "stdout_tail": [
+        "STAGE={\"max_rss_kb\": 77780, \"n_traces\": 8, \"stage\": \"geometry_validated\"}",
+        "STAGE={\"max_rss_kb\": 77780, \"n_volumes\": 9, \"stage\": \"occ_fragmented\"}",
+        "STAGE={\"h_max\": 0.43199999999999994, \"h_min\": 0.055999999999999966, \"max_rss_kb\": 77780, \"stage\": \"mesh_generate_started\"}",
+        "STAGE={\"max_rss_kb\": 3341936, \"n_nodes\": 1045344, \"stage\": \"mesh_generated\"}",
+        "STAGE={\"max_rss_kb\": 3341936, \"n_tetrahedra\": 6253686, \"stage\": \"mesh_extracted\"}",
+        "STAGE={\"max_rss_kb\": 3341936, \"stage\": \"gmsh_finalized\"}",
+        "STAGE={\"max_rss_kb\": 3341936, \"stage\": \"skfem_mesh_created\"}"
+      ],
+      "stderr_tail": [
+        "Transforming over 1000 vertices to C_CONTIGUOUS.",
+        "Transforming over 1000 elements to C_CONTIGUOUS.",
+        "Traceback (most recent call last):",
+        "  File \"/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/solvers/fem_cps_diagnostic_worker.py\", line 33, in <module>",
+        "    result = fem_cps_3d_diagnostics(",
+        "  File \"/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/solvers/fem_capacitance_3d.py\", line 269, in fem_cps_3d_diagnostics",
+        "    _progress(progress, \"basis_created\", n_dofs=basis.N)",
+        "  File \"/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/solvers/fem_capacitance_3d.py\", line 29, in _progress",
+        "    callback(stage, payload)",
+        "  File \"/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/solvers/fem_cps_diagnostic_worker.py\", line 22, in progress",
+        "    \"STAGE=\" + json.dumps(",
+        "  File \"/usr/lib64/python3.9/json/__init__.py\", line 234, in dumps",
+        "    return cls(",
+        "  File \"/usr/lib64/python3.9/json/encoder.py\", line 199, in encode",
+        "    chunks = self.iterencode(o, _one_shot=True)",
+        "  File \"/usr/lib64/python3.9/json/encoder.py\", line 257, in iterencode",
+        "    return _iterencode(o, 0)",
+        "  File \"/usr/lib64/python3.9/json/encoder.py\", line 179, in default",
+        "    raise TypeError(f'Object of type {o.__class__.__name__} '",
+        "TypeError: Object of type int32 is not JSON serializable"
+      ]
+    }
+  ],
+  "gates": {
+    "all_arms_success": false,
+    "relative_residual": null,
+    "residual_tolerance": 1e-09,
+    "pass": false
+  }
+}

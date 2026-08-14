@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py", line 257, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/experiments_corpus_v4_fem_native_diagnostic.py", line 253, in main
+    raise RuntimeError("native FEM diagnostic gate failed; inspect the task artifact")
+RuntimeError: native FEM diagnostic gate failed; inspect the task artifact

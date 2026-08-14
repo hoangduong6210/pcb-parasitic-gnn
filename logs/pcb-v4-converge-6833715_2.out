@@ -1,0 +1,5 @@
+layout=1351 refine=2 pad=12 success=True last_stage=energy_computed wall=53.8s
+layout=1351 refine=2 pad=16 success=True last_stage=energy_computed wall=88.1s
+layout=1351 refine=3 pad=12 success=True last_stage=energy_computed wall=284.6s
+layout=1351 refine=3 pad=16 success=True last_stage=energy_computed wall=520.1s
+results/corpus_v4/convergence_preflight/jobs/job_6833715/task_02.json

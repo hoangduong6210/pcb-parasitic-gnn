@@ -1,0 +1,2 @@
+arm=direct_refine2 success=False last_stage=skfem_mesh_created wall=37.6s
+arm=amg_refine2 success=False last_stage=skfem_mesh_created wall=35.9s

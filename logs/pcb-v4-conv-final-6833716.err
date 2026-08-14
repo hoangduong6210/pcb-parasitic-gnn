@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py", line 248, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py", line 244, in main
+    raise RuntimeError("production Cps setting rejected by the predeclared convergence gate")
+RuntimeError: production Cps setting rejected by the predeclared convergence gate

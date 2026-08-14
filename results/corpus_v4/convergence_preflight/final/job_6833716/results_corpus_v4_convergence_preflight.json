@@ -1,0 +1,307 @@
+{
+  "schema": "pcb-gnn.corpus-v4-convergence-preflight-final.v2",
+  "provenance": {
+    "created_utc": "2026-08-14T14:15:19.416715+00:00",
+    "slurm_job_id": "6833716",
+    "source_array_job_id": "6833715",
+    "git_head": "f7a9607c9c98b68acac70eb26462ae42db9ac811",
+    "git_dirty_paths": [],
+    "finalizer_source_sha256": "30199b1f9d1ce8ad8966fecb4c41d3579928a14544a82622f3e75527f224754c",
+    "executed_finalizer_batch_script": {
+      "path": "/var/spool/slurmd/job6833716/slurm_script",
+      "sha256": "b924766e744ecfa2b2818a25a1ba86ad210d76ca98c61a4745a2dff2ac6a53f4"
+    },
+    "source_file_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/data/v3_dataset.py": "21c5e87a7d32f19bb449bd29c15e75d8dfb3bbf6735edaef8ace5287893177b3",
+      "code/experiments/proofs/experiments_corpus_v4_convergence_preflight.py": "662dad3f5373d1f35624e50564f7ac565fadef26c7394b03fd42753c885961db",
+      "code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py": "30199b1f9d1ce8ad8966fecb4c41d3579928a14544a82622f3e75527f224754c",
+      "code/jobs/submit_corpus_v4_convergence_preflight.sh": "30b9eace5a6348126ff25af7e65046fc8a7753beaf5b57a7e1a645a0916cbe72",
+      "code/jobs/submit_finalize_corpus_v4_convergence_preflight.sh": "b924766e744ecfa2b2818a25a1ba86ad210d76ca98c61a4745a2dff2ac6a53f4",
+      "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+      "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    },
+    "corpus_artifacts_sha256": {
+      "labels.jsonl": "48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327",
+      "layouts.jsonl": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b"
+    },
+    "source_software_environment": {
+      "package_versions": {
+        "gmsh": "4.15.2",
+        "meshio": "5.3.5",
+        "numpy": "2.0.2",
+        "pyamg": "5.3.0",
+        "scikit-fem": "11.0.0",
+        "scipy": "1.13.1"
+      },
+      "python": "3.9.21",
+      "thread_environment": {
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PCB_GNN_GMSH_THREADS": "25"
+      }
+    },
+    "source_batch_script_sha256": "30b9eace5a6348126ff25af7e65046fc8a7753beaf5b57a7e1a645a0916cbe72",
+    "native_solver_diagnostic": {
+      "array_job_id": "6832704",
+      "path": "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/results/corpus_v4/fem_native_diagnostic/jobs/job_6832704/summary.json",
+      "sha256": "f0b5510cf76325f5aefd8ad599f393cacacfc745d5413b351a5fe4c553513b89",
+      "task_artifacts_sha256": {
+        "task_00.json": "b7d8424a788d22e51515aba4b6a0a4a1cb7a6e9cd01d03798f78ba5fd71cc9af",
+        "task_01.json": "6ff061867d090991522a1e8f69bf902cf2166229d7d3feb66bf5b7d76868eb00"
+      }
+    },
+    "task_artifacts_sha256": {
+      "task_00.json": "12f68203ea7dff41cdd35279e0fe8006aba91d86f17f144947b335e28c6a3275",
+      "task_01.json": "bee1419fbab9899157e6c1468de41decf4f35129e5edd822668ca3ecf5e8cba9",
+      "task_02.json": "dd230bf13bd57887c5bc9112e876e4622ad95bdd6aeede738b1a4f37a5778a8a",
+      "task_03.json": "e82a1f0a7df7b4728cec9dbe7e3d06003779f32969db7fa87fcfdb64cdee0cfa",
+      "task_04.json": "a4f31f82feec9c82f30f57060a984919a196d71580f8ae476903d85c94636fe2",
+      "task_05.json": "a51a1821114bdf94f3ec53c603915b67511700c3441460a19615adc53802f254",
+      "task_06.json": "5f345a007dad2f73060180791440c8628a5d8a8f8f12bf1fd7e220eb44163e83",
+      "task_07.json": "942702c37874a62f3ad250d8b7103c9e32489404e559a80449c44ef6135e9de5",
+      "task_08.json": "61d0653a0409bc31051528e78cb8d6bdaffedd714a5f981956881e3c9a040efd"
+    }
+  },
+  "protocol": {
+    "n_layouts": 9,
+    "settings": [
+      [
+        2,
+        12.0
+      ],
+      [
+        2,
+        16.0
+      ],
+      [
+        3,
+        12.0
+      ],
+      [
+        3,
+        16.0
+      ]
+    ],
+    "median_tolerance_pct": 2.0,
+    "max_tolerance_pct": 5.0,
+    "linear_solver": "pyamg_smoothed_aggregation_cg",
+    "linear_residual_tolerance": 1e-09,
+    "production_setting_if_pass": {
+      "refine": 2,
+      "pad_mm": 16.0
+    },
+    "interpretation": "refine-3/pad-16-mm is the comparison reference; the production setting is accepted only when both domain and mesh sensitivity gates pass"
+  },
+  "comparisons": {
+    "domain_12mm_vs_16mm_at_refine2": {
+      "left": {
+        "refine": 2,
+        "pad_mm": 12.0
+      },
+      "right_reference": {
+        "refine": 2,
+        "pad_mm": 16.0
+      },
+      "n_paired": 9,
+      "median_relative_difference_pct": 0.22295610257963924,
+      "max_relative_difference_pct": 2.635249512672061,
+      "per_layout": [
+        {
+          "layout_id": 1055,
+          "relative_difference_pct": 2.635249512672061
+        },
+        {
+          "layout_id": 407,
+          "relative_difference_pct": 0.5503877243992403
+        },
+        {
+          "layout_id": 1351,
+          "relative_difference_pct": 0.12604324810164022
+        },
+        {
+          "layout_id": 149,
+          "relative_difference_pct": 0.5316984304288407
+        },
+        {
+          "layout_id": 275,
+          "relative_difference_pct": 0.18006577321458614
+        },
+        {
+          "layout_id": 897,
+          "relative_difference_pct": 0.11892800404354441
+        },
+        {
+          "layout_id": 2,
+          "relative_difference_pct": 0.3773031590580007
+        },
+        {
+          "layout_id": 173,
+          "relative_difference_pct": 0.22295610257963924
+        },
+        {
+          "layout_id": 1400,
+          "relative_difference_pct": 0.16998074745696187
+        }
+      ]
+    },
+    "domain_12mm_vs_16mm_at_refine3": {
+      "left": {
+        "refine": 3,
+        "pad_mm": 12.0
+      },
+      "right_reference": {
+        "refine": 3,
+        "pad_mm": 16.0
+      },
+      "n_paired": 9,
+      "median_relative_difference_pct": 0.21076294129953546,
+      "max_relative_difference_pct": 2.489647061905614,
+      "per_layout": [
+        {
+          "layout_id": 1055,
+          "relative_difference_pct": 2.489647061905614
+        },
+        {
+          "layout_id": 407,
+          "relative_difference_pct": 0.21076294129953546
+        },
+        {
+          "layout_id": 1351,
+          "relative_difference_pct": 0.026872645121692663
+        },
+        {
+          "layout_id": 149,
+          "relative_difference_pct": 0.8650745141340611
+        },
+        {
+          "layout_id": 275,
+          "relative_difference_pct": 0.053151486190388286
+        },
+        {
+          "layout_id": 897,
+          "relative_difference_pct": 0.23567996141759004
+        },
+        {
+          "layout_id": 2,
+          "relative_difference_pct": 0.366525535235699
+        },
+        {
+          "layout_id": 173,
+          "relative_difference_pct": 0.12753618353033458
+        },
+        {
+          "layout_id": 1400,
+          "relative_difference_pct": 0.1493719680132496
+        }
+      ]
+    },
+    "mesh_refine2_vs_refine3_at_12mm": {
+      "left": {
+        "refine": 2,
+        "pad_mm": 12.0
+      },
+      "right_reference": {
+        "refine": 3,
+        "pad_mm": 12.0
+      },
+      "n_paired": 9,
+      "median_relative_difference_pct": 10.090841272411527,
+      "max_relative_difference_pct": 28.275816510095652,
+      "per_layout": [
+        {
+          "layout_id": 1055,
+          "relative_difference_pct": 4.256939702018025
+        },
+        {
+          "layout_id": 407,
+          "relative_difference_pct": 28.275816510095652
+        },
+        {
+          "layout_id": 1351,
+          "relative_difference_pct": 11.38090091455399
+        },
+        {
+          "layout_id": 149,
+          "relative_difference_pct": 9.641908288233594
+        },
+        {
+          "layout_id": 275,
+          "relative_difference_pct": 8.412586911471312
+        },
+        {
+          "layout_id": 897,
+          "relative_difference_pct": 9.424793146864225
+        },
+        {
+          "layout_id": 2,
+          "relative_difference_pct": 10.090841272411527
+        },
+        {
+          "layout_id": 173,
+          "relative_difference_pct": 14.06788733376616
+        },
+        {
+          "layout_id": 1400,
+          "relative_difference_pct": 11.830283983590483
+        }
+      ]
+    },
+    "mesh_refine2_vs_refine3_at_16mm": {
+      "left": {
+        "refine": 2,
+        "pad_mm": 16.0
+      },
+      "right_reference": {
+        "refine": 3,
+        "pad_mm": 16.0
+      },
+      "n_paired": 9,
+      "median_relative_difference_pct": 10.912829928752528,
+      "max_relative_difference_pct": 27.30478869668404,
+      "per_layout": [
+        {
+          "layout_id": 1055,
+          "relative_difference_pct": 4.4128489592599385
+        },
+        {
+          "layout_id": 407,
+          "relative_difference_pct": 27.30478869668404
+        },
+        {
+          "layout_id": 1351,
+          "relative_difference_pct": 11.270582851981837
+        },
+        {
+          "layout_id": 149,
+          "relative_difference_pct": 9.274434536110334
+        },
+        {
+          "layout_id": 275,
+          "relative_difference_pct": 8.275243158838268
+        },
+        {
+          "layout_id": 897,
+          "relative_difference_pct": 9.813284204212765
+        },
+        {
+          "layout_id": 2,
+          "relative_difference_pct": 10.912829928752528
+        },
+        {
+          "layout_id": 173,
+          "relative_difference_pct": 14.176974034978748
+        },
+        {
+          "layout_id": 1400,
+          "relative_difference_pct": 12.188025123273324
+        }
+      ]
+    }
+  },
+  "gate_pass": false
+}
