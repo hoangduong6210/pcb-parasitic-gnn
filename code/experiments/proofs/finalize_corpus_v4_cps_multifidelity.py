@@ -28,22 +28,17 @@ from plan_corpus_v4_cps_resume import (  # noqa: E402
     resolve_repo_path,
     validate_task_artifact,
 )
-from run_corpus_v4_cps_multifidelity_task import validate_frozen_inputs  # noqa: E402
-from run_corpus_v4_cps_multifidelity_task import validate_execution_lock  # noqa: E402
+from run_corpus_v4_cps_multifidelity_task import (  # noqa: E402
+    EXECUTION_SOURCE_NAMES,
+    scheduler_resource_contract_matches,
+    validate_execution_lock,
+    validate_frozen_inputs,
+)
 from verified_geometry_corpus import load_verified_geometry_corpus  # noqa: E402
 
 
 SCHEMA = "pcb-gnn.cps-multifidelity-final.v1"
-SOURCE_NAMES = (
-    "protocols/corpus_v4_cps_multifidelity_v1.json",
-    "code/core/geometry_contract.py",
-    "code/core/scientific_artifact.py",
-    "code/data/verified_geometry_corpus.py",
-    "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py",
-    "code/experiments/proofs/plan_corpus_v4_cps_resume.py",
-    "code/experiments/proofs/finalize_corpus_v4_cps_multifidelity.py",
-    "code/jobs/submit_finalize_corpus_v4_cps_multifidelity.sh",
-)
+SOURCE_NAMES = EXECUTION_SOURCE_NAMES
 
 
 def load_accepted_set(
@@ -128,8 +123,13 @@ def main() -> None:
         scheduler_query.returncode != 0
         or scheduler.get("JobState") not in {"RUNNING", "COMPLETING"}
         or scheduler.get("Partition") != "nextgen"
-        or int(scheduler.get("NumCPUs", "0")) < 2
         or scheduler.get("TimeLimit") != "00:30:00"
+        or not scheduler_resource_contract_matches(
+            scheduler,
+            allocated_cpus_per_task=int(os.environ.get("SLURM_CPUS_PER_TASK", "0")),
+            mem_per_node_mb=int(os.environ.get("SLURM_MEM_PER_NODE", "0")),
+            profile={"cpus_per_task": 2, "mem_gib": 16},
+        )
     ):
         raise SystemExit("finalizer allocation is not confirmed by the scheduler")
     dirty = subprocess.run(

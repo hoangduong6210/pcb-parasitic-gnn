@@ -7,6 +7,10 @@ paper_source: false
 
 # Reproducibility
 
+Exact OSC account, array sharding, immutable-worktree, monitoring, resume, and
+failure-recovery commands are maintained in the operational
+[SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md).
+
 Heavy field solves and model training are SLURM-only. Login nodes may be used for
 protocol validation, hashing, unit tests, final artifact inspection, and document
 building.

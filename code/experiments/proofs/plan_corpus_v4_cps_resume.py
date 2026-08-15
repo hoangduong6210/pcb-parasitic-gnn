@@ -13,10 +13,16 @@ ROOT = Path(__file__).resolve().parents[3]
 for directory in (ROOT / "code/core", ROOT / "code/data"):
     sys.path.insert(0, str(directory))
 
-from scientific_artifact import atomic_write_json, load_json, sha256_file  # noqa: E402
+from scientific_artifact import (  # noqa: E402
+    atomic_write_json,
+    load_json,
+    require_file_sha256,
+    sha256_file,
+)
 from run_corpus_v4_cps_multifidelity_task import (  # noqa: E402
     SCHEMA as TASK_SCHEMA,
     evaluate_result,
+    scheduler_resource_contract_matches,
     validate_execution_lock,
     validate_frozen_inputs,
 )
@@ -36,6 +42,15 @@ def register_valid_attempt(
     if task_index in valid_by_task:
         raise RuntimeError("ambiguous duplicate valid attempts for one task")
     valid_by_task[task_index] = accepted
+
+
+def load_candidate_index(path: Path, expected_sha256: str) -> dict[str, Any]:
+    """Load one candidate index only after verifying its external byte hash."""
+    require_file_sha256(path, expected_sha256, "candidate index")
+    index = load_json(path)
+    if index.get("schema") != CANDIDATE_SCHEMA:
+        raise ValueError(f"unexpected candidate-index schema: {path}")
+    return index
 
 
 def resolve_repo_path(relative: str) -> Path:
@@ -130,14 +145,17 @@ def validate_task_artifact(
     if (
         slurm.get("canonical_task_index") != expected["task_index"]
         or slurm.get("partition") != profile["partition"]
-        or int(slurm.get("cpus_per_task", 0)) != int(profile["cpus_per_task"])
-        or int(slurm.get("mem_per_node_mb", 0)) < int(profile["mem_gib"]) * 1024
+        or int(slurm.get("requested_cpus_per_task", 0))
+        != int(profile["cpus_per_task"])
         or scheduler.get("ArrayJobId") != slurm.get("array_job_id")
         or int(scheduler.get("ArrayTaskId", -1)) != int(slurm.get("array_task_id", -2))
         or scheduler.get("Partition") != profile["partition"]
-        or int(scheduler.get("NumCPUs", 0)) != int(profile["cpus_per_task"])
-        or int(scheduler.get("NumTasks", 0)) != 1
-        or int(scheduler.get("CPUs/Task", 0)) != int(profile["cpus_per_task"])
+        or not scheduler_resource_contract_matches(
+            scheduler,
+            allocated_cpus_per_task=int(slurm.get("allocated_cpus_per_task", 0)),
+            mem_per_node_mb=int(slurm.get("mem_per_node_mb", 0)),
+            profile=profile,
+        )
         or scheduler.get("TimeLimit") != expected_time
         or int(slurm.get("scheduler_array_record", {}).get("ArrayTaskThrottle", -1))
         != int(profile["max_concurrent"])
@@ -159,6 +177,9 @@ def main() -> None:
     parser.add_argument("--expected-plan-sha256", required=True)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--candidate-index", type=Path, action="append", default=[])
+    parser.add_argument(
+        "--expected-candidate-index-sha256", action="append", default=[]
+    )
     parser.add_argument("--execution-lock", type=Path, required=True)
     parser.add_argument("--expected-execution-lock-sha256", required=True)
     parser.add_argument("--out", type=Path, required=True)
@@ -173,6 +194,14 @@ def main() -> None:
         )
     )
     expected_by_task = {row["task_index"]: row for row in manifest_rows}
+    if len(args.candidate_index) != len(args.expected_candidate_index_sha256):
+        raise ValueError("each candidate index requires one externally pinned SHA-256")
+    candidate_index_records = [
+        {"path": str(path), "sha256": expected_sha256}
+        for path, expected_sha256 in zip(
+            args.candidate_index, args.expected_candidate_index_sha256
+        )
+    ]
     execution_lock, execution_lock_sha256 = validate_execution_lock(
         args.execution_lock, args.expected_execution_lock_sha256
     )
@@ -180,10 +209,10 @@ def main() -> None:
     rejected: list[dict[str, Any]] = []
     seen_index_entries: set[tuple[str, str]] = set()
 
-    for index_path in args.candidate_index:
-        index = load_json(index_path)
-        if index.get("schema") != CANDIDATE_SCHEMA:
-            raise ValueError(f"unexpected candidate-index schema: {index_path}")
+    for index_path, expected_index_sha256 in zip(
+        args.candidate_index, args.expected_candidate_index_sha256
+    ):
+        index = load_candidate_index(index_path, expected_index_sha256)
         for entry in index.get("entries", []):
             identity = (str(entry.get("path")), str(entry.get("sha256")))
             if identity in seen_index_entries:
@@ -235,7 +264,9 @@ def main() -> None:
         args.out / "accepted_artifact_set.json",
         {
             "entries": [valid_by_task[index] for index in sorted(valid_by_task)],
+            "candidate_index_sha256": candidate_index_records,
             "fidelity_id": manifest_rows[0]["fidelity_id"],
+            "candidate_index_sha256": candidate_index_records,
             "execution_lock_sha256": execution_lock_sha256,
             "manifest_sha256": manifest_sha256,
             "n_accepted": len(valid_by_task),

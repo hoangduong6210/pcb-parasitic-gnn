@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
@@ -31,6 +32,7 @@ REQUIRED_PAGES = (
     "manuscript/FEM-Cps-Sections.md",
     "methods/FEM-Cps-Reference.md",
     "methods/Geometry-Family-Splits.md",
+    "operations/SLURM-Submission-Playbook.md",
     "results/FEM-R3-R4-Convergence.md",
     "status/Project-Status.md",
 )
@@ -183,3 +185,54 @@ def test_readmes_link_to_the_canonical_wiki(
         )
         for link in links
     ), f"{readme_path} must identify its wiki link as canonical or authoritative"
+
+
+def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
+    index = _read("wiki/README.md")
+    playbook = _read("wiki/operations/SLURM-Submission-Playbook.md")
+    assert "operations/SLURM-Submission-Playbook.md" in index
+    for required in (
+        "paper_source: false",
+        "MaxArraySize=1001",
+        "-A pgs0407",
+        "0-1000%8",
+        "0-498%8",
+        "afterany",
+        "ReqTRES",
+        "AllocTRES",
+        "6845922",
+        "plan_corpus_v4_cps_submission_shards.py",
+        "build_corpus_v4_cps_candidate_index.py",
+        "--expected-candidate-index-sha256",
+        "submit_finalize_corpus_v4_cps_multifidelity.sh",
+        "git status --short --untracked-files=all -- code protocols",
+        "--expected-task-set-sha256",
+        "R3_RETRY_A_JOB_ID",
+        "R4_RETRY_JOB_ID",
+        "Retry only pending tasks",
+        "RETRY_ROUND=$((RETRY_ROUND + 1))",
+        "R3_ATTEMPT_DIR_ARGS+=(",
+        "R4_ATTEMPT_DIR_ARGS+=(",
+        'R3_PENDING="results/corpus_v4/cps_multifidelity/resume/r3_${RETRY_SUFFIX}/pending_task_set.json"',
+        'R4_PENDING="results/corpus_v4/cps_multifidelity/resume/r4_${RETRY_SUFFIX}/pending_task_set.json"',
+        "Do not reinitialize them from `*_initial`",
+    ):
+        assert required in playbook
+    assert re.search(r"<[^>]+>", playbook) is None
+    for line in playbook.splitlines():
+        if "sbatch" in line and not line.lstrip().startswith("|"):
+            assert "-A pgs0407" in line
+
+
+def test_slurm_playbook_bash_blocks_are_syntactically_valid() -> None:
+    playbook = _read("wiki/operations/SLURM-Submission-Playbook.md")
+    blocks = re.findall(r"```bash\n(.*?)\n```", playbook, flags=re.DOTALL)
+    assert blocks
+    checked = subprocess.run(
+        ["bash", "-n"],
+        input="\n".join(blocks),
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    assert checked.returncode == 0, checked.stderr

@@ -69,9 +69,27 @@ solver/resource gates.
 |---|---|
 | Protocol SHA-256 | `36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b` |
 | Plan SHA-256 | `419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a` |
-| Execution lock SHA-256 | `cd46ae2f972955aac61ac20430ff892d63b50878cbcb2fce1fce1705add7b2ba` |
+| Execution lock SHA-256 | `697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb` |
 | Family registry SHA-256 | `adb015939c5dcc29f63e5068e843c65bacde046591f30619612a15ebd3c6589d` |
 | HF selection registry SHA-256 | `675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9` |
 | Split registry SHA-256 | `c30e06e33a58f03336c02d04fc9081d58ac7663338afe355610cfc0fdc7aa641` |
 | R3 / R4 task counts | 1,500 / 198 |
 | HF families / mandatory anchors | 66 / 9 |
+
+## E-C4-SUBMIT-00 — Rejected scheduler preflight
+
+| Field | Value |
+|---|---|
+| R4 array | `6845922` |
+| Source commit | `00eb8ea68ab6fd588bcf160b0229516a67fb9eaf` |
+| Outcome | Ten tasks failed at the scheduler contract gate in 0–1 s; remainder canceled |
+| Solver execution | None |
+| Requested resources | 25 CPU, 160 GiB |
+| Allocated resources | 41 CPU, 160 GiB |
+| Root cause | Validator conflated requested CPU count with memory-inflated allocation |
+| Scientific use | None; operational regression evidence only |
+
+Two earlier submission attempts created no job. One omitted the required
+`pgs0407` account; the other requested the invalid R3 array index range
+`0-1499` on a cluster with `MaxArraySize=1001`. The corrected procedure is
+maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Playbook.md).

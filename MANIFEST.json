@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 175,
+    "code": 177,
     "datasets": 8,
     "figures": 12,
     "logs": 108,
@@ -13,7 +13,7 @@
     "results": 68,
     "root": 10,
     "tests": 20,
-    "wiki": 14
+    "wiki": 15
   },
   "files": [
     {
@@ -183,8 +183,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 10922,
-      "sha256": "071815476baf09895e747cf293515e09408905861134e4d36525d546a8e126b6"
+      "bytes": 11323,
+      "sha256": "5789d74f739a98ab8dceac0a05ccf1b241c03feb96edc505e4f9f05c031bbeca"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -335,6 +335,11 @@
       "path": "code/experiments/labels/fem_validate_total.py",
       "bytes": 4245,
       "sha256": "28a8b7d6072f9c3363b321de3c19ea77749a76dfa4375dde7a9ca13edb9fad7c"
+    },
+    {
+      "path": "code/experiments/proofs/build_corpus_v4_cps_candidate_index.py",
+      "bytes": 2385,
+      "sha256": "697962e73b5aed5d2690b2d835e7a43f44394172ee2c16723c8b00c38b57d37e"
     },
     {
       "path": "code/experiments/proofs/experiments_claim_proof.py",
@@ -488,8 +493,8 @@
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_cps_multifidelity.py",
-      "bytes": 12700,
-      "sha256": "c05f38397f1aa6c28e8a52068742ae47be5b2a536fd5a03e8428dcbabde38fe7"
+      "bytes": 12550,
+      "sha256": "360f5b4f58cf2c177af7442d89e820d0b5ef91354b991095eaf0500f27681eb5"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_fem_native_diagnostic.py",
@@ -513,13 +518,18 @@
     },
     {
       "path": "code/experiments/proofs/plan_corpus_v4_cps_resume.py",
-      "bytes": 11703,
-      "sha256": "4fb03d11e020fc4dfc38a9eb2abcdcf80dd320a5fd03abebeee094fd81f2071a"
+      "bytes": 12763,
+      "sha256": "c3d8eb25890d0d74d8031623a737c00c000eb4ffea5a7e4482baf7d58787ff1f"
+    },
+    {
+      "path": "code/experiments/proofs/plan_corpus_v4_cps_submission_shards.py",
+      "bytes": 6744,
+      "sha256": "dc907fe1937ad309d87d12e953f801acd75b4158375ab745502380fd5cc265b5"
     },
     {
       "path": "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py",
-      "bytes": 31276,
-      "sha256": "97d1df4d5c91940485652fc761c952e375f63869c817cfa20f0485be5f50c778"
+      "bytes": 33385,
+      "sha256": "f68f83aeac2d2fbbbfab12bc7b56ef88eb2445ac8959b05a7706895bf3e3de39"
     },
     {
       "path": "code/experiments/ranking/experiments_decision.py",
@@ -693,8 +703,8 @@
     },
     {
       "path": "code/jobs/submit_corpus_v4_cps_r3.sh",
-      "bytes": 2073,
-      "sha256": "481d5b42d2226c36db07b6e254d311d2e7ae7fffe1776d7a67b2eedb4f8b7323"
+      "bytes": 2076,
+      "sha256": "4bac6ed7729d8463eda31120aa76b1f74e68077a9f758d65cec3208afb271c41"
     },
     {
       "path": "code/jobs/submit_corpus_v4_cps_r4.sh",
@@ -1698,8 +1708,8 @@
     },
     {
       "path": "protocols/corpus_v4_cps_execution_lock_v1.json",
-      "bytes": 2058,
-      "sha256": "cd46ae2f972955aac61ac20430ff892d63b50878cbcb2fce1fce1705add7b2ba"
+      "bytes": 2335,
+      "sha256": "697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb"
     },
     {
       "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
@@ -2093,18 +2103,18 @@
     },
     {
       "path": "tests/test_cps_multifidelity_plan.py",
-      "bytes": 6269,
-      "sha256": "739d2a9e897939286560c0befc2e160769a39f457417aea6dabe9889cbba4b3d"
+      "bytes": 8385,
+      "sha256": "0d18817a73eed625f110fcbf6ac70e88501acffaa9af3d803ef73733d57d4960"
     },
     {
       "path": "tests/test_cps_multifidelity_resume.py",
-      "bytes": 9025,
-      "sha256": "e238f58a9a33c6efb5ec4c997eef98152f63a24704ae028a30c5d086a6d1e914"
+      "bytes": 10498,
+      "sha256": "a478d7c37d497ac01b985804df00694542e3ac6ebe4950ca7aa62b877226659a"
     },
     {
       "path": "tests/test_cps_multifidelity_runner.py",
-      "bytes": 7996,
-      "sha256": "dec75370dc5f3e2fa4fb0c09d4a04cd893dfc21c55bce153c4a19c5f75a207ab"
+      "bytes": 11537,
+      "sha256": "fcb91daadca5ccbaaa60950384be403ece4c5d5f40d8178a59fa985a5240208a"
     },
     {
       "path": "tests/test_fem_native_diagnostic.py",
@@ -2158,8 +2168,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 6825,
-      "sha256": "2daa89cceb723934f93a851ff44d0ccf30da4abf356cb21f8fe07b1042c8a3de"
+      "bytes": 8833,
+      "sha256": "2ed3ca1501523d6c46b5f60f9922006aad4a122357ff42fd24ff45979be3b03e"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -2168,13 +2178,13 @@
     },
     {
       "path": "wiki/README.md",
-      "bytes": 2612,
-      "sha256": "ec51e07483dbafc3f5d2c9c811495f4a0f4f13ff1fc79b8f8fd661bc4cace0f7"
+      "bytes": 2750,
+      "sha256": "fffd29d0d9dc5fb0f7cb4a0ac6801b1ad9f572dad4f48530eb863b13a9049ea0"
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 1825,
-      "sha256": "99f6719ebefb21dd5dd3b90b6c64a96ccde2a365e88a5a48a40cb703d80a2e7f"
+      "bytes": 2035,
+      "sha256": "dff7b11403d5349746bb9c412704adefceac5e3c578b238eb914ba168ced13f8"
     },
     {
       "path": "wiki/claims/Current-Claim-Language.md",
@@ -2193,8 +2203,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 3040,
-      "sha256": "e8b554b8245fa3873acea115e8de49c58732863e956752aa11aae7df2944b67f"
+      "bytes": 3879,
+      "sha256": "dcf93c8ca2a57b5a1d95f10125252b255b0f152c40db2356f2720443ab581930"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -2218,8 +2228,13 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 2120,
-      "sha256": "b2ffcaafce4848d64b4bc47520f275dee5097c03d7e4d6a00c6839f189b6991f"
+      "bytes": 2334,
+      "sha256": "66883770942fefb5d9393c5ed80a954b56d95c009c8fd3527ffaed12ba5d77d7"
+    },
+    {
+      "path": "wiki/operations/SLURM-Submission-Playbook.md",
+      "bytes": 23910,
+      "sha256": "6cd167c9ede8ab3ec956934f6f56e483bf7a7d21656fd04f2a67dfc16f31aecb"
     },
     {
       "path": "wiki/results/FEM-R3-R4-Convergence.md",
@@ -2232,6 +2247,6 @@
       "sha256": "a4f9c9a5fcb816a92afcace9356d95e922db7343dd61489ce3c1872743238052"
     }
   ],
-  "n_files": 443,
-  "total_bytes": 11574456
+  "n_files": 446,
+  "total_bytes": 11621734
 }

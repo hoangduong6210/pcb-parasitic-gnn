@@ -36,6 +36,7 @@ The wiki separates scientific prose from execution evidence:
 | Known limitations | [Limitations](LIMITATIONS.md) |
 | Reproduction workflow | [Reproducibility](REPRODUCIBILITY.md) |
 | SLURM resources and expected wall time | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) |
+| Exact submission, sharding, monitoring, and recovery procedure | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) |
 | Manuscript-ready section source | [FEM Cps Sections](manuscript/FEM-Cps-Sections.md) |
 | Raw experiment provenance | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | Current fidelity decision | [Decision 0001](decisions/0001-cps-multifidelity.md) |

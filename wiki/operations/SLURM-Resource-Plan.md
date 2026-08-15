@@ -48,3 +48,7 @@ retains the original plan and manifest identities.
 The finalizer requires exact coverage of all 1,500 R3 tasks and all 198 R4 tasks.
 Missing tasks, extra tasks, corrupted attempts, or two valid attempts for one
 canonical task prevent finalization.
+
+See the [SLURM Submission Playbook](SLURM-Submission-Playbook.md) for the exact
+account, immutable-worktree preflight, R3 sharding required by the cluster array
+limit, monitoring commands, and rejection taxonomy.

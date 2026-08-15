@@ -41,9 +41,11 @@ EXECUTION_SOURCE_NAMES = (
     "code/core/scientific_artifact.py",
     "code/core/geometry_contract.py",
     "code/data/verified_geometry_corpus.py",
+    "code/experiments/proofs/build_corpus_v4_cps_candidate_index.py",
     "code/experiments/proofs/plan_corpus_v4_cps_multifidelity.py",
     "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py",
     "code/experiments/proofs/plan_corpus_v4_cps_resume.py",
+    "code/experiments/proofs/plan_corpus_v4_cps_submission_shards.py",
     "code/experiments/proofs/finalize_corpus_v4_cps_multifidelity.py",
     "code/solvers/fem_capacitance_3d.py",
     "code/solvers/fem_cps_diagnostic_worker.py",
@@ -392,6 +394,52 @@ def validate_execution_lock(
     return lock, observed_sha256
 
 
+def parse_tres(specification: Any) -> dict[str, str]:
+    """Parse the comma-delimited TRES fields emitted by ``scontrol -o``."""
+    parsed: dict[str, str] = {}
+    for item in str(specification or "").split(","):
+        name, separator, value = item.partition("=")
+        if separator and name:
+            parsed[name] = value
+    return parsed
+
+
+def scheduler_resource_contract_matches(
+    scheduler_fields: dict[str, str],
+    *,
+    allocated_cpus_per_task: int,
+    mem_per_node_mb: int,
+    profile: dict[str, Any],
+) -> bool:
+    """Separate the submitted request from memory-inflated CPU allocation.
+
+    OSC may allocate more CPUs than ``--cpus-per-task`` when a large memory
+    request determines the node share.  ``ReqTRES`` and ``TresPerTask`` retain
+    the requested CPU count, whereas ``NumCPUs`` and ``CPUs/Task`` describe the
+    actual allocation.  Both sides are validated and recorded explicitly.
+    """
+    requested_cpus = int(profile["cpus_per_task"])
+    requested_mem_gib = int(profile["mem_gib"])
+    requested_tres = parse_tres(scheduler_fields.get("ReqTRES"))
+    per_task_tres = parse_tres(scheduler_fields.get("TresPerTask"))
+    allocated_tres = parse_tres(scheduler_fields.get("AllocTRES"))
+    return (
+        allocated_cpus_per_task >= requested_cpus
+        and mem_per_node_mb == requested_mem_gib * 1024
+        and int(scheduler_fields.get("NumCPUs", "0"))
+        == allocated_cpus_per_task
+        and int(scheduler_fields.get("NumTasks", "0")) == 1
+        and int(scheduler_fields.get("CPUs/Task", "0"))
+        == allocated_cpus_per_task
+        and requested_tres.get("cpu") == str(requested_cpus)
+        and requested_tres.get("mem") == f"{requested_mem_gib}G"
+        and per_task_tres.get("cpu") == str(requested_cpus)
+        and allocated_tres.get("cpu") == str(allocated_cpus_per_task)
+        and allocated_tres.get("mem") == f"{requested_mem_gib}G"
+        and scheduler_fields.get("MinMemoryNode") == f"{requested_mem_gib}G"
+    )
+
+
 def validate_slurm_contract(
     fidelity_id: str, task_count: int, protocol: dict[str, Any]
 ) -> dict[str, Any]:
@@ -414,10 +462,11 @@ def validate_slurm_contract(
         "array_task_id": int(os.environ["SLURM_ARRAY_TASK_ID"]),
         "array_task_max": int(os.environ["SLURM_ARRAY_TASK_MAX"]),
         "array_task_min": int(os.environ["SLURM_ARRAY_TASK_MIN"]),
-        "cpus_per_task": int(os.environ["SLURM_CPUS_PER_TASK"]),
+        "allocated_cpus_per_task": int(os.environ["SLURM_CPUS_PER_TASK"]),
         "job_id": os.environ.get("SLURM_JOB_ID"),
         "mem_per_node_mb": int(os.environ.get("SLURM_MEM_PER_NODE", "0")),
         "partition": os.environ.get("SLURM_JOB_PARTITION"),
+        "requested_cpus_per_task": int(profile["cpus_per_task"]),
     }
     scheduler_query = subprocess.run(
         ["scontrol", "show", "job", "-o", str(observed["job_id"])],
@@ -450,22 +499,20 @@ def validate_slurm_contract(
         f"{(int(profile['time_s']) % 3600) // 60:02d}:"
         f"{int(profile['time_s']) % 60:02d}"
     )
-    expected_mem_mb = int(profile["mem_gib"]) * 1024
     if (
         observed["array_task_min"] != 0
         or observed["array_task_max"] != task_count - 1
         or observed["array_task_count"] != task_count
-        or observed["cpus_per_task"] != int(profile["cpus_per_task"])
-        or observed["mem_per_node_mb"] < expected_mem_mb
         or observed["partition"] != profile["partition"]
         or scheduler_fields.get("ArrayJobId") != observed["array_job_id"]
         or int(scheduler_fields.get("ArrayTaskId", "-1")) != observed["array_task_id"]
         or scheduler_fields.get("Partition") != profile["partition"]
-        or int(scheduler_fields.get("NumCPUs", "0"))
-        != int(profile["cpus_per_task"])
-        or int(scheduler_fields.get("NumTasks", "0")) != 1
-        or int(scheduler_fields.get("CPUs/Task", "0"))
-        != int(profile["cpus_per_task"])
+        or not scheduler_resource_contract_matches(
+            scheduler_fields,
+            allocated_cpus_per_task=observed["allocated_cpus_per_task"],
+            mem_per_node_mb=observed["mem_per_node_mb"],
+            profile=profile,
+        )
         or scheduler_fields.get("TimeLimit") != expected_time
         or scheduler_fields.get("JobState") not in {"RUNNING", "COMPLETING"}
         or int(array_fields.get("ArrayTaskThrottle", "-1"))
@@ -534,6 +581,7 @@ def main() -> None:
             retry.get("schema") != "pcb-gnn.cps-multifidelity-pending-task-set.v1"
             or retry.get("plan_sha256") != initial_plan_sha256
             or retry.get("manifest_sha256") != initial_manifest_sha256
+            or retry.get("execution_lock_sha256") != execution_lock_sha256
             or retry.get("fidelity_id") != rows[0]["fidelity_id"]
         ):
             raise ValueError("retry task set does not bind the canonical manifest")

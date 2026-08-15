@@ -3,12 +3,17 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTOCOL = ROOT / "protocols/corpus_v4_cps_multifidelity_v1.json"
 PLAN_ROOT = ROOT / "results/corpus_v4/cps_multifidelity/plan/v1"
+sys.path.insert(0, str(ROOT / "code/experiments/proofs"))
+
+from build_corpus_v4_cps_candidate_index import build_entries  # noqa: E402
+from plan_corpus_v4_cps_submission_shards import build_shards  # noqa: E402
 
 
 def _sha256(path: Path) -> str:
@@ -154,3 +159,50 @@ def test_family_registry_is_schema_bound_and_matches_every_split() -> None:
                 for layout_id in family_members[family_id]
             }
             assert set(partition["layout_ids"]) == expected_layouts
+
+
+def test_r3_submission_shards_are_dense_disjoint_and_exhaustive() -> None:
+    rows = _jsonl(PLAN_ROOT / "r3_manifest.jsonl")
+    plan = json.loads((PLAN_ROOT / "plan.json").read_text())
+    shards = build_shards(
+        rows,
+        plan_sha256=_sha256(PLAN_ROOT / "plan.json"),
+        manifest_sha256=plan["artifact_sha256"]["r3_manifest.jsonl"],
+        execution_lock_sha256="a" * 64,
+        max_array_size=1001,
+    )
+    assert [len(shard["pending"]) for shard in shards] == [1001, 499]
+    indices = [[entry["task_index"] for entry in shard["pending"]] for shard in shards]
+    assert indices[0] == list(range(1001))
+    assert indices[1] == list(range(1001, 1500))
+    assert not set(indices[0]) & set(indices[1])
+    assert all(shard["execution_lock_sha256"] == "a" * 64 for shard in shards)
+
+    retry_rows = [rows[index] for index in (3, 5, 1002)]
+    retry_shards = build_shards(
+        retry_rows,
+        plan_sha256=_sha256(PLAN_ROOT / "plan.json"),
+        manifest_sha256=plan["artifact_sha256"]["r3_manifest.jsonl"],
+        execution_lock_sha256="a" * 64,
+        max_array_size=2,
+    )
+    assert [
+        entry["task_index"] for shard in retry_shards for entry in shard["pending"]
+    ] == [3, 5, 1002]
+    assert [len(shard["pending"]) for shard in retry_shards] == [2, 1]
+
+
+def test_candidate_index_uses_only_completed_task_artifacts(tmp_path: Path) -> None:
+    attempt = tmp_path / "results/attempts/job_123"
+    attempt.mkdir(parents=True)
+    completed = attempt / "task_0007.json"
+    completed.write_text('{"task_pass": true}\n')
+    (attempt / "task_0007.started.json").write_text("{}\n")
+    (attempt / "notes.json").write_text("{}\n")
+    entries = build_entries([attempt, attempt], root=tmp_path)
+    assert entries == [
+        {
+            "path": "results/attempts/job_123/task_0007.json",
+            "sha256": _sha256(completed),
+        }
+    ]

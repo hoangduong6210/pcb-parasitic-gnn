@@ -99,7 +99,9 @@ top-level README).
 | `experiments_corpus_v4_refine34_convergence.py` | Frozen 27-solve R3P12/R3P16/R4P16 protocol with bounded resources and AMG-CG residual gates | `corpus_v4/refine34_convergence/jobs` |
 | `finalize_corpus_v4_refine34_convergence.py` | Aggregates the frozen nine-layout protocol; preserves scientific rejection as a finalized result | `corpus_v4/refine34_convergence/final` |
 | `plan_corpus_v4_cps_multifidelity.py` | Freezes swap-closed families, 198-layout R4 selection, five split registries, and dense R3/R4 task manifests | `corpus_v4/cps_multifidelity/plan/v1` |
+| `plan_corpus_v4_cps_submission_shards.py` | Maps a frozen manifest into hashable dense dispatch sets that respect the cluster array-size limit without renumbering canonical tasks | `corpus_v4/cps_multifidelity/dispatch` |
 | `run_corpus_v4_cps_multifidelity_task.py` | SLURM-only one-geometry/one-fidelity production runner with exact source, environment, solver, residual, resource, and array gates | `corpus_v4/cps_multifidelity/{r3,r4}/attempts` |
+| `build_corpus_v4_cps_candidate_index.py` | Hashes completed task artifacts from explicit job attempt directories for resume validation | `corpus_v4/cps_multifidelity/index` |
 | `plan_corpus_v4_cps_resume.py` | Validates explicitly indexed attempts by byte hash and full content, rejects ambiguous duplicates, and emits accepted/pending registries | `corpus_v4/cps_multifidelity/resume` |
 | `finalize_corpus_v4_cps_multifidelity.py` | SLURM-only exact-coverage finalizer; emits long-form fidelity observations without a ground-truth column | `corpus_v4/cps_multifidelity/final` |
 

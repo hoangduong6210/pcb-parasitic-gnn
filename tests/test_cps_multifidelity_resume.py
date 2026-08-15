@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "code/experiments/proofs"))
 
 from plan_corpus_v4_cps_resume import (  # noqa: E402
+    load_candidate_index,
     register_valid_attempt,
     validate_task_artifact,
 )
@@ -26,7 +27,7 @@ from run_corpus_v4_cps_multifidelity_task import (  # noqa: E402
 PLAN_ROOT = ROOT / "results/corpus_v4/cps_multifidelity/plan/v1"
 PLAN_SHA256 = "419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a"
 LOCK_PATH = ROOT / "protocols/corpus_v4_cps_execution_lock_v1.json"
-LOCK_SHA256 = "cd46ae2f972955aac61ac20430ff892d63b50878cbcb2fce1fce1705add7b2ba"
+LOCK_SHA256 = "697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb"
 
 
 def test_plan_requires_the_externally_pinned_root() -> None:
@@ -129,9 +130,10 @@ def test_acceptance_rejects_dirty_or_incomplete_task_artifacts() -> None:
                 "array_job_id": "12345",
                 "array_task_id": 0,
                 "canonical_task_index": 0,
-                "cpus_per_task": 25,
+                "allocated_cpus_per_task": 25,
                 "mem_per_node_mb": 49152,
                 "partition": "nextgen",
+                "requested_cpus_per_task": 25,
                 "scheduler_record": {
                     "ArrayJobId": "12345",
                     "ArrayTaskId": "0",
@@ -139,7 +141,11 @@ def test_acceptance_rejects_dirty_or_incomplete_task_artifacts() -> None:
                     "NumCPUs": "25",
                     "NumTasks": "1",
                     "Partition": "nextgen",
+                    "ReqTRES": "cpu=25,mem=48G,node=1,billing=25",
+                    "AllocTRES": "cpu=25,mem=48G,node=1,billing=25",
+                    "MinMemoryNode": "48G",
                     "TimeLimit": "02:00:00",
+                    "TresPerTask": "cpu=25",
                 },
                 "scheduler_array_record": {"ArrayTaskThrottle": "8"},
             },
@@ -196,10 +202,29 @@ def test_duplicate_valid_attempts_are_ambiguous_and_fail_hard() -> None:
         register_valid_attempt(accepted, 7, {"artifact_sha256": "b" * 64})
 
 
+def test_candidate_index_requires_its_external_byte_hash(tmp_path: Path) -> None:
+    path = tmp_path / "candidate_index.json"
+    path.write_text(
+        json.dumps(
+            {
+                "entries": [],
+                "schema": "pcb-gnn.cps-multifidelity-candidate-index.v1",
+            },
+            sort_keys=True,
+        )
+        + "\n"
+    )
+    expected = hashlib.sha256(path.read_bytes()).hexdigest()
+    assert load_candidate_index(path, expected)["entries"] == []
+    with pytest.raises(ValueError, match="SHA-256 mismatch for candidate index"):
+        load_candidate_index(path, "0" * 64)
+
+
 def test_runner_validate_only_consumes_sparse_retry_set(tmp_path: Path) -> None:
     plan = json.loads((PLAN_ROOT / "plan.json").read_text())
     canonical = json.loads((PLAN_ROOT / "r3_manifest.jsonl").read_text().splitlines()[17])
     retry = {
+        "execution_lock_sha256": LOCK_SHA256,
         "fidelity_id": "cps_fem_r3_p16",
         "manifest_sha256": plan["artifact_sha256"]["r3_manifest.jsonl"],
         "pending": [
@@ -244,3 +269,17 @@ def test_runner_validate_only_consumes_sparse_retry_set(tmp_path: Path) -> None:
     result = json.loads(completed.stdout)
     assert result["n_tasks"] == 1
     assert result["retry_task_set_sha256"] == retry_sha
+
+    retry["execution_lock_sha256"] = "0" * 64
+    retry_path.write_text(json.dumps(retry, indent=2, sort_keys=True) + "\n")
+    altered_sha = hashlib.sha256(retry_path.read_bytes()).hexdigest()
+    altered_args = list(completed.args)
+    altered_args[-2] = altered_sha
+    rejected = subprocess.run(
+        altered_args,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    assert rejected.returncode != 0
+    assert "does not bind the canonical manifest" in rejected.stderr
