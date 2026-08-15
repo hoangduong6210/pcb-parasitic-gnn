@@ -1,0 +1,4 @@
+layout=0149 refine=3 pad=12 success=True last_stage=energy_computed wall=297.5s
+layout=0149 refine=3 pad=16 success=True last_stage=energy_computed wall=538.4s
+layout=0149 refine=4 pad=16 success=True last_stage=energy_computed wall=3522.2s
+results/corpus_v4/refine34_convergence/jobs/job_6843340/task_03.json

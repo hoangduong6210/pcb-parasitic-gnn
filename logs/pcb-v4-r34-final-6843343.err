@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/finalize_corpus_v4_refine34_convergence.py", line 369, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/v4-fem-debug/code/experiments/proofs/finalize_corpus_v4_refine34_convergence.py", line 365, in main
+    raise RuntimeError("refine-3 production Cps setting rejected by convergence gate")
+RuntimeError: refine-3 production Cps setting rejected by convergence gate
