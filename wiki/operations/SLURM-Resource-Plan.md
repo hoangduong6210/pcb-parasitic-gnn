@@ -10,6 +10,11 @@ paper_source: false
 Field solves and model training are not executed on a login node. The following
 allocations are frozen for the current capacitance-label stage.
 
+The active QOS permits at most 1,000 submitted array elements per user. R3 is
+therefore dispatched as 400, 400, 400, and 300 tasks. Only the first two R3
+shards are queued with the 198-task R4 array (`400 + 400 + 198 = 998`); later
+R3 shards pass a live submission-capacity gate before they are queued.
+
 | Stage | Tasks | Per-task request | Concurrency | Fail-fast wall | Scheduler wall cap |
 |---|---:|---|---:|---:|---:|
 | FEM-R3P16 bulk | 1,500 | 25 CPU, 48 GiB | 8 | 1,800 s | 2 h |
@@ -51,4 +56,5 @@ canonical task prevent finalization.
 
 See the [SLURM Submission Playbook](SLURM-Submission-Playbook.md) for the exact
 account, immutable-worktree preflight, R3 sharding required by the cluster array
-limit, monitoring commands, and rejection taxonomy.
+and QOS limits, absolute job-environment export, monitoring commands, and
+rejection taxonomy.

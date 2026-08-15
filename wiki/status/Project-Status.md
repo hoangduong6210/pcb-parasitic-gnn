@@ -36,8 +36,8 @@ expansion but is not demonstrated to be mesh-converged.
 | Refine-3 domain-padding study | `ADMITTED` | Supports pad-16 bulk specification |
 | Refine-3 versus refine-4 mesh study | `REJECTED` | Prohibits a mesh-converged r3 claim |
 | Multi-fidelity protocol, family selection, and split registries | `FINALIZED` | Frozen input to new solver jobs |
-| FEM-R3P16 bulk labels | `PLANNED` | Fixed low-fidelity numerical target |
-| FEM-R4P16 validation observations | `PLANNED` | Higher-fidelity subset, not ground truth |
+| FEM-R3P16 bulk labels | `RUNNING` | Fixed low-fidelity numerical target; not admitted until finalized |
+| FEM-R4P16 validation observations | `RUNNING` | Higher-fidelity subset, not ground truth |
 | Multi-seed GNN accuracy on current corpus | `BLOCKED` | Waits for finalized fidelity corpus |
 | Current-corpus end-to-end speedup | `BLOCKED` | Waits for accepted model and fixed workflow |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |

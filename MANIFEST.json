@@ -2168,8 +2168,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 8833,
-      "sha256": "2ed3ca1501523d6c46b5f60f9922006aad4a122357ff42fd24ff45979be3b03e"
+      "bytes": 9116,
+      "sha256": "76d34b6de0de25f5d951ca13dc28ec29837e6ccc37b83360e7d2d033af391329"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -2203,8 +2203,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 3879,
-      "sha256": "dcf93c8ca2a57b5a1d95f10125252b255b0f152c40db2356f2720443ab581930"
+      "bytes": 6303,
+      "sha256": "aeecb942385034511a5a5c73d9ad9d5ad3927be20565aeb3add1241aa6e3d9a2"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -2228,13 +2228,13 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 2334,
-      "sha256": "66883770942fefb5d9393c5ed80a954b56d95c009c8fd3527ffaed12ba5d77d7"
+      "bytes": 2680,
+      "sha256": "b702017e083edef0bf373ae2b54dd53947e0d2e2dc1ca7c92fcdb0a922a6cda5"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 23910,
-      "sha256": "6cd167c9ede8ab3ec956934f6f56e483bf7a7d21656fd04f2a67dfc16f31aecb"
+      "bytes": 28424,
+      "sha256": "b16f4f561d8d07cb69d492128a46e00d8583b85ac8b1f7a365e53c268ac73856"
     },
     {
       "path": "wiki/results/FEM-R3-R4-Convergence.md",
@@ -2243,10 +2243,10 @@
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 2894,
-      "sha256": "a4f9c9a5fcb816a92afcace9356d95e922db7343dd61489ce3c1872743238052"
+      "bytes": 2924,
+      "sha256": "aa8e937d339401a38764c1180e968b55d5f106cb015f2dece2da6ff9da8bd541"
     }
   ],
   "n_files": 446,
-  "total_bytes": 11621734
+  "total_bytes": 11629331
 }

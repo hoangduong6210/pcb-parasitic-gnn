@@ -194,9 +194,10 @@ def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
     for required in (
         "paper_source: false",
         "MaxArraySize=1001",
+        "MaxSubmitJobsPU=1000",
         "-A pgs0407",
-        "0-1000%8",
-        "0-498%8",
+        "0-399%8",
+        "0-299%8",
         "afterany",
         "ReqTRES",
         "AllocTRES",
@@ -207,7 +208,7 @@ def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
         "submit_finalize_corpus_v4_cps_multifidelity.sh",
         "git status --short --untracked-files=all -- code protocols",
         "--expected-task-set-sha256",
-        "R3_RETRY_A_JOB_ID",
+        "R3_RETRY_JOB_IDS",
         "R4_RETRY_JOB_ID",
         "Retry only pending tasks",
         "RETRY_ROUND=$((RETRY_ROUND + 1))",
@@ -216,8 +217,13 @@ def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
         'R3_PENDING="results/corpus_v4/cps_multifidelity/resume/r3_${RETRY_SUFFIX}/pending_task_set.json"',
         'R4_PENDING="results/corpus_v4/cps_multifidelity/resume/r4_${RETRY_SUFFIX}/pending_task_set.json"',
         "Do not reinitialize them from `*_initial`",
+        'PCB_GNN_JOB_ENV="$PCB_JOB_ENV"',
+        "--chdir` changes the batch working directory but does **not** change",
+        "400 + 400 + 198 = 998",
+        "1000 - R3_RETRY_TASKS",
     ):
         assert required in playbook
+    assert playbook.count('PCB_GNN_JOB_ENV="$PCB_JOB_ENV"') >= 8
     assert re.search(r"<[^>]+>", playbook) is None
     for line in playbook.splitlines():
         if "sbatch" in line and not line.lstrip().startswith("|"):
