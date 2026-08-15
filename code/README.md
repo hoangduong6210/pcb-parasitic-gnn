@@ -32,11 +32,11 @@ top-level README).
 | `fasthenry_ref.py` | Inductance reference via **FastHenry** (external MIT binary) |
 | `fastcap_ref.py` | Capacitance via **FastCap**. Did **not** converge on ~0.1 mm gaps — kept as the documented failed path |
 | `fastercap_ref.py` | Adaptive-mesh FasterCap; ~3 min/solve, too slow for corpus labelling |
-| `fem_capacitance_3d.py` | **The `C_ps` label source** — 3-D electrostatic FEM (scikit-fem + gmsh) |
-| `fem_cps_diagnostic_worker.py` | Isolated mesh/domain-sensitivity worker; used only by the SLURM convergence protocol |
+| `fem_capacitance_3d.py` | 3-D electrostatic FEM kernel (scikit-fem + gmsh); its output is meaningful only together with an explicit fidelity setting |
+| `fem_cps_diagnostic_worker.py` | Isolated, bounded AMG-CG mesh/domain-sensitivity worker used by SLURM convergence protocols |
 | `fem_capacitance_ref.py` | Independent 2-D electrostatic FEM cross-check |
 | `fem_inductance_ref.py` | Independent multi-filament **Neumann** double-integral — the third solver used for the cross-solver check |
-| `fem_cps_worker.py` | Subprocess wrapper so a gmsh C-level segfault cannot kill the parent run |
+| `fem_cps_worker.py` | Legacy low-resolution subprocess wrapper; not the production multi-fidelity worker |
 | `tools/README.md` | How to build FastHenry / FastCap from source |
 
 ## `data/`
@@ -96,6 +96,18 @@ top-level README).
 | `finalize_corpus_v3_lateral.py` | Geometry/passivity/hash gate for the 490-variant ranking corpus | `corpus_v3/lateral/final` |
 | `experiments_corpus_v3_ranking.py` | Five-seed pairwise versus pointwise GNN on held-out lateral families | `corpus_v3/ranking/jobs` |
 | `finalize_corpus_v3_ranking.py` | Paired seed/family bootstrap and selection-regret aggregate | `corpus_v3/ranking/final` |
+| `experiments_corpus_v4_refine34_convergence.py` | Frozen 27-solve R3P12/R3P16/R4P16 protocol with bounded resources and AMG-CG residual gates | `corpus_v4/refine34_convergence/jobs` |
+| `finalize_corpus_v4_refine34_convergence.py` | Aggregates the frozen nine-layout protocol; preserves scientific rejection as a finalized result | `corpus_v4/refine34_convergence/final` |
+| `plan_corpus_v4_cps_multifidelity.py` | Freezes swap-closed families, 198-layout R4 selection, five split registries, and dense R3/R4 task manifests | `corpus_v4/cps_multifidelity/plan/v1` |
+| `run_corpus_v4_cps_multifidelity_task.py` | SLURM-only one-geometry/one-fidelity production runner with exact source, environment, solver, residual, resource, and array gates | `corpus_v4/cps_multifidelity/{r3,r4}/attempts` |
+| `plan_corpus_v4_cps_resume.py` | Validates explicitly indexed attempts by byte hash and full content, rejects ambiguous duplicates, and emits accepted/pending registries | `corpus_v4/cps_multifidelity/resume` |
+| `finalize_corpus_v4_cps_multifidelity.py` | SLURM-only exact-coverage finalizer; emits long-form fidelity observations without a ground-truth column | `corpus_v4/cps_multifidelity/final` |
+
+The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
+path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest
+validated FEM setting and that path must not produce current accuracy labels.
+The active design preserves R3P16 and R4P16 as separate long-form observations;
+see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-Target-Contract.md).
 
 ### `ranking/`
 

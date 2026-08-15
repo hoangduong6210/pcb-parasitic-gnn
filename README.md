@@ -4,21 +4,23 @@
 > generator can assign inconsistent layer and z coordinates, overlapping copper
 > volumes, and mixed analytical labels that violate inductance passivity. The v2
 > accuracy values and downstream accuracy/ranking claims are quarantined as
-> pipeline-debugging records, not current scientific evidence. Geometry-valid v3
-> layouts and dual-solver labels must pass the published gates before these
-> claims are reinstated. The legacy runtime record describes only that historical
-> workflow.
+> pipeline-debugging records, not current scientific evidence. The replacement
+> v3 geometry corpus has passed its gates, but current accuracy remains blocked
+> until the fidelity-explicit capacitance corpus and new evaluation protocol are
+> finalized. The legacy runtime record describes only that historical workflow.
 
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
-of PCB winding active-leg abstractions. The repository is currently
-regenerating its numerical corpus under one geometry contract shared by graph
-construction, FastHenry, and electrostatic FEM.
+of PCB winding active-leg abstractions. The repository now has a finalized
+1,500-layout geometry-valid corpus under one contract shared by graph
+construction, FastHenry, and electrostatic FEM. Its capacitance labels are
+planned for rebuild as an explicit multi-fidelity dataset because the latest
+mesh study rejected refine-3 as a mesh-converged reference.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
 
-**Research status:** The released results are
-solver-validated, not measurements from a fabricated board. This repository is
+**Research status:** Current admitted numerical evidence is solver-based, not
+measurements from a fabricated board. This repository is
 an auditable research artifact with regeneration instructions; it is not yet a
 download-and-run pretrained reproduction package.
 
@@ -29,11 +31,15 @@ The repository keeps manuscript packages separate from experiment evidence:
 | Package | Purpose | Contents |
 |---|---|---|
 | [`Paper_Summary/`](Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
-| [`Paper_Full/`](Paper_Full/) | Current authoritative manuscript | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
+| [`Paper_Full/`](Paper_Full/) | Extended manuscript package | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
 
-`Paper_Full/` is authoritative for the current claims, protocols, and reported
-numbers. `Paper_Summary/` is retained as an archival snapshot; its timing and
-equivariance wording is superseded by the extended manuscript.
+The version-controlled [`wiki/`](wiki/) is authoritative for current project
+status, protocols, admitted claims, and manuscript-ready source text. Future
+`Paper_Full/` revisions will be rendered from admitted wiki content; the
+currently checked-in Full Paper predates the active mesh-convergence decision
+and is superseded until regenerated and audited. `Paper_Summary/` is retained as
+an immutable archival snapshot; its timing and equivariance wording is
+superseded by the wiki claim registry.
 
 Build either package from the repository root:
 
@@ -42,8 +48,10 @@ bash Paper_Summary/build.sh
 bash Paper_Full/build.sh
 ```
 
-The extended build regenerates its figures from
+The current extended build still regenerates its figures from
 [`results/proof_updates/results.json`](results/proof_updates/results.json).
+That aggregate contains historical material and must not be interpreted as a
+current-result admission. New paper content is admitted through the wiki first.
 
 ![Pipeline from PCB layout through graph construction and message passing to parasitic estimates](figures/fig1_pipeline.png)
 
@@ -55,18 +63,22 @@ The extended build regenerates its figures from
 
 ## Current evidence status
 
-There is deliberately no accuracy or speed headline while corpus v3 is being
-generated.  Every result derived from v0--v2 geometry, including the former
-accuracy, ranking, strict-symmetry comparison, and paired speed ratio, is
-quarantined.  The files remain available for audit, but they are not evidence
-for geometry-valid PCB layouts and are not mixed with v3 results.
+There is deliberately no current accuracy or speed headline. The 1,500-layout
+v3 corpus has passed geometry, identity, finite-label, passivity, clean-source,
+and artifact-hash gates. A frozen nine-layout numerical study then found that
+refine-3 is stable to the tested 12-to-16 mm domain expansion but fails the
+predeclared refine-3/refine-4 mesh-sensitivity gate. Consequently, capacitance
+is now represented as explicit fidelity observations: `FEM-R3P16` is a fixed
+bulk numerical target and `FEM-R4P16` is a higher-resolution validation
+observation, not ground truth.
 
-The reinstatement gate is mechanical: 1,500 unique layouts must pass the shared
-geometry contract; every paired FastHenry/FEM label must be finite and passive;
-all array tasks must report one clean source commit and identical source hashes;
-then accuracy must be rerun over declared split and initialization seeds.  See
-[`datasets/README.md`](datasets/README.md) for the corpus contract and
-[`results/README.md`](results/README.md) for evidence status.
+Every result derived from v0--v2 geometry, including former accuracy, ranking,
+strict-symmetry comparison, and speed ratios, remains quarantined from current
+geometry-valid claims. After the fidelity corpus is finalized, current accuracy
+must be rerun using the frozen swap-closed family registries and crossed split
+and initialization seeds. See the [wiki status](wiki/status/Project-Status.md),
+[`datasets/README.md`](datasets/README.md), and
+[`results/README.md`](results/README.md).
 
 ## Layout
 
@@ -93,6 +105,7 @@ code/          source, grouped by role see code/README.md for the file index
 └── env.sh           puts every sub-directory on PYTHONPATH
 results/       run outputs plus the proof-update aggregate used by paper figures
 figures/       paper figures (PDF + PNG)
+wiki/          canonical status, methods, claim language, and evidence ledgers
 Paper_Full/    extended manuscript package only
 Paper_Summary/ historical summary manuscript package only
 datasets/      per-corpus meta.json + labels.json (see "Data" below)
@@ -114,19 +127,20 @@ The SLURM scripts in `code/jobs/` do this themselves.
 
 ### Robustness and capacitance-reference protocols
 
-Two heavier follow-up protocols are intentionally SLURM-only:
+Heavy field solves and training are SLURM-only. The completed frozen
+refine-3/refine-4 study executed 27 solves over nine layouts: refine-3 at 12 and
+16 mm padding and refine-4 at 16 mm. Domain sensitivity passed with median
+0.189658% and maximum 2.491566%; mesh sensitivity failed with median 8.273879%
+and maximum 13.886399% under the declared 2%/5% gates.
 
-```bash
-sbatch code/jobs/submit_multisplit_accuracy.sh
-sbatch code/jobs/submit_fem_convergence.sh
-```
-
-The first crosses five random split seeds with five initialization/training-order
-seeds and retains every held-out prediction. It also emits a numeric
-state-dict-only inference bundle for the seed-42 arm. The second executes 81 FEM
-solves across nine stratified layouts, three mesh refinements, and three outer
-domain paddings. Both scripts reject a non-SLURM execution; `--validate-only`
-checks the protocol without training or solving.
+The next execution stage under the frozen protocol generates 1,500
+`FEM-R3P16` observations and 198
+geometry-selected `FEM-R4P16` observations, three per swap-closed turn family.
+It uses one layout and one fidelity per atomic array task, immutable selection
+and split registries, and safe resume across job attempts. Exact scientific
+semantics are maintained in
+[the corpus target contract](wiki/datasets/Corpus-and-Target-Contract.md); job
+identifiers and hashes stay in [the evidence ledger](wiki/evidence/Evidence-Ledger.md).
 
 ## Install
 
@@ -189,7 +203,7 @@ export PCB_GNN_V3_SOURCE_ARRAY_JOB_ID=<completed-array-job-id>
 sbatch -A <your-account> code/jobs/submit_finalize_corpus_v3.sh
 ```
 
-The finalizer rejects missing layouts, duplicate geometry, solver failures,
+The completed finalizer rejects missing layouts, duplicate geometry, solver failures,
 passivity violations, dirty tracked trees, mixed commits, source-hash drift, and
 record-hash drift.  Full schema and status details are in
 [`datasets/README.md`](datasets/README.md).
@@ -202,17 +216,19 @@ FASTHENRY_BIN=/absolute/path/to/fasthenry \
   bash code/jobs/run_v3_pipeline.sh --account <your-account>
 ```
 
-The graph ends after the 50-run random/family-disjoint accuracy finalizer. It
-does not update figures or manuscript claims automatically; those remain a
-separate admission step after result review.
+This historical v3 graph ended after the corresponding accuracy stages, but
+those stages are not admitted as current capacitance evidence after the mesh
+gate result. No pipeline updates figures or manuscript claims automatically;
+admission remains a separate wiki-reviewed step.
 
 ## Reproducing a result
 
-Do not rerun a v2 experiment as though it were current evidence.  The active
-pipeline is ordered and gated: v3 geometry generation, paired field labelling,
-corpus finalization, multi-seed training, baselines/ranking, then paired latency
-and manuscript figures.  A downstream submission is created only after the
-upstream summary and artifact hashes pass.
+Do not rerun a v2 experiment as though it were current evidence. The active
+pipeline is ordered and gated: frozen v3 geometry, explicit R3/R4 observation
+generation, multi-fidelity finalization, swap-closed split construction,
+multi-seed training, paired evaluation, and only then admitted manuscript
+assets. A downstream submission is created only after the upstream summary and
+artifact hashes pass.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make
@@ -227,10 +243,12 @@ distribution rather than promising identical clocks.
 
 ### Provenance
 
-The v3 job ledger is empty until its gates pass. Historical job records remain
-under `results/` for forensic traceability and are indexed as quarantined in
-[`results/README.md`](results/README.md).  No historical number is copied into a
-v3 result row.
+The finalized v3 corpus and FEM convergence studies resolve to job-backed
+artifacts and immutable hashes recorded in
+[`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md).
+Historical records remain under `results/` for forensic traceability and are
+indexed as quarantined in [`results/README.md`](results/README.md). No
+historical scalar is promoted into a current result row.
 
 `MANIFEST.json` carries a SHA-256 for every tracked file except itself and can be
 verified with:
@@ -241,8 +259,9 @@ python3 code/quality/build_manifest.py --check
 
 ## Known limitations
 
-1. **No current accuracy claim.** v3 labels, training, and statistics are not yet
-   complete; v2 values are quarantined.
+1. **No current accuracy claim.** The geometry corpus is complete, but the
+   fidelity-explicit capacitance corpus, training, and statistics are not; v2
+   values remain quarantined.
 2. **Active-leg abstraction.** v3 contains distinct co-directed winding legs but
    excludes returns, vias, terminals, core windows, planes, and full-board routing.
 3. **Solver-validated, not hardware-validated.** Agreement with numerical
@@ -250,7 +269,9 @@ python3 code/quality/build_manifest.py --check
 4. **Air-core, uniform-dielectric references.** FastHenry carries no magnetic
    material and the FEM uses a uniform effective permittivity.
 5. **Synthetic in-distribution study.** Generalization to fabricated winding
-   families must be measured separately after the corpus gate passes.
+   families must be measured separately from the finalized synthetic corpus.
+6. **Unresolved mesh convergence.** FEM-R3P16 is a fixed reproducible numerical
+   target, not a mesh-converged or physical ground-truth capacitance reference.
 
 ## License
 

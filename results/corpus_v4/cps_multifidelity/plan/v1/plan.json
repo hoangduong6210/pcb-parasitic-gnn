@@ -1,0 +1,33 @@
+{
+  "artifact_sha256": {
+    "geometry_families.jsonl": "adb015939c5dcc29f63e5068e843c65bacde046591f30619612a15ebd3c6589d",
+    "hf_selection_registry.json": "675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9",
+    "r3_manifest.jsonl": "3eb7931837bcc813523905386a9e9898ee135ababc482e124b927df52f59c7d2",
+    "r4_manifest.jsonl": "88c15d2489ee069e0b76a1e62074725796c847df5eeaaa0c88a6e0bb10e1df1d",
+    "split_registry.json": "c30e06e33a58f03336c02d04fc9081d58ac7663338afe355610cfc0fdc7aa641"
+  },
+  "corpus_summary_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+  "counts": {
+    "families": 66,
+    "geometries": 1500,
+    "r3_tasks": 1500,
+    "r4_tasks": 198
+  },
+  "planner_environment": {
+    "numpy": "2.0.2",
+    "python": "3.9.21"
+  },
+  "planner_source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+    "code/experiments/proofs/plan_corpus_v4_cps_multifidelity.py": "a4e85087be60432ed55ef17dcae349368ef00f65362e568d46d5a268073ce234"
+  },
+  "protocol_sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+  "schema": "pcb-gnn.cps-multifidelity-plan.v1",
+  "solver_contract_ids": {
+    "cps_fem_r3_p16": "f60979ecdd37ca0e0ac2323c5c2fd34dff0be69b86816e827a5049cc53b7e31a",
+    "cps_fem_r4_p16": "6fc571468cfca1f28120ac977808603ea619f9e0599def87d9d7fc72bf72df56"
+  },
+  "source_corpus_schema": "pcb-gnn.corpus-v3-final.v1"
+}

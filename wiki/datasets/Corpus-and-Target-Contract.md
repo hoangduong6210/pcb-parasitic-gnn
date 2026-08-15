@@ -1,0 +1,73 @@
+---
+title: Corpus and Target Contract
+status: active specification
+last_updated: 2026-08-15
+paper_source: true
+---
+
+# Corpus and Target Contract
+
+## Geometry root
+
+The active corpus contains 1,500 unique synthetic active-leg layouts. Every
+layout satisfies the following contract:
+
+- physical height is derived from layer and stackup;
+- conductor boxes are board-contained, distinct, and non-overlapping;
+- same-layer conductors meet the declared edge-clearance rule;
+- geometry identity is a SHA-256 digest of canonical layout content;
+- graph and numerical solvers receive the same boxes and centers;
+- label observations must retain the geometry identity that produced them.
+
+The scope is limited to co-directed, series-connected active legs. Returns,
+vias, terminals, planes, core windows, and complete routed loops are excluded.
+
+## Fidelity registry
+
+Capacitance is represented as observations rather than one unlabeled truth
+column.
+
+| Fidelity ID | FEM setting | Role | Admission state |
+|---|---|---|---|
+| `FEM-R1P8` | refine-1, pad 8 mm | Archival source-corpus value | Historical |
+| `FEM-R2P12` | refine-2, pad 12 mm | Lower-cost numerical observation | Not a validated truth |
+| `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | Planned |
+| `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | Planned subset |
+
+`FEM-R3P16` is selected for bulk generation because it is reproducible,
+computationally feasible, and stable to the tested domain expansion. Its failed
+mesh gate is retained as part of the target definition. `FEM-R4P16` is more
+resolved, but it has not been compared with refine-5 and is not called continuum
+truth or physical ground truth.
+
+The FastHenry inductance observations remain separate targets and retain their
+original full-precision records. A multi-fidelity Cps finalizer must not round
+trip those values through graph-training `float32` arrays.
+
+## Observation schema
+
+Each numerical observation must retain:
+
+```text
+layout_id, geometry_sha256, geometry_family_id,
+target, units, fidelity_id, value,
+solver backend and version, refine, pad_mm, eps_r,
+mesh nodes and tetrahedra, AMG levels and operator complexity,
+iterations, solver info, relative residual,
+system fingerprint, wall time, peak RSS,
+resource and numerical gate results,
+source, environment, protocol, and artifact hashes
+```
+
+Missing higher-fidelity data must remain missing. Loaders must never silently
+replace FEM-R4P16 with FEM-R3P16.
+
+## Higher-fidelity subset
+
+The validation subset is chosen without reading labels. Families are defined by
+the unordered turn-count pair. Three geometrically diverse designs are selected
+per family using geometry-only descriptors and deterministic hash tie-breaking.
+All nine layouts from the frozen convergence study are mandatory anchors. The
+resulting registry contains 198 unique designs across 66 families and is hashed
+before any new solve begins. The registry is now finalized with 198 unique
+designs, all 66 families, and all nine mandatory convergence anchors.

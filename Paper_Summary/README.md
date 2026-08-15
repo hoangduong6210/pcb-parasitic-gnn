@@ -3,13 +3,15 @@
 > **ARCHIVAL SNAPSHOT — SUPERSEDED FOR CURRENT CLAIMS.** This package preserves
 > the submitted manuscript exactly. Its legacy timing and equivariance language
 > must not be used as the current project result. Use
-> [`Paper_Full/`](../Paper_Full/) for the authoritative manuscript.
+> [`wiki/`](../wiki/) for the authoritative current status and claim registry.
 
 This directory preserves the four-page conference-format manuscript as a
 versioned snapshot. The manuscript text and its reported values are not updated
 when later experiments change the current conclusions. For current claims and
-protocols, use [`Paper_Full/`](../Paper_Full/) and the repository-level
-[`README.md`](../README.md).
+protocols, use the canonical [`wiki/`](../wiki/) and the repository-level
+[`README.md`](../README.md). Future `Paper_Full/` revisions will be rendered
+from admitted wiki content; the currently checked-in Full Paper is superseded
+until regenerated and audited.
 
 ## Snapshot identity
 
@@ -67,8 +69,8 @@ dedicated scalar field in the released JSON set: the stacked/offset example
 `92.9/0.38/44.3 pF`, the Figure 3 lateral example `550 pF` and `67%`, and the
 FastCap panel-density range `6–40×`. They remain traceable to
 [`main.tex`](main.tex), but should not be promoted as independently reproducible
-claims without restoring their raw solver records. The current Full Paper does
-not rely on these values.
+claims without restoring their raw solver records. The checked-in, superseded
+Full Paper does not rely on these values.
 
 ## Figures
 

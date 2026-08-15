@@ -1,0 +1,161 @@
+{
+  "artifact_contract": {
+    "atomic_final_write": true,
+    "one_geometry_per_task": true,
+    "preserve_attempts": true,
+    "require_executed_spool_hash": true,
+    "require_geometry_rehash": true,
+    "require_source_stable": true,
+    "task_schema": "pcb-gnn.cps-multifidelity-task.v1"
+  },
+  "computational_sources": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+    "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+    "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "fidelities": {
+    "cps_fem_r3_p16": {
+      "coverage": 1500,
+      "pad_mm": 16.0,
+      "refine": 3,
+      "role": "bulk_low_fidelity"
+    },
+    "cps_fem_r4_p16": {
+      "coverage": 198,
+      "pad_mm": 16.0,
+      "refine": 4,
+      "role": "higher_fidelity_validation"
+    }
+  },
+  "input_geometry_corpus": {
+    "layouts_sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "n_layouts": 1500,
+    "n_unique_geometry": 1500,
+    "required_gate": "geometry_valid",
+    "summary_schema": "pcb-gnn.corpus-v3-final.v1",
+    "summary_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+  },
+  "linear_solver": {
+    "iterations_max": 100,
+    "maxiter": 500,
+    "reported": "pyamg_smoothed_aggregation_cg",
+    "requested": "amg_cg",
+    "require_input_system_sha256": true,
+    "residual_max": 1e-09,
+    "rtol": 1e-10,
+    "solver_info": 0
+  },
+  "physics": {
+    "element": "tetrahedral_P1",
+    "energy_to_capacitance": "C=2W/V^2",
+    "eps_r": 4.2,
+    "problem": "3d_electrostatic_capacitance"
+  },
+  "protocol_name": "corpus-v4-cps-multifidelity-v1",
+  "resource_profiles": {
+    "cps_fem_r3_p16": {
+      "fail_fast": {
+        "mesh_nodes_max": 3000000,
+        "mesh_tetrahedra_max": 20000000,
+        "operator_complexity_max": 1.25,
+        "wall_s_max": 1800.0,
+        "worker_peak_rss_gib_max": 32.0
+      },
+      "slurm": {
+        "cpus_per_task": 25,
+        "max_concurrent": 8,
+        "mem_gib": 48,
+        "partition": "nextgen",
+        "time_s": 7200
+      }
+    },
+    "cps_fem_r4_p16": {
+      "fail_fast": {
+        "mesh_nodes_max": 10000000,
+        "mesh_tetrahedra_max": 65000000,
+        "operator_complexity_max": 1.25,
+        "wall_s_max": 7200.0,
+        "worker_peak_rss_gib_max": 120.0
+      },
+      "slurm": {
+        "cpus_per_task": 25,
+        "max_concurrent": 2,
+        "mem_gib": 160,
+        "partition": "nextgen",
+        "time_s": 10800
+      }
+    }
+  },
+  "reuse_policy": {
+    "path_existence_is_not_evidence": true,
+    "reject_ambiguous_duplicates": true,
+    "trusted_evidence": [
+      {
+        "schema": "pcb-gnn.corpus-v4-refine34-convergence-final.v1",
+        "sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"
+      }
+    ],
+    "trusted_root_required": true
+  },
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "meshio": "5.3.5",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1"
+    },
+    "python": "3.9.21",
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "25"
+    }
+  },
+  "schema": "pcb-gnn.cps-multifidelity-protocol.v1",
+  "scientific_semantics": {
+    "forbidden_claims": [
+      "ground_truth",
+      "mesh_converged_r3",
+      "validated_physical_accuracy"
+    ],
+    "r3_converged_to_r4": false,
+    "r4_continuum_converged": false
+  },
+  "split_registry": {
+    "family_key": "swap_closed_turn_counts",
+    "family_shuffle": "numpy_default_rng_permutation_v1",
+    "init_seeds": [40, 41, 42, 43, 44],
+    "n_test_families": 13,
+    "n_train_families": 46,
+    "n_validation_families": 7,
+    "partition_assignment": "test_13_validation_7_train_remaining_v1",
+    "split_seeds": [40, 41, 42, 43, 44]
+  },
+  "validation_selection": {
+    "algorithm": "within_family_standardized_farthest_point_v1",
+    "label_inputs_forbidden": true,
+    "mandatory_geometry_sha256": [
+      "b1d837fc6357a278ef823510dd7c5e162fa5b686c8e4827ec383d2d14fe2c590",
+      "5cc53be678ba4bb99fb0ea35a8cf5ef32c94bb5a44b4210a595f7ed46e0a3d4f",
+      "4222c3ba94b2ebd609325a5cbbaecf72ed6857a9053b84b5b35cb7d77396114d",
+      "0e2aef8a6ec688d3b271569091cd9a3d8ad786a1bc5f54bb3456ec292eda96b4",
+      "4c4fd2bb497d7ff0dd0230c8ba2de38edc1a5cf6bdeebb66d5f5362b60400eaa",
+      "b3c7d59b256d0c8be29350058f32a6f6fb3f1904300e6329bd5b6e8989d9c8b3",
+      "10814d8ca1c0e84e6991ec01a56d862a9068ef2e3f4b1484c25bddd26fe81ad0",
+      "46c646aa28dc248a0e0d1c2017ba88d4f99c4a574905622998611f41613364f5",
+      "c4e6703313879d673d12f5eefb0c2a0fbc0a5b556d05300cfcfa209dc86f311f"
+    ],
+    "n_families": 66,
+    "n_per_family": 3,
+    "n_total": 198,
+    "require_family_coverage_metadata": true,
+    "selection_salt": "pcb-gnn-cps-mf-v1-2026-08-15"
+  }
+}

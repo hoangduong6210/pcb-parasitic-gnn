@@ -9,6 +9,10 @@
 #SBATCH --output=logs/%x-%j.out
 #SBATCH --error=logs/%x-%j.err
 set -euo pipefail
+if [[ "${PCB_GNN_ALLOW_LEGACY_R2P12:-}" != "ARCHIVAL_REPRODUCTION_ONLY" ]]; then
+  echo "Blocked: this finalizer belongs to the superseded R2P12 artifact protocol." >&2
+  exit 64
+fi
 JOB_ENV="${PCB_GNN_JOB_ENV:-${SLURM_SUBMIT_DIR:?submit from repository root}/code/jobs/slurm_job_env.sh}"
 source "$JOB_ENV"; cd "$PCB_GNN_ROOT"
 : "${PCB_GNN_V3_CORPUS_DIR:?Set finalized source corpus-v3 directory}"
