@@ -404,6 +404,44 @@ def parse_tres(specification: Any) -> dict[str, str]:
     return parsed
 
 
+def parse_scontrol_records(output: str) -> list[dict[str, str]]:
+    """Parse every one-line record returned by ``scontrol show job -o``.
+
+    Querying an array's base job ID can return the compressed pending record
+    plus running and recently completed elements.  Flattening the whole output
+    into one dictionary silently combines fields from different tasks.
+    """
+    return [
+        {
+            token.split("=", 1)[0]: token.split("=", 1)[1]
+            for token in line.split()
+            if "=" in token
+        }
+        for line in output.splitlines()
+        if line.strip()
+    ]
+
+
+def select_scheduler_task_record(
+    records: list[dict[str, str]],
+    *,
+    job_id: str,
+    array_job_id: str,
+    array_task_id: int,
+) -> dict[str, str]:
+    """Select exactly one scheduler record for the executing array element."""
+    matches = [
+        record
+        for record in records
+        if record.get("JobId") == job_id
+        and record.get("ArrayJobId") == array_job_id
+        and record.get("ArrayTaskId") == str(array_task_id)
+    ]
+    if len(matches) != 1:
+        raise SystemExit("SLURM task record is missing or ambiguous")
+    return matches[0]
+
+
 def scheduler_resource_contract_matches(
     scheduler_fields: dict[str, str],
     *,
@@ -468,32 +506,25 @@ def validate_slurm_contract(
         "partition": os.environ.get("SLURM_JOB_PARTITION"),
         "requested_cpus_per_task": int(profile["cpus_per_task"]),
     }
+    # Query the exact array component.  For the final element Slurm can set
+    # SLURM_JOB_ID equal to the base array ID; querying that raw ID may return
+    # several element records and makes a flattened parse non-deterministic.
+    component_id = f'{observed["array_job_id"]}_{observed["array_task_id"]}'
     scheduler_query = subprocess.run(
-        ["scontrol", "show", "job", "-o", str(observed["job_id"])],
+        ["scontrol", "show", "job", "-o", component_id],
         capture_output=True,
         check=False,
         text=True,
     )
     if scheduler_query.returncode != 0 or not scheduler_query.stdout.strip():
         raise SystemExit("SLURM_JOB_ID is not confirmed by the active scheduler")
-    scheduler_fields = {
-        token.split("=", 1)[0]: token.split("=", 1)[1]
-        for token in scheduler_query.stdout.split()
-        if "=" in token
-    }
-    array_query = subprocess.run(
-        ["scontrol", "show", "job", "-o", str(observed["array_job_id"])],
-        capture_output=True,
-        check=False,
-        text=True,
+    scheduler_fields = select_scheduler_task_record(
+        parse_scontrol_records(scheduler_query.stdout),
+        job_id=str(observed["job_id"]),
+        array_job_id=str(observed["array_job_id"]),
+        array_task_id=int(observed["array_task_id"]),
     )
-    if array_query.returncode != 0 or not array_query.stdout.strip():
-        raise SystemExit("SLURM array job is not confirmed by the active scheduler")
-    array_fields = {
-        token.split("=", 1)[0]: token.split("=", 1)[1]
-        for token in array_query.stdout.splitlines()[0].split()
-        if "=" in token
-    }
+    array_fields = scheduler_fields
     expected_time = (
         f"{int(profile['time_s']) // 3600:02d}:"
         f"{(int(profile['time_s']) % 3600) // 60:02d}:"

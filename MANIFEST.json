@@ -9,8 +9,8 @@
     "datasets": 8,
     "figures": 12,
     "logs": 108,
-    "protocols": 2,
-    "results": 68,
+    "protocols": 3,
+    "results": 71,
     "root": 10,
     "tests": 20,
     "wiki": 15
@@ -528,8 +528,8 @@
     },
     {
       "path": "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py",
-      "bytes": 33385,
-      "sha256": "f68f83aeac2d2fbbbfab12bc7b56ef88eb2445ac8959b05a7706895bf3e3de39"
+      "bytes": 34495,
+      "sha256": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb"
     },
     {
       "path": "code/experiments/ranking/experiments_decision.py",
@@ -1712,6 +1712,11 @@
       "sha256": "697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb"
     },
     {
+      "path": "protocols/corpus_v4_cps_execution_lock_v2.json",
+      "bytes": 2335,
+      "sha256": "111ff2347f74afd4a280cc21b8a337387f982341367e6b73550794b13089f081"
+    },
+    {
       "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
       "bytes": 5275,
       "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
@@ -1785,6 +1790,21 @@
       "path": "results/corpus_v4/convergence_preflight/jobs/job_6833715/task_08.json",
       "bytes": 29919,
       "sha256": "61d0653a0409bc31051528e78cb8d6bdaffedd714a5f981956881e3c9a040efd"
+    },
+    {
+      "path": "results/corpus_v4/cps_multifidelity/diagnostics/README.md",
+      "bytes": 1077,
+      "sha256": "c81da06728cb9f6440c56b589cf3f2ccc3dbc5e9dc6ddab6e4b7f39f1345db29"
+    },
+    {
+      "path": "results/corpus_v4/cps_multifidelity/diagnostics/singleton_probe_6852528.json",
+      "bytes": 1077,
+      "sha256": "0d3129adf22f09d8e4e1cddda022ddc3cf7d3260a251fb78adf50e6697137f82"
+    },
+    {
+      "path": "results/corpus_v4/cps_multifidelity/diagnostics/slurm_singleton_probe.sh",
+      "bytes": 786,
+      "sha256": "bf64f402c9474bc9b87a321496a12eb2afc2e11da21d05d8c7ef12dcbc4d05dd"
     },
     {
       "path": "results/corpus_v4/cps_multifidelity/plan/v1/geometry_families.jsonl",
@@ -2108,13 +2128,13 @@
     },
     {
       "path": "tests/test_cps_multifidelity_resume.py",
-      "bytes": 10498,
-      "sha256": "a478d7c37d497ac01b985804df00694542e3ac6ebe4950ca7aa62b877226659a"
+      "bytes": 11849,
+      "sha256": "02acb1062f94767ea2ee2ef0366c296515b7f7022fa5f84488774bcaffb1bf02"
     },
     {
       "path": "tests/test_cps_multifidelity_runner.py",
-      "bytes": 11537,
-      "sha256": "fcb91daadca5ccbaaa60950384be403ece4c5d5f40d8178a59fa985a5240208a"
+      "bytes": 14657,
+      "sha256": "9169190167703616ca3d2c6bafbbd93d76b8773086a3a8f5c28c58dfc65b90b9"
     },
     {
       "path": "tests/test_fem_native_diagnostic.py",
@@ -2168,8 +2188,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 9116,
-      "sha256": "76d34b6de0de25f5d951ca13dc28ec29837e6ccc37b83360e7d2d033af391329"
+      "bytes": 9384,
+      "sha256": "babbb546e8b047f36fdaca73b5eef57a4bd6023848df5379c6e22449105d79b7"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -2203,8 +2223,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 6303,
-      "sha256": "aeecb942385034511a5a5c73d9ad9d5ad3927be20565aeb3add1241aa6e3d9a2"
+      "bytes": 8163,
+      "sha256": "4d83f9e9d40b14718b8c06dbadee9db2cca45a0766216efc8fb5736a3c2e9061"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -2233,8 +2253,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 28424,
-      "sha256": "b16f4f561d8d07cb69d492128a46e00d8583b85ac8b1f7a365e53c268ac73856"
+      "bytes": 31872,
+      "sha256": "3826aec95712568abf103a5ab4255971a866b7975883db4577f55331c906a11b"
     },
     {
       "path": "wiki/results/FEM-R3-R4-Convergence.md",
@@ -2247,6 +2267,6 @@
       "sha256": "aa8e937d339401a38764c1180e968b55d5f106cb015f2dece2da6ff9da8bd541"
     }
   ],
-  "n_files": 446,
-  "total_bytes": 11629331
+  "n_files": 450,
+  "total_bytes": 11645763
 }

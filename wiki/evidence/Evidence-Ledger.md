@@ -117,7 +117,7 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | R3 dispatch summary SHA-256 | `7362284e217f50a3d94393e4e59627e13d0fde5b75a6ebdf55b1f6bb1f0ae887` |
 | R3 shard A | Job `6846403`, canonical tasks 0–399, task-set SHA-256 `03571b414be015d33210f527032d34a04c4f303e3eb16bc4b042021ab2df9889` |
 | R3 shard B | Job `6846415`, canonical tasks 400–799, dependency `afterany:6846403`, task-set SHA-256 `7748d81227bdca1edf6b2c76bdeb26bde8bd7e7537c410463549a2813d47c719` |
-| R3 shard C | Not submitted; canonical tasks 800–1199, task-set SHA-256 `0981c92ac2e4bd4b8cdd931cadadbaa6b1cc1f80b16f9163663a38fc7b906398` |
+| R3 shard C | Job `6852522`, canonical tasks 800–1199, dependency `afterany:6846415`, task-set SHA-256 `0981c92ac2e4bd4b8cdd931cadadbaa6b1cc1f80b16f9163663a38fc7b906398` |
 | R3 shard D | Not submitted; canonical tasks 1200–1499, task-set SHA-256 `08b669fc5969641fd940a4180e7ab8fff8eb062e915a5d05c696b066e35288ad` |
 | R4 array | Job `6846412`, 198 tasks, concurrency 2 |
 | Initial scheduler check | R3 requested/allocated 25 CPU and 48 GiB; R4 requested 25 CPU/160 GiB and allocated 41 CPU/160 GiB |
@@ -125,3 +125,30 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | First completed solver proof | R3 job `6846403`, canonical task 1, `task_pass=true`, artifact SHA-256 `e1be5cea98621c3bfd1c93590d83294316ac6f4c0724b5d25f7dd142d494ddc2` |
 | First completed numerical/resource record | 1,697,083 mesh nodes; 10,243,932 tetrahedra; relative residual `8.504706647340125e-11`; 25 iterations; 415.605 s worker wall; 15.322 GiB worker peak RSS |
 | Scientific use | None until exact coverage, resume validation, and finalization pass |
+
+## E-C4-OPS-02 — Final-array-element scheduler parser incident
+
+| Field | Value |
+|---|---|
+| Affected production element | R3 shard A canonical task 399 |
+| Accepted neighboring coverage | Canonical tasks 0–398 produced 399 passing artifacts |
+| Failure stage | Scheduler-contract preflight; FEM worker did not start for task 399 |
+| Root cause | The final array element reused the base array job ID. A base-ID `scontrol` query returned multiple records, which the runner incorrectly flattened into one dictionary. |
+| Future-run regression fix | Lock v2 queries the exact `array-job-id_array-task-id` component and requires exactly one matching record |
+| Singleton probe | Job `6852528`, `COMPLETED 0:0` |
+| Probe script SHA-256 | `bf64f402c9474bc9b87a321496a12eb2afc2e11da21d05d8c7ef12dcbc4d05dd` |
+| Probe result | A one-element array retained `ArrayTaskThrottle=8`, returned one scheduler record for job/base/exact-component queries, and exposed count/min/max `1/0/0` |
+| Active-corpus recovery decision | After resume validation, use the unchanged lock-v1 runner and retry only missing canonical indices as hash-pinned singleton arrays; the singleton avoids the multi-record condition |
+| Scientific use | None; operational recovery evidence only |
+
+An attempted R3-D submission was rejected before job creation by
+`QOSMaxSubmitJobPerUserLimit`. The incorrect preliminary count used compressed
+array rows; the required gate uses expanded `squeue -r` elements. No runner or
+solver executed and no scientific artifact was created.
+
+Execution lock v2 has SHA-256
+`111ff2347f74afd4a280cc21b8a337387f982341367e6b73550794b13089f081`
+and pins runner SHA-256
+`e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb`.
+It is reserved for future complete runs and is not admissible in the active
+lock-v1 artifact set.

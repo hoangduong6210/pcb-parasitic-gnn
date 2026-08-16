@@ -1,6 +1,7 @@
 """Static and numeric contracts for the SLURM-only multi-fidelity runner."""
 from __future__ import annotations
 
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -23,6 +24,26 @@ def _protocol() -> dict:
     return json.loads(
         (ROOT / "protocols/corpus_v4_cps_multifidelity_v1.json").read_text()
     )
+
+
+def test_singleton_probe_evidence_is_pinned() -> None:
+    diagnostic_root = ROOT / "results/corpus_v4/cps_multifidelity/diagnostics"
+    record = json.loads((diagnostic_root / "singleton_probe_6852528.json").read_text())
+    script_sha256 = hashlib.sha256(
+        (diagnostic_root / "slurm_singleton_probe.sh").read_bytes()
+    ).hexdigest()
+    assert record["schema"] == "pcb-gnn.slurm-singleton-probe.v1"
+    assert record["job"]["state"] == "COMPLETED"
+    assert record["job"]["exit_code"] == "0:0"
+    assert record["array_environment"]["array_task_count"] == 1
+    assert record["observation"] == {
+        "array_task_throttle": 8,
+        "base_query_records": 1,
+        "exact_component_query_records": 1,
+        "job_id_query_records": 1,
+    }
+    assert script_sha256 == record["script_sha256"]
+    assert len(record["raw_capture"]["stdout_sha256"]) == 64
 
 
 def _passing_execution() -> dict:
@@ -158,13 +179,13 @@ def test_scheduler_contract_enforces_array_throttle(monkeypatch: pytest.MonkeyPa
 
     outputs = iter(
         (
-            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 Partition=nextgen "
+            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 ArrayTaskThrottle=8 "
+            "Partition=nextgen "
             "NumCPUs=25 NumTasks=1 CPUs/Task=25 "
             "ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
             "AllocTRES=cpu=25,mem=48G,node=1,billing=25 "
             "MinMemoryNode=48G TresPerTask=cpu=25 "
             "TimeLimit=02:00:00 JobState=RUNNING",
-            "JobId=12345 ArrayTaskThrottle=8",
         )
     )
     monkeypatch.setattr(
@@ -178,17 +199,75 @@ def test_scheduler_contract_enforces_array_throttle(monkeypatch: pytest.MonkeyPa
 
     outputs = iter(
         (
-            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 Partition=nextgen "
+            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 ArrayTaskThrottle=99 "
+            "Partition=nextgen "
             "NumCPUs=25 NumTasks=1 CPUs/Task=25 "
             "ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
             "AllocTRES=cpu=25,mem=48G,node=1,billing=25 "
             "MinMemoryNode=48G TresPerTask=cpu=25 "
             "TimeLimit=02:00:00 JobState=RUNNING",
-            "JobId=12345 ArrayTaskThrottle=99",
         )
     )
     with pytest.raises(SystemExit, match="differs from frozen protocol"):
         validate_slurm_contract("cps_fem_r3_p16", 1500, _protocol())
+
+
+def test_scheduler_contract_selects_base_array_element_from_multiline_query(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """The final array element may reuse the base JobId.
+
+    Slurm can return that running element followed by older element records.
+    The contract must select by JobId + ArrayJobId + ArrayTaskId instead of
+    flattening all lines and accidentally validating the last record.
+    """
+    environment = {
+        "SLURM_ARRAY_JOB_ID": "12345",
+        "SLURM_ARRAY_TASK_COUNT": "400",
+        "SLURM_ARRAY_TASK_ID": "399",
+        "SLURM_ARRAY_TASK_MAX": "399",
+        "SLURM_ARRAY_TASK_MIN": "0",
+        "SLURM_CPUS_PER_TASK": "25",
+        "SLURM_JOB_ID": "12345",
+        "SLURM_JOB_PARTITION": "nextgen",
+        "SLURM_MEM_PER_NODE": "49152",
+    }
+    for name, value in environment.items():
+        monkeypatch.setenv(name, value)
+    running_base = (
+        "JobId=12345 ArrayJobId=12345 ArrayTaskId=399 ArrayTaskThrottle=8 "
+        "Partition=nextgen NumCPUs=25 NumTasks=1 CPUs/Task=25 "
+        "ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
+        "AllocTRES=cpu=25,mem=48G,node=1,billing=25 "
+        "MinMemoryNode=48G TresPerTask=cpu=25 "
+        "TimeLimit=02:00:00 JobState=RUNNING"
+    )
+    older_element = (
+        "JobId=12346 ArrayJobId=12345 ArrayTaskId=398 ArrayTaskThrottle=8 "
+        "Partition=nextgen NumCPUs=25 NumTasks=1 CPUs/Task=25 "
+        "ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
+        "AllocTRES=cpu=25,mem=48G,node=1,billing=25 "
+        "MinMemoryNode=48G TresPerTask=cpu=25 "
+        "TimeLimit=02:00:00 JobState=COMPLETED"
+    )
+    calls: list[list[str]] = []
+
+    def fake_scontrol(command: list[str], **kwargs: object) -> SimpleNamespace:
+        calls.append(command)
+        return SimpleNamespace(
+            returncode=0,
+            stdout=f"{running_base}\n{older_element}\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(
+        "run_corpus_v4_cps_multifidelity_task.subprocess.run",
+        fake_scontrol,
+    )
+    observed = validate_slurm_contract("cps_fem_r3_p16", 400, _protocol())
+    assert calls == [["scontrol", "show", "job", "-o", "12345_399"]]
+    assert observed["scheduler_record"]["ArrayTaskId"] == "399"
+    assert observed["scheduler_record"]["JobState"] == "RUNNING"
 
 
 @pytest.mark.parametrize(
@@ -217,12 +296,12 @@ def test_scheduler_contract_rejects_nonexact_cpu_shape(
         monkeypatch.setenv(name, value)
     outputs = iter(
         (
-            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 Partition=nextgen "
+            "JobId=12346 ArrayJobId=12345 ArrayTaskId=0 ArrayTaskThrottle=8 "
+            "Partition=nextgen "
             f"{resource_fields} ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
             "AllocTRES=cpu=25,mem=48G,node=1,billing=25 "
             "MinMemoryNode=48G TresPerTask=cpu=25 "
             "TimeLimit=02:00:00 JobState=RUNNING",
-            "JobId=12345 ArrayTaskThrottle=8",
         )
     )
     monkeypatch.setattr(
@@ -253,13 +332,13 @@ def test_scheduler_contract_accepts_memory_inflated_cpu_allocation(
         monkeypatch.setenv(name, value)
     outputs = iter(
         (
-            "JobId=22346 ArrayJobId=22345 ArrayTaskId=0 Partition=nextgen "
+            "JobId=22346 ArrayJobId=22345 ArrayTaskId=0 ArrayTaskThrottle=2 "
+            "Partition=nextgen "
             "NumCPUs=41 NumTasks=1 CPUs/Task=41 "
             "ReqTRES=cpu=25,mem=160G,node=1,billing=25 "
             "AllocTRES=cpu=41,mem=160G,node=1,billing=41 "
             "MinMemoryNode=160G TresPerTask=cpu=25 "
             "TimeLimit=03:00:00 JobState=RUNNING",
-            "JobId=22345 ArrayTaskThrottle=2",
         )
     )
     monkeypatch.setattr(
@@ -298,12 +377,12 @@ def test_scheduler_contract_rejects_inconsistent_allocated_tres(
         monkeypatch.setenv(name, value)
     outputs = iter(
         (
-            "JobId=32346 ArrayJobId=32345 ArrayTaskId=0 Partition=nextgen "
+            "JobId=32346 ArrayJobId=32345 ArrayTaskId=0 ArrayTaskThrottle=8 "
+            "Partition=nextgen "
             "NumCPUs=25 NumTasks=1 CPUs/Task=25 "
             "ReqTRES=cpu=25,mem=48G,node=1,billing=25 "
             f"AllocTRES={allocated_tres} MinMemoryNode=48G "
             "TresPerTask=cpu=25 TimeLimit=02:00:00 JobState=RUNNING",
-            "JobId=32345 ArrayTaskThrottle=8",
         )
     )
     monkeypatch.setattr(

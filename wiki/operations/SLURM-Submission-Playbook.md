@@ -38,6 +38,19 @@ PCB_JOB_ENV="$RUN_ROOT/code/jobs/slurm_job_env.sh"
 Never derive `EXECUTION_LOCK_SHA256` from `EXECUTION_LOCK` and then treat that
 value as an independent trust root.
 
+### Execution-lock revision boundary
+
+The active corpus and every recovery attempt for it use lock v1 from the
+detached source commit recorded in the evidence ledger. Lock v1 pins the
+original runner, including its base-array scheduler-query behavior. Do not copy
+the patched runner into that worktree: source validation will reject it, and a
+new-lock artifact cannot be mixed with the existing v1 artifact set.
+
+Lock v2 (`protocols/corpus_v4_cps_execution_lock_v2.json`, SHA-256
+`111ff2347f74afd4a280cc21b8a337387f982341367e6b73550794b13089f081`)
+pins the exact-component scheduler query for future complete executions. It is
+not used to repair or finalize the active v1 corpus.
+
 ## 2. Cluster facts to check first
 
 The project account is `pgs0407`, the partition is `nextgen`, and every
@@ -198,6 +211,12 @@ R3_C_JOB_ID=$(sbatch --parsable -A pgs0407 --array=0-399%8 \
   code/jobs/submit_corpus_v4_cps_r3.sh)
 ```
 
+The `-r` flag is mandatory. Without it, `squeue` prints compressed array ranges
+and the line count can be hundreds of tasks smaller than the QOS accounting
+count. Treat `QOSMaxSubmitJobPerUserLimit` as a failed capacity preflight: no
+job ID exists, and the only valid action is to wait and recompute the expanded
+count.
+
 Repeat the live count before D; a 300-task shard requires the current count to
 be at most 700:
 
@@ -289,10 +308,16 @@ emits an accepted artifact set and a new pending task set. Duplicate valid
 attempts hard-fail as ambiguous. Missing tasks remain pending and are retried
 only through another hash-pinned task set.
 
-## 9. Retry only pending tasks
+## 9. Retry only pending tasks under lock v1
 
 Pin each pending set, then use the same shard helper on that set. This prevents
-already accepted tasks from being submitted again.
+already accepted tasks from being submitted again. Lock-v1 recovery must use
+one canonical task per array. A singleton has exactly one scheduler record, so
+the unchanged v1 runner cannot encounter the base-ID multi-record parser bug.
+This constraint is operational recovery, not a change to the solver protocol.
+
+Initialize the cumulative state exactly once in the shell that owns the retry
+workflow:
 
 ```bash
 R3_PENDING=results/corpus_v4/cps_multifidelity/resume/r3_initial/pending_task_set.json
@@ -307,6 +332,12 @@ R4_ATTEMPT_DIR_ARGS=(
   --attempt-dir "results/corpus_v4/cps_multifidelity/r4/attempts/job_${R4_JOB_ID}"
 )
 RETRY_ROUND=1
+```
+
+For each retry round, begin at this block without re-running the initialization
+block above:
+
+```bash
 printf -v RETRY_SUFFIX 'retry_%02d' "$RETRY_ROUND"
 R3_PENDING_SHA256=$(sha256sum "$R3_PENDING" | awk '{print $1}')
 R4_PENDING_SHA256=$(sha256sum "$R4_PENDING" | awk '{print $1}')
@@ -323,7 +354,7 @@ if (( R3_PENDING_COUNT > 0 )); then
     --expected-execution-lock-sha256 "$EXECUTION_LOCK_SHA256" \
     --task-set "$R3_PENDING" \
     --expected-task-set-sha256 "$R3_PENDING_SHA256" \
-    --max-array-size 400 \
+    --max-array-size 1 \
     --out "results/corpus_v4/cps_multifidelity/dispatch/r3_${RETRY_SUFFIX}"
 fi
 if (( R4_PENDING_COUNT > 0 )); then
@@ -336,7 +367,7 @@ if (( R4_PENDING_COUNT > 0 )); then
     --expected-execution-lock-sha256 "$EXECUTION_LOCK_SHA256" \
     --task-set "$R4_PENDING" \
     --expected-task-set-sha256 "$R4_PENDING_SHA256" \
-    --max-array-size 400 \
+    --max-array-size 1 \
     --out "results/corpus_v4/cps_multifidelity/dispatch/r4_${RETRY_SUFFIX}"
 fi
 ```
@@ -377,22 +408,37 @@ if (( R3_PENDING_COUNT > 0 )); then
 fi
 ```
 
-R4 has at most 198 pending tasks, so its retry dispatch has one shard:
+Submit every R4 singleton in a serial dependency chain and append every attempt
+directory immediately, using the same provenance rule as R3:
 
 ```bash
+R4_RETRY_JOB_IDS=()
+R4_RETRY_PREV_JOB_ID=""
 if (( R4_PENDING_COUNT > 0 )); then
   R4_RETRY_SUMMARY="results/corpus_v4/cps_multifidelity/dispatch/r4_${RETRY_SUFFIX}/submission_shards.json"
-  R4_RETRY_TASKS=$(jq '.shards[0].n_tasks' "$R4_RETRY_SUMMARY")
-  R4_RETRY_MAX=$((R4_RETRY_TASKS - 1))
-  R4_RETRY_SHA256=$(jq -r '.shards[0].sha256' "$R4_RETRY_SUMMARY")
-  R4_RETRY_SET="$RUN_ROOT/results/corpus_v4/cps_multifidelity/dispatch/r4_${RETRY_SUFFIX}/dispatch_shard_000.json"
-  while (( $(squeue -r -h -u "$(id -un)" -o '%i' | wc -l) > 1000 - R4_RETRY_TASKS )); do
-    echo "Waiting for QOS submission capacity for the R4 retry" >&2
-    sleep 60
+  R4_RETRY_N_SHARDS=$(jq '.n_shards' "$R4_RETRY_SUMMARY")
+  for ((R4_RETRY_SHARD_INDEX=0; R4_RETRY_SHARD_INDEX!=R4_RETRY_N_SHARDS; R4_RETRY_SHARD_INDEX++)); do
+    printf -v R4_RETRY_SHARD_NAME 'dispatch_shard_%03d.json' "$R4_RETRY_SHARD_INDEX"
+    R4_RETRY_TASKS=$(jq --argjson i "$R4_RETRY_SHARD_INDEX" '.shards[$i].n_tasks' "$R4_RETRY_SUMMARY")
+    R4_RETRY_MAX=$((R4_RETRY_TASKS - 1))
+    R4_RETRY_SHA256=$(jq -r --argjson i "$R4_RETRY_SHARD_INDEX" '.shards[$i].sha256' "$R4_RETRY_SUMMARY")
+    R4_RETRY_SET="$RUN_ROOT/results/corpus_v4/cps_multifidelity/dispatch/r4_${RETRY_SUFFIX}/${R4_RETRY_SHARD_NAME}"
+    while (( $(squeue -r -h -u "$(id -un)" -o '%i' | wc -l) > 1000 - R4_RETRY_TASKS )); do
+      echo "Waiting for QOS submission capacity for $R4_RETRY_SHARD_NAME" >&2
+      sleep 60
+    done
+    R4_RETRY_DEPENDENCY_ARGS=()
+    if [[ -n "$R4_RETRY_PREV_JOB_ID" ]]; then
+      R4_RETRY_DEPENDENCY_ARGS=(--dependency="afterany:$R4_RETRY_PREV_JOB_ID")
+    fi
+    R4_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 --array="0-${R4_RETRY_MAX}%2" \
+      "${R4_RETRY_DEPENDENCY_ARGS[@]}" \
+      --export=ALL,PCB_GNN_JOB_ENV="$PCB_JOB_ENV",PCB_GNN_V3_CORPUS_DIR="$SOURCE_CORPUS_DIR",PCB_GNN_CPS_EXECUTION_LOCK="$EXECUTION_LOCK",PCB_GNN_CPS_EXECUTION_LOCK_SHA256="$EXECUTION_LOCK_SHA256",PCB_GNN_PYTHON="$PCB_PYTHON",PCB_GNN_CPS_RETRY_TASK_SET="$R4_RETRY_SET",PCB_GNN_CPS_RETRY_TASK_SET_SHA256="$R4_RETRY_SHA256" \
+      code/jobs/submit_corpus_v4_cps_r4.sh)
+    R4_RETRY_JOB_IDS+=("$R4_RETRY_JOB_ID")
+    R4_ATTEMPT_DIR_ARGS+=(--attempt-dir "results/corpus_v4/cps_multifidelity/r4/attempts/job_${R4_RETRY_JOB_ID}")
+    R4_RETRY_PREV_JOB_ID="$R4_RETRY_JOB_ID"
   done
-  R4_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 --array="0-${R4_RETRY_MAX}%2" \
-    --export=ALL,PCB_GNN_JOB_ENV="$PCB_JOB_ENV",PCB_GNN_V3_CORPUS_DIR="$SOURCE_CORPUS_DIR",PCB_GNN_CPS_EXECUTION_LOCK="$EXECUTION_LOCK",PCB_GNN_CPS_EXECUTION_LOCK_SHA256="$EXECUTION_LOCK_SHA256",PCB_GNN_PYTHON="$PCB_PYTHON",PCB_GNN_CPS_RETRY_TASK_SET="$R4_RETRY_SET",PCB_GNN_CPS_RETRY_TASK_SET_SHA256="$R4_RETRY_SHA256" \
-    code/jobs/submit_corpus_v4_cps_r4.sh)
 fi
 ```
 
@@ -422,9 +468,6 @@ if (( R3_PENDING_COUNT > 0 )); then
   R3_PENDING_COUNT=$(jq '.pending | length' "$R3_PENDING")
 fi
 if (( R4_PENDING_COUNT > 0 )); then
-  R4_ATTEMPT_DIR_ARGS+=(
-    --attempt-dir "results/corpus_v4/cps_multifidelity/r4/attempts/job_${R4_RETRY_JOB_ID}"
-  )
   R4_RETRY_INDEX="results/corpus_v4/cps_multifidelity/index/r4_${RETRY_SUFFIX}_candidates.json"
   python3 code/experiments/proofs/build_corpus_v4_cps_candidate_index.py \
     "${R4_ATTEMPT_DIR_ARGS[@]}" --out "$R4_RETRY_INDEX"
@@ -445,14 +488,14 @@ if (( R4_PENDING_COUNT > 0 )); then
   R4_PENDING_COUNT=$(jq '.pending | length' "$R4_PENDING")
 fi
 RETRY_ROUND=$((RETRY_ROUND + 1))
-printf -v RETRY_SUFFIX 'retry_%02d' "$RETRY_ROUND"
 ```
 
-If either updated pending count is nonzero, return to the first sharding block
-in this section in the **same Bash shell**. The incremented `RETRY_SUFFIX`, the
-updated `R3_PENDING`/`R4_PENDING` paths and digests, and the cumulative
+If either updated pending count is nonzero, return to the per-round block that
+begins with `printf -v RETRY_SUFFIX` in the **same Bash shell**. The incremented
+`RETRY_ROUND`, the updated `R3_PENDING`/`R4_PENDING` paths, and the cumulative
 `R3_ATTEMPT_DIR_ARGS`/`R4_ATTEMPT_DIR_ARGS` arrays are the state transition for
-round 02 and every later round. Do not reinitialize them from `*_initial`.
+round 02 and every later round. Do not reinitialize them from `*_initial`,
+re-run the initialization block, or reset the attempt arrays.
 Each new candidate index must contain the initial attempt directories and every
 prior retry directory. A duplicate valid attempt remains a hard ambiguity;
 retry only indices listed in the immediately preceding round's hash-pinned
@@ -461,9 +504,13 @@ pending set.
 ## 10. Finalize exact coverage
 
 Submit the finalizer only when R3 reports 1,500 accepted and zero pending, R4
-reports 198 accepted and zero pending, and both rejected-candidate lists are
-empty. Completion of the arrays alone is insufficient. After those conditions
-hold, pin both accepted sets and submit:
+reports 198 accepted and zero pending, and neither accepted set contains a
+duplicate valid attempt. Completion of the arrays alone is insufficient.
+Rejected candidates are retained audit history; an invalid earlier attempt does
+not block finalization after a later valid singleton retry supplies exact
+coverage. Review and classify every rejection, but do not delete its source
+attempt directory or require the cumulative rejection list to become empty.
+After the coverage conditions hold, pin both accepted sets and submit:
 
 ```bash
 R3_ACCEPTED="${R3_ACCEPTED:-results/corpus_v4/cps_multifidelity/resume/r3_initial/accepted_artifact_set.json}"
@@ -486,6 +533,7 @@ FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
 | Dirty or untracked source refusal | Execution worktree is not immutable | Create a fresh detached worktree at the reviewed commit |
 | Plan, lock, manifest, or corpus hash mismatch | Provenance drift | Stop; do not recompute expected hashes from observed files |
 | Scheduler contract mismatch | Requested or allocated resources differ | Inspect `ReqTRES`, `TresPerTask`, `AllocTRES`, and the environment before resubmission |
+| Final array element fails scheduler identity preflight | The final element may reuse the base array job ID; a base-ID query can return multiple records | Query the exact `array-job-id_array-task-id` component and require one identity match; recover a missing element only through a hash-pinned singleton task set |
 | Timeout, signal, OOM, mesh, RSS, complexity, iteration, or residual failure | Frozen numerical/resource gate failed | Retain the failed attempt and classify it; do not widen a cap post hoc |
 | Existing start or result path | Attempt collision | Use a new job-scoped attempt; never overwrite |
 | Missing task artifact | Incomplete coverage | Emit a pinned pending set and retry only missing canonical tasks |
@@ -510,6 +558,14 @@ FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
   used `--chdir` but did not export `PCB_GNN_JOB_ENV`, while
   `SLURM_SUBMIT_DIR` still pointed to the SSH login directory. The corrected
   submission exports the helper's absolute path.
+- Counting `squeue` without `-r` reported compressed array rows and caused one
+  R3-D request to be rejected by `QOSMaxSubmitJobPerUserLimit` before job
+  creation. Capacity gates must count expanded elements.
+- The final element of an array may have `SLURM_JOB_ID` equal to
+  `SLURM_ARRAY_JOB_ID`. Querying that raw base ID can return several element
+  records. The runner now queries the exact array component once; an audited
+  singleton probe demonstrated that sparse recovery can preserve the original
+  throttle contract without mixing execution locks.
 
 These are operational preflight failures, not scientific negative results and
 not evidence that the solver or cluster is broken.

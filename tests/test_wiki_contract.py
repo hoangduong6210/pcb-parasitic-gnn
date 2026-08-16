@@ -209,6 +209,7 @@ def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
         "git status --short --untracked-files=all -- code protocols",
         "--expected-task-set-sha256",
         "R3_RETRY_JOB_IDS",
+        "R4_RETRY_JOB_IDS",
         "R4_RETRY_JOB_ID",
         "Retry only pending tasks",
         "RETRY_ROUND=$((RETRY_ROUND + 1))",
@@ -217,10 +218,15 @@ def test_slurm_playbook_indexes_cluster_specific_failure_prevention() -> None:
         'R3_PENDING="results/corpus_v4/cps_multifidelity/resume/r3_${RETRY_SUFFIX}/pending_task_set.json"',
         'R4_PENDING="results/corpus_v4/cps_multifidelity/resume/r4_${RETRY_SUFFIX}/pending_task_set.json"',
         "Do not reinitialize them from `*_initial`",
+        "Initialize the cumulative state exactly once",
+        "begins with `printf -v RETRY_SUFFIX`",
         'PCB_GNN_JOB_ENV="$PCB_JOB_ENV"',
         "--chdir` changes the batch working directory but does **not** change",
         "400 + 400 + 198 = 998",
         "1000 - R3_RETRY_TASKS",
+        "--max-array-size 1",
+        "corpus_v4_cps_execution_lock_v2.json",
+        "Rejected candidates are retained audit history",
     ):
         assert required in playbook
     assert playbook.count('PCB_GNN_JOB_ENV="$PCB_JOB_ENV"') >= 8

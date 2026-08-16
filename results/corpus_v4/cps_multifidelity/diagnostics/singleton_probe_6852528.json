@@ -1,0 +1,33 @@
+{
+  "array_environment": {
+    "array_job_id": "6852528",
+    "array_task_count": 1,
+    "array_task_id": 0,
+    "array_task_max": 0,
+    "array_task_min": 0,
+    "job_id": "6852528"
+  },
+  "job": {
+    "elapsed": "00:00:01",
+    "exit_code": "0:0",
+    "job_id": "6852528",
+    "node": "a0348",
+    "state": "COMPLETED"
+  },
+  "observation": {
+    "array_task_throttle": 8,
+    "base_query_records": 1,
+    "exact_component_query_records": 1,
+    "job_id_query_records": 1
+  },
+  "purpose": "Verify that a hash-pinned singleton retry preserves the scheduler contract when the only array element reuses the base array job ID.",
+  "raw_capture": {
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_bytes": 5645,
+    "stdout_sha256": "994a670830dce6c3242314ebe4e477051aacb9be27fc70825e43a544838ba247"
+  },
+  "schema": "pcb-gnn.slurm-singleton-probe.v1",
+  "script_sha256": "bf64f402c9474bc9b87a321496a12eb2afc2e11da21d05d8c7ef12dcbc4d05dd",
+  "source_commit": "d6162b1c4c502cca2a880a32fce2b1d894ff808b"
+}

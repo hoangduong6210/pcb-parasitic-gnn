@@ -20,6 +20,7 @@ from plan_corpus_v4_cps_resume import (  # noqa: E402
 )
 from run_corpus_v4_cps_multifidelity_task import (  # noqa: E402
     evaluate_result,
+    validate_execution_lock,
     validate_frozen_inputs,
 )
 
@@ -28,6 +29,18 @@ PLAN_ROOT = ROOT / "results/corpus_v4/cps_multifidelity/plan/v1"
 PLAN_SHA256 = "419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a"
 LOCK_PATH = ROOT / "protocols/corpus_v4_cps_execution_lock_v1.json"
 LOCK_SHA256 = "697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb"
+CURRENT_LOCK_PATH = ROOT / "protocols/corpus_v4_cps_execution_lock_v2.json"
+CURRENT_LOCK_SHA256 = "111ff2347f74afd4a280cc21b8a337387f982341367e6b73550794b13089f081"
+
+
+def test_execution_lock_revision_boundary_is_explicit() -> None:
+    with pytest.raises(ValueError, match="sources differ"):
+        validate_execution_lock(LOCK_PATH, LOCK_SHA256)
+    lock, observed_sha256 = validate_execution_lock(
+        CURRENT_LOCK_PATH, CURRENT_LOCK_SHA256
+    )
+    assert observed_sha256 == CURRENT_LOCK_SHA256
+    assert lock["plan_sha256"] == PLAN_SHA256
 
 
 def test_plan_requires_the_externally_pinned_root() -> None:
@@ -223,8 +236,21 @@ def test_candidate_index_requires_its_external_byte_hash(tmp_path: Path) -> None
 def test_runner_validate_only_consumes_sparse_retry_set(tmp_path: Path) -> None:
     plan = json.loads((PLAN_ROOT / "plan.json").read_text())
     canonical = json.loads((PLAN_ROOT / "r3_manifest.jsonl").read_text().splitlines()[17])
+    # The checked-in v1 lock is immutable production provenance.  Build a
+    # test-only lock that pins the current runner so this unit test exercises
+    # sparse mapping without weakening source-drift rejection.
+    execution_lock = json.loads(LOCK_PATH.read_text())
+    runner_relative = "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py"
+    execution_lock["source_sha256"][runner_relative] = hashlib.sha256(
+        (ROOT / runner_relative).read_bytes()
+    ).hexdigest()
+    execution_lock_path = tmp_path / "execution_lock.json"
+    execution_lock_path.write_text(
+        json.dumps(execution_lock, indent=2, sort_keys=True) + "\n"
+    )
+    execution_lock_sha = hashlib.sha256(execution_lock_path.read_bytes()).hexdigest()
     retry = {
-        "execution_lock_sha256": LOCK_SHA256,
+        "execution_lock_sha256": execution_lock_sha,
         "fidelity_id": "cps_fem_r3_p16",
         "manifest_sha256": plan["artifact_sha256"]["r3_manifest.jsonl"],
         "pending": [
@@ -253,9 +279,9 @@ def test_runner_validate_only_consumes_sparse_retry_set(tmp_path: Path) -> None:
             "--manifest",
             str(PLAN_ROOT / "r3_manifest.jsonl"),
             "--execution-lock",
-            str(LOCK_PATH),
+            str(execution_lock_path),
             "--expected-execution-lock-sha256",
-            LOCK_SHA256,
+            execution_lock_sha,
             "--retry-task-set",
             str(retry_path),
             "--expected-retry-task-set-sha256",
