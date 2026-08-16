@@ -118,7 +118,7 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | R3 shard A | Job `6846403`, canonical tasks 0–399, task-set SHA-256 `03571b414be015d33210f527032d34a04c4f303e3eb16bc4b042021ab2df9889` |
 | R3 shard B | Job `6846415`, canonical tasks 400–799, dependency `afterany:6846403`, task-set SHA-256 `7748d81227bdca1edf6b2c76bdeb26bde8bd7e7537c410463549a2813d47c719` |
 | R3 shard C | Job `6852522`, canonical tasks 800–1199, dependency `afterany:6846415`, task-set SHA-256 `0981c92ac2e4bd4b8cdd931cadadbaa6b1cc1f80b16f9163663a38fc7b906398` |
-| R3 shard D | Not submitted; canonical tasks 1200–1499, task-set SHA-256 `08b669fc5969641fd940a4180e7ab8fff8eb062e915a5d05c696b066e35288ad` |
+| R3 shard D | Job `6852689`, canonical tasks 1200–1499, dependency `afterany:6852522`, task-set SHA-256 `08b669fc5969641fd940a4180e7ab8fff8eb062e915a5d05c696b066e35288ad` |
 | R4 array | Job `6846412`, 198 tasks, concurrency 2 |
 | Initial scheduler check | R3 requested/allocated 25 CPU and 48 GiB; R4 requested 25 CPU/160 GiB and allocated 41 CPU/160 GiB |
 | Initial execution check | Eight R3 and two R4 started artifacts existed; no failure signature at admission time |
