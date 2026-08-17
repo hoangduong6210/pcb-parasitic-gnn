@@ -124,6 +124,16 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | Initial execution check | Eight R3 and two R4 started artifacts existed; no failure signature at admission time |
 | First completed solver proof | R3 job `6846403`, canonical task 1, `task_pass=true`, artifact SHA-256 `e1be5cea98621c3bfd1c93590d83294316ac6f4c0724b5d25f7dd142d494ddc2` |
 | First completed numerical/resource record | 1,697,083 mesh nodes; 10,243,932 tetrahedra; relative residual `8.504706647340125e-11`; 25 iterations; 415.605 s worker wall; 15.322 GiB worker peak RSS |
+| Initial R3 candidate index | 1,496 entries; SHA-256 `c563e55d334099bfe8d3fcd65c1208b6f8eaa92197960ec8850d7335c7c714d5` |
+| Initial R3 resume | 1,496 accepted, 4 pending, 0 rejected; accepted-set SHA-256 `4e7bd9b89282c6d5b6060127e0a32ede7342397222edab3a93355febdfa08078`; pending-set SHA-256 `57b320f3b824e74ebdec6d4c0fd18e5e70b0a47a6b843a42e166b09de5faab4c` |
+| R3 retry dispatch | Four singleton shards; summary SHA-256 `f7557555b4e967891818a0cfe1b02c5cd7076f186586c02545e7dec77d352495` |
+| R3 retry task 399 | Job `6860601`, artifact SHA-256 `695d53c5a1489729a04e955e90e5c7e962f87dc1a259b9b22626ead72b4c7b77` |
+| R3 retry task 799 | Job `6860602`, dependency `afterany:6860601`, artifact SHA-256 `912ec6cbbf07eba339959ef5c3438b1e453c7ab1b2a9d4414dd35f1ead4de9e5` |
+| R3 retry task 1199 | Job `6860603`, dependency `afterany:6860602`, artifact SHA-256 `a7348cafb2b585d349ba5944bcd14e4258276e18f465a0dc30b9b62b3b3d3455` |
+| R3 retry task 1499 | Job `6860604`, dependency `afterany:6860603`, artifact SHA-256 `e7cbb84c34de02bf5991623734952feada6e4ce1316fe9dc6d7705d55b0c6eb0` |
+| Cumulative R3 candidate index | 1,500 entries; SHA-256 `2a478a85a98df0183c7c2739b16167e65ec27b938ca39761cb9c3902f9dda490` |
+| Final R3 resume | 1,500 accepted, 0 pending, 0 rejected; accepted-set SHA-256 `dd2f5fe7bc57366eddeead3a4761c58818c4186314c57cb13b9277b452f2db0f`; empty pending-set SHA-256 `f9d49ef2059d68d379740706173fe85e02fd6b52971755e32ff4a4b18a083fda` |
+| R3 lifecycle | `VALIDATED`; waits for R4 exact coverage and the joint finalizer |
 | Scientific use | None until exact coverage, resume validation, and finalization pass |
 
 ## E-C4-OPS-02 — Final-array-element scheduler parser incident
