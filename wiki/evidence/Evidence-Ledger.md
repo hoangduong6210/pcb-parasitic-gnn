@@ -1,11 +1,14 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-15
+last_updated: 2026-08-17
 paper_source: false
 ---
 
 # Evidence Ledger
+
+Every entry names the claims it can support. An execution record marked
+operational or pending archival is not publication evidence.
 
 ## E-C3-GEOM-01 — Geometry-valid corpus root
 
@@ -19,6 +22,8 @@ paper_source: false
 | Summary SHA-256 | `05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b` |
 | Layout SHA-256 | `17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b` |
 | Label SHA-256 | `48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327` |
+| Supported claim | `C-GEOM-001` |
+| Clean-clone availability | Finalized corpus artifact is not yet tracked or linked from a formal release; paper eligibility remains pending |
 
 ## E-C4-FEM-01 — Native backend diagnostic
 
@@ -26,9 +31,11 @@ paper_source: false
 |---|---|
 | Array | `6832704` |
 | Finalizer | `6832706` |
+| Tracked artifact | [Native diagnostic summary](../../results/corpus_v4/fem_native_diagnostic/jobs/job_6832704/summary.json) |
 | Summary SHA-256 | `f0b5510cf76325f5aefd8ad599f393cacacfc745d5413b351a5fe4c553513b89` |
 | Direct/AMG relative Cps difference | `2.1663128521249161e-16` |
 | Refine-3 AMG residual | `6.218617941378876e-11` |
+| Supported claim | `C-FEM-001` |
 
 ## E-C4-CONV-00 — Refine-2/refine-3 rejection
 
@@ -36,15 +43,16 @@ paper_source: false
 |---|---|
 | Array | `6833715` |
 | Finalizer | `6833716` |
+| Tracked artifact | [Convergence preflight summary](../../results/corpus_v4/convergence_preflight/final/job_6833716/results_corpus_v4_convergence_preflight.json) |
 | Final artifact SHA-256 | `d38b0f1f3b22d3dd2580a334f34e001aedae72707e1b298f1600d8cb68d4785b` |
 | Decision | Refine-2/pad-16 rejected |
 
 ## E-C4-FEAS-01 — Refine-4 feasibility
 
-| Layout | Job | Artifact SHA-256 | Scheduler MaxRSS | Decision |
-|---:|---:|---|---:|---|
-| 149 | `6834616` | `6115d234071dfd8884f5d88c575c4baf695fc911abb9980f8ba5f965360fd32b` | 86.13 GiB | Pass |
-| 407 | `6837051` | `397074e8690bbff4b4b29ef7f3567b90493f45910dc438dee1c1e34290ec80e3` | 83.29 GiB | Pass |
+| Layout | Job | Tracked artifact | Artifact SHA-256 | Scheduler MaxRSS | Decision |
+|---:|---:|---|---|---:|---|
+| 149 | `6834616` | [Layout 149 artifact](../../results/corpus_v4/refine4_feasibility/jobs/job_6834616/layout_0149.json) | `6115d234071dfd8884f5d88c575c4baf695fc911abb9980f8ba5f965360fd32b` | 86.13 GiB | Pass |
+| 407 | `6837051` | [Layout 407 artifact](../../results/corpus_v4/refine4_feasibility/jobs/job_6837051/layout_0407.json) | `397074e8690bbff4b4b29ef7f3567b90493f45910dc438dee1c1e34290ec80e3` | 83.29 GiB | Pass |
 
 ## E-C4-CONV-01 — Frozen refine-3/refine-4 study
 
@@ -54,10 +62,12 @@ paper_source: false
 | Finalizer | `6843343` |
 | Scientific source commit | `53c56a8aea57727be2b62364428bf95cc49745bc` |
 | Evidence commit | `1c6de1af6933827680ef6901fbd15459a9ee998f` |
+| Tracked artifact | [Refine-3/refine-4 final result](../../results/corpus_v4/refine34_convergence/final/job_6843343/results_corpus_v4_refine34_convergence.json) |
 | Final artifact SHA-256 | `78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1` |
 | Domain median / maximum | 0.189658% / 2.491566% |
 | Mesh median / maximum | 8.273879% / 13.886399% |
 | Scientific decision | Refine-3 rejected as mesh-converged |
+| Supported claims | `C-FEM-002`, `C-FEM-003` |
 
 The finalizer exited nonzero only after atomically writing the rejection
 artifact. All nine source tasks completed with clean, stable source and passing
@@ -134,6 +144,7 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | Cumulative R3 candidate index | 1,500 entries; SHA-256 `2a478a85a98df0183c7c2739b16167e65ec27b938ca39761cb9c3902f9dda490` |
 | Final R3 resume | 1,500 accepted, 0 pending, 0 rejected; accepted-set SHA-256 `dd2f5fe7bc57366eddeead3a4761c58818c4186314c57cb13b9277b452f2db0f`; empty pending-set SHA-256 `f9d49ef2059d68d379740706173fe85e02fd6b52971755e32ff4a4b18a083fda` |
 | R3 lifecycle | `VALIDATED`; waits for R4 exact coverage and the joint finalizer |
+| Lifecycle claim IDs | `C-CPS-R3-001`, `C-CPS-R4-001` |
 | Scientific use | None until exact coverage, resume validation, and finalization pass |
 
 ## E-C4-OPS-02 — Final-array-element scheduler parser incident
@@ -162,3 +173,84 @@ and pins runner SHA-256
 `e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb`.
 It is reserved for future complete runs and is not admissible in the active
 lock-v1 artifact set.
+
+## E-V2-PROOF-01: Historical accuracy and paired timing proof
+
+| Field | Value |
+|---|---|
+| Job | `51174495` |
+| Artifact | [Historical claim proof](../../results/proof_updates/jobs/claim_proof/job_51174495/results_claim_proof.json) |
+| Artifact SHA-256 | `940a59358d5c6a2660bf4ca0da2c6f02862ae23c3a5066bf87f21581d0e78202` |
+| Accuracy fields | `held_out_accuracy` |
+| Solver timing fields | `solver_timing_ms` |
+| GNN timing fields | `gnn_timing` |
+| Paired-ratio fields | `derived_claims.paired_speedup_solver_vs_end_to_end_gnn` |
+| Historical claim IDs | `H-ACC-001`, `H-LAT-002`, `H-LAT-003`, `H-SPD-002`, `H-SPD-003` |
+| Scientific status | Quarantined v2 geometry; archival interpretation only |
+
+The 95% interval for the 670.160891-fold statistic resamples the 67 evaluated
+designs. It does not include hardware, system load, software environment, or
+model-retraining variation.
+
+## E-V2-E3-01: Strict E3 implementation and historical ablation
+
+| Field | Value |
+|---|---|
+| Job | `51174496` |
+| Artifact | [Strict E3 proof and ablation](../../results/proof_updates/jobs/strict_e3/job_51174496/results_strict_egnn_ablation.json) |
+| Artifact SHA-256 | `d4a80929e39b8135ba64e40a415a1b72f7a9ec5171a4753ffa54bb589be416a1` |
+| Source commit | `181dc79556989908000b9ce857ca216b87a60cf7` |
+| Proof script SHA-256 | `6807e9b7b452c72b1cfea6118b548bef89a74fcedbd840f4ade48da1af9f5d4f` |
+| EGNN implementation SHA-256 | `855d3d5c8dd6b0b7936a725d05cb88bbf72c279250aa8a888abae4755d8e4c74` |
+| Graph implementation SHA-256 | `3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5` |
+| Symmetry summary | `results/proof_updates/results.json`, `strict_e3` |
+| Predictive fields | `paired_analysis`, `sample_efficiency`, and `verdict` |
+| Supported current claim | `C-E3-001`, implementation property only |
+| Historical claim | `H-E3-001`, predictive effect unresolved |
+
+The graph encoding and stored scalar metadata are outside the transformation
+check. The numerical proof therefore supports E(3) behavior on encoded graphs,
+not an unrestricted raw-layout E(n) statement.
+
+## E-V2-LAT-01: Historical throughput reproduction
+
+| Field | Value |
+|---|---|
+| Original timing job | `5676466` |
+| Reproduction job | `51174497` |
+| Artifact | [Legacy throughput reproduction](../../results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json) |
+| Artifact SHA-256 | `51a8922b760e9eea766ea8b8c3c4bd9d8c98b0ba04fce0243745e5da1a006b9a` |
+| Original value | 1.16845 ms per design |
+| Reproduced median | 0.674565245 ms per design |
+| Historical claim IDs | `H-LAT-001`, `H-SPD-001`, `H-SPD-004` |
+| Boundary | Pre-collated 400-design batch throughput |
+
+The differing clock values are expected across hardware and runtime
+environments. This record reproduces the timing protocol rather than asserting
+bitwise or clock-time equality.
+
+## E-C4-RUN-02: Matched R3/R4 resource example
+
+| Field | R3 | R4 |
+|---|---:|---:|
+| Layout | 717 | 717 |
+| Job and task artifact | `6846415/task_0717.json` | `6846412/task_0100.json` |
+| Artifact SHA-256 | `2449a6c4adc911a12eeb7a2f49ceb3782e5eecea7058c19088f110109f18e42d` | `b150bfecb9ad1cd44fd050344e1f47735b466e99979a49917992a8225b2db335` |
+| Nodes | 2,062,878 | 9,241,959 |
+| Tetrahedra | 12,477,301 | 56,742,824 |
+| Worker wall | 528.948702 s | 3,460.433289 s |
+| Peak RSS | 18.565044 GiB | 83.240124 GiB |
+| Relative residual | `6.8885e-11` | `8.3918e-11` |
+| Scientific use | None; single-layout operational cost example | None; single-layout operational cost example |
+
+These task artifacts currently live in the immutable production worktree and
+must be archived with the finalized corpus before a clean clone can resolve
+them. The pair explains resource cost but is not a corpus runtime statistic.
+
+## E-V2-GEOM-PENDING: Legacy geometry audit closure
+
+`code/data/audit_legacy_v2_geometry.py` implements the legacy integrity audit,
+but no finalized, tracked job artifact currently closes the exact defect counts
+quoted in earlier internal reviews. Until that artifact is submitted, finalized,
+hashed, and committed, the wiki records only the qualitative quarantine reason.
+No exact audit count is paper eligible.

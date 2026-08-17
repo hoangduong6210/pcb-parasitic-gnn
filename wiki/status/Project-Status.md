@@ -1,57 +1,59 @@
 ---
 title: Project Status
-status: active
-last_updated: 2026-08-15
-paper_source: true
+status: active scientific status
+last_updated: 2026-08-17
+paper_source: false
 ---
 
 # Project Status
 
-## Current scientific state
+## Scientific state
 
-The superseded v2 corpus is quarantined because its geometry generator can
-produce inconsistent layer and vertical coordinates, overlapping conductor
-volumes, and non-passive analytical inductance labels. Results trained or
-timed on that corpus remain historical records and are not current evidence for
+The superseded v2 corpus is quarantined because its generator can produce
+inconsistent layer and vertical coordinates, overlapping conductors, board
+overrun, and non-passive mixed analytical labels. Results derived from that
+corpus remain historical records. They are not current evidence for
 geometry-valid PCB layouts.
 
-A replacement geometry corpus contains 1,500 unique layouts that pass the
-shared geometry contract. Graph construction, FastHenry, and electrostatic FEM
-consume the same conductor boxes and centers. The inherited inductance labels
-are finite, passive, and tied to the geometry hashes.
+The replacement geometry root contains 1,500 unique layouts that pass the shared
+geometry contract. Graph construction, FastHenry, and electrostatic FEM consume
+the same conductor boxes, centers, and identities. The inductance observations
+are finite and passive.
 
-The electrostatic reference study has reached a clear but negative conclusion.
-Increasing the outer-domain padding from 12 to 16 mm at refine-3 satisfies the
-predeclared sensitivity criterion. Increasing the mesh from refine-3 to
-refine-4 at 16 mm does not. Refine-3 is therefore stable to the tested domain
-expansion but is not demonstrated to be mesh-converged.
+The electrostatic study produced a useful negative result. Refine-3 passed the
+tested 12 to 16 mm domain-expansion gate but failed the refine-3/refine-4 mesh
+gate. The active capacitance package therefore preserves two named fidelities
+instead of calling one column ground truth.
 
 ## Lifecycle table
 
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
-| v0–v2 layouts and labels | `QUARANTINED` | Pipeline archaeology only |
-| Geometry-valid 1,500-layout corpus | `FINALIZED` | Geometry root for current work |
+| v0 through v2 layouts and labels | `QUARANTINED` | Pipeline history only |
+| Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |
 | FEM backend equivalence and residual checks | `ADMITTED` | Solver implementation evidence |
-| Refine-3 domain-padding study | `ADMITTED` | Supports pad-16 bulk specification |
-| Refine-3 versus refine-4 mesh study | `REJECTED` | Prohibits a mesh-converged r3 claim |
-| Multi-fidelity protocol, family selection, and split registries | `FINALIZED` | Frozen input to new solver jobs |
-| FEM-R3P16 bulk labels | `RUNNING` | Fixed low-fidelity numerical target; not admitted until finalized |
-| FEM-R4P16 validation observations | `RUNNING` | Higher-fidelity subset, not ground truth |
-| Multi-seed GNN accuracy on current corpus | `BLOCKED` | Waits for finalized fidelity corpus |
-| Current-corpus end-to-end speedup | `BLOCKED` | Waits for accepted model and fixed workflow |
+| Refine-3 domain-padding study | `ADMITTED` | Supports the pad-16 bulk specification |
+| Refine-3 versus refine-4 mesh study | `ADMITTED NEGATIVE` | Rejects a mesh-converged R3 claim |
+| Multi-fidelity protocol, selections, and split registries | `FINALIZED` | Frozen input to production jobs |
+| FEM-R3P16 bulk observations | `VALIDATED` | Complete 1,500-layout task set; waits for joint finalization |
+| FEM-R4P16 validation observations | `RUNNING` | Higher-resolution 198-layout subset; not ground truth |
+| Multi-seed current-corpus accuracy | `BLOCKED` | Waits for joint multi-fidelity finalization |
+| Current-corpus end-to-end speedup | `BLOCKED` | Waits for an accepted current model and fixed workflow |
+| Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
-## Immediate execution plan
+Operational progress changes more frequently than scientific status. The dated
+[Live Execution](Live-Execution.md) page owns task counts and the next scheduler
+transition.
 
-1. Use the frozen multi-fidelity protocol, selection registry, and split registry.
-2. Produce FEM-R3P16 observations for all 1,500 geometries.
-3. Produce three preselected higher-fidelity observations per swap-closed
-   geometry family, giving 198 FEM-R4P16 validation layouts across 66 families.
-4. Keep every fidelity for a geometry in the same train, validation, or test
-   partition.
-5. Train five split seeds crossed with five initialization seeds.
-6. Report agreement with the fixed low-fidelity target separately from
-   agreement with the higher-fidelity validation observations.
+## Next scientific stages
 
-No current headline accuracy or speedup is admitted until these stages finish.
+1. Complete exact FEM-R4P16 coverage and run the joint multi-fidelity finalizer.
+2. Audit fidelity discrepancy across the preselected family-balanced subset.
+3. Train five family-split seeds crossed with five initialization seeds.
+4. Report GNN agreement with FEM-R3P16 separately from agreement with FEM-R4P16.
+5. Repeat baseline, strict E(3), ranking, and paired latency studies on the same
+   current corpus and split registry.
+6. Admit claims in the wiki before generating a new paper snapshot.
+
+There is no current geometry-valid accuracy or speed headline.

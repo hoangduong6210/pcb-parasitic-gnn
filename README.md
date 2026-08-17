@@ -12,9 +12,9 @@
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
 of PCB winding active-leg abstractions. The repository now has a finalized
 1,500-layout geometry-valid corpus under one contract shared by graph
-construction, FastHenry, and electrostatic FEM. Its capacitance labels are
-planned for rebuild as an explicit multi-fidelity dataset because the latest
-mesh study rejected refine-3 as a mesh-converged reference.
+construction, FastHenry, and electrostatic FEM. All 1,500 FEM-R3P16 tasks have
+validated artifacts. The 198-layout FEM-R4P16 subset is running; joint
+multi-fidelity finalization and current model evaluation follow.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -34,7 +34,9 @@ The repository keeps manuscript packages separate from experiment evidence:
 | [`Paper_Full/`](Paper_Full/) | Extended manuscript package | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
 
 The version-controlled [`wiki/`](wiki/) is authoritative for current project
-status, protocols, admitted claims, and manuscript-ready source text. Future
+status, protocols, admitted claims, and manuscript-ready source text. New
+contributors should begin with [`wiki/START-HERE.md`](wiki/START-HERE.md), and
+all maintained pages are listed in [`wiki/INDEX.md`](wiki/INDEX.md). Future
 `Paper_Full/` revisions will be rendered from admitted wiki content; the
 currently checked-in Full Paper predates the active mesh-convergence decision
 and is superseded until regenerated and audited. `Paper_Summary/` is retained as
@@ -55,11 +57,11 @@ current-result admission. New paper content is admitted through the wiki first.
 
 ![Pipeline from PCB layout through graph construction and message passing to parasitic estimates](figures/fig1_pipeline.png)
 
-> **Notation.** `M` is the *winding* mutual inductance—a free-space, geometry-driven
-> coupling term. It is **not** the magnetizing inductance, which is set by the core
-> permeability and is a separate, roughly 37–73× larger quantity (quantified in
-> [`results_coremfem.json`](results/run_coremfem/results_coremfem.json)). Earlier drafts of this work wrote `L_m`; that notation was
-> ambiguous and has been retired.
+> **Notation.** `M` is the *winding* mutual inductance, a free-space,
+> geometry-driven coupling term. It is **not** the core magnetizing inductance.
+> Earlier drafts wrote `L_m`; that ambiguous notation has been retired. The
+> historical core-anchor comparison is indexed as `H-CORE-002` in the
+> [Historical Claim Ledger](wiki/claims/Historical-Claim-Ledger.md).
 
 ## Current evidence status
 
@@ -72,9 +74,11 @@ is now represented as explicit fidelity observations: `FEM-R3P16` is a fixed
 bulk numerical target and `FEM-R4P16` is a higher-resolution validation
 observation, not ground truth.
 
-Every result derived from v0--v2 geometry, including former accuracy, ranking,
-strict-symmetry comparison, and speed ratios, remains quarantined from current
-geometry-valid claims. After the fidelity corpus is finalized, current accuracy
+Every predictive result derived from v0 through v2 geometry, including former
+accuracy, ranking, EGNN accuracy comparison, and speed ratios, remains
+quarantined from current geometry-valid claims. The strict E(3) encoded-graph
+check remains an admitted implementation property, not a predictive claim.
+After the fidelity corpus is finalized, current accuracy
 must be rerun using the frozen swap-closed family registries and crossed split
 and initialization seeds. See the [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
@@ -85,7 +89,7 @@ and initialization seeds. See the [wiki status](wiki/status/Project-Status.md),
 ```
 code/          source, grouped by role see code/README.md for the file index
 ├── core/            graph representation, analytical PEEC labels, train/eval driver
-├── models/gnn/      the proposed MPNN + the E(n)-equivariant variant
+├── models/gnn/      the proposed MPNN and tested E(3)-equivariant variant
 ├── solvers/         3-D numerical references: FastHenry, FastCap/FasterCap, scikit-fem
 ├── data/            seeded corpus generators
 ├── inference/       safe state-dict-only NumPy bundle loader
@@ -133,12 +137,11 @@ refine-3/refine-4 study executed 27 solves over nine layouts: refine-3 at 12 and
 0.189658% and maximum 2.491566%; mesh sensitivity failed with median 8.273879%
 and maximum 13.886399% under the declared 2%/5% gates.
 
-The next execution stage under the frozen protocol generates 1,500
-`FEM-R3P16` observations and 198
-geometry-selected `FEM-R4P16` observations, three per swap-closed turn family.
-It uses one layout and one fidelity per atomic array task, immutable selection
-and split registries, and safe resume across job attempts. Exact scientific
-semantics are maintained in
+The active execution stage has validated all 1,500 `FEM-R3P16` observations and
+is generating 198 geometry-selected `FEM-R4P16` observations, three per
+swap-closed turn family. It uses one layout and one fidelity per atomic array
+task, immutable selection and split registries, and safe resume across job
+attempts. Exact scientific semantics are maintained in
 [the corpus target contract](wiki/datasets/Corpus-and-Target-Contract.md); job
 identifiers and hashes stay in [the evidence ledger](wiki/evidence/Evidence-Ledger.md).
 
@@ -175,7 +178,7 @@ export FASTERCAP_BIN=/absolute/path/to/fastercap  # optional
 
 ## Data
 
-The tracked v0--v2 metadata and labels are retained only for audit.  Their
+The tracked v0 through v2 metadata and labels are retained only for audit. Their
 command-line generators now stop with an explicit quarantine error; they cannot
 silently feed a current training run.  Corpus v3 derives every physical z
 coordinate from `layer`, gives every active leg its own conductor volume, checks

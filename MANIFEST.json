@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 177,
+    "code": 178,
     "datasets": 8,
     "figures": 12,
     "logs": 108,
@@ -13,7 +13,7 @@
     "results": 71,
     "root": 10,
     "tests": 20,
-    "wiki": 15
+    "wiki": 34
   },
   "files": [
     {
@@ -53,8 +53,8 @@
     },
     {
       "path": "Paper_Full/README.md",
-      "bytes": 652,
-      "sha256": "4953a632108147c02e6eb12f583c61c3b858ad9da23ebf6529840f6dcd638077"
+      "bytes": 784,
+      "sha256": "3c2a1675b860376d5dfa62cb88b26f190f6301cc1625c35bf04a1165fd8078ae"
     },
     {
       "path": "Paper_Full/VERSION",
@@ -153,8 +153,8 @@
     },
     {
       "path": "Paper_Summary/README.md",
-      "bytes": 9300,
-      "sha256": "99cdd3a1a7d7b3e4abd0ebc3fafbe29e01e58ab99748ac74417084e15b3820d2"
+      "bytes": 9461,
+      "sha256": "38f88220c3eba579d2363a414394c30741a2a6ae1cd4c558ae9d08f8eb9cb2df"
     },
     {
       "path": "Paper_Summary/build.sh",
@@ -168,8 +168,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13889,
-      "sha256": "0406dd46fd65a9894fe2d7c6d4db82183a14e9fafc3fb5f1020b08b962900521"
+      "bytes": 14118,
+      "sha256": "3a04fa9e6ee751c0f7ce5a841bb44464dd1a4559c112e27ae1fdaf8a6ad9becb"
     },
     {
       "path": "SECURITY.md",
@@ -183,8 +183,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 11323,
-      "sha256": "5789d74f739a98ab8dceac0a05ccf1b241c03feb96edc505e4f9f05c031bbeca"
+      "bytes": 11460,
+      "sha256": "65405ed388b33713f40f6b4d7a00a06bc9af2ec00aa9d5dee4fd6a1cbd441f2f"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -997,6 +997,11 @@
       "sha256": "855d3d5c8dd6b0b7936a725d05cb88bbf72c279250aa8a888abae4755d8e4c74"
     },
     {
+      "path": "code/quality/audit_research_prose.py",
+      "bytes": 5193,
+      "sha256": "1d5b151a5a1903bd66ba4d804f64bc9dcc30e6514c1b51b1357d5901470b266f"
+    },
+    {
       "path": "code/quality/build_manifest.py",
       "bytes": 2229,
       "sha256": "cce21aee80b8a3edd600cecfd21cb5beb0407e960bce177cbeb8f3316ffaa630"
@@ -1068,8 +1073,8 @@
     },
     {
       "path": "datasets/README.md",
-      "bytes": 2933,
-      "sha256": "4ea211b2422f23604ce8dcd94c724b5eabcee7fa5f1145641ea8c66616d013b0"
+      "bytes": 3111,
+      "sha256": "486b2eefaa81edfc530e262f3851f3ceeea590c605e749f5827a479187e8073b"
     },
     {
       "path": "datasets/synth_v0/labels.json",
@@ -1738,8 +1743,8 @@
     },
     {
       "path": "results/README.md",
-      "bytes": 1891,
-      "sha256": "f52548131c17559217bb26f270bc8506d640ec17a50f7c8cadfa62f36a1a46a1"
+      "bytes": 2066,
+      "sha256": "edb24e8f1a9285213949993bca0c873af68752bce0901b4599662f1c368244ad"
     },
     {
       "path": "results/corpus_v4/convergence_preflight/final/job_6833716/results_corpus_v4_convergence_preflight.json",
@@ -2188,18 +2193,33 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 9384,
-      "sha256": "babbb546e8b047f36fdaca73b5eef57a4bd6023848df5379c6e22449105d79b7"
+      "bytes": 12771,
+      "sha256": "23ac933e1f36c1bb6e8a37c90da8bf795c8ae9289eaebe1bf100370a572f033d"
+    },
+    {
+      "path": "wiki/CONTRIBUTING.md",
+      "bytes": 2771,
+      "sha256": "4b5b7487151fdc659d7cd5916b52d8daaeda94216facbeed1616678d6ba5568a"
+    },
+    {
+      "path": "wiki/GLOSSARY.md",
+      "bytes": 2072,
+      "sha256": "0cdf0e4665ec26a895a8a6c019ddeffb891e9f7e476b3b976d1c5ec01a9c8369"
+    },
+    {
+      "path": "wiki/INDEX.md",
+      "bytes": 6905,
+      "sha256": "e1c8d8e442da77c7d2c8cb1a01f3c4aa315b0fb919fd4f856490d5d5b6fad33e"
     },
     {
       "path": "wiki/LIMITATIONS.md",
-      "bytes": 1210,
-      "sha256": "99947f4e4949caa7d414aac40f9c472e11fe3ac636a9820712537e0dd501cefd"
+      "bytes": 1286,
+      "sha256": "f5747036f7a7400d22260e44a04c8dc4f35cc98080b4ed03094dac8656a0c57b"
     },
     {
       "path": "wiki/README.md",
-      "bytes": 2750,
-      "sha256": "fffd29d0d9dc5fb0f7cb4a0ac6801b1ad9f572dad4f48530eb863b13a9049ea0"
+      "bytes": 2985,
+      "sha256": "ca2f878a4f529a59cfb959eeec7bd1dd2a3fbcec2b9fb7c9c74f023575e8df44"
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
@@ -2207,14 +2227,39 @@
       "sha256": "dff7b11403d5349746bb9c412704adefceac5e3c578b238eb914ba168ced13f8"
     },
     {
+      "path": "wiki/START-HERE.md",
+      "bytes": 3165,
+      "sha256": "dcb6982b3aa73914a4d7b44a75ad5aee41b58a5086fcddfddfe4030b4a7bf2b6"
+    },
+    {
+      "path": "wiki/architecture/Research-System-Map.md",
+      "bytes": 1865,
+      "sha256": "6cbe25e61ee6bf14262b9e4898f3f4cb79173b3399ed470212c4e091d443f403"
+    },
+    {
       "path": "wiki/claims/Current-Claim-Language.md",
-      "bytes": 2432,
-      "sha256": "71b0650dbfff7a996e2d88217a769054d20c30b8f44bcdeeaa19782b18e7ba76"
+      "bytes": 4714,
+      "sha256": "9f93bb138050912d4c07e205ec6a7d7a163b8efea62ae5d7d280dc478409a1ee"
+    },
+    {
+      "path": "wiki/claims/Historical-Claim-Ledger.md",
+      "bytes": 10230,
+      "sha256": "f34cd2b0654ed769d2cefae77644861bf4695cb660efd2d06307f8af39514296"
     },
     {
       "path": "wiki/datasets/Corpus-and-Target-Contract.md",
-      "bytes": 3056,
-      "sha256": "f2f15267189fac93cb0603abd0f11532e0e308ecc0de265fbfa9b9f6f5016302"
+      "bytes": 3111,
+      "sha256": "49f66ba58d605f29953ae79c3deaf376709e1110887c799ca1b805a47ab2f3c5"
+    },
+    {
+      "path": "wiki/datasets/Dataset-Registry.md",
+      "bytes": 2443,
+      "sha256": "337697dc2cf0e7c175f1434c67e5f07c7f677509af5a8f4a01224e47e7ccbd60"
+    },
+    {
+      "path": "wiki/datasets/Vendor-Geometry-Track.md",
+      "bytes": 3107,
+      "sha256": "9b3d55f1fa1a911c28e26e9e5c5732899762ddeee24297cbc0cd7ebd570e4d3d"
     },
     {
       "path": "wiki/decisions/0001-cps-multifidelity.md",
@@ -2223,8 +2268,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 9726,
-      "sha256": "2d58d1886d59361b6954ff8414d5b8dc450c5a42749aa3549dc5213180323274"
+      "bytes": 15054,
+      "sha256": "89cb9c0dfc99681cfdb9ded93e30f283d01124ca1f6a1e926ebf76575e8f2b4c"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -2232,19 +2277,64 @@
       "sha256": "7b395f662ee814c76243f7bbb3d7705965106b306140b428003267146bf2e6f4"
     },
     {
+      "path": "wiki/governance/License-and-Assets.md",
+      "bytes": 1376,
+      "sha256": "791c43ea745c9bc574b1b8bcdf5a98a5c15c87cb39e25575f1d1751d57212501"
+    },
+    {
       "path": "wiki/manuscript/FEM-Cps-Sections.md",
-      "bytes": 1669,
-      "sha256": "75caff577297ea0194a1969d295495e7b7d947cca3d107831857bd7aee872e3e"
+      "bytes": 1722,
+      "sha256": "d8f9004576d58d18b7cfae9186ab7864c93911c7d501f9c711e77683f71f5f72"
+    },
+    {
+      "path": "wiki/manuscript/Paper-Export-Contract.md",
+      "bytes": 2263,
+      "sha256": "a950be7d817f13682fb212ec017529cf4f23f249abdf1575f61b972958bb5869"
+    },
+    {
+      "path": "wiki/manuscript/Paper-Outline.md",
+      "bytes": 1997,
+      "sha256": "970948ba056c65235d7481a025a209b9a6c7f0abce218c17c603e6034635f343"
     },
     {
       "path": "wiki/methods/FEM-Cps-Reference.md",
-      "bytes": 1798,
-      "sha256": "90d9dead7f9d82e37dc1a68a91318e70cf9f0e9bdfcb452c4d4ffc46a41a8bce"
+      "bytes": 1889,
+      "sha256": "f23d69428ef7d2edd6cbb88e9d2072f87e97b0da35e15044680b837be58fdc8f"
+    },
+    {
+      "path": "wiki/methods/FastHenry-Inductance.md",
+      "bytes": 1293,
+      "sha256": "d5e2dca404676628cadeeb30091f063a4ac3934a95dd0dd92adc42d1e8e91827"
     },
     {
       "path": "wiki/methods/Geometry-Family-Splits.md",
-      "bytes": 1380,
-      "sha256": "e7f1f5cb58a763cc05bd0f64fe6602eca19550a5eabe22d6d9a931a5c6d1cbd9"
+      "bytes": 1417,
+      "sha256": "7883b079a88e5d1b1536aa980e5c311a91ac03acafdf4db6b1343d454cd2c6ca"
+    },
+    {
+      "path": "wiki/methods/Graph-Surrogate.md",
+      "bytes": 1821,
+      "sha256": "de69988995f3deba62b17e7c0c5e238ee9a0a3b29c1e600c407d9e5a4a34ce6b"
+    },
+    {
+      "path": "wiki/methods/Runtime-Benchmark.md",
+      "bytes": 1609,
+      "sha256": "6abc8d1f4806f1bc2845a5fc008011b403b2a3891815141058eb037841910b74"
+    },
+    {
+      "path": "wiki/methods/Strict-E3-and-EGNN.md",
+      "bytes": 1741,
+      "sha256": "4dce8c78d96d956acc35d73904ab41e74876eb0fdc24f0402b71f432a7a4734e"
+    },
+    {
+      "path": "wiki/operations/Prose-Audit.md",
+      "bytes": 2433,
+      "sha256": "3f8f6663c3a1471d8afae24aa3a99720ddb81a53e03cb44fac187fcb7be38c44"
+    },
+    {
+      "path": "wiki/operations/Research-Workflow.md",
+      "bytes": 2143,
+      "sha256": "fc7ddd54e26792694b31f1517e19583a04829e36038b15791c218c452c1bf25d"
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
@@ -2257,16 +2347,26 @@
       "sha256": "3826aec95712568abf103a5ab4255971a866b7975883db4577f55331c906a11b"
     },
     {
+      "path": "wiki/references/Technical-Source-Map.md",
+      "bytes": 2166,
+      "sha256": "4ce3edb7445b6ef87e9058fd028be206f5a81474d433623fa816f730e60de24e"
+    },
+    {
       "path": "wiki/results/FEM-R3-R4-Convergence.md",
-      "bytes": 1306,
-      "sha256": "d2f2a7433dc3c1676de180b1b7f3f7a52810a9cdaeaaf1dc53bd8b749085604e"
+      "bytes": 1359,
+      "sha256": "10c232626f58969c16567efea5b2d23d05b26db017aed13c9984fc2f0a5555c8"
+    },
+    {
+      "path": "wiki/status/Live-Execution.md",
+      "bytes": 1440,
+      "sha256": "2ec7655a0ee897b405dc91eb07e45c1bdadd101044b6e63d7f16720a9fcac57d"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 2924,
-      "sha256": "aa8e937d339401a38764c1180e968b55d5f106cb015f2dece2da6ff9da8bd541"
+      "bytes": 3039,
+      "sha256": "4198b0da6cebf12b6f24137a50c370e8bec06bf2dfbfa3c83b2c124779a2f1b5"
     }
   ],
-  "n_files": 450,
-  "total_bytes": 11647326
+  "n_files": 470,
+  "total_bytes": 11718083
 }

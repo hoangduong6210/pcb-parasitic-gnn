@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+import sys
 from datetime import date
 from decimal import Decimal
 from pathlib import Path
@@ -22,18 +23,38 @@ WIKI = ROOT / "wiki"
 
 REQUIRED_PAGES = (
     "README.md",
+    "INDEX.md",
+    "START-HERE.md",
+    "GLOSSARY.md",
+    "CONTRIBUTING.md",
     "LIMITATIONS.md",
     "REPRODUCIBILITY.md",
+    "architecture/Research-System-Map.md",
     "claims/Current-Claim-Language.md",
+    "claims/Historical-Claim-Ledger.md",
     "datasets/Corpus-and-Target-Contract.md",
+    "datasets/Dataset-Registry.md",
+    "datasets/Vendor-Geometry-Track.md",
     "decisions/0001-cps-multifidelity.md",
     "evidence/Evidence-Ledger.md",
     "evidence/FEM-Convergence-Ledger.md",
+    "governance/License-and-Assets.md",
     "manuscript/FEM-Cps-Sections.md",
+    "manuscript/Paper-Export-Contract.md",
+    "manuscript/Paper-Outline.md",
     "methods/FEM-Cps-Reference.md",
+    "methods/FastHenry-Inductance.md",
     "methods/Geometry-Family-Splits.md",
+    "methods/Graph-Surrogate.md",
+    "methods/Runtime-Benchmark.md",
+    "methods/Strict-E3-and-EGNN.md",
+    "operations/Prose-Audit.md",
+    "operations/Research-Workflow.md",
+    "operations/SLURM-Resource-Plan.md",
     "operations/SLURM-Submission-Playbook.md",
+    "references/Technical-Source-Map.md",
     "results/FEM-R3-R4-Convergence.md",
+    "status/Live-Execution.md",
     "status/Project-Status.md",
 )
 REQUIRED_FRONT_MATTER = {"title", "status", "paper_source"}
@@ -129,6 +150,72 @@ def test_all_wiki_markdown_is_covered_by_the_front_matter_contract() -> None:
         assert REQUIRED_FRONT_MATTER <= metadata.keys(), (
             f"{path.relative_to(ROOT)} must use the canonical front-matter schema"
         )
+
+
+def test_paper_source_pages_record_human_prose_review() -> None:
+    claim_registry = _read("wiki/claims/Current-Claim-Language.md")
+    for path in sorted(WIKI.rglob("*.md")):
+        metadata, _ = _parse_front_matter(path)
+        if metadata.get("paper_source") == "true":
+            assert metadata.get("prose_reviewed") == "true", (
+                f"{path.relative_to(ROOT)} must declare prose_reviewed: true"
+            )
+            assert metadata.get("claim_ids"), (
+                f"{path.relative_to(ROOT)} must declare its claim_ids export boundary"
+            )
+            if metadata["claim_ids"] != "none":
+                for claim_id in metadata["claim_ids"].split(","):
+                    claim_id = claim_id.strip()
+                    assert f"`{claim_id}`" in claim_registry, (
+                        f"{path.relative_to(ROOT)} references unknown claim {claim_id}"
+                    )
+
+
+def test_current_claim_evidence_ids_resolve_to_the_evidence_ledger() -> None:
+    claims = _read("wiki/claims/Current-Claim-Language.md")
+    evidence = _read("wiki/evidence/Evidence-Ledger.md")
+    evidence_ids = set(re.findall(r"`(E-[A-Z0-9-]+)`", claims))
+    assert evidence_ids
+    for evidence_id in evidence_ids:
+        assert f"## {evidence_id}" in evidence, (
+            f"current claim references missing evidence entry {evidence_id}"
+        )
+
+
+def test_exhaustive_index_lists_every_wiki_page() -> None:
+    index = _read("wiki/INDEX.md")
+    for path in sorted(WIKI.rglob("*.md")):
+        relative = path.relative_to(WIKI).as_posix()
+        if relative == "INDEX.md":
+            continue
+        target = relative if "/" not in relative else relative
+        assert f"({target})" in index, f"wiki/INDEX.md does not index {relative}"
+
+
+def test_all_relative_wiki_links_resolve() -> None:
+    for path in sorted(WIKI.rglob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", text):
+            if target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            target_path = target.split("#", 1)[0]
+            if not target_path:
+                continue
+            resolved = (path.parent / target_path).resolve()
+            assert resolved.exists(), (
+                f"{path.relative_to(ROOT)} links to missing target {target!r}"
+            )
+
+
+def test_research_prose_audit_passes() -> None:
+    checked = subprocess.run(
+        [sys.executable, str(ROOT / "code/quality/audit_research_prose.py")],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+        text=True,
+    )
+    assert checked.returncode == 0, checked.stderr
 
 
 def test_paper_source_pages_exclude_raw_provenance() -> None:

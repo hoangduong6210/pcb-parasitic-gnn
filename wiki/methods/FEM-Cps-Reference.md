@@ -3,6 +3,9 @@ title: Electrostatic FEM Capacitance Method
 status: admitted method with unresolved mesh convergence
 last_updated: 2026-08-15
 paper_source: true
+prose_reviewed: true
+claim_ids: C-FEM-001, C-FEM-002, C-FEM-003
+citation_keys: skfem, gmsh
 ---
 
 # Electrostatic FEM Capacitance Method

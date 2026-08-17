@@ -1,8 +1,8 @@
 ---
 title: Corpus and Target Contract
 status: active specification
-last_updated: 2026-08-15
-paper_source: true
+last_updated: 2026-08-17
+paper_source: false
 ---
 
 # Corpus and Target Contract
@@ -31,10 +31,10 @@ column.
 |---|---|---|---|
 | `FEM-R1P8` | refine-1, pad 8 mm | Archival source-corpus value | Historical |
 | `FEM-R2P12` | refine-2, pad 12 mm | Lower-cost numerical observation | Not a validated truth |
-| `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | Planned |
-| `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | Planned subset |
+| `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | 1,500 tasks validated; joint finalization pending |
+| `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | 198-layout subset running |
 
-`FEM-R3P16` is selected for bulk generation because it is reproducible,
+`FEM-R3P16` was selected for bulk generation because it is reproducible,
 computationally feasible, and stable to the tested domain expansion. Its failed
 mesh gate is retained as part of the target definition. `FEM-R4P16` is more
 resolved, but it has not been compared with refine-5 and is not called continuum

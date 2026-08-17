@@ -13,6 +13,10 @@ protocols, use the canonical [`wiki/`](../wiki/) and the repository-level
 from admitted wiki content; the currently checked-in Full Paper is superseded
 until regenerated and audited.
 
+The wiki [Historical Claim Ledger](../wiki/claims/Historical-Claim-Ledger.md)
+owns the current interpretation and supersession status of these snapshot
+claims.
+
 ## Snapshot identity
 
 | Artifact | SHA-256 | Role |

@@ -1,10 +1,11 @@
 # Evidence status
 
-All result directories that depend on v0--v2 geometry are historical evidence.
+All result directories that depend on v0 through v2 geometry are historical evidence.
 They remain tracked to make earlier calculations auditable, but they are
 quarantined from current scientific claims. In particular, old accuracy,
-ranking, strict-symmetry, and latency ratios must not be presented as results on
-geometry-valid PCB layouts.
+ranking, predictive strict-symmetry comparisons, and latency ratios must not be
+presented as results on geometry-valid PCB layouts. The separately proven
+encoded-graph E(3) property is an implementation claim, not a v2 accuracy claim.
 
 Current evidence is admitted only in this order:
 
@@ -15,7 +16,7 @@ Current evidence is admitted only in this order:
 4. a frozen FEM backend and sensitivity protocol — complete, with domain pass
    and mesh rejection;
 5. immutable geometry-family and split registries — complete;
-6. a fidelity-explicit Cps corpus — planned;
+6. a fidelity-explicit Cps corpus: R3 validated, R4 running, joint finalization pending;
 7. declared multi-split/multi-initialization accuracy runs on that frozen corpus;
 8. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;

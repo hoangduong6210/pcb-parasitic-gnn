@@ -3,7 +3,9 @@ title: FEM R3/R4 Convergence Result
 status: admitted negative result
 last_updated: 2026-08-15
 paper_source: true
+prose_reviewed: true
 evidence_id: E-C4-CONV-01
+claim_ids: C-FEM-002, C-FEM-003
 ---
 
 # FEM R3/R4 Convergence Result

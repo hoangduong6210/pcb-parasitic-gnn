@@ -3,6 +3,8 @@ title: Manuscript Source — FEM Capacitance Sections
 status: admitted source text
 last_updated: 2026-08-15
 paper_source: true
+prose_reviewed: true
+claim_ids: C-FEM-002, C-FEM-003
 ---
 
 # Manuscript Source: FEM Capacitance Sections

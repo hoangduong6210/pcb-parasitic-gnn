@@ -3,6 +3,8 @@ title: Geometry Family Splits
 status: finalized frozen protocol
 last_updated: 2026-08-15
 paper_source: true
+prose_reviewed: true
+claim_ids: none
 ---
 
 # Geometry Family Splits

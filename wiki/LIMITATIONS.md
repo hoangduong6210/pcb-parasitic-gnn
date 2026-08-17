@@ -3,6 +3,8 @@ title: Limitations
 status: canonical
 last_updated: 2026-08-15
 paper_source: true
+prose_reviewed: true
+claim_ids: C-GEOM-001, C-FEM-003, C-ACC-001, C-LAT-001
 ---
 
 # Limitations

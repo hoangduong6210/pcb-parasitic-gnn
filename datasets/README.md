@@ -21,7 +21,7 @@ finalizer completed for all 1,500 layouts. This frozen source-v3 corpus contains
 1,500 unique geometry hashes, inherited FastHenry inductance observations and
 archival FEM capacitance observations, passive inductance matrices, one clean
 source identity, and a closed artifact-hash manifest. Those inherited
-capacitance observations are not the planned `FEM-R3P16`/`FEM-R4P16`
+capacitance observations are not the active `FEM-R3P16`/`FEM-R4P16`
 multi-fidelity corpus.
 
 Capacitance now follows an explicit multi-fidelity contract:
@@ -30,8 +30,8 @@ Capacitance now follows an explicit multi-fidelity contract:
 |---|---|---|
 | `FEM-R1P8` | refine-1, pad 8 mm | Archival v3 observation |
 | `FEM-R2P12` | refine-2, pad 12 mm | Legacy lower-cost observation; not validated truth |
-| `FEM-R3P16` | refine-3, pad 16 mm | Planned fixed bulk numerical target |
-| `FEM-R4P16` | refine-4, pad 16 mm | Planned higher-resolution validation subset |
+| `FEM-R3P16` | refine-3, pad 16 mm | Fixed bulk target; 1,500 task artifacts validated |
+| `FEM-R4P16` | refine-4, pad 16 mm | Higher-resolution 198-layout subset; running |
 
 On the frozen nine-layout study, the refine-3 12-to-16 mm domain comparison
 passed (median 0.189658%, maximum 2.491566%), while the refine-3/refine-4 mesh
@@ -51,3 +51,5 @@ complete routed loops are excluded and must not be inferred from the data.
 
 Execution identifiers and immutable corpus hashes are recorded separately in
 the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
+The complete dataset version boundary, including the proposed vendor geometry
+track, is maintained in the [Dataset Registry](../wiki/datasets/Dataset-Registry.md).
