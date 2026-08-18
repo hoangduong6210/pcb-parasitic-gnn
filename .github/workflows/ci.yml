@@ -32,7 +32,15 @@ jobs:
           python -m compileall -q code tests
           for job in code/jobs/*.sh; do bash -n "$job"; done
       - name: Run no-solver contract tests
-        run: python -m pytest -q -p no:cacheprovider tests
+        id: contract-tests
+        run: >-
+          python -m pytest -q -p no:cacheprovider
+          --junitxml=pytest-contract-report.xml tests
+      - name: Publish contract failure annotations
+        if: failure() && steps.contract-tests.outcome == 'failure'
+        run: >-
+          python code/quality/report_junit_failures.py
+          pytest-contract-report.xml
       - name: Verify included immutable corpus manifests
         run: python code/quality/verify_corpora.py
       - name: Validate SLURM-only CLIs without computation

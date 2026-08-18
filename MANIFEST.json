@@ -5,21 +5,21 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 178,
+    "code": 179,
     "datasets": 8,
     "figures": 12,
     "logs": 108,
     "protocols": 3,
     "results": 71,
     "root": 10,
-    "tests": 20,
+    "tests": 21,
     "wiki": 34
   },
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 3102,
-      "sha256": "97be4d50d1e831e69c675ffca4ac22d4a84ff2dc713ea801473684b55efaa64e"
+      "bytes": 3416,
+      "sha256": "51dd749783aed2ae8bf5868f30c96f3357e78bc7cd84af509ffd00527a580ef9"
     },
     {
       "path": ".gitignore",
@@ -1010,6 +1010,11 @@
       "path": "code/quality/build_proof_updates.py",
       "bytes": 10389,
       "sha256": "c093b4d9218ece5ca14bf2b2d7e013bea29117e9188afe027fbb30ca65443280"
+    },
+    {
+      "path": "code/quality/report_junit_failures.py",
+      "bytes": 2225,
+      "sha256": "1a5ca0c0451c6eee8336b44131f0ff3e72a601f5ec5a26bfa87ec25321775e92"
     },
     {
       "path": "code/quality/verify_corpora.py",
@@ -2097,6 +2102,11 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "tests/test_ci_reporting.py",
+      "bytes": 1371,
+      "sha256": "a0338f2dd423161253dd84092f6539924577865ae2a89c802de6db685b17f32e"
+    },
+    {
       "path": "tests/test_corpus_v3_reference_validation.py",
       "bytes": 1459,
       "sha256": "a3ceda05c32f4f711b9730830cc34b826f01e5a829a9c2ed7a18fccc3acee8ba"
@@ -2367,6 +2377,6 @@
       "sha256": "4198b0da6cebf12b6f24137a50c370e8bec06bf2dfbfa3c83b2c124779a2f1b5"
     }
   ],
-  "n_files": 470,
-  "total_bytes": 11718083
+  "n_files": 472,
+  "total_bytes": 11721993
 }
