@@ -51,6 +51,13 @@ def test_direct_and_amg_cg_match_on_spd_system() -> None:
     )
 
 
+def test_ci_installs_the_amg_dependency_used_by_the_contract_suite() -> None:
+    requirements = (ROOT / "requirements-ci.txt").read_text(encoding="utf-8")
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    assert "pyamg==5.3.0" in requirements
+    assert "pyamg==5.3.0" in workflow
+
+
 def test_native_diagnostic_validate_only_is_lightweight() -> None:
     script = (
         ROOT

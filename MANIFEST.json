@@ -18,8 +18,8 @@
   "files": [
     {
       "path": ".github/workflows/ci.yml",
-      "bytes": 3416,
-      "sha256": "51dd749783aed2ae8bf5868f30c96f3357e78bc7cd84af509ffd00527a580ef9"
+      "bytes": 3429,
+      "sha256": "32fbf82127d2d1035327551d0a09341833b764a916edcb80f13a7a5293f1b856"
     },
     {
       "path": ".gitignore",
@@ -1733,8 +1733,8 @@
     },
     {
       "path": "requirements-ci.txt",
-      "bytes": 54,
-      "sha256": "4bcea311581dc98cc8259d7b8e28872aa3d5ba259def9b43a25f08a50c02c1c2"
+      "bytes": 67,
+      "sha256": "ccb277bbf3e103a5737d925d155062e0c066da700d732be312cc566d26068c7c"
     },
     {
       "path": "requirements-proof.txt",
@@ -2153,8 +2153,8 @@
     },
     {
       "path": "tests/test_fem_native_diagnostic.py",
-      "bytes": 6625,
-      "sha256": "6129339a66566f3cfe7d2399e2e8e273617260d730eb70efb9a9a038c608927f"
+      "bytes": 6942,
+      "sha256": "8201cdc4248e0a21d64e7728bd6de45f2fef0e4496b197fe57f767bd8fa6955e"
     },
     {
       "path": "tests/test_followup_protocols.py",
@@ -2378,5 +2378,5 @@
     }
   ],
   "n_files": 472,
-  "total_bytes": 11721993
+  "total_bytes": 11722336
 }

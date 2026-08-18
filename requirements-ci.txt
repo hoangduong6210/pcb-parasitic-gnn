@@ -1,4 +1,5 @@
 numpy==2.0.2
 scipy==1.13.1
+pyamg==5.3.0
 torch==2.8.0
 pytest==8.3.5
