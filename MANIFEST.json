@@ -338,8 +338,8 @@
     },
     {
       "path": "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py",
-      "bytes": 37773,
-      "sha256": "272fdef13a2609039310e7fbd309ffe027b96cc5fdd1fcbedaf2dc0e42f10b24"
+      "bytes": 39288,
+      "sha256": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c"
     },
     {
       "path": "code/experiments/proofs/build_corpus_v4_cps_candidate_index.py",
@@ -1764,7 +1764,7 @@
     {
       "path": "protocols/corpus_v4_cps_fidelity_discrepancy_v1.json",
       "bytes": 3998,
-      "sha256": "9bfc08be541ee1cc18b0a974540e776502ae7afa18a356ac85a433af30968d9f"
+      "sha256": "9c6e6483c0c86b4f737f48772b72349b9e8dcad0975d6ed60a5aaeafa6bf65e3"
     },
     {
       "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
@@ -10713,8 +10713,8 @@
     },
     {
       "path": "tests/test_cps_fidelity_discrepancy_audit.py",
-      "bytes": 6333,
-      "sha256": "667f486713cb155e13d87315420f7faf35bc1d4a5fc7a0c1d112701f3a5371a7"
+      "bytes": 7157,
+      "sha256": "2796e9b2d41f4f1eaa607b72f96f437f8b15d16f73669024da4d26cc55159043"
     },
     {
       "path": "tests/test_cps_multifidelity_plan.py",
@@ -10963,5 +10963,5 @@
     }
   ],
   "n_files": 2189,
-  "total_bytes": 54969484
+  "total_bytes": 54971823
 }

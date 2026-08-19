@@ -22,6 +22,7 @@ from audit_corpus_v4_cps_fidelity_discrepancy import (  # noqa: E402
     DiscrepancyAuditError,
     _build_pairs,
     _observation_map,
+    _scheduler_contract_matches,
     _validate_output_path,
     build_audit,
     quantile_type7,
@@ -176,3 +177,25 @@ def test_failed_non_slurm_write_does_not_create_an_output_directory(
     with pytest.raises(DiscrepancyAuditError, match="executed SLURM batch"):
         write_outputs(output, {}, "0" * 64, {}, [], [])
     assert not output.exists()
+
+
+def test_scheduler_contract_separates_requested_and_allocated_cpus() -> None:
+    fields = {
+        "AllocTRES": "cpu=3,mem=8G,node=1,billing=3",
+        "CPUs/Task": "3",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "8G",
+        "NumCPUs": "3",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=2,mem=8G,node=1,billing=2",
+        "TimeLimit": "00:15:00",
+        "TresPerTask": "cpu=2",
+    }
+    assert _scheduler_contract_matches(fields, allocated_cpus=3, memory_mib=8192)
+    assert not _scheduler_contract_matches(fields, allocated_cpus=2, memory_mib=8192)
+
+    wrong_request = dict(fields, ReqTRES="cpu=3,mem=8G,node=1,billing=3")
+    assert not _scheduler_contract_matches(
+        wrong_request, allocated_cpus=3, memory_mib=8192
+    )

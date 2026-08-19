@@ -21,7 +21,7 @@
   },
   "implementation": {
     "path": "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py",
-    "sha256": "272fdef13a2609039310e7fbd309ffe027b96cc5fdd1fcbedaf2dc0e42f10b24"
+    "sha256": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c"
   },
   "inputs": {
     "archive_manifest": {

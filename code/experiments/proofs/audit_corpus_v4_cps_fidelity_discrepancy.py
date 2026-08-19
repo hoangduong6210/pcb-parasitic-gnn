@@ -674,6 +674,42 @@ def _validate_output_path(output: Path, *, writing: bool) -> Path:
     return output
 
 
+def _parse_tres(value: Any) -> dict[str, str]:
+    if not isinstance(value, str):
+        return {}
+    return {
+        key: item
+        for token in value.split(",")
+        if "=" in token
+        for key, item in [token.split("=", 1)]
+    }
+
+
+def _scheduler_contract_matches(
+    fields: dict[str, str], *, allocated_cpus: int, memory_mib: int
+) -> bool:
+    requested_cpus = 2
+    requested_tres = _parse_tres(fields.get("ReqTRES"))
+    per_task_tres = _parse_tres(fields.get("TresPerTask"))
+    allocated_tres = _parse_tres(fields.get("AllocTRES"))
+    return (
+        fields.get("JobState") in {"RUNNING", "COMPLETING"}
+        and fields.get("Partition") == "nextgen"
+        and fields.get("TimeLimit") == "00:15:00"
+        and allocated_cpus >= requested_cpus
+        and memory_mib == 8192
+        and int(fields.get("NumCPUs", "0")) == allocated_cpus
+        and int(fields.get("NumTasks", "0")) == 1
+        and int(fields.get("CPUs/Task", "0")) == allocated_cpus
+        and requested_tres.get("cpu") == str(requested_cpus)
+        and requested_tres.get("mem") == "8G"
+        and per_task_tres.get("cpu") == str(requested_cpus)
+        and allocated_tres.get("cpu") == str(allocated_cpus)
+        and allocated_tres.get("mem") == "8G"
+        and fields.get("MinMemoryNode") == "8G"
+    )
+
+
 def _scheduler_snapshot() -> dict[str, Any]:
     job_id = os.environ.get("SLURM_JOB_ID")
     executed_batch = Path(os.environ.get("PCB_GNN_EXECUTED_BATCH_SCRIPT", ""))
@@ -690,22 +726,24 @@ def _scheduler_snapshot() -> dict[str, Any]:
         for token in query.stdout.split()
         if "=" in token
     }
+    requested_cpus = 2
+    allocated_cpus = int(os.environ.get("SLURM_CPUS_PER_TASK", "0"))
+    memory_mib = int(os.environ.get("SLURM_MEM_PER_NODE", "0"))
     if (
         query.returncode != 0
-        or fields.get("JobState") not in {"RUNNING", "COMPLETING"}
-        or fields.get("Partition") != "nextgen"
-        or fields.get("TimeLimit") != "00:15:00"
-        or int(os.environ.get("SLURM_CPUS_PER_TASK", "0")) != 2
-        or int(os.environ.get("SLURM_MEM_PER_NODE", "0")) != 8192
+        or not _scheduler_contract_matches(
+            fields, allocated_cpus=allocated_cpus, memory_mib=memory_mib
+        )
     ):
         raise DiscrepancyAuditError("SLURM allocation differs from the audit contract")
     return {
-        "allocated_cpus_per_task": int(os.environ["SLURM_CPUS_PER_TASK"]),
-        "allocated_memory_mib": int(os.environ["SLURM_MEM_PER_NODE"]),
+        "allocated_cpus_per_task": allocated_cpus,
+        "allocated_memory_mib": memory_mib,
         "executed_batch_path": executed_batch,
         "job_id": job_id,
         "job_name": fields.get("JobName"),
         "partition": fields.get("Partition"),
+        "requested_cpus_per_task": requested_cpus,
         "state_at_capture": fields.get("JobState"),
         "time_limit": fields.get("TimeLimit"),
     }
@@ -764,7 +802,7 @@ def _execution_receipt(
         "scheduler": scheduler,
         "schema": "pcb-gnn.cps-fidelity-discrepancy-execution.v1",
         "source_git_commit": git_head,
-        "source_tree_clean": True,
+        "source_code_clean": True,
         "upstream_archive_sha256": protocol["inputs"]["archive_manifest"][
             "sha256"
         ],
@@ -886,26 +924,31 @@ def check_outputs(
         != protocol["batch_script"]["sha256"]
         or receipt.get("upstream_archive_sha256")
         != summary["input_sha256"]["archive_manifest"]
-        or receipt.get("source_tree_clean") is not True
+        or receipt.get("source_code_clean") is not True
         or str(receipt.get("job_id")) != output.name.removeprefix("job_")
     ):
         raise DiscrepancyAuditError("execution receipt does not close the audit outputs")
     source_commit = receipt.get("source_git_commit")
     scheduler = receipt.get("scheduler", {})
     expected_scheduler = {
-        "allocated_cpus_per_task": 2,
         "allocated_memory_mib": 8192,
         "job_name": "pcb-v4-cps-audit",
         "partition": "nextgen",
+        "requested_cpus_per_task": 2,
         "time_limit": "00:15:00",
     }
     if (
         not isinstance(source_commit, str)
         or re.fullmatch(r"[0-9a-f]{40,64}", source_commit) is None
         or scheduler.get("state_at_capture") not in {"RUNNING", "COMPLETING"}
+        or type(scheduler.get("allocated_cpus_per_task")) is not int
+        or scheduler["allocated_cpus_per_task"]
+        < expected_scheduler["requested_cpus_per_task"]
         or {key: scheduler.get(key) for key in expected_scheduler}
         != expected_scheduler
-        or set(scheduler) != set(expected_scheduler) | {"state_at_capture"}
+        or set(scheduler)
+        != set(expected_scheduler)
+        | {"allocated_cpus_per_task", "state_at_capture"}
     ):
         raise DiscrepancyAuditError("execution receipt scheduler/source contract is invalid")
     for relative, expected_hash in (
