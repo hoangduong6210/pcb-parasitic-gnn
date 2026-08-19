@@ -104,6 +104,7 @@ top-level README).
 | `build_corpus_v4_cps_candidate_index.py` | Hashes completed task artifacts from explicit job attempt directories for resume validation | `corpus_v4/cps_multifidelity/index` |
 | `plan_corpus_v4_cps_resume.py` | Validates explicitly indexed attempts by byte hash and full content, rejects ambiguous duplicates, and emits accepted/pending registries | `corpus_v4/cps_multifidelity/resume` |
 | `finalize_corpus_v4_cps_multifidelity.py` | SLURM-only exact-coverage finalizer; emits long-form fidelity observations without a ground-truth column | `corpus_v4/cps_multifidelity/final` |
+| `audit_corpus_v4_cps_fidelity_discrepancy.py` | Deterministic family-aware R3/R4 pairing and descriptive audit; writes only from a clean, pinned SLURM job | `corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1` |
 
 The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
 path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest
@@ -141,7 +142,7 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
 | `quality/verify_corpora.py` | Verifies SHA-256 identities for the v1/v2 claim corpora; optionally requires the large layout files |
 | `quality/verify_corpus_v4_archive.py` | Verifies the source commit, frozen plan chain, 1,698 accepted task records, and finalized explicit-fidelity observation table without running a solver |
-| `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, and deterministic prose-style checks |
+| `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, sensitive-identifier exclusion, and deterministic prose-style checks across the full and summary papers |
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
 | `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |

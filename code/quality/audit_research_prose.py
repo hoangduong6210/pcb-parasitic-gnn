@@ -38,6 +38,7 @@ JOB_REFERENCE = re.compile(
     re.IGNORECASE,
 )
 TABLE_SEPARATOR = re.compile(r"^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*$")
+RAW_DOUBLE_HYPHEN = re.compile(r"(?<!-)--(?!-)")
 
 
 def parse_front_matter(text: str) -> tuple[dict[str, str], str]:
@@ -92,7 +93,7 @@ def audit_page(path: Path) -> list[str]:
 
     prose = prose_only(body)
     lowered = prose.lower()
-    if "--" in prose:
+    if RAW_DOUBLE_HYPHEN.search(prose):
         errors.append("raw double hyphen appears in prose")
     for phrase in FLAGGED_PHRASES:
         if phrase in lowered:
@@ -100,12 +101,31 @@ def audit_page(path: Path) -> list[str]:
     for placeholder in PLACEHOLDERS:
         if re.search(rf"\b{re.escape(placeholder)}\b", lowered):
             errors.append(f"unresolved placeholder: {placeholder!r}")
-    if PRIVATE_PATH.search(prose):
+    if PRIVATE_PATH.search(body):
         errors.append("private absolute path appears in paper-source prose")
-    if JOB_REFERENCE.search(prose):
+    if JOB_REFERENCE.search(body):
         errors.append("raw scheduler identifier appears in paper-source prose")
     if repeated_paragraphs(body):
         errors.append("repeated long paragraph appears in page")
+    return errors
+
+
+def audit_latex(path: Path) -> list[str]:
+    if not path.is_file():
+        return []
+    errors: list[str] = []
+    tex = path.read_text(encoding="utf-8")
+    lowered = tex.lower()
+    if RAW_DOUBLE_HYPHEN.search(tex):
+        errors.append("raw double hyphen appears in LaTeX")
+    for phrase in FLAGGED_PHRASES:
+        if phrase in lowered:
+            errors.append(f"flagged templated phrase {phrase!r}")
+    for placeholder in PLACEHOLDERS:
+        if re.search(rf"\b{re.escape(placeholder)}\b", lowered):
+            errors.append(f"unresolved placeholder {placeholder!r}")
+    if PRIVATE_PATH.search(tex) or JOB_REFERENCE.search(tex):
+        errors.append("internal path or scheduler identifier appears")
     return errors
 
 
@@ -115,26 +135,10 @@ def main() -> int:
         for error in audit_page(path):
             failures.append(f"{path.relative_to(ROOT)}: {error}")
 
-    full_paper = ROOT / "Paper_Full/main.tex"
-    if full_paper.is_file():
-        tex = full_paper.read_text(encoding="utf-8")
-        lowered = tex.lower()
-        if "--" in tex:
-            failures.append("Paper_Full/main.tex: raw double hyphen appears in LaTeX")
-        for phrase in FLAGGED_PHRASES:
-            if phrase in lowered:
-                failures.append(
-                    f"Paper_Full/main.tex: flagged templated phrase {phrase!r}"
-                )
-        for placeholder in PLACEHOLDERS:
-            if re.search(rf"\b{re.escape(placeholder)}\b", lowered):
-                failures.append(
-                    f"Paper_Full/main.tex: unresolved placeholder {placeholder!r}"
-                )
-        if PRIVATE_PATH.search(tex) or JOB_REFERENCE.search(tex):
-            failures.append(
-                "Paper_Full/main.tex: internal path or scheduler identifier appears"
-            )
+    for relative in ("Paper_Full/main.tex", "Paper_Summary/main.tex"):
+        path = ROOT / relative
+        for error in audit_latex(path):
+            failures.append(f"{relative}: {error}")
 
     if failures:
         print("Research prose audit failed:", file=sys.stderr)

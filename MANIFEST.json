@@ -5,14 +5,14 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 180,
+    "code": 182,
     "datasets": 12,
     "figures": 12,
     "logs": 108,
-    "protocols": 3,
+    "protocols": 4,
     "results": 1777,
     "root": 10,
-    "tests": 22,
+    "tests": 24,
     "wiki": 34
   },
   "files": [
@@ -183,8 +183,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 11655,
-      "sha256": "c155f06274357df9478335bec1c5993eddd2f9835d55a83fc17c3f6da5db80ee"
+      "bytes": 11941,
+      "sha256": "fdffce0c6aad15609f080725b71378685d8dce299f01fd11ef65276f7942847c"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -335,6 +335,11 @@
       "path": "code/experiments/labels/fem_validate_total.py",
       "bytes": 4245,
       "sha256": "28a8b7d6072f9c3363b321de3c19ea77749a76dfa4375dde7a9ca13edb9fad7c"
+    },
+    {
+      "path": "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py",
+      "bytes": 37773,
+      "sha256": "272fdef13a2609039310e7fbd309ffe027b96cc5fdd1fcbedaf2dc0e42f10b24"
     },
     {
       "path": "code/experiments/proofs/build_corpus_v4_cps_candidate_index.py",
@@ -702,6 +707,11 @@
       "sha256": "30b9eace5a6348126ff25af7e65046fc8a7753beaf5b57a7e1a645a0916cbe72"
     },
     {
+      "path": "code/jobs/submit_corpus_v4_cps_fidelity_discrepancy.sh",
+      "bytes": 735,
+      "sha256": "7a77dc888b27209fc5780d5b5c0aec49f06186a28de241c027accd96763f2ba6"
+    },
+    {
       "path": "code/jobs/submit_corpus_v4_cps_r3.sh",
       "bytes": 2076,
       "sha256": "4bac6ed7729d8463eda31120aa76b1f74e68077a9f758d65cec3208afb271c41"
@@ -998,8 +1008,8 @@
     },
     {
       "path": "code/quality/audit_research_prose.py",
-      "bytes": 5193,
-      "sha256": "1d5b151a5a1903bd66ba4d804f64bc9dcc30e6514c1b51b1357d5901470b266f"
+      "bytes": 5277,
+      "sha256": "2ce5284757ac0bd513f87ca6adb0ec6b5779990bc768a50c39d9f07b840fff6d"
     },
     {
       "path": "code/quality/build_manifest.py",
@@ -1750,6 +1760,11 @@
       "path": "protocols/corpus_v4_cps_execution_lock_v2.json",
       "bytes": 2335,
       "sha256": "111ff2347f74afd4a280cc21b8a337387f982341367e6b73550794b13089f081"
+    },
+    {
+      "path": "protocols/corpus_v4_cps_fidelity_discrepancy_v1.json",
+      "bytes": 3998,
+      "sha256": "9bfc08be541ee1cc18b0a974540e776502ae7afa18a356ac85a433af30968d9f"
     },
     {
       "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
@@ -10697,6 +10712,11 @@
       "sha256": "5182e0c8ba34fdc21e74a3febf80f295bc1d0bfc8ed32b4649255c313ab79a70"
     },
     {
+      "path": "tests/test_cps_fidelity_discrepancy_audit.py",
+      "bytes": 6333,
+      "sha256": "667f486713cb155e13d87315420f7faf35bc1d4a5fc7a0c1d112701f3a5371a7"
+    },
+    {
       "path": "tests/test_cps_multifidelity_plan.py",
       "bytes": 8385,
       "sha256": "0d18817a73eed625f110fcbf6ac70e88501acffaa9af3d803ef73733d57d4960"
@@ -10745,6 +10765,11 @@
       "path": "tests/test_reproducibility_contracts.py",
       "bytes": 5367,
       "sha256": "ae7e541cd861fa3c54f3539ece25761d78084099524fc003715caf95686261e8"
+    },
+    {
+      "path": "tests/test_research_prose_audit.py",
+      "bytes": 1451,
+      "sha256": "d33b192a17e8408d57a7bc373a4dfbf72320058f8afa47e138d0e19f693efa85"
     },
     {
       "path": "tests/test_strict_egnn_ablation.py",
@@ -10937,6 +10962,6 @@
       "sha256": "157b94a080a12771fe2662b8f319b38ecd26e6b786807e8c1191df109df1e77d"
     }
   ],
-  "n_files": 2184,
-  "total_bytes": 54918824
+  "n_files": 2189,
+  "total_bytes": 54969484
 }

@@ -1,0 +1,93 @@
+{
+  "batch_script": {
+    "path": "code/jobs/submit_corpus_v4_cps_fidelity_discrepancy.sh",
+    "sha256": "7a77dc888b27209fc5780d5b5c0aec49f06186a28de241c027accd96763f2ba6"
+  },
+  "definitions": {
+    "absolute_delta_percent": "abs(signed_delta_percent)",
+    "log_r3_to_r4_ratio": "ln(C_R3P16/C_R4P16)",
+    "quantile_method": "Hyndman-Fan type 7: linear interpolation at (n-1)*p",
+    "r3_to_r4_ratio": "C_R3P16/C_R4P16",
+    "signed_delta_percent": "100*(C_R3P16-C_R4P16)/abs(C_R4P16)"
+  },
+  "design": {
+    "anchor_selections": 9,
+    "families": 66,
+    "matched_layouts": 198,
+    "non_anchor_selections": 189,
+    "selected_per_family": 3,
+    "split_seeds": [40, 41, 42, 43, 44],
+    "test_families_per_split": 13
+  },
+  "implementation": {
+    "path": "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py",
+    "sha256": "272fdef13a2609039310e7fbd309ffe027b96cc5fdd1fcbedaf2dc0e42f10b24"
+  },
+  "inputs": {
+    "archive_manifest": {
+      "path": "results/corpus_v4/cps_multifidelity/ARCHIVE_MANIFEST.json",
+      "sha256": "567c1187ca74e0148691b9ac464a51f5fd014862e2c120d03963b2eacc681505"
+    },
+    "final_observations": {
+      "path": "results/corpus_v4/cps_multifidelity/final/job_6893754/label_observations.jsonl",
+      "sha256": "c17f71187e31fd10152ac0b459694a022be0d41b132ed7c5992d94d96219795b"
+    },
+    "final_summary": {
+      "path": "results/corpus_v4/cps_multifidelity/final/job_6893754/summary.json",
+      "sha256": "5f3a9158eac1cab5289ceddafba0037b37daecafc88d8eed01179b8dfdd457c6"
+    },
+    "geometry_families": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/geometry_families.jsonl",
+      "sha256": "adb015939c5dcc29f63e5068e843c65bacde046591f30619612a15ebd3c6589d"
+    },
+    "hf_selection_registry": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/hf_selection_registry.json",
+      "sha256": "675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9"
+    },
+    "multifidelity_protocol": {
+      "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
+      "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
+    },
+    "plan": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/plan.json",
+      "sha256": "419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a"
+    },
+    "split_registry": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/split_registry.json",
+      "sha256": "c30e06e33a58f03336c02d04fc9081d58ac7663338afe355610cfc0fdc7aa641"
+    }
+  },
+  "pairing": {
+    "denominator_role": "higher_resolution_comparator_not_truth",
+    "identity": ["layout_id", "geometry_sha256"],
+    "r3_fidelity_id": "cps_fem_r3_p16",
+    "r4_fidelity_id": "cps_fem_r4_p16"
+  },
+  "protocol_name": "corpus-v4-cps-fidelity-discrepancy-v1",
+  "reporting": {
+    "anchor_strata": true,
+    "family_level_median_and_maximum": true,
+    "primary_distribution": "exact_family_balanced_selected_registry",
+    "probability_weighting": false,
+    "split_test_views": "overlapping_sensitivity_views_not_independent_replicates",
+    "uncertainty_interval": "none_nonprobability_deterministic_selection"
+  },
+  "schema": "pcb-gnn.cps-fidelity-discrepancy-protocol.v1",
+  "scientific_semantics": {
+    "anchor_selection_note": "Nine anchors were inherited from an earlier convergence selection that used capacitance order statistics; the other 189 selections used geometry only.",
+    "audit_timing": "The descriptive contract was frozen after the solver outcomes existed; no threshold or hypothesis is called predeclared.",
+    "descriptive_only": true,
+    "family_expansion_weight_is_probability": false,
+    "forbidden_claims": [
+      "continuum_convergence",
+      "corpus_wide_confidence_interval",
+      "global_r3_calibration",
+      "ground_truth",
+      "independent_split_replicates",
+      "physical_accuracy"
+    ],
+    "no_exclusions_after_discrepancy": true,
+    "r4_is_higher_resolution_not_truth": true,
+    "selected_registry_scope_only": true
+  }
+}
