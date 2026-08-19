@@ -1,0 +1,58 @@
+{
+  "analysis_id": "corpus-v4-cps-r3-r4-discrepancy-v1",
+  "execution": {
+    "job_id": "6894098",
+    "source_git_commit": "f0f60cdf67daf3df6973185d353836677163c02e"
+  },
+  "files": {
+    "batch_script": {
+      "path": "code/jobs/submit_corpus_v4_cps_fidelity_discrepancy.sh",
+      "sha256": "7a77dc888b27209fc5780d5b5c0aec49f06186a28de241c027accd96763f2ba6"
+    },
+    "execution_receipt": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_6894098/execution_receipt.json",
+      "sha256": "7bea6e9e5f91ae7245e3fa61ba763af6d6640329184fce542f22844271d52ec2"
+    },
+    "family_summaries": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_6894098/family_summaries.jsonl",
+      "sha256": "1c937f87086c569b8ddb2bcfb73d6f5bc8e489e374d05ca8d61512b6b5dfd25e"
+    },
+    "implementation": {
+      "path": "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py",
+      "sha256": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c"
+    },
+    "failed_attempt_stdout": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/operations/job_6894034.stdout.txt",
+      "sha256": "70a0c939b97c35b20bb98fc5ece4f676a06a952e782c5dd6c246b6971e31238b"
+    },
+    "matched_pairs": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_6894098/matched_pairs.jsonl",
+      "sha256": "95813cc51766391822cc77fc5334a980e596c6a09d4ab8f0eafc3544a27d30fd"
+    },
+    "protocol": {
+      "path": "protocols/corpus_v4_cps_fidelity_discrepancy_v1.json",
+      "sha256": "9c6e6483c0c86b4f737f48772b72349b9e8dcad0975d6ed60a5aaeafa6bf65e3"
+    },
+    "scheduler_completion": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/scheduler_completion.json",
+      "sha256": "dd53a659ca3d1086a03fc94c239954f25295a24023e5494c92a914ee1a5d33da"
+    },
+    "submission_history": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/operations/submission_history.json",
+      "sha256": "0b2d3af33db7fb55186fcdf954ef02e62c1ce80132ae28d4943a585a1c94eac1"
+    },
+    "successful_attempt_stdout": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/operations/job_6894098.stdout.txt",
+      "sha256": "30a0df288a51d76932ea5c08fe58605d7e47d58a06052dcd19a97e45a75873f3"
+    },
+    "summary": {
+      "path": "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_6894098/summary.json",
+      "sha256": "1a545715e05d4758778b78580e8c27d249a265c880212740c8dcedd6804c1c08"
+    },
+    "upstream_archive": {
+      "path": "results/corpus_v4/cps_multifidelity/ARCHIVE_MANIFEST.json",
+      "sha256": "567c1187ca74e0148691b9ac464a51f5fd014862e2c120d03963b2eacc681505"
+    }
+  },
+  "schema": "pcb-gnn.cps-fidelity-discrepancy-analysis-manifest.v1"
+}

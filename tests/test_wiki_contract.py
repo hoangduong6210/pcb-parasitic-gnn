@@ -53,6 +53,7 @@ REQUIRED_PAGES = (
     "operations/SLURM-Resource-Plan.md",
     "operations/SLURM-Submission-Playbook.md",
     "references/Technical-Source-Map.md",
+    "results/Cps-R3-R4-Production-Discrepancy.md",
     "results/FEM-R3-R4-Convergence.md",
     "status/Live-Execution.md",
     "status/Project-Status.md",
@@ -78,6 +79,20 @@ EXPECTED_RESULT_ROWS = (
     "| Refine-3, 12 versus 16 mm padding | 0.189658% | 2.491566% | Pass |",
     "| Refine-3 versus refine-4 at 16 mm | 8.273879% | 13.886399% | Reject |",
 )
+DISCREPANCY_ARTIFACT = (
+    ROOT
+    / "results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/"
+    "v1/job_6894098/summary.json"
+)
+EXPECTED_DISCREPANCY = {
+    "count": Decimal("198"),
+    "median": Decimal("8.479391982064804"),
+    "mean": Decimal("8.84899205282953"),
+    "q90": Decimal("11.567606378969291"),
+    "q95": Decimal("12.53254004907405"),
+    "min": Decimal("2.753572170580615"),
+    "max": Decimal("17.516912882684615"),
+}
 
 # A numeric token alone is not enough to identify a scheduler job. These
 # patterns therefore require scheduler/job context and avoid false positives on
@@ -249,6 +264,33 @@ def test_wiki_reports_exact_convergence_metrics() -> None:
     for metrics in EXPECTED_CONVERGENCE.values():
         for value in metrics.values():
             assert f"{value:.6f}%" in manuscript_page
+
+
+def test_wiki_reports_exact_selected_registry_discrepancy() -> None:
+    artifact = json.loads(DISCREPANCY_ARTIFACT.read_text(encoding="utf-8"))
+    selected = artifact["metrics"]["selected_set"]
+    absolute = selected["absolute_delta_percent"]
+    for metric_name, expected_value in EXPECTED_DISCREPANCY.items():
+        assert Decimal(str(absolute[metric_name])) == expected_value
+    assert selected["direction_counts"]["r3_greater_than_r4"] == 198
+    assert artifact["counts"] == {
+        "families": 66,
+        "mandatory_anchors": 9,
+        "matched_pairs": 198,
+        "non_anchor_selections": 189,
+        "split_test_pairs_per_seed": [39],
+    }
+
+    result_page = _read("wiki/results/Cps-R3-R4-Production-Discrepancy.md")
+    for exact_text in (
+        "Median absolute discrepancy | 8.479%",
+        "Mean absolute discrepancy | 8.849%",
+        "90th percentile | 11.568%",
+        "95th percentile | 12.533%",
+        "Observed range | 2.754% to 17.517%",
+        "R3 greater than R4 | 198 of 198",
+    ):
+        assert exact_text in result_page
 
 
 @pytest.mark.parametrize(

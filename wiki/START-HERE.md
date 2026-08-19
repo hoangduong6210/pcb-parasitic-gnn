@@ -15,10 +15,11 @@ geometries: inter-winding capacitance, primary and secondary self-inductance,
 and winding mutual inductance. It does not yet claim hardware-calibrated
 parasitic extraction for arbitrary routed boards.
 
-The current work repairs the geometry and label weaknesses discovered after the
-conference snapshot. Corpus v3 supplies geometry-valid layouts and inductance
-observations. Corpus v4 adds explicit capacitance fidelities and a family-aware
-evaluation protocol.
+The conference snapshot was a rapid feasibility study. The current program
+extends it with production-oriented geometry, passivity, family-split,
+multi-fidelity, and provenance contracts. Corpus v3 supplies geometry-valid
+layouts and inductance observations. Corpus v4 adds explicit capacitance
+fidelities and a family-aware evaluation protocol.
 
 ## Read these five pages first
 

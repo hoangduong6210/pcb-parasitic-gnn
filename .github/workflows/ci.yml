@@ -49,6 +49,10 @@ jobs:
         run: >-
           python code/quality/verify_corpus_v4_archive.py
           --require-git-tracked
+      - name: Verify tracked Corpus v4 R3/R4 discrepancy archive
+        run: >-
+          python code/quality/verify_corpus_v4_discrepancy_archive.py
+          --require-git-tracked
       - name: Validate SLURM-only CLIs without computation
         run: |
           source code/env.sh

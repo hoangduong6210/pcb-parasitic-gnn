@@ -64,10 +64,16 @@ replace FEM-R4P16 with FEM-R3P16.
 
 ## Higher-fidelity subset
 
-The validation subset is chosen without reading labels. Families are defined by
-the unordered turn-count pair. Three geometrically diverse designs are selected
-per family using geometry-only descriptors and deterministic hash tie-breaking.
-All nine layouts from the frozen convergence study are mandatory anchors. The
-resulting registry contains 198 unique designs across 66 families and is hashed
-before any new solve begins. The registry is now finalized with 198 unique
-designs, all 66 families, and all nine mandatory convergence anchors.
+Families are defined by the unordered turn-count pair. The registry retains all
+nine layouts from the frozen convergence study as mandatory anchors. Their
+earlier selection used capacitance order statistics. The remaining 189 entries
+are selected with geometry-only descriptors and deterministic hash
+tie-breaking, yielding three designs per family. The complete registry contains
+198 unique designs across 66 families and was hashed before the production R4
+solves. No newly observed R3/R4 discrepancy was used to alter membership.
+
+The completed production audit found FEM-R3P16 greater than FEM-R4P16 in all
+198 matched entries. The selected-registry median relative discrepancy was
+8.479%, with an observed range of 2.754% to 17.517%. These values describe the
+exact deterministic panel; they are not a probability-sampled estimate for the
+full corpus and do not establish R4 as truth.

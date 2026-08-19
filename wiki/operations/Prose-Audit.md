@@ -25,11 +25,13 @@ packages.
 - repeated paragraphs;
 - scheduler identifiers and private filesystem paths;
 - missing `prose_reviewed: true` metadata; and
-- private paths or scheduler identifiers in `Paper_Full/main.tex`.
+- private paths or scheduler identifiers in `Paper_Full/main.tex` and
+  `Paper_Summary/main.tex`.
 
 Code blocks, command-line flags, Markdown table separators, and front matter are
-excluded from punctuation checks. The audit is a style and packaging safeguard,
-not a semantic authorship classifier.
+excluded from punctuation checks. Sensitive-identifier checks still inspect the
+complete page body, including inline and fenced code. The audit is a style and
+packaging safeguard, not a semantic authorship classifier.
 
 ## Human gate
 

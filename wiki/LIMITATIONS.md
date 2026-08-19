@@ -1,10 +1,10 @@
 ---
 title: Limitations
 status: canonical
-last_updated: 2026-08-15
+last_updated: 2026-08-19
 paper_source: true
 prose_reviewed: true
-claim_ids: C-GEOM-001, C-FEM-003, C-ACC-001, C-LAT-001
+claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-LAT-001
 ---
 
 # Limitations
@@ -25,3 +25,8 @@ claim_ids: C-GEOM-001, C-FEM-003, C-ACC-001, C-LAT-001
 7. Confidence intervals from design, family, split, and initialization
    resampling do not include cross-machine or fabrication uncertainty unless
    explicitly stated.
+8. The 198-layout R3/R4 registry is deterministic rather than probability
+   sampled. Nine anchors were inherited from a convergence selection that used
+   capacitance order statistics, while 189 entries were selected from geometry
+   descriptors. Its discrepancy summaries describe that panel and do not
+   support a full-corpus confidence interval or global correction.

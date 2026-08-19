@@ -214,6 +214,35 @@ lock-v1 artifact set.
 This incident repeats the remote-submit lesson in `E-C4-SUBMIT-01`: `--chdir`
 does not rewrite `SLURM_SUBMIT_DIR`, so the helper path must be absolute.
 
+## E-C4-DISC-01 — Family-aware production R3/R4 discrepancy
+
+| Field | Value |
+|---|---|
+| Lifecycle | `ADMITTED DESCRIPTIVE RESULT` |
+| Successful audit job | `6894098`, `COMPLETED 0:0`, 7 s on `nextgen` |
+| Requested and allocated resources | 2 CPU and 8 GiB requested; 3 CPU and 8 GiB allocated; batch peak RSS 97,956 KiB |
+| Source commit | `f0f60cdf67daf3df6973185d353836677163c02e` |
+| Analysis manifest | [Derived archive manifest](../../results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/ANALYSIS_MANIFEST.json), SHA-256 `ae3859cc6004f5edf01053813f8237ca0b98e68d6cb634a8f200aeed74e03d40` |
+| Summary | [Job-backed discrepancy summary](../../results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_6894098/summary.json), SHA-256 `1a545715e05d4758778b78580e8c27d249a265c880212740c8dcedd6804c1c08` |
+| Protocol SHA-256 | `9c6e6483c0c86b4f737f48772b72349b9e8dcad0975d6ed60a5aaeafa6bf65e3` |
+| Implementation SHA-256 | `ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c` |
+| Executed batch-script SHA-256 | `7a77dc888b27209fc5780d5b5c0aec49f06186a28de241c027accd96763f2ba6` |
+| Upstream archive-manifest SHA-256 | `567c1187ca74e0148691b9ac464a51f5fd014862e2c120d03963b2eacc681505` |
+| Coverage | 198 matched layouts; 66 families; three layouts per family; 9 mandatory anchors and 189 non-anchor selections |
+| Direction | FEM-R3P16 greater than FEM-R4P16 in 198 of 198 pairs |
+| Absolute discrepancy | Median 8.479391982%; mean 8.848992052%; range 2.753572171% to 17.516912883%; 90th percentile 11.567606379%; 95th percentile 12.532540049% |
+| Family summary | Median of the 66 family medians 8.467535812% |
+| Failed-closed predecessor | Job `6894034`, no scientific artifact; the first gate rejected an allocated count of 3 CPUs even though the request remained 2 CPUs under the site memory-per-CPU policy |
+| Supported claim | `C-CPS-DISC-001` |
+
+The deterministic selected registry is not a probability sample. Nine anchors
+were inherited from an earlier selection that used capacitance order
+statistics; the remaining 189 entries were selected from geometry descriptors.
+No new R3/R4 discrepancy was used for selection. The analysis supplies no
+confidence interval, population estimate, global correction, continuum claim,
+or physical-accuracy claim. Its five overlapping split-test panels are
+sensitivity views rather than independent replicates.
+
 ## E-V2-PROOF-01: Historical accuracy and paired timing proof
 
 | Field | Value |

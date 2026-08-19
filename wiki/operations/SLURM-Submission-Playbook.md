@@ -587,3 +587,50 @@ not evidence that the solver or cluster is broken.
 4. Keep job IDs, private paths, logs, and internal diagnostics out of every page
    marked `paper_source: true` and out of manuscript packages.
 5. Admit paper claims only through human review of the finalized wiki evidence.
+
+## 14. Submit the derived R3/R4 discrepancy audit
+
+Run this stage only after the joint R3/R4 archive verifier passes. The audit is
+lightweight, but its scientific output is still created under SLURM so every
+reported value resolves to a job-scoped receipt. Use the reviewed source commit
+and a detached clean worktree:
+
+```bash
+AUDIT_RUN_ROOT=/absolute/path/to/cps-discrepancy-audit-worktree
+AUDIT_SOURCE_COMMIT=f0f60cdf67daf3df6973185d353836677163c02e
+AUDIT_PYTHON=/absolute/path/to/the/pinned/python
+git worktree add --detach "$AUDIT_RUN_ROOT" "$AUDIT_SOURCE_COMMIT"
+AUDIT_JOB_ENV="$AUDIT_RUN_ROOT/code/jobs/slurm_job_env.sh"
+git -C "$AUDIT_RUN_ROOT" status --porcelain
+python3 "$AUDIT_RUN_ROOT/code/quality/verify_corpus_v4_archive.py" \
+  --root "$AUDIT_RUN_ROOT" --require-git-tracked
+AUDIT_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --chdir="$AUDIT_RUN_ROOT" \
+  --export=ALL,PCB_GNN_JOB_ENV="$AUDIT_JOB_ENV",PCB_GNN_PYTHON="$AUDIT_PYTHON" \
+  "$AUDIT_RUN_ROOT/code/jobs/submit_corpus_v4_cps_fidelity_discrepancy.sh")
+```
+
+The site memory-per-CPU policy may allocate more than the requested two CPUs.
+The frozen gate therefore requires `ReqTRES` and `TresPerTask` to preserve the
+two-CPU request while requiring `AllocTRES`, `NumCPUs`, and
+`SLURM_CPUS_PER_TASK` to agree on an allocation of at least two CPUs. It also
+requires 8 GiB, the `nextgen` partition, a 15-minute time limit, and the expected
+job name.
+
+An empty queue is not completion evidence. Inspect accounting and validate the
+job directory before constructing the derived analysis manifest:
+
+```bash
+sacct -X -n -P -j "$AUDIT_JOB_ID" \
+  --format=JobID,JobName,State,ExitCode,Elapsed,ReqTRES,AllocTRES,MaxRSS
+python3 "$AUDIT_RUN_ROOT/code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py" \
+  --protocol "$AUDIT_RUN_ROOT/protocols/corpus_v4_cps_fidelity_discrepancy_v1.json" \
+  --output "$AUDIT_RUN_ROOT/results/corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1/job_${AUDIT_JOB_ID}" \
+  --check
+```
+
+Keep failed-closed attempts in the non-paper operational history. The admitted
+archive must contain one exact successful job directory, normalized scheduler
+completion, a hash-pinned submission history, and an analysis manifest. After
+those files are committed, run the tracked clean-clone verifier in Section 13's
+closeout environment.

@@ -17,17 +17,23 @@ Current evidence is admitted only in this order:
    and mesh rejection;
 5. immutable geometry-family and split registries — complete;
 6. a fidelity-explicit Cps corpus: 1,500 R3 and 198 R4 observations jointly finalized;
-7. declared multi-split/multi-initialization accuracy runs on that frozen corpus;
-8. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
+7. a family-aware descriptive R3/R4 discrepancy audit on the frozen 198-layout
+   registry — complete;
+8. declared multi-split/multi-initialization accuracy runs on that frozen corpus;
+9. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;
-9. figures and manuscript tables generated only from accepted wiki content.
+10. figures and manuscript tables generated only from accepted wiki content.
 
 Each current number must resolve to a job-scoped result, raw record, immutable
 input hash, source commit, source-file hash map, executable hash, arguments, and
 environment record. Current admitted numerical evidence includes the finalized
 geometry corpus, native AMG-CG diagnostic, refine-4 feasibility checks, the
 frozen refine-3/refine-4 negative convergence result, and the finalized
-fidelity-explicit Cps package. The domain comparison
+fidelity-explicit Cps package. The selected-registry discrepancy audit is also
+admitted as a descriptive result: all 198 R3 observations exceeded their paired
+R4 observations, with a median relative discrepancy of 8.479% and an observed
+range of 2.754% to 17.517%. The deterministic registry is not a probability
+sample, and R4 is not treated as truth. The domain comparison
 passed at 0.189658% median and 2.491566% maximum; the mesh comparison was
 rejected at 8.273879% median and 13.886399% maximum.
 

@@ -1,0 +1,13 @@
+{
+  "allocated_cpus": 3,
+  "batch_max_rss_kib": 97956,
+  "elapsed_seconds": 7,
+  "exit_code": "0:0",
+  "job_id": "6894098",
+  "job_name": "pcb-v4-cps-audit",
+  "partition": "nextgen",
+  "requested_cpus": 2,
+  "requested_memory_gib": 8,
+  "schema": "pcb-gnn.slurm-completion-receipt.v1",
+  "state": "COMPLETED"
+}

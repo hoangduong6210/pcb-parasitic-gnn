@@ -43,12 +43,24 @@ Recomputing the numerical observations still requires the pinned scientific
 environment and SLURM allocations. The finalizer itself is SLURM-only and
 replays against [`datasets/corpus_v3`](../datasets/corpus_v3/README.md).
 
+The derived R3/R4 audit is independently hash-closed. The scientific R3 and R4
+outcomes were produced by the recorded SLURM solver jobs. The lightweight
+clean-clone verifier does not rerun those solvers; it checks the upstream
+1,698-record archive, recomputes all 198 matched-pair and 66-family tables,
+byte-compares the derived outputs, validates source and scheduler receipts, and
+rejects extra or untracked artifacts:
+
+```bash
+python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
+```
+
 ## Heavy-stage resource contracts
 
 | Stage | Planned allocation | Concurrency |
 |---|---|---:|
 | FEM-R3P16 bulk, 1,500 layouts — completed | 25 CPU, 48 GiB, 2 h per layout | 8 |
 | FEM-R4P16 validation, 198 layouts — completed | 25 CPU, 160 GiB, 3 h per layout | 2 |
+| R3/R4 selected-registry audit — completed | 2 CPU, 8 GiB, 5 min | 1 |
 | Multi-seed training | 8 CPU, 48 GiB, 4 h per arm bundle | 5 |
 
 Resource caps are part of the frozen protocol. A cap failure is an infeasibility

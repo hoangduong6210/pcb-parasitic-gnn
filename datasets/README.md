@@ -39,6 +39,16 @@ comparison failed (median 8.273879%, maximum 13.886399%). Therefore
 `FEM-R3P16` is not described as mesh-converged and neither fidelity is described
 as physical ground truth.
 
+The 198-layout R4 registry contains three entries from each of 66 swap-closed
+turn-count families. It preserves nine mandatory anchors from the earlier
+convergence design, whose selection used capacitance order statistics; the
+other 189 entries were selected with geometry-only descriptors. No production
+R3/R4 discrepancy was used to alter the registry. On this exact deterministic
+panel, all 198 R3 values exceeded their paired R4 values. The median relative
+discrepancy was 8.479%, with an observed range of 2.754% to 17.517%. These
+descriptive values are not a probability-sampled full-corpus estimate or a
+global correction.
+
 The finalized multi-fidelity outputs preserve each observation in long form with its
 geometry hash, fidelity ID, solver settings, residual, resource record, source
 identity, environment, and artifact hash. Missing higher-fidelity observations

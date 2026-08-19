@@ -1,0 +1,27 @@
+{
+  "attempts": [
+    {
+      "job_created": false,
+      "outcome": "REJECTED_BEFORE_SUBMISSION",
+      "reason": "The site requires an explicit account flag."
+    },
+    {
+      "elapsed_seconds": 7,
+      "exit_code": "1:0",
+      "job_id": "6894034",
+      "outcome": "FAILED_CLOSED",
+      "reason": "The first source contract required allocated CPUs to equal requested CPUs; Nextgen allocated three CPUs for the two-CPU, 8-GiB request.",
+      "scientific_artifacts_written": false,
+      "source_git_commit": "af1c55a7c1280c6f4818ca153187a653ace9fd0f"
+    },
+    {
+      "elapsed_seconds": 7,
+      "exit_code": "0:0",
+      "job_id": "6894098",
+      "outcome": "COMPLETED",
+      "scientific_artifacts_written": true,
+      "source_git_commit": "f0f60cdf67daf3df6973185d353836677163c02e"
+    }
+  ],
+  "schema": "pcb-gnn.cps-fidelity-discrepancy-submission-history.v1"
+}

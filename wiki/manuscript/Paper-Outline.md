@@ -16,7 +16,7 @@ content. It is not a draft response to reviewers.
 | Problem definition and scope | Research System Map, Dataset Registry, Glossary | Scope and exclusions explicit |
 | Geometry and graph representation | Corpus and Target Contract, Graph Surrogate | Geometry contract finalized |
 | Inductance reference | FastHenry Inductance | Current-corpus validation admitted |
-| Capacitance reference | FEM Cps Reference and FEM R3/R4 Convergence | Negative mesh result retained |
+| Capacitance reference | FEM Cps Reference, FEM R3/R4 Convergence, and Cps R3/R4 Production Discrepancy | Negative mesh result and selected-registry discrepancy retained |
 | Dataset and splits | Dataset Registry and Geometry Family Splits | Multi-fidelity finalizer complete |
 | GNN and strict E(3) model | Graph Surrogate and Strict E3 and EGNN | Separate property from accuracy effect |
 | Accuracy experiments | Future current-corpus result page | Crossed split and initialization protocol complete |

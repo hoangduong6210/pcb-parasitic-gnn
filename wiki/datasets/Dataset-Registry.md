@@ -17,12 +17,15 @@ latency claim.
 | `D-V1` | `synth_v1` | Message-passing and scaling feasibility | Historical analytical-teacher study |
 | `D-V2` | `synth_v2` | Submitted solver-surrogate feasibility | Archived feasibility snapshot; scope-bound claims only |
 | `D-C3` | `corpus_v3` | Geometry-contract repair over 1,500 layouts | Geometry root validated; inherited capacitance fidelity is not mesh-converged |
-| `D-C4` | `corpus_v4` | Multi-fidelity capacitance package on the accepted v3 geometry root | Finalized: 1,500 R3 and 198 R4 explicit-fidelity observations |
+| `D-C4` | `corpus_v4` | Multi-fidelity capacitance package on the accepted v3 geometry root | Finalized: 1,500 R3 and 198 R4 observations; selected-registry discrepancy admitted descriptively |
 | `D-VENDOR-750341134` | Local vendor assets | Commercial geometry and datasheet anchor | External validation track; not a training corpus |
 
 Corpus v4 is not a fourth geometry generator. It retains the accepted corpus-v3
 geometry and FastHenry inductance observations while replacing the ambiguous
 capacitance column with named FEM-R3P16 and FEM-R4P16 observations.
+The completed R3/R4 comparison describes the frozen 198-layout panel only. It
+does not turn the panel into a probability sample or either fidelity into
+physical ground truth.
 
 ## Role of v2 in the research program
 

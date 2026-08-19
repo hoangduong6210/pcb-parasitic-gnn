@@ -12,9 +12,10 @@ A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
 of PCB winding active-leg abstractions. The repository now has a finalized
 1,500-layout geometry-valid corpus under one contract shared by graph
 construction, FastHenry, and electrostatic FEM. The finalized capacitance
-package contains 1,500 FEM-R3P16 observations and a geometry-selected set of
-198 FEM-R4P16 observations. Current model evaluation follows under the frozen
-family-disjoint protocol.
+package contains 1,500 FEM-R3P16 observations and a frozen set of 198
+FEM-R4P16 observations. That higher-resolution panel contains nine anchors
+inherited from the earlier convergence study and 189 geometry-only selections.
+Current model evaluation follows under the frozen family-disjoint protocol.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -73,6 +74,13 @@ predeclared refine-3/refine-4 mesh-sensitivity gate. Consequently, capacitance
 is now represented as explicit fidelity observations: `FEM-R3P16` is a fixed
 bulk numerical target and `FEM-R4P16` is a higher-resolution validation
 observation, not ground truth.
+
+The completed family-aware fidelity audit paired all 198 selected geometries.
+Every FEM-R3P16 observation exceeded its FEM-R4P16 counterpart; the selected-
+registry median relative discrepancy was 8.479%, with an observed range of
+2.754% to 17.517%. This is a descriptive result for a deterministic panel, not
+an estimate for a probability sample. It does not establish R4 as continuum or
+physical truth and is not a global correction for R3.
 
 Every predictive result derived from v0 through v2 geometry, including former
 accuracy, ranking, EGNN accuracy comparison, and speed ratios, remains
@@ -138,12 +146,13 @@ refine-3/refine-4 study executed 27 solves over nine layouts: refine-3 at 12 and
 and maximum 13.886399% under the declared 2%/5% gates.
 
 The completed execution stage validated all 1,500 `FEM-R3P16` observations and
-198 geometry-selected `FEM-R4P16` observations, three per swap-closed turn
-family, before joint finalization. It used one layout and one fidelity per
-atomic array task, immutable selection and split registries, and safe resume
-across job attempts. The tracked closure package contains all 1,698 accepted
-task records plus the long-form observation table. Exact scientific semantics
-are maintained in
+198 selected `FEM-R4P16` observations, three per swap-closed turn family,
+before joint finalization. A separate job-backed audit then paired all 198
+fidelities and froze the descriptive discrepancy record. The production run
+used one layout and one fidelity per atomic array task, immutable selection and
+split registries, and safe resume across job attempts. The tracked closure
+package contains all 1,698 accepted task records plus the long-form observation
+table. Exact scientific semantics are maintained in
 [the corpus target contract](wiki/datasets/Corpus-and-Target-Contract.md); job
 identifiers and hashes stay in [the evidence ledger](wiki/evidence/Evidence-Ledger.md).
 
@@ -261,13 +270,15 @@ verified with:
 ```bash
 python3 code/quality/build_manifest.py --check
 python3 code/quality/verify_corpus_v4_archive.py --require-git-tracked
+python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
 ```
 
 ## Known limitations
 
 1. **No current accuracy claim.** The geometry and fidelity-explicit
-   capacitance corpora are complete, but the discrepancy audit, training, and
-   crossed-seed statistics are not; v2 values remain scope-bound history.
+   capacitance corpora and selected-registry discrepancy audit are complete,
+   but training and crossed-seed predictive statistics are not; v2 values
+   remain scope-bound history.
 2. **Active-leg abstraction.** v3 contains distinct co-directed winding legs but
    excludes returns, vias, terminals, core windows, planes, and full-board routing.
 3. **Solver-validated, not hardware-validated.** Agreement with numerical

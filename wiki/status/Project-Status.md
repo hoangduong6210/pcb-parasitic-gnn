@@ -38,7 +38,8 @@ instead of calling one column ground truth.
 | FEM-R3P16 bulk observations | `FINALIZED` | Complete 1,500-layout fixed-fidelity observation set |
 | FEM-R4P16 validation observations | `FINALIZED` | Complete higher-resolution 198-layout subset; not ground truth |
 | Joint multi-fidelity Cps package | `FINALIZED` | 1,698 explicit-fidelity observations over 1,500 geometries |
-| Multi-seed current-corpus accuracy | `BLOCKED` | Waits for discrepancy audit and crossed family-split evaluation |
+| Family-aware R3/R4 discrepancy audit | `ADMITTED DESCRIPTIVE` | Exact 198-layout selected-registry comparison; no population inference or global correction |
+| Multi-seed current-corpus accuracy | `BLOCKED` | Waits for the frozen loader/reporting contract, then crossed family-split evaluation |
 | Current-corpus end-to-end speedup | `BLOCKED` | Waits for an accepted current model and fixed workflow |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -49,12 +50,12 @@ transition.
 
 ## Next scientific stages
 
-1. Audit fidelity discrepancy across the preselected family-balanced subset.
-2. Freeze the downstream loading and reporting contract from that audit.
-3. Train five family-split seeds crossed with five initialization seeds.
-4. Report GNN agreement with FEM-R3P16 separately from agreement with FEM-R4P16.
-5. Repeat baseline, strict E(3), ranking, and paired latency studies on the same
+1. Freeze the downstream loading and reporting contract from the completed
+   fidelity audit.
+2. Train five family-split seeds crossed with five initialization seeds.
+3. Report GNN agreement with FEM-R3P16 separately from agreement with FEM-R4P16.
+4. Repeat baseline, strict E(3), ranking, and paired latency studies on the same
    current corpus and split registry.
-6. Admit claims in the wiki before generating a new paper snapshot.
+5. Admit claims in the wiki before generating a new paper snapshot.
 
 There is no current geometry-valid accuracy or speed headline.

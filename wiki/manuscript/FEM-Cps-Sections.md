@@ -1,10 +1,10 @@
 ---
 title: Manuscript Source — FEM Capacitance Sections
 status: admitted source text
-last_updated: 2026-08-15
+last_updated: 2026-08-19
 paper_source: true
 prose_reviewed: true
-claim_ids: C-FEM-002, C-FEM-003
+claim_ids: C-FEM-002, C-FEM-003, C-CPS-DISC-001
 ---
 
 # Manuscript Source: FEM Capacitance Sections
@@ -28,11 +28,24 @@ mm padding, the refine-3-to-refine-4 comparison yielded a median difference of
 therefore stable to the tested domain expansion but is not demonstrated to be
 mesh-converged.
 
+## Production fidelity discrepancy
+
+The full selected-registry audit paired the 198 layouts with both fidelities.
+FEM-R3P16 exceeded FEM-R4P16 in all 198 pairs. The selected-registry median
+relative discrepancy was 8.479%, and the observed range was 2.754% to 17.517%.
+The panel is deterministic rather than probability sampled. Nine layouts are
+anchors inherited from a convergence selection that used capacitance order
+statistics, while the other 189 were selected from geometry descriptors. The
+result is reported descriptively without a population confidence interval or a
+global R3 correction.
+
 ## Interpretation
 
 Surrogate error against FEM-R3P16 measures reproduction of a deterministic
 discretized workflow. It does not by itself measure physical capacitance error.
 The study consequently reports three quantities separately: GNN agreement with
-the bulk FEM-R3P16 target, FEM-R3P16-to-FEM-R4P16 discrepancy, and GNN agreement
-with FEM-R4P16 on the held-out higher-fidelity subset. Hardware accuracy remains
-outside the validated scope until fabricated-board measurements are available.
+the bulk FEM-R3P16 target, the full 198-layout selected-registry
+FEM-R3P16-to-FEM-R4P16 discrepancy, and GNN agreement with FEM-R4P16 on the 39
+test-panel layouts of each family split. The complete 198-layout registry is not
+globally held out from every training split. Hardware accuracy remains outside
+the validated scope until fabricated-board measurements are available.

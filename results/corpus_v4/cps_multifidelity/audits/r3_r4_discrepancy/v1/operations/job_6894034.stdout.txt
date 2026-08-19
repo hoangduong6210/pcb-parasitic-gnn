@@ -1,0 +1,1 @@
+Cps fidelity discrepancy audit: FAIL: SLURM allocation differs from the audit contract

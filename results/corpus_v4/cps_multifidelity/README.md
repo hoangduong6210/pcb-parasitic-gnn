@@ -15,7 +15,9 @@ chain.
 - `resume/*_retry_01/accepted_artifact_set.json`: dense accepted sets with
   1,500 R3 and 198 R4 task records;
 - `r3/attempts/` and `r4/attempts/`: exactly the 1,698 accepted task JSON files;
-- `final/job_6893754/`: the 1,698-row observation table and final summary.
+- `final/job_6893754/`: the 1,698-row observation table and final summary;
+- `audits/r3_r4_discrepancy/v1/`: the derived 198-pair discrepancy archive,
+  analysis manifest, scheduler closure, and non-paper operational history.
 
 Operational start snapshots, bulk scheduler logs, dispatch copies, failed
 attempt outputs, initial sparse indexes, and pending sets are intentionally not
@@ -64,6 +66,29 @@ sha256sum \
 The exact finalizer replay remains SLURM-only because its source enforces a
 scheduler allocation. Use `datasets/corpus_v3` as the corpus input and follow
 the [SLURM Submission Playbook](../../../wiki/operations/SLURM-Submission-Playbook.md).
+
+## Derived R3/R4 discrepancy audit
+
+The frozen registry contains three layouts from each of 66 swap-closed
+turn-count families. Nine entries are mandatory anchors inherited from the
+earlier convergence design, which used capacitance order statistics; the other
+189 entries were selected from geometry descriptors without using their new
+R3/R4 discrepancies. The production audit added no outcome-based exclusions.
+
+All 198 FEM-R3P16 observations exceeded their paired FEM-R4P16 observations.
+For `100 * (C_R3P16 - C_R4P16) / abs(C_R4P16)`, the selected-registry median
+was 8.479%, the mean was 8.849%, and the observed range was 2.754% to 17.517%.
+These are descriptive statistics for the exact deterministic registry. They do
+not define a probability-sampled corpus estimate, confidence interval, global
+calibration, or physical-accuracy statement.
+
+A clean clone rebuilds the deterministic tables from the finalized observation
+package, compares their bytes, validates the execution receipt and scheduler
+closure, and checks the exact derived-archive inventory:
+
+```bash
+python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
+```
 
 ## Public provenance boundary
 

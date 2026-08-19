@@ -1,0 +1,24 @@
+{
+  "executed_batch_sha256": "7a77dc888b27209fc5780d5b5c0aec49f06186a28de241c027accd96763f2ba6",
+  "implementation_sha256": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c",
+  "job_id": "6894098",
+  "output_sha256": {
+    "family_summaries.jsonl": "1c937f87086c569b8ddb2bcfb73d6f5bc8e489e374d05ca8d61512b6b5dfd25e",
+    "matched_pairs.jsonl": "95813cc51766391822cc77fc5334a980e596c6a09d4ab8f0eafc3544a27d30fd",
+    "summary.json": "1a545715e05d4758778b78580e8c27d249a265c880212740c8dcedd6804c1c08"
+  },
+  "protocol_sha256": "9c6e6483c0c86b4f737f48772b72349b9e8dcad0975d6ed60a5aaeafa6bf65e3",
+  "scheduler": {
+    "allocated_cpus_per_task": 3,
+    "allocated_memory_mib": 8192,
+    "job_name": "pcb-v4-cps-audit",
+    "partition": "nextgen",
+    "requested_cpus_per_task": 2,
+    "state_at_capture": "RUNNING",
+    "time_limit": "00:15:00"
+  },
+  "schema": "pcb-gnn.cps-fidelity-discrepancy-execution.v1",
+  "source_code_clean": true,
+  "source_git_commit": "f0f60cdf67daf3df6973185d353836677163c02e",
+  "upstream_archive_sha256": "567c1187ca74e0148691b9ac464a51f5fd014862e2c120d03963b2eacc681505"
+}

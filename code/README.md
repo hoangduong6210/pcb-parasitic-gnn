@@ -142,6 +142,7 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `quality/build_manifest.py` | Builds or verifies the deterministic SHA-256 inventory of the current tracked repository |
 | `quality/verify_corpora.py` | Verifies SHA-256 identities for the v1/v2 claim corpora; optionally requires the large layout files |
 | `quality/verify_corpus_v4_archive.py` | Verifies the source commit, frozen plan chain, 1,698 accepted task records, and finalized explicit-fidelity observation table without running a solver |
+| `quality/verify_corpus_v4_discrepancy_archive.py` | Rebuilds the 198-pair R3/R4 audit, checks its job receipt and exact artifact inventory, and verifies every pinned input and output hash |
 | `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, sensitive-identifier exclusion, and deterministic prose-style checks across the full and summary papers |
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
