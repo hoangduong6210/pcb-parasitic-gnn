@@ -6,6 +6,7 @@ __pycache__/
 
 # regenerated corpora (see README "Data") — hundreds of MB, rebuilt from seed 42
 datasets/*/layouts.jsonl
+!datasets/corpus_v3/layouts.jsonl
 
 # locally built reference solver binaries
 code/tools/fasthenry

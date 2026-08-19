@@ -518,8 +518,9 @@ R4_ACCEPTED="${R4_ACCEPTED:-results/corpus_v4/cps_multifidelity/resume/r4_initia
 R3_ACCEPTED_SHA256=$(sha256sum "$R3_ACCEPTED" | awk '{print $1}')
 R4_ACCEPTED_SHA256=$(sha256sum "$R4_ACCEPTED" | awk '{print $1}')
 FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --chdir="$RUN_ROOT" \
   --export=ALL,PCB_GNN_JOB_ENV="$PCB_JOB_ENV",PCB_GNN_V3_CORPUS_DIR="$SOURCE_CORPUS_DIR",PCB_GNN_CPS_EXECUTION_LOCK="$EXECUTION_LOCK",PCB_GNN_CPS_EXECUTION_LOCK_SHA256="$EXECUTION_LOCK_SHA256",PCB_GNN_PYTHON="$PCB_PYTHON",PCB_GNN_CPS_R3_ARTIFACT_SET="$RUN_ROOT/$R3_ACCEPTED",PCB_GNN_CPS_R3_ARTIFACT_SET_SHA256="$R3_ACCEPTED_SHA256",PCB_GNN_CPS_R4_ARTIFACT_SET="$RUN_ROOT/$R4_ACCEPTED",PCB_GNN_CPS_R4_ARTIFACT_SET_SHA256="$R4_ACCEPTED_SHA256" \
-  code/jobs/submit_finalize_corpus_v4_cps_multifidelity.sh)
+  "$RUN_ROOT/code/jobs/submit_finalize_corpus_v4_cps_multifidelity.sh")
 ```
 
 ## 11. Rejection taxonomy
@@ -558,6 +559,11 @@ FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
   used `--chdir` but did not export `PCB_GNN_JOB_ENV`, while
   `SLURM_SUBMIT_DIR` still pointed to the SSH login directory. The corrected
   submission exports the helper's absolute path.
+- Finalizer `6891705` repeated the helper-path failure before Python started;
+  no scientific output was created. Finalizer `6893754` used absolute helper,
+  corpus, lock, accepted-set, and batch-script paths plus `--chdir`, then closed
+  the package successfully. A finalizer must not rely on the caller's current
+  directory or an implicit `SLURM_SUBMIT_DIR`.
 - Counting `squeue` without `-r` reported compressed array rows and caused one
   R3-D request to be rejected by `QOSMaxSubmitJobPerUserLimit` before job
   creation. Capacity gates must count expanded elements.

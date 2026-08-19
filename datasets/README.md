@@ -31,7 +31,7 @@ Capacitance now follows an explicit multi-fidelity contract:
 | `FEM-R1P8` | refine-1, pad 8 mm | Archival v3 observation |
 | `FEM-R2P12` | refine-2, pad 12 mm | Legacy lower-cost observation; not validated truth |
 | `FEM-R3P16` | refine-3, pad 16 mm | Fixed bulk target; 1,500 task artifacts validated |
-| `FEM-R4P16` | refine-4, pad 16 mm | Higher-resolution 198-layout subset; running |
+| `FEM-R4P16` | refine-4, pad 16 mm | Higher-resolution 198-layout subset; validated and jointly finalized |
 
 On the frozen nine-layout study, the refine-3 12-to-16 mm domain comparison
 passed (median 0.189658%, maximum 2.491566%), while the refine-3/refine-4 mesh
@@ -39,7 +39,7 @@ comparison failed (median 8.273879%, maximum 13.886399%). Therefore
 `FEM-R3P16` is not described as mesh-converged and neither fidelity is described
 as physical ground truth.
 
-The multi-fidelity outputs must preserve each observation in long form with its
+The finalized multi-fidelity outputs preserve each observation in long form with its
 geometry hash, fidelity ID, solver settings, residual, resource record, source
 identity, environment, and artifact hash. Missing higher-fidelity observations
 remain missing; loaders may not silently substitute a lower fidelity. See the
@@ -51,5 +51,7 @@ complete routed loops are excluded and must not be inferred from the data.
 
 Execution identifiers and immutable corpus hashes are recorded separately in
 the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
+The tracked closure package and its clean-clone verification commands are in
+[`results/corpus_v4/cps_multifidelity/`](../results/corpus_v4/cps_multifidelity/README.md).
 The complete dataset version boundary, including the proposed vendor geometry
 track, is maintained in the [Dataset Registry](../wiki/datasets/Dataset-Registry.md).

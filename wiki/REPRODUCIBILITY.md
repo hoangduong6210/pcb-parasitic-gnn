@@ -1,7 +1,7 @@
 ---
 title: Reproducibility
 status: active runbook
-last_updated: 2026-08-15
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -31,12 +31,24 @@ reproduction requires identical inputs, settings, solver contract, and source;
 wall time and last-bit floating-point equality are not promised across CPU
 models.
 
-## Current heavy stages
+## Finalized capacitance closure
+
+The tracked closure preserves the canonical corpus-v3 source, all 1,698
+accepted R3/R4 task records, dense accepted sets, final summary, and long-form
+observation table. A clean clone can therefore verify every accepted artifact
+path and hash without rerunning a solver. See the
+[closure README](../results/corpus_v4/cps_multifidelity/README.md).
+
+Recomputing the numerical observations still requires the pinned scientific
+environment and SLURM allocations. The finalizer itself is SLURM-only and
+replays against [`datasets/corpus_v3`](../datasets/corpus_v3/README.md).
+
+## Heavy-stage resource contracts
 
 | Stage | Planned allocation | Concurrency |
 |---|---|---:|
-| FEM-R3P16 bulk, 1,500 layouts | 25 CPU, 48 GiB, 2 h per layout | 8 |
-| FEM-R4P16 validation, 198 layouts | 25 CPU, 160 GiB, 3 h per layout | 2 |
+| FEM-R3P16 bulk, 1,500 layouts — completed | 25 CPU, 48 GiB, 2 h per layout | 8 |
+| FEM-R4P16 validation, 198 layouts — completed | 25 CPU, 160 GiB, 3 h per layout | 2 |
 | Multi-seed training | 8 CPU, 48 GiB, 4 h per arm bundle | 5 |
 
 Resource caps are part of the frozen protocol. A cap failure is an infeasibility

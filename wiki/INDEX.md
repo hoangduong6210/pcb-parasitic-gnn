@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-17
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -81,10 +81,10 @@ paper_source: false
 
 | IDs | Registry | State class |
 |---|---|---|
-| `C-GEOM-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted; paper eligibility waits for artifact archive |
+| `C-GEOM-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted with synthetic active-leg scope |
 | `C-FEM-001`, `C-FEM-002`, `C-FEM-003` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted method, positive domain result, and negative mesh result |
 | `C-E3-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted encoded-graph implementation property |
-| `C-CPS-R3-001`, `C-CPS-R4-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Validated and running artifact lifecycle |
+| `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Finalized explicit-fidelity artifact lifecycle |
 | `C-ACC-001`, `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked current-corpus claims |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 
@@ -104,7 +104,7 @@ paper_source: false
 | IDs | Registry |
 |---|---|
 | `E-C3-GEOM-01`, `E-C4-FEM-01`, `E-C4-CONV-00`, `E-C4-FEAS-01`, `E-C4-CONV-01`, `E-C4-PLAN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| `E-C4-SUBMIT-00`, `E-C4-SUBMIT-01`, `E-C4-RUN-01`, `E-C4-OPS-02`, `E-C4-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-SUBMIT-00`, `E-C4-SUBMIT-01`, `E-C4-RUN-01`, `E-C4-FINAL-01`, `E-C4-OPS-02`, `E-C4-OPS-03`, `E-C4-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |

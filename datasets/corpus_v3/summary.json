@@ -1,0 +1,68 @@
+{
+  "schema": "pcb-gnn.corpus-v3-final.v1",
+  "provenance": {
+    "created_utc": "2026-08-13T04:38:28.773689+00:00",
+    "slurm_job_id": "6818436",
+    "source_array_job_id": "6818133",
+    "source_git_head": "df8a113f7c78c31da578268877da7f5a493d2031",
+    "source_file_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/data/gen_corpus_v3.py": "06d851ad1d8369bc0b804f030e903ebb0dab72804eb8e5146efcee19a8194d0d",
+      "code/experiments/proofs/experiments_corpus_v3_field_labels.py": "964d5f672afedec342a48430ccd711fc986558aaa01d18e00d5a9c6f8c41abce",
+      "code/solvers/fasthenry_ref.py": "cc6c5e9b4966615bc834e2a01a433caeb7a18c6845c7616642a0c37df16b233b",
+      "code/solvers/fem_capacitance_3d.py": "2c48ee0a1c1749ccd2cd2860a2cba4ed7a84ced9c5fd7c6b1c6e69bb7c86760e",
+      "code/solvers/fem_cps_worker.py": "9bd0b2c0fcdcf4ac5e4d37af1699707fb9f3d390e3ad498915efae30a26a5492",
+      "external/fasthenry": "ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056"
+    },
+    "finalizer_git_head": "df8a113f7c78c31da578268877da7f5a493d2031",
+    "finalizer_git_dirty_paths": [],
+    "finalizer_sha256": "369ee3538f1859e9d0a57ddcbaddde6ddbfc84e4149a39c7f2ccfbbbb4b200a9"
+  },
+  "gates": {
+    "n_layouts": 1500,
+    "n_unique_geometry_hashes": 1500,
+    "geometry_valid": true,
+    "all_labels_passive": true,
+    "all_array_tasks_clean_and_source_identical": true
+  },
+  "geometry": {
+    "trace_count_min": 8,
+    "trace_count_median": 18.0,
+    "trace_count_max": 28
+  },
+  "labels": {
+    "coupling_min": 0.4204778106313931,
+    "coupling_median": 0.79927332579921,
+    "coupling_max": 0.9176647075547114,
+    "targets": {
+      "Cps_pF": {
+        "min": 4.086152,
+        "median": 72.60834299999999,
+        "max": 236.930454
+      },
+      "L_pri_nH": {
+        "min": 182.3051436492132,
+        "median": 981.8673647824135,
+        "max": 2416.7973818388573
+      },
+      "L_sec_nH": {
+        "min": 177.1063156021278,
+        "median": 957.5220856729129,
+        "max": 2417.7589005120526
+      },
+      "L_mut_nH": {
+        "min": 118.79613022826064,
+        "median": 687.802760657379,
+        "max": 2012.5398156808772
+      }
+    }
+  },
+  "paired_solver_timing_ms": {
+    "median": 12396.921838007984,
+    "p95": 14071.476306602563
+  },
+  "artifacts_sha256": {
+    "layouts.jsonl": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "labels.jsonl": "48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327"
+  }
+}

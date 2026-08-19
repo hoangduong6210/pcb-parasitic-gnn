@@ -1,0 +1,83 @@
+{
+  "schema": "pcb-gnn.cps-multifidelity-archive.v1",
+  "source_commit": "d6162b1c4c502cca2a880a32fce2b1d894ff808b",
+  "source_corpus": {
+    "expected_geometries": 1500,
+    "summary": {
+      "path": "datasets/corpus_v3/summary.json",
+      "sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+    },
+    "layouts": {
+      "path": "datasets/corpus_v3/layouts.jsonl",
+      "sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b"
+    },
+    "labels": {
+      "path": "datasets/corpus_v3/labels.jsonl",
+      "sha256": "48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327"
+    }
+  },
+  "frozen_inputs": {
+    "plan": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/plan.json",
+      "sha256": "419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a"
+    },
+    "protocol": {
+      "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
+      "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
+    },
+    "execution_lock": {
+      "path": "protocols/corpus_v4_cps_execution_lock_v1.json",
+      "sha256": "697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb"
+    }
+  },
+  "fidelities": {
+    "r3": {
+      "fidelity_id": "cps_fem_r3_p16",
+      "expected_observations": 1500,
+      "manifest": {
+        "path": "results/corpus_v4/cps_multifidelity/plan/v1/r3_manifest.jsonl",
+        "sha256": "3eb7931837bcc813523905386a9e9898ee135ababc482e124b927df52f59c7d2"
+      },
+      "candidate_index": {
+        "path": "results/corpus_v4/cps_multifidelity/index/r3_retry_01_candidates.json",
+        "sha256": "2a478a85a98df0183c7c2739b16167e65ec27b938ca39761cb9c3902f9dda490"
+      },
+      "accepted_set": {
+        "path": "results/corpus_v4/cps_multifidelity/resume/r3_retry_01/accepted_artifact_set.json",
+        "sha256": "dd2f5fe7bc57366eddeead3a4761c58818c4186314c57cb13b9277b452f2db0f"
+      }
+    },
+    "r4": {
+      "fidelity_id": "cps_fem_r4_p16",
+      "expected_observations": 198,
+      "manifest": {
+        "path": "results/corpus_v4/cps_multifidelity/plan/v1/r4_manifest.jsonl",
+        "sha256": "88c15d2489ee069e0b76a1e62074725796c847df5eeaaa0c88a6e0bb10e1df1d"
+      },
+      "candidate_index": {
+        "path": "results/corpus_v4/cps_multifidelity/index/r4_retry_01_candidates.json",
+        "sha256": "d1d06e5f1c4ebbb8009f14f94e9416f27d63d27df314df28fd6fd4a276bf1301"
+      },
+      "accepted_set": {
+        "path": "results/corpus_v4/cps_multifidelity/resume/r4_retry_01/accepted_artifact_set.json",
+        "sha256": "4ed4bd5652688457e803f9fd377ba38fec83f5fee08a44698d374b9764cc82b1"
+      }
+    }
+  },
+  "final": {
+    "summary": {
+      "path": "results/corpus_v4/cps_multifidelity/final/job_6893754/summary.json",
+      "sha256": "5f3a9158eac1cab5289ceddafba0037b37daecafc88d8eed01179b8dfdd457c6"
+    },
+    "observations": {
+      "path": "results/corpus_v4/cps_multifidelity/final/job_6893754/label_observations.jsonl",
+      "sha256": "c17f71187e31fd10152ac0b459694a022be0d41b132ed7c5992d94d96219795b",
+      "expected_rows": 1698
+    },
+    "forbidden_claims": [
+      "ground_truth",
+      "mesh_converged_r3",
+      "validated_physical_accuracy"
+    ]
+  }
+}

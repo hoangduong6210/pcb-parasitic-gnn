@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-17
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -23,7 +23,7 @@ operational or pending archival is not publication evidence.
 | Layout SHA-256 | `17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b` |
 | Label SHA-256 | `48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327` |
 | Supported claim | `C-GEOM-001` |
-| Clean-clone availability | Finalized corpus artifact is not yet tracked or linked from a formal release; paper eligibility remains pending |
+| Clean-clone availability | [Canonical source corpus](../../datasets/corpus_v3/README.md) is tracked with layouts, labels, summary, and file hashes |
 
 ## E-C4-FEM-01 — Native backend diagnostic
 
@@ -117,11 +117,11 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | Solver execution | None; failure occurred before the runner and FEM worker |
 | Scientific use | None; operational regression evidence only |
 
-## E-C4-RUN-01 — Active multi-fidelity production execution
+## E-C4-RUN-01 — Completed multi-fidelity production execution
 
 | Field | Value |
 |---|---|
-| Lifecycle | `RUNNING` |
+| Lifecycle | `FINALIZED` |
 | Source commit | `d6162b1c4c502cca2a880a32fce2b1d894ff808b` |
 | Execution lock SHA-256 | `697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb` |
 | R3 dispatch summary SHA-256 | `7362284e217f50a3d94393e4e59627e13d0fde5b75a6ebdf55b1f6bb1f0ae887` |
@@ -143,9 +143,34 @@ maintained in the [SLURM Submission Playbook](../operations/SLURM-Submission-Pla
 | R3 retry task 1499 | Job `6860604`, dependency `afterany:6860603`, artifact SHA-256 `e7cbb84c34de02bf5991623734952feada6e4ce1316fe9dc6d7705d55b0c6eb0` |
 | Cumulative R3 candidate index | 1,500 entries; SHA-256 `2a478a85a98df0183c7c2739b16167e65ec27b938ca39761cb9c3902f9dda490` |
 | Final R3 resume | 1,500 accepted, 0 pending, 0 rejected; accepted-set SHA-256 `dd2f5fe7bc57366eddeead3a4761c58818c4186314c57cb13b9277b452f2db0f`; empty pending-set SHA-256 `f9d49ef2059d68d379740706173fe85e02fd6b52971755e32ff4a4b18a083fda` |
-| R3 lifecycle | `VALIDATED`; waits for R4 exact coverage and the joint finalizer |
-| Lifecycle claim IDs | `C-CPS-R3-001`, `C-CPS-R4-001` |
-| Scientific use | None until exact coverage, resume validation, and finalization pass |
+| Initial R4 candidate index | 197 entries; SHA-256 `2dda52951eb2ad65c807ce4075e679ff06694bd84263f26f10b05d0f0fd7cb26` |
+| Initial R4 resume | 197 accepted, 1 pending, 0 rejected; accepted-set SHA-256 `21ed20219e7713589e13f9378cec1059be880f41b9f88d6562669bfa3b9f5d83`; pending-set SHA-256 `f88f38273c7827198744c207849e8af2a136264a178cdfe6b59a49fb11aaf7e7` |
+| R4 retry | Job `6891382`, canonical task 197, layout 1497, `COMPLETED 0:0`, `task_pass=true`; artifact SHA-256 `c4ee6ada11fd5c91986ac82287762fed76d304a993ff0a1b788d9dbfc4ac42a6` |
+| R4 retry numerical/resource record | 9,246,989 mesh nodes; 56,776,659 tetrahedra; relative residual `6.94e-11`; 28 iterations; 3,443.215 s worker wall; 81.198 GiB worker peak RSS |
+| Cumulative R4 candidate index | 198 entries; SHA-256 `d1d06e5f1c4ebbb8009f14f94e9416f27d63d27df314df28fd6fd4a276bf1301` |
+| Final R4 resume | 198 accepted, 0 pending, 0 rejected; accepted-set SHA-256 `4ed4bd5652688457e803f9fd377ba38fec83f5fee08a44698d374b9764cc82b1`; empty pending-set SHA-256 `f80e0becb50a6fc0f38547a9f1b8c6c998b928745ec3328c2acb5ee291ddc238` |
+| Lifecycle claim IDs | `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` |
+| Scientific use | Exact execution and artifact-coverage evidence; not predictive accuracy or physical validation |
+
+## E-C4-FINAL-01 — Joint explicit-fidelity package
+
+| Field | Value |
+|---|---|
+| Finalizer job | `6893754`, `COMPLETED 0:0`, 13 s on `nextgen` |
+| Scheduler resources | Requested 2 CPU/16 GiB; allocated 5 CPU/16 GiB; batch peak RSS about 200 MiB |
+| Source commit | `d6162b1c4c502cca2a880a32fce2b1d894ff808b`, clean and stable at both finalizer gates |
+| Archive-manifest SHA-256 | `567c1187ca74e0148691b9ac464a51f5fd014862e2c120d03963b2eacc681505` |
+| Artifact | [Final summary](../../results/corpus_v4/cps_multifidelity/final/job_6893754/summary.json) |
+| Observation table | [Long-form explicit-fidelity records](../../results/corpus_v4/cps_multifidelity/final/job_6893754/label_observations.jsonl) |
+| Coverage | 1,500 geometries; 1,500 R3 observations; 198 R4 observations; 1,698 long-form rows |
+| Summary SHA-256 | `5f3a9158eac1cab5289ceddafba0037b37daecafc88d8eed01179b8dfdd457c6` |
+| Observation-table SHA-256 | `c17f71187e31fd10152ac0b459694a022be0d41b132ed7c5992d94d96219795b` |
+| Accepted-set SHA-256 | R3 `dd2f5fe7bc57366eddeead3a4761c58818c4186314c57cb13b9277b452f2db0f`; R4 `4ed4bd5652688457e803f9fd377ba38fec83f5fee08a44698d374b9764cc82b1` |
+| Frozen identities | Plan `419061ea537dc8a6fa6dee649025249ea652eeefdbfc4304f15400b0eeea517a`; protocol `36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b`; execution lock `697dd97a20fc93c8e512e9546f520b3e6ecf04b556b0ac10d0ea1f3dcf9397bb` |
+| Manifest SHA-256 | R3 `3eb7931837bcc813523905386a9e9898ee135ababc482e124b927df52f59c7d2`; R4 `88c15d2489ee069e0b76a1e62074725796c847df5eeaaa0c88a6e0bb10e1df1d` |
+| Semantics | Explicitly forbids `ground_truth`, `mesh_converged_r3`, and `validated_physical_accuracy`; records R3-to-R4 and R4-continuum convergence as false |
+| Supported lifecycle claims | `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` |
+| Scientific use | Finalized numerical-observation package; downstream discrepancy and predictive studies remain separate gates |
 
 ## E-C4-OPS-02 — Final-array-element scheduler parser incident
 
@@ -173,6 +198,21 @@ and pins runner SHA-256
 `e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb`.
 It is reserved for future complete runs and is not admissible in the active
 lock-v1 artifact set.
+
+## E-C4-OPS-03 — Finalizer submit-path incident
+
+| Field | Value |
+|---|---|
+| Failed finalizer | Job `6891705`, `FAILED 1:0` after 27 s |
+| Failure stage | Batch bootstrap before Python finalization |
+| Root cause | `PCB_GNN_JOB_ENV` resolved from the remote login directory instead of the immutable execution worktree |
+| Scientific computation | None; no final output directory was created |
+| Corrective action | Resubmitted with `--chdir` and every input/helper path exported as an absolute path |
+| Successful closure | Job `6893754`, `COMPLETED 0:0`; see `E-C4-FINAL-01` |
+| Scientific use | None; operational regression evidence only |
+
+This incident repeats the remote-submit lesson in `E-C4-SUBMIT-01`: `--chdir`
+does not rewrite `SLURM_SUBMIT_DIR`, so the helper path must be absolute.
 
 ## E-V2-PROOF-01: Historical accuracy and paired timing proof
 
@@ -243,9 +283,8 @@ bitwise or clock-time equality.
 | Relative residual | `6.8885e-11` | `8.3918e-11` |
 | Scientific use | None; single-layout operational cost example | None; single-layout operational cost example |
 
-These task artifacts currently live in the immutable production worktree and
-must be archived with the finalized corpus before a clean clone can resolve
-them. The pair explains resource cost but is not a corpus runtime statistic.
+These accepted task artifacts are tracked at their finalized repository-relative
+paths. The pair explains resource cost but is not a corpus runtime statistic.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

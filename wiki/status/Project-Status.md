@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: active scientific status
-last_updated: 2026-08-17
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -35,9 +35,10 @@ instead of calling one column ground truth.
 | Refine-3 domain-padding study | `ADMITTED` | Supports the pad-16 bulk specification |
 | Refine-3 versus refine-4 mesh study | `ADMITTED NEGATIVE` | Rejects a mesh-converged R3 claim |
 | Multi-fidelity protocol, selections, and split registries | `FINALIZED` | Frozen input to production jobs |
-| FEM-R3P16 bulk observations | `VALIDATED` | Complete 1,500-layout task set; waits for joint finalization |
-| FEM-R4P16 validation observations | `RUNNING` | Higher-resolution 198-layout subset; not ground truth |
-| Multi-seed current-corpus accuracy | `BLOCKED` | Waits for joint multi-fidelity finalization |
+| FEM-R3P16 bulk observations | `FINALIZED` | Complete 1,500-layout fixed-fidelity observation set |
+| FEM-R4P16 validation observations | `FINALIZED` | Complete higher-resolution 198-layout subset; not ground truth |
+| Joint multi-fidelity Cps package | `FINALIZED` | 1,698 explicit-fidelity observations over 1,500 geometries |
+| Multi-seed current-corpus accuracy | `BLOCKED` | Waits for discrepancy audit and crossed family-split evaluation |
 | Current-corpus end-to-end speedup | `BLOCKED` | Waits for an accepted current model and fixed workflow |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -48,8 +49,8 @@ transition.
 
 ## Next scientific stages
 
-1. Complete exact FEM-R4P16 coverage and run the joint multi-fidelity finalizer.
-2. Audit fidelity discrepancy across the preselected family-balanced subset.
+1. Audit fidelity discrepancy across the preselected family-balanced subset.
+2. Freeze the downstream loading and reporting contract from that audit.
 3. Train five family-split seeds crossed with five initialization seeds.
 4. Report GNN agreement with FEM-R3P16 separately from agreement with FEM-R4P16.
 5. Repeat baseline, strict E(3), ranking, and paired latency studies on the same

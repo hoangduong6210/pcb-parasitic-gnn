@@ -16,7 +16,7 @@ Current evidence is admitted only in this order:
 4. a frozen FEM backend and sensitivity protocol — complete, with domain pass
    and mesh rejection;
 5. immutable geometry-family and split registries — complete;
-6. a fidelity-explicit Cps corpus: R3 validated, R4 running, joint finalization pending;
+6. a fidelity-explicit Cps corpus: 1,500 R3 and 198 R4 observations jointly finalized;
 7. declared multi-split/multi-initialization accuracy runs on that frozen corpus;
 8. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;
@@ -25,8 +25,9 @@ Current evidence is admitted only in this order:
 Each current number must resolve to a job-scoped result, raw record, immutable
 input hash, source commit, source-file hash map, executable hash, arguments, and
 environment record. Current admitted numerical evidence includes the finalized
-geometry corpus, native AMG-CG diagnostic, refine-4 feasibility checks, and the
-frozen refine-3/refine-4 negative convergence result. The domain comparison
+geometry corpus, native AMG-CG diagnostic, refine-4 feasibility checks, the
+frozen refine-3/refine-4 negative convergence result, and the finalized
+fidelity-explicit Cps package. The domain comparison
 passed at 0.189658% median and 2.491566% maximum; the mesh comparison was
 rejected at 8.273879% median and 13.886399% maximum.
 

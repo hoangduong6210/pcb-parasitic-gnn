@@ -1,7 +1,7 @@
 ---
 title: Corpus and Target Contract
 status: active specification
-last_updated: 2026-08-17
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -31,8 +31,8 @@ column.
 |---|---|---|---|
 | `FEM-R1P8` | refine-1, pad 8 mm | Archival source-corpus value | Historical |
 | `FEM-R2P12` | refine-2, pad 12 mm | Lower-cost numerical observation | Not a validated truth |
-| `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | 1,500 tasks validated; joint finalization pending |
-| `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | 198-layout subset running |
+| `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | 1,500 tasks validated and jointly finalized |
+| `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | 198 tasks validated and jointly finalized |
 
 `FEM-R3P16` was selected for bulk generation because it is reproducible,
 computationally feasible, and stable to the tested domain expansion. Its failed

@@ -17,6 +17,8 @@ jobs:
       OMP_NUM_THREADS: "1"
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -43,6 +45,10 @@ jobs:
           pytest-contract-report.xml
       - name: Verify included immutable corpus manifests
         run: python code/quality/verify_corpora.py
+      - name: Verify tracked Corpus v4 scientific closure
+        run: >-
+          python code/quality/verify_corpus_v4_archive.py
+          --require-git-tracked
       - name: Validate SLURM-only CLIs without computation
         run: |
           source code/env.sh

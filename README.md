@@ -1,20 +1,20 @@
 # A License-Clean Graph Neural Network for Fast Parasitic Extraction in PCB-Embedded Planar Magnetics
 
-> **DATA-INTEGRITY HOLD.** A post hoc audit found that the superseded v2
-> generator can assign inconsistent layer and z coordinates, overlapping copper
-> volumes, and mixed analytical labels that violate inductance passivity. The v2
-> accuracy values and downstream accuracy/ranking claims are quarantined as
-> pipeline-debugging records, not current scientific evidence. The replacement
-> v3 geometry corpus has passed its gates, but current accuracy remains blocked
-> until the fidelity-explicit capacitance corpus and new evaluation protocol are
-> finalized. The legacy runtime record describes only that historical workflow.
+> **SCIENTIFIC SCOPE BOUNDARY.** The submitted v2 package is retained as a
+> feasibility-stage snapshot: it tested whether a graph surrogate could learn a
+> simplified solver workflow quickly enough to justify a stricter data program.
+> It was not designed to satisfy the later geometry, passivity, family-split, and
+> multi-fidelity contracts. Current predictive claims therefore start from the
+> replacement geometry-valid corpus. The legacy runtime record describes only
+> the historical feasibility workflow.
 
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
 of PCB winding active-leg abstractions. The repository now has a finalized
 1,500-layout geometry-valid corpus under one contract shared by graph
-construction, FastHenry, and electrostatic FEM. All 1,500 FEM-R3P16 tasks have
-validated artifacts. The 198-layout FEM-R4P16 subset is running; joint
-multi-fidelity finalization and current model evaluation follow.
+construction, FastHenry, and electrostatic FEM. The finalized capacitance
+package contains 1,500 FEM-R3P16 observations and a geometry-selected set of
+198 FEM-R4P16 observations. Current model evaluation follows under the frozen
+family-disjoint protocol.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -78,8 +78,8 @@ Every predictive result derived from v0 through v2 geometry, including former
 accuracy, ranking, EGNN accuracy comparison, and speed ratios, remains
 quarantined from current geometry-valid claims. The strict E(3) encoded-graph
 check remains an admitted implementation property, not a predictive claim.
-After the fidelity corpus is finalized, current accuracy
-must be rerun using the frozen swap-closed family registries and crossed split
+Current accuracy must now be rerun using the frozen swap-closed family
+registries and crossed split
 and initialization seeds. See the [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
 [`results/README.md`](results/README.md).
@@ -137,11 +137,13 @@ refine-3/refine-4 study executed 27 solves over nine layouts: refine-3 at 12 and
 0.189658% and maximum 2.491566%; mesh sensitivity failed with median 8.273879%
 and maximum 13.886399% under the declared 2%/5% gates.
 
-The active execution stage has validated all 1,500 `FEM-R3P16` observations and
-is generating 198 geometry-selected `FEM-R4P16` observations, three per
-swap-closed turn family. It uses one layout and one fidelity per atomic array
-task, immutable selection and split registries, and safe resume across job
-attempts. Exact scientific semantics are maintained in
+The completed execution stage validated all 1,500 `FEM-R3P16` observations and
+198 geometry-selected `FEM-R4P16` observations, three per swap-closed turn
+family, before joint finalization. It used one layout and one fidelity per
+atomic array task, immutable selection and split registries, and safe resume
+across job attempts. The tracked closure package contains all 1,698 accepted
+task records plus the long-form observation table. Exact scientific semantics
+are maintained in
 [the corpus target contract](wiki/datasets/Corpus-and-Target-Contract.md); job
 identifiers and hashes stay in [the evidence ledger](wiki/evidence/Evidence-Ledger.md).
 
@@ -246,8 +248,8 @@ distribution rather than promising identical clocks.
 
 ### Provenance
 
-The finalized v3 corpus and FEM convergence studies resolve to job-backed
-artifacts and immutable hashes recorded in
+The finalized v3 corpus, FEM convergence studies, and v4 multi-fidelity package
+resolve to job-backed artifacts and immutable hashes recorded in
 [`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md).
 Historical records remain under `results/` for forensic traceability and are
 indexed as quarantined in [`results/README.md`](results/README.md). No
@@ -258,13 +260,14 @@ verified with:
 
 ```bash
 python3 code/quality/build_manifest.py --check
+python3 code/quality/verify_corpus_v4_archive.py --require-git-tracked
 ```
 
 ## Known limitations
 
-1. **No current accuracy claim.** The geometry corpus is complete, but the
-   fidelity-explicit capacitance corpus, training, and statistics are not; v2
-   values remain quarantined.
+1. **No current accuracy claim.** The geometry and fidelity-explicit
+   capacitance corpora are complete, but the discrepancy audit, training, and
+   crossed-seed statistics are not; v2 values remain scope-bound history.
 2. **Active-leg abstraction.** v3 contains distinct co-directed winding legs but
    excludes returns, vias, terminals, core windows, planes, and full-board routing.
 3. **Solver-validated, not hardware-validated.** Agreement with numerical

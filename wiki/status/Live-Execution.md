@@ -1,24 +1,26 @@
 ---
 title: Live Execution Snapshot
-status: running
-last_updated: 2026-08-17
+status: completed
+last_updated: 2026-08-19
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-17 14:01 UTC.
+Last scheduler observation: 2026-08-19 16:25 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
-| FEM-R3P16 | `VALIDATED` | 1,500 of 1,500 accepted | None | None after singleton recovery |
-| FEM-R4P16 | `RUNNING` | 103 of 198 completed | Two array elements running | None observed |
-| Joint finalizer | `BLOCKED` | Not started | Waits for exact R4 coverage | Not applicable |
+| FEM-R3P16 | `VALIDATED` | 1,500 of 1,500 accepted | None | Four missing final-array elements recovered as hash-pinned singletons |
+| FEM-R4P16 | `VALIDATED` | 198 of 198 accepted | None | One scheduler-preflight miss recovered as a hash-pinned singleton |
+| Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 
-The remaining R4 elements show `JobArrayTaskLimit` while two tasks run. This is
-the intended concurrency throttle, not a scheduler fault.
+The successful finalizer closed 1,500 R3 observations and 198 R4 observations
+over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
+It does not call either fidelity ground truth, mesh-converged, or physically
+validated.
 
-## Why R4 takes longer
+## Why R4 took longer
 
 For the matched layout 717, R3 used 2,062,878 nodes, 12,477,301 tetrahedra,
 18.565 GiB peak memory, and 528.949 s. R4 used 9,241,959 nodes, 56,742,824
@@ -26,12 +28,14 @@ tetrahedra, 83.240 GiB, and 3,460.433 s. On this layout, R4 increased the mesh
 by about 4.5-fold and wall time by about 6.5-fold. This pair illustrates cost;
 it is not reported as a corpus median.
 
-The two source artifacts are indexed under `E-C4-RUN-02` in the
+The source artifacts are indexed under `E-C4-RUN-02`; complete execution and
+finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 [Evidence Ledger](../evidence/Evidence-Ledger.md).
 
 ## Next transition
 
-When R4 finishes, build the cumulative candidate index, run resume validation,
-retry only pending canonical indices if necessary, and submit the joint
-finalizer only after exact R3 and R4 coverage passes. Do not start training from
-partial observations.
+The next scientific gate is a family-aware R3/R4 discrepancy audit on the
+preselected 198-layout subset. Only after that audit freezes its reporting
+contract may the project start crossed split-seed and initialization-seed
+training. No accuracy or runtime headline is admitted by corpus finalization
+alone.
