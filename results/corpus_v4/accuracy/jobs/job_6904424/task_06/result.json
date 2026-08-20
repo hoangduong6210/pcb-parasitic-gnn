@@ -1,0 +1,142 @@
+{
+  "bindings": {
+    "evaluation_dataset_sha256": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c",
+    "execution_lock_sha256": "6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61",
+    "expected_source_git_head": "f3074d2cb6082b6740452e9c8d0560d0d11eeb61",
+    "plan_sha256": "e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206",
+    "protocol_sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf",
+    "retry_pending_set": null,
+    "task_manifest_sha256": "2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20"
+  },
+  "checkpoint": {
+    "archive_sha256": "5da738d7e3e937a4acc7c2ffa6b723e61430a8902d47a876a863b9379448d317",
+    "metadata_sha256": "8267424318b5fa33eb987157ec3c35eda7c3789108d30b6fb5fa5ea117f2aa08",
+    "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+  },
+  "created_utc": "2026-08-20T04:58:30.697641+00:00",
+  "evaluation": {
+    "test_or_r4_used_for_normalization_optimization_or_acceptance": false,
+    "test_predictions_emitted": false
+  },
+  "integrity": {
+    "passed": true
+  },
+  "membership_sha256": {
+    "partition_family_ids": {
+      "test": "cd1d028450050230639505f019801d215d4dd03751ff27babae9d74b86bd3038",
+      "train": "8151ff6ba989731c67d69052e639ad3ada8f34593db1f549bae12904daa0445e",
+      "validation": "2b9fcd20d0de9d445cf7a4cb22ef43251a2aa7f48bdaeaa047c78eb1be0dd566"
+    },
+    "partition_layout_ids": {
+      "test": "4b07146b47ef8c22d468d39cbc528e0a4fc936235366527226e8ff0572dccd80",
+      "train": "f824aeeec1188d5867269a500fc5f0a85ca20f3a85385045f5c39b22a91e5837",
+      "validation": "d4287774c77281f4adaec1464a7bc693986ce19542394210e55b868160dfae23"
+    },
+    "r4_test_layout_ids": "28159ff92445f424c727aa11b5f3bc7f66c72a2a50fd47ec7360e67d05271671"
+  },
+  "provenance": {
+    "executed_batch_script_sha256": "d0a77fe7127feeea6e6262d13c8452749c39fa8b1c14c86f9bca14606334af4e",
+    "final_git_dirty_paths": [],
+    "final_git_head": "f3074d2cb6082b6740452e9c8d0560d0d11eeb61",
+    "final_source_file_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+      "code/data/corpus_v4_accuracy_dataset.py": "47fcd3890e8138ccc3e2915709dbb4bda309b9eb83c0da276f23409af48d612d",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c",
+      "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock.py": "4046f0b2434aca4045d11df0995d7f5f83beb9270c692f37533fb43e712fba4d",
+      "code/experiments/proofs/corpus_v4_accuracy_contract.py": "03a85e204063d06ebde14ba80f6fe6f5fffc8c322d947ac931d24b09b7c123db",
+      "code/experiments/proofs/finalize_corpus_v4_accuracy.py": "4b41e535c1fb245d6448bab5636d8c5246888343e64eea518f1abeabcdf8e2b3",
+      "code/experiments/proofs/plan_corpus_v4_accuracy.py": "c5793c32211796b3585dc35580e0d66e5023ac32b88aac17d5cff28d12fa0b3e",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_resume.py": "bf6397dd1f6c63dcf0ad6e9efe1b4f7049340f84230ae4d5b6d25bf1c26250c7",
+      "code/experiments/proofs/run_corpus_v4_accuracy_task.py": "12fc1265928db0c3a6701edec5f15db666c4db0fe7e618b3b8447e1a092cacfd",
+      "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_accuracy.sh": "d0a77fe7127feeea6e6262d13c8452749c39fa8b1c14c86f9bca14606334af4e",
+      "code/jobs/submit_finalize_corpus_v4_accuracy.sh": "e9e9d40a35b4ba2ccff0bc85e47e58a73212477efe84824bd835ed98c28599c0",
+      "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+      "code/quality/verify_corpus_v4_accuracy_archive.py": "64f662c6c42a802caf012e85348dbd8d1fef5faeaaa7f2eaaf651184ca87623c",
+      "code/quality/verify_corpus_v4_archive.py": "8334d74a7e0b421e297fd0093c0fb5fc481e99c094b67fb071b842666eb599ed",
+      "code/quality/verify_corpus_v4_discrepancy_archive.py": "42d6546d3123c748a4c68eea1c0b6a705d2491e79960df971de274aac0313f88",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    },
+    "final_untracked_source_paths": [],
+    "git_dirty_paths": [],
+    "scheduler": {
+      "allocated_cpus_per_task": 13,
+      "array_job_id": "6904424",
+      "array_task_id": 6,
+      "environment_cpus_per_task": 13,
+      "job_id": "6904535",
+      "requested_cpus_per_task": 8,
+      "requested_memory_gib": 48,
+      "scheduler_record": {
+        "AllocTRES": "cpu=13,mem=48G,node=1,billing=13",
+        "ArrayJobId": "6904424",
+        "ArrayTaskId": "6",
+        "ArrayTaskThrottle": "5",
+        "CPUs/Task": "13",
+        "JobId": "6904535",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "48G",
+        "NumCPUs": "13",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=8,mem=48G,node=1,billing=8",
+        "TimeLimit": "04:00:00",
+        "TresPerTask": "cpu=8"
+      },
+      "scientific_threads": 8
+    },
+    "software": {
+      "numpy_distribution": "2.0.2",
+      "python": "3.9.21",
+      "scipy": "1.13.1",
+      "torch_build": "2.8.0+cu128",
+      "torch_distribution": "2.8.0"
+    },
+    "source_file_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+      "code/data/corpus_v4_accuracy_dataset.py": "47fcd3890e8138ccc3e2915709dbb4bda309b9eb83c0da276f23409af48d612d",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c",
+      "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock.py": "4046f0b2434aca4045d11df0995d7f5f83beb9270c692f37533fb43e712fba4d",
+      "code/experiments/proofs/corpus_v4_accuracy_contract.py": "03a85e204063d06ebde14ba80f6fe6f5fffc8c322d947ac931d24b09b7c123db",
+      "code/experiments/proofs/finalize_corpus_v4_accuracy.py": "4b41e535c1fb245d6448bab5636d8c5246888343e64eea518f1abeabcdf8e2b3",
+      "code/experiments/proofs/plan_corpus_v4_accuracy.py": "c5793c32211796b3585dc35580e0d66e5023ac32b88aac17d5cff28d12fa0b3e",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_resume.py": "bf6397dd1f6c63dcf0ad6e9efe1b4f7049340f84230ae4d5b6d25bf1c26250c7",
+      "code/experiments/proofs/run_corpus_v4_accuracy_task.py": "12fc1265928db0c3a6701edec5f15db666c4db0fe7e618b3b8447e1a092cacfd",
+      "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_accuracy.sh": "d0a77fe7127feeea6e6262d13c8452749c39fa8b1c14c86f9bca14606334af4e",
+      "code/jobs/submit_finalize_corpus_v4_accuracy.sh": "e9e9d40a35b4ba2ccff0bc85e47e58a73212477efe84824bd835ed98c28599c0",
+      "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+      "code/quality/verify_corpus_v4_accuracy_archive.py": "64f662c6c42a802caf012e85348dbd8d1fef5faeaaa7f2eaaf651184ca87623c",
+      "code/quality/verify_corpus_v4_archive.py": "8334d74a7e0b421e297fd0093c0fb5fc481e99c094b67fb071b842666eb599ed",
+      "code/quality/verify_corpus_v4_discrepancy_archive.py": "42d6546d3123c748a4c68eea1c0b6a705d2491e79960df971de274aac0313f88",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    },
+    "source_git_head": "f3074d2cb6082b6740452e9c8d0560d0d11eeb61",
+    "untracked_source_paths": []
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-task-result.v1",
+  "task": {
+    "designated_downstream_checkpoint": false,
+    "init_seed": 41,
+    "split_seed": 41,
+    "task_id": 6
+  },
+  "training": {
+    "epochs_completed": 200,
+    "final_epoch": 200,
+    "model_selection": "fixed final epoch; validation diagnostic only",
+    "wall_s": 530.6221492009936
+  }
+}

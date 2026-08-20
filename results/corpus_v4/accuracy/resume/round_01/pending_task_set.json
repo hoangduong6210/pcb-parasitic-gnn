@@ -1,0 +1,9 @@
+{
+  "execution_lock_sha256": "6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61",
+  "n_pending": 0,
+  "pending": [],
+  "plan_sha256": "e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206",
+  "protocol_sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf",
+  "schema": "pcb-gnn.corpus-v4-accuracy-pending-set.v1",
+  "task_manifest_sha256": "2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20"
+}

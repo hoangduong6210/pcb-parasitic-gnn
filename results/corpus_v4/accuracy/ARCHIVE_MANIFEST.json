@@ -1,0 +1,54 @@
+{
+  "analysis_manifest": {
+    "path": "results/corpus_v4/accuracy/final/job_6905011/ANALYSIS_MANIFEST.json",
+    "sha256": "a2764cac891b3630eaf927aaf024badbacba7ac3b65e82a544f329b341b1570f"
+  },
+  "bindings": {
+    "accepted_set_sha256": "5e65fc0be6cbccc9fd30309a53a6ab03f52d39bb8a5e88b8c743fdb87b070235",
+    "execution_lock_sha256": "6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61",
+    "expected_source_git_head": "f3074d2cb6082b6740452e9c8d0560d0d11eeb61",
+    "plan_sha256": "e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206",
+    "protocol_sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf",
+    "task_manifest_sha256": "2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20"
+  },
+  "finalizer_scheduler_completion": {
+    "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+    "ElapsedRaw": "51",
+    "ExitCode": "0:0",
+    "JobIDRaw": "6905011",
+    "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+    "State": "COMPLETED"
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-archive.v1",
+  "verified_analysis_files_sha256": {
+    "checkpoint_index.json": "ba71d434c057dd6640bbb0a6c1a940af4d99b70a80ba6ec5d3ab62b6da9d7bdd",
+    "matrices.json": "b256f027926bb6bf9c9fb9ca3bc4f63fe244a871dda652382a9677cf85fe349b",
+    "predictions/task_00.jsonl": "30fc6c49f4548b350577cdf4d9f61dd85161e6078e3fc51f42f329bc726eb4bf",
+    "predictions/task_01.jsonl": "8ddb847b6ecce7d24f366559de7961a017e9f2498bf57475ea53e4046ae522c9",
+    "predictions/task_02.jsonl": "53ce04a0e5baa23519ba72b5501e99698cb5e0d777bfbdfe1b09d6eb0127cb66",
+    "predictions/task_03.jsonl": "4f2d88fd98443b4418a043b95a0987cdd6f9f094b7eae148a22abb865b517ed3",
+    "predictions/task_04.jsonl": "eb9f4bc31505360094e12dcff2673207c4b6817e2fb5d12a2fd5cbf3099dae23",
+    "predictions/task_05.jsonl": "1b86926942d82b5d172127386f70a99ff674c05463afa9acedbcc7b3fd8e8d9e",
+    "predictions/task_06.jsonl": "84f7e3ac28489f3acd354bdb9322294ce34417826d2c54a828d16af514f42ce1",
+    "predictions/task_07.jsonl": "680a1232cafd66643da1d4d0a84142cc9e9af3551cd11ba540e9749731562457",
+    "predictions/task_08.jsonl": "62d41ae16f34a8ef796a2941a6395a72f76eb4faaaaf4e9da6fc0d4903db085a",
+    "predictions/task_09.jsonl": "d365f48a024ddaf0c27617c0b94b7add097de3615a28afc1eb101d703f6683bd",
+    "predictions/task_10.jsonl": "bbed1a4344833c80228d55408f796e49faea0c4169c3697569e62fa6b829326f",
+    "predictions/task_11.jsonl": "3eab24d3237324d6fa37373351023bf2ce7bff21e60c21ce941f90fbe24a9fcc",
+    "predictions/task_12.jsonl": "a99dd1e09bc5e86d463d5525262f180e59478ca42cede798a1d09154af972d47",
+    "predictions/task_13.jsonl": "c3cafcd8e3079b8bf7af98b7882463b2c974af14d8201c591edc1cbd4a182acb",
+    "predictions/task_14.jsonl": "383bb49984bd7f9389b22bb9cf7dd26fee60abb98e4fb350c490c52a44229b04",
+    "predictions/task_15.jsonl": "9c3a5671887a382e320f171f4b087b79d74bf3ebf241bbb2858ae36078d47743",
+    "predictions/task_16.jsonl": "85ef09643d4a85ee8b7f49ea2e1ddaeda173f7ee31f756493dbf0b1e01b080f2",
+    "predictions/task_17.jsonl": "082eead1bc1965e740b1762973fe4410b83d78b0b045b2a480fd9cb45c88fcc7",
+    "predictions/task_18.jsonl": "b4c2444ccbdc783d4acddddfc25cea3c35e19d6f8dd2ec684d15d9dc513ac645",
+    "predictions/task_19.jsonl": "c8ca5f392d1106b2d9ae46819606ecad837cce47d7e8d0bb3d346f2ab7349aa8",
+    "predictions/task_20.jsonl": "f77325d68f8471927c3901c3dbd5b6461dec4919b9810cccbb03815d647ff6c5",
+    "predictions/task_21.jsonl": "80d9e4b44a35ffee17261263ef24eb6a092c2ea405d07394bae7e49fe0aa50e6",
+    "predictions/task_22.jsonl": "3a18ba4ecc9b4c3066a5a9b692533fd7874ab5bf46e10bb36f315d994e663e5e",
+    "predictions/task_23.jsonl": "68045d66b37244045d1ab12a7a55189bfe86daab16a1f4c5fceebe538f084120",
+    "predictions/task_24.jsonl": "d31ff9c4299ff21e036e78835d993b240bbed2b905eaf8154ff575ea1c7f3dd8",
+    "summary.json": "c76c0cf56f0283a3ddba2701776205d7895db9cd6b34fbe9b42d7686fda94d4b",
+    "task_index.json": "7ac679fc7d3cd1f8a695f1b2c4f38f9c0b249c4d2ca204569ebf0cc307c5ced6"
+  }
+}
