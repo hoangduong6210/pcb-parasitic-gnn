@@ -57,21 +57,37 @@ def test_series_parameter_preserves_archival_v3_schemas() -> None:
 
 def test_v4_latency_is_paired_array_at_reference_setting() -> None:
     task = validate("experiments_corpus_v4_latency_task.py")
-    final = validate(
-        "finalize_corpus_v4_latency.py", "--source-array-job-id", "validate"
+    final = validate("finalize_corpus_v4_latency.py")
+    assert task["schema"] == "pcb-gnn.corpus-v4-paired-latency-task.v2"
+    assert task["status"] == "validation-ok"
+    assert task["array_tasks"] == 306
+    assert task["fem_fidelity_id"] == "cps_fem_r3_p16"
+    assert task["timing_boundary"] == "in-memory-raw-json-record-to-four-output"
+    assert task["warmups"] == 50
+    assert task["timed_repetitions"] == 200
+    assert final["schema"] == "pcb-gnn.corpus-v4-paired-latency-final.v2"
+    assert final["bootstrap_cluster"] == "family"
+    assert final["bootstrap_resamples"] == 10_000
+    protocol = json.loads(
+        (ROOT / "protocols/corpus_v4_latency_v1.json").read_text(encoding="utf-8")
     )
-    assert task == {
-        "schema": "pcb-gnn.corpus-v4-paired-latency-task.v1",
-        "status": "validation-ok",
-        "array_tasks": 100,
+    assert protocol["solver_workflow"]["capacitance"] == {
+        "fidelity_id": "cps_fem_r3_p16",
+        "linear_solver": "pyamg_smoothed_aggregation_cg",
+        "pad_mm": 16.0,
+        "refine": 3,
+        "target": "Cps_pF",
+        "timeout_s": 1800,
     }
-    assert final["schema"] == "pcb-gnn.corpus-v4-paired-latency-final.v1"
-    worker = (PROOFS / "experiments_corpus_v4_latency_task.py").read_text()
+    assert protocol["gnn_timing"]["measurement_blocks"] == [
+        "100 repetitions before the solver workflow",
+        "100 repetitions after the solver workflow",
+    ]
     submit = (ROOT / "code/jobs/submit_corpus_v4_latency.sh").read_text()
-    assert "FEM_REFINE = 2" in worker
-    assert "DOMAIN_PAD_MM = 12.0" in worker
-    assert "#SBATCH --array=0-99%50" in submit
-    assert "--fem-timeout-s 3600" in submit
+    assert "#SBATCH --array=0-305%8" in submit
+    assert "#SBATCH --cpus-per-task=25" in submit
+    assert "#SBATCH --mem=48G" in submit
+    assert "#SBATCH --time=02:00:00" in submit
 
 
 def test_v4_analytical_audit_has_no_login_node_fallback() -> None:

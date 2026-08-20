@@ -1,0 +1,225 @@
+{
+  "checkpoint": {
+    "accepted_before_latency_measurement": true,
+    "bundle_format": "NumPy NPZ; allow_pickle=False",
+    "bundle_schema": "pcb-gnn.safe-npz-bundle.v1",
+    "designated_task_id": 12,
+    "init_seed": 42,
+    "maximum_archive_bytes": 67108864,
+    "maximum_uncompressed_bytes": 134217728,
+    "smoke_examples": 5,
+    "split_seed": 42
+  },
+  "forbidden_actions": {
+    "aggregate_median_ratio_as_headline": true,
+    "batching_across_designs": true,
+    "capacitance_only_or_inductance_only_generalization": true,
+    "fastest_attempt_selection": true,
+    "hardware_or_population_confidence_interval_wording": true,
+    "historical_4300x_or_670x_as_current_evidence": true,
+    "layout_replacement_after_failure": true,
+    "login_node_solver_execution": true,
+    "outcome_or_timing_based_filtering": true,
+    "solver_result_cache_reuse": true,
+    "timeout_or_resource_change_on_retry": true
+  },
+  "gnn_timing": {
+    "batch_size": 1,
+    "boundary_end": "four inverse-transformed target values materialized as float64",
+    "boundary_name": "warm-loaded in-memory raw-JSON-record-to-four-output latency",
+    "boundary_start": "canonical UTF-8 JSON bytes resident in memory",
+    "cpu_only": true,
+    "include": [
+      "strict JSON parsing",
+      "geometry validation",
+      "graph construction",
+      "feature normalization",
+      "batch-one collation",
+      "model forward pass",
+      "inverse target transformation",
+      "four-value output materialization"
+    ],
+    "measured_repetitions": 200,
+    "measurement_blocks": [
+      "100 repetitions before the solver workflow",
+      "100 repetitions after the solver workflow"
+    ],
+    "measured_repetitions_per_block": 100,
+    "model_load_excluded_and_reported_separately": true,
+    "python_startup_excluded": true,
+    "raw_record_serialization": "canonical JSON; UTF-8; sorted keys; compact separators; finite values only",
+    "storage_io_excluded": true,
+    "timer": "time.perf_counter_ns",
+    "torch_interop_threads": 1,
+    "torch_intraop_threads": 1,
+    "warmup_repetitions": 50
+  },
+  "inputs": {
+    "accuracy_accepted_set": {
+      "path": "results/corpus_v4/accuracy/resume/round_01/accepted_artifact_set.json",
+      "sha256": "5e65fc0be6cbccc9fd30309a53a6ab03f52d39bb8a5e88b8c743fdb87b070235"
+    },
+    "accuracy_archive": {
+      "path": "results/corpus_v4/accuracy/ARCHIVE_MANIFEST.json",
+      "sha256": "0335dbf90f41ac68443a454072280b1796422f0bd0be233cec3be3c2996f80c4"
+    },
+    "accuracy_checkpoint_index": {
+      "path": "results/corpus_v4/accuracy/final/job_6905011/checkpoint_index.json",
+      "sha256": "ba71d434c057dd6640bbb0a6c1a940af4d99b70a80ba6ec5d3ab62b6da9d7bdd"
+    },
+    "accuracy_execution_lock": {
+      "path": "protocols/corpus_v4_accuracy_execution_lock_v1.json",
+      "sha256": "6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61"
+    },
+    "accuracy_final_summary": {
+      "path": "results/corpus_v4/accuracy/final/job_6905011/summary.json",
+      "sha256": "c76c0cf56f0283a3ddba2701776205d7895db9cd6b34fbe9b42d7686fda94d4b"
+    },
+    "accuracy_plan": {
+      "path": "results/corpus_v4/accuracy/plan/v1/plan.json",
+      "sha256": "e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206"
+    },
+    "accuracy_protocol": {
+      "path": "protocols/corpus_v4_accuracy_v1.json",
+      "sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf"
+    },
+    "accuracy_task_manifest": {
+      "path": "results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl",
+      "sha256": "2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20"
+    },
+    "checkpoint_archive": {
+      "path": "results/corpus_v4/accuracy/jobs/job_6904424/task_12/bundle/weights_and_norm.npz",
+      "sha256": "f3f8e8607aa8b71413946152f6d6ff344d3d970e8cee3e31915d4991e190dd2a"
+    },
+    "checkpoint_metadata": {
+      "path": "results/corpus_v4/accuracy/jobs/job_6904424/task_12/bundle/metadata.json",
+      "sha256": "b606aa2ea612abd5e5d2be92b3d96ebf8c27365837b58de9e338b280a5ac47a9"
+    },
+    "checkpoint_smoke_examples": {
+      "path": "results/corpus_v4/accuracy/jobs/job_6904424/task_12/smoke_examples.jsonl",
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    "cps_multifidelity_protocol": {
+      "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
+      "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
+    },
+    "designated_task_manifest": {
+      "path": "results/corpus_v4/accuracy/jobs/job_6904424/task_12/TASK_MANIFEST.json",
+      "sha256": "a4353f021607fc83817b9e853ede2b3299e8cd1e6e3c3942324e2b5160c77a29"
+    },
+    "designated_task_result": {
+      "path": "results/corpus_v4/accuracy/jobs/job_6904424/task_12/result.json",
+      "sha256": "e13a76c32b8cc66f169e60029d2022e3a2d1042aab2c866baeb944a231e82726"
+    },
+    "evaluation_dataset": {
+      "path": "results/corpus_v4/accuracy/plan/v1/evaluation_dataset.jsonl",
+      "sha256": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c"
+    }
+  },
+  "panel": {
+    "family_key": "swap-closed unordered turn-count pair",
+    "layout_order": "ascending frozen layout_id within split-42 test membership",
+    "n_designs": 306,
+    "n_families": 13,
+    "scope": "all layouts in the frozen split-42 family-held-out test partition",
+    "selection_uses_labels_predictions_or_timings": false,
+    "split_seed": 42
+  },
+  "protocol_name": "corpus-v4-current-checkpoint-paired-latency-v1",
+  "resources": {
+    "finalizer": {
+      "allocated_cpus_may_exceed_request": true,
+      "cpus_per_task": 2,
+      "memory_gib": 8,
+      "partition": "nextgen",
+      "scientific_threads": 2,
+      "time_limit": "00:20:00"
+    },
+    "full_array": {
+      "allocated_cpus_may_exceed_request": true,
+      "array": "0-305%8",
+      "cpus_per_task": 25,
+      "memory_gib": 48,
+      "partition": "nextgen",
+      "scientific_threads": {
+        "blas": 1,
+        "gmsh": 25,
+        "torch": 1
+      },
+      "time_limit": "02:00:00"
+    },
+    "preflight": {
+      "allocated_cpus_may_exceed_request": true,
+      "array": "0,152,305%1",
+      "cpus_per_task": 25,
+      "excluded_from_final_statistics": true,
+      "memory_gib": 48,
+      "partition": "nextgen",
+      "task_ids": [0, 152, 305],
+      "time_limit": "02:00:00"
+    }
+  },
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "meshio": "5.3.5",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1",
+      "torch": "2.8.0"
+    },
+    "python": "3.9.21",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "25"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-paired-latency-protocol.v2",
+  "solver_workflow": {
+    "boundary_end": "all four target values parsed and materialized as float64",
+    "boundary_start": "the same canonical UTF-8 JSON bytes resident in memory",
+    "capacitance": {
+      "fidelity_id": "cps_fem_r3_p16",
+      "linear_solver": "pyamg_smoothed_aggregation_cg",
+      "pad_mm": 16.0,
+      "refine": 3,
+      "target": "Cps_pF",
+      "timeout_s": 1800
+    },
+    "comparison_scope": "sequential FastHenry-plus-FEM-R3P16 workflow used to obtain all four targets",
+    "execution_order": ["FastHenry", "FEM-R3P16"],
+    "inductance": {
+      "binary_sha256": "ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056",
+      "frequency_hz": 100000.0,
+      "fidelity_id": "fasthenry_100khz_active_leg",
+      "targets": ["L_pri_nH", "L_sec_nH", "L_mut_nH"],
+      "timeout_s": 300
+    },
+    "reference_agreement_max_relative_error": 0.0001,
+    "repetitions_per_design": 1,
+    "sequential": true,
+    "solver_result_cache_reuse": false,
+    "timer": "time.perf_counter_ns"
+  },
+  "statistics": {
+    "bootstrap": {
+      "cluster_unit": "held-out geometry family",
+      "label": "family-cluster bootstrap sensitivity interval on the evaluated split and CPU-node class",
+      "percentiles": [2.5, 97.5],
+      "quantile_method": "Hyndman-Fan type 7",
+      "resamples": 10000,
+      "seed": 20260820,
+      "semantics": "descriptive sensitivity interval, not a population or hardware confidence interval"
+    },
+    "design_gnn_latency": "median of 200 measured repetitions",
+    "design_solver_latency": "one sequential FastHenry-plus-FEM-R3P16 observation",
+    "primary_estimand": "median over 306 designs of paired solver latency divided by design-median GNN latency",
+    "report_component_medians_descriptively": true,
+    "report_every_design_ratio": true
+  }
+}
