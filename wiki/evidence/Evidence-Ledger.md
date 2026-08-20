@@ -319,7 +319,7 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PREFLIGHT FROZEN; CORRECTED RERUN PENDING` |
+| Lifecycle | `PREFLIGHT FROZEN; CORRECTED RERUN ACTIVE` |
 | Protocol | [`corpus_v4_accuracy_v1.json`](../../protocols/corpus_v4_accuracy_v1.json), SHA-256 `f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf` |
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy/plan/v1/plan.json), SHA-256 `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
 | Task rows | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl), SHA-256 `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
@@ -361,6 +361,20 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 | Corrective action | Query both identity fields and match the logical component on `JobID`; preserve `JobIDRaw` as receipt identity; compare complete `ReqTRES` and `AllocTRES` maps after deterministic key ordering so equivalent `scontrol` and `sacct` records remain equal without relaxing value or unit checks; rerun from a clean commit under a regenerated execution lock |
 | Held-out boundary | No checkpoint was admitted; no finalizer, test inference, or R4 inference ran |
 | Scientific use | None; operational regression evidence only |
+
+## E-C4-ACC-SUBMIT-02: Corrected checkpoint-only accuracy rerun
+
+| Field | Value |
+|---|---|
+| Lifecycle | `RUNNING` |
+| Array | `6904424` |
+| Source commit | `f3074d2cb6082b6740452e9c8d0560d0d11eeb61` |
+| Execution-lock SHA-256 | `6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61` |
+| Pre-submit gates | Clean detached source, 2,222-file manifest, deterministic 25-task plan replay over 1,500 rows, runner validation-only, and scheduler test-only all passed |
+| Initial scheduler observation | Tasks 0 through 4 entered `RUNNING`; tasks 5 through 24 remained `PENDING` under the declared five-task array throttle |
+| Resource receipt | Each live task requested 8 CPU and 48 GiB; site policy allocated 13 CPU and 48 GiB; the compute-node allocation gate passed |
+| Held-out boundary | Training remains checkpoint-only. No accepted-set, test inference, R4 inference, or accuracy claim exists while the array is open |
+| Scientific use | None until exact terminal accounting, 25-checkpoint acceptance, SLURM finalization, archive verification, and clean-clone closure all pass |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
