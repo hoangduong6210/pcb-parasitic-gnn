@@ -1428,6 +1428,10 @@ def test_preflight_wrapper_cannot_omit_fem_repeatability_admission() -> None:
         '--fem-repeatability-admission '
         '"$PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION"'
     ) in source
+    assert (
+        '--expected-fem-repeatability-admission-sha256 '
+        '"$PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256"'
+    ) in source
 
 
 def test_latency_admission_clis_expose_no_accounting_fixture() -> None:
@@ -1435,10 +1439,6 @@ def test_latency_admission_clis_expose_no_accounting_fixture() -> None:
         source = path.read_text(encoding="utf-8")
         assert "--accounting-file" not in source
         assert "accounting fixture" not in source
-    assert (
-        '--expected-fem-repeatability-admission-sha256 '
-        '"$PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256"'
-    ) in source
 
 
 def test_admission_gate_precedes_model_and_solver_work() -> None:

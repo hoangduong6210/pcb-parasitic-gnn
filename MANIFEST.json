@@ -11959,7 +11959,7 @@
     {
       "path": "tests/test_corpus_v4_latency_pipeline.py",
       "bytes": 67961,
-      "sha256": "447295ecb068dd127e6a7eccd76dba25e4e7134dc043df7d0471216f66c48a7e"
+      "sha256": "5f1b1bb03bb8b669f8dc134219e61f1d038376586993ba11c5cb455d4cf271e4"
     },
     {
       "path": "tests/test_corpus_v4_protocol.py",
@@ -12068,8 +12068,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 16642,
-      "sha256": "bf331cae2c1380f6e57a89b3f4c3c4231dd50c949c1f7c4f2606f4859d29acda"
+      "bytes": 16609,
+      "sha256": "f761321332679f62835f7b600657b24b5e5b97db0aed62c10635bee945559cc9"
     },
     {
       "path": "wiki/CONTRIBUTING.md",
@@ -12258,5 +12258,5 @@
     }
   ],
   "n_files": 2448,
-  "total_bytes": 91866131
+  "total_bytes": 91866098
 }

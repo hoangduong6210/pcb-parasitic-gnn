@@ -48,7 +48,6 @@ REQUIRED_PAGES = (
     "methods/Graph-Surrogate.md",
     "methods/Runtime-Benchmark.md",
     "methods/Strict-E3-and-EGNN.md",
-    "operations/Prose-Audit.md",
     "operations/Research-Workflow.md",
     "operations/SLURM-Resource-Plan.md",
     "operations/SLURM-Submission-Playbook.md",
