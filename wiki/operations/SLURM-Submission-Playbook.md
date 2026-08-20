@@ -657,7 +657,7 @@ ACC_SOURCE_COMMIT=replace-with-clean-execution-commit
 ACC_PROTOCOL_SHA256=f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf
 ACC_PLAN_SHA256=e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206
 ACC_TASKS_SHA256=2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20
-ACC_LOCK_SHA256=7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60
+ACC_LOCK_SHA256=6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61
 cd "$ACC_RUN_ROOT"
 test "$(git rev-parse HEAD)" = "$ACC_SOURCE_COMMIT"
 test -z "$(git status --short --untracked-files=no)"
@@ -699,6 +699,8 @@ ACC_JOB_ID=$(sbatch --parsable -A pgs0407 \
   --chdir="$ACC_RUN_ROOT" \
   --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256" \
   "$ACC_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy.sh")
+ACC_JOB_ID=${ACC_JOB_ID%%;*}
+[[ "$ACC_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
 When the array leaves the queue, inspect expanded accounting rather than the
@@ -722,6 +724,14 @@ python3 code/experiments/proofs/plan_corpus_v4_accuracy_resume.py \
   --out results/corpus_v4/accuracy/resume/round_00
 ```
 
+Queue disappearance is not a sufficient resume gate. Wait until `sacct`
+exposes exactly 25 logical `JobID=arrayID_taskID` rows and every row is
+`COMPLETED/0:0`. Accounting can lag queue completion. Do not submit retries
+from a failed-closed round while accounting is incomplete; a late successful
+record would create two valid attempts for one canonical task. Rebuild a new
+immutable resume round from the original attempt root after accounting settles,
+and never repeat the same `--attempt-root` argument.
+
 If pending tasks remain, submit only those canonical IDs by overriding the
 array expression. Pin the pending set and pass it to the runner. Append every
 earlier attempt root when rebuilding the next accepted set.
@@ -735,6 +745,8 @@ ACC_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 \
   --chdir="$ACC_RUN_ROOT" \
   --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256",PCB_GNN_V4_ACCURACY_PENDING_SET="$ACC_PENDING",PCB_GNN_V4_ACCURACY_PENDING_SET_SHA256="$ACC_PENDING_SHA256" \
   "$ACC_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy.sh")
+ACC_RETRY_JOB_ID=${ACC_RETRY_JOB_ID%%;*}
+[[ "$ACC_RETRY_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
 Finalization requires 25 accepted tasks, zero pending tasks, and no ambiguous
@@ -747,10 +759,16 @@ test/R4 inference, and writes all prediction-level evidence itself.
 # Point this to the latest resume round after all 25 tasks are accepted.
 ACC_ACCEPTED=results/corpus_v4/accuracy/resume/round_00/accepted_artifact_set.json
 ACC_ACCEPTED_SHA256=$(sha256sum "$ACC_ACCEPTED" | awk '{print $1}')
+sbatch --test-only -A pgs0407 \
+  --chdir="$ACC_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256",PCB_GNN_V4_ACCURACY_ACCEPTED_SET="$ACC_ACCEPTED",PCB_GNN_V4_ACCURACY_ACCEPTED_SET_SHA256="$ACC_ACCEPTED_SHA256" \
+  "$ACC_RUN_ROOT/code/jobs/submit_finalize_corpus_v4_accuracy.sh"
 ACC_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
   --chdir="$ACC_RUN_ROOT" \
   --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256",PCB_GNN_V4_ACCURACY_ACCEPTED_SET="$ACC_ACCEPTED",PCB_GNN_V4_ACCURACY_ACCEPTED_SET_SHA256="$ACC_ACCEPTED_SHA256" \
   "$ACC_RUN_ROOT/code/jobs/submit_finalize_corpus_v4_accuracy.sh")
+ACC_FINAL_JOB_ID=${ACC_FINAL_JOB_ID%%;*}
+[[ "$ACC_FINAL_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
 After the finalizer leaves the queue, create the closeout manifest only after
@@ -759,7 +777,7 @@ clones use `--check` and therefore do not depend on scheduler retention.
 
 ```bash
 sacct -X -n -P -j "$ACC_FINAL_JOB_ID" \
-  --format=JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES
+  --format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES
 ACC_ANALYSIS=results/corpus_v4/accuracy/final/job_${ACC_FINAL_JOB_ID}/ANALYSIS_MANIFEST.json
 ACC_ANALYSIS_SHA256=$(sha256sum "$ACC_ANALYSIS" | awk '{print $1}')
 python3 code/quality/verify_corpus_v4_accuracy_archive.py \
@@ -778,6 +796,14 @@ python3 code/quality/verify_corpus_v4_accuracy_archive.py \
   --expected-analysis-manifest-sha256 "$ACC_ANALYSIS_SHA256" \
   --out results/corpus_v4/accuracy/ARCHIVE_MANIFEST.json
 ```
+
+For array accounting, match the logical component (`arrayID_taskID`) on
+`JobID`. Preserve `JobIDRaw` as the scheduler's receipt identity, but do not use
+it as the logical array key: ordinary elements may receive numeric child IDs,
+and the final element may carry the base raw ID. Compare complete `ReqTRES` and
+`AllocTRES` maps after deterministic key ordering because `scontrol` and
+`sacct` can print identical maps in different orders. Do not normalize units or
+discard unknown keys.
 
 Record the array, retry, and finalizer identifiers plus every source and
 artifact hash in the evidence ledger. Commit every admitted attempt, resume

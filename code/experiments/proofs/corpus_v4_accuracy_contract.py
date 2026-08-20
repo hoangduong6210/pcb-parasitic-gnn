@@ -758,6 +758,35 @@ def parse_tres(value: Any) -> dict[str, str]:
     return parsed
 
 
+def canonical_tres(value: Any) -> str:
+    """Canonicalize a complete TRES map without weakening value or unit checks."""
+    if not isinstance(value, str) or not value:
+        raise ValueError("TRES must be a non-empty string")
+    items = value.split(",")
+    if any(
+        not item
+        or "=" not in item
+        or not item.partition("=")[0]
+        or not item.partition("=")[2]
+        or item.partition("=")[0] != item.partition("=")[0].strip()
+        or item.partition("=")[2] != item.partition("=")[2].strip()
+        for item in items
+    ):
+        raise ValueError("TRES contains a malformed field")
+    parsed = parse_tres(value)
+    if len(parsed) != len(items):
+        raise ValueError("TRES contains a duplicate field")
+    return ",".join(f"{name}={parsed[name]}" for name in sorted(parsed))
+
+
+def tres_equivalent(left: Any, right: Any) -> bool:
+    """Compare TRES maps by field while rejecting malformed representations."""
+    try:
+        return canonical_tres(left) == canonical_tres(right)
+    except ValueError:
+        return False
+
+
 def parse_scontrol_records(output: str) -> list[dict[str, str]]:
     return [
         {token.split("=", 1)[0]: token.split("=", 1)[1] for token in line.split() if "=" in token}

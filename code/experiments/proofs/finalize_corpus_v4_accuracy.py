@@ -32,10 +32,12 @@ from corpus_v4_accuracy_contract import (  # noqa: E402
     FINAL_SCHEMA,
     TARGETS,
     canonical_task_row,
+    canonical_tres,
     load_jsonl,
     metric_set,
     resolve_repo_path,
     runtime_identity,
+    tres_equivalent,
     validate_execution_lock,
     validate_file_manifest,
     validate_plan,
@@ -217,19 +219,27 @@ def _completed_accounting(result: Mapping[str, Any]) -> dict[str, str]:
             "-P",
             "-j",
             component,
-            "--format=JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
+            "--format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
         ],
         capture_output=True,
         check=False,
         text=True,
     )
     records: list[dict[str, str]] = []
-    fields = ("JobIDRaw", "State", "ExitCode", "ElapsedRaw", "ReqTRES", "AllocTRES")
+    fields = (
+        "JobIDRaw",
+        "JobID",
+        "State",
+        "ExitCode",
+        "ElapsedRaw",
+        "ReqTRES",
+        "AllocTRES",
+    )
     for line in query.stdout.splitlines():
         values = line.split("|")
         if len(values) >= len(fields):
             records.append(dict(zip(fields, values)))
-    matches = [record for record in records if record["JobIDRaw"] == component]
+    matches = [record for record in records if record["JobID"] == component]
     if (
         query.returncode != 0
         or len(matches) != 1
@@ -237,16 +247,21 @@ def _completed_accounting(result: Mapping[str, Any]) -> dict[str, str]:
         or matches[0]["ExitCode"] != "0:0"
     ):
         raise ValueError(f"task {component} lacks exact successful SLURM accounting")
-    normalized = dict(matches[0])
+    normalized = {
+        name: matches[0][name]
+        for name in ("JobIDRaw", "State", "ExitCode", "ElapsedRaw", "ReqTRES", "AllocTRES")
+    }
     normalized["State"] = "COMPLETED"
     in_run = scheduler.get("scheduler_record", {})
     if any(
-        normalized[name] != in_run.get(name)
+        not tres_equivalent(normalized[name], in_run.get(name))
         for name in ("ReqTRES", "AllocTRES")
     ):
         raise ValueError(
             f"task {component} terminal resources differ from its in-run receipt"
         )
+    for name in ("ReqTRES", "AllocTRES"):
+        normalized[name] = canonical_tres(normalized[name])
     return normalized
 
 

@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 Accuracy Protocol
-status: preflight frozen; execution pending
+status: frozen protocol; accuracy evidence pending
 last_updated: 2026-08-19
 paper_source: true
 prose_reviewed: true

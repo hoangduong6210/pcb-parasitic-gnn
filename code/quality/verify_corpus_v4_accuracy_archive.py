@@ -22,10 +22,12 @@ from corpus_v4_accuracy_contract import (  # noqa: E402
     FINAL_SCHEMA,
     assert_finite_json,
     canonical_task_row,
+    canonical_tres,
     load_json,
     load_jsonl,
     require_repo_relative_path,
     resolve_repo_path,
+    tres_equivalent,
     validate_execution_lock,
     validate_file_manifest,
     validate_plan,
@@ -111,6 +113,8 @@ def _completed_finalizer(job_id: str) -> dict[str, str]:
         raise ValueError("finalizer lacks exact COMPLETED/0:0 SLURM accounting")
     receipt = dict(matches[0])
     receipt["State"] = "COMPLETED"
+    for name in ("ReqTRES", "AllocTRES"):
+        receipt[name] = canonical_tres(receipt[name])
     return receipt
 
 
@@ -485,6 +489,10 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
             != {"AllocTRES", "ElapsedRaw", "ExitCode", "JobIDRaw", "ReqTRES", "State"}
             or finalizer_receipt["State"] != "COMPLETED"
             or finalizer_receipt["ExitCode"] != "0:0"
+            or any(
+                finalizer_receipt[name] != canonical_tres(finalizer_receipt[name])
+                for name in ("ReqTRES", "AllocTRES")
+            )
         ):
             raise ValueError("stored finalizer scheduler receipt is invalid")
     else:
@@ -496,7 +504,7 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         finalizer_receipt["JobIDRaw"]
         != str(summary["provenance"]["scheduler"].get("job_id", ""))
         or any(
-            finalizer_receipt[name] != scheduler_record.get(name)
+            not tres_equivalent(finalizer_receipt[name], scheduler_record.get(name))
             for name in ("ReqTRES", "AllocTRES")
         )
     ):

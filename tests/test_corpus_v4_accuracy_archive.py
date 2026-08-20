@@ -366,11 +366,11 @@ def _archive_replay_fixture(
     }
     source_head = "2" * 40
     finalizer_receipt = {
-        "AllocTRES": "cpu=3,mem=16G",
+        "AllocTRES": "billing=3,cpu=3,mem=16G,node=1",
         "ElapsedRaw": "91",
         "ExitCode": "0:0",
         "JobIDRaw": "8200000",
-        "ReqTRES": "cpu=2,mem=16G",
+        "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
         "State": "COMPLETED",
     }
     summary = {
@@ -384,8 +384,8 @@ def _archive_replay_fixture(
             "scheduler": {
                 "job_id": "8200000",
                 "scheduler_record": {
-                    "AllocTRES": finalizer_receipt["AllocTRES"],
-                    "ReqTRES": finalizer_receipt["ReqTRES"],
+                    "AllocTRES": "cpu=3,mem=16G,node=1,billing=3",
+                    "ReqTRES": "cpu=2,mem=16G,node=1,billing=2",
                 },
             },
             "source_git_head": source_head,

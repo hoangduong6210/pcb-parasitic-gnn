@@ -848,15 +848,15 @@ def test_resume_rejects_preacceptance_test_or_r4_access(
         _validate_checkpoint_only_attempt(manifest_path, task_row, roots, lock)
 
 
-def _accounting_result() -> dict[str, Any]:
+def _accounting_result(task_id: int = 12) -> dict[str, Any]:
     return {
         "provenance": {
             "scheduler": {
                 "array_job_id": "8100000",
-                "array_task_id": 12,
+                "array_task_id": task_id,
                 "scheduler_record": {
-                    "AllocTRES": "cpu=16,mem=48G",
-                    "ReqTRES": "cpu=8,mem=48G",
+                    "AllocTRES": "cpu=16,mem=48G,node=1,billing=16",
+                    "ReqTRES": "cpu=8,mem=48G,node=1,billing=8",
                 },
             }
         }
@@ -864,7 +864,11 @@ def _accounting_result() -> dict[str, Any]:
 
 
 def _mock_sacct(
-    monkeypatch: pytest.MonkeyPatch, *, stdout: str, returncode: int = 0
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    stdout: str,
+    returncode: int = 0,
+    component: str = "8100000_12",
 ) -> None:
     def run(command: list[str], **_: Any) -> SimpleNamespace:
         assert command == [
@@ -873,8 +877,8 @@ def _mock_sacct(
             "-n",
             "-P",
             "-j",
-            "8100000_12",
-            "--format=JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
+            component,
+            "--format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
         ]
         return SimpleNamespace(returncode=returncode, stdout=stdout)
 
@@ -890,19 +894,19 @@ def test_completed_slurm_accounting_accepts_one_exact_terminal_component(
     _mock_sacct(
         monkeypatch,
         stdout=(
-            "8100000_12|COMPLETED+|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n"
-            "8100000_12.batch|COMPLETED|0:0|122|cpu=8,mem=48G|cpu=16,mem=48G|\n"
+            "8101234|8100000_12|COMPLETED+|0:0|123|billing=8,cpu=8,mem=48G,node=1|billing=16,cpu=16,mem=48G,node=1|\n"
+            "8101234.batch|8100000_12.batch|COMPLETED|0:0|122|billing=8,cpu=8,mem=48G,node=1|billing=16,cpu=16,mem=48G,node=1|\n"
         ),
     )
 
     accounting = validator(_accounting_result())
 
     assert accounting == {
-        "AllocTRES": "cpu=16,mem=48G",
+        "AllocTRES": "billing=16,cpu=16,mem=48G,node=1",
         "ElapsedRaw": "123",
         "ExitCode": "0:0",
-        "JobIDRaw": "8100000_12",
-        "ReqTRES": "cpu=8,mem=48G",
+        "JobIDRaw": "8101234",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
         "State": "COMPLETED",
     }
 
@@ -912,30 +916,36 @@ def test_completed_slurm_accounting_accepts_one_exact_terminal_component(
     (
         (
             1,
-            "8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
+            "8101234|8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
         ),
         (
             0,
-            "8100000_12|FAILED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
+            "8101234|8100000_12|FAILED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
         ),
         (
             0,
-            "8100000_12|COMPLETED|1:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
+            "8101234|8100000_12|COMPLETED|1:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
         ),
         (
             0,
-            "8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n"
-            "8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
+            "8101234|8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n"
+            "8101235|8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=16,mem=48G|\n",
         ),
     ),
 )
+@pytest.mark.parametrize(
+    "validator", (resume.completed_slurm_accounting, finalizer._completed_accounting)
+)
 def test_completed_slurm_accounting_rejects_query_state_exit_and_duplicates(
-    monkeypatch: pytest.MonkeyPatch, returncode: int, stdout: str
+    monkeypatch: pytest.MonkeyPatch,
+    returncode: int,
+    stdout: str,
+    validator: Any,
 ) -> None:
     _mock_sacct(monkeypatch, stdout=stdout, returncode=returncode)
 
     with pytest.raises(ValueError, match="exact successful SLURM accounting"):
-        resume.completed_slurm_accounting(_accounting_result())
+        validator(_accounting_result())
 
 
 @pytest.mark.parametrize(
@@ -947,12 +957,56 @@ def test_completed_slurm_accounting_rejects_terminal_resource_drift(
     _mock_sacct(
         monkeypatch,
         stdout=(
-            "8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=8,mem=48G|\n"
+            "8101234|8100000_12|COMPLETED|0:0|123|cpu=8,mem=48G|cpu=8,mem=48G|\n"
         ),
     )
 
     with pytest.raises(ValueError, match="terminal resources differ"):
         validator(_accounting_result())
+
+
+@pytest.mark.parametrize(
+    "validator", (resume.completed_slurm_accounting, finalizer._completed_accounting)
+)
+def test_completed_slurm_accounting_accepts_final_element_base_raw_id(
+    monkeypatch: pytest.MonkeyPatch, validator: Any
+) -> None:
+    _mock_sacct(
+        monkeypatch,
+        component="8100000_24",
+        stdout=(
+            "8100000|8100000_24|COMPLETED|0:0|530|billing=8,cpu=8,mem=48G,node=1|billing=16,cpu=16,mem=48G,node=1|\n"
+        ),
+    )
+
+    accounting = validator(_accounting_result(task_id=24))
+
+    assert accounting["JobIDRaw"] == "8100000"
+    assert accounting["State"] == "COMPLETED"
+
+
+@pytest.mark.parametrize(
+    ("left", "right", "expected"),
+    (
+        ("cpu=8,mem=48G,node=1,billing=8", "billing=8,cpu=8,mem=48G,node=1", True),
+        ("cpu=8,mem=48G", "cpu=8,mem=47G", False),
+        ("cpu=8,cpu=8,mem=48G", "cpu=8,mem=48G", False),
+        ("cpu=8,malformed", "cpu=8", False),
+        ("cpu =8,mem=48G", "cpu=8,mem=48G", False),
+        ("", "", False),
+    ),
+)
+def test_tres_equivalent_is_order_independent_and_fail_closed(
+    left: str, right: str, expected: bool
+) -> None:
+    assert contract.tres_equivalent(left, right) is expected
+
+
+def test_canonical_tres_rejects_duplicate_and_malformed_fields() -> None:
+    with pytest.raises(ValueError, match="duplicate"):
+        contract.canonical_tres("cpu=8,cpu=8,mem=48G")
+    with pytest.raises(ValueError, match="malformed"):
+        contract.canonical_tres("cpu=8,malformed")
 
 
 def _accepted_set_fixture(

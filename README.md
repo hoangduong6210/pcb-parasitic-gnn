@@ -87,8 +87,10 @@ including former accuracy, ranking, EGNN accuracy comparison, and speed ratios,
 remains archival and outside current geometry-valid claims. The strict E(3) encoded-graph
 check remains an admitted implementation property, not a predictive claim.
 The current accuracy loader and 25-cell crossed split/init pipeline have passed
-freeze review; the checkpoint-only training grid is active on SLURM. No
-accuracy result is admitted while that execution remains open. See the
+freeze review. A checkpoint-only training attempt completed, but its post-run
+accounting gate failed closed before any checkpoint was admitted or any
+held-out inference was run. The corrected accounting contract requires a clean
+rerun; no current accuracy result is admitted. See the
 [accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and

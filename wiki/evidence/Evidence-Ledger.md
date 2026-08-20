@@ -319,16 +319,16 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PREFLIGHT FROZEN; NUMERICAL EXECUTION PENDING` |
+| Lifecycle | `PREFLIGHT FROZEN; CORRECTED RERUN PENDING` |
 | Protocol | [`corpus_v4_accuracy_v1.json`](../../protocols/corpus_v4_accuracy_v1.json), SHA-256 `f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf` |
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy/plan/v1/plan.json), SHA-256 `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
 | Task rows | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl), SHA-256 `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
 | Evaluation table | [`evaluation_dataset.jsonl`](../../results/corpus_v4/accuracy/plan/v1/evaluation_dataset.jsonl), SHA-256 `c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c` |
-| Execution lock | [`corpus_v4_accuracy_execution_lock_v1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v1.json), SHA-256 `7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60` |
+| Execution lock | [`corpus_v4_accuracy_execution_lock_v1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v1.json), SHA-256 `6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61` |
 | Source closure | 23 execution files are byte-pinned; the clean execution commit is an external trust root recorded by each submitted task |
 | Grid | Five family-held-out splits crossed with five initialization seeds; 25 row-major tasks |
 | Held-out boundary | Training tasks emit checkpoints and validation diagnostics only; the accepted-set gate precedes the SLURM finalizer's first test/R4 inference |
-| Review gates | 314 repository tests, 121 focused accuracy tests, research-prose audit, Python compile, shell syntax, deterministic planner replay, and execution-lock validation passed on the login-safe review path |
+| Review gates | 328 repository tests, 36 focused accounting/archive regression tests, research-prose audit, Python compile, shell syntax, deterministic planner replay, and execution-lock validation passed on the login-safe review path |
 | Scientific use | Defines an execution contract only. It supports no accuracy or runtime number until the final archive is job-backed, hash-closed, committed, and entered separately in this ledger. |
 
 ## E-C4-ACC-SUBMIT-00: Accuracy resource-contract preflight failure
@@ -345,6 +345,21 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 | Corrective action | Preserve the request in `ReqTRES` and `TresPerTask`; require all environment and allocation fields to agree on the actual allocation; keep scientific thread variables fixed at eight |
 | Superseded execution-lock SHA-256 | `b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a` |
 | Corrected execution-lock SHA-256 | `7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60` |
+| Scientific use | None; operational regression evidence only |
+
+## E-C4-ACC-SUBMIT-01: Accuracy admission-verifier failure
+
+| Field | Value |
+|---|---|
+| Array | `6902756` |
+| Source commit | `03e7ef6aea0af9d41ad2bb3f575c2b626021da89` |
+| Execution-lock SHA-256 | `7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60` |
+| Scheduler outcome | All 25 elements reached `COMPLETED` with `ExitCode=0:0` |
+| Training artifacts | 25 task manifests and 25 safe-NPZ checkpoints passed their in-run integrity checks after 200 epochs; training emitted no test or R4 predictions |
+| Resume outcome | 0 accepted, 25 pending, and 25 rejected before finalization |
+| Root cause | The scheduler exposes logical array identity such as `6902756_0` in `JobID`; `JobIDRaw` is the numeric child identifier and can equal the base identifier for the final array element. Both admission paths incorrectly matched the logical component against `JobIDRaw`. |
+| Corrective action | Query both identity fields and match the logical component on `JobID`; preserve `JobIDRaw` as receipt identity; compare complete `ReqTRES` and `AllocTRES` maps after deterministic key ordering so equivalent `scontrol` and `sacct` records remain equal without relaxing value or unit checks; rerun from a clean commit under a regenerated execution lock |
+| Held-out boundary | No checkpoint was admitted; no finalizer, test inference, or R4 inference ran |
 | Scientific use | None; operational regression evidence only |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
