@@ -45,6 +45,7 @@ paper_source: false
 | [FastHenry Inductance](methods/FastHenry-Inductance.md) | Inductance reference and winding aggregation |
 | [FEM Cps Reference](methods/FEM-Cps-Reference.md) | Electrostatic formulation and numerical gates |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
+| [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
 | [Runtime Benchmark](methods/Runtime-Benchmark.md) | Timing boundaries and valid speed comparisons |
 
 ## Results and claims

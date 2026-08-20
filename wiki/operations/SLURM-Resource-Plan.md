@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-15
+last_updated: 2026-08-19
 paper_source: false
 ---
 
@@ -19,7 +19,9 @@ R3 shards pass a live submission-capacity gate before they are queued.
 |---|---:|---|---:|---:|---:|
 | FEM-R3P16 bulk | 1,500 | 25 CPU, 48 GiB | 8 | 1,800 s | 2 h |
 | FEM-R4P16 validation | 198 | 25 CPU, 160 GiB | 2 | 7,200 s | 3 h |
-| Artifact-set finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
+| Cps artifact-set finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
+| Accuracy training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
+| Accuracy finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 
 The fail-fast caps are scientific protocol fields. A task that exceeds a cap is
 an infeasibility result and is not silently rerun with a wider limit.

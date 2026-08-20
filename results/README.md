@@ -41,3 +41,6 @@ There is no accepted current-corpus GNN accuracy or speed headline yet. The
 canonical status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
 values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
+
+The current accuracy artifact layout and checkpoint-before-test lifecycle are
+indexed in [`corpus_v4/accuracy/README.md`](corpus_v4/accuracy/README.md).

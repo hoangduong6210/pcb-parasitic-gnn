@@ -33,10 +33,12 @@ independent replicates. Concatenating them yields 195 panel memberships, not
 
 Five initialization and training-order seeds are crossed with the five split
 seeds. Normalization is fitted only on the active training partition. Model
-selection may inspect validation families; test observations remain unavailable
-until independent evaluation.
+selection is not performed: validation loss is diagnostic, and every cell uses
+the checkpoint from the fixed 200th epoch. Test predictions are produced only
+after all 25 checkpoints have entered the accepted set.
 
-Primary uncertainty estimates use family-cluster resampling within a run and
-crossed resampling of split and initialization axes across runs. These intervals
-describe the evaluated finite corpus and software/hardware protocol; they do not
-represent fabrication variability.
+The reported interval uses crossed resampling of split and initialization axes
+over the complete 5 by 5 matrix. It is a descriptive seed-grid sensitivity
+interval, not a population confidence interval. It does not represent
+fabrication variability, arbitrary PCB layouts, retraining protocols, or other
+machines.

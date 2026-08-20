@@ -315,6 +315,22 @@ bitwise or clock-time equality.
 These accepted task artifacts are tracked at their finalized repository-relative
 paths. The pair explains resource cost but is not a corpus runtime statistic.
 
+## E-C4-ACC-PREFLIGHT-01: Family-crossed accuracy freeze
+
+| Field | Value |
+|---|---|
+| Lifecycle | `PREFLIGHT FROZEN; NUMERICAL EXECUTION PENDING` |
+| Protocol | [`corpus_v4_accuracy_v1.json`](../../protocols/corpus_v4_accuracy_v1.json), SHA-256 `f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf` |
+| Plan | [`plan.json`](../../results/corpus_v4/accuracy/plan/v1/plan.json), SHA-256 `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
+| Task rows | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl), SHA-256 `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
+| Evaluation table | [`evaluation_dataset.jsonl`](../../results/corpus_v4/accuracy/plan/v1/evaluation_dataset.jsonl), SHA-256 `c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c` |
+| Execution lock | [`corpus_v4_accuracy_execution_lock_v1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v1.json), SHA-256 `b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a` |
+| Source closure | 23 execution files are byte-pinned; the clean execution commit is an external trust root recorded by each submitted task |
+| Grid | Five family-held-out splits crossed with five initialization seeds; 25 row-major tasks |
+| Held-out boundary | Training tasks emit checkpoints and validation diagnostics only; the accepted-set gate precedes the SLURM finalizer's first test/R4 inference |
+| Review gates | 314 repository tests, 121 focused accuracy tests, research-prose audit, Python compile, shell syntax, deterministic planner replay, and execution-lock validation passed on the login-safe review path |
+| Scientific use | Defines an execution contract only. It supports no accuracy or runtime number until the final archive is job-backed, hash-closed, committed, and entered separately in this ledger. |
+
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
 `code/data/audit_legacy_v2_geometry.py` implements the legacy integrity audit,

@@ -47,6 +47,7 @@ top-level README).
 | `gen_corpus_fh.py` | Corpus v2: larger boards + FastHenry-labelled inductances |
 | `gen_corpus_v3.py` | Geometry-valid v3 active-leg layouts; no labels are mixed into generation |
 | `audit_legacy_v2_geometry.py` | Reconstructs and quantifies v2 geometry/passivity failures without field solves |
+| `corpus_v4_accuracy_dataset.py` | Fail-closed `(layout_id, geometry_sha256)` join for R3 training targets, separate R4 comparator values, and frozen family splits |
 
 ## `experiments/`
 
@@ -105,6 +106,12 @@ top-level README).
 | `plan_corpus_v4_cps_resume.py` | Validates explicitly indexed attempts by byte hash and full content, rejects ambiguous duplicates, and emits accepted/pending registries | `corpus_v4/cps_multifidelity/resume` |
 | `finalize_corpus_v4_cps_multifidelity.py` | SLURM-only exact-coverage finalizer; emits long-form fidelity observations without a ground-truth column | `corpus_v4/cps_multifidelity/final` |
 | `audit_corpus_v4_cps_fidelity_discrepancy.py` | Deterministic family-aware R3/R4 pairing and descriptive audit; writes only from a clean, pinned SLURM job | `corpus_v4/cps_multifidelity/audits/r3_r4_discrepancy/v1` |
+| `plan_corpus_v4_accuracy.py` | Deterministically builds the 1,500-row evaluation table and 25 family-crossed split/init task rows | `corpus_v4/accuracy/plan/v1` |
+| `corpus_v4_accuracy_contract.py` | Shared protocol, root-closure, scheduler, retry, metric, and artifact validation contract | `corpus_v4/accuracy` |
+| `build_corpus_v4_accuracy_execution_lock.py` | Freezes the exact transitive source, environment, protocol, plan, and task-row roots | `protocols/corpus_v4_accuracy_execution_lock_v1.json` |
+| `run_corpus_v4_accuracy_task.py` | SLURM-only fixed-epoch trainer; emits validation-smoked checkpoints without held-out predictions | `corpus_v4/accuracy/jobs` |
+| `plan_corpus_v4_accuracy_resume.py` | Requires post-run task accounting, validates checkpoints, and emits candidate, accepted, and pending sets | `corpus_v4/accuracy/resume` |
+| `finalize_corpus_v4_accuracy.py` | SLURM-only first held-out inference, normalization reconstruction, prediction archive, and 5 by 5 matrices | `corpus_v4/accuracy/final` |
 
 The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
 path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest
@@ -143,8 +150,10 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `quality/verify_corpora.py` | Verifies SHA-256 identities for the v1/v2 claim corpora; optionally requires the large layout files |
 | `quality/verify_corpus_v4_archive.py` | Verifies the source commit, frozen plan chain, 1,698 accepted task records, and finalized explicit-fidelity observation table without running a solver |
 | `quality/verify_corpus_v4_discrepancy_archive.py` | Rebuilds the 198-pair R3/R4 audit, checks its job receipt and exact artifact inventory, and verifies every pinned input and output hash |
+| `quality/verify_corpus_v4_accuracy_archive.py` | Closes finalizer accounting and verifies accepted tasks, checkpoints, prediction rows, matrices, and the exact analysis inventory; supports scheduler-independent `--check` |
 | `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, sensitive-identifier exclusion, and deterministic prose-style checks across the full and summary papers |
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
+| `inference/safe_npz_bundle.py` | Authenticated, pickle-free checkpoint writer/loader with ZIP, dtype, shape, finiteness, size, and smoke-inference gates |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
 | `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |
 | `jobs/slurm_job_env.sh` | Shared root, Python, and `PYTHONPATH` resolver for portable batch execution |

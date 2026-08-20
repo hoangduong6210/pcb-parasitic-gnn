@@ -29,7 +29,7 @@ it becomes paper eligible.
 | `C-CPS-R3-001` | `FINALIZED` | All 1,500 planned FEM-R3P16 tasks have accepted artifacts under the frozen execution lock and are included in the joint package. | Scientific interpretation remains fidelity-scoped. |
 | `C-CPS-R4-001` | `FINALIZED` | All 198 planned FEM-R4P16 tasks have accepted artifacts under the frozen execution lock and are included in the joint package. | Higher resolution is not continuum or physical truth. |
 | `C-CPS-FINAL-001` | `FINALIZED` | The tracked package contains 1,500 R3 and 198 R4 observations over 1,500 geometries with explicit fidelity identifiers. | Corpus closure alone is not an accuracy, convergence, or physical-validation claim. |
-| `C-ACC-001` | `BLOCKED` | No current-corpus GNN accuracy claim is admitted. | Family-disjoint crossed split and initialization seeds, plus separate R3/R4 agreement. |
+| `C-ACC-001` | `BLOCKED` | No current-corpus GNN accuracy claim is admitted. | Complete and finalize the frozen 25-cell family-disjoint design, then review separate R3 and R4 agreement. |
 | `C-LAT-001` | `BLOCKED` | No current-corpus end-to-end speedup claim is admitted. | Accepted current model, fixed four-target workflow, paired timings, and scoped uncertainty. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
 

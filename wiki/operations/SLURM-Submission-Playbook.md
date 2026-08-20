@@ -634,3 +634,153 @@ archive must contain one exact successful job directory, normalized scheduler
 completion, a hash-pinned submission history, and an analysis manifest. After
 those files are committed, run the tracked clean-clone verifier in Section 13's
 closeout environment.
+
+## 15. Submit the Corpus V4 accuracy grid
+
+The accuracy stage uses 25 canonical tasks rather than the solver sharding
+scheme. Each array element trains one split/init cell. Do not run the task or
+finalizer directly on the login node.
+
+After review, copy the four artifact roots and the reviewed source commit from
+the evidence ledger into a clean detached worktree. The source commit is an
+external trust root because embedding it in the execution lock would create a
+self-reference cycle. Do not calculate a value from a file and then describe
+the same value as an independently reviewed root.
+
+```bash
+ACC_PROTOCOL=protocols/corpus_v4_accuracy_v1.json
+ACC_PLAN=results/corpus_v4/accuracy/plan/v1/plan.json
+ACC_TASKS=results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl
+ACC_LOCK=protocols/corpus_v4_accuracy_execution_lock_v1.json
+ACC_RUN_ROOT=/absolute/path/to/clean-detached-worktree
+ACC_SOURCE_COMMIT=replace-with-clean-execution-commit
+ACC_PROTOCOL_SHA256=f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf
+ACC_PLAN_SHA256=e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206
+ACC_TASKS_SHA256=2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20
+ACC_LOCK_SHA256=b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a
+cd "$ACC_RUN_ROOT"
+test "$(git rev-parse HEAD)" = "$ACC_SOURCE_COMMIT"
+test -z "$(git status --short --untracked-files=no)"
+```
+
+Run static checks and scheduler admission first. The Python validation performs
+no graph construction or training.
+
+```bash
+python3 code/experiments/proofs/plan_corpus_v4_accuracy.py \
+  --protocol "$ACC_PROTOCOL" \
+  --out results/corpus_v4/accuracy/plan/v1 \
+  --check
+python3 code/experiments/proofs/run_corpus_v4_accuracy_task.py \
+  --protocol "$ACC_PROTOCOL" \
+  --expected-protocol-sha256 "$ACC_PROTOCOL_SHA256" \
+  --plan "$ACC_PLAN" \
+  --expected-plan-sha256 "$ACC_PLAN_SHA256" \
+  --task-manifest "$ACC_TASKS" \
+  --expected-task-manifest-sha256 "$ACC_TASKS_SHA256" \
+  --execution-lock "$ACC_LOCK" \
+  --expected-execution-lock-sha256 "$ACC_LOCK_SHA256" \
+  --expected-source-git-head "$ACC_SOURCE_COMMIT" \
+  --output-root results/corpus_v4/accuracy/jobs \
+  --validate-only
+sbatch --test-only -A pgs0407 \
+  --chdir="$ACC_RUN_ROOT" \
+  "$ACC_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy.sh"
+```
+
+Export the absolute execution root, reviewed source commit, and all four
+expected hashes. The accuracy wrapper deliberately ignores the generic helper
+and Python override variables: it sources the locked helper from the execution
+root and uses `/usr/bin/python3`. Scientific thread count remains eight even if
+site memory policy allocates additional CPUs.
+
+```bash
+ACC_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --chdir="$ACC_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256" \
+  "$ACC_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy.sh")
+```
+
+When the array leaves the queue, inspect expanded accounting rather than the
+compressed base row. Then create an accepted and pending set from explicitly
+named attempt roots.
+
+```bash
+sacct -X -n -P -j "$ACC_JOB_ID" \
+  --format=JobID,JobName,State,ExitCode,Elapsed,ReqTRES,AllocTRES,MaxRSS
+python3 code/experiments/proofs/plan_corpus_v4_accuracy_resume.py \
+  --protocol "$ACC_PROTOCOL" \
+  --expected-protocol-sha256 "$ACC_PROTOCOL_SHA256" \
+  --plan "$ACC_PLAN" \
+  --expected-plan-sha256 "$ACC_PLAN_SHA256" \
+  --task-manifest "$ACC_TASKS" \
+  --expected-task-manifest-sha256 "$ACC_TASKS_SHA256" \
+  --execution-lock "$ACC_LOCK" \
+  --expected-execution-lock-sha256 "$ACC_LOCK_SHA256" \
+  --expected-source-git-head "$ACC_SOURCE_COMMIT" \
+  --attempt-root "results/corpus_v4/accuracy/jobs/job_${ACC_JOB_ID}" \
+  --out results/corpus_v4/accuracy/resume/round_00
+```
+
+If pending tasks remain, submit only those canonical IDs by overriding the
+array expression. Pin the pending set and pass it to the runner. Append every
+earlier attempt root when rebuilding the next accepted set.
+
+```bash
+ACC_PENDING=results/corpus_v4/accuracy/resume/round_00/pending_task_set.json
+ACC_PENDING_SHA256=$(sha256sum "$ACC_PENDING" | awk '{print $1}')
+ACC_RETRY_ARRAY=$(jq -r '[.pending[].task_id] | join(",")' "$ACC_PENDING")
+ACC_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --array="${ACC_RETRY_ARRAY}%5" \
+  --chdir="$ACC_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256",PCB_GNN_V4_ACCURACY_PENDING_SET="$ACC_PENDING",PCB_GNN_V4_ACCURACY_PENDING_SET_SHA256="$ACC_PENDING_SHA256" \
+  "$ACC_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy.sh")
+```
+
+Finalization requires 25 accepted tasks, zero pending tasks, and no ambiguous
+duplicate attempt. Pin the accepted set before submission. Training artifacts
+contain no held-out predictions. The finalizer independently reloads each
+accepted checkpoint, reconstructs train-only normalization, performs the first
+test/R4 inference, and writes all prediction-level evidence itself.
+
+```bash
+# Point this to the latest resume round after all 25 tasks are accepted.
+ACC_ACCEPTED=results/corpus_v4/accuracy/resume/round_00/accepted_artifact_set.json
+ACC_ACCEPTED_SHA256=$(sha256sum "$ACC_ACCEPTED" | awk '{print $1}')
+ACC_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --chdir="$ACC_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$ACC_RUN_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$ACC_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_PROTOCOL_SHA256="$ACC_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_PLAN_SHA256="$ACC_PLAN_SHA256",PCB_GNN_V4_ACCURACY_TASK_MANIFEST_SHA256="$ACC_TASKS_SHA256",PCB_GNN_V4_ACCURACY_EXECUTION_LOCK_SHA256="$ACC_LOCK_SHA256",PCB_GNN_V4_ACCURACY_ACCEPTED_SET="$ACC_ACCEPTED",PCB_GNN_V4_ACCURACY_ACCEPTED_SET_SHA256="$ACC_ACCEPTED_SHA256" \
+  "$ACC_RUN_ROOT/code/jobs/submit_finalize_corpus_v4_accuracy.sh")
+```
+
+After the finalizer leaves the queue, create the closeout manifest only after
+exact terminal accounting is available. Creation queries `sacct`; later clean
+clones use `--check` and therefore do not depend on scheduler retention.
+
+```bash
+sacct -X -n -P -j "$ACC_FINAL_JOB_ID" \
+  --format=JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES
+ACC_ANALYSIS=results/corpus_v4/accuracy/final/job_${ACC_FINAL_JOB_ID}/ANALYSIS_MANIFEST.json
+ACC_ANALYSIS_SHA256=$(sha256sum "$ACC_ANALYSIS" | awk '{print $1}')
+python3 code/quality/verify_corpus_v4_accuracy_archive.py \
+  --protocol "$ACC_PROTOCOL" \
+  --expected-protocol-sha256 "$ACC_PROTOCOL_SHA256" \
+  --plan "$ACC_PLAN" \
+  --expected-plan-sha256 "$ACC_PLAN_SHA256" \
+  --task-manifest "$ACC_TASKS" \
+  --expected-task-manifest-sha256 "$ACC_TASKS_SHA256" \
+  --execution-lock "$ACC_LOCK" \
+  --expected-execution-lock-sha256 "$ACC_LOCK_SHA256" \
+  --expected-source-git-head "$ACC_SOURCE_COMMIT" \
+  --accepted-set "$ACC_ACCEPTED" \
+  --expected-accepted-set-sha256 "$ACC_ACCEPTED_SHA256" \
+  --analysis-manifest "$ACC_ANALYSIS" \
+  --expected-analysis-manifest-sha256 "$ACC_ANALYSIS_SHA256" \
+  --out results/corpus_v4/accuracy/ARCHIVE_MANIFEST.json
+```
+
+Record the array, retry, and finalizer identifiers plus every source and
+artifact hash in the evidence ledger. Commit every admitted attempt, resume
+set, final output, and archive manifest. Then rerun the command above with
+`--check --require-git-tracked`. Keep `C-ACC-001` blocked until that clean-clone
+check and the claim wording pass scientific review.

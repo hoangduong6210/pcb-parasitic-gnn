@@ -1,0 +1,31 @@
+{
+  "plan_sha256": "e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206",
+  "protocol_sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf",
+  "schema": "pcb-gnn.corpus-v4-accuracy-execution-lock.v1",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+    "code/data/corpus_v4_accuracy_dataset.py": "47fcd3890e8138ccc3e2915709dbb4bda309b9eb83c0da276f23409af48d612d",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/audit_corpus_v4_cps_fidelity_discrepancy.py": "ed5ee726e107cc8f742b98b312ed1c980271abce24c06b863e7d9f286487c16c",
+    "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock.py": "4046f0b2434aca4045d11df0995d7f5f83beb9270c692f37533fb43e712fba4d",
+    "code/experiments/proofs/corpus_v4_accuracy_contract.py": "1afd571e9ae7d387f94bdcf7883fe417db13d5bc79e16808f7baf415f5da93a6",
+    "code/experiments/proofs/finalize_corpus_v4_accuracy.py": "ffd5d404fb3fecb3a1a51e439fa2bba5fbd500f125bcfa9e85fc47737bf85431",
+    "code/experiments/proofs/plan_corpus_v4_accuracy.py": "c5793c32211796b3585dc35580e0d66e5023ac32b88aac17d5cff28d12fa0b3e",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_resume.py": "63e34bbb833863f5748cc4ae25ac304bd54b7a314e1d1c24fac5298db6374b2c",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task.py": "12fc1265928db0c3a6701edec5f15db666c4db0fe7e618b3b8447e1a092cacfd",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_accuracy.sh": "d0a77fe7127feeea6e6262d13c8452749c39fa8b1c14c86f9bca14606334af4e",
+    "code/jobs/submit_finalize_corpus_v4_accuracy.sh": "e9e9d40a35b4ba2ccff0bc85e47e58a73212477efe84824bd835ed98c28599c0",
+    "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+    "code/quality/verify_corpus_v4_accuracy_archive.py": "8c93f260c6525f1437cfe48c8ae433db2cfbe3b7d474c33c82b11f19011c0844",
+    "code/quality/verify_corpus_v4_archive.py": "8334d74a7e0b421e297fd0093c0fb5fc481e99c094b67fb071b842666eb599ed",
+    "code/quality/verify_corpus_v4_discrepancy_archive.py": "42d6546d3123c748a4c68eea1c0b6a705d2491e79960df971de274aac0313f88",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "task_manifest_sha256": "2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20"
+}

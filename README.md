@@ -76,19 +76,20 @@ bulk numerical target and `FEM-R4P16` is a higher-resolution validation
 observation, not ground truth.
 
 The completed family-aware fidelity audit paired all 198 selected geometries.
-Every FEM-R3P16 observation exceeded its FEM-R4P16 counterpart; the selected-
+Every FEM-R3P16 observation exceeded its FEM-R4P16 counterpart; the selected
 registry median relative discrepancy was 8.479%, with an observed range of
 2.754% to 17.517%. This is a descriptive result for a deterministic panel, not
 an estimate for a probability sample. It does not establish R4 as continuum or
 physical truth and is not a global correction for R3.
 
-Every predictive result derived from v0 through v2 geometry, including former
-accuracy, ranking, EGNN accuracy comparison, and speed ratios, remains
-quarantined from current geometry-valid claims. The strict E(3) encoded-graph
+Every predictive result derived from the v0 through v2 feasibility geometry,
+including former accuracy, ranking, EGNN accuracy comparison, and speed ratios,
+remains archival and outside current geometry-valid claims. The strict E(3) encoded-graph
 check remains an admitted implementation property, not a predictive claim.
-Current accuracy must now be rerun using the frozen swap-closed family
-registries and crossed split
-and initialization seeds. See the [wiki status](wiki/status/Project-Status.md),
+The current accuracy loader and 25-cell crossed split/init pipeline have passed
+freeze review; numerical training remains pending on SLURM. See the
+[accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
+[wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
 [`results/README.md`](results/README.md).
 
@@ -248,12 +249,17 @@ Submit from the repository root. `slurm_job_env.sh` resolves the checkout from i
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make
 external corpora, environments, and binaries explicit.
 
-The proof environment is pinned in `requirements-proof.txt`. Reproduction means
-identical versioned source, verified input and executable hashes, fixed
-splits/seeds, raw records, and declared numerical tolerances. Exact wall time and
-last-bit floating-point equality are not portable across CPU models; each record
-therefore captures the node, dependency versions, binary hash, and timing
-distribution rather than promising identical clocks.
+`requirements-proof.txt` pins the direct proof dependencies; it is not a
+hash-locked container or a complete transitive environment snapshot.
+Reproduction therefore means protocol-and-artifact reproduction from identical
+versioned source, verified inputs and executables, fixed splits/seeds, recorded
+runtime distributions, raw records, and declared numerical tolerances. Exact
+wall time and last-bit floating-point equality are not portable across CPU and
+BLAS implementations. New public records retain scheduler partition and
+requested/allocated-resource provenance, dependency versions, executable hashes,
+and timing distributions. Private compute-node names are deliberately omitted;
+the scheduler job identity remains available to authorized operators for cluster
+audit.
 
 ### Provenance
 

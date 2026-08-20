@@ -15,6 +15,7 @@ Last scheduler observation: 2026-08-19 17:46 UTC.
 | FEM-R4P16 | `VALIDATED` | 198 of 198 accepted | None | One scheduler-preflight miss recovered as a hash-pinned singleton |
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
+| Corpus V4 accuracy contract | `PREFLIGHT FROZEN` | 25 planned split/init cells | Clean source commit and scheduler test-only admission | No numerical accuracy artifact exists yet |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
 over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
@@ -35,9 +36,10 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 
 ## Next transition
 
-The next scientific gate is to freeze the downstream loader and reporting
-contract. It must preserve explicit fidelity identifiers, family-closed
-partitions, and separate R3 and R4 reporting. Only after that contract passes
-review may the five split seeds crossed with five initialization seeds be
-submitted for training. The completed discrepancy audit admits no accuracy or
-runtime headline by itself.
+The downstream loader, deterministic plan, and execution lock have passed the
+freeze review. The next transition is a clean source commit, detached execution
+worktree, scheduler test-only acceptance, and submission of the 25 crossed
+training cells. Completion of the
+array will not by itself admit an accuracy statement: the accepted-set planner
+and SLURM finalizer must first reconstruct exact coverage and all matrices. The
+completed discrepancy audit admits no runtime headline by itself.
