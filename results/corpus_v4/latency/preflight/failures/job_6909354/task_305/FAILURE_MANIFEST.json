@@ -1,0 +1,6 @@
+{
+  "files_sha256": {
+    "failure.json": "a9792a549dfe8baf813d0dc332fd3eb6fd74e200a0b979f7e90d56a0b8529862"
+  },
+  "schema": "pcb-gnn.corpus-v4-paired-latency-failure-manifest.v1"
+}

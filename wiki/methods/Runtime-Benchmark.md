@@ -1,6 +1,6 @@
 ---
 title: Runtime Benchmark Protocol
-status: frozen current-corpus protocol; execution pending
+status: frozen current-corpus protocol; preflight rejected; full array blocked
 last_updated: 2026-08-20
 paper_source: true
 prose_reviewed: true
@@ -94,6 +94,14 @@ observation, or select the fastest attempt.
 The claim remains blocked until all 306 layouts enter one accepted set, the
 SLURM finalizer completes, and the tracked archive passes clean-clone
 verification.
+
+The intervening FEM repeatability protocol is frozen but not yet submitted. The
+full panel remains closed until that diagnostic reaches its frozen decision, a
+postterminal receipt replays the preterminal evidence and live finalizer
+accounting, and a new three-task latency preflight receives authenticated
+terminal admission. The numerical latency protocol remains byte-identical to
+the rejected diagnostic runs; the repeatability prerequisite is a separately
+versioned execution-safety overlay in latency plan v2 and execution lock v2.
 
 ## Prohibited wording
 

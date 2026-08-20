@@ -40,11 +40,11 @@ export PCB_GNN_EXECUTED_BATCH_SCRIPT="${BASH_SOURCE[0]}"
 "$PCB_GNN_PYTHON" -u code/experiments/proofs/finalize_corpus_v4_latency.py \
   --protocol protocols/corpus_v4_latency_v1.json \
   --expected-protocol-sha256 "$PCB_GNN_V4_LATENCY_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v1/plan.json \
+  --plan results/corpus_v4/latency/plan/v2/plan.json \
   --expected-plan-sha256 "$PCB_GNN_V4_LATENCY_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v1/task_manifest.jsonl \
+  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v1.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256" \
   --accepted-set "$PCB_GNN_V4_LATENCY_ACCEPTED_SET" \
   --expected-accepted-set-sha256 "$PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256" \

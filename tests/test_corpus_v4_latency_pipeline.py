@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import ast
 import copy
+import hashlib
 import importlib.util
 import json
 import os
@@ -28,6 +29,7 @@ JOBS = ROOT / "code/jobs"
 QUALITY = ROOT / "code/quality"
 PROTOCOL_PATH = ROOT / "protocols/corpus_v4_latency_v1.json"
 TASK_SCRIPT = PROOFS / "experiments_corpus_v4_latency_task.py"
+ADMISSION_SCRIPT = PROOFS / "admit_corpus_v4_latency_preflight.py"
 FINALIZER_SCRIPT = PROOFS / "finalize_corpus_v4_latency.py"
 PLANNER_SCRIPT = PROOFS / "plan_corpus_v4_latency.py"
 RESUME_SCRIPT = PROOFS / "plan_corpus_v4_latency_resume.py"
@@ -35,9 +37,12 @@ CONTRACT_SCRIPT = PROOFS / "corpus_v4_latency_contract.py"
 ARCHIVE_VERIFIER = QUALITY / "verify_corpus_v4_latency_archive.py"
 
 PROTOCOL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-protocol.v2"
-TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v2"
+TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v3"
 RECORD_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-record.v2"
-FINAL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-final.v2"
+FINAL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-final.v3"
+PREFLIGHT_ADMISSION_SCHEMA = (
+    "pcb-gnn.corpus-v4-paired-latency-preflight-admission.v2"
+)
 
 EXPECTED_CHECKPOINT = {
     "task_id": 12,
@@ -314,6 +319,7 @@ def test_execution_source_closure_includes_all_claim_bearing_stages() -> None:
     contract = _load_module(CONTRACT_SCRIPT, "latency_v2_contract_for_source_test")
     required = {
         "code/experiments/proofs/corpus_v4_latency_contract.py",
+        "code/experiments/proofs/admit_corpus_v4_latency_preflight.py",
         "code/experiments/proofs/plan_corpus_v4_latency.py",
         "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
         "code/experiments/proofs/finalize_corpus_v4_latency.py",
@@ -666,42 +672,1054 @@ def test_latency_slurm_guard_rejects_account_drift(
         contract.validate_slurm_allocation(_protocol(), stage="preflight")
 
 
-def test_latency_resume_requires_matching_terminal_account() -> None:
-    resume = _load_module(RESUME_SCRIPT, "latency_v2_resume_account")
-    result = {
-        "provenance": {
-            "scheduler": {
-                "job_id": "8300152",
-                "scheduler_record": {
-                    "Account": "pgs0407",
-                    "AllocTRES": "cpu=25,mem=48G",
-                    "ReqTRES": "cpu=25,mem=48G",
-                },
-            }
-        }
+def _latency_array_scheduler(
+    *, task_id: int = 152, raw_job_id: str = "8300152"
+) -> dict[str, Any]:
+    return {
+        "array_job_id": "8300000",
+        "array_task_id": task_id,
+        "job_id": raw_job_id,
+        "scheduler_record": {
+            "Account": "pgs0407",
+            "AllocTRES": "cpu=25,mem=48G",
+            "ReqTRES": "cpu=25,mem=48G",
+        },
     }
-    row = {
+
+
+def _latency_terminal_row(
+    *, task_id: int = 152, raw_job_id: str = "8300152"
+) -> dict[str, str]:
+    return {
         "Account": "pgs0407",
         "AllocTRES": "mem=48G,cpu=25",
         "ElapsedRaw": "600",
         "ExitCode": "0:0",
-        "JobID": "8300152",
-        "JobIDRaw": "8300152",
+        "JobID": f"8300000_{task_id}",
+        "JobIDRaw": raw_job_id,
         "ReqTRES": "mem=48G,cpu=25",
         "State": "COMPLETED",
+        "Partition": "nextgen",
+        "Timelimit": "02:00:00",
+        "NodeList": "nextgen-test",
+        "Restarts": "0",
     }
 
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _materialize_preflight_admission_fixture(
+    tmp_path: Path,
+    contract: ModuleType,
+) -> dict[str, Any]:
+    contract.ROOT = tmp_path
+    task_ids = (0, 152, 305)
+    array_job_id = "8300000"
+    source_head = "d" * 40
+    checkpoint_sha = "c" * 64
+    bindings = {
+        "execution_lock_sha256": "1" * 64,
+        "panel_records_sha256": "2" * 64,
+        "plan_sha256": "3" * 64,
+        "protocol_sha256": "4" * 64,
+        "task_manifest_sha256": "5" * 64,
+    }
+    source_hashes = {
+        "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py": "9" * 64,
+        "code/experiments/proofs/admit_corpus_v4_latency_preflight.py": "a" * 64,
+        "code/jobs/submit_corpus_v4_latency_preflight.sh": "b" * 64,
+    }
+    repeat_protocol_path = tmp_path / "protocols/corpus_v4_fem_repeatability_v1.json"
+    repeat_protocol_path.parent.mkdir(parents=True)
+    repeat_protocol_path.write_text('{"schema":"test"}\n', encoding="utf-8")
+    source_hashes["protocols/corpus_v4_fem_repeatability_v1.json"] = _sha256(
+        repeat_protocol_path
+    )
+    repeat_source_job = "8100000"
+    repeat_finalizer_job = "8200000"
+    repeat_admission_path = (
+        tmp_path
+        / "results/corpus_v4/fem_repeatability/v1/admission"
+        / f"source_job_{repeat_source_job}"
+        / f"finalizer_job_{repeat_finalizer_job}"
+        / "FINAL_ADMISSION.json"
+    )
+    repeat_admission_path.parent.mkdir(parents=True)
+    repeat_admission = {
+        "artifact_stage": "postterminal_finalizer_admission",
+        "claim_eligible": False,
+        "created_utc": "2026-08-20T00:00:00+00:00",
+        "decision": {
+            "paired_latency_preflight_may_resume": True,
+            "provisional_preterminal_gate_pass": True,
+            "terminal_finalizer_completed_zero": True,
+        },
+        "finalizer": {
+            "accounting": {
+                "row": {
+                    "Account": "pgs0407",
+                    "ExitCode": "0:0",
+                    "JobID": repeat_finalizer_job,
+                    "JobIDRaw": repeat_finalizer_job,
+                    "Partition": "nextgen",
+                    "State": "COMPLETED",
+                }
+            },
+            "accounting_provenance": {"origin": "live_sacct"},
+            "job_id": repeat_finalizer_job,
+            "job_id_raw": repeat_finalizer_job,
+        },
+        "preterminal_final": {
+            "final_manifest_path": "final/FINAL_MANIFEST.json",
+            "final_manifest_sha256": "7" * 64,
+            "final_result_path": "final/result.json",
+            "final_result_sha256": "8" * 64,
+            "finalizer_job_id": repeat_finalizer_job,
+            "finalizer_scheduler_tres": {},
+            "provisional_preterminal_gate_pass": True,
+            "source_array_job_id": repeat_source_job,
+        },
+        "protocol_sha256": source_hashes[
+            "protocols/corpus_v4_fem_repeatability_v1.json"
+        ],
+        "schema": contract.FEM_REPEATABILITY_ADMISSION_SCHEMA,
+        "source_git_head": source_head,
+        "speed_claim_eligible": False,
+        "validator": {
+            "path": "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py",
+            "sha256": source_hashes[
+                "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py"
+            ],
+        },
+    }
+    repeat_admission_path.write_text(
+        json.dumps(repeat_admission, allow_nan=False, sort_keys=True),
+        encoding="utf-8",
+    )
+    repeatability_reference = {
+        "path": repeat_admission_path.relative_to(tmp_path).as_posix(),
+        "sha256": _sha256(repeat_admission_path),
+    }
+    contract.fem_repeatability_admission.authenticate_protocol = lambda *_: (
+        {},
+        {
+            "protocol_sha256": source_hashes[
+                "protocols/corpus_v4_fem_repeatability_v1.json"
+            ]
+        },
+    )
+    contract.fem_repeatability_admission.query_live_finalizer_accounting = (
+        lambda *_: ([], {})
+    )
+    contract.fem_repeatability_admission.validate_admission_payload = (
+        lambda *_args, **_kwargs: repeat_admission["preterminal_final"]
+    )
+    lock = {"source_sha256": source_hashes}
+    tasks = [
+        {
+            "family_id": f"family-{task_id:03d}",
+            "geometry_sha256": f"{task_id:064x}",
+            "layout_id": task_id,
+            "task_id": task_id,
+        }
+        for task_id in range(306)
+    ]
+    raw_job_ids = {0: "8300001", 152: "8300152", 305: array_job_id}
+    entries: list[dict[str, Any]] = []
+    for task_id in task_ids:
+        task = tasks[task_id]
+        scheduler = _latency_array_scheduler(
+            task_id=task_id, raw_job_id=raw_job_ids[task_id]
+        )
+        scheduler["stage"] = "preflight"
+        result = {
+            "bindings": {
+                **bindings,
+                "checkpoint_archive_sha256": checkpoint_sha,
+                "fem_repeatability_admission": repeatability_reference,
+                "preflight_admission": None,
+                "retry_pending_set": None,
+            },
+            "created_utc": "2026-08-20T00:00:00+00:00",
+            "integrity": {"passed": True},
+            "provenance": {
+                "executed_batch_sha256": source_hashes[
+                    "code/jobs/submit_corpus_v4_latency_preflight.sh"
+                ],
+                "scheduler": scheduler,
+                "source_git_head": source_head,
+                "source_sha256": source_hashes,
+            },
+            "record": _base_record(
+                layout_id=task_id, family_id=task["family_id"]
+            ),
+            "schema": TASK_SCHEMA,
+            "stage": "preflight",
+            "task": task,
+        }
+        task_root = (
+            tmp_path
+            / "results/corpus_v4/latency/preflight/attempts"
+            / f"job_{array_job_id}"
+            / f"task_{task_id:03d}"
+        )
+        task_root.mkdir(parents=True)
+        result_path = task_root / "result.json"
+        result_path.write_text(
+            json.dumps(result, allow_nan=False, sort_keys=True), encoding="utf-8"
+        )
+        manifest_path = task_root / "TASK_MANIFEST.json"
+        manifest_path.write_text(
+            json.dumps(
+                {
+                    "files_sha256": {"result.json": _sha256(result_path)},
+                    "schema": (
+                        "pcb-gnn.corpus-v4-paired-latency-"
+                        "task-artifact-manifest.v2"
+                    ),
+                },
+                sort_keys=True,
+            ),
+            encoding="utf-8",
+        )
+        completion = _latency_terminal_row(
+            task_id=task_id, raw_job_id=raw_job_ids[task_id]
+        )
+        completion["ReqTRES"] = "cpu=25,mem=48G"
+        completion["AllocTRES"] = "cpu=25,mem=48G"
+        entries.append(
+            {
+                "manifest_path": manifest_path.relative_to(tmp_path).as_posix(),
+                "manifest_sha256": _sha256(manifest_path),
+                "result_sha256": _sha256(result_path),
+                "scheduler_completion": completion,
+                "task_id": task_id,
+            }
+        )
+    payload = {
+        "accounting_provenance": {
+            "canonical_rows_sha256": hashlib.sha256(
+                contract.canonical_json_bytes(
+                    sorted(
+                        [entry["scheduler_completion"] for entry in entries],
+                        key=lambda row: row["JobID"],
+                    )
+                )
+            ).hexdigest(),
+            "command": [
+                "sacct",
+                "-X",
+                "-n",
+                "-P",
+                "-j",
+                array_job_id,
+                "--format=" + ",".join(contract.PREFLIGHT_SACCT_FIELDS),
+            ],
+            "queried_utc": "2026-08-20T00:01:00+00:00",
+            "raw_stdout_sha256": "6" * 64,
+            "row_count": 3,
+        },
+        "bindings": bindings,
+        "claim_eligible": False,
+        "entries": entries,
+        "expected_task_ids": list(task_ids),
+        "fem_repeatability_admission": repeatability_reference,
+        "full_array_authorized": True,
+        "n_accepted": 3,
+        "n_expected": 3,
+        "preflight_array_job_id": array_job_id,
+        "schema": PREFLIGHT_ADMISSION_SCHEMA,
+        "source_git_head": source_head,
+        "status": "admitted-for-full-array",
+        "validator_source_sha256": source_hashes[
+            "code/experiments/proofs/admit_corpus_v4_latency_preflight.py"
+        ],
+    }
+    return {
+        "bindings": bindings,
+        "checkpoint_sha": checkpoint_sha,
+        "lock": lock,
+        "payload": payload,
+        "repeatability_reference": repeatability_reference,
+        "source_head": source_head,
+        "tasks": tasks,
+    }
+
+
+def _rewrite_preflight_fixture_result(
+    fixture: dict[str, Any],
+    tmp_path: Path,
+    task_id: int,
+    mutation: Any,
+) -> None:
+    entry = next(
+        item for item in fixture["payload"]["entries"] if item["task_id"] == task_id
+    )
+    manifest_path = tmp_path / entry["manifest_path"]
+    result_path = manifest_path.parent / "result.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    mutation(result)
+    result_path.write_text(
+        json.dumps(result, allow_nan=False, sort_keys=True), encoding="utf-8"
+    )
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "files_sha256": {"result.json": _sha256(result_path)},
+                "schema": (
+                    "pcb-gnn.corpus-v4-paired-latency-"
+                    "task-artifact-manifest.v2"
+                ),
+            },
+            sort_keys=True,
+        ),
+        encoding="utf-8",
+    )
+    entry["result_sha256"] = _sha256(result_path)
+    entry["manifest_sha256"] = _sha256(manifest_path)
+
+
+@pytest.mark.parametrize(
+    ("task_id", "raw_job_id"),
+    ((152, "8300152"), (305, "8300000")),
+)
+def test_latency_terminal_array_completion_accepts_logical_and_raw_identity(
+    task_id: int,
+    raw_job_id: str,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, f"latency_terminal_identity_{task_id}")
+    scheduler = _latency_array_scheduler(task_id=task_id, raw_job_id=raw_job_id)
+    row = _latency_terminal_row(task_id=task_id, raw_job_id=raw_job_id)
+
+    completion = contract.validate_terminal_array_completion(scheduler, [row])
+
+    assert completion is not None
+    assert completion["JobID"] == f"8300000_{task_id}"
+    assert completion["JobIDRaw"] == raw_job_id
+    assert completion["ReqTRES"] == "cpu=25,mem=48G"
+    assert completion["AllocTRES"] == "cpu=25,mem=48G"
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (
+        ("JobID", "8300152"),
+        ("JobIDRaw", "8300999"),
+        ("Account", "wrong-account"),
+        ("ReqTRES", "cpu=24,mem=48G"),
+        ("AllocTRES", "cpu=24,mem=48G"),
+        ("State", "FAILED"),
+        ("ExitCode", "1:0"),
+    ),
+)
+def test_latency_terminal_array_completion_rejects_identity_or_receipt_drift(
+    field: str,
+    value: str,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, f"latency_terminal_reject_{field}")
+    scheduler = _latency_array_scheduler()
+    row = {**_latency_terminal_row(), field: value}
+
+    assert contract.validate_terminal_array_completion(scheduler, [row]) is None
+
+
+def test_latency_terminal_array_completion_rejects_duplicate_logical_rows() -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_terminal_duplicate")
+    scheduler = _latency_array_scheduler()
+    row = _latency_terminal_row()
+    conflicting_raw = {**row, "JobIDRaw": "8300999"}
+
+    assert (
+        contract.validate_terminal_array_completion(
+            scheduler, [row, conflicting_raw]
+        )
+        is None
+    )
+
+
+def test_latency_terminal_array_completion_requires_in_run_account() -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_terminal_missing_account")
+    scheduler = _latency_array_scheduler()
+    scheduler["scheduler_record"].pop("Account")
+
+    assert (
+        contract.validate_terminal_array_completion(
+            scheduler, [_latency_terminal_row()]
+        )
+        is None
+    )
+
+
+def test_latency_resume_uses_shared_terminal_array_completion() -> None:
+    resume = _load_module(RESUME_SCRIPT, "latency_v2_resume_account")
+    result = {"provenance": {"scheduler": _latency_array_scheduler()}}
+    row = _latency_terminal_row()
+
     assert resume._completion(result, [row])["Account"] == "pgs0407"
-    mismatch = {**row, "Account": "wrong-account"}
-    assert resume._completion(result, [mismatch]) is None
+    assert resume._completion(result, [{**row, "Account": "wrong-account"}]) is None
+
+
+def test_preflight_admission_accepts_exact_three_v3_successes(tmp_path: Path) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_preflight_admission_pass")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+
+    observed = contract.validate_preflight_admission_payload(
+        fixture["payload"],
+        bindings=fixture["bindings"],
+        expected_source_git_head=fixture["source_head"],
+        tasks=fixture["tasks"],
+        lock=fixture["lock"],
+        checkpoint_archive_sha256=fixture["checkpoint_sha"],
+    )
+
+    assert observed == fixture["payload"]
+    assert observed["claim_eligible"] is False
+    assert observed["expected_task_ids"] == [0, 152, 305]
+    assert observed["n_accepted"] == 3
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (
+        ("status", "rejected"),
+        ("claim_eligible", True),
+        ("full_array_authorized", False),
+        ("source_git_head", "e" * 40),
+        ("expected_task_ids", [0, 152]),
+        ("n_accepted", 2),
+    ),
+)
+def test_preflight_admission_rejects_top_level_contract_drift(
+    tmp_path: Path,
+    field: str,
+    value: Any,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, f"latency_admission_reject_{field}")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    changed = {**fixture["payload"], field: value}
+
+    with pytest.raises(ValueError, match="preflight admission"):
+        contract.validate_preflight_admission_payload(
+            changed,
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    (
+        ("task_id", 152),
+        ("result_sha256", "f" * 64),
+        ("manifest_sha256", "f" * 64),
+    ),
+)
+def test_preflight_admission_rejects_duplicate_or_hash_drift(
+    tmp_path: Path,
+    field: str,
+    value: Any,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, f"latency_admission_entry_{field}")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    changed = copy.deepcopy(fixture["payload"])
+    changed["entries"][0][field] = value
+
+    with pytest.raises(ValueError):
+        contract.validate_preflight_admission_payload(
+            changed,
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+def test_preflight_admission_rejects_failure_tree(tmp_path: Path) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_admission_failure_tree")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    failure_root = (
+        tmp_path
+        / "results/corpus_v4/latency/preflight/failures/job_8300000/task_000"
+    )
+    failure_root.mkdir(parents=True)
+
+    with pytest.raises(ValueError, match="failure tree"):
+        contract.validate_preflight_admission_payload(
+            fixture["payload"],
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+def test_preflight_admission_rejects_terminal_identity_drift(tmp_path: Path) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_admission_terminal_drift")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    changed = copy.deepcopy(fixture["payload"])
+    changed["entries"][2]["scheduler_completion"]["JobIDRaw"] = "8300999"
+
+    with pytest.raises(ValueError, match="terminal accounting"):
+        contract.validate_preflight_admission_payload(
+            changed,
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+@pytest.mark.parametrize(
+    ("label", "mutation"),
+    (
+        ("v2", lambda result: result.__setitem__("schema", TASK_SCHEMA[:-1] + "2")),
+        (
+            "source",
+            lambda result: result["provenance"].__setitem__(
+                "source_git_head", "e" * 40
+            ),
+        ),
+        (
+            "wrapper",
+            lambda result: result["provenance"].__setitem__(
+                "executed_batch_sha256", "f" * 64
+            ),
+        ),
+        (
+            "root",
+            lambda result: result["bindings"].__setitem__(
+                "plan_sha256", "f" * 64
+            ),
+        ),
+    ),
+)
+def test_preflight_admission_rejects_unauthenticated_success_artifact(
+    tmp_path: Path,
+    label: str,
+    mutation: Any,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, f"latency_admission_artifact_{label}")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    _rewrite_preflight_fixture_result(fixture, tmp_path, 0, mutation)
+
+    with pytest.raises(ValueError, match="task identity|source"):
+        contract.validate_preflight_admission_payload(
+            fixture["payload"],
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+def test_preflight_admission_rejects_extra_attempt_directory(tmp_path: Path) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_admission_extra_attempt")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    (
+        tmp_path
+        / "results/corpus_v4/latency/preflight/attempts/job_8300000/task_999"
+    ).mkdir()
+
+    with pytest.raises(ValueError, match="inventory"):
+        contract.validate_preflight_admission_payload(
+            fixture["payload"],
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+def test_preflight_admission_file_requires_canonical_path_and_hash(
+    tmp_path: Path,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_admission_file")
+    fixture = _materialize_preflight_admission_fixture(tmp_path, contract)
+    admission_path = (
+        tmp_path
+        / "results/corpus_v4/latency/preflight/admission/job_8300000"
+        / "PREFLIGHT_ADMISSION.json"
+    )
+    admission_path.parent.mkdir(parents=True)
+    admission_path.write_text(
+        json.dumps(fixture["payload"], allow_nan=False, sort_keys=True),
+        encoding="utf-8",
+    )
+    digest = _sha256(admission_path)
+
+    _, reference = contract.validate_preflight_admission(
+        admission_path,
+        digest,
+        bindings=fixture["bindings"],
+        expected_source_git_head=fixture["source_head"],
+        tasks=fixture["tasks"],
+        lock=fixture["lock"],
+        checkpoint_archive_sha256=fixture["checkpoint_sha"],
+    )
+    assert reference == {
+        "path": (
+            "results/corpus_v4/latency/preflight/admission/job_8300000/"
+            "PREFLIGHT_ADMISSION.json"
+        ),
+        "sha256": digest,
+    }
+    with pytest.raises(ValueError, match="SHA-256|hash"):
+        contract.validate_preflight_admission(
+            admission_path,
+            "f" * 64,
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+    real_path = admission_path.with_name("real-admission.json")
+    admission_path.rename(real_path)
+    admission_path.symlink_to(real_path)
+    with pytest.raises(ValueError, match="regular file"):
+        contract.validate_preflight_admission(
+            admission_path,
+            digest,
+            bindings=fixture["bindings"],
+            expected_source_git_head=fixture["source_head"],
+            tasks=fixture["tasks"],
+            lock=fixture["lock"],
+            checkpoint_archive_sha256=fixture["checkpoint_sha"],
+        )
+
+
+def _latency_runner_args(
+    *,
+    stage: str,
+    admission: Path | None,
+    admission_sha256: str | None,
+    repeatability_admission: Path | None = None,
+    repeatability_sha256: str | None = None,
+) -> SimpleNamespace:
+    return SimpleNamespace(
+        stage=stage,
+        protocol=Path("protocol.json"),
+        expected_protocol_sha256="1" * 64,
+        plan=Path("plan.json"),
+        expected_plan_sha256="2" * 64,
+        task_manifest=Path("tasks.jsonl"),
+        expected_task_manifest_sha256="3" * 64,
+        execution_lock=Path("lock.json"),
+        expected_execution_lock_sha256="4" * 64,
+        expected_source_git_head="5" * 40,
+        preflight_admission=admission,
+        expected_preflight_admission_sha256=admission_sha256,
+        fem_repeatability_admission=repeatability_admission,
+        expected_fem_repeatability_admission_sha256=repeatability_sha256,
+        pending_set=None,
+        expected_pending_set_sha256=None,
+        output_root=Path("results"),
+    )
+
+
+def test_full_runner_requires_paired_preflight_admission_arguments() -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_runner_admission_args")
+    valid = _latency_runner_args(
+        stage="full_array",
+        admission=Path("PREFLIGHT_ADMISSION.json"),
+        admission_sha256="a" * 64,
+    )
+    runner._require_runtime_args(valid)
+
+    with pytest.raises(SystemExit, match="requires preflight admission"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="full_array", admission=None, admission_sha256=None
+            )
+        )
+    with pytest.raises(SystemExit, match="path and digest"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="full_array",
+                admission=Path("PREFLIGHT_ADMISSION.json"),
+                admission_sha256=None,
+            )
+        )
+
+
+def test_preflight_runner_rejects_admission_arguments() -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_preflight_rejects_admission")
+    runner._require_runtime_args(
+        _latency_runner_args(
+            stage="preflight",
+            admission=None,
+            admission_sha256=None,
+            repeatability_admission=Path("FINAL_ADMISSION.json"),
+            repeatability_sha256="b" * 64,
+        )
+    )
+
+    with pytest.raises(SystemExit, match="cannot consume"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="preflight",
+                admission=Path("PREFLIGHT_ADMISSION.json"),
+                admission_sha256="a" * 64,
+                repeatability_admission=Path("FINAL_ADMISSION.json"),
+                repeatability_sha256="b" * 64,
+            )
+        )
+
+
+def test_preflight_runner_requires_paired_fem_repeatability_arguments() -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_preflight_repeatability_args")
+    with pytest.raises(SystemExit, match="requires FEM repeatability admission"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="preflight", admission=None, admission_sha256=None
+            )
+        )
+    with pytest.raises(SystemExit, match="path and digest"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="preflight",
+                admission=None,
+                admission_sha256=None,
+                repeatability_admission=Path("FINAL_ADMISSION.json"),
+            )
+        )
+    with pytest.raises(SystemExit, match="through preflight admission"):
+        runner._require_runtime_args(
+            _latency_runner_args(
+                stage="full_array",
+                admission=Path("PREFLIGHT_ADMISSION.json"),
+                admission_sha256="a" * 64,
+                repeatability_admission=Path("FINAL_ADMISSION.json"),
+                repeatability_sha256="b" * 64,
+            )
+        )
+
+
+def test_full_wrapper_cannot_omit_preflight_admission() -> None:
+    source = (JOBS / "submit_corpus_v4_latency.sh").read_text(encoding="utf-8")
+
+    assert ': "${PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION:?' in source
+    assert ': "${PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256:?' in source
+    assert '--preflight-admission "$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION"' in source
+    assert (
+        '--expected-preflight-admission-sha256 '
+        '"$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256"'
+    ) in source
+
+
+def test_preflight_wrapper_cannot_omit_fem_repeatability_admission() -> None:
+    source = (JOBS / "submit_corpus_v4_latency_preflight.sh").read_text(
+        encoding="utf-8"
+    )
+
+    assert ': "${PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION:?' in source
+    assert ': "${PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256:?' in source
+    assert (
+        '--fem-repeatability-admission '
+        '"$PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION"'
+    ) in source
+
+
+def test_latency_admission_clis_expose_no_accounting_fixture() -> None:
+    for path in (ADMISSION_SCRIPT, RESUME_SCRIPT):
+        source = path.read_text(encoding="utf-8")
+        assert "--accounting-file" not in source
+        assert "accounting fixture" not in source
+    assert (
+        '--expected-fem-repeatability-admission-sha256 '
+        '"$PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256"'
+    ) in source
+
+
+def test_admission_gate_precedes_model_and_solver_work() -> None:
+    tree = ast.parse(TASK_SCRIPT.read_text(encoding="utf-8"))
+    main = next(
+        node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "main"
+    )
+
+    def call_name(node: ast.Call) -> str:
+        function = node.func
+        if isinstance(function, ast.Name):
+            return function.id
+        if isinstance(function, ast.Attribute):
+            return function.attr
+        return ""
+
+    calls = [node for node in ast.walk(main) if isinstance(node, ast.Call)]
+    admission = [
+        node.lineno
+        for node in calls
+        if call_name(node) == "validate_preflight_admission"
+    ]
+    repeatability = [
+        node.lineno
+        for node in calls
+        if call_name(node) == "validate_fem_repeatability_admission"
+    ]
+    heavy = [
+        node.lineno
+        for node in calls
+        if call_name(node)
+        in {
+            "load_designated_model",
+            "measure_raw_record_inference",
+            "run_solver_workflow",
+        }
+    ]
+    assert len(admission) == 1
+    assert len(repeatability) == 1
+    assert heavy
+    assert admission[0] < min(heavy)
+    assert repeatability[0] < min(heavy)
+
+
+def test_admission_builder_validates_before_creating_output() -> None:
+    tree = ast.parse(ADMISSION_SCRIPT.read_text(encoding="utf-8"))
+    main = next(
+        node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "main"
+    )
+    calls = [node for node in ast.walk(main) if isinstance(node, ast.Call)]
+
+    def lines(name: str) -> list[int]:
+        result: list[int] = []
+        for node in calls:
+            function = node.func
+            observed = (
+                function.id
+                if isinstance(function, ast.Name)
+                else function.attr if isinstance(function, ast.Attribute) else ""
+            )
+            if observed == name:
+                result.append(node.lineno)
+        return sorted(result)
+
+    validation = lines("validate_preflight_admission_payload")
+    output_write = lines("atomic_write_json")
+    output_mkdir = lines("mkdir")
+    assert len(validation) == len(output_write) == len(output_mkdir) == 1
+    assert validation[0] < output_mkdir[0] < output_write[0]
+
+
+def test_admission_builder_failure_leaves_no_output(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    builder = _load_module(ADMISSION_SCRIPT, "latency_admission_no_output")
+    builder.ROOT = tmp_path
+    array_job_id = "8300000"
+    out = (
+        tmp_path
+        / "results/corpus_v4/latency/preflight/admission/job_8300000"
+        / "PREFLIGHT_ADMISSION.json"
+    )
+    repeatability_reference = {
+        "path": (
+            "results/corpus_v4/fem_repeatability/v1/admission/"
+            "source_job_8100000/finalizer_job_8200000/FINAL_ADMISSION.json"
+        ),
+        "sha256": "9" * 64,
+    }
+    for task_id in (0, 152, 305):
+        task_root = (
+            tmp_path
+            / "results/corpus_v4/latency/preflight/attempts/job_8300000"
+            / f"task_{task_id:03d}"
+        )
+        task_root.mkdir(parents=True)
+        (task_root / "result.json").write_text(
+            json.dumps(
+                {
+                    "bindings": {
+                        "fem_repeatability_admission": repeatability_reference
+                    },
+                    "provenance": {"scheduler": {}},
+                    "record": {},
+                }
+            ),
+            encoding="utf-8",
+        )
+        (task_root / "TASK_MANIFEST.json").write_text("{}", encoding="utf-8")
+
+    protocol = {
+        "gnn_timing": {"measured_repetitions": 200},
+        "inputs": {"checkpoint_archive": {"sha256": "c" * 64}},
+    }
+    tasks = [{"task_id": index} for index in range(306)]
+    lock = {
+        "source_sha256": {
+            "code/experiments/proofs/admit_corpus_v4_latency_preflight.py": "a" * 64
+        }
+    }
+    monkeypatch.setattr(builder, "validate_protocol", lambda *_: (protocol, "1" * 64))
+    monkeypatch.setattr(
+        builder,
+        "validate_plan",
+        lambda *_args, **_kwargs: ({}, tasks, [], "2" * 64, "3" * 64, "4" * 64),
+    )
+    monkeypatch.setattr(builder, "validate_root_closure", lambda **_: None)
+    monkeypatch.setattr(
+        builder, "validate_execution_lock", lambda *_args, **_kwargs: (lock, "5" * 64)
+    )
+    monkeypatch.setattr(builder, "_source_head", lambda: "d" * 40)
+    monkeypatch.setattr(
+        builder,
+        "_query_sacct",
+        lambda *_: (
+            [_latency_terminal_row(task_id=index) for index in (0, 152, 305)],
+            {},
+        ),
+    )
+    monkeypatch.setattr(builder, "validate_timing_record", lambda *_args, **_kwargs: {})
+    monkeypatch.setattr(
+        builder,
+        "validate_terminal_array_completion",
+        lambda *_: _latency_terminal_row(task_id=0, raw_job_id="8300001"),
+    )
+    monkeypatch.setattr(
+        builder,
+        "validate_preflight_admission_payload",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(ValueError("blocked")),
+    )
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            str(ADMISSION_SCRIPT),
+            "--protocol", "protocol.json",
+            "--expected-protocol-sha256", "1" * 64,
+            "--plan", "plan.json",
+            "--expected-plan-sha256", "2" * 64,
+            "--task-manifest", "tasks.jsonl",
+            "--expected-task-manifest-sha256", "3" * 64,
+            "--execution-lock", "lock.json",
+            "--expected-execution-lock-sha256", "5" * 64,
+            "--expected-source-git-head", "d" * 40,
+            "--array-job-id", array_job_id,
+            "--out", str(out),
+        ],
+    )
+
+    with pytest.raises(ValueError, match="blocked"):
+        builder.main()
+    assert not out.exists()
+    assert not out.parent.exists()
+
+
+def test_latency_v3_schemas_propagate_preflight_binding() -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_v3_runner_schema")
+    resume = _load_module(RESUME_SCRIPT, "latency_v3_resume_schema")
+    finalizer = _load_module(FINALIZER_SCRIPT, "latency_v3_final_schema")
+    archive = _load_module(ARCHIVE_VERIFIER, "latency_v3_archive_schema")
+
+    assert runner.TASK_SCHEMA.endswith(".v3")
+    assert runner.PENDING_SCHEMA.endswith(".v3")
+    assert resume.CANDIDATE_SCHEMA.endswith(".v3")
+    assert resume.ACCEPTED_SCHEMA.endswith(".v3")
+    assert resume.PENDING_SCHEMA.endswith(".v3")
+    assert finalizer.ACCEPTED_SCHEMA.endswith(".v3")
+    assert finalizer.FINAL_SCHEMA.endswith(".v3")
+    assert archive.ARCHIVE_SCHEMA.endswith(".v3")
+    for source in (
+        TASK_SCRIPT.read_text(encoding="utf-8"),
+        RESUME_SCRIPT.read_text(encoding="utf-8"),
+        FINALIZER_SCRIPT.read_text(encoding="utf-8"),
+        ARCHIVE_VERIFIER.read_text(encoding="utf-8"),
+    ):
+        assert "preflight_admission" in source
+
+
+def test_retry_pending_set_is_bound_to_same_preflight_admission(
+    tmp_path: Path,
+) -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_v3_pending_admission")
+    admission = {
+        "path": (
+            "results/corpus_v4/latency/preflight/admission/job_8300000/"
+            "PREFLIGHT_ADMISSION.json"
+        ),
+        "sha256": "a" * 64,
+    }
+    bindings = {
+        "execution_lock_sha256": "1" * 64,
+        "panel_records_sha256": "2" * 64,
+        "plan_sha256": "3" * 64,
+        "preflight_admission": admission,
+        "protocol_sha256": "4" * 64,
+        "task_manifest_sha256": "5" * 64,
+    }
+    pending_path = tmp_path / "pending_task_set.json"
+    payload = {
+        **bindings,
+        "n_pending": 2,
+        "pending_task_ids": [7, 11],
+        "schema": runner.PENDING_SCHEMA,
+    }
+    pending_path.write_text(json.dumps(payload, sort_keys=True), encoding="utf-8")
+
+    assert runner._validate_pending_set(
+        pending_path, _sha256(pending_path), bindings=bindings
+    ) == [7, 11]
+
+    changed = copy.deepcopy(payload)
+    changed["preflight_admission"]["sha256"] = "b" * 64
+    pending_path.write_text(json.dumps(changed, sort_keys=True), encoding="utf-8")
+    with pytest.raises(ValueError, match="retry contract"):
+        runner._validate_pending_set(
+            pending_path, _sha256(pending_path), bindings=bindings
+        )
+
+
+def test_finalizer_accepted_set_retains_preflight_admission(tmp_path: Path) -> None:
+    finalizer = _load_module(FINALIZER_SCRIPT, "latency_v3_accepted_admission")
+    bindings = {
+        "execution_lock_sha256": "1" * 64,
+        "panel_records_sha256": "2" * 64,
+        "plan_sha256": "3" * 64,
+        "protocol_sha256": "4" * 64,
+        "task_manifest_sha256": "5" * 64,
+    }
+    admission = {"path": "results/preflight.json", "sha256": "a" * 64}
+    accepted_path = tmp_path / "accepted_artifact_set.json"
+    accepted_path.write_text(
+        json.dumps(
+            {
+                **bindings,
+                "candidate_index": {"path": "candidate.json", "sha256": "b" * 64},
+                "entries": [{"task_id": task_id} for task_id in range(306)],
+                "n_accepted": 306,
+                "n_expected": 306,
+                "preflight_admission": admission,
+                "schema": finalizer.ACCEPTED_SCHEMA,
+            },
+            sort_keys=True,
+        ),
+        encoding="utf-8",
+    )
+
+    entries, observed_admission = finalizer._accepted_entries(
+        accepted_path, _sha256(accepted_path), bindings=bindings
+    )
+    assert len(entries) == 306
+    assert observed_admission == admission
 
 
 def test_latency_finalizer_and_archive_cross_check_terminal_account() -> None:
     finalizer_source = FINALIZER_SCRIPT.read_text(encoding="utf-8")
     verifier_source = ARCHIVE_VERIFIER.read_text(encoding="utf-8")
 
-    assert 'completion.get("Account")' in finalizer_source
+    assert "validate_terminal_array_completion" in finalizer_source
     assert "JobID,JobIDRaw,Account,State" in verifier_source
+    assert "validate_terminal_array_completion" in verifier_source
     assert 'finalizer_completion.get("Account")' in verifier_source
 
 
@@ -800,7 +1818,7 @@ def test_runner_places_solver_between_the_two_measurement_blocks() -> None:
     assert isinstance(post_warmups, ast.Constant) and post_warmups.value == 0
 
 
-def test_validate_only_reports_v2_without_running_a_solver() -> None:
+def test_validate_only_reports_current_schemas_without_running_a_solver() -> None:
     task = _validate_only(TASK_SCRIPT)
     final = _validate_only(FINALIZER_SCRIPT)
     assert task["schema"] == TASK_SCHEMA

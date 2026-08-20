@@ -49,7 +49,7 @@ from scientific_artifact import canonical_json_bytes, sha256_bytes, sha256_file 
 
 
 DEFAULT_PROTOCOL = ROOT / "protocols/corpus_v4_latency_v1.json"
-DEFAULT_OUT = ROOT / "results/corpus_v4/latency/plan/v1"
+DEFAULT_OUT = ROOT / "results/corpus_v4/latency/plan/v2"
 ARTIFACT_NAMES = ("panel_records.jsonl", "task_manifest.jsonl", "plan.json")
 
 

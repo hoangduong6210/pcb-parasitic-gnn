@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last archive observation: 2026-08-20 06:15 UTC.
+Last archive observation: 2026-08-20 13:46 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -16,7 +16,8 @@ Last archive observation: 2026-08-20 06:15 UTC.
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
-| Corpus V4 paired latency | `DIAGNOSTIC REFREEZE / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Push the diagnostic source lock, then rerun the unchanged three-layout preflight | Tasks 0 and 152 failed the reference-agreement gate; task 305 wrote an artifact but returned nonzero on path formatting; all three are ineligible |
+| FEM mesh repeatability | `FROZEN / NOT SUBMITTED` | 0 of 15 array elements; 0 of 30 FEM arm solves | Submit from the reviewed clean detached checkout, finalize, then mint the postterminal admission receipt | Diagnostic only; no claim or speed eligibility |
+| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Submit the frozen FEM mesh-repeatability diagnostic | All three diagnostic preflight tasks exceeded the unchanged Cps reference-agreement tolerance; no task is admissible |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
 over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
@@ -52,13 +53,25 @@ discarded their numerical diagnostics. Task 305 passed that gate and wrote an
 artifact, then failed while printing a relative path. Terminal failure makes
 the entire preflight ineligible.
 
-The diagnostic refreeze keeps every scientific setting unchanged. It writes a
-separate non-admissible failure artifact after reauthenticating the source and
-fixes only the path-label conversion. The next transition is the same
-three-layout preflight from the new committed source. The full array remains
-closed.
-If it passes, the same lock authorizes the full array, followed by accepted-set
-construction, SLURM finalization, and archive verification. Until that sequence
-closes, `C-LAT-001` remains blocked and no current speed value is permitted.
-Baseline, strict E(3), and ranking comparisons also require their own frozen
-protocols and jobs.
+The diagnostic rerun used the same frozen tolerance and tasks under source
+commit `1766b27`. All three elements produced authenticated, non-admissible
+failure artifacts and ended `FAILED/1:0`. Only Cps changed; the three
+FastHenry-derived inductance targets matched their frozen references in every
+task. Maximum relative Cps drift was `2.6572226e-4`, `1.6908165e-3`, and
+`1.0065129e-3` for canonical tasks 0, 152, and 305, respectively, against the
+unchanged `1e-4` gate. These are diagnostic values from rejected job `6909354`,
+not performance results.
+
+The evidence points to fresh Gmsh meshes changing across executions. The next
+transition is therefore a separately frozen, SLURM-only repeatability study on
+the same three preselected anchors: five fresh-mesh repeats with the existing
+25-thread meshing path and five with a one-thread diagnostic candidate. The
+executable protocol is frozen at SHA-256
+`f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960`;
+its 15 array elements and 30 FEM solves have not yet been submitted. The
+tolerance will not be relaxed after observing the failures. The full array
+remains closed until mesh repeatability is resolved and a new three-task
+preflight passes an authenticated admission gate. Until that sequence closes,
+`C-LAT-001` remains blocked and no current speed value is permitted. Baseline,
+strict E(3), and ranking comparisons also require their own frozen protocols
+and jobs.

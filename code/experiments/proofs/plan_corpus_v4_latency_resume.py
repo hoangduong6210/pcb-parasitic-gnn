@@ -14,13 +14,16 @@ ROOT = Path(__file__).resolve().parents[3]
 for directory in (ROOT / "code/core", ROOT / "code/experiments/proofs"):
     sys.path.insert(0, str(directory))
 
-from corpus_v4_accuracy_contract import canonical_tres, tres_equivalent  # noqa: E402
 from corpus_v4_latency_contract import (  # noqa: E402
     EXPECTED_LAYOUTS,
+    PENDING_SCHEMA,
+    TASK_RESULT_SCHEMA,
     load_json,
     resolve_repo_path,
+    validate_terminal_array_completion,
     validate_execution_lock,
     validate_plan,
+    validate_preflight_admission,
     validate_protocol,
     validate_root_closure,
 )
@@ -28,11 +31,10 @@ from finalize_corpus_v4_latency import validate_timing_record  # noqa: E402
 from scientific_artifact import atomic_write_json, sha256_file  # noqa: E402
 
 
-TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v2"
+TASK_SCHEMA = TASK_RESULT_SCHEMA
 ARTIFACT_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task-artifact-manifest.v2"
-CANDIDATE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-candidate-index.v2"
-ACCEPTED_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-accepted-set.v2"
-PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v2"
+CANDIDATE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-candidate-index.v3"
+ACCEPTED_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-accepted-set.v3"
 
 
 def _parse_sacct(text: str) -> list[dict[str, str]]:
@@ -59,11 +61,8 @@ def _parse_sacct(text: str) -> list[dict[str, str]]:
     return records
 
 
-def _query_sacct(job_ids: list[str], accounting_file: Path | None) -> list[dict[str, str]]:
-    if accounting_file is not None:
-        if accounting_file.is_symlink() or not accounting_file.is_file():
-            raise ValueError("accounting fixture must be a regular file")
-        return _parse_sacct(accounting_file.read_text(encoding="utf-8"))
+def _query_sacct(job_ids: list[str]) -> list[dict[str, str]]:
+    """Query live scheduler state; production exposes no fixture path."""
     if not job_ids:
         return []
     query = subprocess.run(
@@ -100,6 +99,7 @@ def _candidate(
     *,
     tasks: list[dict[str, Any]],
     bindings: Mapping[str, str],
+    preflight_admission: Mapping[str, str],
     expected_source_git_head: str,
 ) -> tuple[dict[str, Any], dict[str, Any] | None]:
     record: dict[str, Any] = {
@@ -135,6 +135,8 @@ def _candidate(
             or result.get("integrity") != {"passed": True}
             or result.get("provenance", {}).get("source_git_head") != expected_source_git_head
             or any(result.get("bindings", {}).get(name) != digest for name, digest in bindings.items())
+            or result.get("bindings", {}).get("preflight_admission")
+            != dict(preflight_admission)
         ):
             raise ValueError("result roots, stage, or task identity differ")
         validate_timing_record(result.get("record", {}), expected_repetitions=200)
@@ -149,27 +151,7 @@ def _completion(
     result: Mapping[str, Any], accounting: list[dict[str, str]]
 ) -> dict[str, str] | None:
     scheduler = result.get("provenance", {}).get("scheduler", {})
-    job_id = str(scheduler.get("job_id", ""))
-    matches = [row for row in accounting if row.get("JobID") == job_id]
-    if len(matches) != 1:
-        return None
-    row = dict(matches[0])
-    state = row.get("State", "").split()[0].rstrip("+")
-    if state != "COMPLETED" or row.get("ExitCode") != "0:0":
-        return None
-    in_run = scheduler.get("scheduler_record", {})
-    if (
-        row.get("Account") != in_run.get("Account")
-        or any(
-            not tres_equivalent(row.get(name), in_run.get(name))
-            for name in ("ReqTRES", "AllocTRES")
-        )
-    ):
-        return None
-    row["State"] = "COMPLETED"
-    row["ReqTRES"] = canonical_tres(row["ReqTRES"])
-    row["AllocTRES"] = canonical_tres(row["AllocTRES"])
-    return row
+    return validate_terminal_array_completion(scheduler, accounting)
 
 
 def main() -> None:
@@ -183,8 +165,9 @@ def main() -> None:
     parser.add_argument("--execution-lock", type=Path, required=True)
     parser.add_argument("--expected-execution-lock-sha256", required=True)
     parser.add_argument("--expected-source-git-head", required=True)
+    parser.add_argument("--preflight-admission", type=Path, required=True)
+    parser.add_argument("--expected-preflight-admission-sha256", required=True)
     parser.add_argument("--attempt-root", type=Path, action="append", required=True)
-    parser.add_argument("--accounting-file", type=Path)
     parser.add_argument("--out-dir", type=Path, required=True)
     args = parser.parse_args()
 
@@ -207,7 +190,7 @@ def main() -> None:
         task_manifest_sha256=task_sha,
         panel_records_sha256=panel_sha,
     )
-    _, lock_sha = validate_execution_lock(
+    lock, lock_sha = validate_execution_lock(
         args.execution_lock,
         args.expected_execution_lock_sha256,
         protocol_sha256=protocol_sha,
@@ -222,6 +205,15 @@ def main() -> None:
         "protocol_sha256": protocol_sha,
         "task_manifest_sha256": task_sha,
     }
+    _, admission_reference = validate_preflight_admission(
+        args.preflight_admission,
+        args.expected_preflight_admission_sha256,
+        bindings=bindings,
+        expected_source_git_head=args.expected_source_git_head,
+        tasks=tasks,
+        lock=lock,
+        checkpoint_archive_sha256=protocol["inputs"]["checkpoint_archive"]["sha256"],
+    )
     candidates: list[dict[str, Any]] = []
     valid: list[tuple[dict[str, Any], dict[str, Any]]] = []
     for path in _manifest_candidates(args.attempt_root):
@@ -229,6 +221,7 @@ def main() -> None:
             path,
             tasks=tasks,
             bindings=bindings,
+            preflight_admission=admission_reference,
             expected_source_git_head=args.expected_source_git_head,
         )
         candidates.append(candidate)
@@ -238,7 +231,7 @@ def main() -> None:
         str(result["provenance"]["scheduler"]["array_job_id"])
         for _, result in valid
     ]
-    accounting = _query_sacct(array_jobs, args.accounting_file)
+    accounting = _query_sacct(array_jobs)
     accepted_by_task: dict[int, dict[str, Any]] = {}
     for candidate, result in valid:
         completion = _completion(result, accounting)
@@ -262,11 +255,13 @@ def main() -> None:
         candidate_path,
         {
             "entries": candidates,
+            "preflight_admission": admission_reference,
             "schema": CANDIDATE_SCHEMA,
         },
     )
     common = {
         **bindings,
+        "preflight_admission": admission_reference,
         "candidate_index": {
             "path": candidate_path.relative_to(ROOT).as_posix(),
             "sha256": sha256_file(candidate_path),
@@ -286,6 +281,7 @@ def main() -> None:
         args.out_dir / "pending_task_set.json",
         {
             **bindings,
+            "preflight_admission": admission_reference,
             "n_pending": len(pending),
             "pending_task_ids": pending,
             "schema": PENDING_SCHEMA,

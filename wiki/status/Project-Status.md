@@ -41,7 +41,8 @@ instead of calling one column ground truth.
 | Joint multi-fidelity Cps package | `FINALIZED` | 1,698 explicit-fidelity observations over 1,500 geometries |
 | Family-aware R3/R4 discrepancy audit | `ADMITTED DESCRIPTIVE` | Exact 198-layout selected-registry comparison; no population inference or global correction |
 | Multi-seed current-corpus accuracy | `ADMITTED` | Complete 5 by 5 family-held-out split and initialization grid with tracked checkpoints, predictions, matrices, and archive closure |
-| Current-corpus paired four-target latency | `SOURCE-FROZEN / BLOCKED` | Protocol, deterministic 306-layout plan, task pipeline, and source lock are frozen; SLURM preflight, full execution, finalizer, and archive remain pending |
+| FEM-R3P16 repeatability diagnostic | `FROZEN / NOT SUBMITTED` | Three anchors, five repeats, and two arms define 30 diagnostic solves; no claim or speed eligibility |
+| Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
@@ -54,11 +55,11 @@ transition.
 1. Use the admitted
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    predictive baseline for subsequent current-corpus experiments.
-2. Execute the frozen paired-latency protocol through SLURM. It compares the
-   sequential FastHenry-at-100-kHz plus FEM-R3P16 four-target workflow with
-   warm-loaded, batch-one GNN inference on all 306 layouts of the designated
-   13-family held-out split. `C-LAT-001` remains blocked until finalizer and
-   archive closure.
+2. Submit and finalize the frozen FEM repeatability diagnostic. Apply its
+   predeclared decision rule without changing the observed tolerance. Only an
+   Arm-A pass permits a new unchanged three-task paired-latency preflight; only
+   a successful authenticated admission permits the 306-layout full array.
+   `C-LAT-001` remains blocked until finalizer and archive closure.
 3. Repeat baseline, strict E(3), and ranking studies on the same current corpus
    and split registry.
 4. Admit claims in the wiki before generating a new paper snapshot.

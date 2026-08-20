@@ -58,14 +58,14 @@ def test_series_parameter_preserves_archival_v3_schemas() -> None:
 def test_v4_latency_is_paired_array_at_reference_setting() -> None:
     task = validate("experiments_corpus_v4_latency_task.py")
     final = validate("finalize_corpus_v4_latency.py")
-    assert task["schema"] == "pcb-gnn.corpus-v4-paired-latency-task.v2"
+    assert task["schema"] == "pcb-gnn.corpus-v4-paired-latency-task.v3"
     assert task["status"] == "validation-ok"
     assert task["array_tasks"] == 306
     assert task["fem_fidelity_id"] == "cps_fem_r3_p16"
     assert task["timing_boundary"] == "in-memory-raw-json-record-to-four-output"
     assert task["warmups"] == 50
     assert task["timed_repetitions"] == 200
-    assert final["schema"] == "pcb-gnn.corpus-v4-paired-latency-final.v2"
+    assert final["schema"] == "pcb-gnn.corpus-v4-paired-latency-final.v3"
     assert final["bootstrap_cluster"] == "family"
     assert final["bootstrap_resamples"] == 10_000
     protocol = json.loads(

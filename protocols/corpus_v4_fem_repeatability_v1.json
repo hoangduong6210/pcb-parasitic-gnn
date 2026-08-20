@@ -1,0 +1,184 @@
+{
+  "arms": [
+    {
+      "arm_id": "arm_a_threads25",
+      "gmsh_threads": 25,
+      "old_reference_gate_required": true,
+      "role": "admitted_r3p16_resource_replay_with_telemetry"
+    },
+    {
+      "arm_id": "arm_b_threads1",
+      "gmsh_threads": 1,
+      "old_reference_gate_required": false,
+      "role": "deterministic_candidate_diagnostic_only"
+    }
+  ],
+  "artifact_contract": {
+    "all_attempts_retained": true,
+    "atomic_final_directory": true,
+    "atomic_per_arm_write": true,
+    "child_gmsh_thread_observation_required": true,
+    "complete_failed_diagnostics_retained": true,
+    "immutable_attempt_directory": true,
+    "post_finalizer_terminal_admission_required": true,
+    "raw_worker_result_required": true,
+    "source_reauthenticated_after_each_arm": true,
+    "terminal_accounting_required": true
+  },
+  "computational_sources": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+    "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py": "bc948f0709c078bbbf8b87cdff24fc0dcaf558cfe36f7e8ca1795e7dbec6c0e9",
+    "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "0a8d477a87fa3eea63c92e22f040e7d51006d4848af691293059533139ec0384",
+    "code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py": "a2d75339991659cc065e5446a6d20b2c75062f8a287fbfed7a341e753a4b9580",
+    "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_fem_repeatability.sh": "08db1370d1700a9e1ae396f8420cacdf9c6b8a0eabce52a7dee2c00c650dbf29",
+    "code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh": "9822f09719e922304df34b127e9860d14e1c3668905b24ec60616420968d8ba9",
+    "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+    "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+    "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+    "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "diagnostic_semantics": {
+    "claim_eligible": false,
+    "old_labels_may_be_replaced": false,
+    "speed_claim_eligible": false,
+    "tolerance_may_be_changed_after_observation": false
+  },
+  "gates": {
+    "all_15_scheduler_rows_completed_zero_required_for_resume": true,
+    "arm_a_all_five_reference_drifts_must_pass": true,
+    "failed_or_missing_attempt_is_failure": true,
+    "mesh_identity_requires_fixed_counts": true,
+    "mesh_identity_requires_one_system_sha256": true,
+    "reference_formula": "abs(rerun-reference)/max(abs(reference),1e-12)",
+    "relative_formula": "abs(x-y)/max(abs(x),abs(y),1e-12)",
+    "relative_tolerance": 0.0001
+  },
+  "inputs": {
+    "cps_protocol": {
+      "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
+      "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
+    },
+    "evaluation_dataset": {
+      "path": "results/corpus_v4/accuracy/plan/v1/evaluation_dataset.jsonl",
+      "sha256": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c"
+    },
+    "geometry_contract": {
+      "directory": "datasets/corpus_v3",
+      "loader_contract": {
+        "layouts_sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+        "n_layouts": 1500,
+        "n_unique_geometry": 1500,
+        "required_gate": "geometry_valid",
+        "summary_schema": "pcb-gnn.corpus-v3-final.v1",
+        "summary_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+      },
+      "path": "datasets/corpus_v3/summary.json",
+      "sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+    },
+    "geometry_layouts": {
+      "path": "datasets/corpus_v3/layouts.jsonl",
+      "sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b"
+    },
+    "latency_task_manifest": {
+      "path": "results/corpus_v4/latency/plan/v1/task_manifest.jsonl",
+      "sha256": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+    }
+  },
+  "panel": [
+    {
+      "family_id": "turns-06-06",
+      "frozen_r3_cps_pf": 12.033283413797877,
+      "geometry_sha256": "7a2d1c6a3de5064e483a6db9c2d4612fe2978fcefa4ad675cfccbd1dc3fbf685",
+      "latency_task_id": 0,
+      "layout_id": 3
+    },
+    {
+      "family_id": "turns-05-11",
+      "frozen_r3_cps_pf": 39.604875462334206,
+      "geometry_sha256": "9c30ee48eb3920b031a21cb4464e0547ba65f88cda116572ecdb08aa2f684f0a",
+      "latency_task_id": 152,
+      "layout_id": 734
+    },
+    {
+      "family_id": "turns-05-12",
+      "frozen_r3_cps_pf": 40.31623684447307,
+      "geometry_sha256": "c22655637cfbebd74aaf33cfae599056561ce4ab39126afee9a7b35885fc1788",
+      "latency_task_id": 305,
+      "layout_id": 1495
+    }
+  ],
+  "protocol_name": "corpus-v4-fem-r3p16-repeatability-v1",
+  "repetitions": {
+    "array_mapping": "panel_index=array_task_id//5; repeat_id=array_task_id%5",
+    "array_task_count": 15,
+    "array_task_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    "fresh_mesh_per_arm": true,
+    "independent_repeats_per_layout_arm": 5,
+    "repeat_ids": [0, 1, 2, 3, 4],
+    "sequential_arms_in_one_allocation": true
+  },
+  "resources": {
+    "finalizer": {
+      "account": "pgs0407",
+      "allocated_cpus_may_exceed_request": true,
+      "cpus_per_task": 2,
+      "memory_gib": 8,
+      "nodes": 1,
+      "ntasks": 1,
+      "partition": "nextgen",
+      "time_limit": "00:30:00"
+    },
+    "source_array": {
+      "account": "pgs0407",
+      "allocated_cpus_may_exceed_request": false,
+      "array": "0-14%3",
+      "array_throttle": 3,
+      "cpus_per_task": 25,
+      "memory_gib": 48,
+      "nodes": 1,
+      "ntasks": 1,
+      "partition": "nextgen",
+      "time_limit": "02:00:00"
+    }
+  },
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "meshio": "5.3.5",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1"
+    },
+    "python": "3.9.21",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-protocol.v1",
+  "statistics": {
+    "descriptive_only": true,
+    "inferential_confidence_interval": false,
+    "layout_arm_mad_over_median": "1.4826*median(abs(C_i-median(C)))/median(C)",
+    "layout_arm_primary": "maximum pairwise relative Cps spread over five repeats",
+    "panel_primary": "maximum of the three layout-arm primary statistics",
+    "report_all_signed_and_absolute_reference_drifts": true
+  },
+  "workflow": {
+    "fidelity_id": "cps_fem_r3_p16",
+    "linear_solver_requested": "amg_cg",
+    "pad_mm": 16.0,
+    "refine": 3,
+    "repeatability_worker": "code/solvers/fem_cps_repeatability_worker.py",
+    "timeout_s": 1800
+  }
+}

@@ -443,15 +443,18 @@ with the account-bound plan or its future artifacts.
 | Tasks 0 and 152 | Failed closed at the frozen solver-reference agreement gate; the original runner emitted no numerical failure artifact |
 | Task 305 | Passed the numerical gate and wrote a complete task artifact, then returned nonzero while formatting a relative output path |
 | Rejected task-305 artifact | [Result](../../results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/result.json), SHA-256 `3a68004203f866bee8720b456fffa014031d62919ae297c1ce9d0dc1cb0c9513`; [manifest](../../results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/TASK_MANIFEST.json), SHA-256 `c62d2347f19119fe3fc99b39174c6123ad62eb728b85ad58690cfb115ab1c91b` |
+| Rejection sidecar | [Receipt](../../results/corpus_v4/latency/preflight/rejections/job_6907776/task_305/REJECTION_RECEIPT.json), SHA-256 `d92177831bd61b3408448a9457d8bd47f596c985f2d461bc80476a755caa96d1`; preserves the historical artifact bytes while marking scheduler admission and claim eligibility false |
 | Full panel | 306 layouts across 13 held-out families; concurrency eight |
 | Corrective action | Preserve authenticated failure diagnostics before raising; normalize relative and absolute output paths before atomic publication; rerun the same three tasks under a new source lock without changing tolerance or resources |
 | Scientific use | None; terminal failure makes every task in this preflight ineligible for latency or speed claims |
 
-## E-C4-LAT-PREFLIGHT-02: Diagnostic paired-latency refreeze
+## E-C4-LAT-PREFLIGHT-02: Diagnostic paired-latency rejection
 
 | Field | Value |
 |---|---|
-| Lifecycle | `FROZEN; EXECUTION PENDING` |
+| Lifecycle | `EXECUTED; REJECTED` |
+| Array | `6909354`; canonical tasks 0, 152, and 305 |
+| Source commit | `1766b2718de459415fe6b1519975b9c4edc987e2` |
 | Protocol SHA-256 | `5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2` |
 | Plan SHA-256 | `983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25` |
 | Task-manifest SHA-256 | `db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2` |
@@ -459,8 +462,49 @@ with the account-bound plan or its future artifacts.
 | Execution-lock SHA-256 | `b998054ed83c0a92e52d09f1cccf39676ab1a139024a7830780c46519508261b` |
 | Frozen scientific settings | Identical to `E-C4-LAT-PREFLIGHT-01`; tolerance, task IDs, solver settings, timing boundary, and resources are unchanged |
 | Failure behavior | A reference mismatch writes an immutable, non-admissible `failure.json` plus `FAILURE_MANIFEST.json`, authenticates source stability first, and still exits nonzero |
-| Success behavior | Relative and absolute output paths resolve to one repository-relative label before atomic write |
-| Scientific use | Defines a diagnostic execution contract only; no latency or speed claim is supported before full archival closure |
+| Terminal accounting | Tasks 0, 152, and 305 ended `FAILED/1:0` after 438, 532, and 542 s; account `pgs0407`; 25 CPU and 48 GiB each |
+| Reference agreement | Only Cps differed. Maximum relative drift was `2.6572226e-4`, `1.6908165e-3`, and `1.0065129e-3`, respectively, against tolerance `1e-4`; every inductance drift was zero |
+| Failure artifacts | [Task 0](../../results/corpus_v4/latency/preflight/failures/job_6909354/task_000/failure.json), SHA-256 `537258144420a4c8077fee3be761893dc773ebad572ff211f9abbd781f19af79`; [task 152](../../results/corpus_v4/latency/preflight/failures/job_6909354/task_152/failure.json), SHA-256 `3904b082d623a58625f7fe7d6392be3c3e0eb3544cf726f257afa69b9f157609`; [task 305](../../results/corpus_v4/latency/preflight/failures/job_6909354/task_305/failure.json), SHA-256 `a9792a549dfe8baf813d0dc332fd3eb6fd74e200a0b979f7e90d56a0b8529862` |
+| Scheduler receipt | [Terminal receipt](../../results/corpus_v4/latency/preflight/failures/job_6909354/SCHEDULER_RECEIPT.json), SHA-256 `4712adc84e058fab6e6b8143c9d4b497230db302963be0d998b38f98a66e2b0a` |
+| Interpretation | The hardened diagnostic path passed its operational purpose. The scientific preflight failed because fresh FEM meshes did not reproduce the frozen Cps values within tolerance |
+| Next gate | A separately frozen two-arm FEM mesh-repeatability study on the same three anchors; do not relax tolerance post hoc and do not open the full array |
+| Scientific use | None; all records are rejected diagnostics and no latency or speed claim is supported |
+
+For task 0, the frozen R3 artifact from array `6846403`, logical task 3,
+records 1,709,706 mesh nodes, 10,324,256 tetrahedra, Cps
+`12.0332834138 pF`, and system fingerprint
+`ec8ae921f614e1b304a9c59b69c6b606b82c23b9a496a6c74e26754073f55b95`.
+The [source artifact](../../results/corpus_v4/cps_multifidelity/r3/attempts/job_6846403/task_0003.json)
+has SHA-256
+`2449d51bc894a98eeb8d573456ab6ea43a5d4939d5a88292de84a348f3a5d18b`.
+The task-0 rerun in array `6909354` produced 1,716,582 nodes, 10,367,720
+tetrahedra, and Cps `12.0364809251 pF`. Its linear residual remained below
+`5e-11`, and the numerical code, dependency pins, and thread contract were
+unchanged. This pair demonstrates that the two jobs solved different discrete
+mesh systems; it does not by itself prove which Gmsh mechanism caused the
+change. The two-arm repeatability experiment is required for that decision.
+
+## E-C4-FEM-REPEAT-PLAN-01: Frozen mesh-repeatability protocol
+
+| Field | Value |
+|---|---|
+| Lifecycle | `FROZEN; NOT YET EXECUTED` |
+| Protocol | [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json) |
+| Protocol SHA-256 | `f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960` |
+| Frozen panel | Latency tasks 0, 152, and 305; layouts 3, 734, and 1,495 |
+| Design | Five repeats per layout and arm; 15 SLURM elements; two sequential arms per element; 30 FEM solves total |
+| Arm A | Existing FEM-R3P16 path with 25 Gmsh threads |
+| Arm B | Diagnostic candidate with one Gmsh thread |
+| Resource request | Account `pgs0407`, partition `nextgen`, 25 CPU and 48 GiB per array element, concurrency three, two-hour scheduler cap |
+| Claim use | None; every source and final artifact is diagnostic and sets claim and speed eligibility false |
+| Required transition | Source array → preterminal finalizer artifact → terminal `COMPLETED/0:0` accounting → immutable `FINAL_ADMISSION.json`; only the last artifact may open a latency preflight |
+| Admission state | No job identifier or numerical result exists until the reviewed commit is pushed, CI passes, the array and finalizer complete, and a postterminal admission receipt is generated from the clean detached checkout |
+
+The planned computation is described in
+[FEM Mesh Repeatability](../methods/FEM-Repeatability.md). This entry records a
+frozen protocol, not a result. Job identifiers, terminal accounting, artifact
+hashes, and the gate decision must be appended only after SLURM execution and
+finalization.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

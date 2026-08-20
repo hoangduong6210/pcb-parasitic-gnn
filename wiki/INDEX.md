@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 paper_source: false
 ---
 
@@ -44,6 +44,7 @@ paper_source: false
 | [Strict E3 and EGNN](methods/Strict-E3-and-EGNN.md) | Symmetry proof scope and predictive ablation interpretation |
 | [FastHenry Inductance](methods/FastHenry-Inductance.md) | Inductance reference and winding aggregation |
 | [FEM Cps Reference](methods/FEM-Cps-Reference.md) | Electrostatic formulation and numerical gates |
+| [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
 | [Runtime Benchmark](methods/Runtime-Benchmark.md) | Timing boundaries and valid speed comparisons |
@@ -68,7 +69,6 @@ paper_source: false
 | [Research Workflow](operations/Research-Workflow.md) | From question to admitted claim |
 | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) | Frozen allocations and wall-time estimates |
 | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | Exact cluster submission, monitoring, and recovery steps |
-| [Prose Audit](operations/Prose-Audit.md) | Technical authorship, citation, style, and AI-detection safeguards |
 
 ## Publication source and snapshots
 
@@ -111,7 +111,7 @@ paper_source: false
 | `E-C3-GEOM-01`, `E-C4-FEM-01`, `E-C4-CONV-00`, `E-C4-FEAS-01`, `E-C4-CONV-01`, `E-C4-PLAN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-SUBMIT-00`, `E-C4-SUBMIT-01`, `E-C4-RUN-01`, `E-C4-FINAL-01`, `E-C4-OPS-02`, `E-C4-OPS-03`, `E-C4-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-DISC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| `E-C4-ACC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |

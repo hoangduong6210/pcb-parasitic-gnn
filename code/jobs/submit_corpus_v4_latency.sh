@@ -39,6 +39,8 @@ export PCB_GNN_EXECUTED_BATCH_SCRIPT="${BASH_SOURCE[0]}"
 : "${PCB_GNN_V4_LATENCY_PLAN_SHA256:?Pin the latency plan SHA-256}"
 : "${PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256:?Pin the latency task-manifest SHA-256}"
 : "${PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256:?Pin the latency execution-lock SHA-256}"
+: "${PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION:?Set the repository-relative preflight-admission path}"
+: "${PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256:?Pin the preflight-admission SHA-256}"
 : "${PCB_GNN_V4_SOURCE_COMMIT:?Pin the exact clean Git commit}"
 
 RETRY_ARGS=()
@@ -55,12 +57,14 @@ fi
   --stage full_array \
   --protocol protocols/corpus_v4_latency_v1.json \
   --expected-protocol-sha256 "$PCB_GNN_V4_LATENCY_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v1/plan.json \
+  --plan results/corpus_v4/latency/plan/v2/plan.json \
   --expected-plan-sha256 "$PCB_GNN_V4_LATENCY_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v1/task_manifest.jsonl \
+  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v1.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256" \
+  --preflight-admission "$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION" \
+  --expected-preflight-admission-sha256 "$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256" \
   --expected-source-git-head "$PCB_GNN_V4_SOURCE_COMMIT" \
   "${RETRY_ARGS[@]}" \
   --output-root results/corpus_v4/latency/jobs

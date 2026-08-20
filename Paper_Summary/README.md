@@ -62,7 +62,7 @@ public release.
 | Lateral pick regret 1176.1% analytical, 1126.2% random, 3.5% GNN | [`run_declat/results_declat.json`](../results/run_declat/results_declat.json) | `XY_decision` | Direct |
 | “~340× lower regret” | [`run_declat/results_declat.json`](../results/run_declat/results_declat.json) | `1176.1 / 3.5 = 336.0`, rounded to two significant figures | Derived |
 | Analytical PEEC 0.783 ms/design and GNN 1.16845 ms/design | [`run_v1/results.json`](../results/run_v1/results.json) | `ref_allpairs_ms_per_sample`, `gnn_infer_ms_per_sample` | Direct; pre-collated throughput boundary |
-| “~4300× faster” | [`run_v1/results.json`](../results/run_v1/results.json), later timing reproduction [`job_51174497`](../results/proof_updates/jobs/legacy_latency/job_51174497/results_legacy_latency_reproduction.json) | `5000 ms / 1.16845 ms = 4279.2×`, rounded to `~4300×`; the later job reproduces the same GNN protocol at 0.675 ms and records its hardware dependence | Derived historical throughput comparison |
+| “~4300× faster” | [`run_v1/results.json`](../results/run_v1/results.json), later timing reproduction indexed in the [consolidated proof record](../results/proof_updates/results.json) | `5000 ms / 1.16845 ms = 4279.2×`, rounded to `~4300×`; the later run reproduces the same GNN protocol at 0.675 ms and records its hardware dependence | Derived historical throughput comparison |
 | 1,000 candidates in ~1.2 s versus ~1.4 h | [`run_v1/results.json`](../results/run_v1/results.json) | `1000 × 1.16845 ms = 1.168 s`; `1000 × 5 s = 5000 s = 1.389 h` | Derived |
 | Sparse k-NN crossover near N = 80 and ~80× at N = 1280 | [`scaling_v1/scaling.json`](../results/scaling_v1/scaling.json) | `knn_beats_ref_at_N`, `max_knn_speedup_x`, `rows` | Direct timing study |
 

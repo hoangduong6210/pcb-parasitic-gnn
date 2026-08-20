@@ -28,12 +28,14 @@ for _directory in (
     sys.path.insert(0, str(_directory))
 
 from corpus_v4_accuracy_contract import (  # noqa: E402
+    canonical_tres,
     load_json,
     load_jsonl,
     resolve_descendant_path,
     require_plain_int,
     require_repo_relative_path,
     resolve_repo_path,
+    tres_equivalent,
     validate_execution_lock as validate_accuracy_execution_lock,
     validate_file_manifest as validate_accuracy_file_manifest,
     validate_plan as validate_accuracy_plan,
@@ -48,6 +50,7 @@ from scientific_artifact import (  # noqa: E402
     sha256_file,
 )
 from corpus_v4_accuracy_dataset import load_corpus_v4_accuracy_dataset  # noqa: E402
+import admit_corpus_v4_fem_repeatability as fem_repeatability_admission  # noqa: E402
 
 
 PROTOCOL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-protocol.v2"
@@ -58,13 +61,35 @@ LOCK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-execution-lock.v2"
 TASK_MANIFEST_SCHEMA = (
     "pcb-gnn.corpus-v4-paired-latency-task-artifact-manifest.v2"
 )
-PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v2"
+TASK_RESULT_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v3"
+PREFLIGHT_ADMISSION_SCHEMA = (
+    "pcb-gnn.corpus-v4-paired-latency-preflight-admission.v2"
+)
+FEM_REPEATABILITY_ADMISSION_SCHEMA = (
+    "pcb-gnn.corpus-v4-fem-repeatability-final-admission.v1"
+)
+PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v3"
 
 DESIGNATED_TASK_ID = 12
 DESIGNATED_SPLIT_SEED = 42
 DESIGNATED_INIT_SEED = 42
 EXPECTED_LAYOUTS = 306
 EXPECTED_FAMILIES = 13
+PREFLIGHT_TASK_IDS = (0, 152, 305)
+PREFLIGHT_SACCT_FIELDS = (
+    "JobID",
+    "JobIDRaw",
+    "Account",
+    "State",
+    "ExitCode",
+    "ElapsedRaw",
+    "ReqTRES",
+    "AllocTRES",
+    "Partition",
+    "Timelimit",
+    "NodeList",
+    "Restarts",
+)
 SHA256_RE = re.compile(r"[0-9a-f]{64}")
 
 EXPECTED_INPUT_PATHS = {
@@ -123,6 +148,7 @@ PLANNER_SOURCE_NAMES = (
 EXECUTION_SOURCE_NAMES = (
     "requirements-proof.txt",
     "protocols/corpus_v4_latency_v1.json",
+    "protocols/corpus_v4_fem_repeatability_v1.json",
     "code/core/geometry_contract.py",
     "code/core/pcb_graph.py",
     "code/core/planar_to_graph.py",
@@ -132,6 +158,8 @@ EXECUTION_SOURCE_NAMES = (
     "code/data/verified_geometry_corpus.py",
     "code/env.sh",
     "code/experiments/proofs/build_corpus_v4_latency_execution_lock.py",
+    "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py",
+    "code/experiments/proofs/admit_corpus_v4_latency_preflight.py",
     "code/experiments/proofs/corpus_v4_accuracy_contract.py",
     "code/experiments/proofs/corpus_v4_latency_contract.py",
     "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
@@ -930,12 +958,14 @@ def validate_pending_set(
     if set(payload) != binding_names | {
         "n_pending",
         "pending_task_ids",
+        "preflight_admission",
         "schema",
     } or payload.get("schema") != PENDING_SCHEMA:
         raise LatencyContractError("latency pending-set fields are not exact")
     if any(payload.get(name) != bindings[name] for name in binding_names):
         raise LatencyContractError("latency pending set does not bind frozen roots")
     pending = payload.get("pending_task_ids")
+    preflight_admission = payload.get("preflight_admission")
     if (
         not isinstance(pending, list)
         or not pending
@@ -943,6 +973,8 @@ def validate_pending_set(
         or pending != sorted(set(pending))
         or any(task_id < 0 or task_id >= EXPECTED_LAYOUTS for task_id in pending)
         or payload.get("n_pending") != len(pending)
+        or not isinstance(preflight_admission, dict)
+        or set(preflight_admission) != {"path", "sha256"}
     ):
         raise LatencyContractError("latency pending task IDs are not canonical")
     return payload, pending, sha256_file(path)
@@ -969,6 +1001,517 @@ def _parse_scontrol_records(output: str) -> list[dict[str, str]]:
         for line in output.splitlines()
         if line.strip()
     ]
+
+
+def validate_terminal_array_completion(
+    scheduler: Mapping[str, Any],
+    accounting: Sequence[Mapping[str, Any]],
+) -> dict[str, str] | None:
+    """Return one canonical terminal receipt for an authenticated array task."""
+    array_job_id = scheduler.get("array_job_id")
+    array_task_id = scheduler.get("array_task_id")
+    raw_job_id = scheduler.get("job_id")
+    in_run = scheduler.get("scheduler_record")
+    if (
+        not isinstance(array_job_id, str)
+        or not array_job_id.isdigit()
+        or type(array_task_id) is not int
+        or array_task_id < 0
+        or not isinstance(raw_job_id, str)
+        or not raw_job_id.isdigit()
+        or not isinstance(in_run, Mapping)
+    ):
+        return None
+
+    logical_job_id = f"{array_job_id}_{array_task_id}"
+    matches = [row for row in accounting if row.get("JobID") == logical_job_id]
+    if len(matches) != 1:
+        return None
+    row = dict(matches[0])
+    state = str(row.get("State", "")).split()[0].rstrip("+")
+    account = in_run.get("Account")
+    if (
+        row.get("JobIDRaw") != raw_job_id
+        or state != "COMPLETED"
+        or row.get("ExitCode") != "0:0"
+        or not isinstance(account, str)
+        or not account
+        or row.get("Account") != account
+        or any(
+            not tres_equivalent(row.get(name), in_run.get(name))
+            for name in ("ReqTRES", "AllocTRES")
+        )
+    ):
+        return None
+    try:
+        row["ReqTRES"] = canonical_tres(row["ReqTRES"])
+        row["AllocTRES"] = canonical_tres(row["AllocTRES"])
+    except ValueError:
+        return None
+    row["State"] = "COMPLETED"
+    return row
+
+
+def validate_fem_repeatability_admission(
+    path: Path,
+    expected_sha256: str,
+    *,
+    expected_source_git_head: str,
+    lock: Mapping[str, Any],
+    require_live_accounting: bool = False,
+) -> tuple[dict[str, Any], dict[str, str]]:
+    """Authenticate the positive postterminal FEM decision required by preflight."""
+    _require_sha256(expected_sha256, "FEM repeatability admission external SHA-256")
+    if path.is_symlink() or not path.is_file():
+        raise LatencyContractError("FEM repeatability admission must be a regular file")
+    require_file_sha256(path, expected_sha256, "FEM repeatability admission")
+    payload = load_json(path)
+    expected_fields = {
+        "artifact_stage",
+        "claim_eligible",
+        "created_utc",
+        "decision",
+        "finalizer",
+        "preterminal_final",
+        "protocol_sha256",
+        "schema",
+        "source_git_head",
+        "speed_claim_eligible",
+        "validator",
+    }
+    if (
+        set(payload) != expected_fields
+        or payload.get("schema") != FEM_REPEATABILITY_ADMISSION_SCHEMA
+        or payload.get("artifact_stage") != "postterminal_finalizer_admission"
+        or payload.get("claim_eligible") is not False
+        or payload.get("speed_claim_eligible") is not False
+        or payload.get("source_git_head") != expected_source_git_head
+        or payload.get("decision")
+        != {
+            "paired_latency_preflight_may_resume": True,
+            "provisional_preterminal_gate_pass": True,
+            "terminal_finalizer_completed_zero": True,
+        }
+    ):
+        raise LatencyContractError("FEM repeatability admission is not a positive exact receipt")
+    source_hashes = lock.get("source_sha256")
+    validator_path = "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py"
+    validator = payload.get("validator")
+    if (
+        not isinstance(source_hashes, Mapping)
+        or validator
+        != {"path": validator_path, "sha256": source_hashes.get(validator_path)}
+    ):
+        raise LatencyContractError("FEM repeatability validator is not source-locked")
+    repeat_protocol_path = ROOT / "protocols/corpus_v4_fem_repeatability_v1.json"
+    repeat_protocol_sha = sha256_file(repeat_protocol_path)
+    if (
+        payload.get("protocol_sha256") != repeat_protocol_sha
+        or source_hashes.get("protocols/corpus_v4_fem_repeatability_v1.json")
+        != repeat_protocol_sha
+    ):
+        raise LatencyContractError("FEM repeatability protocol is not source-locked")
+    reference = payload.get("preterminal_final")
+    expected_reference_fields = {
+        "final_manifest_path",
+        "final_manifest_sha256",
+        "final_result_path",
+        "final_result_sha256",
+        "finalizer_job_id",
+        "finalizer_scheduler_tres",
+        "provisional_preterminal_gate_pass",
+        "source_array_job_id",
+    }
+    if (
+        not isinstance(reference, Mapping)
+        or set(reference) != expected_reference_fields
+        or reference.get("provisional_preterminal_gate_pass") is not True
+    ):
+        raise LatencyContractError("FEM repeatability preterminal binding differs")
+    source_job_id = reference.get("source_array_job_id")
+    finalizer_job_id = reference.get("finalizer_job_id")
+    if (
+        not isinstance(source_job_id, str)
+        or not source_job_id.isdigit()
+        or not isinstance(finalizer_job_id, str)
+        or not finalizer_job_id.isdigit()
+    ):
+        raise LatencyContractError("FEM repeatability job identities are invalid")
+    for name in ("final_manifest_sha256", "final_result_sha256"):
+        _require_sha256(reference.get(name), f"FEM repeatability {name}")
+    expected_label = (
+        "results/corpus_v4/fem_repeatability/v1/admission/"
+        f"source_job_{source_job_id}/finalizer_job_{finalizer_job_id}/"
+        "FINAL_ADMISSION.json"
+    )
+    expected_path = resolve_descendant_path(
+        ROOT, expected_label, "FEM repeatability admission"
+    )
+    if path.resolve() != expected_path.resolve():
+        raise LatencyContractError("FEM repeatability admission path is not canonical")
+    finalizer = payload.get("finalizer")
+    if not isinstance(finalizer, Mapping) or set(finalizer) != {
+        "accounting",
+        "accounting_provenance",
+        "job_id",
+        "job_id_raw",
+    }:
+        raise LatencyContractError("FEM repeatability finalizer receipt is malformed")
+    accounting = finalizer.get("accounting")
+    row = accounting.get("row") if isinstance(accounting, Mapping) else None
+    if (
+        finalizer.get("job_id") != finalizer_job_id
+        or finalizer.get("job_id_raw") != finalizer_job_id
+        or not isinstance(row, Mapping)
+        or row.get("JobID") != finalizer_job_id
+        or row.get("JobIDRaw") != finalizer_job_id
+        or row.get("State") != "COMPLETED"
+        or row.get("ExitCode") != "0:0"
+        or row.get("Account") != "pgs0407"
+        or row.get("Partition") != "nextgen"
+    ):
+        raise LatencyContractError("FEM repeatability finalizer was not terminally admitted")
+    try:
+        repeat_protocol, repeat_identity = (
+            fem_repeatability_admission.authenticate_protocol(
+                repeat_protocol_path,
+                repeat_protocol_sha,
+            )
+        )
+        live_rows = None
+        if require_live_accounting:
+            live_rows, _ = (
+                fem_repeatability_admission.query_live_finalizer_accounting(
+                    finalizer_job_id
+                )
+            )
+        replayed_reference = fem_repeatability_admission.validate_admission_payload(
+            payload,
+            protocol=repeat_protocol,
+            protocol_sha256=repeat_identity["protocol_sha256"],
+            expected_source_git_head=expected_source_git_head,
+            source_array_job_id=source_job_id,
+            finalizer_job_id=finalizer_job_id,
+            expected_validator_source_sha256=source_hashes[validator_path],
+            live_accounting_rows=live_rows,
+        )
+    except (OSError, RuntimeError, TypeError, ValueError) as exc:
+        raise LatencyContractError(
+            f"FEM repeatability admission semantic replay failed: {exc}"
+        ) from exc
+    if replayed_reference != dict(reference):
+        raise LatencyContractError("FEM repeatability preterminal replay differs")
+    return payload, {"path": expected_label, "sha256": expected_sha256}
+
+
+def validate_preflight_admission_payload(
+    payload: Mapping[str, Any],
+    *,
+    bindings: Mapping[str, str],
+    expected_source_git_head: str,
+    tasks: Sequence[Mapping[str, Any]],
+    lock: Mapping[str, Any],
+    checkpoint_archive_sha256: str,
+    require_live_fem_accounting: bool = False,
+) -> dict[str, Any]:
+    """Validate one preflight authorization without trusting its producer."""
+    binding_names = {
+        "execution_lock_sha256",
+        "panel_records_sha256",
+        "plan_sha256",
+        "protocol_sha256",
+        "task_manifest_sha256",
+    }
+    expected_fields = {
+        "accounting_provenance",
+        "bindings",
+        "claim_eligible",
+        "entries",
+        "expected_task_ids",
+        "fem_repeatability_admission",
+        "full_array_authorized",
+        "n_accepted",
+        "n_expected",
+        "preflight_array_job_id",
+        "schema",
+        "source_git_head",
+        "status",
+        "validator_source_sha256",
+    }
+    if set(bindings) != binding_names:
+        raise LatencyContractError("preflight admission bindings are not exact")
+    for name in sorted(binding_names):
+        _require_sha256(bindings[name], f"preflight admission binding {name}")
+    if (
+        set(payload) != expected_fields
+        or payload.get("schema") != PREFLIGHT_ADMISSION_SCHEMA
+        or payload.get("status") != "admitted-for-full-array"
+        or payload.get("claim_eligible") is not False
+        or payload.get("full_array_authorized") is not True
+        or payload.get("bindings") != dict(bindings)
+        or payload.get("source_git_head") != expected_source_git_head
+        or payload.get("expected_task_ids") != list(PREFLIGHT_TASK_IDS)
+        or payload.get("n_expected") != len(PREFLIGHT_TASK_IDS)
+        or payload.get("n_accepted") != len(PREFLIGHT_TASK_IDS)
+    ):
+        raise LatencyContractError("preflight admission fields are not exact")
+    source_hashes = lock.get("source_sha256")
+    validator_path = "code/experiments/proofs/admit_corpus_v4_latency_preflight.py"
+    if (
+        not isinstance(source_hashes, Mapping)
+        or payload.get("validator_source_sha256") != source_hashes.get(validator_path)
+    ):
+        raise LatencyContractError("preflight admission validator is not source-locked")
+    repeatability_reference = payload.get("fem_repeatability_admission")
+    if (
+        not isinstance(repeatability_reference, Mapping)
+        or set(repeatability_reference) != {"path", "sha256"}
+    ):
+        raise LatencyContractError("FEM repeatability admission reference is not exact")
+    repeatability_path = resolve_descendant_path(
+        ROOT,
+        repeatability_reference["path"],
+        "FEM repeatability admission",
+    )
+    _, validated_repeatability_reference = validate_fem_repeatability_admission(
+        repeatability_path,
+        repeatability_reference["sha256"],
+        expected_source_git_head=expected_source_git_head,
+        lock=lock,
+        require_live_accounting=require_live_fem_accounting,
+    )
+    if validated_repeatability_reference != dict(repeatability_reference):
+        raise LatencyContractError("FEM repeatability admission reference differs")
+    _require_sha256(checkpoint_archive_sha256, "preflight checkpoint archive SHA-256")
+    array_job_id = payload.get("preflight_array_job_id")
+    if not isinstance(array_job_id, str) or not array_job_id.isdigit():
+        raise LatencyContractError("preflight admission array job ID is invalid")
+    entries = payload.get("entries")
+    if not isinstance(entries, list) or len(entries) != len(PREFLIGHT_TASK_IDS):
+        raise LatencyContractError("preflight admission entry count is not exact")
+
+    failure_root = (
+        ROOT
+        / "results/corpus_v4/latency/preflight/failures"
+        / f"job_{array_job_id}"
+    )
+    if failure_root.exists() or failure_root.is_symlink():
+        raise LatencyContractError("preflight failure tree exists for the admitted array")
+    attempt_root = (
+        ROOT
+        / "results/corpus_v4/latency/preflight/attempts"
+        / f"job_{array_job_id}"
+    )
+    if attempt_root.is_symlink() or not attempt_root.is_dir():
+        raise LatencyContractError("preflight attempt root is missing")
+    expected_directories = {f"task_{task_id:03d}" for task_id in PREFLIGHT_TASK_IDS}
+    observed_directories = {
+        child.name
+        for child in attempt_root.iterdir()
+        if child.is_dir() and not child.is_symlink()
+    }
+    if observed_directories != expected_directories or any(
+        child.is_symlink() or not child.is_dir() for child in attempt_root.iterdir()
+    ):
+        raise LatencyContractError("preflight attempt inventory is not exact")
+
+    expected_entry_fields = {
+        "manifest_path",
+        "manifest_sha256",
+        "result_sha256",
+        "scheduler_completion",
+        "task_id",
+    }
+    expected_result_bindings = {
+        **bindings,
+        "checkpoint_archive_sha256": checkpoint_archive_sha256,
+        "fem_repeatability_admission": dict(repeatability_reference),
+        "preflight_admission": None,
+        "retry_pending_set": None,
+    }
+    terminal_rows: list[dict[str, str]] = []
+    for expected_task_id, entry in zip(PREFLIGHT_TASK_IDS, entries):
+        if not isinstance(entry, Mapping) or set(entry) != expected_entry_fields:
+            raise LatencyContractError("preflight admission entry fields are not exact")
+        if entry.get("task_id") != expected_task_id:
+            raise LatencyContractError("preflight admission task order is not canonical")
+        expected_manifest = (
+            attempt_root / f"task_{expected_task_id:03d}" / "TASK_MANIFEST.json"
+        )
+        expected_manifest_label = expected_manifest.relative_to(ROOT).as_posix()
+        if entry.get("manifest_path") != expected_manifest_label:
+            raise LatencyContractError("preflight manifest path is not canonical")
+        manifest_path = resolve_descendant_path(
+            ROOT, entry["manifest_path"], "preflight task manifest"
+        )
+        if manifest_path.is_symlink() or not manifest_path.is_file():
+            raise LatencyContractError("preflight task manifest is missing")
+        observed_task_files = {
+            child.name
+            for child in manifest_path.parent.iterdir()
+            if child.is_file() and not child.is_symlink()
+        }
+        if observed_task_files != {"TASK_MANIFEST.json", "result.json"} or any(
+            child.is_symlink() or not child.is_file()
+            for child in manifest_path.parent.iterdir()
+        ):
+            raise LatencyContractError("preflight task directory inventory differs")
+        manifest_sha = sha256_file(manifest_path)
+        if entry.get("manifest_sha256") != manifest_sha:
+            raise LatencyContractError("preflight task manifest hash differs")
+        manifest = load_json(manifest_path)
+        result_path = manifest_path.parent / "result.json"
+        result_sha = sha256_file(result_path)
+        if (
+            set(manifest) != {"files_sha256", "schema"}
+            or manifest.get("schema") != TASK_MANIFEST_SCHEMA
+            or manifest.get("files_sha256") != {"result.json": result_sha}
+            or entry.get("result_sha256") != result_sha
+        ):
+            raise LatencyContractError("preflight task artifact inventory differs")
+        result = load_json(result_path)
+        task = tasks[expected_task_id]
+        expected_task = {
+            "family_id": task["family_id"],
+            "geometry_sha256": task["geometry_sha256"],
+            "layout_id": task["layout_id"],
+            "task_id": expected_task_id,
+        }
+        provenance = result.get("provenance", {})
+        scheduler = provenance.get("scheduler", {})
+        if (
+            set(result)
+            != {
+                "bindings",
+                "created_utc",
+                "integrity",
+                "provenance",
+                "record",
+                "schema",
+                "stage",
+                "task",
+            }
+            or result.get("schema") != TASK_RESULT_SCHEMA
+            or result.get("stage") != "preflight"
+            or result.get("task") != expected_task
+            or result.get("integrity") != {"passed": True}
+            or result.get("bindings") != expected_result_bindings
+            or provenance.get("source_git_head") != expected_source_git_head
+            or provenance.get("source_sha256") != source_hashes
+            or provenance.get("executed_batch_sha256")
+            != source_hashes.get("code/jobs/submit_corpus_v4_latency_preflight.sh")
+            or scheduler.get("stage") != "preflight"
+            or scheduler.get("array_job_id") != array_job_id
+            or scheduler.get("array_task_id") != expected_task_id
+        ):
+            raise LatencyContractError("preflight task identity or source differs")
+        completion = entry.get("scheduler_completion")
+        expected_completion_fields = {
+            "Account",
+            "AllocTRES",
+            "ElapsedRaw",
+            "ExitCode",
+            "JobID",
+            "JobIDRaw",
+            "ReqTRES",
+            "State",
+            "Partition",
+            "Timelimit",
+            "NodeList",
+            "Restarts",
+        }
+        validated_completion = (
+            validate_terminal_array_completion(scheduler, [completion])
+            if isinstance(completion, Mapping)
+            and set(completion) == expected_completion_fields
+            else None
+        )
+        elapsed = completion.get("ElapsedRaw", "") if isinstance(completion, Mapping) else ""
+        if (
+            validated_completion is None
+            or validated_completion != completion
+            or completion.get("Partition") != "nextgen"
+            or completion.get("Timelimit") != "02:00:00"
+            or not completion.get("NodeList")
+            or completion.get("NodeList") in {"(null)", "None", "Unknown"}
+            or completion.get("Restarts") != "0"
+            or not elapsed.isdigit()
+            or not 1 <= int(elapsed) <= 7200
+        ):
+            raise LatencyContractError("preflight terminal accounting is not exact")
+        terminal_rows.append(dict(completion))
+    terminal_rows.sort(key=lambda row: row["JobID"])
+    accounting_provenance = payload.get("accounting_provenance")
+    expected_accounting_command = [
+        "sacct",
+        "-X",
+        "-n",
+        "-P",
+        "-j",
+        array_job_id,
+        f"--format={','.join(PREFLIGHT_SACCT_FIELDS)}",
+    ]
+    if (
+        not isinstance(accounting_provenance, Mapping)
+        or set(accounting_provenance)
+        != {
+            "canonical_rows_sha256",
+            "command",
+            "queried_utc",
+            "raw_stdout_sha256",
+            "row_count",
+        }
+        or accounting_provenance.get("command") != expected_accounting_command
+        or accounting_provenance.get("row_count") != len(PREFLIGHT_TASK_IDS)
+        or accounting_provenance.get("canonical_rows_sha256")
+        != sha256_bytes(canonical_json_bytes(terminal_rows))
+        or not isinstance(accounting_provenance.get("queried_utc"), str)
+        or not accounting_provenance.get("queried_utc")
+    ):
+        raise LatencyContractError("preflight accounting provenance is not exact")
+    _require_sha256(
+        accounting_provenance.get("raw_stdout_sha256"),
+        "preflight raw accounting SHA-256",
+    )
+    return dict(payload)
+
+
+def validate_preflight_admission(
+    path: Path,
+    expected_sha256: str,
+    *,
+    bindings: Mapping[str, str],
+    expected_source_git_head: str,
+    tasks: Sequence[Mapping[str, Any]],
+    lock: Mapping[str, Any],
+    checkpoint_archive_sha256: str,
+    require_live_fem_accounting: bool = False,
+) -> tuple[dict[str, Any], dict[str, str]]:
+    """Authenticate one externally hash-pinned preflight admission file."""
+    _require_sha256(expected_sha256, "preflight admission external SHA-256")
+    if path.is_symlink() or not path.is_file():
+        raise LatencyContractError("preflight admission must be a regular file")
+    require_file_sha256(path, expected_sha256, "preflight admission")
+    payload = validate_preflight_admission_payload(
+        load_json(path),
+        bindings=bindings,
+        expected_source_git_head=expected_source_git_head,
+        tasks=tasks,
+        lock=lock,
+        checkpoint_archive_sha256=checkpoint_archive_sha256,
+        require_live_fem_accounting=require_live_fem_accounting,
+    )
+    expected_label = (
+        "results/corpus_v4/latency/preflight/admission/"
+        f"job_{payload['preflight_array_job_id']}/PREFLIGHT_ADMISSION.json"
+    )
+    expected_path = resolve_descendant_path(ROOT, expected_label, "preflight admission")
+    if path.resolve() != expected_path.resolve():
+        raise LatencyContractError("preflight admission path is not canonical")
+    return payload, {
+        "path": expected_label,
+        "sha256": expected_sha256,
+    }
 
 
 def _environment_int(name: str) -> int:

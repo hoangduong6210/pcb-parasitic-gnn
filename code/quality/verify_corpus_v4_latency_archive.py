@@ -19,13 +19,16 @@ from corpus_v4_latency_contract import (  # noqa: E402
     EXPECTED_INPUT_NAMES,
     EXPECTED_LAYOUTS,
     PLANNER_SOURCE_NAMES,
+    TASK_RESULT_SCHEMA,
     load_json,
     load_jsonl,
     resolve_repo_path,
     validate_execution_lock,
     validate_plan,
+    validate_preflight_admission,
     validate_protocol,
     validate_root_closure,
+    validate_terminal_array_completion,
 )
 from finalize_corpus_v4_latency import (  # noqa: E402
     ACCEPTED_SCHEMA,
@@ -36,7 +39,8 @@ from finalize_corpus_v4_latency import (  # noqa: E402
 from scientific_artifact import atomic_write_json, sha256_file  # noqa: E402
 
 
-ARCHIVE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-archive.v2"
+ARCHIVE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-archive.v3"
+CANDIDATE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-candidate-index.v3"
 
 
 def _repo_relative(path: Path) -> str:
@@ -155,15 +159,39 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
         raise ValueError("accepted set is missing or hash-mismatched")
     accepted = load_json(args.accepted_set)
     entries = accepted.get("entries")
+    admission_reference = accepted.get("preflight_admission")
+    expected_accepted_fields = {
+        *bindings,
+        "candidate_index",
+        "entries",
+        "n_accepted",
+        "n_expected",
+        "preflight_admission",
+        "schema",
+    }
     if (
-        accepted.get("schema") != ACCEPTED_SCHEMA
+        set(accepted) != expected_accepted_fields
+        or accepted.get("schema") != ACCEPTED_SCHEMA
         or any(accepted.get(name) != digest for name, digest in bindings.items())
         or accepted.get("n_expected") != EXPECTED_LAYOUTS
         or accepted.get("n_accepted") != EXPECTED_LAYOUTS
         or not isinstance(entries, list)
         or len(entries) != EXPECTED_LAYOUTS
+        or not isinstance(admission_reference, dict)
+        or set(admission_reference) != {"path", "sha256"}
     ):
         raise ValueError("accepted set is not complete or root-bound")
+    admission, canonical_admission_reference = validate_preflight_admission(
+        resolve_repo_path(admission_reference["path"], "preflight admission"),
+        admission_reference["sha256"],
+        bindings=bindings,
+        expected_source_git_head=args.expected_source_git_head,
+        tasks=tasks,
+        lock=lock,
+        checkpoint_archive_sha256=protocol["inputs"]["checkpoint_archive"]["sha256"],
+    )
+    if canonical_admission_reference != admission_reference:
+        raise ValueError("accepted set preflight admission reference is not canonical")
 
     if args.analysis_manifest.is_symlink() or sha256_file(args.analysis_manifest) != args.expected_analysis_manifest_sha256:
         raise ValueError("analysis manifest is missing or hash-mismatched")
@@ -206,6 +234,7 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
         **bindings,
         "accepted_set_sha256": args.expected_accepted_set_sha256,
         "expected_source_git_head": args.expected_source_git_head,
+        "preflight_admission": admission_reference,
     }
     if (
         summary.get("schema") != FINAL_SCHEMA
@@ -229,6 +258,31 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
             "task_id": task_id,
         }:
             raise ValueError(f"task index entry {task_id} differs from accepted evidence")
+        manifest_path = resolve_repo_path(
+            accepted_entry["manifest_path"], "accepted task manifest"
+        )
+        result = load_json(manifest_path.parent / "result.json")
+        if (
+            result.get("schema") != TASK_RESULT_SCHEMA
+            or result.get("stage") != "full_array"
+            or result.get("bindings", {}).get("preflight_admission")
+            != admission_reference
+        ):
+            raise ValueError(
+                f"task index entry {task_id} does not bind the preflight admission"
+            )
+        completion = accepted_entry.get("scheduler_completion")
+        validated_completion = (
+            validate_terminal_array_completion(
+                result.get("provenance", {}).get("scheduler", {}), [completion]
+            )
+            if isinstance(completion, dict)
+            else None
+        )
+        if validated_completion is None or validated_completion != completion:
+            raise ValueError(
+                f"task index entry {task_id} lacks exact terminal accounting"
+            )
 
     tracked: list[Path] = [
         args.protocol,
@@ -239,7 +293,13 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
         args.accepted_set,
         args.analysis_manifest,
         *(analysis_root / name for name in expected_names),
+        resolve_repo_path(admission_reference["path"], "preflight admission"),
     ]
+    for admission_entry in admission["entries"]:
+        manifest_path = resolve_repo_path(
+            admission_entry["manifest_path"], "preflight task manifest"
+        )
+        tracked.extend((manifest_path, manifest_path.parent / "result.json"))
     for name in EXPECTED_INPUT_NAMES:
         tracked.append(resolve_repo_path(protocol["inputs"][name]["path"], f"input {name}"))
     tracked.extend(resolve_repo_path(name, "planner source") for name in PLANNER_SOURCE_NAMES)
@@ -251,6 +311,12 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
         raise ValueError("candidate index hash differs from accepted set")
     tracked.append(candidate_path)
     candidates = load_json(candidate_path)
+    if (
+        candidates.get("schema") != CANDIDATE_SCHEMA
+        or candidates.get("preflight_admission") != admission_reference
+        or not isinstance(candidates.get("entries"), list)
+    ):
+        raise ValueError("candidate index does not bind the preflight admission")
     for candidate in candidates.get("entries", []):
         manifest_path = resolve_repo_path(candidate["manifest_path"], "candidate manifest")
         if sha256_file(manifest_path) != candidate["manifest_sha256"]:

@@ -22,17 +22,19 @@ ROOT = Path(__file__).resolve().parents[3]
 for directory in (ROOT / "code/core", ROOT / "code/experiments/proofs"):
     sys.path.insert(0, str(directory))
 
-from corpus_v4_accuracy_contract import canonical_tres, tres_equivalent  # noqa: E402
 from corpus_v4_latency_contract import (  # noqa: E402
     EXPECTED_FAMILIES,
     EXPECTED_LAYOUTS,
+    TASK_RESULT_SCHEMA,
     load_json,
     resolve_repo_path,
     validate_execution_lock,
     validate_plan,
+    validate_preflight_admission,
     validate_protocol,
     validate_root_closure,
     validate_slurm_allocation,
+    validate_terminal_array_completion,
 )
 from scientific_artifact import (  # noqa: E402
     atomic_write_json,
@@ -41,11 +43,11 @@ from scientific_artifact import (  # noqa: E402
 )
 
 
-TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v2"
+TASK_SCHEMA = TASK_RESULT_SCHEMA
 RECORD_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-record.v2"
 ARTIFACT_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task-artifact-manifest.v2"
-ACCEPTED_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-accepted-set.v2"
-FINAL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-final.v2"
+ACCEPTED_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-accepted-set.v3"
+FINAL_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-final.v3"
 ANALYSIS_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-analysis-manifest.v2"
 
 
@@ -348,12 +350,21 @@ def _accepted_entries(
     expected_sha256: str,
     *,
     bindings: Mapping[str, str],
-) -> list[dict[str, Any]]:
+) -> tuple[list[dict[str, Any]], dict[str, str]]:
     if path.is_symlink() or not path.is_file() or sha256_file(path) != expected_sha256:
         raise ValueError("accepted set is missing or hash-mismatched")
     payload = load_json(path)
-    expected_fields = {*bindings, "candidate_index", "entries", "n_accepted", "n_expected", "schema"}
+    expected_fields = {
+        *bindings,
+        "candidate_index",
+        "entries",
+        "n_accepted",
+        "n_expected",
+        "preflight_admission",
+        "schema",
+    }
     entries = payload.get("entries")
+    preflight_admission = payload.get("preflight_admission")
     if (
         set(payload) != expected_fields
         or payload.get("schema") != ACCEPTED_SCHEMA
@@ -362,11 +373,13 @@ def _accepted_entries(
         or payload.get("n_accepted") != EXPECTED_LAYOUTS
         or not isinstance(entries, list)
         or len(entries) != EXPECTED_LAYOUTS
+        or not isinstance(preflight_admission, dict)
+        or set(preflight_admission) != {"path", "sha256"}
     ):
         raise ValueError("accepted set is not the exact complete latency closure")
     if [entry.get("task_id") for entry in entries] != list(range(EXPECTED_LAYOUTS)):
         raise ValueError("accepted latency entries are not dense tasks 0..305")
-    return entries
+    return entries, preflight_admission
 
 
 def _load_task_result(
@@ -374,6 +387,7 @@ def _load_task_result(
     *,
     task: Mapping[str, Any],
     bindings: Mapping[str, str],
+    preflight_admission: Mapping[str, str],
     expected_source_git_head: str,
 ) -> tuple[dict[str, Any], Path]:
     manifest_path = resolve_repo_path(entry.get("manifest_path"), "accepted task manifest")
@@ -402,22 +416,18 @@ def _load_task_result(
         or result.get("integrity") != {"passed": True}
         or result.get("provenance", {}).get("source_git_head") != expected_source_git_head
         or any(result.get("bindings", {}).get(name) != digest for name, digest in bindings.items())
+        or result.get("bindings", {}).get("preflight_admission")
+        != dict(preflight_admission)
     ):
         raise ValueError("accepted task result differs from frozen roots or task identity")
     completion = entry.get("scheduler_completion")
     scheduler = result["provenance"]["scheduler"]
-    if (
-        not isinstance(completion, dict)
-        or completion.get("State") != "COMPLETED"
-        or completion.get("ExitCode") != "0:0"
-        or completion.get("JobID") != scheduler.get("job_id")
-        or completion.get("Account")
-        != scheduler["scheduler_record"].get("Account")
-        or any(
-            not tres_equivalent(completion.get(name), scheduler["scheduler_record"].get(name))
-            for name in ("ReqTRES", "AllocTRES")
-        )
-    ):
+    validated_completion = (
+        validate_terminal_array_completion(scheduler, [completion])
+        if isinstance(completion, dict)
+        else None
+    )
+    if validated_completion is None or validated_completion != completion:
         raise ValueError("accepted task lacks matching terminal SLURM accounting")
     validate_timing_record(result["record"])
     return result, manifest_path
@@ -474,8 +484,17 @@ def main() -> None:
         "protocol_sha256": protocol_sha,
         "task_manifest_sha256": task_sha,
     }
-    entries = _accepted_entries(
+    entries, admission_reference = _accepted_entries(
         args.accepted_set, args.expected_accepted_set_sha256, bindings=bindings
+    )
+    validate_preflight_admission(
+        resolve_repo_path(admission_reference["path"], "preflight admission"),
+        admission_reference["sha256"],
+        bindings=bindings,
+        expected_source_git_head=args.expected_source_git_head,
+        tasks=tasks,
+        lock=lock,
+        checkpoint_archive_sha256=protocol["inputs"]["checkpoint_archive"]["sha256"],
     )
     results: list[dict[str, Any]] = []
     manifests: list[Path] = []
@@ -484,6 +503,7 @@ def main() -> None:
             entry,
             task=task,
             bindings=bindings,
+            preflight_admission=admission_reference,
             expected_source_git_head=args.expected_source_git_head,
         )
         results.append(result)
@@ -542,6 +562,7 @@ def main() -> None:
                 **bindings,
                 "accepted_set_sha256": args.expected_accepted_set_sha256,
                 "expected_source_git_head": args.expected_source_git_head,
+                "preflight_admission": admission_reference,
             },
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "provenance": {

@@ -83,9 +83,12 @@ arbitrary routed PCB layouts.
 | R3/R4 selected-registry audit — completed | 2 CPU, 8 GiB, 5 min | 1 |
 | Multi-seed training — completed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
-| Paired-latency preflight — pending, excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
+| Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Paired-latency full panel — pending | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
 | Paired-latency finalizer — pending | 2 CPU requested, 8 GiB, 20 min | 1 |
+| FEM repeatability source array — frozen, not submitted; 15 elements with two sequential FEM arms each | 25 CPU requested, 48 GiB, 2 h per element; 1,800 s cap per arm | 3 |
+| FEM repeatability finalizer — pending | 2 CPU requested, 8 GiB, 30 min | 1 |
+| FEM repeatability postterminal admission — pending, solver-free | No compute allocation; live finalizer `sacct` access required only while minting the receipt | Not applicable |
 
 Resource caps are part of the frozen protocol. A cap failure is an infeasibility
 result and does not authorize changing limits after inspecting outcomes.

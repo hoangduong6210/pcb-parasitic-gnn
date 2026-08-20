@@ -34,11 +34,15 @@ for directory in (
 from corpus_v4_accuracy_dataset import load_corpus_v4_accuracy_dataset  # noqa: E402
 from corpus_v4_latency_contract import (  # noqa: E402
     EXPECTED_LAYOUTS,
+    PENDING_SCHEMA,
+    TASK_RESULT_SCHEMA,
     load_json,
     load_jsonl,
     resolve_repo_path,
     validate_execution_lock,
+    validate_fem_repeatability_admission,
     validate_plan,
+    validate_preflight_admission,
     validate_protocol,
     validate_root_closure,
     validate_slurm_allocation,
@@ -60,12 +64,11 @@ from scientific_artifact import (  # noqa: E402
 )
 
 
-TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v2"
+TASK_SCHEMA = TASK_RESULT_SCHEMA
 RECORD_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-record.v2"
 ARTIFACT_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task-artifact-manifest.v2"
-FAILURE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-diagnostic.v1"
-FAILURE_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-manifest.v1"
-PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v2"
+FAILURE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-diagnostic.v2"
+FAILURE_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-manifest.v2"
 
 
 def parse_args() -> argparse.Namespace:
@@ -80,6 +83,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--execution-lock", type=Path)
     parser.add_argument("--expected-execution-lock-sha256")
     parser.add_argument("--expected-source-git-head")
+    parser.add_argument("--preflight-admission", type=Path)
+    parser.add_argument("--expected-preflight-admission-sha256")
+    parser.add_argument("--fem-repeatability-admission", type=Path)
+    parser.add_argument("--expected-fem-repeatability-admission-sha256")
     parser.add_argument("--pending-set", type=Path)
     parser.add_argument("--expected-pending-set-sha256")
     parser.add_argument("--output-root", type=Path)
@@ -105,6 +112,29 @@ def _require_runtime_args(args: argparse.Namespace) -> None:
         raise SystemExit(f"missing latency task arguments: {missing}")
     if (args.pending_set is None) != (args.expected_pending_set_sha256 is None):
         raise SystemExit("pending-set path and digest must be supplied together")
+    admission_supplied = args.preflight_admission is not None
+    admission_hash_supplied = args.expected_preflight_admission_sha256 is not None
+    if admission_supplied != admission_hash_supplied:
+        raise SystemExit("preflight-admission path and digest must be supplied together")
+    if args.stage == "full_array" and not admission_supplied:
+        raise SystemExit("full-array latency execution requires preflight admission")
+    if args.stage == "preflight" and admission_supplied:
+        raise SystemExit("preflight stage cannot consume its own admission")
+    repeatability_supplied = args.fem_repeatability_admission is not None
+    repeatability_hash_supplied = (
+        args.expected_fem_repeatability_admission_sha256 is not None
+    )
+    if repeatability_supplied != repeatability_hash_supplied:
+        raise SystemExit(
+            "FEM-repeatability-admission path and digest must be supplied together"
+        )
+    if args.stage == "preflight" and not repeatability_supplied:
+        raise SystemExit("preflight stage requires FEM repeatability admission")
+    if args.stage == "full_array" and repeatability_supplied:
+        raise SystemExit(
+            "full-array stage consumes FEM repeatability admission through "
+            "preflight admission"
+        )
 
 
 def _source_state() -> tuple[str, list[str], list[str]]:
@@ -410,11 +440,33 @@ def main() -> None:
         "protocol_sha256": protocol_sha,
         "task_manifest_sha256": task_sha,
     }
+    repeatability_reference = None
+    if args.stage == "preflight":
+        _, repeatability_reference = validate_fem_repeatability_admission(
+            args.fem_repeatability_admission,
+            args.expected_fem_repeatability_admission_sha256,
+            expected_source_git_head=args.expected_source_git_head,
+            lock=lock,
+            require_live_accounting=True,
+        )
+    admission_reference = None
+    if args.stage == "full_array":
+        _, admission_reference = validate_preflight_admission(
+            args.preflight_admission,
+            args.expected_preflight_admission_sha256,
+            bindings=bindings,
+            expected_source_git_head=args.expected_source_git_head,
+            tasks=tasks,
+            lock=lock,
+            checkpoint_archive_sha256=protocol["inputs"]["checkpoint_archive"]["sha256"],
+        )
     allowed = None
     retry_binding = None
     if args.pending_set is not None:
         allowed = _validate_pending_set(
-            args.pending_set, args.expected_pending_set_sha256, bindings=bindings
+            args.pending_set,
+            args.expected_pending_set_sha256,
+            bindings={**bindings, "preflight_admission": admission_reference},
         )
         retry_binding = {
             "path": args.pending_set.resolve().relative_to(ROOT.resolve()).as_posix(),
@@ -564,15 +616,19 @@ def main() -> None:
             execution_lock_path=args.execution_lock,
             execution_lock_sha256=lock_sha,
         )
+        failure_bindings = {
+            **bindings,
+            "checkpoint_archive_sha256": protocol["inputs"]["checkpoint_archive"][
+                "sha256"
+            ],
+            "preflight_admission": admission_reference,
+            "retry_pending_set": retry_binding,
+        }
+        if repeatability_reference is not None:
+            failure_bindings["fem_repeatability_admission"] = repeatability_reference
         failure = {
             "admission_eligible": False,
-            "bindings": {
-                **bindings,
-                "checkpoint_archive_sha256": protocol["inputs"]["checkpoint_archive"][
-                    "sha256"
-                ],
-                "retry_pending_set": retry_binding,
-            },
+            "bindings": failure_bindings,
             "claim_eligible": False,
             "created_utc": datetime.now(timezone.utc).isoformat(),
             "diagnostic": {
@@ -687,12 +743,16 @@ def main() -> None:
         "timer": {"clock": "perf_counter_ns", "monotonic": True},
         "winding_coupling_coefficient": passivity["coupling_coefficient"],
     }
+    result_bindings = {
+        **bindings,
+        "checkpoint_archive_sha256": protocol["inputs"]["checkpoint_archive"]["sha256"],
+        "preflight_admission": admission_reference,
+        "retry_pending_set": retry_binding,
+    }
+    if repeatability_reference is not None:
+        result_bindings["fem_repeatability_admission"] = repeatability_reference
     result = {
-        "bindings": {
-            **bindings,
-            "checkpoint_archive_sha256": protocol["inputs"]["checkpoint_archive"]["sha256"],
-            "retry_pending_set": retry_binding,
-        },
+        "bindings": result_bindings,
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "integrity": {"passed": True},
         "provenance": {

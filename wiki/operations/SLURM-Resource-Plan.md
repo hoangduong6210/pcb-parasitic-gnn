@@ -1,14 +1,15 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 paper_source: false
 ---
 
 # SLURM Resource Plan
 
-Field solves and model training are not executed on a login node. The following
-allocations are frozen for the current capacitance-label stage.
+Field solves and model training are not executed on a login node. The table
+records frozen allocations used or planned across Corpus V4 solver, accuracy,
+latency, and diagnostic stages.
 
 The active QOS permits at most 1,000 submitted array elements per user. R3 is
 therefore dispatched as 400, 400, 400, and 300 tasks. Only the first two R3
@@ -25,6 +26,8 @@ R3 shards pass a live submission-capacity gate before they are queued.
 | Paired-latency preflight | 3 | 25 CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
 | Paired-latency full panel | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
 | Paired-latency finalizer | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
+| FEM repeatability diagnostic | 15 elements, 2 FEM solves per element | 25 CPU, 48 GiB | 3 | 1,800 s per FEM arm | 2 h |
+| FEM repeatability finalizer | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 30 min |
 
 The fail-fast caps are scientific protocol fields. A task that exceeds a cap is
 an infeasibility result and is not silently rerun with a wider limit.
