@@ -164,6 +164,7 @@ SCIENTIFIC_BLAS_ENV_NAMES = (
     "OPENBLAS_NUM_THREADS",
 )
 SCHEDULER_RECORD_ALLOWLIST = (
+    "Account",
     "AllocTRES",
     "ArrayJobId",
     "ArrayTaskId",
@@ -388,6 +389,7 @@ def validate_protocol(
                 "task_ids": [0, 152, 305],
                 "time_limit": "02:00:00",
             },
+            "scheduler_account": "pgs0407",
         },
         "latency resources",
     )
@@ -988,6 +990,7 @@ def validate_slurm_allocation(
     is_array = stage != "finalizer"
     required = [
         "SLURM_JOB_ID",
+        "SLURM_JOB_ACCOUNT",
         "SLURM_CPUS_PER_TASK",
         "SLURM_MEM_PER_NODE",
         "SLURM_JOB_PARTITION",
@@ -1054,6 +1057,9 @@ def validate_slurm_allocation(
         expected_blas_threads = 2 if stage == "finalizer" else 1
         valid = (
             fields.get("JobState") in {"RUNNING", "COMPLETING"}
+            and fields.get("Account")
+            == protocol["resources"]["scheduler_account"]
+            == os.environ["SLURM_JOB_ACCOUNT"]
             and fields.get("Partition")
             == profile["partition"]
             == os.environ["SLURM_JOB_PARTITION"]

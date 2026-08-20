@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=pcb-v4-lat-final
+#SBATCH --account=pgs0407
 #SBATCH --partition=nextgen
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -49,4 +50,3 @@ export PCB_GNN_EXECUTED_BATCH_SCRIPT="${BASH_SOURCE[0]}"
   --expected-accepted-set-sha256 "$PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256" \
   --expected-source-git-head "$PCB_GNN_V4_SOURCE_COMMIT" \
   --output-root results/corpus_v4/latency/final
-

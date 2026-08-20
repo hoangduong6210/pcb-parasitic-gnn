@@ -36,7 +36,16 @@ PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v2"
 
 
 def _parse_sacct(text: str) -> list[dict[str, str]]:
-    fields = ("JobID", "JobIDRaw", "State", "ExitCode", "ElapsedRaw", "ReqTRES", "AllocTRES")
+    fields = (
+        "JobID",
+        "JobIDRaw",
+        "Account",
+        "State",
+        "ExitCode",
+        "ElapsedRaw",
+        "ReqTRES",
+        "AllocTRES",
+    )
     records: list[dict[str, str]] = []
     for line in text.splitlines():
         if not line.strip():
@@ -60,7 +69,7 @@ def _query_sacct(job_ids: list[str], accounting_file: Path | None) -> list[dict[
     query = subprocess.run(
         [
             "sacct", "-X", "-n", "-P", "-j", ",".join(sorted(set(job_ids))),
-            "--format=JobID,JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
+            "--format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
         ],
         capture_output=True,
         check=False,
@@ -149,7 +158,13 @@ def _completion(
     if state != "COMPLETED" or row.get("ExitCode") != "0:0":
         return None
     in_run = scheduler.get("scheduler_record", {})
-    if any(not tres_equivalent(row.get(name), in_run.get(name)) for name in ("ReqTRES", "AllocTRES")):
+    if (
+        row.get("Account") != in_run.get("Account")
+        or any(
+            not tres_equivalent(row.get(name), in_run.get(name))
+            for name in ("ReqTRES", "AllocTRES")
+        )
+    ):
         return None
     row["State"] = "COMPLETED"
     row["ReqTRES"] = canonical_tres(row["ReqTRES"])

@@ -15,7 +15,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from types import ModuleType
+from types import ModuleType, SimpleNamespace
 from typing import Any
 
 import numpy as np
@@ -30,6 +30,7 @@ PROTOCOL_PATH = ROOT / "protocols/corpus_v4_latency_v1.json"
 TASK_SCRIPT = PROOFS / "experiments_corpus_v4_latency_task.py"
 FINALIZER_SCRIPT = PROOFS / "finalize_corpus_v4_latency.py"
 PLANNER_SCRIPT = PROOFS / "plan_corpus_v4_latency.py"
+RESUME_SCRIPT = PROOFS / "plan_corpus_v4_latency_resume.py"
 CONTRACT_SCRIPT = PROOFS / "corpus_v4_latency_contract.py"
 ARCHIVE_VERIFIER = QUALITY / "verify_corpus_v4_latency_archive.py"
 
@@ -216,6 +217,7 @@ def test_v2_protocol_freezes_checkpoint_solver_boundary_and_statistics() -> None
     assert protocol["panel"]["n_designs"] == 306
     assert protocol["panel"]["n_families"] == 13
     assert protocol["panel"]["selection_uses_labels_predictions_or_timings"] is False
+    assert protocol["resources"]["scheduler_account"] == "pgs0407"
     assert protocol["inputs"]["accuracy_archive"]["sha256"] == EXPECTED_CHECKPOINT[
         "accuracy_archive_sha256"
     ]
@@ -502,6 +504,7 @@ def test_family_cluster_bootstrap_is_deterministic_and_independently_recomputed(
 
 def test_slurm_resources_are_the_proven_r3_profile() -> None:
     task = _sbatch_directives(JOBS / "submit_corpus_v4_latency.sh")
+    assert task["--account"] == "pgs0407"
     assert task["--partition"] == "nextgen"
     assert task["--nodes"] == "1"
     assert task["--ntasks"] == "1"
@@ -511,9 +514,146 @@ def test_slurm_resources_are_the_proven_r3_profile() -> None:
     assert task["--array"] == "0-305%8"
 
     finalizer = _sbatch_directives(JOBS / "submit_finalize_corpus_v4_latency.sh")
+    assert finalizer["--account"] == "pgs0407"
     assert int(finalizer["--cpus-per-task"]) <= 2
     assert finalizer["--mem"] == "8G"
     assert finalizer["--time"] == "00:20:00"
+
+    preflight = _sbatch_directives(JOBS / "submit_corpus_v4_latency_preflight.sh")
+    assert preflight["--account"] == "pgs0407"
+
+
+def _latency_preflight_environment(
+    monkeypatch: pytest.MonkeyPatch, *, account: str = "pgs0407"
+) -> None:
+    for name in tuple(value for value in os.environ if value.startswith("SLURM_")):
+        monkeypatch.delenv(name, raising=False)
+    values = {
+        "BLIS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PCB_GNN_GMSH_THREADS": "25",
+        "SLURM_ARRAY_JOB_ID": "8300000",
+        "SLURM_ARRAY_TASK_COUNT": "3",
+        "SLURM_ARRAY_TASK_ID": "152",
+        "SLURM_ARRAY_TASK_MAX": "305",
+        "SLURM_ARRAY_TASK_MIN": "0",
+        "SLURM_CPUS_PER_TASK": "25",
+        "SLURM_JOB_ACCOUNT": account,
+        "SLURM_JOB_ID": "8300152",
+        "SLURM_JOB_PARTITION": "nextgen",
+        "SLURM_MEM_PER_NODE": str(48 * 1024),
+    }
+    for name, value in values.items():
+        monkeypatch.setenv(name, value)
+
+
+def _latency_preflight_scheduler_fields(*, account: str = "pgs0407") -> dict[str, str]:
+    return {
+        "Account": account,
+        "AllocTRES": "cpu=25,mem=48G",
+        "ArrayJobId": "8300000",
+        "ArrayTaskId": "152",
+        "ArrayTaskThrottle": "1",
+        "CPUs/Task": "25",
+        "JobId": "8300152",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "48G",
+        "NumCPUs": "25",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=25,mem=48G",
+        "TimeLimit": "02:00:00",
+        "TresPerTask": "cpu=25",
+    }
+
+
+def _mock_latency_scontrol(
+    monkeypatch: pytest.MonkeyPatch,
+    contract: ModuleType,
+    fields: dict[str, str],
+) -> None:
+    output = " ".join(f"{name}={value}" for name, value in fields.items()) + "\n"
+
+    def run(command: list[str], **_: Any) -> SimpleNamespace:
+        assert command == ["scontrol", "show", "job", "-o", "8300000_152"]
+        return SimpleNamespace(returncode=0, stdout=output)
+
+    monkeypatch.setattr(contract.subprocess, "run", run)
+
+
+def test_latency_slurm_guard_records_frozen_account(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_v2_contract_account_pass")
+    _latency_preflight_environment(monkeypatch)
+    _mock_latency_scontrol(monkeypatch, contract, _latency_preflight_scheduler_fields())
+
+    receipt = contract.validate_slurm_allocation(_protocol(), stage="preflight")
+
+    assert receipt["scheduler_record"]["Account"] == "pgs0407"
+
+
+@pytest.mark.parametrize(
+    ("environment_account", "scheduler_account"),
+    [("wrong-account", "pgs0407"), ("pgs0407", "wrong-account")],
+)
+def test_latency_slurm_guard_rejects_account_drift(
+    monkeypatch: pytest.MonkeyPatch,
+    environment_account: str,
+    scheduler_account: str,
+) -> None:
+    contract = _load_module(CONTRACT_SCRIPT, "latency_v2_contract_account_reject")
+    _latency_preflight_environment(monkeypatch, account=environment_account)
+    _mock_latency_scontrol(
+        monkeypatch,
+        contract,
+        _latency_preflight_scheduler_fields(account=scheduler_account),
+    )
+
+    with pytest.raises(SystemExit, match="frozen preflight resources"):
+        contract.validate_slurm_allocation(_protocol(), stage="preflight")
+
+
+def test_latency_resume_requires_matching_terminal_account() -> None:
+    resume = _load_module(RESUME_SCRIPT, "latency_v2_resume_account")
+    result = {
+        "provenance": {
+            "scheduler": {
+                "job_id": "8300152",
+                "scheduler_record": {
+                    "Account": "pgs0407",
+                    "AllocTRES": "cpu=25,mem=48G",
+                    "ReqTRES": "cpu=25,mem=48G",
+                },
+            }
+        }
+    }
+    row = {
+        "Account": "pgs0407",
+        "AllocTRES": "mem=48G,cpu=25",
+        "ElapsedRaw": "600",
+        "ExitCode": "0:0",
+        "JobID": "8300152",
+        "JobIDRaw": "8300152",
+        "ReqTRES": "mem=48G,cpu=25",
+        "State": "COMPLETED",
+    }
+
+    assert resume._completion(result, [row])["Account"] == "pgs0407"
+    mismatch = {**row, "Account": "wrong-account"}
+    assert resume._completion(result, [mismatch]) is None
+
+
+def test_latency_finalizer_and_archive_cross_check_terminal_account() -> None:
+    finalizer_source = FINALIZER_SCRIPT.read_text(encoding="utf-8")
+    verifier_source = ARCHIVE_VERIFIER.read_text(encoding="utf-8")
+
+    assert 'completion.get("Account")' in finalizer_source
+    assert "JobID,JobIDRaw,Account,State" in verifier_source
+    assert 'finalizer_completion.get("Account")' in verifier_source
 
 
 def test_no_login_node_solver_path_and_guard_precedes_solver_calls(

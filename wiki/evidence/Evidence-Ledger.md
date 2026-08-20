@@ -408,6 +408,39 @@ independent replicates. FEM-R4P16 is a higher-resolution comparator rather than
 truth, and the closure supports no hardware-accuracy or current-corpus latency
 claim.
 
+## E-C4-LAT-SUBMIT-00: Paired-latency admission rejection
+
+| Field | Value |
+|---|---|
+| Lifecycle | `REJECTED BEFORE JOB CREATION` |
+| Source commit | `7411173963b440b986662548c3e283d770ade2b7` |
+| Planned protocol SHA-256 | `53a8026920adf1c902d3379506bd66cd6f27f1e6ad26b3ebb6ab007a8befc90e` |
+| Planned execution-lock SHA-256 | `10935acc48e4c1f6fffe19975ec30fdb80e112fd96bb6ebbeab7ddaa508b3e18` |
+| Scheduler outcome | No job was created; no job identifier exists |
+| Scientific computation | None; no solver, graph construction, or timing path ran |
+| Root cause | The request omitted the required `pgs0407` project account |
+| Corrective action | Freeze the account in the protocol and batch wrappers; cross-check protocol, environment, and `scontrol` during execution; preserve and compare `Account` again in terminal `sacct` evidence |
+| Scientific use | None; operational regression evidence only |
+
+The two hashes above identify the pre-execution plan that reached the rejected
+request. They are superseded before any task execution and must not be mixed
+with the account-bound plan or its future artifacts.
+
+## E-C4-LAT-PREFLIGHT-01: Account-bound paired-latency freeze
+
+| Field | Value |
+|---|---|
+| Lifecycle | `FROZEN; EXECUTION PENDING` |
+| Protocol SHA-256 | `5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2` |
+| Plan SHA-256 | `983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25` |
+| Task-manifest SHA-256 | `db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2` |
+| Panel SHA-256 | `dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db` |
+| Execution-lock SHA-256 | `f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74` |
+| Scheduler binding | Account `pgs0407`, partition `nextgen`; active and terminal records must match |
+| Preflight | Canonical task IDs 0, 152, and 305; excluded from final statistics |
+| Full panel | 306 layouts across 13 held-out families; concurrency eight |
+| Scientific use | Defines the execution contract only; no latency or speed claim is supported before full archival closure |
+
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
 `code/data/audit_legacy_v2_geometry.py` implements the legacy integrity audit,

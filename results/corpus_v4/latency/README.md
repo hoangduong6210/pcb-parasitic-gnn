@@ -3,6 +3,14 @@
 Status: protocol, plan, and source lock frozen; SLURM preflight pending;
 `C-LAT-001` blocked.
 
+## Submission status
+
+The first preflight request was rejected before SLURM created a job because
+the project account was omitted. No solver, graph construction, or timing code
+ran, and the request produced no result artifact. The replacement execution
+contract pins account `pgs0407` in the protocol, all three batch wrappers, the
+active scheduler receipt, and terminal accounting.
+
 This directory is reserved for the current-corpus paired-latency evidence. It
 does not contain an admitted speed result. The scientific protocol is owned by
 the [Runtime Benchmark Protocol](../../../wiki/methods/Runtime-Benchmark.md),
@@ -53,17 +61,17 @@ close.
 The immutable execution inputs are:
 
 - [protocol](../../../protocols/corpus_v4_latency_v1.json), SHA-256
-  `53a8026920adf1c902d3379506bd66cd6f27f1e6ad26b3ebb6ab007a8befc90e`;
+  `5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2`;
 - [plan](plan/v1/plan.json), SHA-256
-  `1385d9c2a035790927cafbf9ce2164b04851e212078db159bbf3ee0b819e0842`;
+  `983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25`;
 - [task manifest](plan/v1/task_manifest.jsonl), SHA-256
-  `5720fa35b609fb9783909061f50c6dafc164877a56b51d3c0e974de5aa0cdc00`;
+  `db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2`;
 - [panel records](plan/v1/panel_records.jsonl), SHA-256
   `dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db`;
   and
 - [execution lock](../../../protocols/corpus_v4_latency_execution_lock_v1.json),
   SHA-256
-  `10935acc48e4c1f6fffe19975ec30fdb80e112fd96bb6ebbeab7ddaa508b3e18`.
+  `f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74`.
 
 These hashes identify the planned computation. They are not a latency result.
 The execution commit is pinned separately at submission time after tests and

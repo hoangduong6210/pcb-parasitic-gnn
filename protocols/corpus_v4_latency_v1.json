@@ -157,7 +157,8 @@
       "partition": "nextgen",
       "task_ids": [0, 152, 305],
       "time_limit": "02:00:00"
-    }
+    },
+    "scheduler_account": "pgs0407"
   },
   "runtime": {
     "packages": {

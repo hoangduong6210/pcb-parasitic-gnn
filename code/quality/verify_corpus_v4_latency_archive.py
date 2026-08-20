@@ -47,13 +47,22 @@ def _completion(job_id: str) -> dict[str, str]:
     query = subprocess.run(
         [
             "sacct", "-X", "-n", "-P", "-j", job_id,
-            "--format=JobID,JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
+            "--format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES",
         ],
         capture_output=True,
         check=False,
         text=True,
     )
-    fields = ("JobID", "JobIDRaw", "State", "ExitCode", "ElapsedRaw", "ReqTRES", "AllocTRES")
+    fields = (
+        "JobID",
+        "JobIDRaw",
+        "Account",
+        "State",
+        "ExitCode",
+        "ElapsedRaw",
+        "ReqTRES",
+        "AllocTRES",
+    )
     rows: list[dict[str, str]] = []
     for line in query.stdout.splitlines():
         values = line.split("|")
@@ -266,6 +275,8 @@ def verify(args: argparse.Namespace) -> dict[str, Any]:
         or finalizer_completion.get("ExitCode") != "0:0"
         or finalizer_completion.get("JobID")
         != str(summary["provenance"]["scheduler"]["job_id"])
+        or finalizer_completion.get("Account")
+        != summary["provenance"]["scheduler"]["scheduler_record"].get("Account")
         or any(
             not tres_equivalent(
                 finalizer_completion.get(name),

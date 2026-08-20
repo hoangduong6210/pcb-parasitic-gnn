@@ -411,6 +411,8 @@ def _load_task_result(
         or completion.get("State") != "COMPLETED"
         or completion.get("ExitCode") != "0:0"
         or completion.get("JobID") != scheduler.get("job_id")
+        or completion.get("Account")
+        != scheduler["scheduler_record"].get("Account")
         or any(
             not tres_equivalent(completion.get(name), scheduler["scheduler_record"].get(name))
             for name in ("ReqTRES", "AllocTRES")

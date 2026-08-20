@@ -5,14 +5,14 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 192,
+    "code": 201,
     "datasets": 12,
     "figures": 12,
     "logs": 108,
-    "protocols": 6,
-    "results": 1974,
+    "protocols": 8,
+    "results": 1978,
     "root": 10,
-    "tests": 30,
+    "tests": 31,
     "wiki": 37
   },
   "files": [
@@ -357,9 +357,19 @@
       "sha256": "697962e73b5aed5d2690b2d835e7a43f44394172ee2c16723c8b00c38b57d37e"
     },
     {
+      "path": "code/experiments/proofs/build_corpus_v4_latency_execution_lock.py",
+      "bytes": 1417,
+      "sha256": "827463de24723aa18c90be36fe1dfbf5271f9dbd157f33cb88f94ec19dc0c741"
+    },
+    {
       "path": "code/experiments/proofs/corpus_v4_accuracy_contract.py",
       "bytes": 41634,
       "sha256": "03a85e204063d06ebde14ba80f6fe6f5fffc8c322d947ac931d24b09b7c123db"
+    },
+    {
+      "path": "code/experiments/proofs/corpus_v4_latency_contract.py",
+      "bytes": 50858,
+      "sha256": "60bac5c1a080328ddb730e5df545fd010be419d88b73d2f30cd7d0960c99a10d"
     },
     {
       "path": "code/experiments/proofs/experiments_claim_proof.py",
@@ -528,8 +538,8 @@
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_latency.py",
-      "bytes": 24282,
-      "sha256": "b4abc0788b01cb0dd304dfbff3486c53fc82a72af6a027714f04ff471d38ce60"
+      "bytes": 24375,
+      "sha256": "966ae6f7854c34955e948bc52d229cec189e79fb381f8e72797b0ced66aa3371"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_refine34_convergence.py",
@@ -560,6 +570,16 @@
       "path": "code/experiments/proofs/plan_corpus_v4_cps_submission_shards.py",
       "bytes": 6744,
       "sha256": "dc907fe1937ad309d87d12e953f801acd75b4158375ab745502380fd5cc265b5"
+    },
+    {
+      "path": "code/experiments/proofs/plan_corpus_v4_latency.py",
+      "bytes": 9412,
+      "sha256": "3f80de3d595f0a9a10761b3efdf4798908074f2b3525288fac5fd1805702b264"
+    },
+    {
+      "path": "code/experiments/proofs/plan_corpus_v4_latency_resume.py",
+      "bytes": 11174,
+      "sha256": "852989df939625a41d5d05c8ae585c9452956ae54aa42877f1b1f65ab986ff5e"
     },
     {
       "path": "code/experiments/proofs/run_corpus_v4_accuracy_task.py",
@@ -640,6 +660,11 @@
       "path": "code/figures/make_paper_full_figures.py",
       "bytes": 11430,
       "sha256": "c7a109465bf1c4a4802fec4755a103e31f754ce5181059a25cc42dfac919dfc5"
+    },
+    {
+      "path": "code/inference/corpus_v4_latency_inference.py",
+      "bytes": 6665,
+      "sha256": "c5b150d2c3db3eaa2e8785a167e428ee2f31d2f73b98b1dc60a9e0f1a13e7ba5"
     },
     {
       "path": "code/inference/predict_safe_bundle.py",
@@ -778,8 +803,13 @@
     },
     {
       "path": "code/jobs/submit_corpus_v4_latency.sh",
-      "bytes": 2650,
-      "sha256": "7a4cf8abc14a67eaed534417b8d6f79a45dbf01fa1328c2c1bafa311acba58f3"
+      "bytes": 2675,
+      "sha256": "4f7986a74d4105b81b81d7c4a0d63e8bcba3b03bc0186a0c8d1874dbd6f7dfad"
+    },
+    {
+      "path": "code/jobs/submit_corpus_v4_latency_preflight.sh",
+      "bytes": 2151,
+      "sha256": "cb30cd5e1e82d316c6ec3377f2cfa99ee418b2808f779241fe3cd13549a516a6"
     },
     {
       "path": "code/jobs/submit_corpus_v4_refine34_convergence.sh",
@@ -903,8 +933,8 @@
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_latency.sh",
-      "bytes": 2251,
-      "sha256": "7a4a54d24f3624eacb4512f1f58972815dc0d29340faac44ba3c9a970c040a68"
+      "bytes": 2276,
+      "sha256": "de3f465bdad7758e63703219ea2f1feee1933831471143b366b8b95c2b2dfd7b"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_refine34_convergence.sh",
@@ -1087,6 +1117,11 @@
       "sha256": "42d6546d3123c748a4c68eea1c0b6a705d2491e79960df971de274aac0313f88"
     },
     {
+      "path": "code/quality/verify_corpus_v4_latency_archive.py",
+      "bytes": 13440,
+      "sha256": "c9ce5fff5ea837e0f92a67f6763247e04b88a18067c034700a3d3f885be91cd7"
+    },
+    {
       "path": "code/requirements.txt",
       "bytes": 393,
       "sha256": "271a72cd750530c80ec3345ce8e5275fef3ba50fa47a535a3c96671dfe5f8bd0"
@@ -1102,6 +1137,11 @@
       "sha256": "e7e0fe6bbe8e6e766f83e39bc6d9a36e621f2847d2cdb2d4496f7212ed4ba638"
     },
     {
+      "path": "code/solvers/fasthenry_latency.py",
+      "bytes": 4868,
+      "sha256": "a108e08ef3073d86b851ae97e43b93f0eb83578ae02c0d87d8fca6aeb369c75f"
+    },
+    {
       "path": "code/solvers/fasthenry_ref.py",
       "bytes": 6146,
       "sha256": "cc6c5e9b4966615bc834e2a01a433caeb7a18c6845c7616642a0c37df16b233b"
@@ -1115,6 +1155,11 @@
       "path": "code/solvers/fem_capacitance_ref.py",
       "bytes": 3436,
       "sha256": "dec58e92d3959829d7b17ddbbbb82e5862baf7046b7fadf91601422bb96b76d6"
+    },
+    {
+      "path": "code/solvers/fem_corpus_v4_latency.py",
+      "bytes": 2172,
+      "sha256": "878c74a78297606e9dcbc68f3e822caf01b002880128a303d9e4d4dd695d5b6e"
     },
     {
       "path": "code/solvers/fem_cps_bounded_worker.py",
@@ -1830,6 +1875,16 @@
       "path": "protocols/corpus_v4_cps_multifidelity_v1.json",
       "bytes": 5275,
       "sha256": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b"
+    },
+    {
+      "path": "protocols/corpus_v4_latency_execution_lock_v1.json",
+      "bytes": 4276,
+      "sha256": "f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74"
+    },
+    {
+      "path": "protocols/corpus_v4_latency_v1.json",
+      "bytes": 8736,
+      "sha256": "5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2"
     },
     {
       "path": "requirements-ci.txt",
@@ -11487,6 +11542,26 @@
       "sha256": "6ff061867d090991522a1e8f69bf902cf2166229d7d3feb66bf5b7d76868eb00"
     },
     {
+      "path": "results/corpus_v4/latency/README.md",
+      "bytes": 3963,
+      "sha256": "8229ea23f9cf281f6b6086a1cc45af343ec3fd198d6446ee9f768b5595dd4f23"
+    },
+    {
+      "path": "results/corpus_v4/latency/plan/v1/panel_records.jsonl",
+      "bytes": 1517281,
+      "sha256": "dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db"
+    },
+    {
+      "path": "results/corpus_v4/latency/plan/v1/plan.json",
+      "bytes": 3308,
+      "sha256": "983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25"
+    },
+    {
+      "path": "results/corpus_v4/latency/plan/v1/task_manifest.jsonl",
+      "bytes": 114100,
+      "sha256": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+    },
+    {
       "path": "results/corpus_v4/refine34_convergence/final/job_6843343/results_corpus_v4_refine34_convergence.json",
       "bytes": 11648,
       "sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"
@@ -11757,6 +11832,11 @@
       "sha256": "4c72342d6f680dcb8d39206edc58438478f13771a0a97201fc2f49ee82b8008c"
     },
     {
+      "path": "tests/test_corpus_v4_latency_pipeline.py",
+      "bytes": 28889,
+      "sha256": "0c68f15be695e4dd4012614c7037db5210c9f47eb6106668dfc062ca1e492fc7"
+    },
+    {
       "path": "tests/test_corpus_v4_protocol.py",
       "bytes": 1928,
       "sha256": "6d2d00fd5ec06b290142d98f77efd1c23b557951ddad023d25b84d3faa440295"
@@ -11893,8 +11973,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 5253,
-      "sha256": "f2d0511c67c703f0645fcdb945598c1d6f085d3f938c90dcbe862e6dbcd46e30"
+      "bytes": 5545,
+      "sha256": "49669fde02a3a0c4d6ff1f2e48ca2bb5c065c6754179958e66538f03b3492399"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -11938,8 +12018,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 29594,
-      "sha256": "cbbc5bc63b8211cbb516cbf99d3bb9812a4b221047860d2d02c9fcaee91e095d"
+      "bytes": 31689,
+      "sha256": "f7519d2358197a4401b6332c35fd0adc054e7d4dc63721482763b5b49ec60aa2"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -12013,13 +12093,13 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 2832,
-      "sha256": "18761bf3f03151133dc5f2a3c1a5ebb9cd126b494173ff0496ad87b48cf00d04"
+      "bytes": 3095,
+      "sha256": "3f485e569109aab499900528056f9eddec38f1563baf2429db34748726db737f"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 44244,
-      "sha256": "d5ba0f6443b5d4f0b514dc5f3e7d71edfeda97a935eef4212d526676f6c6e66c"
+      "bytes": 50379,
+      "sha256": "e3b738c674ea011b5c5dece0589d9d38048a1f70e841e33da9a0da56d982a7db"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -12043,8 +12123,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 3206,
-      "sha256": "7119ea248fffe5a1388c48fb552ace52f6afa36482b9e1ff68355d9cfe83ebcc"
+      "bytes": 3607,
+      "sha256": "ee9bd1ca523d3ac888f2d08841388a7a3d6382ebb2002555799862eaaa3fc31d"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -12052,6 +12132,6 @@
       "sha256": "3e29dbb30758a624dbff6a151773c3c4d0b5e2e976701097e61f010fc0cd7765"
     }
   ],
-  "n_files": 2407,
-  "total_bytes": 88040986
+  "n_files": 2423,
+  "total_bytes": 89833025
 }

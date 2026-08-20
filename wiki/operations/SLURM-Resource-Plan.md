@@ -22,6 +22,9 @@ R3 shards pass a live submission-capacity gate before they are queued.
 | Cps artifact-set finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Accuracy training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
 | Accuracy finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
+| Paired-latency preflight | 3 | 25 CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
+| Paired-latency full panel | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
+| Paired-latency finalizer | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
 
 The fail-fast caps are scientific protocol fields. A task that exceeds a cap is
 an infeasibility result and is not silently rerun with a wider limit.

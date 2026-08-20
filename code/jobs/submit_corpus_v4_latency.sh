@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=pcb-v4-latency
+#SBATCH --account=pgs0407
 #SBATCH --partition=nextgen
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -63,4 +64,3 @@ fi
   --expected-source-git-head "$PCB_GNN_V4_SOURCE_COMMIT" \
   "${RETRY_ARGS[@]}" \
   --output-root results/corpus_v4/latency/jobs
-
