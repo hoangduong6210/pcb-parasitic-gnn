@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-19 17:46 UTC.
+Last scheduler observation: 2026-08-20 02:37 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -15,7 +15,7 @@ Last scheduler observation: 2026-08-19 17:46 UTC.
 | FEM-R4P16 | `VALIDATED` | 198 of 198 accepted | None | One scheduler-preflight miss recovered as a hash-pinned singleton |
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
-| Corpus V4 accuracy contract | `PREFLIGHT FROZEN` | 25 planned split/init cells | Clean source commit and scheduler test-only admission | No numerical accuracy artifact exists yet |
+| Corpus V4 accuracy contract | `CORRECTED PREFLIGHT` | 0 of 25 checkpoints | Commit and test the corrected scheduler-allocation gate, then resubmit | Initial array failed closed before training because OSC exposed the memory-inflated CPU allocation in environment and allocation fields |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
 over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.

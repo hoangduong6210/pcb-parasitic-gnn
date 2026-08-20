@@ -421,18 +421,19 @@ def test_training_slurm_guard_accepts_exact_allocation_and_sanitizes_receipt(
 def test_training_slurm_guard_accepts_memory_inflated_cpu_allocation(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    _training_environment(monkeypatch, cpus_per_task=8)
-    fields = _training_scheduler_fields(allocated_cpus=16, cpus_per_task=8)
+    _training_environment(monkeypatch, cpus_per_task=13)
+    fields = _training_scheduler_fields(allocated_cpus=13, cpus_per_task=13)
     _mock_scontrol(monkeypatch, fields, expected_component="8100000_12")
 
     receipt = contract.validate_slurm_allocation(_protocol(), stage="training")
 
     assert receipt["requested_cpus_per_task"] == 8
-    assert receipt["allocated_cpus_per_task"] == 16
-    assert receipt["scheduler_record"]["CPUs/Task"] == "8"
-    assert receipt["scheduler_record"]["NumCPUs"] == "16"
+    assert receipt["allocated_cpus_per_task"] == 13
+    assert receipt["environment_cpus_per_task"] == 13
+    assert receipt["scheduler_record"]["CPUs/Task"] == "13"
+    assert receipt["scheduler_record"]["NumCPUs"] == "13"
     assert receipt["scheduler_record"]["ReqTRES"] == "cpu=8,mem=48G"
-    assert receipt["scheduler_record"]["AllocTRES"] == "cpu=16,mem=48G"
+    assert receipt["scheduler_record"]["AllocTRES"] == "cpu=13,mem=48G"
 
 
 def test_training_slurm_guard_rejects_thread_environment_drift(
@@ -524,7 +525,7 @@ def test_finalizer_slurm_guard_accepts_memory_inflated_cpu_allocation(
         "NUMEXPR_NUM_THREADS": "2",
         "OMP_NUM_THREADS": "2",
         "OPENBLAS_NUM_THREADS": "2",
-        "SLURM_CPUS_PER_TASK": "2",
+        "SLURM_CPUS_PER_TASK": "3",
         "SLURM_JOB_ID": "8200000",
         "SLURM_JOB_PARTITION": "nextgen",
         "SLURM_MEM_PER_NODE": str(16 * 1024),
@@ -532,7 +533,7 @@ def test_finalizer_slurm_guard_accepts_memory_inflated_cpu_allocation(
         monkeypatch.setenv(name, value)
     fields = {
         "AllocTRES": "cpu=3,mem=16G",
-        "CPUs/Task": "2",
+        "CPUs/Task": "3",
         "JobId": "8200000",
         "JobState": "RUNNING",
         "MinMemoryNode": "16G",
@@ -549,7 +550,7 @@ def test_finalizer_slurm_guard_accepts_memory_inflated_cpu_allocation(
 
     assert receipt["requested_cpus_per_task"] == 2
     assert receipt["allocated_cpus_per_task"] == 3
-    assert receipt["scheduler_record"]["CPUs/Task"] == "2"
+    assert receipt["scheduler_record"]["CPUs/Task"] == "3"
     assert receipt["scheduler_record"]["NumCPUs"] == "3"
 
 

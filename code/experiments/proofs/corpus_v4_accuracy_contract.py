@@ -785,7 +785,7 @@ def _resource_contract(
         else allocated_cpu == requested_cpu
     )
     valid = (
-        environment_cpu == requested_cpu
+        environment_cpu == allocated_cpu
         and all(
             os.environ.get(name) == str(scientific_threads)
             for name in SCIENTIFIC_THREAD_ENV_NAMES
@@ -794,7 +794,7 @@ def _resource_contract(
         and int(os.environ.get("SLURM_MEM_PER_NODE", "0")) == requested_mem * 1024
         and int(fields.get("NumCPUs", "0")) == allocated_cpu
         and int(fields.get("NumTasks", "0")) == 1
-        and int(fields.get("CPUs/Task", "0")) == requested_cpu
+        and int(fields.get("CPUs/Task", "0")) == allocated_cpu
         and requested.get("cpu") == str(requested_cpu)
         and requested.get("mem") == f"{requested_mem}G"
         and per_task.get("cpu") == str(requested_cpu)

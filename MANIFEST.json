@@ -359,7 +359,7 @@
     {
       "path": "code/experiments/proofs/corpus_v4_accuracy_contract.py",
       "bytes": 40566,
-      "sha256": "1afd571e9ae7d387f94bdcf7883fe417db13d5bc79e16808f7baf415f5da93a6"
+      "sha256": "7e4cf023cf69b1a210ec0fa4f4ecdc7dee854ad343b6893ce34ac951da6535b9"
     },
     {
       "path": "code/experiments/proofs/experiments_claim_proof.py",
@@ -1804,7 +1804,7 @@
     {
       "path": "protocols/corpus_v4_accuracy_execution_lock_v1.json",
       "bytes": 3029,
-      "sha256": "b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a"
+      "sha256": "7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60"
     },
     {
       "path": "protocols/corpus_v4_accuracy_v1.json",
@@ -10818,8 +10818,8 @@
     },
     {
       "path": "tests/test_corpus_v4_accuracy_pipeline.py",
-      "bytes": 45661,
-      "sha256": "36873117c405ba923d716107dccc8f6b6f88a07f109031c3291c67f26075b529"
+      "bytes": 45718,
+      "sha256": "38d5169e9515cfc6540fbf7ea26792bbc511db3b9dbbd636d6ba944f05a35bd2"
     },
     {
       "path": "tests/test_corpus_v4_archive.py",
@@ -11018,8 +11018,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 23071,
-      "sha256": "78c444def7857f2b638a069d3338d7ca71a940e826bd752078452413c115889c"
+      "bytes": 24419,
+      "sha256": "07f0de013729b671d26f1c0e5433e800cbba98529358dae6b9dda1195780cace"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -11099,7 +11099,7 @@
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
       "bytes": 42449,
-      "sha256": "e943b0e8e3797af9e9b36e95d04299a9ab8af044b861c5e3c44bd92dedb59aa1"
+      "sha256": "efd00e6bcc8fe034fb1cf3aa44d54d525d410688ff1a50db1598bb55e491a159"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -11118,8 +11118,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 2422,
-      "sha256": "23252252eef4d8ee0ea3733edae5191e72eb40d03e6c4778ec81d3cf38f0c6ad"
+      "bytes": 2528,
+      "sha256": "2837b98da35e53f88e9dd9806a02573f1b5dc179c694e0f6b459b7f4a266b67c"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -11128,5 +11128,5 @@
     }
   ],
   "n_files": 2222,
-  "total_bytes": 56799396
+  "total_bytes": 56800907
 }

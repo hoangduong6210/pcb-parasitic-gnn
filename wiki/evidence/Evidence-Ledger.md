@@ -324,12 +324,28 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy/plan/v1/plan.json), SHA-256 `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
 | Task rows | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl), SHA-256 `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
 | Evaluation table | [`evaluation_dataset.jsonl`](../../results/corpus_v4/accuracy/plan/v1/evaluation_dataset.jsonl), SHA-256 `c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c` |
-| Execution lock | [`corpus_v4_accuracy_execution_lock_v1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v1.json), SHA-256 `b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a` |
+| Execution lock | [`corpus_v4_accuracy_execution_lock_v1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v1.json), SHA-256 `7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60` |
 | Source closure | 23 execution files are byte-pinned; the clean execution commit is an external trust root recorded by each submitted task |
 | Grid | Five family-held-out splits crossed with five initialization seeds; 25 row-major tasks |
 | Held-out boundary | Training tasks emit checkpoints and validation diagnostics only; the accepted-set gate precedes the SLURM finalizer's first test/R4 inference |
 | Review gates | 314 repository tests, 121 focused accuracy tests, research-prose audit, Python compile, shell syntax, deterministic planner replay, and execution-lock validation passed on the login-safe review path |
 | Scientific use | Defines an execution contract only. It supports no accuracy or runtime number until the final archive is job-backed, hash-closed, committed, and entered separately in this ledger. |
+
+## E-C4-ACC-SUBMIT-00: Accuracy resource-contract preflight failure
+
+| Field | Value |
+|---|---|
+| Array | `6902623` |
+| Source commit | `4327cd05b6d7a85afecc5ba7f058f32fc740c03e` |
+| Outcome | Fifteen elements failed at the scheduler-resource gate; the remaining elements were canceled |
+| Scientific computation | None; every started element exited before graph construction or training, and no checkpoint was created |
+| Requested resources | 8 CPU and 48 GiB per task |
+| Observed allocation | 13 CPU and 48 GiB per started task under the site memory-per-CPU policy |
+| Root cause | `ReqTRES` and `TresPerTask` retained the eight-CPU request, while `SLURM_CPUS_PER_TASK`, `CPUs/Task`, `NumCPUs`, and `AllocTRES` consistently reported the 13-CPU allocation; the first accuracy gate incorrectly expected the requested value in the former two allocation fields |
+| Corrective action | Preserve the request in `ReqTRES` and `TresPerTask`; require all environment and allocation fields to agree on the actual allocation; keep scientific thread variables fixed at eight |
+| Superseded execution-lock SHA-256 | `b1d36a9f2c01a31a41d42b7f9a3a87c5d63a6cd69c4df155dd78425d12c96b4a` |
+| Corrected execution-lock SHA-256 | `7d88d016dc9af19b40de36756a8c35c70d3895cb0784a90585d8cf31822c3a60` |
+| Scientific use | None; operational regression evidence only |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
