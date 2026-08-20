@@ -16,7 +16,7 @@ Last archive observation: 2026-08-20 06:15 UTC.
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
-| Corpus V4 paired latency | `SOURCE REFREEZE / BLOCKED` | Frozen scope: 306 layouts across 13 held-out families | Finish the account-bound source lock, then submit the three-layout SLURM preflight | The first request was rejected before job creation because the project account was omitted; no compute or artifact was produced |
+| Corpus V4 paired latency | `DIAGNOSTIC REFREEZE / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Push the diagnostic source lock, then rerun the unchanged three-layout preflight | Tasks 0 and 152 failed the reference-agreement gate; task 305 wrote an artifact but returned nonzero on path formatting; all three are ineligible |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
 over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
@@ -46,10 +46,17 @@ from an in-memory raw JSON record; model loading is reported separately.
 The task runner, accepted-set planner, finalizer, archive verifier, and
 deterministic 306-layout plan are implemented. The initial submission request
 was rejected before SLURM created a job because it omitted account `pgs0407`.
-No task started and no timing artifact exists from that request. The execution
-contract is being refrozen so the protocol, batch directive, active `scontrol`
-record, and terminal `sacct` record must all agree on the account. The next
-transition is a three-layout SLURM preflight from that exact committed source.
+The account-bound retry entered the scheduler, but all three elements ended
+nonzero. Tasks 0 and 152 reached the reference-agreement gate; the old runner
+discarded their numerical diagnostics. Task 305 passed that gate and wrote an
+artifact, then failed while printing a relative path. Terminal failure makes
+the entire preflight ineligible.
+
+The diagnostic refreeze keeps every scientific setting unchanged. It writes a
+separate non-admissible failure artifact after reauthenticating the source and
+fixes only the path-label conversion. The next transition is the same
+three-layout preflight from the new committed source. The full array remains
+closed.
 If it passes, the same lock authorizes the full array, followed by accepted-set
 construction, SLURM finalization, and archive verification. Until that sequence
 closes, `C-LAT-001` remains blocked and no current speed value is permitted.

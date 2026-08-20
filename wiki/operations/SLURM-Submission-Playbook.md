@@ -823,13 +823,12 @@ execution lock are regenerated. The source commit remains an external trust
 root because placing it inside its own source lock would create a cycle.
 
 ```bash
-LAT_ACCOUNT=pgs0407
 LAT_ROOT=/absolute/path/to/clean-detached-worktree
 LAT_SOURCE_COMMIT=replace-with-reviewed-40-character-commit
 LAT_PROTOCOL_SHA256=5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2
 LAT_PLAN_SHA256=983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25
 LAT_TASKS_SHA256=db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2
-LAT_LOCK_SHA256=f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74
+LAT_LOCK_SHA256=b998054ed83c0a92e52d09f1cccf39676ab1a139024a7830780c46519508261b
 FASTHENRY_BIN=/absolute/path/to/verified-fasthenry
 cd "$LAT_ROOT"
 test "$(git rev-parse HEAD)" = "$LAT_SOURCE_COMMIT"
@@ -859,6 +858,8 @@ the unchanged contract, submit the full 306-layout array.
 ```bash
 sacct -X -n -P -j "$LAT_PREFLIGHT_JOB_ID" \
   --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+find "results/corpus_v4/latency/preflight/attempts/job_${LAT_PREFLIGHT_JOB_ID}" \
+  -maxdepth 2 -type f -print
 LAT_JOB_ID=$(sbatch --parsable -A pgs0407 \
   --chdir="$LAT_ROOT" \
   --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256" \
@@ -885,16 +886,37 @@ python3 code/experiments/proofs/plan_corpus_v4_latency_resume.py \
   --execution-lock protocols/corpus_v4_latency_execution_lock_v1.json \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
-  --attempt-root "results/corpus_v4/latency/jobs/job_${LAT_JOB_ID}" \
+  --attempt-root results/corpus_v4/latency/jobs/attempts \
   --out-dir results/corpus_v4/latency/resume/round_00
+```
+
+If `pending_task_ids` is nonempty, submit only that frozen sparse set. After
+terminal accounting arrives, rerun the resume planner into `round_01` with the
+same shared attempt root. Repeat with a new round name; never overwrite a prior
+round.
+
+```bash
+LAT_PENDING=results/corpus_v4/latency/resume/round_00/pending_task_set.json
+LAT_PENDING_SHA256=$(sha256sum "$LAT_PENDING" | awk '{print $1}')
+LAT_RETRY_ARRAY=$(jq -r '.pending_task_ids | join(",")' "$LAT_PENDING")
+if [[ -n "$LAT_RETRY_ARRAY" ]]; then
+  LAT_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 \
+    --array="${LAT_RETRY_ARRAY}%8" \
+    --chdir="$LAT_ROOT" \
+    --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_PENDING_SET="$LAT_PENDING",PCB_GNN_V4_LATENCY_PENDING_SET_SHA256="$LAT_PENDING_SHA256" \
+    "$LAT_ROOT/code/jobs/submit_corpus_v4_latency.sh")
+  LAT_RETRY_JOB_ID=${LAT_RETRY_JOB_ID%%;*}
+  [[ "$LAT_RETRY_JOB_ID" =~ ^[0-9]+$ ]]
+fi
 ```
 
 Finalization is allowed only when all 306 canonical tasks are accepted and the
 pending set is empty. The finalizer runs on SLURM and repeats the same account
-gate.
+gate. Point `LAT_FINAL_ROUND` to the latest immutable resume round.
 
 ```bash
-LAT_ACCEPTED=results/corpus_v4/latency/resume/round_00/accepted_artifact_set.json
+LAT_FINAL_ROUND=round_00
+LAT_ACCEPTED="results/corpus_v4/latency/resume/${LAT_FINAL_ROUND}/accepted_artifact_set.json"
 LAT_ACCEPTED_SHA256=$(sha256sum "$LAT_ACCEPTED" | awk '{print $1}')
 sbatch --test-only -A pgs0407 \
   --chdir="$LAT_ROOT" \
@@ -906,6 +928,52 @@ LAT_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
   "$LAT_ROOT/code/jobs/submit_finalize_corpus_v4_latency.sh")
 LAT_FINAL_JOB_ID=${LAT_FINAL_JOB_ID%%;*}
 [[ "$LAT_FINAL_JOB_ID" =~ ^[0-9]+$ ]]
+```
+
+Wait for exact `COMPLETED/0:0` accounting, then create the archive manifest.
+The first command queries live accounting; after the artifacts are committed,
+the second invocation is scheduler-independent and requires every closure file
+to be Git-tracked and clean.
+
+```bash
+sacct -X -n -P -j "$LAT_FINAL_JOB_ID" \
+  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+LAT_ANALYSIS="results/corpus_v4/latency/final/job_${LAT_FINAL_JOB_ID}/ANALYSIS_MANIFEST.json"
+LAT_ANALYSIS_SHA256=$(sha256sum "$LAT_ANALYSIS" | awk '{print $1}')
+python3 code/quality/verify_corpus_v4_latency_archive.py \
+  --protocol protocols/corpus_v4_latency_v1.json \
+  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
+  --plan results/corpus_v4/latency/plan/v1/plan.json \
+  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
+  --task-manifest results/corpus_v4/latency/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v1.json \
+  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
+  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
+  --accepted-set "$LAT_ACCEPTED" \
+  --expected-accepted-set-sha256 "$LAT_ACCEPTED_SHA256" \
+  --analysis-manifest "$LAT_ANALYSIS" \
+  --expected-analysis-manifest-sha256 "$LAT_ANALYSIS_SHA256" \
+  --out results/corpus_v4/latency/ARCHIVE_MANIFEST.json
+```
+
+```bash
+python3 code/quality/verify_corpus_v4_latency_archive.py \
+  --protocol protocols/corpus_v4_latency_v1.json \
+  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
+  --plan results/corpus_v4/latency/plan/v1/plan.json \
+  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
+  --task-manifest results/corpus_v4/latency/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v1.json \
+  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
+  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
+  --accepted-set "$LAT_ACCEPTED" \
+  --expected-accepted-set-sha256 "$LAT_ACCEPTED_SHA256" \
+  --analysis-manifest "$LAT_ANALYSIS" \
+  --expected-analysis-manifest-sha256 "$LAT_ANALYSIS_SHA256" \
+  --out results/corpus_v4/latency/ARCHIVE_MANIFEST.json \
+  --check --require-git-tracked
 ```
 
 Keep `C-LAT-001` blocked until the finalizer artifact, archive manifest,

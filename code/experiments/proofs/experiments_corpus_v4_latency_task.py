@@ -63,6 +63,8 @@ from scientific_artifact import (  # noqa: E402
 TASK_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task.v2"
 RECORD_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-record.v2"
 ARTIFACT_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-task-artifact-manifest.v2"
+FAILURE_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-diagnostic.v1"
+FAILURE_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-failure-manifest.v1"
 PENDING_SCHEMA = "pcb-gnn.corpus-v4-paired-latency-pending-set.v2"
 
 
@@ -127,6 +129,52 @@ def _source_state() -> tuple[str, list[str], list[str]]:
         text=True,
     ).stdout.splitlines()
     return head, tracked, source_untracked
+
+
+def _repo_relative_output(path: Path) -> str:
+    """Return a stable public label and reject output paths outside the repo."""
+    try:
+        return path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError as exc:
+        raise ValueError("latency output path escapes the repository") from exc
+
+
+def _validate_source_stability(
+    *,
+    expected_head: str,
+    expected_dirty: list[str],
+    expected_untracked: list[str],
+    locked_source_sha256: Mapping[str, str],
+    protocol_path: Path,
+    protocol_sha256: str,
+    plan_path: Path,
+    plan_sha256: str,
+    task_manifest_path: Path,
+    task_manifest_sha256: str,
+    panel_path: Path,
+    panel_sha256: str,
+    execution_lock_path: Path,
+    execution_lock_sha256: str,
+) -> dict[str, str]:
+    """Reauthenticate source and scientific roots after all heavy work."""
+    final_head, final_dirty, final_untracked = _source_state()
+    final_source_hashes = {
+        name: sha256_file(resolve_repo_path(name, "execution source"))
+        for name in locked_source_sha256
+    }
+    if (
+        final_head != expected_head
+        or final_dirty != expected_dirty
+        or final_untracked != expected_untracked
+        or final_source_hashes != locked_source_sha256
+        or sha256_file(protocol_path) != protocol_sha256
+        or sha256_file(plan_path) != plan_sha256
+        or sha256_file(task_manifest_path) != task_manifest_sha256
+        or sha256_file(panel_path) != panel_sha256
+        or sha256_file(execution_lock_path) != execution_lock_sha256
+    ):
+        raise SystemExit("source or frozen scientific roots changed during execution")
+    return final_source_hashes
 
 
 def _runtime_identity(protocol: Mapping[str, Any]) -> dict[str, Any]:
@@ -273,6 +321,33 @@ def _atomic_task_directory(
             {
                 "files_sha256": {"result.json": sha256_file(temporary / "result.json")},
                 "schema": ARTIFACT_MANIFEST_SCHEMA,
+            },
+        )
+        os.replace(temporary, destination)
+    except BaseException:
+        shutil.rmtree(temporary, ignore_errors=True)
+        raise
+
+
+def _atomic_failure_directory(
+    destination: Path,
+    failure: Mapping[str, Any],
+) -> None:
+    """Write one immutable diagnostic that cannot enter the accepted set."""
+    parent = destination.parent
+    parent.mkdir(parents=True, exist_ok=True)
+    if destination.exists() or destination.is_symlink():
+        raise FileExistsError(f"refusing to overwrite failure attempt: {destination}")
+    temporary = Path(tempfile.mkdtemp(prefix=f".{destination.name}.", dir=parent))
+    try:
+        atomic_write_json(temporary / "failure.json", dict(failure))
+        atomic_write_json(
+            temporary / "FAILURE_MANIFEST.json",
+            {
+                "files_sha256": {
+                    "failure.json": sha256_file(temporary / "failure.json")
+                },
+                "schema": FAILURE_MANIFEST_SCHEMA,
             },
         )
         os.replace(temporary, destination)
@@ -467,6 +542,100 @@ def main() -> None:
     drift = _relative_drift(rerun, reference)
     tolerance = float(protocol["solver_workflow"]["reference_agreement_max_relative_error"])
     if float(np.max(drift)) > tolerance:
+        absolute_error = np.abs(rerun - reference)
+        violating_targets = [
+            name
+            for name, value in zip(target_order, drift)
+            if float(value) > tolerance
+        ]
+        final_source_hashes = _validate_source_stability(
+            expected_head=head,
+            expected_dirty=dirty,
+            expected_untracked=untracked_source,
+            locked_source_sha256=lock["source_sha256"],
+            protocol_path=args.protocol,
+            protocol_sha256=protocol_sha,
+            plan_path=args.plan,
+            plan_sha256=plan_sha,
+            task_manifest_path=args.task_manifest,
+            task_manifest_sha256=task_sha,
+            panel_path=panel_path,
+            panel_sha256=panel_sha,
+            execution_lock_path=args.execution_lock,
+            execution_lock_sha256=lock_sha,
+        )
+        failure = {
+            "admission_eligible": False,
+            "bindings": {
+                **bindings,
+                "checkpoint_archive_sha256": protocol["inputs"]["checkpoint_archive"][
+                    "sha256"
+                ],
+                "retry_pending_set": retry_binding,
+            },
+            "claim_eligible": False,
+            "created_utc": datetime.now(timezone.utc).isoformat(),
+            "diagnostic": {
+                "gnn": {
+                    "model_load_ms": model_load["elapsed_ms"],
+                    "post_solver": post,
+                    "pre_solver": pre,
+                },
+                "reference_agreement": {
+                    "absolute_error": absolute_error.tolist(),
+                    "denominator_floor": 1e-12,
+                    "formula": "abs(rerun-reference)/max(abs(reference),1e-12)",
+                    "maximum_relative_drift": float(np.max(drift)),
+                    "reference_values": reference.tolist(),
+                    "relative_drift": drift.tolist(),
+                    "rerun_values": rerun.tolist(),
+                    "target_order": list(target_order),
+                    "tolerance": tolerance,
+                    "violating_targets": violating_targets,
+                },
+                "solver_ms": solver_measurement["component_ms"],
+                "solver_telemetry": solver_measurement["telemetry"],
+            },
+            "failure_code": "reference_agreement_exceeded",
+            "integrity": {"passed": False},
+            "provenance": {
+                "executed_batch_sha256": sha256_file(executed_batch),
+                "external_solver": {
+                    "label": "external/fasthenry",
+                    "sha256": protocol["solver_workflow"]["inductance"][
+                        "binary_sha256"
+                    ],
+                },
+                "hardware": _hardware_identity(),
+                "runtime": runtime,
+                "scheduler": scheduler,
+                "source_git_head": head,
+                "source_sha256": final_source_hashes,
+            },
+            "schema": FAILURE_SCHEMA,
+            "stage": args.stage,
+            "status": "failed",
+            "task": {
+                "family_id": task["family_id"],
+                "geometry_sha256": task["geometry_sha256"],
+                "layout_id": task["layout_id"],
+                "task_id": task_id,
+            },
+        }
+        failure_path = (
+            args.output_root
+            / "failures"
+            / f"job_{scheduler['array_job_id']}"
+            / f"task_{task_id:03d}"
+        )
+        failure_label = _repo_relative_output(failure_path)
+        _atomic_failure_directory(failure_path, failure)
+        print(
+            f"task={task_id} failure=reference_agreement_exceeded "
+            f"artifact={failure_label}",
+            file=sys.stderr,
+            flush=True,
+        )
         raise RuntimeError("solver rerun differs from frozen references beyond tolerance")
     passivity = validate_passive_labels(rerun_targets)
     paired_ms = solver_measurement["component_ms"]["paired_four_target"]
@@ -474,23 +643,22 @@ def main() -> None:
     if not math.isfinite(speedup) or speedup <= 0.0:
         raise RuntimeError("paired speedup is not positive and finite")
 
-    final_head, final_dirty, final_untracked = _source_state()
-    final_source_hashes = {
-        name: sha256_file(resolve_repo_path(name, "execution source"))
-        for name in lock["source_sha256"]
-    }
-    if (
-        final_head != head
-        or final_dirty != dirty
-        or final_untracked != untracked_source
-        or final_source_hashes != lock["source_sha256"]
-        or sha256_file(args.protocol) != protocol_sha
-        or sha256_file(args.plan) != plan_sha
-        or sha256_file(args.task_manifest) != task_sha
-        or sha256_file(panel_path) != panel_sha
-        or sha256_file(args.execution_lock) != lock_sha
-    ):
-        raise SystemExit("source or frozen scientific roots changed during execution")
+    final_source_hashes = _validate_source_stability(
+        expected_head=head,
+        expected_dirty=dirty,
+        expected_untracked=untracked_source,
+        locked_source_sha256=lock["source_sha256"],
+        protocol_path=args.protocol,
+        protocol_sha256=protocol_sha,
+        plan_path=args.plan,
+        plan_sha256=plan_sha,
+        task_manifest_path=args.task_manifest,
+        task_manifest_sha256=task_sha,
+        panel_path=panel_path,
+        panel_sha256=panel_sha,
+        execution_lock_path=args.execution_lock,
+        execution_lock_sha256=lock_sha,
+    )
 
     timing_record = {
         "family_id": record["family_id"],
@@ -555,10 +723,11 @@ def main() -> None:
         / f"job_{scheduler['array_job_id']}"
         / f"task_{task_id:03d}"
     )
+    attempt_label = _repo_relative_output(attempt)
     _atomic_task_directory(attempt, result)
     print(
         f"task={task_id} layout={task['layout_id']} paired_ms={paired_ms:.6f} "
-        f"gnn_ms={inference_median_ms:.6f} artifact={attempt.relative_to(ROOT)}",
+        f"gnn_ms={inference_median_ms:.6f} artifact={attempt_label}",
         flush=True,
     )
 

@@ -423,6 +423,55 @@ def test_timing_record_rejects_nonfinite_zero_and_malformed_values(mutation: Any
         finalizer.validate_timing_record(changed, expected_repetitions=200)
 
 
+def test_failure_artifact_is_immutable_and_not_an_acceptance_manifest(
+    tmp_path: Path,
+) -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_v2_runner_failure_artifact")
+    resume = _load_module(RESUME_SCRIPT, "latency_v2_resume_failure_artifact")
+    resume.ROOT = tmp_path
+    destination = tmp_path / "failures" / "job_8300000" / "task_000"
+    failure = {
+        "admission_eligible": False,
+        "claim_eligible": False,
+        "failure_code": "reference_agreement_exceeded",
+        "integrity": {"passed": False},
+        "schema": runner.FAILURE_SCHEMA,
+        "status": "failed",
+    }
+
+    runner._atomic_failure_directory(destination, failure)
+
+    assert json.loads((destination / "failure.json").read_text(encoding="utf-8")) == failure
+    manifest = json.loads(
+        (destination / "FAILURE_MANIFEST.json").read_text(encoding="utf-8")
+    )
+    assert manifest["schema"] == runner.FAILURE_MANIFEST_SCHEMA
+    assert set(manifest["files_sha256"]) == {"failure.json"}
+    assert not (destination / "TASK_MANIFEST.json").exists()
+    assert resume._manifest_candidates([tmp_path / "failures"]) == []
+    with pytest.raises(FileExistsError, match="overwrite failure attempt"):
+        runner._atomic_failure_directory(destination, failure)
+
+
+def test_output_labels_resolve_relative_and_absolute_paths_without_escape(
+    tmp_path: Path,
+) -> None:
+    runner = _load_module(TASK_SCRIPT, "latency_v2_runner_output_label")
+    runner.ROOT = tmp_path
+    relative = Path("results/task_000")
+    absolute = tmp_path / "results" / "task_000"
+
+    previous = Path.cwd()
+    os.chdir(tmp_path)
+    try:
+        assert runner._repo_relative_output(relative) == "results/task_000"
+        assert runner._repo_relative_output(absolute) == "results/task_000"
+        with pytest.raises(ValueError, match="escapes the repository"):
+            runner._repo_relative_output(tmp_path.parent / "outside")
+    finally:
+        os.chdir(previous)
+
+
 def test_summary_uses_paired_median_of_ratios_and_rejects_duplicates() -> None:
     finalizer = _load_module(FINALIZER_SCRIPT, "latency_v2_finalizer_for_summary_test")
     records = [
@@ -690,6 +739,33 @@ def test_no_login_node_solver_path_and_guard_precedes_solver_calls(
     assert guards, "the task must call the frozen SLURM allocation validator"
     assert solvers, "the task must expose the paired solver workflow"
     assert min(guards) < min(solvers)
+
+
+def test_source_stability_gate_precedes_authenticated_failure_write() -> None:
+    tree = ast.parse(TASK_SCRIPT.read_text(encoding="utf-8"))
+    main = next(
+        node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "main"
+    )
+    calls = [node for node in ast.walk(main) if isinstance(node, ast.Call)]
+
+    def call_name(node: ast.Call) -> str:
+        function = node.func
+        if isinstance(function, ast.Name):
+            return function.id
+        if isinstance(function, ast.Attribute):
+            return function.attr
+        return ""
+
+    stability = sorted(
+        node.lineno for node in calls if call_name(node) == "_validate_source_stability"
+    )
+    failure_writes = sorted(
+        node.lineno for node in calls if call_name(node) == "_atomic_failure_directory"
+    )
+
+    assert len(stability) == 2
+    assert len(failure_writes) == 1
+    assert stability[0] < failure_writes[0] < stability[1]
 
 
 def test_runner_places_solver_between_the_two_measurement_blocks() -> None:

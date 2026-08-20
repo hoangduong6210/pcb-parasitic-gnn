@@ -426,7 +426,28 @@ The two hashes above identify the pre-execution plan that reached the rejected
 request. They are superseded before any task execution and must not be mixed
 with the account-bound plan or its future artifacts.
 
-## E-C4-LAT-PREFLIGHT-01: Account-bound paired-latency freeze
+## E-C4-LAT-PREFLIGHT-01: Account-bound paired-latency rejection
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; REJECTED` |
+| Array | `6907776`; canonical tasks 0, 152, and 305 |
+| Source commit | `ab26537c54235dddddab1f46a65ffdf67bbf1f25` |
+| Protocol SHA-256 | `5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2` |
+| Plan SHA-256 | `983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25` |
+| Task-manifest SHA-256 | `db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2` |
+| Panel SHA-256 | `dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db` |
+| Execution-lock SHA-256 | `f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74` |
+| Scheduler binding | Account `pgs0407`, partition `nextgen`; active and terminal records must match |
+| Terminal accounting | All three logical tasks ended `FAILED/1:0`; elapsed times were 451, 492, and 511 s for tasks 0, 152, and 305 |
+| Tasks 0 and 152 | Failed closed at the frozen solver-reference agreement gate; the original runner emitted no numerical failure artifact |
+| Task 305 | Passed the numerical gate and wrote a complete task artifact, then returned nonzero while formatting a relative output path |
+| Rejected task-305 artifact | [Result](../../results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/result.json), SHA-256 `3a68004203f866bee8720b456fffa014031d62919ae297c1ce9d0dc1cb0c9513`; [manifest](../../results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/TASK_MANIFEST.json), SHA-256 `c62d2347f19119fe3fc99b39174c6123ad62eb728b85ad58690cfb115ab1c91b` |
+| Full panel | 306 layouts across 13 held-out families; concurrency eight |
+| Corrective action | Preserve authenticated failure diagnostics before raising; normalize relative and absolute output paths before atomic publication; rerun the same three tasks under a new source lock without changing tolerance or resources |
+| Scientific use | None; terminal failure makes every task in this preflight ineligible for latency or speed claims |
+
+## E-C4-LAT-PREFLIGHT-02: Diagnostic paired-latency refreeze
 
 | Field | Value |
 |---|---|
@@ -435,11 +456,11 @@ with the account-bound plan or its future artifacts.
 | Plan SHA-256 | `983f2427ebc808e1ae681df4f719df07aacf7064a13cd841c363d69a3cfe3c25` |
 | Task-manifest SHA-256 | `db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2` |
 | Panel SHA-256 | `dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db` |
-| Execution-lock SHA-256 | `f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74` |
-| Scheduler binding | Account `pgs0407`, partition `nextgen`; active and terminal records must match |
-| Preflight | Canonical task IDs 0, 152, and 305; excluded from final statistics |
-| Full panel | 306 layouts across 13 held-out families; concurrency eight |
-| Scientific use | Defines the execution contract only; no latency or speed claim is supported before full archival closure |
+| Execution-lock SHA-256 | `b998054ed83c0a92e52d09f1cccf39676ab1a139024a7830780c46519508261b` |
+| Frozen scientific settings | Identical to `E-C4-LAT-PREFLIGHT-01`; tolerance, task IDs, solver settings, timing boundary, and resources are unchanged |
+| Failure behavior | A reference mismatch writes an immutable, non-admissible `failure.json` plus `FAILURE_MANIFEST.json`, authenticates source stability first, and still exits nonzero |
+| Success behavior | Relative and absolute output paths resolve to one repository-relative label before atomic write |
+| Scientific use | Defines a diagnostic execution contract only; no latency or speed claim is supported before full archival closure |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

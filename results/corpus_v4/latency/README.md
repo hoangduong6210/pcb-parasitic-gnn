@@ -7,9 +7,17 @@ Status: protocol, plan, and source lock frozen; SLURM preflight pending;
 
 The first preflight request was rejected before SLURM created a job because
 the project account was omitted. No solver, graph construction, or timing code
-ran, and the request produced no result artifact. The replacement execution
-contract pins account `pgs0407` in the protocol, all three batch wrappers, the
-active scheduler receipt, and terminal accounting.
+ran, and the request produced no result artifact. The account-bound preflight
+then ran tasks 0, 152, and 305. All three ended nonzero: the first two reached
+the solver-reference agreement gate, while task 305 wrote a complete artifact
+and then failed during path-label formatting. No task from that job is
+admissible. The preserved task-305 files remain operational regression evidence
+only.
+
+The current source lock pins account `pgs0407`, preserves an authenticated
+non-admissible diagnostic before a reference-gate exit, and normalizes relative
+and absolute output paths. It does not change the tolerance, solver, timing
+boundary, panel, or resource profile.
 
 This directory is reserved for the current-corpus paired-latency evidence. It
 does not contain an admitted speed result. The scientific protocol is owned by
@@ -71,7 +79,7 @@ The immutable execution inputs are:
   and
 - [execution lock](../../../protocols/corpus_v4_latency_execution_lock_v1.json),
   SHA-256
-  `f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74`.
+  `b998054ed83c0a92e52d09f1cccf39676ab1a139024a7830780c46519508261b`.
 
 These hashes identify the planned computation. They are not a latency result.
 The execution commit is pinned separately at submission time after tests and

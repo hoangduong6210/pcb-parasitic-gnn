@@ -10,7 +10,7 @@
     "figures": 12,
     "logs": 108,
     "protocols": 8,
-    "results": 1978,
+    "results": 1980,
     "root": 10,
     "tests": 31,
     "wiki": 37
@@ -438,8 +438,8 @@
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_latency_task.py",
-      "bytes": 21369,
-      "sha256": "0bad6a13208f4c9303de41fd6f8d67ead2c1361ffe74e0191a1b2d81db7f1898"
+      "bytes": 27862,
+      "sha256": "e22ac88ecb91535f4e53e9d0f56af60f1feb5a4881a2cfb01455224b5fe20045"
     },
     {
       "path": "code/experiments/proofs/experiments_corpus_v4_refine34_convergence.py",
@@ -1879,7 +1879,7 @@
     {
       "path": "protocols/corpus_v4_latency_execution_lock_v1.json",
       "bytes": 4276,
-      "sha256": "f5f4e14f843505ff4eefb51febdd70e8b051bd893b08d4a7483b8168f8558c74"
+      "sha256": "b998054ed83c0a92e52d09f1cccf39676ab1a139024a7830780c46519508261b"
     },
     {
       "path": "protocols/corpus_v4_latency_v1.json",
@@ -11543,8 +11543,8 @@
     },
     {
       "path": "results/corpus_v4/latency/README.md",
-      "bytes": 3963,
-      "sha256": "8229ea23f9cf281f6b6086a1cc45af343ec3fd198d6446ee9f768b5595dd4f23"
+      "bytes": 4419,
+      "sha256": "86d3403b9f4cd1a3270f1de134eee6342ddcdd506eab87a87b9c877841e1dd5e"
     },
     {
       "path": "results/corpus_v4/latency/plan/v1/panel_records.jsonl",
@@ -11560,6 +11560,16 @@
       "path": "results/corpus_v4/latency/plan/v1/task_manifest.jsonl",
       "bytes": 114100,
       "sha256": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+    },
+    {
+      "path": "results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/TASK_MANIFEST.json",
+      "bytes": 188,
+      "sha256": "c62d2347f19119fe3fc99b39174c6123ad62eb728b85ad58690cfb115ab1c91b"
+    },
+    {
+      "path": "results/corpus_v4/latency/preflight/attempts/job_6907776/task_305/result.json",
+      "bytes": 16735,
+      "sha256": "3a68004203f866bee8720b456fffa014031d62919ae297c1ce9d0dc1cb0c9513"
     },
     {
       "path": "results/corpus_v4/refine34_convergence/final/job_6843343/results_corpus_v4_refine34_convergence.json",
@@ -11833,8 +11843,8 @@
     },
     {
       "path": "tests/test_corpus_v4_latency_pipeline.py",
-      "bytes": 28889,
-      "sha256": "0c68f15be695e4dd4012614c7037db5210c9f47eb6106668dfc062ca1e492fc7"
+      "bytes": 31803,
+      "sha256": "f7020e11f1cde43fb9ec61610730f60595cf9e14720b7a46e10a9282a24785be"
     },
     {
       "path": "tests/test_corpus_v4_protocol.py",
@@ -12018,8 +12028,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 31689,
-      "sha256": "f7519d2358197a4401b6332c35fd0adc054e7d4dc63721482763b5b49ec60aa2"
+      "bytes": 33940,
+      "sha256": "5b087871fc90a822029a0ed3c5d393edd08c9f08399609833af225fc3c94d0e1"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -12098,8 +12108,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 50379,
-      "sha256": "e3b738c674ea011b5c5dece0589d9d38048a1f70e841e33da9a0da56d982a7db"
+      "bytes": 54055,
+      "sha256": "b43a8be18d83816a8a654a25ec991e5331af3c00a64844a42106d42637898035"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -12123,8 +12133,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 3607,
-      "sha256": "ee9bd1ca523d3ac888f2d08841388a7a3d6382ebb2002555799862eaaa3fc31d"
+      "bytes": 4014,
+      "sha256": "62d3ee6eac3af42fcc3165d5b4f60a960fc0b143abbf7a398c47717d92e5f135"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -12132,6 +12142,6 @@
       "sha256": "3e29dbb30758a624dbff6a151773c3c4d0b5e2e976701097e61f010fc0cd7765"
     }
   ],
-  "n_files": 2423,
-  "total_bytes": 89833025
+  "n_files": 2425,
+  "total_bytes": 89866145
 }
