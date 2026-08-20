@@ -21,9 +21,9 @@ The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
 
 **Research status:** Current admitted numerical evidence is solver-based, not
-measurements from a fabricated board. This repository is
-an auditable research artifact with regeneration instructions; it is not yet a
-download-and-run pretrained reproduction package.
+measurements from a fabricated board. The tracked closure includes authenticated
+checkpoints and held-out predictions for verification. It is not a general
+raw-layout inference package for arbitrary routed boards.
 
 ## Manuscript packages
 
@@ -66,9 +66,9 @@ current-result admission. New paper content is admitted through the wiki first.
 
 ## Current evidence status
 
-There is deliberately no current accuracy or speed headline. The 1,500-layout
-v3 corpus has passed geometry, identity, finite-label, passivity, clean-source,
-and artifact-hash gates. A frozen nine-layout numerical study then found that
+There is deliberately no current speed headline. The 1,500-layout v3 corpus has
+passed geometry, identity, finite-label, passivity, clean-source, and
+artifact-hash gates. A frozen nine-layout numerical study then found that
 refine-3 is stable to the tested 12-to-16 mm domain expansion but fails the
 predeclared refine-3/refine-4 mesh-sensitivity gate. Consequently, capacitance
 is now represented as explicit fidelity observations: `FEM-R3P16` is a fixed
@@ -84,14 +84,17 @@ physical truth and is not a global correction for R3.
 
 Every predictive result derived from the v0 through v2 feasibility geometry,
 including former accuracy, ranking, EGNN accuracy comparison, and speed ratios,
-remains archival and outside current geometry-valid claims. The strict E(3) encoded-graph
-check remains an admitted implementation property, not a predictive claim.
-The current accuracy loader and 25-cell crossed split/init pipeline have passed
-freeze review. A checkpoint-only training attempt completed, but its post-run
-accounting gate failed closed before any checkpoint was admitted or any
-held-out inference was run. A clean checkpoint-only rerun under the corrected
-accounting contract is active on SLURM; no current accuracy result is admitted.
-See the
+remains archival and outside current geometry-valid claims. The strict E(3)
+encoded-graph check remains an admitted implementation property, not a
+predictive claim.
+
+The current accuracy study is complete. It crossed five family-held-out splits
+with five initialization seeds, admitted all checkpoints before held-out
+inference, and preserved every prediction and metric matrix in a tracked
+archive. The [accuracy result](wiki/results/Corpus-V4-Accuracy.md) reports
+target-specific agreement with the synthetic numerical references and a
+matched R3/R4 capacitance view. It does not claim physical-board accuracy.
+Current-corpus paired latency remains blocked. See the
 [accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
@@ -268,7 +271,8 @@ audit.
 ### Provenance
 
 The finalized v3 corpus, FEM convergence studies, and v4 multi-fidelity package
-resolve to job-backed artifacts and immutable hashes recorded in
+and family-crossed accuracy study resolve to job-backed artifacts and immutable
+hashes recorded in
 [`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md).
 Historical records remain under `results/` for forensic traceability and are
 indexed as quarantined in [`results/README.md`](results/README.md). No
@@ -283,12 +287,16 @@ python3 code/quality/verify_corpus_v4_archive.py --require-git-tracked
 python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
 ```
 
+The accuracy verifier has additional frozen hash arguments; its exact
+clean-clone command is maintained in the
+[accuracy evidence README](results/corpus_v4/accuracy/README.md#clean-clone-verification).
+
 ## Known limitations
 
-1. **No current accuracy claim.** The geometry and fidelity-explicit
-   capacitance corpora and selected-registry discrepancy audit are complete,
-   but training and crossed-seed predictive statistics are not; v2 values
-   remain scope-bound history.
+1. **Numerical-reference scope.** The current family-crossed accuracy result
+   measures agreement with fixed synthetic solver workflows. It is not
+   fabricated-board or arbitrary-PCB accuracy, and v2 values remain
+   scope-bound history.
 2. **Active-leg abstraction.** v3 contains distinct co-directed winding legs but
    excludes returns, vias, terminals, core windows, planes, and full-board routing.
 3. **Solver-validated, not hardware-validated.** Agreement with numerical

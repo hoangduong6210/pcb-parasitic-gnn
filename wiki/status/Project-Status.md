@@ -40,7 +40,7 @@ instead of calling one column ground truth.
 | FEM-R4P16 validation observations | `FINALIZED` | Complete higher-resolution 198-layout subset; not ground truth |
 | Joint multi-fidelity Cps package | `FINALIZED` | 1,698 explicit-fidelity observations over 1,500 geometries |
 | Family-aware R3/R4 discrepancy audit | `ADMITTED DESCRIPTIVE` | Exact 198-layout selected-registry comparison; no population inference or global correction |
-| Multi-seed current-corpus accuracy | `EXECUTING: CHECKPOINT-ONLY RERUN` | The corrected 25-cell rerun is active on SLURM. Accepted-set, finalizer, and archive closure remain; no accuracy value is admitted |
+| Multi-seed current-corpus accuracy | `ADMITTED` | Complete 5 by 5 family-held-out split and initialization grid with tracked checkpoints, predictions, matrices, and archive closure |
 | Current-corpus end-to-end speedup | `BLOCKED` | Waits for an accepted current model and fixed workflow |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -51,13 +51,12 @@ transition.
 
 ## Next scientific stages
 
-1. Complete the active five-family-split by five-initialization-seed rerun under
-   the corrected accounting contract and frozen
-   [accuracy protocol](../methods/Corpus-V4-Accuracy-Protocol.md).
-2. Reconstruct and review GNN agreement with FEM-R3P16 separately from agreement
-   with FEM-R4P16.
-3. Repeat baseline, strict E(3), ranking, and paired latency studies on the same
+1. Use the admitted
+   [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
+   predictive baseline for subsequent current-corpus experiments.
+2. Repeat baseline, strict E(3), ranking, and paired latency studies on the same
    current corpus and split registry.
-4. Admit claims in the wiki before generating a new paper snapshot.
+3. Admit claims in the wiki before generating a new paper snapshot.
 
-There is no current geometry-valid accuracy or speed headline.
+There is an admitted geometry-valid synthetic solver-agreement result. There is
+no current-corpus paired speed headline or hardware-accuracy claim.

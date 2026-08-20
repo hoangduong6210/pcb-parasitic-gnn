@@ -319,7 +319,7 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PREFLIGHT FROZEN; CORRECTED RERUN ACTIVE` |
+| Lifecycle | `PREFLIGHT FROZEN; EXECUTION COMPLETE` |
 | Protocol | [`corpus_v4_accuracy_v1.json`](../../protocols/corpus_v4_accuracy_v1.json), SHA-256 `f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf` |
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy/plan/v1/plan.json), SHA-256 `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
 | Task rows | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy/plan/v1/task_manifest.jsonl), SHA-256 `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
@@ -366,15 +366,47 @@ paths. The pair explains resource cost but is not a corpus runtime statistic.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `RUNNING` |
+| Lifecycle | `COMPLETED` |
 | Array | `6904424` |
 | Source commit | `f3074d2cb6082b6740452e9c8d0560d0d11eeb61` |
 | Execution-lock SHA-256 | `6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61` |
 | Pre-submit gates | Clean detached source, 2,222-file manifest, deterministic 25-task plan replay over 1,500 rows, runner validation-only, and scheduler test-only all passed |
-| Initial scheduler observation | Tasks 0 through 4 entered `RUNNING`; tasks 5 through 24 remained `PENDING` under the declared five-task array throttle |
-| Resource receipt | Each live task requested 8 CPU and 48 GiB; site policy allocated 13 CPU and 48 GiB; the compute-node allocation gate passed |
-| Held-out boundary | Training remains checkpoint-only. No accepted-set, test inference, R4 inference, or accuracy claim exists while the array is open |
-| Scientific use | None until exact terminal accounting, 25-checkpoint acceptance, SLURM finalization, archive verification, and clean-clone closure all pass |
+| Terminal scheduler outcome | All 25 logical components reached `COMPLETED` with `ExitCode=0:0` |
+| Resource receipt | Every task requested 8 CPU and 48 GiB; site policy allocated 13 CPU and 48 GiB; the complete in-run and post-run resource gates passed |
+| Held-out boundary | Training remained checkpoint-only. Test and R4 inference began only after all 25 checkpoint attempts passed terminal accounting and artifact validation |
+| Scientific use | Execution record for the admitted closure in `E-C4-ACC-01` |
+
+## E-C4-ACC-01 — Finalized family-crossed accuracy
+
+| Field | Value |
+|---|---|
+| Lifecycle | `ADMITTED` |
+| Training array | `6904424`; exactly 25 logical components, all `COMPLETED 0:0` |
+| Finalizer | `6905011`; `COMPLETED 0:0`; 51 s elapsed |
+| Source commit | `f3074d2cb6082b6740452e9c8d0560d0d11eeb61` |
+| Protocol SHA-256 | `f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf` |
+| Plan SHA-256 | `e67509a6a742bb6a936287a79e9622f087a14ba08219a7c9521f05288b704206` |
+| Task-manifest SHA-256 | `2c7079fdd844d9e54a76d32a3bee6e623735303d7d59185ee97e3daf40000f20` |
+| Execution-lock SHA-256 | `6b212fcbf1112c81c9f21d1f1511dcd5ac473b5492cd29c9bc7f5ecf6b173e61` |
+| Accepted set | [25-checkpoint accepted set](../../results/corpus_v4/accuracy/resume/round_01/accepted_artifact_set.json); SHA-256 `5e65fc0be6cbccc9fd30309a53a6ab03f52d39bb8a5e88b8c743fdb87b070235` |
+| Analysis | [Matrices](../../results/corpus_v4/accuracy/final/job_6905011/matrices.json), SHA-256 `b256f027926bb6bf9c9fb9ca3bc4f63fe244a871dda652382a9677cf85fe349b`; [summary](../../results/corpus_v4/accuracy/final/job_6905011/summary.json), SHA-256 `c76c0cf56f0283a3ddba2701776205d7895db9cd6b34fbe9b42d7686fda94d4b` |
+| Analysis manifest | [Tracked manifest](../../results/corpus_v4/accuracy/final/job_6905011/ANALYSIS_MANIFEST.json); SHA-256 `a2764cac891b3630eaf927aaf024badbacba7ac3b65e82a544f329b341b1570f` |
+| Archive manifest | [Tracked closure](../../results/corpus_v4/accuracy/ARCHIVE_MANIFEST.json); SHA-256 `0335dbf90f41ac68443a454072280b1796422f0bd0be233cec3be3c2996f80c4` |
+| Evidence commit and gate | `1d8a45453ee88e528aea322c040bbe8fb528ab51`; deterministic replay passed with 29 analysis files and `--require-git-tracked` |
+| Training resources | 8 CPU and 48 GiB requested; 13 CPU and 48 GiB allocated by site policy; five-task throttle |
+| Training wall time | 482.154 to 630.158 s per task; mean 533.223 s |
+| Finalizer resources | 2 CPU and 16 GiB requested; 5 CPU and 16 GiB allocated by site policy |
+| Prediction coverage | 25 full-test tables; 7,350 rows; no nonfinite or nonpositive prediction |
+| Matched R4 coverage | 39 layouts per split; 975 task-layout rows; 195 split-layout memberships, 135 unique layouts, and 45 unique families |
+| Supported claim | `C-ACC-001` |
+
+The primary statistic is the mean of the 25 family-macro MAPE cells, reported
+separately for each target. Its crossed-axis interval is a descriptive
+sensitivity range over the evaluated split and initialization grid, not a
+population confidence interval. The matched R3/R4 panels overlap and are not
+independent replicates. FEM-R4P16 is a higher-resolution comparator rather than
+truth, and the closure supports no hardware-accuracy or current-corpus latency
+claim.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

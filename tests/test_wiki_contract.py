@@ -54,6 +54,7 @@ REQUIRED_PAGES = (
     "operations/SLURM-Submission-Playbook.md",
     "references/Technical-Source-Map.md",
     "results/Cps-R3-R4-Production-Discrepancy.md",
+    "results/Corpus-V4-Accuracy.md",
     "results/FEM-R3-R4-Convergence.md",
     "status/Live-Execution.md",
     "status/Project-Status.md",
@@ -93,6 +94,9 @@ EXPECTED_DISCREPANCY = {
     "min": Decimal("2.753572170580615"),
     "max": Decimal("17.516912882684615"),
 }
+ACCURACY_MATRICES_ARTIFACT = (
+    ROOT / "results/corpus_v4/accuracy/final/job_6905011/matrices.json"
+)
 
 # A numeric token alone is not enough to identify a scheduler job. These
 # patterns therefore require scheduler/job context and avoid false positives on
@@ -291,6 +295,57 @@ def test_wiki_reports_exact_selected_registry_discrepancy() -> None:
         "R3 greater than R4 | 198 of 198",
     ):
         assert exact_text in result_page
+
+
+def test_wiki_accuracy_rows_are_rendered_from_the_tracked_matrices() -> None:
+    artifact = json.loads(ACCURACY_MATRICES_ARTIFACT.read_text(encoding="utf-8"))
+    views = artifact["views"]
+    result_page = _read("wiki/results/Corpus-V4-Accuracy.md")
+    claim_registry = _read("wiki/claims/Current-Claim-Language.md")
+
+    primary_targets = {
+        "Cps_pF": r"\(C_{ps}\), FEM-R3P16",
+        "L_pri_nH": r"\(L_p\), FastHenry",
+        "L_sec_nH": r"\(L_s\), FastHenry",
+        "L_mut_nH": r"\(M\), FastHenry",
+    }
+    for target, label in primary_targets.items():
+        metrics = views["r3_full_test"][target]
+        family = metrics["family_macro_mape_pct"]
+        mean_ape = metrics["mean_ape_pct"]
+        median_ape = metrics["median_ape_pct"]
+        r2 = metrics["r2"]
+        expected_row = (
+            f"| {label} | {family['mean_across_25_cells']:.3f}% | "
+            f"{family['descriptive_interval'][0]:.3f} to "
+            f"{family['descriptive_interval'][1]:.3f}% | "
+            f"{family['min_across_25_cells']:.3f} to "
+            f"{family['max_across_25_cells']:.3f}% | "
+            f"{mean_ape['mean_across_25_cells']:.3f}% | "
+            f"{median_ape['mean_across_25_cells']:.3f}% | "
+            f"{r2['mean_across_25_cells']:.4f} |"
+        )
+        assert expected_row in result_page
+        assert f"{family['mean_across_25_cells']:.3f}%" in claim_registry
+
+    for view, label in (
+        ("r4_panel_r3", "FEM-R3P16"),
+        ("r4_panel_r4", "FEM-R4P16"),
+    ):
+        metrics = views[view]["Cps_pF"]
+        family = metrics["family_macro_mape_pct"]
+        median_ape = metrics["median_ape_pct"]
+        r2 = metrics["r2"]
+        expected_row = (
+            f"| {label} | {family['mean_across_25_cells']:.3f}% | "
+            f"{family['descriptive_interval'][0]:.3f} to "
+            f"{family['descriptive_interval'][1]:.3f}% | "
+            f"{family['min_across_25_cells']:.3f} to "
+            f"{family['max_across_25_cells']:.3f}% | "
+            f"{median_ape['mean_across_25_cells']:.3f}% | "
+            f"{r2['mean_across_25_cells']:.4f} |"
+        )
+        assert expected_row in result_page
 
 
 @pytest.mark.parametrize(

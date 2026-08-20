@@ -13,7 +13,7 @@
     "results": 1974,
     "root": 10,
     "tests": 30,
-    "wiki": 36
+    "wiki": 37
   },
   "files": [
     {
@@ -168,8 +168,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 15735,
-      "sha256": "550d407a15110553cc70f608b37c5269363c72a2046cb4c0623bdee70277e463"
+      "bytes": 16084,
+      "sha256": "097c46db8965c8fedc7ff0015b79fc84a53764e1cc965b39af6b77a8c7dd753f"
     },
     {
       "path": "SECURITY.md",
@@ -1848,8 +1848,8 @@
     },
     {
       "path": "results/README.md",
-      "bytes": 2691,
-      "sha256": "78e6640cd038b50a6bef808e29e718be1d870569ef7d088e3bf61a2c1e64218a"
+      "bytes": 2925,
+      "sha256": "4574f7317bce2006f83cc8a6ffe0fc247571364e4a4988f8457ad999039ee092"
     },
     {
       "path": "results/corpus_v4/accuracy/ARCHIVE_MANIFEST.json",
@@ -1858,8 +1858,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy/README.md",
-      "bytes": 2616,
-      "sha256": "71c56444f6e6525eae8450436994138d7f5aa18b600ef28c87ed04468177e20f"
+      "bytes": 5022,
+      "sha256": "6a160b9b3b32dd76e6169cf6c0c29582c334c10d8ace40e0104864cecc0158e2"
     },
     {
       "path": "results/corpus_v4/accuracy/final/job_6905011/ANALYSIS_MANIFEST.json",
@@ -11863,8 +11863,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 14338,
-      "sha256": "94844a25317c7ca19bc88de03baf2e84ac2a6ebe273e202d4594d741ed926e94"
+      "bytes": 16642,
+      "sha256": "bf331cae2c1380f6e57a89b3f4c3c4231dd50c949c1f7c4f2606f4859d29acda"
     },
     {
       "path": "wiki/CONTRIBUTING.md",
@@ -11873,18 +11873,18 @@
     },
     {
       "path": "wiki/GLOSSARY.md",
-      "bytes": 2072,
-      "sha256": "0cdf0e4665ec26a895a8a6c019ddeffb891e9f7e476b3b976d1c5ec01a9c8369"
+      "bytes": 2428,
+      "sha256": "d5976a6850e919e2df61ef3e3a898faf11b20ee1538e1cd8c81b8392106db1e5"
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 7473,
-      "sha256": "5474b5d708351f9bb1565da80a732026a3a9a72838bbe9fd5f52dcd5e09e9fbb"
+      "bytes": 7816,
+      "sha256": "1f3c27219e8ad1e9ec639676c51955ec64b7953fea9b554ff9a697aa871bb60a"
     },
     {
       "path": "wiki/LIMITATIONS.md",
-      "bytes": 1674,
-      "sha256": "b2d86b450c313c2c00798d5a0e7808a3f75b7b13a2ddbaa1710ae3b67c563e19"
+      "bytes": 1738,
+      "sha256": "3cfb35ae759c8571c22b36f83128db27989f97f50a357d7d0cc5d9798d82d3fc"
     },
     {
       "path": "wiki/README.md",
@@ -11893,8 +11893,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 4394,
-      "sha256": "7e214ea5237aa3b53169b2c700107bbef81991cee1e3365418b6b4c140e7916a"
+      "bytes": 5253,
+      "sha256": "f2d0511c67c703f0645fcdb945598c1d6f085d3f938c90dcbe862e6dbcd46e30"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -11908,8 +11908,8 @@
     },
     {
       "path": "wiki/claims/Current-Claim-Language.md",
-      "bytes": 5902,
-      "sha256": "fe9a3952f2778b80974eb8d0927a76e566eb74d46c864fbdb6785244ddb849da"
+      "bytes": 6579,
+      "sha256": "56aca3233cbc8e32ffc1d5e8023f6107e471084832b03ced4095ca868bb3b4e1"
     },
     {
       "path": "wiki/claims/Historical-Claim-Ledger.md",
@@ -11938,8 +11938,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 26952,
-      "sha256": "fe4daaedff101e7176a0dbd5195fa4347c8f379d7ca610b959f958d1fa40675b"
+      "bytes": 29594,
+      "sha256": "cbbc5bc63b8211cbb516cbf99d3bb9812a4b221047860d2d02c9fcaee91e095d"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -11963,13 +11963,13 @@
     },
     {
       "path": "wiki/manuscript/Paper-Outline.md",
-      "bytes": 2066,
-      "sha256": "3fbd5a1108b279f739df7ff6ea5a7bbf5010ad2bae115cd448700ef1833d3dfb"
+      "bytes": 2065,
+      "sha256": "3b80d62c9a812169f6da5a95dd18feab4e61d82e778eab8aada76f4bfe4aaec6"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
-      "bytes": 5485,
-      "sha256": "2046818e40cd0f232a15effbc09c20606c3cc116102f245168ac6bdf7d2619a1"
+      "bytes": 5686,
+      "sha256": "a2a3c092ac3b88e1fbce91c99bc671d141bdb6b699a0f1ead75aab9196e6f3a0"
     },
     {
       "path": "wiki/methods/FEM-Cps-Reference.md",
@@ -11983,8 +11983,8 @@
     },
     {
       "path": "wiki/methods/Geometry-Family-Splits.md",
-      "bytes": 1903,
-      "sha256": "6c34bc338fe25d9a56dd84176809c47a8e8f820623601d16f1c35c9fa13b1913"
+      "bytes": 1914,
+      "sha256": "7f19c3893b32f162e8466445adcca3bcc79f986b46472d320d60ff35426c7ab3"
     },
     {
       "path": "wiki/methods/Graph-Surrogate.md",
@@ -12027,6 +12027,11 @@
       "sha256": "4ce3edb7445b6ef87e9058fd028be206f5a81474d433623fa816f730e60de24e"
     },
     {
+      "path": "wiki/results/Corpus-V4-Accuracy.md",
+      "bytes": 4232,
+      "sha256": "e89b444b7aa50aa11133391fda7f95add5745df9ad723f388b7aed6c47d6908a"
+    },
+    {
       "path": "wiki/results/Cps-R3-R4-Production-Discrepancy.md",
       "bytes": 2667,
       "sha256": "5453ec1f0d67933252c045bf1e8fcf3e2c572df85bbb4d03e14954f82a7d6f94"
@@ -12038,15 +12043,15 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 2614,
-      "sha256": "ac17077158fe622d549c8b2b9b272121267a08bce7da36ac0f18fe9431ca0897"
+      "bytes": 2378,
+      "sha256": "f4b5c211f8d588569e87ef11e65d0235aa02fc24ec8a4a0832cda176c2c5f89c"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 3570,
-      "sha256": "dc2aa4762cca00b7508e021e01e39fd91c6edf5e07e4b19e86529c8c48b774a4"
+      "bytes": 3499,
+      "sha256": "1cbefa2b0836b9adfddccad67bf1a28694cfb97170fd462855bfc254e271cbcc"
     }
   ],
-  "n_files": 2406,
-  "total_bytes": 87987590
+  "n_files": 2407,
+  "total_bytes": 88001960
 }

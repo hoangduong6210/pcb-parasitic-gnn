@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 Accuracy Protocol
-status: frozen protocol; accuracy evidence pending
+status: frozen protocol; execution complete
 last_updated: 2026-08-19
 paper_source: true
 prose_reviewed: true
@@ -117,3 +117,7 @@ archive verifier then requires successful finalizer accounting and closes the
 accepted set, candidate index, task artifacts, prediction tables, matrices,
 source lock, and analysis manifest. Accuracy values become claim-eligible only
 after that closure is reviewed and entered in the evidence ledger.
+
+The complete crossed experiment, tracked archive, and claim review have passed.
+The admitted numerical interpretation is maintained in
+[Corpus V4 Family-Held-Out Accuracy](../results/Corpus-V4-Accuracy.md).

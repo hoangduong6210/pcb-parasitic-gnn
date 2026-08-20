@@ -19,7 +19,8 @@ Current evidence is admitted only in this order:
 6. a fidelity-explicit Cps corpus: 1,500 R3 and 198 R4 observations jointly finalized;
 7. a family-aware descriptive R3/R4 discrepancy audit on the frozen 198-layout
    registry — complete;
-8. declared multi-split/multi-initialization accuracy runs on that frozen corpus;
+8. declared multi-split/multi-initialization accuracy runs on that frozen corpus
+   — complete and admitted;
 9. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;
 10. figures and manuscript tables generated only from accepted wiki content.
@@ -37,8 +38,11 @@ sample, and R4 is not treated as truth. The domain comparison
 passed at 0.189658% median and 2.491566% maximum; the mesh comparison was
 rejected at 8.273879% median and 13.886399% maximum.
 
-There is no accepted current-corpus GNN accuracy or speed headline yet. The
-canonical status and scientific interpretation live in
+The current-corpus GNN accuracy result is accepted under the frozen family-held-out
+protocol; current-corpus paired speed remains blocked. The numerical result and
+its scope are maintained in
+[`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md).
+Canonical lifecycle status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
 values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
 

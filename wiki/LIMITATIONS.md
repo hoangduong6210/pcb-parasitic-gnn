@@ -20,13 +20,15 @@ claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-LAT-001
    manufacturing variability are not modeled.
 5. FastHenry supplies free-space winding inductances. The GNN does not model the
    nonlinear ferrite magnetic circuit or frequency-dependent permeability.
-6. Current geometry-valid multi-seed accuracy and paired latency results are not
-   yet complete. Historical v2 values cannot be promoted to current claims.
-7. Confidence intervals from design, family, split, and initialization
-   resampling do not include cross-machine or fabrication uncertainty unless
-   explicitly stated.
+6. The current family-crossed accuracy study is complete, but paired
+   current-corpus latency is not. Historical v2 values cannot be promoted to
+   current claims.
+7. The crossed-axis ranges are descriptive sensitivity intervals for the
+   evaluated split and initialization grid. They are not population confidence
+   intervals and do not cover cross-machine, protocol, or fabrication
+   uncertainty.
 8. The 198-layout R3/R4 registry is deterministic rather than probability
    sampled. Nine anchors were inherited from a convergence selection that used
    capacitance order statistics, while 189 entries were selected from geometry
    descriptors. Its discrepancy summaries describe that panel and do not
-   support a full-corpus confidence interval or global correction.
+   support population coverage or a global correction.

@@ -4,7 +4,7 @@ status: finalized frozen protocol
 last_updated: 2026-08-19
 paper_source: true
 prose_reviewed: true
-claim_ids: C-CPS-DISC-001
+claim_ids: C-CPS-DISC-001, C-ACC-001
 ---
 
 # Geometry Family Splits

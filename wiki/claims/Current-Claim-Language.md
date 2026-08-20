@@ -21,6 +21,7 @@ it becomes paper eligible.
 | `C-FEM-003` | Refine-3 failed the frozen refine-3/refine-4 mesh-sensitivity gate at 16 mm padding. | Median 8.273879%; maximum 13.886399%. R4 is higher resolution, not continuum or physical truth. | `E-C4-CONV-01` | Yes, as a negative result |
 | `C-CPS-DISC-001` | On the frozen deterministic 198-layout registry, with three designs from each of 66 swap-closed turn-count families, every FEM-R3P16 observation exceeded its paired FEM-R4P16 observation; the selected-registry median R3-to-R4 relative discrepancy was 8.479%, with an observed range of 2.754% to 17.517%. | Deterministic selected registry, not a probability sample. Nine anchors were inherited from a label-informed convergence selection; the other 189 entries were geometry-only selections. R4 is a higher-resolution comparator, not truth. No confidence interval, population inference, or global correction is attached. | `E-C4-DISC-01` | Yes, with all stated qualifiers |
 | `C-E3-001` | The tested coordinate-update implementation is E(3)-equivariant in its coordinate state and invariant in its scalar output on the encoded graph within numerical tolerance. | 200 encoded-graph transforms; maximum output and coordinate residuals \(3.919\times10^{-7}\) and \(1.407\times10^{-7}\); tolerance \(2\times10^{-5}\). This is not a predictive-accuracy claim. | `E-V2-E3-01` | Yes |
+| `C-ACC-001` | On the frozen 1,500-layout synthetic active-leg corpus, mean family-macro MAPE across five family-held-out splits crossed with five initialization seeds was 12.890% for \(C_{ps}\) against FEM-R3P16, 4.272% for \(L_p\), 4.076% for \(L_s\), and 3.554% for \(M\) against FastHenry. | The respective 95% crossed-axis seed-grid sensitivity intervals were 12.001 to 13.796%, 3.407 to 5.394%, 3.275 to 4.967%, and 3.243 to 3.814%. These intervals are descriptive, not population confidence intervals. The result measures agreement with synthetic numerical references, not fabricated-board or arbitrary-PCB accuracy. | `E-C4-ACC-01` | Yes, with all stated qualifiers |
 
 ## Validated or finalized artifacts not yet admitted as headline results
 
@@ -29,7 +30,6 @@ it becomes paper eligible.
 | `C-CPS-R3-001` | `FINALIZED` | All 1,500 planned FEM-R3P16 tasks have accepted artifacts under the frozen execution lock and are included in the joint package. | Scientific interpretation remains fidelity-scoped. |
 | `C-CPS-R4-001` | `FINALIZED` | All 198 planned FEM-R4P16 tasks have accepted artifacts under the frozen execution lock and are included in the joint package. | Higher resolution is not continuum or physical truth. |
 | `C-CPS-FINAL-001` | `FINALIZED` | The tracked package contains 1,500 R3 and 198 R4 observations over 1,500 geometries with explicit fidelity identifiers. | Corpus closure alone is not an accuracy, convergence, or physical-validation claim. |
-| `C-ACC-001` | `BLOCKED` | No current-corpus GNN accuracy claim is admitted. | Complete and finalize the frozen 25-cell family-disjoint design, then review separate R3 and R4 agreement. |
 | `C-LAT-001` | `BLOCKED` | No current-corpus end-to-end speedup claim is admitted. | Accepted current model, fixed four-target workflow, paired timings, and scoped uncertainty. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
 
@@ -54,8 +54,11 @@ Do not write:
 - strict E(n) when the executed check establishes the encoded E(3) case;
 - the historical approximately 4,300-fold ratio as paired end-to-end evidence;
 - a global correction of FEM-R3P16 by the observed median mesh difference;
-- an exclusion chosen after inspecting a layout's R3/R4 discrepancy; or
-- a current accuracy, ranking, or speed number derived from v0 through v2.
+- an exclusion chosen after inspecting a layout's R3/R4 discrepancy;
+- a current accuracy, ranking, or speed number derived from v0 through v2;
+- “95% confidence interval” for the crossed-axis descriptive ranges;
+- 12.890% as physical or fabricated-board accuracy; or
+- five independent R4 panels, because the split panels overlap.
 
 ## Required capacitance wording
 
