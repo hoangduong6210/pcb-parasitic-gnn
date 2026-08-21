@@ -1,7 +1,7 @@
 ---
 title: FEM Mesh Repeatability Diagnostic
-status: frozen design pending execution
-last_updated: 2026-08-20
+status: postterminal negative result
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -88,6 +88,35 @@ The gates are frozen before execution:
 4. Every Arm-A value must remain within `1e-4` of its frozen R3 reference.
 5. Arm-B reference drift is reported but cannot relabel or admit an old result.
 
+## Result
+
+The corrected run completed all 15 source elements and 30 FEM solves. The
+source array and finalizer both reached exact `COMPLETED/0:0`, and the
+solver-free postterminal validator authenticated the finalizer accounting.
+The scientific decision is negative for the existing 25-thread path and
+positive only for the one-thread diagnostic candidate.
+
+| Layout | Arm | Maximum pairwise Cps spread | Maximum frozen-reference drift | Unique system hashes | Mesh identity | Repeatability |
+|---:|---|---:|---:|---:|---|---|
+| 3 | 25 threads | `5.5882813e-4` | `5.4341469e-4` | 5 | Fail | Fail |
+| 3 | 1 thread | `4.4273675e-15` | `2.8036796e-4` | 1 | Pass | Pass |
+| 734 | 25 threads | `7.4171889e-3` | `6.7838903e-3` | 5 | Fail | Fail |
+| 734 | 1 thread | `8.4549511e-15` | `2.6942777e-3` | 1 | Pass | Pass |
+| 1,495 | 25 threads | `7.2121703e-3` | `4.0836904e-3` | 5 | Fail | Fail |
+| 1,495 | 1 thread | `4.4121269e-15` | `1.3754626e-3` | 1 | Pass | Pass |
+
+The frozen repeatability and Arm-A reference-agreement thresholds are both
+`1e-4`. Arm A failed mesh identity, within-layout repeatability, and frozen
+reference agreement on every layout. Arm B reproduced one discrete system per
+layout and passed the repeatability gate, but its reference drift is reported
+only; by protocol it cannot retroactively relabel the existing corpus.
+
+The postterminal receipt consequently records
+`paired_latency_preflight_may_resume=false`. The next scientific transition is
+to version the deterministic one-thread formulation as a new FEM reference,
+regenerate all Cps labels, retrain the model, and rerun accuracy and latency.
+The old and new Cps labels must not be mixed.
+
 The SLURM finalizer first writes a non-admissible preterminal result under a
 path containing both the source-array and finalizer job identities. Only after
 the finalizer reaches exact `COMPLETED/0:0` may the solver-free admission step
@@ -114,8 +143,9 @@ scheduler identity fields and then omitted them from the retained nested
 record, while the finalizer required the retained copy. The attempt remains a
 non-admissible diagnostic and its artifacts were not edited. The correction
 retains those already-validated identities, requires an exact retained schema,
-and reruns all 30 solves from a new clean commit; numerical settings, panel,
-arms, tolerance, and decision rules are unchanged.
+and reran all 30 solves from a new clean commit; numerical settings, panel,
+arms, tolerance, and decision rules were unchanged. That corrected execution
+closed successfully and produced the negative result reported above.
 
 The current executable contract is
 [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json).

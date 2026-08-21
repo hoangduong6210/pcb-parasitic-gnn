@@ -1,0 +1,887 @@
+{
+  "admission_eligible": false,
+  "artifact_stage": "preterminal_finalizer_output",
+  "claim_eligible": false,
+  "created_utc": "2026-08-21T06:16:41.276620+00:00",
+  "decision": {
+    "all_15_scheduler_rows_completed_zero": true,
+    "arm_a_all_gates_pass": false,
+    "paired_latency_preflight_may_resume": false,
+    "provisional_preterminal_gate_pass": false
+  },
+  "post_run_admission": {
+    "finalizer_job_id": "6916047",
+    "required": true,
+    "required_exit_code": "0:0",
+    "required_state": "COMPLETED",
+    "terminal_accounting_verified": false
+  },
+  "protocol_sha256": "faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2",
+  "provenance": {
+    "executed_batch_sha256": "9822f09719e922304df34b127e9860d14e1c3668905b24ec60616420968d8ba9",
+    "finalizer_hardware": {
+      "affinity_cpu_count": 3,
+      "anonymous_class_sha256": "f410e1df3e4cfcfa795177350143cc5fe2d9350b7994c2c0ba726fec5a623450",
+      "architecture": "x86_64",
+      "cpu_model": "AMD EPYC 7H12 64-Core Processor",
+      "kernel": "5.14.0-570.128.1.el9_6.x86_64"
+    },
+    "finalizer_hostname": "a0116.ten.osc.edu",
+    "finalizer_runtime": {
+      "packages": {
+        "gmsh": "4.15.2",
+        "meshio": "5.3.5",
+        "numpy": "2.0.2",
+        "pyamg": "5.3.0",
+        "scikit-fem": "11.0.0",
+        "scipy": "1.13.1"
+      },
+      "python": "3.9.21",
+      "thread_environment": {
+        "BLIS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    "finalizer_scheduler": {
+      "allocated_cpus_per_task": 3,
+      "job_account": "pgs0407",
+      "job_id": "6916047",
+      "memory_mib": 8192,
+      "partition": "nextgen",
+      "requested_cpus_per_task": 2,
+      "scheduler_record": {
+        "Account": "pgs0407",
+        "AllocTRES": "cpu=3,mem=8G,node=1,billing=3",
+        "CPUs/Task": "3",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "8G",
+        "NodeList": "a0116",
+        "NumCPUs": "3",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=2,mem=8G,node=1,billing=2",
+        "TimeLimit": "00:30:00",
+        "TresPerTask": "cpu=2"
+      },
+      "slurmd_nodename": "a0116"
+    },
+    "input_bindings": {
+      "cps_protocol": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+      "evaluation_dataset": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c",
+      "geometry_contract": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+      "geometry_layouts": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+      "latency_task_manifest": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+    },
+    "source_git_head": "64040733763a69c9fe9c0f15423c3ba7ed138cc2",
+    "source_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+      "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py": "bc948f0709c078bbbf8b87cdff24fc0dcaf558cfe36f7e8ca1795e7dbec6c0e9",
+      "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "6bb4a7199868db4aebe1d91265597798e7ae564d3c608cb9eff6cb11e96ac90f",
+      "code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py": "e676ca6f5aff371da80052bd81bd3dff6fc218876c58ce0343e6128e8cee2caf",
+      "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_fem_repeatability.sh": "08db1370d1700a9e1ae396f8420cacdf9c6b8a0eabce52a7dee2c00c650dbf29",
+      "code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh": "9822f09719e922304df34b127e9860d14e1c3668905b24ec60616420968d8ba9",
+      "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+      "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+      "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+      "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    }
+  },
+  "repeatability_summary": {
+    "claim_eligible": false,
+    "created_utc": "2026-08-21T06:16:41.276600+00:00",
+    "decision": {
+      "arm_a_all_gates_pass": false,
+      "arm_b_repeatability_gates_pass": true,
+      "paired_latency_preflight_may_resume": false,
+      "provisional_preterminal_gate_pass": false,
+      "terminal_accounting_gate_applied": true,
+      "tolerance_changed": false
+    },
+    "groups": [
+      {
+        "arm_id": "arm_a_threads25",
+        "cps_pf": {
+          "mad_over_median_scaled": 0.00019043599369824525,
+          "max_pairwise_relative_spread": 0.0005588281333000509,
+          "maximum": 12.039822476767869,
+          "median": 12.036850940892352,
+          "minimum": 12.033094285247913,
+          "values_by_repeat": [
+            12.039822476767869,
+            12.03839704211313,
+            12.036850940892352,
+            12.036260151482974,
+            12.033094285247913
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.0005434146895014532,
+            0.0004249570245632413,
+            0.00029647162555685965,
+            0.00024737534908253424,
+            1.5717119215139634e-05
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.0005434146895014532,
+          "signed_relative_drifts_by_repeat": [
+            0.0005434146895014532,
+            0.0004249570245632413,
+            0.00029647162555685965,
+            0.00024737534908253424,
+            -1.5717119215139634e-05
+          ],
+          "value_cps_pf": 12.033283413797877
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": false,
+          "mesh_identity_pass": false,
+          "numerical_resource_pass": true,
+          "old_reference_required": true,
+          "repeatability_pass": false
+        },
+        "layout_id": 3,
+        "mesh": {
+          "node_count_range": [
+            1709436,
+            1720382
+          ],
+          "system_sha256_unique_count": 5,
+          "tetrahedron_count_range": [
+            10322099,
+            10390449
+          ]
+        }
+      },
+      {
+        "arm_id": "arm_b_threads1",
+        "cps_pf": {
+          "mad_over_median_scaled": 2.6256060448241996e-15,
+          "max_pairwise_relative_spread": 4.427367538149526e-15,
+          "maximum": 12.036657160900862,
+          "median": 12.036657160900841,
+          "minimum": 12.036657160900809,
+          "values_by_repeat": [
+            12.036657160900862,
+            12.036657160900809,
+            12.036657160900813,
+            12.03665716090085,
+            12.036657160900841
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.00028036795835100707,
+            0.0002803679583465784,
+            0.00028036795834687365,
+            0.0002803679583499737,
+            0.0002803679583492356
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.00028036795835100707,
+          "signed_relative_drifts_by_repeat": [
+            0.00028036795835100707,
+            0.0002803679583465784,
+            0.00028036795834687365,
+            0.0002803679583499737,
+            0.0002803679583492356
+          ],
+          "value_cps_pf": 12.033283413797877
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": true,
+          "mesh_identity_pass": true,
+          "numerical_resource_pass": true,
+          "old_reference_required": false,
+          "repeatability_pass": true
+        },
+        "layout_id": 3,
+        "mesh": {
+          "node_count_range": [
+            1717228,
+            1717228
+          ],
+          "system_sha256_unique_count": 1,
+          "tetrahedron_count_range": [
+            10370895,
+            10370895
+          ]
+        }
+      },
+      {
+        "arm_id": "arm_a_threads25",
+        "cps_pf": {
+          "mad_over_median_scaled": 0.0015284577820126619,
+          "max_pairwise_relative_spread": 0.007417188940631129,
+          "maximum": 39.63014460190545,
+          "median": 39.553376536221926,
+          "minimum": 39.336200331648584,
+          "values_by_repeat": [
+            39.5253141241481,
+            39.594153324412716,
+            39.336200331648584,
+            39.553376536221926,
+            39.63014460190545
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.002008877373235754,
+            0.0002707277272387271,
+            0.00678389030515051,
+            0.0013003178399401405,
+            0.0006380310321964062
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.00678389030515051,
+          "signed_relative_drifts_by_repeat": [
+            -0.002008877373235754,
+            -0.0002707277272387271,
+            -0.00678389030515051,
+            -0.0013003178399401405,
+            0.0006380310321964062
+          ],
+          "value_cps_pf": 39.604875462334206
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": false,
+          "mesh_identity_pass": false,
+          "numerical_resource_pass": true,
+          "old_reference_required": true,
+          "repeatability_pass": false
+        },
+        "layout_id": 734,
+        "mesh": {
+          "node_count_range": [
+            1929699,
+            1934756
+          ],
+          "system_sha256_unique_count": 5,
+          "tetrahedron_count_range": [
+            11662073,
+            11693990
+          ]
+        }
+      },
+      {
+        "arm_id": "arm_b_threads1",
+        "cps_pf": {
+          "mad_over_median_scaled": 2.133669865926096e-15,
+          "max_pairwise_relative_spread": 8.454951074002292e-15,
+          "maximum": 39.498168928985166,
+          "median": 39.49816892898511,
+          "minimum": 39.49816892898483,
+          "values_by_repeat": [
+            39.49816892898505,
+            39.49816892898511,
+            39.49816892898483,
+            39.498168928985166,
+            39.498168928985116
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.002694277714637337,
+            0.0026942777146359014,
+            0.0026942777146428984,
+            0.0026942777146344663,
+            0.0026942777146357223
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.0026942777146428984,
+          "signed_relative_drifts_by_repeat": [
+            -0.002694277714637337,
+            -0.0026942777146359014,
+            -0.0026942777146428984,
+            -0.0026942777146344663,
+            -0.0026942777146357223
+          ],
+          "value_cps_pf": 39.604875462334206
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": true,
+          "mesh_identity_pass": true,
+          "numerical_resource_pass": true,
+          "old_reference_required": false,
+          "repeatability_pass": true
+        },
+        "layout_id": 734,
+        "mesh": {
+          "node_count_range": [
+            1932375,
+            1932375
+          ],
+          "system_sha256_unique_count": 1,
+          "tetrahedron_count_range": [
+            11679347,
+            11679347
+          ]
+        }
+      },
+      {
+        "arm_id": "arm_a_threads25",
+        "cps_pf": {
+          "mad_over_median_scaled": 0.004150867234227791,
+          "max_pairwise_relative_spread": 0.007212170337863738,
+          "maximum": 40.44328165317312,
+          "median": 40.3303678514337,
+          "minimum": 40.15159781686824,
+          "values_by_repeat": [
+            40.15159781686824,
+            40.44328165317312,
+            40.3303678514337,
+            40.352926203916134,
+            40.20838852780001
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.004083690356318517,
+            0.0031512070233676204,
+            0.00035050411612434947,
+            0.0009100392872628964,
+            0.0026750591105290933
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.004083690356318517,
+          "signed_relative_drifts_by_repeat": [
+            -0.004083690356318517,
+            0.0031512070233676204,
+            0.00035050411612434947,
+            0.0009100392872628964,
+            -0.0026750591105290933
+          ],
+          "value_cps_pf": 40.31623684447307
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": false,
+          "mesh_identity_pass": false,
+          "numerical_resource_pass": true,
+          "old_reference_required": true,
+          "repeatability_pass": false
+        },
+        "layout_id": 1495,
+        "mesh": {
+          "node_count_range": [
+            1955079,
+            1956981
+          ],
+          "system_sha256_unique_count": 5,
+          "tetrahedron_count_range": [
+            11816262,
+            11829526
+          ]
+        }
+      },
+      {
+        "arm_id": "arm_b_threads1",
+        "cps_pf": {
+          "mad_over_median_scaled": 7.849703149443642e-16,
+          "max_pairwise_relative_spread": 4.4121268657783785e-15,
+          "maximum": 40.2607833690854,
+          "median": 40.26078336908534,
+          "minimum": 40.260783369085225,
+          "values_by_repeat": [
+            40.26078336908534,
+            40.26078336908536,
+            40.2607833690854,
+            40.260783369085225,
+            40.260783369085324
+          ]
+        },
+        "frozen_reference": {
+          "absolute_relative_drifts_by_repeat": [
+            0.0013754625859960748,
+            0.0013754625859955462,
+            0.0013754625859944886,
+            0.0013754625859988946,
+            0.0013754625859964272
+          ],
+          "all_five_pass": false,
+          "maximum_absolute_relative_drift": 0.0013754625859988946,
+          "signed_relative_drifts_by_repeat": [
+            -0.0013754625859960748,
+            -0.0013754625859955462,
+            -0.0013754625859944886,
+            -0.0013754625859988946,
+            -0.0013754625859964272
+          ],
+          "value_cps_pf": 40.31623684447307
+        },
+        "gate": {
+          "gmsh_thread_observation_pass": true,
+          "group_pass": true,
+          "mesh_identity_pass": true,
+          "numerical_resource_pass": true,
+          "old_reference_required": false,
+          "repeatability_pass": true
+        },
+        "layout_id": 1495,
+        "mesh": {
+          "node_count_range": [
+            1954282,
+            1954282
+          ],
+          "system_sha256_unique_count": 1,
+          "tetrahedron_count_range": [
+            11811241,
+            11811241
+          ]
+        }
+      }
+    ],
+    "panel_headlines": {
+      "arm_a_max_pairwise_relative_spread": 0.007417188940631129,
+      "arm_a_max_reference_relative_drift": 0.00678389030515051,
+      "arm_b_max_pairwise_relative_spread": 8.454951074002292e-15,
+      "arm_b_max_reference_relative_drift_report_only": 0.0026942777146428984
+    },
+    "schema": "pcb-gnn.corpus-v4-fem-repeatability-summary.v1",
+    "speed_claim_eligible": false
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-final.v1",
+  "source_array": {
+    "accounting": [
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "876",
+        "ExitCode": "0:0",
+        "JobID": "6916045_0",
+        "JobIDRaw": "6916049",
+        "NodeList": "a0120",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 0,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "857",
+        "ExitCode": "0:0",
+        "JobID": "6916045_1",
+        "JobIDRaw": "6916050",
+        "NodeList": "a0124",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 1,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "851",
+        "ExitCode": "0:0",
+        "JobID": "6916045_2",
+        "JobIDRaw": "6916051",
+        "NodeList": "a0126",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 2,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "848",
+        "ExitCode": "0:0",
+        "JobID": "6916045_3",
+        "JobIDRaw": "6916132",
+        "NodeList": "a0126",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 3,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "866",
+        "ExitCode": "0:0",
+        "JobID": "6916045_4",
+        "JobIDRaw": "6916133",
+        "NodeList": "a0120",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 4,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "1003",
+        "ExitCode": "0:0",
+        "JobID": "6916045_5",
+        "JobIDRaw": "6916134",
+        "NodeList": "a0133",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 5,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "982",
+        "ExitCode": "0:0",
+        "JobID": "6916045_6",
+        "JobIDRaw": "6916186",
+        "NodeList": "a0126",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 6,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "989",
+        "ExitCode": "0:0",
+        "JobID": "6916045_7",
+        "JobIDRaw": "6916187",
+        "NodeList": "a0120",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 7,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "997",
+        "ExitCode": "0:0",
+        "JobID": "6916045_8",
+        "JobIDRaw": "6916194",
+        "NodeList": "a0139",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 8,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "978",
+        "ExitCode": "0:0",
+        "JobID": "6916045_9",
+        "JobIDRaw": "6916224",
+        "NodeList": "a0121",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 9,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "1055",
+        "ExitCode": "0:0",
+        "JobID": "6916045_10",
+        "JobIDRaw": "6916230",
+        "NodeList": "a0120",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 10,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "984",
+        "ExitCode": "0:0",
+        "JobID": "6916045_11",
+        "JobIDRaw": "6916232",
+        "NodeList": "a0126",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 11,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "1025",
+        "ExitCode": "0:0",
+        "JobID": "6916045_12",
+        "JobIDRaw": "6916280",
+        "NodeList": "a0104",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 12,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "1034",
+        "ExitCode": "0:0",
+        "JobID": "6916045_13",
+        "JobIDRaw": "6916284",
+        "NodeList": "a0139",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 13,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "ElapsedRaw": "988",
+        "ExitCode": "0:0",
+        "JobID": "6916045_14",
+        "JobIDRaw": "6916045",
+        "NodeList": "a0126",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=25,cpu=25,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 14,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      }
+    ],
+    "accounting_provenance": {
+      "canonical_rows_sha256": "e38c573d36e2f3b3b595697a24d5ecc8052750ead744d2e83bab9c738fea95fb",
+      "command": [
+        "sacct",
+        "-X",
+        "-n",
+        "-P",
+        "-j",
+        "6916045",
+        "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+      ],
+      "origin": "live_sacct",
+      "queried_utc": "2026-08-21T06:16:40.880514+00:00",
+      "raw_stdout_sha256": "7748c80ea0102b81eb9b1ffd0cbbf201bef1bde664aad4693338e4e518fe219f",
+      "row_count": 15,
+      "schema": "pcb-gnn.corpus-v4-fem-repeatability-accounting-provenance.v1"
+    },
+    "array_job_id": "6916045",
+    "completed_zero_count": 15,
+    "task_receipts": [
+      {
+        "array_task_id": 0,
+        "artifact_manifest_sha256": "45ed6c976159e25cd291318e46d830389ad332ae62e3f64167ff5d467e0f79d5",
+        "job_id": "6916045_0",
+        "job_id_raw": "6916049",
+        "result_sha256": "e196ff97458b2165f8f4423002468e9a585d81b75476ded1e29ce9eaa71fcad4",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 1,
+        "artifact_manifest_sha256": "22aa307286580b89665202ac611f163f9cfad140d430f5873743e91927a63cd5",
+        "job_id": "6916045_1",
+        "job_id_raw": "6916050",
+        "result_sha256": "b989e0c9820717395aa3922d32b6e50e9a4d0f446656e0493902818f32f443b7",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 2,
+        "artifact_manifest_sha256": "b8acfb5445b3b87b6a9908fecb1c0055cd515470635c27bb2d3bdbd12a405df9",
+        "job_id": "6916045_2",
+        "job_id_raw": "6916051",
+        "result_sha256": "6baceb5b78ee51790225f35bb2b77405641aeb86c9b89535be7e0b62cfd9f73e",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 3,
+        "artifact_manifest_sha256": "b9d68b0692c813e805b47656d3bd6fffd9747b280ced499b22260e3d94ca2790",
+        "job_id": "6916045_3",
+        "job_id_raw": "6916132",
+        "result_sha256": "a2315ada9f6fa55a97513753ee7903d9c8b244519fb88ce7dae0f902d1bfdd34",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 4,
+        "artifact_manifest_sha256": "34b6455a3fa3247dd9f83e88595eda962abb858d92139bac3a02eaa8978a46b7",
+        "job_id": "6916045_4",
+        "job_id_raw": "6916133",
+        "result_sha256": "68b6af08015d864b81438816e0be96ea8f2a231a57930bd50d2f6fc81576fdb5",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 5,
+        "artifact_manifest_sha256": "f3c57a94767528a255f6dfe0d56a240a4e3a0b0313d2a1653af0eebb7d0af716",
+        "job_id": "6916045_5",
+        "job_id_raw": "6916134",
+        "result_sha256": "4296e1a8de289ee55f9445654314e82a45172488e199c76f42863108a7bb259a",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 6,
+        "artifact_manifest_sha256": "02d82f56af5cdac1b73cf7595562e6fb67a25152fa6bd38015e106004797ded4",
+        "job_id": "6916045_6",
+        "job_id_raw": "6916186",
+        "result_sha256": "1d04783d5886b9c1a840ccf3ce75d8859944ac4c2fc5e74963fa0fbf28e85715",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 7,
+        "artifact_manifest_sha256": "bfe06b3c0625dc6ced75b51340ef3ed5b8d735530df4cdfe15a7a97429f1b6e5",
+        "job_id": "6916045_7",
+        "job_id_raw": "6916187",
+        "result_sha256": "67b76fdbea4684ec4c9ed9343f9b6486f53378d9e8c6fbf2ede12d987bbe8762",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 8,
+        "artifact_manifest_sha256": "95094dbce0327d1b7d6d9f281274a86156d8e88be9a090cd483926420fa6350d",
+        "job_id": "6916045_8",
+        "job_id_raw": "6916194",
+        "result_sha256": "3f21b6bd8edeceeeebc0dd5614b364da658fbc26329fe9f0acadc4837f6374a4",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 9,
+        "artifact_manifest_sha256": "480b4ab6e6e2de52a1292f1558003b17930030afcb7c01433a342fe7c78207f8",
+        "job_id": "6916045_9",
+        "job_id_raw": "6916224",
+        "result_sha256": "e231b2f6f1e5115700411e7156dbcc1ca2bdc3c30c500c8c9e338940ea85bd86",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 10,
+        "artifact_manifest_sha256": "f550ece700556022a1549e8a0bcc9439ecf200f86b84e958570a4cd96fdeeb78",
+        "job_id": "6916045_10",
+        "job_id_raw": "6916230",
+        "result_sha256": "fe3234bca69bdbba84617c72f69ad6b66aaa895e68af82a9cf2029ff568bd68f",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 11,
+        "artifact_manifest_sha256": "6026e97bc5d904ab8fe9cb8bd47d322cdabb9582a1fa66b5a1aa96c1434fbae4",
+        "job_id": "6916045_11",
+        "job_id_raw": "6916232",
+        "result_sha256": "04637f3791af732d340051e5d04e544a5f0175dd57c1bfb44a11902eee871f33",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 12,
+        "artifact_manifest_sha256": "e11965e5d36a6e28699c9bf6b979be47da7b82c33514b6a10f634dd044bb6de0",
+        "job_id": "6916045_12",
+        "job_id_raw": "6916280",
+        "result_sha256": "bf218437c4511b6d3addbcffa7d7e096d28daa7e6ddb534f8b2124bc94a95e00",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 13,
+        "artifact_manifest_sha256": "aac255cfadf6460cb88cb9579c6bcec3e065da565cb033f0e0fb5600af3f916f",
+        "job_id": "6916045_13",
+        "job_id_raw": "6916284",
+        "result_sha256": "f40501d685061de5d035ab6c76b0cb2ffa3947411abcdd1c3c74b0f15c049644",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "array_task_id": 14,
+        "artifact_manifest_sha256": "b07fad040e5735a2745702b0c79f1c2a571c94767e556f3a2c447cb28468c6fc",
+        "job_id": "6916045_14",
+        "job_id_raw": "6916045",
+        "result_sha256": "ac6c7660c8c856217edec56e341bed49ef0dd2094d777988ea4d82517dae81ba",
+        "scheduler_exit_code": "0:0",
+        "scheduler_state": "COMPLETED",
+        "terminal_success": true
+      }
+    ]
+  },
+  "speed_claim_eligible": false
+}

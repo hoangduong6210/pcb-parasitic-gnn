@@ -1,9 +1,9 @@
 # Corpus V4 paired-latency evidence
 
-Status: diagnostic preflight rejected; the first FEM repeatability finalizer
-failed closed on an artifact-schema mismatch and a complete corrected rerun is
-pending; `C-LAT-001` remains blocked and the 306-layout full array remains
-closed.
+Status: diagnostic preflight rejected; the corrected FEM repeatability run
+closed with a postterminal negative decision;
+`paired_latency_preflight_may_resume=false`. `C-LAT-001` remains blocked and
+the 306-layout full array remains closed.
 
 ## Submission status
 
@@ -35,9 +35,13 @@ scientific step is the frozen
 [FEM repeatability study](../../../wiki/methods/FEM-Repeatability.md), protocol
 SHA-256
 `faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`;
-its corrected SLURM rerun is pending and the existing tolerance will not be
-relaxed post hoc. A future full array additionally
-requires an authenticated three-task preflight admission artifact.
+its corrected SLURM rerun completed without relaxing the tolerance. The
+existing 25-thread arm failed all three mesh/repeatability gates, while the
+one-thread diagnostic arm passed all three. The next valid transition is a
+versioned deterministic FEM reference and complete Cps-label, training,
+accuracy, and latency regeneration. A future full array additionally requires
+an authenticated three-task preflight admission artifact under that new
+versioned chain.
 
 This directory is reserved for the current-corpus paired-latency evidence. It
 does not contain an admitted speed result. The scientific protocol is owned by

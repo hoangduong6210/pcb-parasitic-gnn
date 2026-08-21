@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-21 02:41 UTC.
+Last scheduler observation: 2026-08-21 09:04 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -16,8 +16,8 @@ Last scheduler observation: 2026-08-21 02:41 UTC.
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
-| FEM mesh repeatability | `SOURCE COMPLETE / FINALIZER REJECTED / CORRECTION FROZEN` | Source Job `6915210`: 15 of 15 elements `COMPLETED/0:0`, 30 arm records preserved; Finalizer Job `6915245`: `FAILED/1:0` before aggregation | Push and CI-validate the corrected retained-scheduler contract, then rerun the full 15-element source array and one finalizer | Failed attempt preserved; no result admitted and no claim or speed eligibility |
-| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Submit the frozen FEM mesh-repeatability diagnostic | All three diagnostic preflight tasks exceeded the unchanged Cps reference-agreement tolerance; no task is admissible |
+| FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
+| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
 over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
@@ -62,10 +62,10 @@ task. Maximum relative Cps drift was `2.6572226e-4`, `1.6908165e-3`, and
 unchanged `1e-4` gate. These are diagnostic values from rejected job `6909354`,
 not performance results.
 
-The evidence points to fresh Gmsh meshes changing across executions. The next
-transition is therefore a separately frozen, SLURM-only repeatability study on
-the same three preselected anchors: five fresh-mesh repeats with the existing
-25-thread meshing path and five with a one-thread diagnostic candidate. The
+The evidence points to fresh Gmsh meshes changing across executions. A
+separately frozen, SLURM-only repeatability study therefore evaluated the same
+three preselected anchors with five fresh-mesh repeats under the existing
+25-thread meshing path and five under a one-thread diagnostic candidate. The
 executable protocol is frozen at SHA-256
 `faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`.
 The first source array, Job `6915210`, completed all 15 elements and preserved
@@ -73,10 +73,13 @@ The first source array, Job `6915210`, completed all 15 elements and preserved
 the source producer did not retain three scheduler identities that it had
 already authenticated, while the finalizer required their nested copies. The
 source artifacts remain unchanged and non-admissible. The corrected contract
-retains the identity projection and requires a complete rerun from a new clean
-commit; no numerical setting or tolerance changed after observing the data.
-The full latency array remains closed
-until mesh repeatability is resolved and a new three-task preflight passes an
-authenticated admission gate. Until that sequence closes, `C-LAT-001` remains
+retained the identity projection and reran all 30 solves from source commit
+`6404073`; no numerical setting or tolerance changed. All 15 source elements
+and the finalizer completed with exit code `0:0`. Arm A failed mesh identity
+and repeatability on all three layouts, while Arm B passed both on all three.
+The terminal admission therefore records
+`paired_latency_preflight_may_resume=false`. The next transition is a versioned
+one-thread FEM reference followed by complete Cps-label, training, accuracy,
+and latency regeneration. Until that sequence closes, `C-LAT-001` remains
 blocked and no current speed value is permitted. Baseline, strict E(3), and
 ranking comparisons also require their own frozen protocols and jobs.

@@ -1,0 +1,9 @@
+{
+  "files_sha256": {
+    "result.json": "fb8b6aa0816f8cd37c838968fd4ea93d013ad59a1e6d09cc94271032dad83433"
+  },
+  "finalizer_job_id": "6916047",
+  "protocol_sha256": "faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2",
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-final-manifest.v1",
+  "source_array_job_id": "6916045"
+}

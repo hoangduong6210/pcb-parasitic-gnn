@@ -35,6 +35,19 @@ REJECTED_FINALIZER_ROOT = (
     ROOT
     / "results/corpus_v4/fem_repeatability/v1/failures/finalizer_job_6915245"
 )
+CORRECTED_ATTEMPT_ROOT = (
+    ROOT / "results/corpus_v4/fem_repeatability/v1/attempts/job_6916045"
+)
+CORRECTED_FINAL_ROOT = (
+    ROOT
+    / "results/corpus_v4/fem_repeatability/v1/final/source_job_6916045"
+    / "finalizer_job_6916047"
+)
+CORRECTED_ADMISSION_PATH = (
+    ROOT
+    / "results/corpus_v4/fem_repeatability/v1/admission/source_job_6916045"
+    / "finalizer_job_6916047/FINAL_ADMISSION.json"
+)
 
 
 def _load_runner() -> ModuleType:
@@ -1420,3 +1433,57 @@ def test_rejected_finalizer_evidence_is_hash_closed_and_non_admissible() -> None
     assert receipt["source_array"]["state"] == "COMPLETED"
     assert receipt["finalizer"]["state"] == "FAILED"
     assert receipt["finalizer"]["exit_code"] == "1:0"
+
+
+def test_corrected_repeatability_evidence_is_hash_closed_and_negative() -> None:
+    for task_id in range(15):
+        task_root = CORRECTED_ATTEMPT_ROOT / f"task_{task_id:02d}"
+        task_manifest = json.loads(
+            (task_root / "TASK_MANIFEST.json").read_text(encoding="utf-8")
+        )
+        assert task_manifest["protocol_sha256"] == _sha256(PROTOCOL_PATH)
+        assert set(task_manifest["files_sha256"]) == {
+            "arm_a_threads25.json",
+            "arm_b_threads1.json",
+            "result.json",
+            "started.json",
+        }
+        for name, expected_sha256 in task_manifest["files_sha256"].items():
+            assert _sha256(task_root / name) == expected_sha256
+
+    final_manifest = json.loads(
+        (CORRECTED_FINAL_ROOT / "FINAL_MANIFEST.json").read_text(encoding="utf-8")
+    )
+    final_result_path = CORRECTED_FINAL_ROOT / "result.json"
+    assert final_manifest["source_array_job_id"] == "6916045"
+    assert final_manifest["finalizer_job_id"] == "6916047"
+    assert final_manifest["files_sha256"] == {
+        "result.json": _sha256(final_result_path)
+    }
+
+    final_result = json.loads(final_result_path.read_text(encoding="utf-8"))
+    assert final_result["source_array"]["completed_zero_count"] == 15
+    assert len(final_result["source_array"]["task_receipts"]) == 15
+    assert final_result["decision"]["arm_a_all_gates_pass"] is False
+    assert final_result["decision"]["paired_latency_preflight_may_resume"] is False
+    repeatability_decision = final_result["repeatability_summary"]["decision"]
+    assert repeatability_decision["arm_b_repeatability_gates_pass"] is True
+
+    admission = json.loads(CORRECTED_ADMISSION_PATH.read_text(encoding="utf-8"))
+    assert (
+        admission["source_git_head"]
+        == "64040733763a69c9fe9c0f15423c3ba7ed138cc2"
+    )
+    assert admission["preterminal_final"]["final_result_sha256"] == _sha256(
+        final_result_path
+    )
+    assert admission["preterminal_final"]["final_manifest_sha256"] == _sha256(
+        CORRECTED_FINAL_ROOT / "FINAL_MANIFEST.json"
+    )
+    assert admission["decision"] == {
+        "paired_latency_preflight_may_resume": False,
+        "provisional_preterminal_gate_pass": False,
+        "terminal_finalizer_completed_zero": True,
+    }
+    assert admission["claim_eligible"] is False
+    assert admission["speed_claim_eligible"] is False

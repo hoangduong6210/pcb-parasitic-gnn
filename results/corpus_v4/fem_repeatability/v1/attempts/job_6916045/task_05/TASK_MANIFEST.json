@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "arm_a_threads25.json": "921eac55f5ea29ffefe3967e3ea1655b45af05c13376b5337a1afd816f64275e",
+    "arm_b_threads1.json": "4ac8db8eaeccc667eb8227c819e2f3b5fad68e2fa749938925bc25e2e679b52e",
+    "result.json": "4296e1a8de289ee55f9445654314e82a45172488e199c76f42863108a7bb259a",
+    "started.json": "5537f8884184183de1ddbb593227e5e1f96acd3a097acd9c8a241ab67fb3d44e"
+  },
+  "protocol_sha256": "faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2",
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-attempt-manifest.v1"
+}

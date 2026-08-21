@@ -508,19 +508,36 @@ change. The two-arm repeatability experiment is required for that decision.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `FROZEN; COMPLETE RERUN REQUIRED; NOT YET ADMITTED` |
+| Lifecycle | `FROZEN; EXECUTED AS RUN-02` |
 | Protocol | [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json) |
 | Protocol SHA-256 | `faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2` |
 | Correction | Retain the three scheduler identities already authenticated by the producer and require the exact 16-field nested scheduler record during finalization |
 | Scientific freeze | Panel, five repeats, arm ordering, FEM settings, resources, `1e-4` tolerance, decision rule, and claim exclusions are byte-equivalent in meaning to Run 01 |
 | Latency execution lock | [`corpus_v4_latency_execution_lock_v3.json`](../../protocols/corpus_v4_latency_execution_lock_v3.json), SHA-256 `e54b9ef326006a60a62446d90c43d6565cf1d52bbbef5315fc0bdc28d109de13` |
-| Required transition | Push and CI-pass the corrected source → submit all 15 source elements and 30 solves → one terminal finalizer → solver-free admission; no artifact from Run 01 is mutated or substituted |
-| Claim use | None until a new immutable `FINAL_ADMISSION.json` closes the corrected execution |
+| Required transition | Completed by Run 02: push and CI-pass the corrected source → submit all 15 source elements and 30 solves → one terminal finalizer → solver-free admission; no artifact from Run 01 was mutated or substituted |
+| Claim use | Planning record only; the terminal result is recorded separately below |
 
 The computation and unchanged decision rule are described in
 [FEM Mesh Repeatability](../methods/FEM-Repeatability.md). The correction closes
 an artifact-retention mismatch; it does not reinterpret or admit the failed
 first attempt.
+
+## E-C4-FEM-REPEAT-RUN-02: Authenticated negative mesh-repeatability result
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; FINALIZED; POSTTERMINAL NEGATIVE` |
+| Protocol | [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json) |
+| Protocol SHA-256 | `faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2` |
+| Source commit | `64040733763a69c9fe9c0f15423c3ba7ed138cc2`; GitHub Actions run `32441367075` completed successfully before submission |
+| Scheduler identities | Source array `6916045`; dependency-held finalizer `6916047` |
+| Terminal accounting | All 15 source components and the finalizer ended `COMPLETED/0:0`; source component elapsed times were 848–1,055 s, and finalization took 4 s |
+| Resource scope | Source: account `pgs0407`, partition `nextgen`, 25 CPU and 48 GiB per element, concurrency three; finalizer requested 2 CPU and 8 GiB and was allocated 3 CPU and 8 GiB under site policy |
+| Arm-A result | Existing 25-thread path failed all three layouts: maximum pairwise relative Cps spreads `5.5882813e-4`, `7.4171889e-3`, and `7.2121703e-3`; five unique system hashes per layout; maximum frozen-reference drifts `5.4341469e-4`, `6.7838903e-3`, and `4.0836904e-3` |
+| Arm-B result | One-thread diagnostic passed mesh identity and repeatability on all three layouts: spreads `4.4273675e-15`, `8.4549511e-15`, and `4.4121269e-15`; one system hash per layout |
+| Gate decision | Frozen threshold `1e-4`; `arm_a_all_gates_pass=false`; `paired_latency_preflight_may_resume=false`; no tolerance changed after observation |
+| Final evidence | [Preterminal result](../../results/corpus_v4/fem_repeatability/v1/final/source_job_6916045/finalizer_job_6916047/result.json), SHA-256 `fb8b6aa0816f8cd37c838968fd4ea93d013ad59a1e6d09cc94271032dad83433`; [final manifest](../../results/corpus_v4/fem_repeatability/v1/final/source_job_6916045/finalizer_job_6916047/FINAL_MANIFEST.json), SHA-256 `8afc59641decccf50cbf2083238703d0cdbe61d236f4d5533bf6a2b5ea8f861a`; [postterminal admission](../../results/corpus_v4/fem_repeatability/v1/admission/source_job_6916045/finalizer_job_6916047/FINAL_ADMISSION.json), SHA-256 `776adb39aaa41dea09972089413977d7762457f453e57dc429d65bd5d0a209fc` |
+| Scientific use | Supports a versioned deterministic FEM reference and complete downstream regeneration; does not authorize latency, speed, or accuracy claims from the current reference package |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
