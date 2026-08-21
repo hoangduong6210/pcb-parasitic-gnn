@@ -1039,27 +1039,68 @@ FEM_REP_JOB_ID=${FEM_REP_JOB_ID%%;*}
 [[ "$FEM_REP_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
-Wait for all 15 logical components to become terminal. Preserve both `JobID`
-and `JobIDRaw`; the finalizer authenticates their exact relationship and
-requires all rows to be `COMPLETED/0:0` with the frozen account and TRES maps.
+Queue exactly one scheduler-managed finalizer after the source array is
+accepted. Use `afterany`, not `afterok`: a source element intentionally exits
+nonzero after preserving a failed integrity observation, and that negative
+diagnostic still requires structured finalization. The dependency controls
+only when the finalizer starts. It does not relax any scientific gate. The
+finalizer still requires exactly 15 terminal source rows, authenticates every
+artifact, and permits a positive provisional decision only when all rows are
+`COMPLETED/0:0` and Arm A passes.
 
 ```bash
-sacct -X -n -P -j "$FEM_REP_JOB_ID" \
-  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
-find "results/corpus_v4/fem_repeatability/v1/attempts/job_${FEM_REP_JOB_ID}" \
-  -maxdepth 2 -type f -print
+FEM_REP_FINAL_SOURCE_ROOT="results/corpus_v4/fem_repeatability/v1/final/source_job_${FEM_REP_JOB_ID}"
+FEM_REP_ADMISSION_SOURCE_ROOT="results/corpus_v4/fem_repeatability/v1/admission/source_job_${FEM_REP_JOB_ID}"
+if [[ -e "$FEM_REP_FINAL_SOURCE_ROOT" || -e "$FEM_REP_ADMISSION_SOURCE_ROOT" ]]; then
+  printf '%s\n' "Stop: this source array already has finalizer or admission artifacts" >&2
+  exit 1
+fi
+if squeue -h -u "$(id -un)" -n pcb-v4-fem-rep-fin -o '%i' | rg -q '.'; then
+  printf '%s\n' "Stop: a FEM-repeatability finalizer is already pending or running" >&2
+  exit 1
+fi
 sbatch --test-only -A pgs0407 \
+  --dependency="afterany:${FEM_REP_JOB_ID}" \
   --chdir="$FEM_REP_ROOT" \
   --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_REP_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$FEM_REP_SOURCE_COMMIT",PCB_GNN_V4_FEM_REPEATABILITY_PROTOCOL_SHA256="$FEM_REP_PROTOCOL_SHA256",PCB_GNN_V4_FEM_REPEATABILITY_SOURCE_ARRAY_JOB_ID="$FEM_REP_JOB_ID" \
   "$FEM_REP_ROOT/code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh"
 FEM_REP_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --dependency="afterany:${FEM_REP_JOB_ID}" \
   --chdir="$FEM_REP_ROOT" \
   --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_REP_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$FEM_REP_SOURCE_COMMIT",PCB_GNN_V4_FEM_REPEATABILITY_PROTOCOL_SHA256="$FEM_REP_PROTOCOL_SHA256",PCB_GNN_V4_FEM_REPEATABILITY_SOURCE_ARRAY_JOB_ID="$FEM_REP_JOB_ID" \
   "$FEM_REP_ROOT/code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh")
 FEM_REP_FINAL_JOB_ID=${FEM_REP_FINAL_JOB_ID%%;*}
 [[ "$FEM_REP_FINAL_JOB_ID" =~ ^[0-9]+$ ]]
+```
+
+A watcher may report progress, but it must not submit another finalizer.
+Preserve both `JobID` and `JobIDRaw`; the finalizer authenticates their exact
+relationship.
+
+```bash
+squeue -j "$FEM_REP_JOB_ID,$FEM_REP_FINAL_JOB_ID" \
+  -o '%.20i %.32j %.2t %.10M %.10l %R'
+sacct -X -n -P -j "$FEM_REP_JOB_ID" \
+  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+find "results/corpus_v4/fem_repeatability/v1/attempts/job_${FEM_REP_JOB_ID}" \
+  -maxdepth 2 -type f -print
 sacct -X -n -P -j "$FEM_REP_FINAL_JOB_ID" \
   --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+```
+
+An `afterany` dependency may release before the accounting database exposes
+all 15 source rows. The finalizer must fail closed if `sacct` is incomplete,
+duplicated, ambiguous, or nonterminal. Preserve that failed finalizer job and
+its logs. Wait until live accounting exposes logical tasks 0 through 14 as
+terminal, confirm that no finalizer is pending or running, and rerun the
+guarded submission block to obtain a new immutable finalizer job ID. Do not
+switch to `afterok`, synthesize accounting, relax the exact-row check, delete
+the failed attempt, or overwrite an existing preterminal directory.
+
+Run admission only after the selected finalizer itself has exact
+`COMPLETED/0:0` accounting.
+
+```bash
 FEM_REP_ADMISSION="results/corpus_v4/fem_repeatability/v1/admission/source_job_${FEM_REP_JOB_ID}/finalizer_job_${FEM_REP_FINAL_JOB_ID}/FINAL_ADMISSION.json"
 python3 code/experiments/proofs/admit_corpus_v4_fem_repeatability.py \
   --protocol protocols/corpus_v4_fem_repeatability_v1.json \

@@ -1,7 +1,9 @@
 # Corpus V4 FEM repeatability evidence
 
-Status: protocol frozen and implementation tested; SLURM execution pending. No
-repeatability solve or result is admitted from this directory yet.
+Status: protocol frozen, implementation tested, and SLURM execution in
+progress. Source and dependency-held finalizer identifiers are recorded in the
+[Live Execution](../../../wiki/status/Live-Execution.md) snapshot. No
+repeatability result is admitted from this directory yet.
 
 This namespace holds the diagnostic prompted by the rejected Corpus V4
 paired-latency preflight. It tests whether fresh FEM-R3P16 meshes reproduce the
