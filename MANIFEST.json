@@ -13203,8 +13203,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 6016,
-      "sha256": "c0c60a2049d30ab4a5b24ee9cd4d63adfdc4de4fff6a8ae995151e79a95d6538"
+      "bytes": 6052,
+      "sha256": "d52ebee4aa8ab0240e2b2fa9c9fa5077c47fdb68efb0957ddb3be23f2f24d3f1"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -13218,8 +13218,8 @@
     },
     {
       "path": "wiki/claims/Current-Claim-Language.md",
-      "bytes": 6579,
-      "sha256": "56aca3233cbc8e32ffc1d5e8023f6107e471084832b03ced4095ca868bb3b4e1"
+      "bytes": 7609,
+      "sha256": "01b16e17809dfe29cfe63d54a603ebb14c72e3cc5f19421a7eb884b03d81939d"
     },
     {
       "path": "wiki/claims/Historical-Claim-Ledger.md",
@@ -13263,8 +13263,8 @@
     },
     {
       "path": "wiki/manuscript/FEM-Cps-Sections.md",
-      "bytes": 2472,
-      "sha256": "6f53cf26c21051b19adbd6e3f209fdb26456d0b649d81201fd9b651db56f0812"
+      "bytes": 3328,
+      "sha256": "76b85b7aabe704a41b1dde569996e80727f99488d418974de0c717c8f8ea5d4d"
     },
     {
       "path": "wiki/manuscript/Paper-Export-Contract.md",
@@ -13323,8 +13323,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 3340,
-      "sha256": "a1baacf9d9d9f1d2e1d8b21adf89db9650599a550f74b4345fb35fbc3e26e272"
+      "bytes": 3401,
+      "sha256": "fa99d728930b9e168eed21449682e7b234fde8f0a82022e1aa0449e81d38fea8"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -13363,5 +13363,5 @@
     }
   ],
   "n_files": 2669,
-  "total_bytes": 93345751
+  "total_bytes": 93347734
 }

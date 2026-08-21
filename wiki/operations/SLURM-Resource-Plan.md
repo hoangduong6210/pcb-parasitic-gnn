@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -24,10 +24,10 @@ R3 shards pass a live submission-capacity gate before they are queued.
 | Accuracy training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
 | Accuracy finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Paired-latency preflight | 3 | 25 CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
-| Paired-latency full panel | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
-| Paired-latency finalizer | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
-| FEM repeatability diagnostic | 15 elements, 2 FEM solves per element | 25 CPU, 48 GiB | 3 | 1,800 s per FEM arm | 2 h |
-| FEM repeatability finalizer | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 30 min |
+| Paired-latency full panel — blocked | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
+| Paired-latency finalizer — blocked | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
+| FEM repeatability diagnostic — completed negative | 15 elements, 2 FEM solves per element | 25 CPU, 48 GiB | 3 | 1,800 s per FEM arm | 2 h |
+| FEM repeatability finalizer — completed | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 30 min |
 
 The fail-fast caps are scientific protocol fields. A task that exceeds a cap is
 an infeasibility result and is not silently rerun with a wider limit.

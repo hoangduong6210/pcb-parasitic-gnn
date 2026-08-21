@@ -1,10 +1,10 @@
 ---
 title: Manuscript Source — FEM Capacitance Sections
 status: admitted source text
-last_updated: 2026-08-19
+last_updated: 2026-08-21
 paper_source: true
 prose_reviewed: true
-claim_ids: C-FEM-002, C-FEM-003, C-CPS-DISC-001
+claim_ids: C-FEM-002, C-FEM-003, C-FEM-004, C-CPS-DISC-001
 ---
 
 # Manuscript Source: FEM Capacitance Sections
@@ -14,7 +14,8 @@ claim_ids: C-FEM-002, C-FEM-003, C-CPS-DISC-001
 The electrostatic calculation is treated as a hierarchy of numerical
 observations rather than an absolute ground-truth label. FEM-R3P16 denotes a
 first-order tetrahedral solve with refinement level 3 and 16 mm outer-domain
-padding. It is the fixed target selected for bulk surrogate training.
+padding. Its archived observations form the fixed target used by the completed
+bulk surrogate study.
 FEM-R4P16 uses the same geometry, material, boundary, and linear-solver contract
 at refinement level 4 and is reserved for higher-resolution validation.
 
@@ -39,10 +40,24 @@ statistics, while the other 189 were selected from geometry descriptors. The
 result is reported descriptively without a population confidence interval or a
 global R3 correction.
 
+## Mesh repeatability result
+
+A separate frozen diagnostic evaluated three preselected layouts with five
+fresh meshes per layout. Under the existing 25-thread Gmsh path, the maximum
+pairwise relative Cps spreads were `5.5882813e-4`, `7.4171889e-3`, and
+`7.2121703e-3`; all three layouts also produced five distinct discrete-system
+hashes. The same experiment with one Gmsh thread produced one system hash per
+layout and maximum spreads no larger than `8.4549511e-15`. Thus the existing
+multithreaded path failed the frozen `1e-4` repeatability gate, whereas the
+one-thread candidate passed on this finite panel. This result does not
+retroactively relabel the archived observations. It motivates a versioned
+deterministic reference and complete downstream regeneration.
+
 ## Interpretation
 
-Surrogate error against FEM-R3P16 measures reproduction of a deterministic
-discretized workflow. It does not by itself measure physical capacitance error.
+Surrogate error against the archived FEM-R3P16 observations measures agreement
+with a fixed discretized artifact set. It does not establish fresh-mesh
+repeatability or physical capacitance accuracy.
 The study consequently reports three quantities separately: GNN agreement with
 the bulk FEM-R3P16 target, the full 198-layout selected-registry
 FEM-R3P16-to-FEM-R4P16 discrepancy, and GNN agreement with FEM-R4P16 on the 39
