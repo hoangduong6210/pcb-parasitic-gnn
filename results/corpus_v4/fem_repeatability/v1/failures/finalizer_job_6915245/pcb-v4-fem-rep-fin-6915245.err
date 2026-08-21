@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/fem-repeat-abdc579/code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py", line 1404, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/fem-repeat-abdc579/code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py", line 1349, in main
+    payload = build_final_payload(
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/fem-repeat-abdc579/code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py", line 945, in build_final_payload
+    observations, receipts = load_authenticated_observations(
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/fem-repeat-abdc579/code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py", line 837, in load_authenticated_observations
+    _validate_retained_execution_provenance(
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/fem-repeat-abdc579/code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py", line 545, in _validate_retained_execution_provenance
+    raise ValueError("task live scheduler record differs from protocol")
+ValueError: task live scheduler record differs from protocol

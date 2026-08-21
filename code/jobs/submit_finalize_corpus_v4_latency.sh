@@ -44,7 +44,7 @@ export PCB_GNN_EXECUTED_BATCH_SCRIPT="${BASH_SOURCE[0]}"
   --expected-plan-sha256 "$PCB_GNN_V4_LATENCY_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256" \
   --accepted-set "$PCB_GNN_V4_LATENCY_ACCEPTED_SET" \
   --expected-accepted-set-sha256 "$PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256" \

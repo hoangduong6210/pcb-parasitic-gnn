@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-21 00:54 UTC.
+Last scheduler observation: 2026-08-21 02:41 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -16,7 +16,7 @@ Last scheduler observation: 2026-08-21 00:54 UTC.
 | Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
-| FEM mesh repeatability | `RUNNING / FINALIZER DEPENDENCY QUEUED` | Source Job `6915210`: 3 of 15 elements terminal and 6 of 30 arm solves preserved at the observation time; Finalizer Job `6915245`: dependency-held | Finish the remaining source waves, run the sole `afterany` finalizer, then mint the postterminal admission receipt | Diagnostic only; no result admitted and no claim or speed eligibility |
+| FEM mesh repeatability | `SOURCE COMPLETE / FINALIZER REJECTED / CORRECTION FROZEN` | Source Job `6915210`: 15 of 15 elements `COMPLETED/0:0`, 30 arm records preserved; Finalizer Job `6915245`: `FAILED/1:0` before aggregation | Push and CI-validate the corrected retained-scheduler contract, then rerun the full 15-element source array and one finalizer | Failed attempt preserved; no result admitted and no claim or speed eligibility |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Submit the frozen FEM mesh-repeatability diagnostic | All three diagnostic preflight tasks exceeded the unchanged Cps reference-agreement tolerance; no task is admissible |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
@@ -67,14 +67,15 @@ transition is therefore a separately frozen, SLURM-only repeatability study on
 the same three preselected anchors: five fresh-mesh repeats with the existing
 25-thread meshing path and five with a one-thread diagnostic candidate. The
 executable protocol is frozen at SHA-256
-`f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960`;
-its 15 source elements and 30 planned FEM solves are now under scheduler
-execution as source Job `6915210`. Exactly one finalizer, Job `6915245`, is
-queued with `afterany:6915210_*` so both positive and negative terminal outcomes
-receive the same authenticated closeout. Dependency release is not admission:
-incomplete `sacct`, duplicate finalization, missing artifacts, nonzero source
-exits, or a failed Arm-A gate keeps the latency pipeline closed. The tolerance
-will not be relaxed after observing the results. The full array remains closed
+`faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`.
+The first source array, Job `6915210`, completed all 15 elements and preserved
+30 arm records. Finalizer Job `6915245` failed closed before aggregation because
+the source producer did not retain three scheduler identities that it had
+already authenticated, while the finalizer required their nested copies. The
+source artifacts remain unchanged and non-admissible. The corrected contract
+retains the identity projection and requires a complete rerun from a new clean
+commit; no numerical setting or tolerance changed after observing the data.
+The full latency array remains closed
 until mesh repeatability is resolved and a new three-task preflight passes an
 authenticated admission gate. Until that sequence closes, `C-LAT-001` remains
 blocked and no current speed value is permitted. Baseline, strict E(3), and

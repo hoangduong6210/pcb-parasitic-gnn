@@ -41,7 +41,7 @@ instead of calling one column ground truth.
 | Joint multi-fidelity Cps package | `FINALIZED` | 1,698 explicit-fidelity observations over 1,500 geometries |
 | Family-aware R3/R4 discrepancy audit | `ADMITTED DESCRIPTIVE` | Exact 198-layout selected-registry comparison; no population inference or global correction |
 | Multi-seed current-corpus accuracy | `ADMITTED` | Complete 5 by 5 family-held-out split and initialization grid with tracked checkpoints, predictions, matrices, and archive closure |
-| FEM-R3P16 repeatability diagnostic | `EXECUTING / NOT ADMITTED` | Three anchors, five repeats, and two arms define 30 diagnostic solves; no result, claim, or speed eligibility until postterminal admission |
+| FEM-R3P16 repeatability diagnostic | `CORRECTION FROZEN / NOT ADMITTED` | The first source array completed, but finalization rejected a retained scheduler-schema mismatch; the corrected contract requires a complete rerun and no result, claim, or speed eligibility exists yet |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -55,7 +55,7 @@ transition.
 1. Use the admitted
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    predictive baseline for subsequent current-corpus experiments.
-2. Complete and finalize the running FEM repeatability diagnostic. Apply its
+2. Rerun and finalize the corrected FEM repeatability diagnostic. Apply its
    predeclared decision rule without changing the observed tolerance. Only an
    Arm-A pass permits a new unchanged three-task paired-latency preflight; only
    a successful authenticated admission permits the 306-layout full array.

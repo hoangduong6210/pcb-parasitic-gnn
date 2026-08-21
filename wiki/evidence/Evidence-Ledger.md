@@ -484,27 +484,43 @@ unchanged. This pair demonstrates that the two jobs solved different discrete
 mesh systems; it does not by itself prove which Gmsh mechanism caused the
 change. The two-arm repeatability experiment is required for that decision.
 
-## E-C4-FEM-REPEAT-PLAN-01: Frozen mesh-repeatability protocol
+## E-C4-FEM-REPEAT-RUN-01: Rejected first mesh-repeatability finalization
 
 | Field | Value |
 |---|---|
-| Lifecycle | `FROZEN; NOT YET EXECUTED` |
+| Lifecycle | `EXECUTED; FINALIZER REJECTED; NON-ADMISSIBLE` |
 | Protocol | [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json) |
 | Protocol SHA-256 | `f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960` |
+| Source commit | `abdc579a4a0a8435c4064dd1f9759bc13d378359` |
+| Scheduler identities | Source array `6915210`; dependency-held finalizer `6915245` |
 | Frozen panel | Latency tasks 0, 152, and 305; layouts 3, 734, and 1,495 |
 | Design | Five repeats per layout and arm; 15 SLURM elements; two sequential arms per element; 30 FEM solves total |
 | Arm A | Existing FEM-R3P16 path with 25 Gmsh threads |
 | Arm B | Diagnostic candidate with one Gmsh thread |
 | Resource request | Account `pgs0407`, partition `nextgen`, 25 CPU and 48 GiB per array element, concurrency three, two-hour scheduler cap |
-| Claim use | None; every source and final artifact is diagnostic and sets claim and speed eligibility false |
-| Required transition | Source array → preterminal finalizer artifact → terminal `COMPLETED/0:0` accounting → immutable `FINAL_ADMISSION.json`; only the last artifact may open a latency preflight |
-| Admission state | No job identifier or numerical result exists until the reviewed commit is pushed, CI passes, the array and finalizer complete, and a postterminal admission receipt is generated from the clean detached checkout |
+| Terminal accounting | All 15 source components ended `COMPLETED/0:0`; finalizer ended `FAILED/1:0` after four seconds; scheduler receipt preserves logical/raw job identities, nodes, elapsed time, restarts, and requested/allocated TRES |
+| Artifact integrity | 15 task directories, 30 arm records, 15 passing task-integrity gates, and 60 manifest-bound payload files; no source artifact was edited after execution |
+| Failure cause | The producer authenticated `JobId`, `ArrayJobId`, and `ArrayTaskId` from live `scontrol` but omitted them from the retained nested record; the finalizer required those retained copies and failed before aggregation |
+| Failure evidence | [Failure record](../../results/corpus_v4/fem_repeatability/v1/failures/finalizer_job_6915245/FAILURE.json), SHA-256 `459a4f663b2d7d41f2cd248ca7ca874a3b161a6c641c8d019ab75c8a8eab846f`; [scheduler receipt](../../results/corpus_v4/fem_repeatability/v1/failures/finalizer_job_6915245/SCHEDULER_RECEIPT.json), SHA-256 `99bfb2b2032437624a173765e89a6a0279dd6299722523be6a34f06a02c26722`; [failure manifest](../../results/corpus_v4/fem_repeatability/v1/failures/finalizer_job_6915245/FAILURE_MANIFEST.json), SHA-256 `86512993c77b624941cf2ab7ad89ee22361b8d57c54b6b27a6a286d7c11b3f60` |
+| Claim use | None; the failed attempt is diagnostic, has no admission artifact, and cannot open latency execution |
 
-The planned computation is described in
-[FEM Mesh Repeatability](../methods/FEM-Repeatability.md). This entry records a
-frozen protocol, not a result. Job identifiers, terminal accounting, artifact
-hashes, and the gate decision must be appended only after SLURM execution and
-finalization.
+## E-C4-FEM-REPEAT-PLAN-02: Corrected retained-scheduler contract
+
+| Field | Value |
+|---|---|
+| Lifecycle | `FROZEN; COMPLETE RERUN REQUIRED; NOT YET ADMITTED` |
+| Protocol | [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json) |
+| Protocol SHA-256 | `faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2` |
+| Correction | Retain the three scheduler identities already authenticated by the producer and require the exact 16-field nested scheduler record during finalization |
+| Scientific freeze | Panel, five repeats, arm ordering, FEM settings, resources, `1e-4` tolerance, decision rule, and claim exclusions are byte-equivalent in meaning to Run 01 |
+| Latency execution lock | [`corpus_v4_latency_execution_lock_v3.json`](../../protocols/corpus_v4_latency_execution_lock_v3.json), SHA-256 `e54b9ef326006a60a62446d90c43d6565cf1d52bbbef5315fc0bdc28d109de13` |
+| Required transition | Push and CI-pass the corrected source → submit all 15 source elements and 30 solves → one terminal finalizer → solver-free admission; no artifact from Run 01 is mutated or substituted |
+| Claim use | None until a new immutable `FINAL_ADMISSION.json` closes the corrected execution |
+
+The computation and unchanged decision rule are described in
+[FEM Mesh Repeatability](../methods/FEM-Repeatability.md). The correction closes
+an artifact-retention mismatch; it does not reinterpret or admit the failed
+first attempt.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

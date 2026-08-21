@@ -566,7 +566,18 @@ def validate_slurm_allocation(protocol: Mapping[str, Any]) -> dict[str, Any]:
             ) from exc
         if tres != expected_tres:
             raise SystemExit(f"{field} differs from frozen repeatability resources")
-    retained_fields = set(required_fields) | {"NodeList", "ReqTRES", "AllocTRES"}
+    # Retain the scheduler identity fields that were used to select the one
+    # live component record.  The finalizer replays them against terminal
+    # accounting, so dropping them here would make the producer and consumer
+    # contracts inconsistent even though the allocation was validated live.
+    retained_fields = set(required_fields) | {
+        "AllocTRES",
+        "ArrayJobId",
+        "ArrayTaskId",
+        "JobId",
+        "NodeList",
+        "ReqTRES",
+    }
     retained_record = {name: record[name] for name in sorted(retained_fields)}
     return {**observed, "scheduler_record": retained_record}
 

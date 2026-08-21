@@ -108,10 +108,19 @@ the next design must freeze or serialize the mesh before generating new
 labels. A tolerance change made after seeing this study is not an admissible
 resolution.
 
-The executable contract is
+The first source execution completed all 15 elements, but its finalizer failed
+closed before aggregation. The source producer had authenticated three live
+scheduler identity fields and then omitted them from the retained nested
+record, while the finalizer required the retained copy. The attempt remains a
+non-admissible diagnostic and its artifacts were not edited. The correction
+retains those already-validated identities, requires an exact retained schema,
+and reruns all 30 solves from a new clean commit; numerical settings, panel,
+arms, tolerance, and decision rules are unchanged.
+
+The current executable contract is
 [`corpus_v4_fem_repeatability_v1.json`](../../protocols/corpus_v4_fem_repeatability_v1.json).
 Its frozen SHA-256 is
-`f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960`.
+`faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`.
 Current execution state and job-backed results belong in
 [Live Execution](../status/Live-Execution.md) and the
 [Evidence Ledger](../evidence/Evidence-Ledger.md).

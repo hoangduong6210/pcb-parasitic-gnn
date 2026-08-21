@@ -500,6 +500,28 @@ def _validate_retained_execution_provenance(
     scheduler_record = scheduler.get("scheduler_record")
     if not isinstance(scheduler_record, dict):
         raise ValueError("task live scheduler record is missing")
+    _require_exact_keys(
+        scheduler_record,
+        {
+            "Account",
+            "AllocTRES",
+            "ArrayJobId",
+            "ArrayTaskId",
+            "ArrayTaskThrottle",
+            "CPUs/Task",
+            "JobId",
+            "JobState",
+            "MinMemoryNode",
+            "NodeList",
+            "NumCPUs",
+            "NumTasks",
+            "Partition",
+            "ReqTRES",
+            "TimeLimit",
+            "TresPerTask",
+        },
+        "task live scheduler record",
+    )
     expected_scheduler = {
         "array_job_id": source_array_job_id,
         "array_task_count": 15,

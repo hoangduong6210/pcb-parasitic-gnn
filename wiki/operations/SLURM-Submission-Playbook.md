@@ -833,7 +833,7 @@ LAT_SOURCE_COMMIT=replace-with-reviewed-40-character-commit
 LAT_PROTOCOL_SHA256=5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2
 LAT_PLAN_SHA256=9ef641a1ccd3d4a12f72e30971a61eb82813d59e41b9666ebfd6e1602a9d1281
 LAT_TASKS_SHA256=db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2
-LAT_LOCK_SHA256=ea758cef72d09aec7514255ddb3bf60323965ae7fd6b57af0d15384d60a65d82
+LAT_LOCK_SHA256=e54b9ef326006a60a62446d90c43d6565cf1d52bbbef5315fc0bdc28d109de13
 FASTHENRY_BIN=/absolute/path/to/verified-fasthenry
 : "${FEM_REP_ADMISSION:?Complete Section 17 and export its canonical receipt path}"
 : "${FEM_REP_ADMISSION_SHA256:?Complete Section 17 and export its receipt SHA-256}"
@@ -879,7 +879,7 @@ python3 code/experiments/proofs/admit_corpus_v4_latency_preflight.py \
   --expected-plan-sha256 "$LAT_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --array-job-id "$LAT_PREFLIGHT_JOB_ID" \
@@ -912,7 +912,7 @@ python3 code/experiments/proofs/plan_corpus_v4_latency_resume.py \
   --expected-plan-sha256 "$LAT_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --preflight-admission "$LAT_PREFLIGHT_ADMISSION" \
@@ -978,7 +978,7 @@ python3 code/quality/verify_corpus_v4_latency_archive.py \
   --expected-plan-sha256 "$LAT_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --accepted-set "$LAT_ACCEPTED" \
@@ -996,7 +996,7 @@ python3 code/quality/verify_corpus_v4_latency_archive.py \
   --expected-plan-sha256 "$LAT_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --accepted-set "$LAT_ACCEPTED" \
@@ -1020,7 +1020,7 @@ for 30 heavy solves. It cannot authorize an accuracy or speed claim.
 ```bash
 FEM_REP_ROOT=/absolute/path/to/clean-detached-worktree
 FEM_REP_SOURCE_COMMIT=replace-with-reviewed-40-character-commit
-FEM_REP_PROTOCOL_SHA256=f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960
+FEM_REP_PROTOCOL_SHA256=faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2
 cd "$FEM_REP_ROOT"
 test "$(git rev-parse HEAD)" = "$FEM_REP_SOURCE_COMMIT"
 test -z "$(git status --short)"

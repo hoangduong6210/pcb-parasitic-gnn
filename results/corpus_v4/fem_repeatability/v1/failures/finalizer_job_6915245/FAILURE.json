@@ -1,0 +1,27 @@
+{
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-finalizer-failure.v1",
+  "lifecycle": "EXECUTED; FINALIZER REJECTED; NON-ADMISSIBLE",
+  "source_array_job_id": "6915210",
+  "finalizer_job_id": "6915245",
+  "source_git_head": "abdc579a4a0a8435c4064dd1f9759bc13d378359",
+  "protocol_sha256": "f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960",
+  "source_terminal_components": 15,
+  "source_completed_zero_components": 15,
+  "finalizer_state": "FAILED",
+  "finalizer_exit_code": "1:0",
+  "failure_stage": "retained scheduler provenance replay",
+  "exception_type": "ValueError",
+  "exception_message": "task live scheduler record differs from protocol",
+  "root_cause": "The source producer authenticated JobId, ArrayJobId, and ArrayTaskId from live scontrol but omitted those three identity fields from the retained nested scheduler_record. The finalizer required the omitted projection and therefore failed closed before aggregation.",
+  "data_integrity": {
+    "task_directories": 15,
+    "arm_records": 30,
+    "task_integrity_passed": 15,
+    "manifest_bound_payload_files_verified": 60,
+    "source_artifacts_mutated_after_execution": false
+  },
+  "claim_eligible": false,
+  "speed_claim_eligible": false,
+  "paired_latency_preflight_may_resume": false,
+  "corrective_action": "Preserve this attempt unchanged, correct the producer-consumer retention contract, freeze new source hashes, and rerun all 15 source elements and 30 FEM solves from a new clean commit before finalization."
+}

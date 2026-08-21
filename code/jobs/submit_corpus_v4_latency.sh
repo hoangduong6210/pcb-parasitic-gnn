@@ -61,7 +61,7 @@ fi
   --expected-plan-sha256 "$PCB_GNN_V4_LATENCY_PLAN_SHA256" \
   --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v2.json \
+  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256" \
   --preflight-admission "$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION" \
   --expected-preflight-admission-sha256 "$PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256" \

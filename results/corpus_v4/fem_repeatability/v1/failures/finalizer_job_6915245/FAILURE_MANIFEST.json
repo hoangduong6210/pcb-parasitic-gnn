@@ -1,0 +1,28 @@
+{
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-finalizer-failure-manifest.v1",
+  "source_array_job_id": "6915210",
+  "finalizer_job_id": "6915245",
+  "files": {
+    "FAILURE.json": "459a4f663b2d7d41f2cd248ca7ca874a3b161a6c641c8d019ab75c8a8eab846f",
+    "SCHEDULER_RECEIPT.json": "99bfb2b2032437624a173765e89a6a0279dd6299722523be6a34f06a02c26722",
+    "pcb-v4-fem-rep-fin-6915245.err": "0fa33b3dbdd6e056d4dc1b2f4190db7fafa5ef757d5c148a426314c256cebccc",
+    "pcb-v4-fem-rep-fin-6915245.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source_task_manifest_sha256": {
+    "task_00": "f346651c68ad1d711bc7feca5e029793132af791b56d65d449a318256b4adaa5",
+    "task_01": "faccb39daeeb20113030a12b17cbcd5bac6a18e70dec56750de1ea2b515b0d49",
+    "task_02": "015b30d384b6a509566cad465b5b7f5ed2293cea8386b27a10683a0133b63172",
+    "task_03": "d16ab293f841bf431d32846dc438d77321de830cc4bf9c28795049d734b8114e",
+    "task_04": "0d1efcd060140a065219328023c87634461d4575391839795056bbb69b6d97c2",
+    "task_05": "ef6934c1984cfa26f48d6afc33d186b58e44fd12be6d68b2aa6a6ad333d91b44",
+    "task_06": "990e990a82434088c1b3ab1ead79a93e97b146327d430bccb18d17b3eaaba9df",
+    "task_07": "097587defb592f75cddb441ffc09c110b8d7d5694e2ebc2021120e1728d77631",
+    "task_08": "4ceb16338b35681f7397bca2971513dd9804801773107509a1cf3808fc5bed33",
+    "task_09": "a34d49764b9733ee059f3347eeafe8dadcbace3caa60521d549e210e4f7d2978",
+    "task_10": "d26927f22440451ef6d0426b8e3a21c623610277c879d6ecff0255824ff4607d",
+    "task_11": "e7d5ef80b8139c56f3ac239f529584eeaee0079b407e21ec19753301559ed08b",
+    "task_12": "a16474314ceee881635fae540f18784efdf569be7a9a85b2c392a44eb10c6db6",
+    "task_13": "6d82fa428bc0434e844eba5ad1fda40dfff30c34b91d0eec67432b23ab966d27",
+    "task_14": "cb21ee2f787fb7d08ecaaa873b96eef7284bf66ea1c76f9096cc06452cde2d01"
+  }
+}

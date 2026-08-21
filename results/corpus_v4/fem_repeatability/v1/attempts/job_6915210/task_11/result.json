@@ -1,0 +1,583 @@
+{
+  "admission_eligible": false,
+  "arms": [
+    {
+      "arm": {
+        "arm_id": "arm_b_threads1",
+        "gmsh_threads": 1,
+        "old_reference_gate_required": false,
+        "role": "deterministic_candidate_diagnostic_only"
+      },
+      "claim_eligible": false,
+      "completed_utc": "2026-08-21T01:31:19.179568+00:00",
+      "execution": {
+        "returncode": 0,
+        "signal": null,
+        "stages": [
+          {
+            "gmsh_threads": 1,
+            "max_rss_kb": 90904,
+            "stage": "repeatability_environment",
+            "telemetry_contract": "pcb-gnn.gmsh-thread-observation.v1"
+          },
+          {
+            "max_rss_kb": 90904,
+            "n_traces": 17,
+            "stage": "geometry_validated"
+          },
+          {
+            "max_rss_kb": 90904,
+            "n_volumes": 18,
+            "stage": "occ_fragmented"
+          },
+          {
+            "h_max": 0.43199999999999994,
+            "h_min": 0.055999999999999966,
+            "max_rss_kb": 90904,
+            "stage": "mesh_generate_started"
+          },
+          {
+            "max_rss_kb": 6061840,
+            "n_nodes": 1954282,
+            "stage": "mesh_generated"
+          },
+          {
+            "max_rss_kb": 6061840,
+            "n_tetrahedra": 11811241,
+            "stage": "mesh_extracted"
+          },
+          {
+            "max_rss_kb": 6061840,
+            "stage": "gmsh_finalized"
+          },
+          {
+            "max_rss_kb": 6061840,
+            "stage": "skfem_mesh_created"
+          },
+          {
+            "max_rss_kb": 12988228,
+            "n_dofs": 1954282,
+            "stage": "basis_created"
+          },
+          {
+            "max_rss_kb": 18388640,
+            "n_dofs": 1954282,
+            "nnz": 29776228,
+            "stage": "matrix_assembled"
+          },
+          {
+            "linear_solver": "amg_cg",
+            "max_rss_kb": 18388640,
+            "n_free": 1935485,
+            "nnz": 29444923,
+            "stage": "system_condensed"
+          },
+          {
+            "linear_solver": "amg_cg",
+            "max_rss_kb": 18388640,
+            "stage": "solver_input_fingerprinted",
+            "system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f"
+          },
+          {
+            "max_rss_kb": 18388640,
+            "stage": "amg_setup_started"
+          },
+          {
+            "amg_levels": 4,
+            "max_rss_kb": 18388640,
+            "operator_complexity": 1.1091631654122511,
+            "stage": "amg_setup_completed"
+          },
+          {
+            "max_rss_kb": 18388640,
+            "stage": "cg_solve_started"
+          },
+          {
+            "amg_levels": 4,
+            "input_system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f",
+            "iterations": 25,
+            "linear_solver": "pyamg_smoothed_aggregation_cg",
+            "max_rss_kb": 18388640,
+            "maxiter": 500,
+            "operator_complexity": 1.1091631654122511,
+            "relative_residual": 4.352058100808634e-11,
+            "rtol": 1e-10,
+            "solver_info": 0,
+            "stage": "linear_solve_completed"
+          },
+          {
+            "energy_j": 2.0130391684542662e-11,
+            "max_rss_kb": 18388640,
+            "stage": "energy_computed"
+          }
+        ],
+        "stderr_tail": [
+          "Transforming over 1000 vertices to C_CONTIGUOUS.",
+          "Transforming over 1000 elements to C_CONTIGUOUS."
+        ],
+        "stdout_tail": [
+          "STAGE={\"gmsh_threads\": 1, \"max_rss_kb\": 90904, \"stage\": \"repeatability_environment\", \"telemetry_contract\": \"pcb-gnn.gmsh-thread-observation.v1\"}",
+          "STAGE={\"max_rss_kb\": 90904, \"n_traces\": 17, \"stage\": \"geometry_validated\"}",
+          "STAGE={\"max_rss_kb\": 90904, \"n_volumes\": 18, \"stage\": \"occ_fragmented\"}",
+          "STAGE={\"h_max\": 0.43199999999999994, \"h_min\": 0.055999999999999966, \"max_rss_kb\": 90904, \"stage\": \"mesh_generate_started\"}",
+          "STAGE={\"max_rss_kb\": 6061840, \"n_nodes\": 1954282, \"stage\": \"mesh_generated\"}",
+          "STAGE={\"max_rss_kb\": 6061840, \"n_tetrahedra\": 11811241, \"stage\": \"mesh_extracted\"}",
+          "STAGE={\"max_rss_kb\": 6061840, \"stage\": \"gmsh_finalized\"}",
+          "STAGE={\"max_rss_kb\": 6061840, \"stage\": \"skfem_mesh_created\"}",
+          "STAGE={\"max_rss_kb\": 12988228, \"n_dofs\": 1954282, \"stage\": \"basis_created\"}",
+          "STAGE={\"max_rss_kb\": 18388640, \"n_dofs\": 1954282, \"nnz\": 29776228, \"stage\": \"matrix_assembled\"}",
+          "STAGE={\"linear_solver\": \"amg_cg\", \"max_rss_kb\": 18388640, \"n_free\": 1935485, \"nnz\": 29444923, \"stage\": \"system_condensed\"}",
+          "STAGE={\"linear_solver\": \"amg_cg\", \"max_rss_kb\": 18388640, \"stage\": \"solver_input_fingerprinted\", \"system_sha256\": \"3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f\"}",
+          "STAGE={\"max_rss_kb\": 18388640, \"stage\": \"amg_setup_started\"}",
+          "STAGE={\"amg_levels\": 4, \"max_rss_kb\": 18388640, \"operator_complexity\": 1.1091631654122511, \"stage\": \"amg_setup_completed\"}",
+          "STAGE={\"max_rss_kb\": 18388640, \"stage\": \"cg_solve_started\"}",
+          "STAGE={\"amg_levels\": 4, \"input_system_sha256\": \"3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f\", \"iterations\": 25, \"linear_solver\": \"pyamg_smoothed_aggregation_cg\", \"max_rss_kb\": 18388640, \"maxiter\": 500, \"operator_complexity\": 1.1091631654122511, \"relative_residual\": 4.352058100808634e-11, \"rtol\": 1e-10, \"solver_info\": 0, \"stage\": \"linear_solve_completed\"}",
+          "STAGE={\"energy_j\": 2.0130391684542662e-11, \"max_rss_kb\": 18388640, \"stage\": \"energy_computed\"}",
+          "RESULT={\"amg_levels\": 4, \"cps_pf\": 40.260783369085324, \"eps_r\": 4.2, \"input_system_sha256\": \"3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f\", \"iterations\": 25, \"linear_solver\": \"pyamg_smoothed_aggregation_cg\", \"maxiter\": 500, \"mesh_nodes\": 1954282, \"mesh_tetrahedra\": 11811241, \"operator_complexity\": 1.1091631654122511, \"pad_mm\": 16.0, \"refine\": 3, \"relative_residual\": 4.352058100808634e-11, \"rtol\": 1e-10, \"solver_info\": 0, \"system_sha256\": \"3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f\"}"
+        ],
+        "telemetry_parse_errors": [],
+        "timed_out": false,
+        "wall_s": 495.2806413520593,
+        "worker_result": {
+          "amg_levels": 4,
+          "cps_pf": 40.260783369085324,
+          "eps_r": 4.2,
+          "input_system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f",
+          "iterations": 25,
+          "linear_solver": "pyamg_smoothed_aggregation_cg",
+          "maxiter": 500,
+          "mesh_nodes": 1954282,
+          "mesh_tetrahedra": 11811241,
+          "operator_complexity": 1.1091631654122511,
+          "pad_mm": 16.0,
+          "refine": 3,
+          "relative_residual": 4.352058100808634e-11,
+          "rtol": 1e-10,
+          "solver_info": 0,
+          "system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f"
+        },
+        "worker_result_count": 1
+      },
+      "execution_sha256": "4bae1885075edd016205fd75eeef506aef1fbb8292910acac3bd1d91cd63e316",
+      "frozen_reference": {
+        "cps_pf": 40.31623684447307,
+        "units": "pF"
+      },
+      "geometry": {
+        "family_id": "turns-05-12",
+        "geometry_sha256": "c22655637cfbebd74aaf33cfae599056561ce4ab39126afee9a7b35885fc1788",
+        "layout_id": 1495
+      },
+      "gmsh_thread_gate": {
+        "expected_gmsh_threads": 1,
+        "observation_count": 1,
+        "observed_gmsh_threads": 1,
+        "pass": true,
+        "telemetry_contract": "pcb-gnn.gmsh-thread-observation.v1"
+      },
+      "numerical_resource_gate": {
+        "checks": {
+          "cps_positive_finite": true,
+          "fidelity": true,
+          "iterations": true,
+          "mesh_nodes": true,
+          "mesh_tetrahedra": true,
+          "operator_complexity": true,
+          "relative_residual": true,
+          "resource_rss": true,
+          "resource_wall": true,
+          "solver_contract": true,
+          "system_fingerprint": true,
+          "worker_execution": true
+        },
+        "limits": {
+          "mesh_nodes_max": 3000000,
+          "mesh_tetrahedra_max": 20000000,
+          "operator_complexity_max": 1.25,
+          "wall_s_max": 1800.0,
+          "worker_peak_rss_gib_max": 32.0
+        },
+        "observed": {
+          "cps_pf": 40.260783369085324,
+          "eps_r": 4.2,
+          "iterations": 25,
+          "maxiter": 500,
+          "mesh_nodes": 1954282,
+          "mesh_tetrahedra": 11811241,
+          "operator_complexity": 1.1091631654122511,
+          "pad_mm": 16.0,
+          "refine": 3,
+          "relative_residual": 4.352058100808634e-11,
+          "rtol": 1e-10,
+          "solver_info": 0,
+          "wall_s": 495.2806413520593,
+          "worker_peak_rss_gib": 17.536773681640625
+        },
+        "pass": true
+      },
+      "old_reference_relative_drift": 0.0013754625859964272,
+      "old_reference_signed_relative_drift": -0.0013754625859964272,
+      "order_position": 0,
+      "repeat_id": 1,
+      "schema": "pcb-gnn.corpus-v4-fem-repeatability-arm.v1",
+      "speed_claim_eligible": false,
+      "worker_result": {
+        "amg_levels": 4,
+        "cps_pf": 40.260783369085324,
+        "eps_r": 4.2,
+        "input_system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f",
+        "iterations": 25,
+        "linear_solver": "pyamg_smoothed_aggregation_cg",
+        "maxiter": 500,
+        "mesh_nodes": 1954282,
+        "mesh_tetrahedra": 11811241,
+        "operator_complexity": 1.1091631654122511,
+        "pad_mm": 16.0,
+        "refine": 3,
+        "relative_residual": 4.352058100808634e-11,
+        "rtol": 1e-10,
+        "solver_info": 0,
+        "system_sha256": "3aed3ab2bf892a3826792aeefc0ab1cbb62ab5da713156a4c3e6875c5b9ed33f"
+      },
+      "worker_result_sha256": "61b5977597d9a3088f96024a956ae7f0ddca59bbabce408121f0c76abe3a0a01"
+    },
+    {
+      "arm": {
+        "arm_id": "arm_a_threads25",
+        "gmsh_threads": 25,
+        "old_reference_gate_required": true,
+        "role": "admitted_r3p16_resource_replay_with_telemetry"
+      },
+      "claim_eligible": false,
+      "completed_utc": "2026-08-21T01:39:33.134299+00:00",
+      "execution": {
+        "returncode": 0,
+        "signal": null,
+        "stages": [
+          {
+            "gmsh_threads": 25,
+            "max_rss_kb": 90904,
+            "stage": "repeatability_environment",
+            "telemetry_contract": "pcb-gnn.gmsh-thread-observation.v1"
+          },
+          {
+            "max_rss_kb": 90904,
+            "n_traces": 17,
+            "stage": "geometry_validated"
+          },
+          {
+            "max_rss_kb": 90904,
+            "n_volumes": 18,
+            "stage": "occ_fragmented"
+          },
+          {
+            "h_max": 0.43199999999999994,
+            "h_min": 0.055999999999999966,
+            "max_rss_kb": 90904,
+            "stage": "mesh_generate_started"
+          },
+          {
+            "max_rss_kb": 6218812,
+            "n_nodes": 1953179,
+            "stage": "mesh_generated"
+          },
+          {
+            "max_rss_kb": 6218812,
+            "n_tetrahedra": 11805766,
+            "stage": "mesh_extracted"
+          },
+          {
+            "max_rss_kb": 6218812,
+            "stage": "gmsh_finalized"
+          },
+          {
+            "max_rss_kb": 6218812,
+            "stage": "skfem_mesh_created"
+          },
+          {
+            "max_rss_kb": 12865604,
+            "n_dofs": 1953179,
+            "stage": "basis_created"
+          },
+          {
+            "max_rss_kb": 18262148,
+            "n_dofs": 1953179,
+            "nnz": 29761825,
+            "stage": "matrix_assembled"
+          },
+          {
+            "linear_solver": "amg_cg",
+            "max_rss_kb": 18262148,
+            "n_free": 1934535,
+            "nnz": 29432459,
+            "stage": "system_condensed"
+          },
+          {
+            "linear_solver": "amg_cg",
+            "max_rss_kb": 18262148,
+            "stage": "solver_input_fingerprinted",
+            "system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63"
+          },
+          {
+            "max_rss_kb": 18262148,
+            "stage": "amg_setup_started"
+          },
+          {
+            "amg_levels": 4,
+            "max_rss_kb": 18262148,
+            "operator_complexity": 1.1091664138562123,
+            "stage": "amg_setup_completed"
+          },
+          {
+            "max_rss_kb": 18262148,
+            "stage": "cg_solve_started"
+          },
+          {
+            "amg_levels": 4,
+            "input_system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63",
+            "iterations": 25,
+            "linear_solver": "pyamg_smoothed_aggregation_cg",
+            "max_rss_kb": 18262148,
+            "maxiter": 500,
+            "operator_complexity": 1.1091664138562123,
+            "relative_residual": 3.96130510979932e-11,
+            "rtol": 1e-10,
+            "solver_info": 0,
+            "stage": "linear_solve_completed"
+          },
+          {
+            "energy_j": 2.0151868643988517e-11,
+            "max_rss_kb": 18262148,
+            "stage": "energy_computed"
+          }
+        ],
+        "stderr_tail": [
+          "Transforming over 1000 vertices to C_CONTIGUOUS.",
+          "Transforming over 1000 elements to C_CONTIGUOUS."
+        ],
+        "stdout_tail": [
+          "STAGE={\"gmsh_threads\": 25, \"max_rss_kb\": 90904, \"stage\": \"repeatability_environment\", \"telemetry_contract\": \"pcb-gnn.gmsh-thread-observation.v1\"}",
+          "STAGE={\"max_rss_kb\": 90904, \"n_traces\": 17, \"stage\": \"geometry_validated\"}",
+          "STAGE={\"max_rss_kb\": 90904, \"n_volumes\": 18, \"stage\": \"occ_fragmented\"}",
+          "STAGE={\"h_max\": 0.43199999999999994, \"h_min\": 0.055999999999999966, \"max_rss_kb\": 90904, \"stage\": \"mesh_generate_started\"}",
+          "STAGE={\"max_rss_kb\": 6218812, \"n_nodes\": 1953179, \"stage\": \"mesh_generated\"}",
+          "STAGE={\"max_rss_kb\": 6218812, \"n_tetrahedra\": 11805766, \"stage\": \"mesh_extracted\"}",
+          "STAGE={\"max_rss_kb\": 6218812, \"stage\": \"gmsh_finalized\"}",
+          "STAGE={\"max_rss_kb\": 6218812, \"stage\": \"skfem_mesh_created\"}",
+          "STAGE={\"max_rss_kb\": 12865604, \"n_dofs\": 1953179, \"stage\": \"basis_created\"}",
+          "STAGE={\"max_rss_kb\": 18262148, \"n_dofs\": 1953179, \"nnz\": 29761825, \"stage\": \"matrix_assembled\"}",
+          "STAGE={\"linear_solver\": \"amg_cg\", \"max_rss_kb\": 18262148, \"n_free\": 1934535, \"nnz\": 29432459, \"stage\": \"system_condensed\"}",
+          "STAGE={\"linear_solver\": \"amg_cg\", \"max_rss_kb\": 18262148, \"stage\": \"solver_input_fingerprinted\", \"system_sha256\": \"b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63\"}",
+          "STAGE={\"max_rss_kb\": 18262148, \"stage\": \"amg_setup_started\"}",
+          "STAGE={\"amg_levels\": 4, \"max_rss_kb\": 18262148, \"operator_complexity\": 1.1091664138562123, \"stage\": \"amg_setup_completed\"}",
+          "STAGE={\"max_rss_kb\": 18262148, \"stage\": \"cg_solve_started\"}",
+          "STAGE={\"amg_levels\": 4, \"input_system_sha256\": \"b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63\", \"iterations\": 25, \"linear_solver\": \"pyamg_smoothed_aggregation_cg\", \"max_rss_kb\": 18262148, \"maxiter\": 500, \"operator_complexity\": 1.1091664138562123, \"relative_residual\": 3.96130510979932e-11, \"rtol\": 1e-10, \"solver_info\": 0, \"stage\": \"linear_solve_completed\"}",
+          "STAGE={\"energy_j\": 2.0151868643988517e-11, \"max_rss_kb\": 18262148, \"stage\": \"energy_computed\"}",
+          "RESULT={\"amg_levels\": 4, \"cps_pf\": 40.303737287977036, \"eps_r\": 4.2, \"input_system_sha256\": \"b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63\", \"iterations\": 25, \"linear_solver\": \"pyamg_smoothed_aggregation_cg\", \"maxiter\": 500, \"mesh_nodes\": 1953179, \"mesh_tetrahedra\": 11805766, \"operator_complexity\": 1.1091664138562123, \"pad_mm\": 16.0, \"refine\": 3, \"relative_residual\": 3.96130510979932e-11, \"rtol\": 1e-10, \"solver_info\": 0, \"system_sha256\": \"b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63\"}"
+        ],
+        "telemetry_parse_errors": [],
+        "timed_out": false,
+        "wall_s": 493.6775752690155,
+        "worker_result": {
+          "amg_levels": 4,
+          "cps_pf": 40.303737287977036,
+          "eps_r": 4.2,
+          "input_system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63",
+          "iterations": 25,
+          "linear_solver": "pyamg_smoothed_aggregation_cg",
+          "maxiter": 500,
+          "mesh_nodes": 1953179,
+          "mesh_tetrahedra": 11805766,
+          "operator_complexity": 1.1091664138562123,
+          "pad_mm": 16.0,
+          "refine": 3,
+          "relative_residual": 3.96130510979932e-11,
+          "rtol": 1e-10,
+          "solver_info": 0,
+          "system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63"
+        },
+        "worker_result_count": 1
+      },
+      "execution_sha256": "4d475ca758c16ae78842d0046cf6307fd5f1541853d03afff6a42990a3309a85",
+      "frozen_reference": {
+        "cps_pf": 40.31623684447307,
+        "units": "pF"
+      },
+      "geometry": {
+        "family_id": "turns-05-12",
+        "geometry_sha256": "c22655637cfbebd74aaf33cfae599056561ce4ab39126afee9a7b35885fc1788",
+        "layout_id": 1495
+      },
+      "gmsh_thread_gate": {
+        "expected_gmsh_threads": 25,
+        "observation_count": 1,
+        "observed_gmsh_threads": 25,
+        "pass": true,
+        "telemetry_contract": "pcb-gnn.gmsh-thread-observation.v1"
+      },
+      "numerical_resource_gate": {
+        "checks": {
+          "cps_positive_finite": true,
+          "fidelity": true,
+          "iterations": true,
+          "mesh_nodes": true,
+          "mesh_tetrahedra": true,
+          "operator_complexity": true,
+          "relative_residual": true,
+          "resource_rss": true,
+          "resource_wall": true,
+          "solver_contract": true,
+          "system_fingerprint": true,
+          "worker_execution": true
+        },
+        "limits": {
+          "mesh_nodes_max": 3000000,
+          "mesh_tetrahedra_max": 20000000,
+          "operator_complexity_max": 1.25,
+          "wall_s_max": 1800.0,
+          "worker_peak_rss_gib_max": 32.0
+        },
+        "observed": {
+          "cps_pf": 40.303737287977036,
+          "eps_r": 4.2,
+          "iterations": 25,
+          "maxiter": 500,
+          "mesh_nodes": 1953179,
+          "mesh_tetrahedra": 11805766,
+          "operator_complexity": 1.1091664138562123,
+          "pad_mm": 16.0,
+          "refine": 3,
+          "relative_residual": 3.96130510979932e-11,
+          "rtol": 1e-10,
+          "solver_info": 0,
+          "wall_s": 493.6775752690155,
+          "worker_peak_rss_gib": 17.416141510009766
+        },
+        "pass": true
+      },
+      "old_reference_relative_drift": 0.00031003777818477306,
+      "old_reference_signed_relative_drift": -0.00031003777818477306,
+      "order_position": 1,
+      "repeat_id": 1,
+      "schema": "pcb-gnn.corpus-v4-fem-repeatability-arm.v1",
+      "speed_claim_eligible": false,
+      "worker_result": {
+        "amg_levels": 4,
+        "cps_pf": 40.303737287977036,
+        "eps_r": 4.2,
+        "input_system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63",
+        "iterations": 25,
+        "linear_solver": "pyamg_smoothed_aggregation_cg",
+        "maxiter": 500,
+        "mesh_nodes": 1953179,
+        "mesh_tetrahedra": 11805766,
+        "operator_complexity": 1.1091664138562123,
+        "pad_mm": 16.0,
+        "refine": 3,
+        "relative_residual": 3.96130510979932e-11,
+        "rtol": 1e-10,
+        "solver_info": 0,
+        "system_sha256": "b5cae909695da7a6fd88498def0732a8f238b7ec4e0872eca94b767c7e95ee63"
+      },
+      "worker_result_sha256": "ed9a5cf6fd5ef557aca4b69b5f3f7f78cfb1c77b89f28a7d38d4123373dc4026"
+    }
+  ],
+  "claim_eligible": false,
+  "completed_utc": "2026-08-21T01:39:33.489408+00:00",
+  "integrity": {
+    "passed": true
+  },
+  "provenance": {
+    "executed_batch_sha256": "08db1370d1700a9e1ae396f8420cacdf9c6b8a0eabce52a7dee2c00c650dbf29",
+    "hardware": {
+      "affinity_cpu_count": 25,
+      "anonymous_class_sha256": "59beaf0848f2d15f6295fe8180297edd21e977fff0373fdd9afd204b8cd008e7",
+      "architecture": "x86_64",
+      "cpu_model": "AMD EPYC 7H12 64-Core Processor",
+      "kernel": "5.14.0-570.128.1.el9_6.x86_64"
+    },
+    "hostname": "a0112.ten.osc.edu",
+    "input_bindings": {
+      "cps_protocol": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+      "evaluation_dataset": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c",
+      "geometry_contract": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+      "geometry_layouts": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+      "latency_task_manifest": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+    },
+    "protocol_sha256": "f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960",
+    "runtime": {
+      "packages": {
+        "gmsh": "4.15.2",
+        "meshio": "5.3.5",
+        "numpy": "2.0.2",
+        "pyamg": "5.3.0",
+        "scikit-fem": "11.0.0",
+        "scipy": "1.13.1"
+      },
+      "python": "3.9.21",
+      "thread_environment": {
+        "BLIS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    "scheduler": {
+      "array_job_id": "6915210",
+      "array_task_count": 15,
+      "array_task_id": 11,
+      "array_task_max": 14,
+      "array_task_min": 0,
+      "cpus_per_task": 25,
+      "job_account": "pgs0407",
+      "job_id": "6915314",
+      "memory": "49152",
+      "partition": "nextgen",
+      "scheduler_record": {
+        "Account": "pgs0407",
+        "AllocTRES": "cpu=25,mem=48G,node=1,billing=25",
+        "ArrayTaskThrottle": "3",
+        "CPUs/Task": "25",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "48G",
+        "NodeList": "a0112",
+        "NumCPUs": "25",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=25,mem=48G,node=1,billing=25",
+        "TimeLimit": "02:00:00",
+        "TresPerTask": "cpu=25"
+      },
+      "slurmd_nodename": "a0112"
+    },
+    "source_git_head": "abdc579a4a0a8435c4064dd1f9759bc13d378359",
+    "source_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+      "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py": "bc948f0709c078bbbf8b87cdff24fc0dcaf558cfe36f7e8ca1795e7dbec6c0e9",
+      "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "0a8d477a87fa3eea63c92e22f040e7d51006d4848af691293059533139ec0384",
+      "code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py": "a2d75339991659cc065e5446a6d20b2c75062f8a287fbfed7a341e753a4b9580",
+      "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_fem_repeatability.sh": "08db1370d1700a9e1ae396f8420cacdf9c6b8a0eabce52a7dee2c00c650dbf29",
+      "code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh": "9822f09719e922304df34b127e9860d14e1c3668905b24ec60616420968d8ba9",
+      "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+      "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+      "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+      "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-attempt.v1",
+  "speed_claim_eligible": false,
+  "task": {
+    "array_task_id": 11,
+    "family_id": "turns-05-12",
+    "geometry_sha256": "c22655637cfbebd74aaf33cfae599056561ce4ab39126afee9a7b35885fc1788",
+    "latency_task_id": 305,
+    "layout_id": 1495,
+    "repeat_id": 1
+  }
+}

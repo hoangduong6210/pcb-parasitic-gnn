@@ -1,0 +1,62 @@
+{
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-failed-finalizer-scheduler-receipt.v1",
+  "captured_utc": "2026-08-21T02:41:03Z",
+  "origin": "live_sacct",
+  "query_fields": [
+    "JobID",
+    "JobIDRaw",
+    "Account",
+    "Partition",
+    "State",
+    "ExitCode",
+    "ElapsedRaw",
+    "Timelimit",
+    "NodeList",
+    "Restarts",
+    "ReqTRES",
+    "AllocTRES",
+    "MaxRSS"
+  ],
+  "source_array": {
+    "job_id": "6915210",
+    "account": "pgs0407",
+    "partition": "nextgen",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "time_limit": "02:00:00",
+    "restarts": 0,
+    "requested_tres": "billing=25,cpu=25,mem=48G,node=1",
+    "allocated_tres": "billing=25,cpu=25,mem=48G,node=1",
+    "components": [
+      {"job_id": "6915210_0", "job_id_raw": "6915212", "elapsed_raw_s": 865, "node": "a0112"},
+      {"job_id": "6915210_1", "job_id_raw": "6915213", "elapsed_raw_s": 851, "node": "a0269"},
+      {"job_id": "6915210_2", "job_id_raw": "6915214", "elapsed_raw_s": 860, "node": "a0102"},
+      {"job_id": "6915210_3", "job_id_raw": "6915249", "elapsed_raw_s": 879, "node": "a0107"},
+      {"job_id": "6915210_4", "job_id_raw": "6915250", "elapsed_raw_s": 842, "node": "a0110"},
+      {"job_id": "6915210_5", "job_id_raw": "6915251", "elapsed_raw_s": 961, "node": "a0112"},
+      {"job_id": "6915210_6", "job_id_raw": "6915272", "elapsed_raw_s": 978, "node": "a0110"},
+      {"job_id": "6915210_7", "job_id_raw": "6915273", "elapsed_raw_s": 988, "node": "a0128"},
+      {"job_id": "6915210_8", "job_id_raw": "6915278", "elapsed_raw_s": 1017, "node": "a0112"},
+      {"job_id": "6915210_9", "job_id_raw": "6915304", "elapsed_raw_s": 1027, "node": "a0107"},
+      {"job_id": "6915210_10", "job_id_raw": "6915305", "elapsed_raw_s": 977, "node": "a0110"},
+      {"job_id": "6915210_11", "job_id_raw": "6915314", "elapsed_raw_s": 993, "node": "a0112"},
+      {"job_id": "6915210_12", "job_id_raw": "6915380", "elapsed_raw_s": 1009, "node": "a0103"},
+      {"job_id": "6915210_13", "job_id_raw": "6915381", "elapsed_raw_s": 1015, "node": "a0107"},
+      {"job_id": "6915210_14", "job_id_raw": "6915210", "elapsed_raw_s": 979, "node": "a0110"}
+    ]
+  },
+  "finalizer": {
+    "job_id": "6915245",
+    "job_id_raw": "6915245",
+    "account": "pgs0407",
+    "partition": "nextgen",
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "elapsed_raw_s": 4,
+    "time_limit": "00:30:00",
+    "node": "a0116",
+    "restarts": 0,
+    "requested_tres": "billing=2,cpu=2,mem=8G,node=1",
+    "allocated_tres": "billing=3,cpu=3,mem=8G,node=1"
+  }
+}

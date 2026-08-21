@@ -1,0 +1,45 @@
+{
+  "arm_order": [
+    "arm_a_threads25",
+    "arm_b_threads1"
+  ],
+  "array_task_id": 12,
+  "claim_eligible": false,
+  "input_bindings": {
+    "cps_protocol": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+    "evaluation_dataset": "c7f6128f6d189b82dbec036ff8f448fa468980bbf518abcb1358c0a143a1b02c",
+    "geometry_contract": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+    "geometry_layouts": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "latency_task_manifest": "db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2"
+  },
+  "panel": {
+    "family_id": "turns-05-12",
+    "frozen_r3_cps_pf": 40.31623684447307,
+    "geometry_sha256": "c22655637cfbebd74aaf33cfae599056561ce4ab39126afee9a7b35885fc1788",
+    "latency_task_id": 305,
+    "layout_id": 1495
+  },
+  "protocol_sha256": "f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960",
+  "repeat_id": 2,
+  "schema": "pcb-gnn.corpus-v4-fem-repeatability-start.v1",
+  "source_git_head": "abdc579a4a0a8435c4064dd1f9759bc13d378359",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+    "code/experiments/proofs/admit_corpus_v4_fem_repeatability.py": "bc948f0709c078bbbf8b87cdff24fc0dcaf558cfe36f7e8ca1795e7dbec6c0e9",
+    "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "0a8d477a87fa3eea63c92e22f040e7d51006d4848af691293059533139ec0384",
+    "code/experiments/proofs/finalize_corpus_v4_fem_repeatability.py": "a2d75339991659cc065e5446a6d20b2c75062f8a287fbfed7a341e753a4b9580",
+    "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_fem_repeatability.sh": "08db1370d1700a9e1ae396f8420cacdf9c6b8a0eabce52a7dee2c00c650dbf29",
+    "code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh": "9822f09719e922304df34b127e9860d14e1c3668905b24ec60616420968d8ba9",
+    "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+    "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+    "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+    "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "speed_claim_eligible": false,
+  "started_utc": "2026-08-21T01:37:15.130267+00:00"
+}

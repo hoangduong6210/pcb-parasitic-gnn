@@ -31,6 +31,10 @@ FINALIZER_PATH = (
 FINALIZER_SUBMIT_PATH = (
     ROOT / "code/jobs/submit_finalize_corpus_v4_fem_repeatability.sh"
 )
+REJECTED_FINALIZER_ROOT = (
+    ROOT
+    / "results/corpus_v4/fem_repeatability/v1/failures/finalizer_job_6915245"
+)
 
 
 def _load_runner() -> ModuleType:
@@ -754,6 +758,27 @@ def test_slurm_allocation_is_required_and_exact(
     observed = runner.validate_slurm_allocation(protocol)
     assert observed["array_task_id"] == 4
     assert observed["scheduler_record"]["ArrayTaskThrottle"] == "3"
+    assert observed["scheduler_record"]["JobId"] == "7000005"
+    assert observed["scheduler_record"]["ArrayJobId"] == "7000000"
+    assert observed["scheduler_record"]["ArrayTaskId"] == "4"
+    assert set(observed["scheduler_record"]) == {
+        "Account",
+        "AllocTRES",
+        "ArrayJobId",
+        "ArrayTaskId",
+        "ArrayTaskThrottle",
+        "CPUs/Task",
+        "JobId",
+        "JobState",
+        "MinMemoryNode",
+        "NodeList",
+        "NumCPUs",
+        "NumTasks",
+        "Partition",
+        "ReqTRES",
+        "TimeLimit",
+        "TresPerTask",
+    }
 
     bad_tres_values = (
         "billing=25,cpu=25,mem=48G2,node=1",
@@ -990,6 +1015,37 @@ def test_finalizer_rejects_wrong_raw_job_id_and_missing_or_duplicate_rows(
             finalizer.validate_source_accounting(
                 invalid_accounting, "7100000", protocol
             )
+
+
+def test_finalizer_rejects_incomplete_retained_scheduler_identity(
+    tmp_path: Path,
+) -> None:
+    finalizer = _load_finalizer()
+    protocol = _protocol()
+    source_head = "3" * 40
+    accounting = _materialize_finalizer_fixture(
+        tmp_path, protocol, source_head=source_head
+    )
+    task_dir = tmp_path / "attempts/job_7100000/task_00"
+    result_path = task_dir / "result.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    del result["provenance"]["scheduler"]["scheduler_record"]["JobId"]
+    _write_json(result_path, result)
+    _refresh_task_manifest(task_dir)
+
+    with pytest.raises(ValueError, match="scheduler record fields are not exact"):
+        finalizer.build_final_payload(
+            protocol=protocol,
+            protocol_sha256=_sha256(PROTOCOL_PATH),
+            expected_source_git_head=source_head,
+            source_array_job_id="7100000",
+            finalizer_job_id="7300000",
+            input_root=tmp_path,
+            accounting_rows=accounting,
+            accounting_provenance=_fixture_accounting_provenance(
+                finalizer, accounting
+            ),
+        )
 
 
 def test_terminal_state_annotations_are_normalized_without_losing_raw_state(
@@ -1319,3 +1375,48 @@ def test_finalizer_writes_one_atomic_immutable_result_and_manifest(
     assert dangling.exists() is False and dangling.is_symlink() is True
     with pytest.raises(SystemExit, match="immutable"):
         finalizer._atomic_final_directory(dangling, payload)
+
+
+def test_rejected_finalizer_evidence_is_hash_closed_and_non_admissible() -> None:
+    manifest = json.loads(
+        (REJECTED_FINALIZER_ROOT / "FAILURE_MANIFEST.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert manifest["source_array_job_id"] == "6915210"
+    assert manifest["finalizer_job_id"] == "6915245"
+    assert set(manifest["files"]) == {
+        "FAILURE.json",
+        "SCHEDULER_RECEIPT.json",
+        "pcb-v4-fem-rep-fin-6915245.err",
+        "pcb-v4-fem-rep-fin-6915245.out",
+    }
+    for name, expected_sha256 in manifest["files"].items():
+        assert _sha256(REJECTED_FINALIZER_ROOT / name) == expected_sha256
+
+    attempts = (
+        ROOT / "results/corpus_v4/fem_repeatability/v1/attempts/job_6915210"
+    )
+    assert set(manifest["source_task_manifest_sha256"]) == {
+        f"task_{task_id:02d}" for task_id in range(15)
+    }
+    for task_name, expected_sha256 in manifest[
+        "source_task_manifest_sha256"
+    ].items():
+        assert _sha256(attempts / task_name / "TASK_MANIFEST.json") == expected_sha256
+
+    failure = json.loads(
+        (REJECTED_FINALIZER_ROOT / "FAILURE.json").read_text(encoding="utf-8")
+    )
+    receipt = json.loads(
+        (REJECTED_FINALIZER_ROOT / "SCHEDULER_RECEIPT.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert failure["claim_eligible"] is False
+    assert failure["speed_claim_eligible"] is False
+    assert failure["paired_latency_preflight_may_resume"] is False
+    assert len(receipt["source_array"]["components"]) == 15
+    assert receipt["source_array"]["state"] == "COMPLETED"
+    assert receipt["finalizer"]["state"] == "FAILED"
+    assert receipt["finalizer"]["exit_code"] == "1:0"

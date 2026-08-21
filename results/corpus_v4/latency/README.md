@@ -1,7 +1,8 @@
 # Corpus V4 paired-latency evidence
 
-Status: diagnostic preflight rejected; FEM repeatability protocol frozen and
-SLURM execution pending; `C-LAT-001` blocked and the 306-layout full array
+Status: diagnostic preflight rejected; the first FEM repeatability finalizer
+failed closed on an artifact-schema mismatch and a complete corrected rerun is
+pending; `C-LAT-001` remains blocked and the 306-layout full array remains
 closed.
 
 ## Submission status
@@ -33,9 +34,9 @@ while the FastHenry-derived inductance targets remain unchanged. The next
 scientific step is the frozen
 [FEM repeatability study](../../../wiki/methods/FEM-Repeatability.md), protocol
 SHA-256
-`f79129828011ff0ed16ae163cc136d41b67eac0f0cac276fdbdbb3192cadd960`;
-its SLURM execution is pending and the existing tolerance will not be relaxed
-post hoc. A future full array additionally
+`faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`;
+its corrected SLURM rerun is pending and the existing tolerance will not be
+relaxed post hoc. A future full array additionally
 requires an authenticated three-task preflight admission artifact.
 
 This directory is reserved for the current-corpus paired-latency evidence. It
@@ -96,9 +97,9 @@ The immutable execution inputs are:
 - [current panel records](plan/v2/panel_records.jsonl), SHA-256
   `dfed7cc0f40f17809f665fd552f1541ccf2d2bd52041d535c67ab189f19b24db`;
   and
-- [current execution lock](../../../protocols/corpus_v4_latency_execution_lock_v2.json),
+- [current execution lock](../../../protocols/corpus_v4_latency_execution_lock_v3.json),
   SHA-256
-  `ea758cef72d09aec7514255ddb3bf60323965ae7fd6b57af0d15384d60a65d82`.
+  `e54b9ef326006a60a62446d90c43d6565cf1d52bbbef5315fc0bdc28d109de13`.
 
 These hashes identify the planned computation. They are not a latency result.
 The execution commit is pinned separately at submission time after tests and
@@ -107,7 +108,7 @@ postterminal FEM-repeatability receipt before a new preflight and an
 authenticated preflight admission before the full array. Historical rejected
 jobs remain bound to immutable `plan/v1` and execution-lock v1 bytes recorded
 in the evidence ledger and in their artifacts. Current execution uses the
-separately versioned v2 plan and lock.
+separately versioned v2 plan and v3 lock.
 
 ## Interpretation boundary
 
