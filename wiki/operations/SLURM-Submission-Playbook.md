@@ -1,16 +1,17 @@
 ---
 title: SLURM Submission Playbook
 status: active operational runbook
-last_updated: 2026-08-15
+last_updated: 2026-08-21
 paper_source: false
 ---
 
 # SLURM Submission Playbook
 
 This page is the canonical operational procedure for the Cps multi-fidelity
-pipeline. It is not manuscript source. Solver work and model training must run
-through SLURM; the login node is used only for validation, submission,
-monitoring, hashing, and small artifact-index operations.
+pipeline and its deterministic FEM qualification. It is not manuscript source.
+Solver work and model training must run through SLURM; the login node is used
+only for validation, submission, monitoring, hashing, and small artifact-index
+operations.
 
 ## 1. Frozen roots
 
@@ -127,6 +128,141 @@ sbatch --test-only -A pgs0407 code/jobs/submit_corpus_v4_cps_r4.sh
 
 Also verify that `logs/` exists, the source corpus hashes match the protocol,
 the output paths do not collide with an older attempt, and quota is sufficient.
+
+## 4A. Deterministic FEM v2 qualification
+
+This chain is independent of the archived multi-fidelity execution above. Use
+one detached, clean worktree at one reviewed source commit for Gates A, B, and
+C. Do not advance that worktree between stages. A documentation branch may
+advance elsewhere, but its files must not be copied into the execution tree.
+
+Set the trust roots from the reviewed commit and verify them before submission:
+
+```bash
+FEM_V2_ROOT=/absolute/path/to/detached-clean-worktree
+FEM_V2_PROTOCOL="$FEM_V2_ROOT/protocols/corpus_v4_fem_v2_qualification_v1.json"
+FEM_V2_PROTOCOL_SHA256=912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f
+FEM_V2_SOURCE_COMMIT=replace-with-reviewed-40-character-commit
+cd "$FEM_V2_ROOT"
+git status --porcelain
+git rev-parse HEAD
+sha256sum "$FEM_V2_PROTOCOL"
+python3 code/quality/build_manifest.py --check
+python3 -m pytest -q -p no:cacheprovider tests
+mkdir -p logs
+```
+
+The first two commands must return an empty status and the exact reviewed
+commit. The protocol digest must equal `FEM_V2_PROTOCOL_SHA256`. Validate all
+three task expansions without invoking a solver:
+
+```bash
+python3 code/experiments/proofs/run_corpus_v4_fem_v2_qualification.py \
+  --stage gate_a \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --validate-only
+python3 code/experiments/proofs/run_corpus_v4_fem_v2_qualification.py \
+  --stage gate_b \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --validate-only
+python3 code/experiments/proofs/run_corpus_v4_fem_v2_qualification.py \
+  --stage gate_c \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --validate-only
+sbatch --test-only -A pgs0407 code/jobs/submit_corpus_v4_fem_v2_gate_a.sh
+```
+
+The validate-only receipts must report 45, 9, and 21 tasks, respectively,
+`verified_geometry_records=1500`, and `solver_executed=false`. Submit only Gate
+A at this point:
+
+```bash
+GATE_A_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT" \
+  code/jobs/submit_corpus_v4_fem_v2_gate_a.sh)
+GATE_A_FINALIZER_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --dependency="afterany:$GATE_A_JOB_ID" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT",PCB_GNN_V4_FEM_V2_SOURCE_ARRAY_JOB_ID="$GATE_A_JOB_ID" \
+  code/jobs/submit_finalize_corpus_v4_fem_v2_gate_a.sh)
+```
+
+Wait until the finalizer is absent from `squeue` and its main `sacct` row is
+`COMPLETED|0:0`. An empty queue alone is insufficient. Then run the solver-free
+postterminal admission on the login node:
+
+```bash
+python3 code/experiments/proofs/admit_corpus_v4_fem_v2_qualification.py \
+  --stage gate_a \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --expected-source-git-head "$FEM_V2_SOURCE_COMMIT" \
+  --source-array-job-id "$GATE_A_JOB_ID" \
+  --finalizer-job-id "$GATE_A_FINALIZER_JOB_ID"
+GATE_A_ADMISSION="$FEM_V2_ROOT/results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_a/source_job_${GATE_A_JOB_ID}/finalizer_job_${GATE_A_FINALIZER_JOB_ID}/FINAL_ADMISSION.json"
+GATE_A_ADMISSION_SHA256=$(sha256sum "$GATE_A_ADMISSION" | awk '{print $1}')
+jq '.decision' "$GATE_A_ADMISSION"
+```
+
+Gate B is authorized only when `qualification_stage_pass` and
+`next_stage_may_run` are both true. Propagate the exact admission path and hash:
+
+```bash
+GATE_B_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION="$GATE_A_ADMISSION",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION_SHA256="$GATE_A_ADMISSION_SHA256" \
+  code/jobs/submit_corpus_v4_fem_v2_gate_b.sh)
+GATE_B_FINALIZER_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --dependency="afterany:$GATE_B_JOB_ID" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT",PCB_GNN_V4_FEM_V2_SOURCE_ARRAY_JOB_ID="$GATE_B_JOB_ID",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION="$GATE_A_ADMISSION",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION_SHA256="$GATE_A_ADMISSION_SHA256" \
+  code/jobs/submit_finalize_corpus_v4_fem_v2_gate_b.sh)
+```
+
+After the same terminal check, admit Gate B and bind its receipt:
+
+```bash
+python3 code/experiments/proofs/admit_corpus_v4_fem_v2_qualification.py \
+  --stage gate_b \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --expected-source-git-head "$FEM_V2_SOURCE_COMMIT" \
+  --source-array-job-id "$GATE_B_JOB_ID" \
+  --finalizer-job-id "$GATE_B_FINALIZER_JOB_ID"
+GATE_B_ADMISSION="$FEM_V2_ROOT/results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_b/source_job_${GATE_B_JOB_ID}/finalizer_job_${GATE_B_FINALIZER_JOB_ID}/FINAL_ADMISSION.json"
+GATE_B_ADMISSION_SHA256=$(sha256sum "$GATE_B_ADMISSION" | awk '{print $1}')
+jq '.decision' "$GATE_B_ADMISSION"
+```
+
+Only `qualification_stage_pass=true` together with
+`r3_v2_generation_may_start=true` authorizes new R3 v2 generation. Gate C is
+needed only for a new R4 or explicit multi-fidelity package:
+
+```bash
+GATE_C_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION="$GATE_B_ADMISSION",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION_SHA256="$GATE_B_ADMISSION_SHA256" \
+  code/jobs/submit_corpus_v4_fem_v2_gate_c.sh)
+GATE_C_FINALIZER_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --dependency="afterany:$GATE_C_JOB_ID" \
+  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$FEM_V2_ROOT",PCB_GNN_V4_FEM_V2_PROTOCOL_SHA256="$FEM_V2_PROTOCOL_SHA256",PCB_GNN_V4_SOURCE_COMMIT="$FEM_V2_SOURCE_COMMIT",PCB_GNN_V4_FEM_V2_SOURCE_ARRAY_JOB_ID="$GATE_C_JOB_ID",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION="$GATE_B_ADMISSION",PCB_GNN_V4_FEM_V2_PREREQUISITE_ADMISSION_SHA256="$GATE_B_ADMISSION_SHA256" \
+  code/jobs/submit_finalize_corpus_v4_fem_v2_gate_c.sh)
+```
+
+After Gate C and its finalizer are terminal, create the last receipt:
+
+```bash
+python3 code/experiments/proofs/admit_corpus_v4_fem_v2_qualification.py \
+  --stage gate_c \
+  --expected-protocol-sha256 "$FEM_V2_PROTOCOL_SHA256" \
+  --expected-source-git-head "$FEM_V2_SOURCE_COMMIT" \
+  --source-array-job-id "$GATE_C_JOB_ID" \
+  --finalizer-job-id "$GATE_C_FINALIZER_JOB_ID"
+GATE_C_ADMISSION="$FEM_V2_ROOT/results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_c/source_job_${GATE_C_JOB_ID}/finalizer_job_${GATE_C_FINALIZER_JOB_ID}/FINAL_ADMISSION.json"
+jq '.decision' "$GATE_C_ADMISSION"
+```
+
+Missing accounting, a nonterminal finalizer, a missing receipt, or any
+admission error is operationally `INDETERMINATE`; absence of a positive receipt
+never opens the next stage. A valid Gate-C receipt may combine
+`qualification_stage_pass=true` with `scientific_outcome=SCIENTIFIC_NEGATIVE`
+when R4 is repeatable but the R3/R4 mesh-sensitivity threshold fails. That
+combination permits separately named fidelities and does not support a
+mesh-convergence claim.
 
 ## 5. Generate and verify R3 dispatch shards
 

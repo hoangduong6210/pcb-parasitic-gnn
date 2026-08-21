@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-20
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -27,6 +27,7 @@ paper_source: false
 | [Live Execution](status/Live-Execution.md) | Dated scheduler progress and next operational transition |
 | [Limitations](LIMITATIONS.md) | Boundaries that apply across papers and claims |
 | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) | Accepted R3/R4 policy and consequences |
+| [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) | Version boundary, staged one-thread gates, and stop rules |
 
 ## Datasets and geometry
 
@@ -113,6 +114,7 @@ paper_source: false
 | `E-C4-DISC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
+| `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-C4-FEM-D1-v2`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |
+| Decision `0002` | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) |
 | Paper snapshots | Package identity and hashes live in each paper directory README; future exports also carry a snapshot manifest. |

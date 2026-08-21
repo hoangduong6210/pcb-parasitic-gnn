@@ -1,7 +1,7 @@
 ---
 title: Corpus and Target Contract
 status: active specification
-last_updated: 2026-08-19
+last_updated: 2026-08-21
 paper_source: false
 ---
 
@@ -34,11 +34,19 @@ column.
 | `FEM-R3P16` | refine-3, pad 16 mm | Bulk fixed numerical target | 1,500 tasks validated and jointly finalized |
 | `FEM-R4P16` | refine-4, pad 16 mm | Higher-fidelity validation observation | 198 tasks validated and jointly finalized |
 
-`FEM-R3P16` was selected for bulk generation because it is reproducible,
-computationally feasible, and stable to the tested domain expansion. Its failed
-mesh gate is retained as part of the target definition. `FEM-R4P16` is more
+`FEM-R3P16` was selected for the archived bulk generation because it was
+computationally feasible and passed the tested domain-expansion gate. A later
+fresh-mesh study showed that its 25-thread mesh-generation path was not
+numerically repeatable on the tested three-layout panel. The archive remains
+byte- and hash-reproducible, but numerical regeneration is not claimed. Its
+failed mesh gate remains part of the target definition. `FEM-R4P16` is more
 resolved, but it has not been compared with refine-5 and is not called continuum
 truth or physical ground truth.
+
+The proposed one-thread reference uses new fidelity identifiers and a separate
+artifact namespace. It is not admitted into this registry until the staged
+qualification in [Decision 0002](../decisions/0002-deterministic-fem-reference.md)
+has a positive postterminal receipt.
 
 The FastHenry inductance observations remain separate targets and retain their
 original full-precision records. A multi-fidelity Cps finalizer must not round

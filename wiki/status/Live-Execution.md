@@ -17,6 +17,7 @@ Last scheduler observation: 2026-08-21 09:04 UTC.
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
 | FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
+| One-thread FEM qualification | `PROTOCOL FROZEN / GATE A NOT RUN` | Hash-pinned nine-layout Gate A, B, and C execution chain; no solver task submitted | Commit, push, and obtain green CI before submitting Gate A | Full corpus remains locked; Gate B and Gate C require positive prior-stage receipts |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
@@ -83,3 +84,9 @@ one-thread FEM reference followed by complete Cps-label, training, accuracy,
 and latency regeneration. Until that sequence closes, `C-LAT-001` remains
 blocked and no current speed value is permitted. Baseline, strict E(3), and
 ranking comparisons also require their own frozen protocols and jobs.
+
+The new reference is governed by
+[Decision 0002](../decisions/0002-deterministic-fem-reference.md). Its first
+heavy stage is 45 R3P16 solves: five fresh meshes on each of the nine inherited
+convergence anchors. No R3P20, R4, or production-corpus job may be submitted
+until the preceding stage has a positive terminal admission receipt.

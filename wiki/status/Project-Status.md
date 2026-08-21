@@ -42,6 +42,7 @@ instead of calling one column ground truth.
 | Family-aware R3/R4 discrepancy audit | `ADMITTED DESCRIPTIVE` | Exact 198-layout selected-registry comparison; no population inference or global correction |
 | Multi-seed current-corpus accuracy | `ADMITTED` | Complete 5 by 5 family-held-out split and initialization grid with tracked checkpoints, predictions, matrices, and archive closure |
 | FEM-R3P16 repeatability diagnostic | `POSTTERMINAL NEGATIVE` | Corrected 30-solve run: the existing 25-thread path failed mesh identity and repeatability on all three anchors; the one-thread diagnostic passed both on all three; paired latency is explicitly not authorized |
+| One-thread FEM reference qualification | `FROZEN DESIGN / NOT RUN` | New namespace and staged nine-layout gates; no production label is authorized yet |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -55,11 +56,12 @@ transition.
 1. Use the admitted
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    predictive baseline for subsequent current-corpus experiments.
-2. Version the passing one-thread diagnostic as a new deterministic FEM
-   reference, regenerate the complete Cps observation package, retrain the
-   model, and rerun accuracy before designing a new latency protocol. The
-   existing admission is negative, so `C-LAT-001` and its 306-layout array
-   remain closed.
+2. Execute the staged one-thread qualification in
+   [Decision 0002](../decisions/0002-deterministic-fem-reference.md). Only a
+   positive postterminal receipt may open full Cps regeneration. New labels
+   then require retraining and a new accuracy result before a latency protocol
+   is designed. The existing admission is negative, so `C-LAT-001` and its
+   306-layout array remain closed.
 3. Repeat baseline, strict E(3), and ranking studies on the same current corpus
    and split registry.
 4. Admit claims in the wiki before generating a new paper snapshot.
