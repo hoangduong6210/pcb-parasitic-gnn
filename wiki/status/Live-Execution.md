@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-22 02:13 UTC.
+Last scheduler observation: 2026-08-22 12:47 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -17,7 +17,7 @@ Last scheduler observation: 2026-08-22 02:13 UTC.
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
 | FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
-| One-thread FEM qualification | `GATES A/B ADMITTED; GATE C RUNNING` | Gate A: 45 of 45 admitted; Gate B: 9 of 9 admitted; Gate C: 4 of 21 complete, two running | Complete Gate C, terminal finalizer, and postterminal admission | R3 generation is authorized but not started; multi-fidelity generation remains locked until Gate C closes |
+| One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | Prepare deterministic R3/R4 generation protocols and task manifests | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities must remain explicit |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
@@ -79,25 +79,29 @@ retained the identity projection and reran all 30 solves from source commit
 and the finalizer completed with exit code `0:0`. Arm A failed mesh identity
 and repeatability on all three layouts, while Arm B passed both on all three.
 The terminal admission therefore records
-`paired_latency_preflight_may_resume=false`. The next transition is a versioned
-one-thread FEM reference followed by complete Cps-label, training, accuracy,
-and latency regeneration. Until that sequence closes, `C-LAT-001` remains
+`paired_latency_preflight_may_resume=false`. That result motivated the
+versioned one-thread FEM qualification described below. Complete Cps-label,
+training, accuracy, and latency regeneration is still required. Until that
+sequence closes, `C-LAT-001` remains
 blocked and no current speed value is permitted. Baseline, strict E(3), and
 ranking comparisons also require their own frozen protocols and jobs.
 
 The new reference is governed by
-[Decision 0002](../decisions/0002-deterministic-fem-reference.md). Its first
-two gates are now terminal and admitted. Gate A completed all 45 R3P16 solves
+[Decision 0002](../decisions/0002-deterministic-fem-reference.md). All three
+qualification stages are terminal and admitted. Gate A completed all 45 R3P16 solves
 with a maximum within-layout relative Cps spread of
 `1.1743017900469024e-14`. Gate B completed all nine R3P20 solves; the selected
 panel's domain delta had median `0.20585933141613427%` and maximum
-`1.0860887365856715%`. Source arrays `6916859` and `6917229`, their finalizers,
-and both admission receipts retain the exact commit, protocol, scheduler, and
-resource records.
+`1.0860887365856715%`. The Gate A and B arrays, their finalizers, and their two
+admission receipts retain the exact commit, protocol, scheduler, and resource
+records.
 
-Gate C source array `6923579` and dependency-held finalizer `6923586` are the
-active transition. The R4 array runs at concurrency two because each task
-requests 160 GiB. At the observation time, tasks 0 through 3 had complete,
-integrity-passing artifacts; tasks 4 and 5 were running and the remaining
-tasks were held by the array limit. This is an operational snapshot, not a Gate
-C result.
+Gate C source array `6923579` completed all 21 elements with exit code `0:0`;
+finalizer `6923586` and the postterminal admission also completed normally.
+The three R4 sentinels passed mesh identity and repeatability with maximum
+relative spreads between `9.6256205214e-15` and `1.7598308135e-14`. The
+nine-layout adjacent-mesh comparison returned median delta
+`8.004837428851205%` and maximum `13.929354258624992%`, exceeding the frozen 2%
+and 5% limits. The next transition is full one-thread R3 and R4 regeneration
+with separate fidelity identifiers, followed by retraining and new accuracy
+and latency protocols. No old model or speed value transfers to this version.

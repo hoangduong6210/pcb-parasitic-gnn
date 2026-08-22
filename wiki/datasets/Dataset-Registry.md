@@ -18,7 +18,7 @@ latency claim.
 | `D-V2` | `synth_v2` | Submitted solver-surrogate feasibility | Archived feasibility snapshot; scope-bound claims only |
 | `D-C3` | `corpus_v3` | Geometry-contract repair over 1,500 layouts | Geometry root validated; inherited capacitance fidelity is not mesh-converged |
 | `D-C4` | `corpus_v4` | Multi-fidelity capacitance package on the accepted v3 geometry root | Finalized: 1,500 R3 and 198 R4 observations; selected-registry discrepancy admitted descriptively |
-| `D-C4-FEM-D1-v2` | `cps_reference_v2` | One-thread FEM candidate on the unchanged accepted geometry root | Gates A and B admitted; R3 generation authorized but not started; Gate C not admitted and the R4 route remains locked |
+| `D-C4-FEM-D1-v2` | `cps_reference_v2` | One-thread FEM candidate on the unchanged accepted geometry root | All qualification gates admitted; explicit R3/R4 generation authorized but not started; no full v2 dataset exists yet |
 | `D-VENDOR-750341134` | Local vendor assets | Commercial geometry and datasheet anchor | External validation track; not a training corpus |
 
 Corpus v4 is not a fourth geometry generator. It retains the accepted corpus-v3
@@ -32,9 +32,11 @@ physical ground truth.
 overwrite, or retroactively validate `D-C4`. Its first admissible artifacts are
 finite-panel qualification receipts. Gates A and B are now admitted and
 authorize the 1,500-layout R3 route in
-[Decision 0002](../decisions/0002-deterministic-fem-reference.md). A new
-198-layout R4 route additionally requires Gate C repeatability and exact task
-validity; its mesh-sensitivity decision remains a separately reported result.
+[Decision 0002](../decisions/0002-deterministic-fem-reference.md). Gate C
+admitted its 21-task qualification panel, including three-sentinel R4
+repeatability and task validity, and authorized later frozen 198-layout R4
+generation. Its finite-panel mesh-sensitivity result is negative, so R3 and R4
+remain separate named fidelities rather than one being promoted to ground truth.
 No full v2 observation set has been generated, so the registry row remains a
 qualified candidate rather than a finalized dataset.
 

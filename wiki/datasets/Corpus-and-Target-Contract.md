@@ -43,10 +43,13 @@ failed mesh gate remains part of the target definition. `FEM-R4P16` is more
 resolved, but it has not been compared with refine-5 and is not called continuum
 truth or physical ground truth.
 
-The proposed one-thread reference uses new fidelity identifiers and a separate
-artifact namespace. It is not admitted into this registry until the staged
-qualification in [Decision 0002](../decisions/0002-deterministic-fem-reference.md)
-has a positive postterminal receipt.
+The one-thread candidate uses new fidelity identifiers and a separate artifact
+namespace. Its staged configuration qualification in
+[Decision 0002](../decisions/0002-deterministic-fem-reference.md) is complete:
+R3 and three-sentinel R4 repeatability passed, while the finite-panel
+adjacent-mesh result was negative. The qualification authorizes a new explicit
+multi-fidelity generation run. It does not itself admit a production
+observation set into this registry; no full v2 dataset has been generated.
 
 The FastHenry inductance observations remain separate targets and retain their
 original full-precision records. A multi-fidelity Cps finalizer must not round

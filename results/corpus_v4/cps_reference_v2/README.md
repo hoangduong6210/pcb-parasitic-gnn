@@ -51,22 +51,28 @@ proof of completion.
 
 ## Current state
 
-Gates A and B are postterminal and positive. Gate A completed 45 of 45 R3P16
+All three qualification gates are postterminal. Gate A completed 45 of 45 R3P16
 tasks and passed the nine-layout repeatability rule; its maximum relative Cps
 spread was `1.1743017900469024e-14` against the frozen `1e-4` limit. Gate B
 completed nine of nine R3P20 tasks. Its R3P16-to-R3P20 domain deltas had median
 `0.20585933141613427%` and maximum `1.0860887365856715%`, below the frozen 2%
 and 5% limits.
 
-These receipts authorize full R3 v2 generation, but that generation has not
-started. Gate C has not been admitted, so a new explicit multi-fidelity R3/R4
-package remains locked. The current scheduler state is maintained only in the
-[live execution snapshot](../../../wiki/status/Live-Execution.md). No model
-accuracy, latency, or speed claim is authorized from this directory.
-Both receipts admit a qualification stage and numerical configuration; their
+Gate C completed 21 of 21 R4P16 tasks. Its three five-repeat sentinels passed
+mesh identity and repeatability. The finite-panel R3P16-to-R4P16 comparison did
+not pass the prospectively frozen mesh thresholds: median delta was
+`8.004837428851205%` and maximum delta was `13.929354258624992%`, against 2%
+and 5%. The terminal receipt therefore records `SCIENTIFIC_NEGATIVE` for mesh
+sensitivity while authorizing generation of an explicitly named
+multi-fidelity R3/R4 package.
+
+The receipts authorize full R3 v2 and R4 v2 generation, but neither bulk job
+has started. No model accuracy, latency, or speed claim is authorized from
+this directory. All three receipts admit a qualification stage and numerical
+configuration; their
 machine-readable `claim_eligible` and `speed_claim_eligible` fields remain
 false. The nine selected layouts do not establish corpus-wide domain
-convergence or physical ground truth.
+convergence, continuum mesh convergence, or physical ground truth.
 
 ## Admitted qualification receipts
 
@@ -74,7 +80,8 @@ convergence or physical ground truth.
 |---|---|---|---|
 | Gate A | Source array `6916859`; finalizer job `6916860` | Positive repeatability qualification | [Result](qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/result.json), [manifest](qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_MANIFEST.json), [admission](qualification/v1/admission/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_ADMISSION.json) |
 | Gate B | Source array `6917229`; finalizer job `6917238` | Positive finite-panel domain-sensitivity qualification; R3 generation authorized | [Result](qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/result.json), [manifest](qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_MANIFEST.json), [admission](qualification/v1/admission/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_ADMISSION.json) |
+| Gate C | Source array `6923579`; finalizer job `6923586` | Three-sentinel R4 repeatability positive; finite-panel mesh sensitivity negative; explicit multi-fidelity generation authorized | [Result](qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/result.json), [manifest](qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_MANIFEST.json), [admission](qualification/v1/admission/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_ADMISSION.json) |
 
-Both stages executed from source commit
+All stages executed from source commit
 `4270e11456a575b05f11ec3b67cddda9ce845798` under protocol SHA-256
 `912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f`.

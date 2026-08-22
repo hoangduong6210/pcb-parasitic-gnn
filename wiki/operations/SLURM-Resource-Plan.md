@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-21
+last_updated: 2026-08-22
 paper_source: false
 ---
 
@@ -28,17 +28,19 @@ R3 shards pass a live submission-capacity gate before they are queued.
 | Paired-latency finalizer — blocked | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
 | FEM repeatability diagnostic — completed negative | 15 elements, 2 FEM solves per element | 25 CPU, 48 GiB | 3 | 1,800 s per FEM arm | 2 h |
 | FEM repeatability finalizer — completed | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 30 min |
-| One-thread FEM v2 Gate A — planned | 45 | 1 requested CPU, 48 GiB | 8 | 1,800 s | 2 h |
-| One-thread FEM v2 Gate B — locked | 9 | 1 requested CPU, 48 GiB | 8 | 3,600 s | 2 h |
-| One-thread FEM v2 Gate C — locked | 21 | 1 requested CPU, 160 GiB | 2 | 7,200 s | 3 h |
+| One-thread FEM v2 Gate A qualification | 45 | 1 requested CPU, 48 GiB | 8 | 1,800 s | 2 h |
+| One-thread FEM v2 Gate B qualification | 9 | 1 requested CPU, 48 GiB | 8 | 3,600 s | 2 h |
+| One-thread FEM v2 Gate C qualification | 21 | 1 requested CPU, 160 GiB | 2 | 7,200 s | 3 h |
 | One-thread FEM v2 stage finalizer | 1 per executed gate | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 
 Gate A contains five fresh R3P16 meshes for each of nine layouts. Gate B is one
-R3P20 mesh per layout and remains locked until Gate A admission. Gate C contains
-five R4P16 meshes for each of three sentinels and one for each of the other six
-layouts; it is required only for the new multi-fidelity route. Requested CPU,
-allocated CPU, and billing TRES are retained separately because the scheduler
-may increase CPU allocation to satisfy a large memory request.
+R3P20 mesh per layout and was executed only after Gate A admission. Gate C
+contains five R4P16 meshes for each of three sentinels and one for each of the
+other six layouts; it was executed only after Gate B admission for the new
+multi-fidelity route. Lifecycle and current scheduler state are maintained in
+[Live Execution](../status/Live-Execution.md). Requested CPU, allocated CPU,
+and billing TRES are retained separately because the scheduler may increase
+CPU allocation to satisfy a large memory request.
 
 The fail-fast caps are scientific protocol fields. A task that exceeds a cap is
 an infeasibility result and is not silently rerun with a wider limit.

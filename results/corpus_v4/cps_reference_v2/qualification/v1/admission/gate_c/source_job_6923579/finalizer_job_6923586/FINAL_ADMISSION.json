@@ -1,0 +1,58 @@
+{
+  "admission_eligible": true,
+  "artifact_stage": "postterminal_finalizer_admission",
+  "claim_eligible": false,
+  "created_utc": "2026-08-22T12:38:37.753226+00:00",
+  "decision": {
+    "multifidelity_v2_may_start": true,
+    "next_stage": null,
+    "next_stage_may_run": false,
+    "qualification_stage_pass": true,
+    "r3_v2_generation_may_start": false,
+    "scientific_outcome": "SCIENTIFIC_NEGATIVE"
+  },
+  "finalizer_terminal_accounting": {
+    "canonical_rows_sha256": "8006caf122ee9e381af4a8af94c76fa33dd0a7f07f81680c3f972299c6bd4546",
+    "command": [
+      "sacct",
+      "-X",
+      "-n",
+      "-P",
+      "-j",
+      "6923586",
+      "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+    ],
+    "queried_utc": "2026-08-22T12:38:36.799727+00:00",
+    "raw_stdout_sha256": "814f8a285c5fc37710aeb40ade5105e255f8a606dde23e66abd45972e6ff195f",
+    "row": {
+      "Account": "pgs0407",
+      "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+      "ElapsedRaw": "5",
+      "ExitCode": "0:0",
+      "JobID": "6923586",
+      "JobIDRaw": "6923586",
+      "NodeList": "a0109",
+      "Partition": "nextgen",
+      "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+      "Restarts": "0",
+      "State": "COMPLETED",
+      "Timelimit": "00:30:00"
+    }
+  },
+  "prerequisite_admission": {
+    "path": "results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_ADMISSION.json",
+    "sha256": "e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b",
+    "stage": "gate_b"
+  },
+  "preterminal_final": {
+    "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_MANIFEST.json",
+    "manifest_sha256": "eb858d0e08dc6bda140e587431178d868710378d54d99173a78936a455400347",
+    "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/result.json",
+    "result_sha256": "9ddc33d61eb284683bcaa9fb705db1ffb79bcae20750e4f803271d4729d7e203"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-admission.v1",
+  "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+  "speed_claim_eligible": false,
+  "stage": "gate_c"
+}

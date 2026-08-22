@@ -1,0 +1,21 @@
+{
+  "claim_eligible": false,
+  "prerequisite_admission": {
+    "path": "results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_ADMISSION.json",
+    "sha256": "e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b",
+    "stage": "gate_b"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-start.v1",
+  "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+  "stage": "gate_c",
+  "started_utc": "2026-08-22T02:12:41.099054+00:00",
+  "task": {
+    "anchor_index": 1,
+    "array_task_id": 5,
+    "geometry_sha256": "5cc53be678ba4bb99fb0ea35a8cf5ef32c94bb5a44b4210a595f7ed46e0a3d4f",
+    "layout_id": 407,
+    "repeat_id": 4,
+    "turn_family": "turns-04-12"
+  }
+}

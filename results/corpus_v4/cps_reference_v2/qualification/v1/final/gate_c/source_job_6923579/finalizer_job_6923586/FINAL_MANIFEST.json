@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "result.json": "9ddc33d61eb284683bcaa9fb705db1ffb79bcae20750e4f803271d4729d7e203"
+  },
+  "finalizer_job_id": "6923586",
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-final-manifest.v1",
+  "source_array_job_id": "6923579",
+  "stage": "gate_c"
+}

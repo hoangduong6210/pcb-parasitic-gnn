@@ -1,6 +1,6 @@
 ---
 title: Deterministic FEM Reference Qualification
-status: Gates A and B admitted; Gate C not admitted
+status: all qualification gates admitted; regeneration authorized
 last_updated: 2026-08-22
 paper_source: false
 ---
@@ -174,21 +174,27 @@ also completed normally. Its postterminal receipt records median and maximum
 domain deltas of `0.20585933141613427%` and `1.0860887365856715%`, so the R3
 generation route is open.
 
-Gate C was submitted as source array `6923579` with finalizer job `6923586`
-under the same source and protocol lock. This commit contains no Gate C
-admission, so it asserts no Gate C outcome. Mutable scheduler state belongs in
-the [live execution snapshot](../status/Live-Execution.md).
+Gate C source array `6923579` completed all 21 elements with exit code `0:0`;
+finalizer job `6923586` also completed normally. All three five-repeat R4
+sentinels passed mesh identity and repeatability. The adjacent-mesh comparison
+returned median delta `8.004837428851205%` and maximum
+`13.929354258624992%`, above the prospectively frozen 2% and 5% limits. The
+postterminal receipt therefore records `SCIENTIFIC_NEGATIVE` for mesh
+sensitivity together with `multifidelity_v2_may_start=true`. This is not a
+contradiction: the repeatable, valid R3 and R4 observations may form an
+explicitly named multi-fidelity package, while neither fidelity is described
+as mesh-converged or ground truth.
 
 ## Consequences
 
 If Gate A fails, production stops and the mesher must be serialized more
 strictly or its mesh must be frozen as an input artifact. If a valid Gate B
 comparison exceeds its thresholds, P16 is rejected. If Gates A and B pass, a
-new R3-only fixed numerical target may be generated. Gate C repeatability and a
-complete one-thread regeneration of the fixed 198-layout registry are
-additionally required for a new multi-fidelity package. A negative adjacent
-mesh result remains a scoped result rather than a reason to merge the two
-fidelities.
+new R3-only fixed numerical target may be generated. Gate C has now closed with
+positive repeatability and a negative adjacent-mesh observation. A complete
+one-thread regeneration of the fixed 198-layout registry is still required
+before a new multi-fidelity dataset exists. The negative mesh result remains a
+scoped result rather than a reason to merge the two fidelities.
 
 New capacitance observations require new training, accuracy, and latency
 protocols. Accuracy and speed values attached to the archived package do not

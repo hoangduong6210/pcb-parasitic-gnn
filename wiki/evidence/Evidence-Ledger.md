@@ -567,6 +567,22 @@ first attempt.
 | Final evidence | [Preterminal result](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/result.json), SHA-256 `cbe426c1b9467963f68c65e6ad3c18a166627a7a9439afbbb779b13e87a78178`; [final manifest](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_MANIFEST.json), SHA-256 `2a41f3f9fe05a851629f1c2fe8b6d44d39f8c620eaf62b726ffb49ab323b0fd2`; [postterminal admission](../../results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_ADMISSION.json), SHA-256 `e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b` |
 | Scientific use | Admits the finite-panel configuration and authorizes complete R3 v2 generation; `claim_eligible=false` and `speed_claim_eligible=false`; no bulk labels have been generated, and the selected panel does not establish corpus-wide domain convergence, physical ground truth, accuracy, or speed |
 
+## E-C4-FEM-V2-GATE-C-01: Admitted three-sentinel R4 repeatability and negative mesh sensitivity
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; FINALIZED; POSTTERMINAL STAGE ADMITTED; MESH SENSITIVITY SCIENTIFIC NEGATIVE` |
+| Prerequisite | Gate B admission SHA-256 `e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b`, bound by path and hash in every source task and the finalizer |
+| Source and protocol | Commit `4270e11456a575b05f11ec3b67cddda9ce845798`; protocol SHA-256 `912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f` |
+| Scheduler identities | Source array `6923579`; dependency-held finalizer `6923586` |
+| Terminal accounting | All 21 source elements and the finalizer ended `COMPLETED/0:0`; source elapsed times were 2,735 to 4,384 s and finalization took 5 s |
+| Resource scope | Each source task requested 1 CPU and 160 GiB; site policy allocated 41 CPU and 160 GiB while Gmsh and the numerical libraries remained pinned to one thread; the finalizer requested 2 CPU and 16 GiB and received 5 CPU and 16 GiB |
+| Frozen design | Five fresh R4P16 meshes on layouts 407, 275, and 173; one R4P16 mesh on each of the other six panel layouts; 21 tasks total |
+| R4 repeatability | All three sentinels retained one system hash, node count, and tetrahedron count; maximum relative spreads were `1.759830813502271e-14`, `9.625620521392204e-15`, and `1.2612588386500511e-14`, below the `1e-4` limit |
+| Mesh-sensitivity result | Nine matched R3P16 versus R4P16 observations; median delta `8.004837428851205%` and maximum `13.929354258624992%`, above the prospectively frozen 2% and 5% limits; `scientific_outcome=SCIENTIFIC_NEGATIVE` |
+| Final evidence | [Preterminal result](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/result.json), SHA-256 `9ddc33d61eb284683bcaa9fb705db1ffb79bcae20750e4f803271d4729d7e203`; [final manifest](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_MANIFEST.json), SHA-256 `eb858d0e08dc6bda140e587431178d868710378d54d99173a78936a455400347`; [postterminal admission](../../results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_ADMISSION.json), SHA-256 `7c93909df0a63930b0b54522e60b32570c6f4e9eb20feb853b2e9966b882dca1` |
+| Scientific use | Admits three-sentinel R4 repeatability and authorizes complete explicit R3/R4 v2 generation through `multifidelity_v2_may_start=true`; `claim_eligible=false` and `speed_claim_eligible=false`; it does not establish corpus-wide repeatability, continuum convergence, physical ground truth, model accuracy, or speed |
+
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
 `code/data/audit_legacy_v2_geometry.py` implements the legacy integrity audit,
