@@ -1,7 +1,7 @@
 ---
 title: Deterministic FEM Reference Qualification
-status: frozen executable protocol; Gate A not run
-last_updated: 2026-08-21
+status: Gates A and B admitted; Gate C not admitted
+last_updated: 2026-08-22
 paper_source: false
 ---
 
@@ -157,6 +157,27 @@ CI are complete, this page freezes the scientific design but is not a
 submission root. Node placement is retained in task and accounting receipts;
 no minimum node count is assumed because placement is controlled by the
 scheduler.
+
+## Execution state
+
+The executable protocol was committed and pushed before execution. [GitHub
+Actions run 32473093332](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/32473093332) passed for source commit
+`4270e11456a575b05f11ec3b67cddda9ce845798`; the protocol used by every task
+has SHA-256
+`912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f`.
+
+Gate A source array `6916859` completed all 45 elements with exit code `0:0`;
+finalizer `6916860` also completed normally. The postterminal receipt records a
+positive repeatability result across all nine layouts. Gate B source array
+`6917229` completed all nine elements with exit code `0:0`; finalizer `6917238`
+also completed normally. Its postterminal receipt records median and maximum
+domain deltas of `0.20585933141613427%` and `1.0860887365856715%`, so the R3
+generation route is open.
+
+Gate C was submitted as source array `6923579` with finalizer job `6923586`
+under the same source and protocol lock. This commit contains no Gate C
+admission, so it asserts no Gate C outcome. Mutable scheduler state belongs in
+the [live execution snapshot](../status/Live-Execution.md).
 
 ## Consequences
 

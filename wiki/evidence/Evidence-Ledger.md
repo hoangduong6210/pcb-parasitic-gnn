@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-19
+last_updated: 2026-08-22
 paper_source: false
 ---
 
@@ -538,6 +538,34 @@ first attempt.
 | Gate decision | Frozen threshold `1e-4`; `arm_a_all_gates_pass=false`; `paired_latency_preflight_may_resume=false`; no tolerance changed after observation |
 | Final evidence | [Preterminal result](../../results/corpus_v4/fem_repeatability/v1/final/source_job_6916045/finalizer_job_6916047/result.json), SHA-256 `fb8b6aa0816f8cd37c838968fd4ea93d013ad59a1e6d09cc94271032dad83433`; [final manifest](../../results/corpus_v4/fem_repeatability/v1/final/source_job_6916045/finalizer_job_6916047/FINAL_MANIFEST.json), SHA-256 `8afc59641decccf50cbf2083238703d0cdbe61d236f4d5533bf6a2b5ea8f861a`; [postterminal admission](../../results/corpus_v4/fem_repeatability/v1/admission/source_job_6916045/finalizer_job_6916047/FINAL_ADMISSION.json), SHA-256 `776adb39aaa41dea09972089413977d7762457f453e57dc429d65bd5d0a209fc` |
 | Scientific use | Supports a versioned deterministic FEM reference and complete downstream regeneration; does not authorize latency, speed, or accuracy claims from the current reference package |
+
+## E-C4-FEM-V2-GATE-A-01: Admitted finite-panel one-thread R3 repeatability
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; FINALIZED; POSTTERMINAL POSITIVE` |
+| Source and protocol | Commit `4270e11456a575b05f11ec3b67cddda9ce845798`; protocol SHA-256 `912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f`; [GitHub Actions run 32473093332](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/32473093332) passed before submission |
+| Scheduler identities | Source array `6916859`; dependency-held finalizer `6916860` |
+| Terminal accounting | All 45 source elements and the finalizer ended `COMPLETED/0:0`; source elapsed times were 421 to 574 s and finalization took 5 s |
+| Resource scope | Each source task requested 1 CPU and 48 GiB; site policy allocated 13 CPU and 48 GiB while the numerical libraries and Gmsh remained pinned to one thread; the finalizer requested 2 CPU and 16 GiB and received 5 CPU and 16 GiB |
+| Frozen panel | Nine inherited convergence layouts, five fresh R3P16 meshes per layout |
+| Repeatability result | Every group had one system hash, one node count, and one tetrahedron count; maximum pairwise relative Cps spread was `1.1743017900469024e-14` against the `1e-4` limit |
+| Final evidence | [Preterminal result](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/result.json), SHA-256 `509f625a393dc59ce133be720abe2965197f553cd62762983f781808762d0e9c`; [final manifest](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_MANIFEST.json), SHA-256 `a76c2b4fe8cc066ca9945a7985b827f9f39ad1fe7f6f71c8ecc593976e678fed`; [postterminal admission](../../results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_ADMISSION.json), SHA-256 `652f7a8bc7847fcaa6d08bfd60f1fe868b640a90e7c7862cce7715fff3c994dd` |
+| Scientific use | Admits the qualification stage and establishes deterministic finite-panel R3P16 repeatability, which opens Gate B; `claim_eligible=false` and `speed_claim_eligible=false`; it does not create a production dataset or support a publication claim |
+
+## E-C4-FEM-V2-GATE-B-01: Admitted finite-panel one-thread R3 domain qualification
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; FINALIZED; POSTTERMINAL POSITIVE` |
+| Prerequisite | Exact Gate A admission above, bound by path and SHA-256 in every task and finalizer |
+| Source and protocol | Commit `4270e11456a575b05f11ec3b67cddda9ce845798`; protocol SHA-256 `912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f` |
+| Scheduler identities | Source array `6917229`; dependency-held finalizer `6917238` |
+| Terminal accounting | All nine source elements and the finalizer ended `COMPLETED/0:0`; source elapsed times were 724 to 931 s and finalization took 4 s |
+| Resource scope | Each source task requested 1 CPU and 48 GiB; site policy allocated 13 CPU and 48 GiB while the solver remained one-threaded; the finalizer requested 2 CPU and 16 GiB and received 5 CPU and 16 GiB |
+| Frozen comparison | Nine matched R3P16 versus R3P20 observations; median domain delta `0.20585933141613427%` and maximum `1.0860887365856715%` against the prospectively frozen 2% and 5% limits |
+| Final evidence | [Preterminal result](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/result.json), SHA-256 `cbe426c1b9467963f68c65e6ad3c18a166627a7a9439afbbb779b13e87a78178`; [final manifest](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_MANIFEST.json), SHA-256 `2a41f3f9fe05a851629f1c2fe8b6d44d39f8c620eaf62b726ffb49ab323b0fd2`; [postterminal admission](../../results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_ADMISSION.json), SHA-256 `e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b` |
+| Scientific use | Admits the finite-panel configuration and authorizes complete R3 v2 generation; `claim_eligible=false` and `speed_claim_eligible=false`; no bulk labels have been generated, and the selected panel does not establish corpus-wide domain convergence, physical ground truth, accuracy, or speed |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

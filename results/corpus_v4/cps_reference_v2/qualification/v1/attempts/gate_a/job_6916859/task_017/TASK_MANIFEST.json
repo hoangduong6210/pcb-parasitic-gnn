@@ -1,0 +1,9 @@
+{
+  "files_sha256": {
+    "result.json": "2ba878b9da8fbdaa77324bd65efc26a658f33fc06ee31e9f40bf15832421ffec",
+    "started.json": "5109abe403f6ed0a439c482849c41d2a9b9056f7ee194db5fa95067e2182d1b4"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-task-manifest.v1",
+  "stage": "gate_a"
+}

@@ -1,0 +1,54 @@
+{
+  "admission_eligible": true,
+  "artifact_stage": "postterminal_finalizer_admission",
+  "claim_eligible": false,
+  "created_utc": "2026-08-21T12:37:11.712638+00:00",
+  "decision": {
+    "multifidelity_v2_may_start": false,
+    "next_stage": "gate_b",
+    "next_stage_may_run": true,
+    "qualification_stage_pass": true,
+    "r3_v2_generation_may_start": false,
+    "scientific_outcome": "POSITIVE"
+  },
+  "finalizer_terminal_accounting": {
+    "canonical_rows_sha256": "a008774bc2edf0f09dcbd6450da845b572d907e9f032165ebab97982e703f60e",
+    "command": [
+      "sacct",
+      "-X",
+      "-n",
+      "-P",
+      "-j",
+      "6916860",
+      "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+    ],
+    "queried_utc": "2026-08-21T12:37:10.603993+00:00",
+    "raw_stdout_sha256": "cdfe33951b375e3524a4248d9d3f082a26e42e9747a719bfaa07ee9b9220f7fa",
+    "row": {
+      "Account": "pgs0407",
+      "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+      "ElapsedRaw": "5",
+      "ExitCode": "0:0",
+      "JobID": "6916860",
+      "JobIDRaw": "6916860",
+      "NodeList": "a0121",
+      "Partition": "nextgen",
+      "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+      "Restarts": "0",
+      "State": "COMPLETED",
+      "Timelimit": "00:30:00"
+    }
+  },
+  "prerequisite_admission": null,
+  "preterminal_final": {
+    "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_MANIFEST.json",
+    "manifest_sha256": "a76c2b4fe8cc066ca9945a7985b827f9f39ad1fe7f6f71c8ecc593976e678fed",
+    "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_a/source_job_6916859/finalizer_job_6916860/result.json",
+    "result_sha256": "509f625a393dc59ce133be720abe2965197f553cd62762983f781808762d0e9c"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-admission.v1",
+  "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+  "speed_claim_eligible": false,
+  "stage": "gate_a"
+}

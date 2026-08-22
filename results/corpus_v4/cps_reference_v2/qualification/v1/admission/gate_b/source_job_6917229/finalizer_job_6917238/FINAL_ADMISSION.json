@@ -1,0 +1,58 @@
+{
+  "admission_eligible": true,
+  "artifact_stage": "postterminal_finalizer_admission",
+  "claim_eligible": false,
+  "created_utc": "2026-08-22T00:12:58.048371+00:00",
+  "decision": {
+    "multifidelity_v2_may_start": false,
+    "next_stage": "gate_c",
+    "next_stage_may_run": true,
+    "qualification_stage_pass": true,
+    "r3_v2_generation_may_start": true,
+    "scientific_outcome": "POSITIVE"
+  },
+  "finalizer_terminal_accounting": {
+    "canonical_rows_sha256": "8e6ee96566df827406b6e7d0ae016833a8a7a29dfa952090377f4046c9f50645",
+    "command": [
+      "sacct",
+      "-X",
+      "-n",
+      "-P",
+      "-j",
+      "6917238",
+      "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+    ],
+    "queried_utc": "2026-08-22T00:12:57.245776+00:00",
+    "raw_stdout_sha256": "5946f8dab97d29bdd458f4521f87e5741cda95b4e214c444c297cd920e6310d8",
+    "row": {
+      "Account": "pgs0407",
+      "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+      "ElapsedRaw": "4",
+      "ExitCode": "0:0",
+      "JobID": "6917238",
+      "JobIDRaw": "6917238",
+      "NodeList": "a0121",
+      "Partition": "nextgen",
+      "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+      "Restarts": "0",
+      "State": "COMPLETED",
+      "Timelimit": "00:30:00"
+    }
+  },
+  "prerequisite_admission": {
+    "path": "results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_ADMISSION.json",
+    "sha256": "652f7a8bc7847fcaa6d08bfd60f1fe868b640a90e7c7862cce7715fff3c994dd",
+    "stage": "gate_a"
+  },
+  "preterminal_final": {
+    "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/FINAL_MANIFEST.json",
+    "manifest_sha256": "2a41f3f9fe05a851629f1c2fe8b6d44d39f8c620eaf62b726ffb49ab323b0fd2",
+    "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_b/source_job_6917229/finalizer_job_6917238/result.json",
+    "result_sha256": "cbe426c1b9467963f68c65e6ad3c18a166627a7a9439afbbb779b13e87a78178"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-admission.v1",
+  "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+  "speed_claim_eligible": false,
+  "stage": "gate_b"
+}

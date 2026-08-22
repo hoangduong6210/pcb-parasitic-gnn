@@ -1,0 +1,413 @@
+{
+  "admission_eligible": false,
+  "artifact_stage": "preterminal_finalizer_output",
+  "claim_eligible": false,
+  "created_utc": "2026-08-21T13:04:30.745241+00:00",
+  "decision": {
+    "all_source_tasks_completed_zero": true,
+    "next_stage": "gate_c",
+    "next_stage_may_run": false,
+    "provisional_multifidelity_v2_may_start": false,
+    "provisional_qualification_stage_pass": true,
+    "provisional_r3_v2_generation_may_start": true,
+    "scientific_outcome": "POSITIVE"
+  },
+  "post_run_admission": {
+    "finalizer_job_id": "6917238",
+    "required": true,
+    "required_exit_code": "0:0",
+    "required_state": "COMPLETED",
+    "terminal_accounting_verified": false
+  },
+  "prerequisite_admission": {
+    "path": "results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_a/source_job_6916859/finalizer_job_6916860/FINAL_ADMISSION.json",
+    "sha256": "652f7a8bc7847fcaa6d08bfd60f1fe868b640a90e7c7862cce7715fff3c994dd",
+    "stage": "gate_a"
+  },
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "provenance": {
+    "accounting": {
+      "canonical_rows_sha256": "1d8a77279f1dd49500113cd64bc22386572f5b88684257948ec80f747256cfd2",
+      "command": [
+        "sacct",
+        "-X",
+        "-n",
+        "-P",
+        "-j",
+        "6917229",
+        "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+      ],
+      "origin": "live_sacct",
+      "queried_utc": "2026-08-21T13:04:29.725300+00:00",
+      "raw_stdout_sha256": "b9b42848d3cf1d5a0907a687fad9fa5f0431a1993b5558fd97beeae334876da5",
+      "row_count": 9,
+      "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-accounting.v1"
+    },
+    "executed_batch_sha256": "efc9712bb8ce8faf9103830266f8697baebb68e9e9d408789505af952925bad2",
+    "finalizer_scheduler": {
+      "allocated_cpus_per_task": 5,
+      "job_id": "6917238",
+      "memory_mb": 16384,
+      "scheduler_record": {
+        "Account": "pgs0407",
+        "AllocTRES": "cpu=5,mem=16G,node=1,billing=5",
+        "CPUs/Task": "5",
+        "JobId": "6917238",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "16G",
+        "NodeList": "a0121",
+        "NumCPUs": "5",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=2,mem=16G,node=1,billing=2",
+        "TimeLimit": "00:30:00",
+        "TresPerTask": "cpu=2"
+      }
+    },
+    "input_bindings": {
+      "cps_protocol": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+      "geometry_contract": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+      "geometry_layouts": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+      "hf_selection_registry": "675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9",
+      "refine34_convergence_evidence": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1",
+      "run02_repeatability_admission": "776adb39aaa41dea09972089413977d7762457f453e57dc429d65bd5d0a209fc"
+    },
+    "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+    "source_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/admit_corpus_v4_fem_v2_qualification.py": "60c3af579aad47de82e1a0a7c5e2c5400651fd38bd352148e84acaa357b3c1d9",
+      "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "6bb4a7199868db4aebe1d91265597798e7ae564d3c608cb9eff6cb11e96ac90f",
+      "code/experiments/proofs/finalize_corpus_v4_fem_v2_qualification.py": "62faf21d0e1276aa70bf6b0fba49f53e8adb52fc42102af646423eefee830dac",
+      "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+      "code/experiments/proofs/run_corpus_v4_fem_v2_qualification.py": "fe1957749184f7b6eed0fdc6a518460af021798340d7e7d92de08fab29c6f386",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_fem_v2_gate_a.sh": "716a528c5a55df12d71104c7f38b5233f1fb63d8c4b8ae6bf2310a796f306034",
+      "code/jobs/submit_corpus_v4_fem_v2_gate_b.sh": "6fe2162937c6776281bac4b77e1c48b1b95537f4e0b7368d8c32d0a46948110d",
+      "code/jobs/submit_corpus_v4_fem_v2_gate_c.sh": "fbd840f3354ff2d38a4e0453df3d5ba577ce0e4b2bc72d9688ac89bf8178b345",
+      "code/jobs/submit_finalize_corpus_v4_fem_v2_gate_a.sh": "61a7940322193d6f8a12a68775f4b6ff62bc282fd01de8fc84005e0a0ecb21e2",
+      "code/jobs/submit_finalize_corpus_v4_fem_v2_gate_b.sh": "efc9712bb8ce8faf9103830266f8697baebb68e9e9d408789505af952925bad2",
+      "code/jobs/submit_finalize_corpus_v4_fem_v2_gate_c.sh": "af2dc2b4942dedb60d0db5ca4dfb41c7da4fece4a9c4fe11fac98256b3e6891a",
+      "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+      "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+      "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+      "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    }
+  },
+  "qualification_summary": {
+    "domain_delta": {
+      "gate_pass": true,
+      "maximum_pct": 1.0860887365856715,
+      "maximum_tolerance_pct": 5.0,
+      "median_pct": 0.20585933141613427,
+      "median_tolerance_pct": 2.0,
+      "values_pct": [
+        1.0860887365856715,
+        0.2638123155594952,
+        0.20658324708134554,
+        0.34221588600953456,
+        0.020606598558440267,
+        0.04956487202379641,
+        0.1341910463383606,
+        0.20585933141613427,
+        0.0879784762962701
+      ]
+    },
+    "gate_pass": true,
+    "rows": [
+      {
+        "domain_delta_pct": 1.0860887365856715,
+        "layout_id": 1055,
+        "r3p16_cps_pf": 4.030468915559619,
+        "r3p20_cps_pf": 4.074724034343574
+      },
+      {
+        "domain_delta_pct": 0.2638123155594952,
+        "layout_id": 407,
+        "r3p16_cps_pf": 28.05981200391221,
+        "r3p20_cps_pf": 28.134033047956297
+      },
+      {
+        "domain_delta_pct": 0.20658324708134554,
+        "layout_id": 1351,
+        "r3p16_cps_pf": 114.26085463229276,
+        "r3p20_cps_pf": 114.02529747028449
+      },
+      {
+        "domain_delta_pct": 0.34221588600953456,
+        "layout_id": 149,
+        "r3p16_cps_pf": 11.345189463578766,
+        "r3p20_cps_pf": 11.384147825925893
+      },
+      {
+        "domain_delta_pct": 0.020606598558440267,
+        "layout_id": 275,
+        "r3p16_cps_pf": 57.15343723096796,
+        "r3p20_cps_pf": 57.14166227801271
+      },
+      {
+        "domain_delta_pct": 0.04956487202379641,
+        "layout_id": 897,
+        "r3p16_cps_pf": 132.3586599794822,
+        "r3p20_cps_pf": 132.42429591227955
+      },
+      {
+        "domain_delta_pct": 0.1341910463383606,
+        "layout_id": 2,
+        "r3p16_cps_pf": 27.839342977104195,
+        "r3p20_cps_pf": 27.876751081065017
+      },
+      {
+        "domain_delta_pct": 0.20585933141613427,
+        "layout_id": 173,
+        "r3p16_cps_pf": 93.02720151297916,
+        "r3p20_cps_pf": 93.21910173255793
+      },
+      {
+        "domain_delta_pct": 0.0879784762962701,
+        "layout_id": 1400,
+        "r3p16_cps_pf": 184.81122924797123,
+        "r3p20_cps_pf": 184.97396652526493
+      }
+    ],
+    "stage": "gate_b"
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-final.v1",
+  "source_array": {
+    "array_job_id": "6917229",
+    "artifacts": [
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_000/TASK_MANIFEST.json",
+        "manifest_sha256": "9a40da84a74949d1340d3019924a41b2e8cebae68ee5477c8e6c222c7c4c9d80",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_000/result.json",
+        "result_sha256": "f5e4721679ab760fd1e48bb169652d943ce32d41e9b55a4a2e5ac48cf838cdaa",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_000/started.json",
+        "started_sha256": "50884ae91cf0d73d251088996b20202dc2b58b63f7c32ff4fc4d765fd5136acc"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_001/TASK_MANIFEST.json",
+        "manifest_sha256": "7107797219291d6d2f43a74da4af7c87b613f7f498d4e076a44f11d1127bb0fe",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_001/result.json",
+        "result_sha256": "90271ea3973bdc3a2036a020525d4c5c1942bc440c2a7bc696385c596b3cbef3",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_001/started.json",
+        "started_sha256": "f88b0ec507ad62f3a2ff5ef121da5ee4f094280a00a5f735c4cfc9c35b74fc6c"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_002/TASK_MANIFEST.json",
+        "manifest_sha256": "2e101a684d0ac50c9286bd346be017be716586600711bc6ba6c2a53aa5f21b7e",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_002/result.json",
+        "result_sha256": "9bd840397fff7ffc875b399eb7e57286c69e32767e12cc5b9e4e7ff7d958fb08",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_002/started.json",
+        "started_sha256": "04a6ad58fb29edf928884d274154f0d196c089a4713d80334a21f1ccbe636914"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_003/TASK_MANIFEST.json",
+        "manifest_sha256": "fffa410c455190327c405639f57b95bc9fc1ca8b1382b94ebef4df7639ba0995",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_003/result.json",
+        "result_sha256": "10bcc40bc0df416e46b90d02f03ca91b2a37840e146405e93f6db39325d6e871",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_003/started.json",
+        "started_sha256": "1cb61470388e1c17522fc91cb5f07af118dd5a7e6dd0e61622bf4bf35dcad97c"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_004/TASK_MANIFEST.json",
+        "manifest_sha256": "25090b623caba21aa8e1591cfc10bf75c283e88277c29e6669ea318d2f1a7c1c",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_004/result.json",
+        "result_sha256": "65bf1e7f371d6b806b195e98aa29549ff81d5bad5b642d283f2dce6865cca6d3",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_004/started.json",
+        "started_sha256": "08707f13e93a15a5541d3442ff5a14464aeaed17be42c5860bcd84e57fb81b4a"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_005/TASK_MANIFEST.json",
+        "manifest_sha256": "2d6ea35809d28baf38237cb3c564e83cc2355e7e6517d567388274fd3a370b7b",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_005/result.json",
+        "result_sha256": "7b11b4168fed7677a1cfbd7446886f3b9bf27f6400092327ac237c4f56d88761",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_005/started.json",
+        "started_sha256": "9fa833db60cce020777644f6fbb8d8d29822401d314f2b7f7fec0469ddb66a06"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_006/TASK_MANIFEST.json",
+        "manifest_sha256": "437b428b2582f7b7b5bbc6dc6f5c5fda5bda9695e98e28bfb58bf8d2145e7e91",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_006/result.json",
+        "result_sha256": "20da8a5f0e1545804247c5171332cf1567c247f95a5c7b4d36063a547ef41857",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_006/started.json",
+        "started_sha256": "123d3d56eaf3e963d94ae4f76ea40996a6e53142009dcf2701fe87c09740cd82"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_007/TASK_MANIFEST.json",
+        "manifest_sha256": "e12b8ae21881b2c70865b9e6b5537b5c519371c977aeb72b205ebc4587c542d9",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_007/result.json",
+        "result_sha256": "1970bb69a9146f9d995c8f33ee6228e8d482b298542478f2a15f0ccec7035a2e",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_007/started.json",
+        "started_sha256": "9728710a31c7832f652dc9f2d4d3ea9ce9760550f40c34443590d3eef931032f"
+      },
+      {
+        "manifest_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_008/TASK_MANIFEST.json",
+        "manifest_sha256": "c7a70aba8643de87ec17dd3a2eef520123b73c82177c0632f387161f9cac5c42",
+        "result_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_008/result.json",
+        "result_sha256": "fe163c6706e5c9e6e93110d0f809fef53f16e13a5e37cf31dc399e9c6db4b7ca",
+        "started_path": "results/corpus_v4/cps_reference_v2/qualification/v1/attempts/gate_b/job_6917229/task_008/started.json",
+        "started_sha256": "66638fe744e92e30447e7c91b0e50863f1709738ec8440188c10250a4b47fbed"
+      }
+    ],
+    "terminal_accounting": [
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "724",
+        "ExitCode": "0:0",
+        "JobID": "6917229_0",
+        "JobIDRaw": "6917230",
+        "NodeList": "a0104",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 0,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "877",
+        "ExitCode": "0:0",
+        "JobID": "6917229_1",
+        "JobIDRaw": "6917231",
+        "NodeList": "a0107",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 1,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "867",
+        "ExitCode": "0:0",
+        "JobID": "6917229_2",
+        "JobIDRaw": "6917232",
+        "NodeList": "a0135",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 2,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "931",
+        "ExitCode": "0:0",
+        "JobID": "6917229_3",
+        "JobIDRaw": "6917233",
+        "NodeList": "a0347",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 3,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "818",
+        "ExitCode": "0:0",
+        "JobID": "6917229_4",
+        "JobIDRaw": "6917234",
+        "NodeList": "a0156",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 4,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "888",
+        "ExitCode": "0:0",
+        "JobID": "6917229_5",
+        "JobIDRaw": "6917235",
+        "NodeList": "a0156",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 5,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "874",
+        "ExitCode": "0:0",
+        "JobID": "6917229_6",
+        "JobIDRaw": "6917236",
+        "NodeList": "a0162",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 6,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "862",
+        "ExitCode": "0:0",
+        "JobID": "6917229_7",
+        "JobIDRaw": "6917237",
+        "NodeList": "a0162",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 7,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      },
+      {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "847",
+        "ExitCode": "0:0",
+        "JobID": "6917229_8",
+        "JobIDRaw": "6917229",
+        "NodeList": "a0104",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00",
+        "array_task_id": 8,
+        "normalized_state": "COMPLETED",
+        "terminal_success": true
+      }
+    ]
+  },
+  "speed_claim_eligible": false,
+  "stage": "gate_b"
+}

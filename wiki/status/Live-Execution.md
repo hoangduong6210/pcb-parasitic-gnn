@@ -1,13 +1,13 @@
 ---
 title: Live Execution Snapshot
 status: active operational snapshot
-last_updated: 2026-08-21
+last_updated: 2026-08-22
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-21 09:04 UTC.
+Last scheduler observation: 2026-08-22 02:13 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -17,7 +17,7 @@ Last scheduler observation: 2026-08-21 09:04 UTC.
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
 | FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
-| One-thread FEM qualification | `PROTOCOL FROZEN / GATE A NOT RUN` | Hash-pinned nine-layout Gate A, B, and C execution chain; no solver task submitted | Commit, push, and obtain green CI before submitting Gate A | Full corpus remains locked; Gate B and Gate C require positive prior-stage receipts |
+| One-thread FEM qualification | `GATES A/B ADMITTED; GATE C RUNNING` | Gate A: 45 of 45 admitted; Gate B: 9 of 9 admitted; Gate C: 4 of 21 complete, two running | Complete Gate C, terminal finalizer, and postterminal admission | R3 generation is authorized but not started; multi-fidelity generation remains locked until Gate C closes |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
@@ -87,6 +87,17 @@ ranking comparisons also require their own frozen protocols and jobs.
 
 The new reference is governed by
 [Decision 0002](../decisions/0002-deterministic-fem-reference.md). Its first
-heavy stage is 45 R3P16 solves: five fresh meshes on each of the nine inherited
-convergence anchors. No R3P20, R4, or production-corpus job may be submitted
-until the preceding stage has a positive terminal admission receipt.
+two gates are now terminal and admitted. Gate A completed all 45 R3P16 solves
+with a maximum within-layout relative Cps spread of
+`1.1743017900469024e-14`. Gate B completed all nine R3P20 solves; the selected
+panel's domain delta had median `0.20585933141613427%` and maximum
+`1.0860887365856715%`. Source arrays `6916859` and `6917229`, their finalizers,
+and both admission receipts retain the exact commit, protocol, scheduler, and
+resource records.
+
+Gate C source array `6923579` and dependency-held finalizer `6923586` are the
+active transition. The R4 array runs at concurrency two because each task
+requests 160 GiB. At the observation time, tasks 0 through 3 had complete,
+integrity-passing artifacts; tasks 4 and 5 were running and the remaining
+tasks were held by the array limit. This is an operational snapshot, not a Gate
+C result.

@@ -1,0 +1,17 @@
+{
+  "claim_eligible": false,
+  "prerequisite_admission": null,
+  "protocol_sha256": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-qualification-start.v1",
+  "source_git_head": "4270e11456a575b05f11ec3b67cddda9ce845798",
+  "stage": "gate_a",
+  "started_utc": "2026-08-21T10:52:26.042920+00:00",
+  "task": {
+    "anchor_index": 3,
+    "array_task_id": 18,
+    "geometry_sha256": "0e2aef8a6ec688d3b271569091cd9a3d8ad786a1bc5f54bb3456ec292eda96b4",
+    "layout_id": 149,
+    "repeat_id": 3,
+    "turn_family": "turns-04-14"
+  }
+}
