@@ -1,0 +1,26 @@
+{
+  "plan_sha256": "5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20",
+  "protocol_sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-execution-lock.v1",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/corpus_v4_fem_v2_package.py": "9f43db2e0be40b6322fe31e4aaa479da24e5ed9b916491a9f6bd9d91f167891f",
+    "code/experiments/proofs/corpus_v4_fem_v2_production.py": "0a12d837f611cd6177f81a1ae07ad6f27dc175be472dd277f2998a805b55ac4e",
+    "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "6bb4a7199868db4aebe1d91265597798e7ae564d3c608cb9eff6cb11e96ac90f",
+    "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_fem_v2_r3.sh": "5965065b31c4198d3063703915c4b5b589784dfc35247b62c3fcc123a46b4712",
+    "code/jobs/submit_corpus_v4_fem_v2_r4.sh": "6e9fcd2e7479be4cb0c774231b22b656ce1ed7cfb2f64cad2a6ef09526f6c10f",
+    "code/jobs/submit_finalize_corpus_v4_fem_v2_dataset.sh": "fe89f9f735e469502904535c572e82359ee3c42420d91ff946f69f0c51d372f1",
+    "code/jobs/submit_finalize_corpus_v4_fem_v2_wave.sh": "ee4bcf3c5ccf58c1edd62bce6df9570d682d65ba94231aab74fec066089cb36d",
+    "code/operations/corpus_v4_fem_v2_controller.py": "3510425223f3f1ceee864faf710a40e2f222a0c406882b97778eb1eecdd86e5a",
+    "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+    "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+    "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+    "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  }
+}

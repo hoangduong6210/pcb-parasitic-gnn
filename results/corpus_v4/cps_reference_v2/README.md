@@ -66,9 +66,11 @@ and 5%. The terminal receipt therefore records `SCIENTIFIC_NEGATIVE` for mesh
 sensitivity while authorizing generation of an explicitly named
 multi-fidelity R3/R4 package.
 
-The receipts authorize full R3 v2 and R4 v2 generation, but neither bulk job
-has started. No model accuracy, latency, or speed claim is authorized from
-this directory. All three receipts admit a qualification stage and numerical
+The receipts authorize full R3 v2 and R4 v2 generation. The separate bulk
+workspace under [`production/v1/`](production/v1/) contains the frozen plan,
+manifests, and dispatch inputs; its scheduler state is reported in the wiki.
+No model accuracy, latency, or speed claim is authorized from this directory.
+All three receipts admit a qualification stage and numerical
 configuration; their
 machine-readable `claim_eligible` and `speed_claim_eligible` fields remain
 false. The nine selected layouts do not establish corpus-wide domain

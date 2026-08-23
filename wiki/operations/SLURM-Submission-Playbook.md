@@ -1257,3 +1257,89 @@ passing Arm A permits only a new authenticated three-task latency preflight. A
 passing Arm B with failing Arm A requires a versioned FEM reference and
 complete label, training, accuracy, and latency regeneration. If both arms
 fail, freeze or serialize the mesh before generating new labels.
+
+## One-thread FEM-v2 production controller
+
+The FEM-v2 bulk run uses a dedicated detached checkout at the exact pushed
+commit. Its controller is a login-safe scheduler client: its only external
+operations are submission, queue inspection, and accounting. The controller
+submits R4 first and the first R3 shard second, while keeping the projected
+expanded-job count at or below 950. It never calls a field solver.
+
+From the detached execution checkout, authenticate the fixed roots and preview
+the exact commands before the first real tick:
+
+```bash
+FEMV2_ROOT=$(pwd -P)
+FEMV2_SOURCE_COMMIT=$(git rev-parse HEAD)
+FEMV2_PROTOCOL_SHA256=$(sha256sum protocols/corpus_v4_fem_v2_production_v1.json | awk '{print $1}')
+FEMV2_PLAN_SHA256=$(sha256sum results/corpus_v4/cps_reference_v2/production/v1/plan/plan.json | awk '{print $1}')
+FEMV2_LOCK_SHA256=$(sha256sum protocols/corpus_v4_fem_v2_production_lock_v1.json | awk '{print $1}')
+test -z "$(git status --short --untracked-files=no)"
+python3 code/experiments/proofs/corpus_v4_fem_v2_production.py run \
+  --expected-protocol-sha256 "$FEMV2_PROTOCOL_SHA256" \
+  --expected-plan-sha256 "$FEMV2_PLAN_SHA256" \
+  --expected-execution-lock-sha256 "$FEMV2_LOCK_SHA256" \
+  --manifest results/corpus_v4/cps_reference_v2/production/v1/plan/r4_manifest.jsonl \
+  --dispatch results/corpus_v4/cps_reference_v2/production/v1/plan/r4_dispatch_000.json \
+  --expected-dispatch-sha256 897cf14c87e167115e364f3e8ffcf9f62bd0c5e3205cb81f6ec6c0ed76a4330a \
+  --output-root results/corpus_v4/cps_reference_v2/production/v1/attempts/r4 \
+  --validate-only
+python3 code/operations/corpus_v4_fem_v2_controller.py \
+  --execution-root "$FEMV2_ROOT" \
+  --source-commit "$FEMV2_SOURCE_COMMIT" \
+  --protocol-sha256 "$FEMV2_PROTOCOL_SHA256" \
+  --plan-sha256 "$FEMV2_PLAN_SHA256" \
+  --lock-sha256 "$FEMV2_LOCK_SHA256" \
+  --dry-run
+```
+
+Run the same controller without `--dry-run` exactly once to submit the R4 and
+R3 shard-zero source/finalizer pairs. The immutable controller state records
+the four returned job identifiers and every later accounting snapshot.
+
+```bash
+python3 code/operations/corpus_v4_fem_v2_controller.py \
+  --execution-root "$FEMV2_ROOT" \
+  --source-commit "$FEMV2_SOURCE_COMMIT" \
+  --protocol-sha256 "$FEMV2_PROTOCOL_SHA256" \
+  --plan-sha256 "$FEMV2_PLAN_SHA256" \
+  --lock-sha256 "$FEMV2_LOCK_SHA256"
+```
+
+Monitor without solving on the login node:
+
+```bash
+squeue -r -u "$(id -un)" -o '%.20i %.34j %.10T %.10M %R'
+sacct -X -n -P -j SOURCE_JOB_ID,FINALIZER_JOB_ID \
+  --format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES
+python3 code/operations/corpus_v4_fem_v2_controller.py \
+  --execution-root "$FEMV2_ROOT" \
+  --source-commit "$FEMV2_SOURCE_COMMIT" \
+  --protocol-sha256 "$FEMV2_PROTOCOL_SHA256" \
+  --plan-sha256 "$FEMV2_PLAN_SHA256" \
+  --lock-sha256 "$FEMV2_LOCK_SHA256"
+```
+
+The next R3 shard is not released merely because its predecessor finalizer
+returned zero. First create the solver-free postterminal wave admission. Then
+bind its canonical path and SHA-256 in the release tick:
+
+```bash
+python3 code/operations/corpus_v4_fem_v2_controller.py \
+  --execution-root "$FEMV2_ROOT" \
+  --source-commit "$FEMV2_SOURCE_COMMIT" \
+  --protocol-sha256 "$FEMV2_PROTOCOL_SHA256" \
+  --plan-sha256 "$FEMV2_PLAN_SHA256" \
+  --lock-sha256 "$FEMV2_LOCK_SHA256" \
+  --release-r3-through 1 \
+  --prior-admission results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_000/admission/SOURCE_SET/FINALIZER/FINAL_ADMISSION.json \
+  --expected-prior-admission-sha256 ADMISSION_SHA256
+```
+
+Replace the uppercase receipt placeholders only with values emitted by the
+immutable finalizer/admission artifacts. Never infer them from directory
+counts. Planned source shards use frozen plan dispatches; infrastructure retry
+arrays may use only the pending set named by the preceding admission. External
+`TIMEOUT` and `OUT_OF_MEMORY` states are terminal resource outcomes and cannot
+be retried into a positive result.

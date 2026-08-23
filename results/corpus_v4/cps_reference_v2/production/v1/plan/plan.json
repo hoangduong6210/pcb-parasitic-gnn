@@ -1,0 +1,82 @@
+{
+  "artifact_sha256": {
+    "r3_dispatch_000.json": "74b19e91a4eb6d308afe6bcc3ebf2d83d0d480cefe6af62253c1420c4aa11f49",
+    "r3_dispatch_001.json": "46dbae264dbc1276985fa9f0e9bc207af025189751a0a9398fe65a7a504ac1ef",
+    "r3_dispatch_002.json": "34b925533389cf95ef3e8d04bf27140abb6c8d432597ef6bf834d9bbcbd4e385",
+    "r3_dispatch_003.json": "1e43f843b16d0138bb7115ed02ddd90c42b0768561549635140ea64b96e1481e",
+    "r3_manifest.jsonl": "c9c57e5ec0879818a07ce6f5a690b66008302a600b502a40110a08f516e62a58",
+    "r4_dispatch_000.json": "897cf14c87e167115e364f3e8ffcf9f62bd0c5e3205cb81f6ec6c0ed76a4330a",
+    "r4_manifest.jsonl": "c2708e01f50710046bcdd9db2c0f69f09b3803b7bd9768e97c3f74f9964b8eac"
+  },
+  "authority_sha256": {
+    "cps_protocol": "36bbda0935c3bbc7c3f61de3ac67c603430e05df65551823ad6eabed37051c4b",
+    "family_registry": "adb015939c5dcc29f63e5068e843c65bacde046591f30619612a15ebd3c6589d",
+    "gate_b_admission": "e87aedba663ce970fb7c55d5fd2db12c63db09594e4c221ef3968cb34bf6b02b",
+    "gate_c_admission": "7c93909df0a63930b0b54522e60b32570c6f4e9eb20feb853b2e9966b882dca1",
+    "geometry_layouts": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "geometry_summary": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+    "hf_selection_registry": "675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9",
+    "qualification_protocol": "912506b638c737b0e87022fb793392ebba5824f50f33fbabdc8913ba3f38908f",
+    "split_registry": "c30e06e33a58f03336c02d04fc9081d58ac7663338afe355610cfc0fdc7aa641"
+  },
+  "counts": {
+    "geometries": 1500,
+    "r3_tasks": 1500,
+    "r4_tasks": 198
+  },
+  "dispatches": {
+    "cps_fem_r3_p16_t1_v2": [
+      {
+        "canonical_task_max": 399,
+        "canonical_task_min": 0,
+        "local_array_max": 399,
+        "n_tasks": 400,
+        "path": "r3_dispatch_000.json",
+        "sha256": "74b19e91a4eb6d308afe6bcc3ebf2d83d0d480cefe6af62253c1420c4aa11f49"
+      },
+      {
+        "canonical_task_max": 799,
+        "canonical_task_min": 400,
+        "local_array_max": 399,
+        "n_tasks": 400,
+        "path": "r3_dispatch_001.json",
+        "sha256": "46dbae264dbc1276985fa9f0e9bc207af025189751a0a9398fe65a7a504ac1ef"
+      },
+      {
+        "canonical_task_max": 1199,
+        "canonical_task_min": 800,
+        "local_array_max": 399,
+        "n_tasks": 400,
+        "path": "r3_dispatch_002.json",
+        "sha256": "34b925533389cf95ef3e8d04bf27140abb6c8d432597ef6bf834d9bbcbd4e385"
+      },
+      {
+        "canonical_task_max": 1499,
+        "canonical_task_min": 1200,
+        "local_array_max": 299,
+        "n_tasks": 300,
+        "path": "r3_dispatch_003.json",
+        "sha256": "1e43f843b16d0138bb7115ed02ddd90c42b0768561549635140ea64b96e1481e"
+      }
+    ],
+    "cps_fem_r4_p16_t1_v2": [
+      {
+        "canonical_task_max": 197,
+        "canonical_task_min": 0,
+        "local_array_max": 197,
+        "n_tasks": 198,
+        "path": "r4_dispatch_000.json",
+        "sha256": "897cf14c87e167115e364f3e8ffcf9f62bd0c5e3205cb81f6ec6c0ed76a4330a"
+      }
+    ]
+  },
+  "planner_environment": {
+    "python": "3.9.21"
+  },
+  "protocol_sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-plan.v1",
+  "solver_contract_ids": {
+    "cps_fem_r3_p16_t1_v2": "51573adab57b7987d8cc653630e8370b650066d6c9aa07133e331e373233c007",
+    "cps_fem_r4_p16_t1_v2": "1c5b07058fd2decd8dc5605929b53bc204fd325c23a9d063b372a1166b341e80"
+  }
+}

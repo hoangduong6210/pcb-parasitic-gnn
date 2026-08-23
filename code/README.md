@@ -99,6 +99,8 @@ top-level README).
 | `finalize_corpus_v3_ranking.py` | Paired seed/family bootstrap and selection-regret aggregate | `corpus_v3/ranking/final` |
 | `experiments_corpus_v4_refine34_convergence.py` | Frozen 27-solve R3P12/R3P16/R4P16 protocol with bounded resources and AMG-CG residual gates | `corpus_v4/refine34_convergence/jobs` |
 | `finalize_corpus_v4_refine34_convergence.py` | Aggregates the frozen nine-layout protocol; preserves scientific rejection as a finalized result | `corpus_v4/refine34_convergence/final` |
+| `corpus_v4_fem_v2_production.py` | Freezes and executes fresh one-thread R3/P16 and R4/P16 tasks; accepts only plan shards or admission-bound retry sets | `corpus_v4/cps_reference_v2/production/v1/{plan,attempts}` |
+| `corpus_v4_fem_v2_package.py` | Solver-free wave and dataset finalization with terminal accounting, cumulative accepted/pending sets, and separate postterminal admissions | `corpus_v4/cps_reference_v2/production/v1/{waves,dataset}` |
 | `plan_corpus_v4_cps_multifidelity.py` | Freezes swap-closed families, 198-layout R4 selection, five split registries, and dense R3/R4 task manifests | `corpus_v4/cps_multifidelity/plan/v1` |
 | `plan_corpus_v4_cps_submission_shards.py` | Maps a frozen manifest into hashable dense dispatch sets that respect the cluster array-size limit without renumbering canonical tasks | `corpus_v4/cps_multifidelity/dispatch` |
 | `run_corpus_v4_cps_multifidelity_task.py` | SLURM-only one-geometry/one-fidelity production runner with exact source, environment, solver, residual, resource, and array gates | `corpus_v4/cps_multifidelity/{r3,r4}/attempts` |
@@ -155,5 +157,6 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `inference/safe_npz_bundle.py` | Authenticated, pickle-free checkpoint writer/loader with ZIP, dtype, shape, finiteness, size, and smoke-inference gates |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
+| `operations/corpus_v4_fem_v2_controller.py` | Login-safe, hash-pinned R4-first/R3-wave SLURM submission controller and terminal-accounting watcher; never imports a solver |
 | `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |
 | `jobs/slurm_job_env.sh` | Shared root, Python, and `PYTHONPATH` resolver for portable batch execution |

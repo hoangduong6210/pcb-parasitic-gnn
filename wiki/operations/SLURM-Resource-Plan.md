@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-22
+last_updated: 2026-08-23
 paper_source: false
 ---
 
@@ -11,15 +11,20 @@ Field solves and model training are not executed on a login node. The table
 records frozen allocations used or planned across Corpus V4 solver, accuracy,
 latency, and diagnostic stages.
 
-The active QOS permits at most 1,000 submitted array elements per user. R3 is
-therefore dispatched as 400, 400, 400, and 300 tasks. Only the first two R3
-shards are queued with the 198-task R4 array (`400 + 400 + 198 = 998`); later
-R3 shards pass a live submission-capacity gate before they are queued.
+The active QOS permits at most 1,000 submitted array elements per user. The
+operator uses 950 as a softer ceiling so that monitoring and finalization do
+not race the scheduler limit. R4 is submitted first. R3 is divided into four
+immutable shards of 400, 400, 400, and 300 tasks, and each later shard waits
+for the previous wave's terminal admission. This keeps the project near 600
+submitted elements at its busiest point instead of filling 998 slots at once.
 
 | Stage | Tasks | Per-task request | Concurrency | Fail-fast wall | Scheduler wall cap |
 |---|---:|---|---:|---:|---:|
-| FEM-R3P16 bulk | 1,500 | 25 CPU, 48 GiB | 8 | 1,800 s | 2 h |
-| FEM-R4P16 validation | 198 | 25 CPU, 160 GiB | 2 | 7,200 s | 3 h |
+| Archived FEM-R3P16 bulk | 1,500 | 25 CPU, 48 GiB | 8 | 1,800 s | 2 h |
+| Archived FEM-R4P16 validation | 198 | 25 CPU, 160 GiB | 2 | 7,200 s | 3 h |
+| FEM-v2 R3P16 one-thread generation | 1,500 | 1 requested CPU, 48 GiB | 8 | 1,800 s | 2 h |
+| FEM-v2 R4P16 one-thread generation | 198 | 1 requested CPU, 160 GiB | 2 | 7,200 s | 3 h |
+| FEM-v2 wave or dataset finalizer | 1 per wave | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Cps artifact-set finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Accuracy training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
 | Accuracy finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
@@ -47,29 +52,32 @@ an infeasibility result and is not silently rerun with a wider limit.
 
 ## Expected active wall time
 
-The completed nine-layout study observed median worker wall times of about 520 s
-for FEM-R3P16 and 3,452 s for FEM-R4P16. If queueing and retry time are excluded,
-these medians imply approximately:
+The completed one-thread qualification observed a median elapsed time of 534 s
+for R3 and 3,360 s for R4. If queueing, admission gaps, and retries are
+excluded, the full planned coverage implies approximately:
 
 | Stage | Median-based active wall estimate |
 |---|---:|
-| FEM-R3P16 at concurrency 8 | 27.1 h |
-| FEM-R4P16 at concurrency 2 | 94.9 h |
+| FEM-v2 R3P16 at concurrency 8 | 27.3 h |
+| FEM-v2 R4P16 at concurrency 2 | 94.1 h |
 
 These are planning estimates, not promised runtimes. Node placement, scheduler
 policy, filesystem load, failed tasks, and memory-based charging can change
-elapsed and billed usage. In particular, a scheduler may charge more CPU
-equivalents than the requested 25 CPUs when a 160 GiB memory request determines
-the allocation.
+elapsed and billed usage. During qualification, the site allocated 13 CPUs for
+a 48 GiB task and 41 CPUs for a 160 GiB task even though each job requested one
+CPU. The solver remained serialized because the wrapper and child telemetry
+both recorded one numerical thread. Requested CPU, allocated CPU, and billing
+TRES must therefore remain separate fields.
 
 ## Retry accounting
 
-Every initial task writes a start checkpoint and then a separate completed
-attempt. The resume planner accepts only explicitly indexed, byte-hashed tasks
-whose solver, residual, resource, source, environment, scheduler, plan, and
-manifest records recompute exactly. It emits a sparse pending task set. A retry
-array maps dense retry indices back to the original canonical task indices and
-retains the original plan and manifest identities.
+Every initial task writes a start record and a separate completed attempt. A
+wave finalizer runs with `afterany`, because failed source elements must still
+be classified and retained. The postterminal admission accepts only
+byte-hashed tasks whose solver, residual, resource, source, environment,
+scheduler, plan, dispatch, and manifest records recompute exactly. It emits a
+sparse pending set. A retry maps dense local array indices back to the original
+canonical task indices and retains the same frozen identities.
 
 The finalizer requires exact coverage of all 1,500 R3 tasks and all 198 R4 tasks.
 Missing tasks, extra tasks, corrupted attempts, or two valid attempts for one

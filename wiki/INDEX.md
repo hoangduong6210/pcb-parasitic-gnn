@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-21
+last_updated: 2026-08-23
 paper_source: false
 ---
 
@@ -68,6 +68,7 @@ paper_source: false
 |---|---|
 | [Reproducibility](REPRODUCIBILITY.md) | Evidence closure and environment requirements |
 | [Research Workflow](operations/Research-Workflow.md) | From question to admitted claim |
+| [FEM V2 Production Pipeline](operations/FEM-V2-Production-Pipeline.md) | Qualification, bulk generation, wave admission, and training boundary |
 | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) | Frozen allocations and wall-time estimates |
 | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | Exact cluster submission, monitoring, and recovery steps |
 
