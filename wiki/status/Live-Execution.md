@@ -1,13 +1,13 @@
 ---
 title: Live Execution Snapshot
 status: active operational snapshot
-last_updated: 2026-08-22
+last_updated: 2026-08-23
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-22 12:47 UTC.
+Last scheduler observation: 2026-08-24 00:09 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -18,6 +18,7 @@ Last scheduler observation: 2026-08-22 12:47 UTC.
 | Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
 | FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | Prepare deterministic R3/R4 generation protocols and task manifests | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities must remain explicit |
+| One-thread FEM-v2 production | `SUBMITTED; TERMINAL ACCOUNTING PENDING` | R4 source `6963559` covers 198 tasks; R3 wave-zero source `6963561` covers the first 400 tasks; finalizers `6963560` and `6963562` are dependency-bound | Retain controller receipts and wait for scheduler visibility; do not resubmit | SLURM accepted all four submissions at 2026-08-24 00:08 UTC, then its controller and accounting endpoints became unavailable |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 The successful finalizer closed 1,500 R3 observations and 198 R4 observations
@@ -105,3 +106,12 @@ nine-layout adjacent-mesh comparison returned median delta
 and 5% limits. The next transition is full one-thread R3 and R4 regeneration
 with separate fidelity identifiers, followed by retraining and new accuracy
 and latency protocols. No old model or speed value transfers to this version.
+
+The production submission is pinned to source commit `c01b97b`, which passed
+GitHub Actions run `32651670577` before submission. The controller first
+submitted the 198-element R4 array and its `afterany` finalizer, followed by
+the first 400-element R3 array and its finalizer. These 600 expanded scheduler
+elements remain below the frozen 950-element operating ceiling. The four job
+identifiers above are submission receipts only: no terminal state, numerical
+result, dataset coverage, or scientific claim may be inferred until `sacct`
+returns and the postterminal admissions pass.

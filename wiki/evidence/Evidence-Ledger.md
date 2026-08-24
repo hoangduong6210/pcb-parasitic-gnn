@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-22
+last_updated: 2026-08-23
 paper_source: false
 ---
 
@@ -582,6 +582,28 @@ first attempt.
 | Mesh-sensitivity result | Nine matched R3P16 versus R4P16 observations; median delta `8.004837428851205%` and maximum `13.929354258624992%`, above the prospectively frozen 2% and 5% limits; `scientific_outcome=SCIENTIFIC_NEGATIVE` |
 | Final evidence | [Preterminal result](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/result.json), SHA-256 `9ddc33d61eb284683bcaa9fb705db1ffb79bcae20750e4f803271d4729d7e203`; [final manifest](../../results/corpus_v4/cps_reference_v2/qualification/v1/final/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_MANIFEST.json), SHA-256 `eb858d0e08dc6bda140e587431178d868710378d54d99173a78936a455400347`; [postterminal admission](../../results/corpus_v4/cps_reference_v2/qualification/v1/admission/gate_c/source_job_6923579/finalizer_job_6923586/FINAL_ADMISSION.json), SHA-256 `7c93909df0a63930b0b54522e60b32570c6f4e9eb20feb853b2e9966b882dca1` |
 | Scientific use | Admits three-sentinel R4 repeatability and authorizes complete explicit R3/R4 v2 generation through `multifidelity_v2_may_start=true`; `claim_eligible=false` and `speed_claim_eligible=false`; it does not establish corpus-wide repeatability, continuum convergence, physical ground truth, model accuracy, or speed |
+
+## E-C4-FEM-V2-PROD-SUBMIT-01: Initial multi-fidelity production submission
+
+| Field | Value |
+|---|---|
+| Lifecycle | `SUBMITTED; TERMINAL ACCOUNTING AND ADMISSION PENDING` |
+| Source and CI | Commit `c01b97bc90cbe3d1f2094e9441eb2e18219e4eb1`; GitHub Actions run `32651670577` passed before submission |
+| Protocol SHA-256 | `ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709` |
+| Plan SHA-256 | `5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20` |
+| Execution-lock SHA-256 | `84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a` |
+| R4 wave | Source array `6963559`, 198 tasks at concurrency two; dependency-held finalizer `6963560` |
+| Initial R3 wave | Source array `6963561`, canonical tasks 0 through 399 at concurrency eight; dependency-held finalizer `6963562` |
+| Resource requests | R4: one CPU, 160 GiB, three hours per element; R3: one CPU, 48 GiB, two hours per element; finalizers: two CPU, 16 GiB, 30 minutes |
+| Submission capacity | 600 expanded elements after the initial tick, below the frozen 950-element operating ceiling and 1,000-element QOS limit |
+| Control-plane observation | SLURM accepted the four submissions at 2026-08-24 00:08 UTC; immediately subsequent controller and accounting queries returned service-unavailable errors, so no terminal state is recorded here |
+| Scientific use | None while pending. Submission identifiers do not establish completed solves, accepted coverage, model accuracy, latency, speed, or physical accuracy |
+
+The controller state is retained in the detached execution checkout. It must
+not be edited into a successful outcome. Once scheduler visibility returns,
+the source and finalizer components require exact `sacct` validation followed
+by solver-free postterminal admission. Later R3 waves remain closed until the
+preceding R3 admission is bound by canonical path and SHA-256.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
