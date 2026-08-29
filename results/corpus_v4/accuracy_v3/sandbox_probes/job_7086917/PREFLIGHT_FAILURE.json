@@ -1,0 +1,33 @@
+{
+  "bindings": {
+    "execution_lock_sha256": "f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c",
+    "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "source_git_head": "c4da7e3197db510e0407d14724cca516cb41a3ab",
+    "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+  },
+  "decision": {
+    "checkpoint_training_may_start": false,
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "preflight_passed": false,
+    "speed_claim_eligible": false
+  },
+  "failure": {
+    "code": "BWRAP_UNSUPPORTED_OPTION",
+    "optimizer_started": false,
+    "stage": "sandbox_cli_startup",
+    "stderr_path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086917/stderr.txt",
+    "stderr_sha256": "abf04cabb51191aac0776b0833c0a8742a34d62f47cf027aedbab6f63c11d747"
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-sandbox-preflight-failure.v3",
+  "terminal_accounting": {
+    "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+    "ElapsedRaw": "2",
+    "ExitCode": "1:0",
+    "JobID": "7086917_0",
+    "JobIDRaw": "7086917",
+    "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+    "State": "FAILED"
+  }
+}
