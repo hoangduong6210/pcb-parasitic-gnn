@@ -43,6 +43,7 @@ REQUIRED_PAGES = (
     "manuscript/Paper-Export-Contract.md",
     "manuscript/Paper-Outline.md",
     "methods/FEM-Cps-Reference.md",
+    "methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md",
     "methods/FastHenry-Inductance.md",
     "methods/Geometry-Family-Splits.md",
     "methods/Graph-Surrogate.md",

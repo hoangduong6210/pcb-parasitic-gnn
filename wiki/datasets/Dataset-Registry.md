@@ -18,7 +18,7 @@ latency claim.
 | `D-V2` | `synth_v2` | Submitted solver-surrogate feasibility | Archived feasibility snapshot; scope-bound claims only |
 | `D-C3` | `corpus_v3` | Geometry-contract repair over 1,500 layouts | Geometry root validated; inherited capacitance fidelity is not mesh-converged |
 | `D-C4` | `corpus_v4` | Multi-fidelity capacitance package on the accepted v3 geometry root | Finalized: 1,500 R3 and 198 R4 observations; selected-registry discrepancy admitted descriptively |
-| `D-C4-FEM-D1-v2` | `cps_reference_v2` | Deterministic one-thread multi-fidelity FEM observations on the unchanged accepted geometry root | Dataset generation admitted: 1,500 R3 and 198 R4 observations; accuracy protocol may be frozen, training not yet authorized |
+| `D-C4-FEM-D1-v2` | `cps_reference_v2` | Deterministic one-thread multi-fidelity FEM observations on the unchanged accepted geometry root | Dataset generation admitted: 1,500 R3 and 198 R4 observations; the separate accuracy-v2 lock now admits checkpoint-only training |
 | `D-VENDOR-750341134` | Local vendor assets | Commercial geometry and datasheet anchor | External validation track; not a training corpus |
 
 Corpus v4 is not a fourth geometry generator. It retains the accepted corpus-v3
@@ -42,10 +42,12 @@ and its postterminal admission SHA-256 is
 
 The finite-panel and production evidence retain R3 and R4 as separate named
 fidelities rather than promoting either to ground truth. Dataset generation is
-admitted and a new accuracy protocol may be frozen, but the receipt explicitly
-records `training_may_start=false`, `claim_eligible=false`, and
-`speed_claim_eligible=false`. The archived `C-ACC-001` model result remains
-bound to `D-C4`; it is not a result on `D-C4-FEM-D1-v2`.
+admitted and the dataset receipt retains `training_may_start=false`,
+`claim_eligible=false`, and `speed_claim_eligible=false`. A separate downstream
+accuracy-v2 execution lock now authorizes checkpoint-only training; it does not
+alter the dataset receipt or open held-out inference. The archived `C-ACC-001`
+model result remains bound to `D-C4`; it is not a result on
+`D-C4-FEM-D1-v2`.
 
 ## Role of v2 in the research program
 

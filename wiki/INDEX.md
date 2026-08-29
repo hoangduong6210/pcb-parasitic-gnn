@@ -48,6 +48,7 @@ paper_source: false
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
+| [Corpus V4 FEM-v2 Accuracy Protocol](methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md) | Deterministic one-thread targets, crossed-family design, checkpoint boundary, and metric contract |
 | [Runtime Benchmark](methods/Runtime-Benchmark.md) | Timing boundaries and valid speed comparisons |
 
 ## Results and claims

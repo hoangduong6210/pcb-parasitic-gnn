@@ -43,7 +43,8 @@ instead of calling one column ground truth.
 | Pre-FEM-v2 multi-seed accuracy baseline | `ADMITTED; VERSION-SCOPED` | Complete 5 by 5 family-held-out split and initialization grid bound to the archived 25-thread capacitance package; it is not an FEM-v2 model result |
 | FEM-R3P16 repeatability diagnostic | `POSTTERMINAL NEGATIVE` | Corrected 30-solve run: the existing 25-thread path failed mesh identity and repeatability on all three anchors; the one-thread diagnostic passed both on all three; paired latency is explicitly not authorized |
 | One-thread FEM reference qualification | `COMPLETE` | Nine-layout R3 and three-sentinel R4 repeatability passed; finite-panel domain sensitivity passed; finite-panel adjacent-mesh sensitivity was negative |
-| Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; dataset generation admitted, accuracy protocol may be frozen, training remains closed |
+| Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
+| Deterministic one-thread FEM-v2 accuracy | `FROZEN; CHECKPOINT TRAINING ADMITTED` | 5 family splits by 5 initialization seeds; no checkpoint, held-out metric, model claim, or speed claim yet |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -57,13 +58,11 @@ transition.
 1. Retain the admitted
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    version-scoped predictive baseline for the archived 25-thread package.
-2. Freeze a new FEM-v2 evaluation dataset, accuracy protocol, plan, and
-   execution lock under the existing family-disjoint split contract. Dataset
-   admission permits this freeze but records `training_may_start=false`; only
-   the accuracy preparation admission may open SLURM training.
-3. Execute and finalize a new multi-seed accuracy study before designing a
-   new paired-latency protocol. `C-LAT-001` and its 306-layout array remain
-   closed.
+2. Execute the frozen 25-task FEM-v2 checkpoint grid through SLURM. The
+   execution lock opens checkpoint training but not held-out inference.
+3. Admit all checkpoints, run the held-out finalizer, and close the new
+   multi-seed accuracy archive before designing a new paired-latency protocol.
+   `C-LAT-001` and its 306-layout array remain closed.
 4. Repeat baseline, strict E(3), and ranking studies only under their own
    FEM-v2 frozen protocols.
 5. Admit claims in the wiki before generating a new paper snapshot.

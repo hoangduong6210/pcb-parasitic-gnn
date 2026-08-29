@@ -1,0 +1,39 @@
+{
+  "decision": {
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "plan_frozen": true,
+    "protocol_frozen": true,
+    "speed_claim_eligible": false,
+    "training_may_start": true
+  },
+  "plan_sha256": "960924bc10ca7e0199dcecb3a2e359624e1895288f0ef45f96f7848e4a82cb49",
+  "protocol_sha256": "938f804d7bb754528c9b7665a815a10b076cb662038738c67cd81d338daf89cc",
+  "schema": "pcb-gnn.corpus-v4-accuracy-execution-lock.v2",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+    "code/data/corpus_v4_accuracy_dataset_v2.py": "b40244530b6ccfd9dda3b6922504b33e9c455835c964bae3f9f583969b1cb2cc",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v2.py": "dc994d6dd25548bdbe1dc27c522f12682a10de93076eb6b00acf3626b69887ea",
+    "code/experiments/proofs/corpus_v4_accuracy_contract_v2.py": "66c181528a694af1a5c0993cc8a54af81d252667be99d02c0b52605a0e4edba1",
+    "code/experiments/proofs/finalize_corpus_v4_accuracy_v2.py": "aea153bc74e16ac9b4df26c7e85cf64eecc0e126ddd43ebf263adf98a2e5e34e",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v2.py": "9878ca680127f9502fdae0e15d4265399684b74d729cc40fc669512667543957",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_v2.py": "383751279b02d19a68e5c58d12c2fd240b23c0a7fd440bb9daa9bb515d6c3325",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task_v2.py": "c23fe97280a2e88f1469a21db454d51bde41cdc5763792cd8575b45066cbfc41",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_accuracy_v2.sh": "ababba96cb5549cfe91a662c6a293a0b8e020eb0f4586968b3900c03f9cae032",
+    "code/jobs/submit_finalize_corpus_v4_accuracy_v2.sh": "feb809075005936358e76fdfd1a5f686820265d2c89259b3dd98d0da1f8efaec",
+    "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+    "code/quality/verify_corpus_v4_accuracy_archive_v2.py": "30f9b261b37e98d87232b7b43b4cd7c882a96a45b0c9c4c8ac5a0b4cfb63f1d3",
+    "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "task_manifest_sha256": "e896864c8ced584c3ab526cdffabf99f916734ef7a5fb4a923c706dfb15e076c",
+  "upstream_archive_sha256": "89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc",
+  "upstream_dataset_admission_sha256": "b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed"
+}

@@ -19,11 +19,13 @@ Current evidence is admitted only in this order:
 6. a fidelity-explicit Cps corpus: 1,500 R3 and 198 R4 observations jointly finalized;
 7. a family-aware descriptive R3/R4 discrepancy audit on the frozen 198-layout
    registry — complete;
-8. declared multi-split/multi-initialization accuracy runs on that frozen corpus
-   — complete and admitted;
-9. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
+8. declared multi-split/multi-initialization accuracy runs on the archived
+   25-thread target package — complete and admitted for that version only;
+9. a separately versioned FEM-v2 accuracy protocol, plan, and execution lock on
+   the deterministic one-thread target package;
+10. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;
-10. figures and manuscript tables generated only from accepted wiki content.
+11. figures and manuscript tables generated only from accepted wiki content.
 
 Each current number must resolve to a job-scoped result, raw record, immutable
 input hash, source commit, source-file hash map, executable hash, arguments, and
@@ -38,9 +40,10 @@ sample, and R4 is not treated as truth. The domain comparison
 passed at 0.189658% median and 2.491566% maximum; the mesh comparison was
 rejected at 8.273879% median and 13.886399% maximum.
 
-The current-corpus GNN accuracy result is accepted under the frozen family-held-out
-protocol; current-corpus paired speed remains blocked. The numerical result and
-its scope are maintained in
+The archived 25-thread GNN accuracy result is accepted under its frozen
+family-held-out protocol. The deterministic one-thread FEM-v2 model study is a
+new lifecycle, and current-corpus paired speed remains blocked. The archived
+numerical result and its scope are maintained in
 [`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md).
 Canonical lifecycle status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
@@ -48,3 +51,5 @@ values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
 
 The current accuracy artifact layout and checkpoint-before-test lifecycle are
 indexed in [`corpus_v4/accuracy/README.md`](corpus_v4/accuracy/README.md).
+Preparation of the separate deterministic one-thread study is indexed in
+[`corpus_v4/accuracy_v2/README.md`](corpus_v4/accuracy_v2/README.md).

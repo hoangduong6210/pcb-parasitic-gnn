@@ -16,8 +16,9 @@ baseline remains bound to its archived 25-thread capacitance package. A separate
 deterministic one-thread FEM-v2 package has now been admitted at the dataset
 generation boundary with 1,500 `cps_fem_r3_p16_t1_v2` observations and 198
 `cps_fem_r4_p16_t1_v2` observations. That admission authorizes freezing a new
-accuracy protocol; it does not transfer the earlier model result and does not
-yet authorize training.
+accuracy protocol. The new protocol, deterministic plan, and execution lock
+are now frozen and admit checkpoint-only SLURM training. They do not transfer
+the earlier model result, open held-out inference, or establish a new claim.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -97,10 +98,12 @@ archive. The [accuracy result](wiki/results/Corpus-V4-Accuracy.md) reports
 target-specific agreement with the synthetic numerical references and a
 matched R3/R4 capacitance view for the archived 25-thread package. It is not an
 accuracy result for the newly admitted one-thread FEM-v2 labels and does not
-claim physical-board accuracy. The next model stage must freeze and admit its
-own FEM-v2 accuracy protocol, plan, and execution lock. Current-corpus paired
-latency remains blocked. See the
-[accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
+claim physical-board accuracy. The FEM-v2 model stage has frozen and admitted
+its own protocol, deterministic plan, and execution lock. Its 25
+checkpoint-only training tasks are next; held-out inference and current-corpus
+paired latency remain blocked. See the
+[archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
+[FEM-v2 accuracy protocol](wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
 [`results/README.md`](results/README.md).
@@ -252,12 +255,11 @@ admission remains a separate wiki-reviewed step.
 ## Reproducing a result
 
 Do not rerun a submitted-v2 experiment as though it were current evidence. The
-deterministic FEM-v2 dataset generation stage is complete, but its model stage
-is still ordered and gated: freeze a new immutable evaluation join, preserve the
-swap-closed split contract, freeze and admit the accuracy protocol, plan, and
-execution lock, run multi-seed training through SLURM, finalize held-out
-evaluation, and only then review any new claim. A downstream submission is
-created only after the upstream summary and artifact hashes pass.
+deterministic FEM-v2 dataset, immutable evaluation join, swap-closed split
+contract, accuracy protocol, plan, and execution lock are now frozen. The next
+ordered stage is multi-seed checkpoint training through SLURM, followed by an
+accepted-set gate, held-out finalization, archive verification, and only then
+review of any new claim.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make
