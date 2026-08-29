@@ -1,0 +1,48 @@
+{
+  "decision": {
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "plan_frozen": true,
+    "protocol_frozen": true,
+    "speed_claim_eligible": false,
+    "training_may_start": true
+  },
+  "heldout_evaluation_sha256": "ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046",
+  "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+  "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+  "sandbox_executable_sha256": "9dba99a1fa3be3b0d3e5cb7d6d297742b56a3b1749465f520503c651b38d99aa",
+  "schema": "pcb-gnn.corpus-v4-accuracy-execution-lock.v3",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+    "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v3.py": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1",
+    "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "f4fc986c93c79031ab9fcdfe3cb5717b9d811c7c93c7a080e05376a150a05f6b",
+    "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py": "4da2082f564702d8b5d09f30904a2e5b712130fd9f86604ccc9b3dc614a5e80c",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py": "1d5206c8fd52729a62f21e873ffe930a3e601850276d1a57f32fa7686afa8112",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_v3.py": "dffb3a43cc1ebdb21e106515648fb300fef6fb06b93026bb710ff3eaa94f1a2b",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_accuracy_v3.sh": "ed4c36e76bc4066797806b452da127d300741e7ccb08a44b833d2da87d1f82f9",
+    "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh": "f6f2102ce480ea81a1a157c2bb11d1ca9d8a1d5cbfa1e35e1131f7029c49453a",
+    "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+    "code/quality/verify_corpus_v4_accuracy_archive_v3.py": "49d4a532554fe44d78f87c63b11662fcff558e00c130eba4ae10fd8e46184b8e",
+    "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71",
+  "training_artifact_sha256": {
+    "training_split_40.jsonl": "d7c009d4a85e1b84eabc56e716080516ba22add1248359c518466099b9165fdb",
+    "training_split_41.jsonl": "f439b182c055ad917ed07af2d08d26f656ed42e447eec0ec5c55a9d74e2a5648",
+    "training_split_42.jsonl": "98bfaef69c79ab882fa9028706df2a858a995e4174b34932c6de08804b5c381d",
+    "training_split_43.jsonl": "16fa3a32bc231fdb5d50f7229b23554b8e83e0f0fe5831d98ff2cce8e18e493d",
+    "training_split_44.jsonl": "c7cd0fad11783f934272e831683d16e016e49608aadbb5868578a489cdc64411"
+  },
+  "upstream_archive_sha256": "89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc",
+  "upstream_dataset_admission_sha256": "b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed"
+}

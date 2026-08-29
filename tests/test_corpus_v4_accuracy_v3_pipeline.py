@@ -1555,6 +1555,9 @@ def test_batch_resources_and_no_login_training_contract() -> None:
     assert "PCB_GNN_V4_ACCURACY_V3_SANDBOX_PROBE_ONLY" in training
     assert "--sandbox-probe-only" in training
     assert "SLURM_ARRAY_TASK_COUNT\" == \"1" in training
+    assert "/usr/bin/env -i" in training
+    assert "--clearenv" not in training
+    assert "corpus_v4_accuracy_execution_lock_v3r1.json" in training
     assert "#SBATCH --cpus-per-task=2" in final
     assert "#SBATCH --mem=16G" in final
     assert "#SBATCH --time=00:30:00" in final

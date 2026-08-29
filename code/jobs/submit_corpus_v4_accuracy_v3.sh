@@ -139,33 +139,34 @@ fi
   "${RETRY_MOUNTS[@]}" \
   "${PROBE_MOUNTS[@]}" \
   --chdir /workspace \
-  --clearenv \
-  --setenv PATH /usr/bin:/bin \
-  --setenv PYTHONPATH /opt/pcb-python/site-packages \
-  --setenv PYTHONNOUSERSITE 1 \
-  --setenv HOME /nonexistent \
-  --setenv TMPDIR /tmp \
-  --setenv OMP_NUM_THREADS 8 \
-  --setenv MKL_NUM_THREADS 8 \
-  --setenv OPENBLAS_NUM_THREADS 8 \
-  --setenv NUMEXPR_NUM_THREADS 8 \
-  --setenv PYTHONHASHSEED 0 \
-  --setenv TZ UTC \
-  --setenv LC_ALL C.UTF-8 \
-  --setenv CUDA_VISIBLE_DEVICES "" \
-  --setenv SLURM_ARRAY_JOB_ID "$SLURM_ARRAY_JOB_ID" \
-  --setenv SLURM_ARRAY_TASK_COUNT "$SLURM_ARRAY_TASK_COUNT" \
-  --setenv SLURM_ARRAY_TASK_ID "$SLURM_ARRAY_TASK_ID" \
-  --setenv SLURM_ARRAY_TASK_MAX "$SLURM_ARRAY_TASK_MAX" \
-  --setenv SLURM_ARRAY_TASK_MIN "$SLURM_ARRAY_TASK_MIN" \
-  --setenv SLURM_CPUS_PER_TASK "$SLURM_CPUS_PER_TASK" \
-  --setenv SLURM_JOB_ID "$SLURM_JOB_ID" \
-  --setenv SLURM_JOB_PARTITION "$SLURM_JOB_PARTITION" \
-  --setenv SLURM_MEM_PER_NODE "$SLURM_MEM_PER_NODE" \
-  --setenv PCB_GNN_EXECUTED_BATCH_SCRIPT /workspace/code/jobs/submit_corpus_v4_accuracy_v3.sh \
-  --setenv PCB_GNN_V4_ACCURACY_V3_HOST_SOURCE_COMMIT "$HOST_HEAD" \
-  --setenv PCB_GNN_V4_ACCURACY_V3_HOST_SOURCE_CLEAN true \
-  --setenv PCB_GNN_V4_ACCURACY_V3_SANDBOX_ACTIVE true \
+  -- \
+  /usr/bin/env -i \
+  PATH=/usr/bin:/bin \
+  PYTHONPATH=/opt/pcb-python/site-packages \
+  PYTHONNOUSERSITE=1 \
+  HOME=/nonexistent \
+  TMPDIR=/tmp \
+  OMP_NUM_THREADS=8 \
+  MKL_NUM_THREADS=8 \
+  OPENBLAS_NUM_THREADS=8 \
+  NUMEXPR_NUM_THREADS=8 \
+  PYTHONHASHSEED=0 \
+  TZ=UTC \
+  LC_ALL=C.UTF-8 \
+  CUDA_VISIBLE_DEVICES= \
+  SLURM_ARRAY_JOB_ID="$SLURM_ARRAY_JOB_ID" \
+  SLURM_ARRAY_TASK_COUNT="$SLURM_ARRAY_TASK_COUNT" \
+  SLURM_ARRAY_TASK_ID="$SLURM_ARRAY_TASK_ID" \
+  SLURM_ARRAY_TASK_MAX="$SLURM_ARRAY_TASK_MAX" \
+  SLURM_ARRAY_TASK_MIN="$SLURM_ARRAY_TASK_MIN" \
+  SLURM_CPUS_PER_TASK="$SLURM_CPUS_PER_TASK" \
+  SLURM_JOB_ID="$SLURM_JOB_ID" \
+  SLURM_JOB_PARTITION="$SLURM_JOB_PARTITION" \
+  SLURM_MEM_PER_NODE="$SLURM_MEM_PER_NODE" \
+  PCB_GNN_EXECUTED_BATCH_SCRIPT=/workspace/code/jobs/submit_corpus_v4_accuracy_v3.sh \
+  PCB_GNN_V4_ACCURACY_V3_HOST_SOURCE_COMMIT="$HOST_HEAD" \
+  PCB_GNN_V4_ACCURACY_V3_HOST_SOURCE_CLEAN=true \
+  PCB_GNN_V4_ACCURACY_V3_SANDBOX_ACTIVE=true \
   /usr/bin/python3 -u /workspace/code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py \
   --protocol protocols/corpus_v4_accuracy_v3.json \
   --expected-protocol-sha256 "$PCB_GNN_V4_ACCURACY_V3_PROTOCOL_SHA256" \
@@ -173,7 +174,7 @@ fi
   --expected-plan-sha256 "$PCB_GNN_V4_ACCURACY_V3_PLAN_SHA256" \
   --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_ACCURACY_V3_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3.json \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r1.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_ACCURACY_V3_EXECUTION_LOCK_SHA256" \
   --expected-source-git-head "$PCB_GNN_V4_ACCURACY_V3_SOURCE_COMMIT" \
   "${RETRY_ARGS[@]}" \
