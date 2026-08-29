@@ -10,7 +10,7 @@
     "figures": 12,
     "logs": 108,
     "protocols": 20,
-    "results": 4215,
+    "results": 4217,
     "root": 10,
     "tests": 47,
     "wiki": 43
@@ -3163,8 +3163,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v3/README.md",
-      "bytes": 5134,
-      "sha256": "9d0f52c440c347f7d134b26ced2ad6290140a8ffa984dda6941ffaa9ed914db1"
+      "bytes": 5629,
+      "sha256": "c9074fab19b5ffdd61850874f99a66767821bdf160f25743d79861fb15991c30"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
@@ -3225,6 +3225,16 @@
       "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/stderr.txt",
       "bytes": 47,
       "sha256": "3c8038153f42c148ce6fa66496bdb4fc63080486f90032e61cd48ed7a0b6bd6a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/PREFLIGHT_ADMISSION.json",
+      "bytes": 1465,
+      "sha256": "9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/task_00.json",
+      "bytes": 4851,
+      "sha256": "dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9"
     },
     {
       "path": "results/corpus_v4/convergence_preflight/final/job_6833716/results_corpus_v4_convergence_preflight.json",
@@ -23313,8 +23323,8 @@
     },
     {
       "path": "tests/test_corpus_v4_accuracy_v3_pipeline.py",
-      "bytes": 56306,
-      "sha256": "38709272c46c887e564adf0599ab02bb5f1064531bf1fc18b83a78f7e55c3880"
+      "bytes": 57859,
+      "sha256": "0005f79002f26061ca6c5cd3396307cffe72ee0e3458dd5edaeec2979bac058d"
     },
     {
       "path": "tests/test_corpus_v4_archive.py",
@@ -23518,8 +23528,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 11646,
-      "sha256": "7d56b29f0039fc4fb4091245dd6c289acf8304fd55b3809f93dae54e0cd54622"
+      "bytes": 11903,
+      "sha256": "da4e480af68a3562942a240ed6dd909be7318275eacc1412c752574c8ce7ef77"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -23573,8 +23583,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 63807,
-      "sha256": "3a335ba2ada713c4dc481b9c07dc3676197a30990a7c502f2342eba67eeca33b"
+      "bytes": 64351,
+      "sha256": "7b1d8c02340e361e9c7421e2c4e9aac5b60915747847af687f4a68af2f87cd66"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -23613,13 +23623,13 @@
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md",
-      "bytes": 6377,
-      "sha256": "32d6f33cf3f546e6a14ddd93a1ef38eae66218650d2ab9daccfeffbbd87f92c1"
+      "bytes": 6633,
+      "sha256": "4aff9120be9e88157b2766239301f203fbded306fda798c19c9e6fa38c721c9d"
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md",
-      "bytes": 1242,
-      "sha256": "042b32c4fa10f019d67be531cbc46d9fedba138c37f953e7c8b6ce179cfc38e9"
+      "bytes": 1200,
+      "sha256": "e638f4b6ef59ba0513e822449cb30a59d97e30da256d9e4b89f2e31f30823f89"
     },
     {
       "path": "wiki/methods/FEM-Cps-Reference.md",
@@ -23673,8 +23683,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 80274,
-      "sha256": "4478118f76008e3c40f6ef6242c6426cac095d492344c8cf14fee0870cb90e46"
+      "bytes": 80685,
+      "sha256": "e5379760230890fc385a3edf7f683e0e689f9659095b482838adf0e549821c95"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -23698,15 +23708,15 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 6229,
-      "sha256": "7248594c4ca2886bdfe7f42ef073d705a5fff03a3f58c2609c16c5cc09312ac0"
+      "bytes": 6188,
+      "sha256": "8d8dcb1c015b46f80e2900ac35a999d73e4ef14370261c8ae824702dc6eae52b"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 5722,
-      "sha256": "2d4d5dcfce5b87a50a7fbbe06938d5f97f909fa24462de876e4824c2fb77eebf"
+      "bytes": 5491,
+      "sha256": "da31420f7a913b19b043583a1eef41d78af3aa63a9bae2d5abeb174bed08e499"
     }
   ],
-  "n_files": 4738,
-  "total_bytes": 170075535
+  "n_files": 4740,
+  "total_bytes": 170085053
 }

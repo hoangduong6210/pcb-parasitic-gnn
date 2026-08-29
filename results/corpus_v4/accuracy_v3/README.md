@@ -10,17 +10,18 @@ no admitted accuracy, latency, speed, or physical-validation result.
 |---|---|
 | Dataset and family registries | Frozen upstream inputs |
 | Protocol and deterministic plan | Frozen |
-| Filesystem sandbox preflight | Not yet admitted |
-| Checkpoint training | Blocked until preflight passes |
+| Filesystem sandbox preflight | Admitted by job `7087033` |
+| Checkpoint training | Authorized; not yet submitted |
 | Accepted checkpoint set | Not created |
 | Held-out finalizer | Closed |
 | Scientific claim | Closed |
 
-The sandbox preflight is intentionally solver-free and optimizer-free. It runs
-on a compute node, loads the selected split artifact, constructs every graph,
-checks the mounted filesystem boundary, writes a small receipt, and exits. The
-25-cell training array may be submitted only after that receipt and its
-terminal scheduler record are reviewed.
+The sandbox preflight is intentionally solver-free and optimizer-free. Job
+`7087033` ran on a compute node, loaded the selected split artifact, constructed
+all 1,209 graphs, checked the mounted filesystem boundary, and exited without
+starting training. Its receipt records `sandbox_boundary_passed=true`,
+`heldout_bytes_opened=false`, and `training_started=false`; terminal accounting
+records `COMPLETED/0:0`. This admission opens checkpoint training only.
 
 ## Frozen roots
 
@@ -46,6 +47,14 @@ allowlist. Scientific inputs, splits, model, optimization, and held-out
 exclusion are unchanged. The two failed-closed attempts are preserved under
 [`sandbox_probes/job_7086917/`](sandbox_probes/job_7086917/) and
 [`sandbox_probes/job_7086936/`](sandbox_probes/job_7086936/).
+
+The r2 singleton `7087033` passed in 20 s. Its exact
+[`task_00.json`](sandbox_probes/job_7087033/task_00.json) receipt has SHA-256
+`dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9`.
+The cross-bound
+[`PREFLIGHT_ADMISSION.json`](sandbox_probes/job_7087033/PREFLIGHT_ADMISSION.json)
+has SHA-256
+`9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773`.
 
 The five split-scoped training artifacts contain training and validation rows
 only. Their hashes are:

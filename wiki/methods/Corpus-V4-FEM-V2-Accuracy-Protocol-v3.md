@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Accuracy Protocol v3
-status: frozen; r2 sandbox preflight pending
+status: r2 sandbox preflight admitted; checkpoint training authorized
 last_updated: 2026-08-29
 paper_source: false
 ---
@@ -74,7 +74,10 @@ the same empty-environment contract. Job `7086936` reached the isolated path
 but stopped at scheduler self-authentication before data loading or optimizer
 work. Revision r2 adds a fixed read-only NSS, Munge, and configless-SLURM
 runtime allowlist. It does not change scientific inputs, family membership,
-model, optimization, or held-out exclusion. The r2 preflight remains mandatory.
+model, optimization, or held-out exclusion. R2 job `7087033` completed in 20 s,
+constructed all 1,209 graphs for split 40, passed the local filesystem boundary,
+opened no held-out bytes, and started no training. Its admitted receipt
+authorizes the frozen checkpoint grid only.
 
 ## Model and optimization
 
@@ -129,5 +132,6 @@ alternative protocols, fabricated hardware, or arbitrary PCB layouts.
 Protocol freeze, sandbox preflight, checkpoint execution, accepted-set closure,
 held-out finalization, archive verification, and scientific claim review are
 distinct states. The current lock admits only preflight and, after its review,
-checkpoint training. No model or speed claim exists until the final archive is
-independently reviewed and entered in the claim registry.
+checkpoint training. Preflight review is now complete. No model or speed claim
+exists until the final archive is independently reviewed and entered in the
+claim registry.

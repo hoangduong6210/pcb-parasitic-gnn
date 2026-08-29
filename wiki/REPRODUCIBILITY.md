@@ -136,7 +136,10 @@ isolated execution path but stopped at scheduler self-authentication before
 data loading or optimizer work. Revision r2 adds a fixed read-only NSS, Munge,
 and configless-SLURM runtime allowlist. It changes no dataset, split, model,
 optimization, metric, or held-out mount. Both failed receipts remain in the
-tracked evidence namespace, and the r2 preflight remains pending.
+tracked evidence namespace. R2 job `7087033` then completed in 20 s, loaded all
+1,209 graphs for split 40, passed the local filesystem boundary, opened no
+held-out bytes, and started no training. Its cross-bound admission authorizes
+checkpoint training while every held-out and claim gate remains closed.
 
 ## Finalized pre-FEM-v2 accuracy closure
 
@@ -163,8 +166,8 @@ arbitrary routed PCB layouts.
 | Multi-seed training — completed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
 | FEM-v2 accuracy-v2 checkpoint training — diagnostic execution closed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
-| FEM-v2 accuracy-v3 sandbox preflight r2 — pending after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exits before optimizer work | 1 |
-| FEM-v2 accuracy-v3 checkpoint training — blocked until preflight passes | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
+| FEM-v2 accuracy-v3 sandbox preflight r2 — admitted by job `7087033` after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exited before optimizer work | 1 |
+| FEM-v2 accuracy-v3 checkpoint training — authorized, not yet submitted | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy finalizer — blocked until all 25 checkpoints are accepted | 2 CPU requested, 16 GiB, 30 min | 1 |
 | Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Paired-latency full panel — blocked by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |

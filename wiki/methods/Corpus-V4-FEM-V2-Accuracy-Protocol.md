@@ -15,7 +15,7 @@ revisions.
 | Revision | State | Scope |
 |---|---|---|
 | [v2](Corpus-V4-FEM-V2-Accuracy-Protocol-v2.md) | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | All 25 fixed-epoch checkpoint tasks completed, but the process could read held-out bytes before checkpoint acceptance. No held-out inference or scientific result was admitted. |
-| [v3](Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md) | `FROZEN; R2 SANDBOX PREFLIGHT PENDING` | Split-scoped training inputs and a filesystem sandbox enforce the local pre-acceptance byte boundary. Two infrastructure preflights failed closed before data loading; training starts only after the r2 compute-node preflight passes. |
+| [v3](Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md) | `R2 SANDBOX PREFLIGHT ADMITTED; TRAINING AUTHORIZED` | Split-scoped training inputs and a filesystem sandbox enforce the local pre-acceptance byte boundary. Job `7087033` passed without opening held-out bytes or starting training. |
 
 The revision boundary and non-reuse rule are recorded in
 [Decision 0003](../decisions/0003-accuracy-protocol-revision-boundary.md).

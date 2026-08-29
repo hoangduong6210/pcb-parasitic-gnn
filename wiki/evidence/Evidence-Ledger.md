@@ -673,7 +673,7 @@ the entries below own the completed outcome.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PROTOCOL FROZEN; TWO INFRASTRUCTURE PREFLIGHTS FAILED CLOSED; R2 PREFLIGHT PENDING` |
+| Lifecycle | `R2 SANDBOX PREFLIGHT ADMITTED; CHECKPOINT TRAINING AUTHORIZED` |
 | Active source commit | `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` |
 | Protocol | [`corpus_v4_accuracy_v3.json`](../../protocols/corpus_v4_accuracy_v3.json), SHA-256 `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy_v3/plan/v1/plan.json), SHA-256 `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
@@ -689,7 +689,9 @@ the entries below own the completed outcome.
 | Second preflight | Lock r1 job `7086936`, logical component `7086936_0`, `FAILED/1:0`, elapsed 18 s; reached the isolated execution path but stopped at scheduler self-authentication before data loading or optimizer work |
 | Second rejected receipt | [`PREFLIGHT_FAILURE.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/PREFLIGHT_FAILURE.json), SHA-256 `cafc7c02c27575ddc051050ef3381c9174ae983ff3c7acad1c6a6f0b274d2b48`; stderr SHA-256 `3c8038153f42c148ce6fa66496bdb4fc63080486f90032e61cd48ed7a0b6bd6a` |
 | Corrective boundary | Lock r2 adds only a fixed read-only NSS, Munge, and configless-SLURM runtime allowlist. Protocol, plan, task manifest, training artifacts, held-out commitment, model, and optimization remain unchanged. |
-| R2 preflight | Pending. The singleton must load one split, construct its graphs, verify the local filesystem boundary, and exit before training. |
+| R2 preflight | Job `7087033`, logical component `7087033_0`, `COMPLETED/0:0`, elapsed 20 s; loaded 1,209 graphs from `training_split_40.jsonl`, observed four hidden split artifacts, and did not start training |
+| Passing receipt | [`task_00.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/task_00.json), SHA-256 `dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9` |
+| Preflight admission | [`PREFLIGHT_ADMISSION.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/PREFLIGHT_ADMISSION.json), SHA-256 `9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773`; `checkpoint_training_may_start=true`; all held-out, claim, and speed gates remain false |
 | Claim use | None. Training, held-out finalization, model claims, and speed claims are not yet admitted. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure

@@ -999,6 +999,14 @@ optimizer work because the isolated client could not resolve the active SLURM
 component. The active r2 lock adds a fixed read-only NSS, Munge, and configless
 SLURM runtime allowlist. Do not reuse either rejected lock or source commit.
 
+The authoritative r2 singleton is job `7087033`. It reached
+`COMPLETED/0:0` in 20 s. Its receipt SHA-256 is
+`dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9`,
+and its cross-bound admission SHA-256 is
+`9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773`.
+Do not submit another preflight unless a new execution-lock revision makes the
+existing admission inapplicable.
+
 ```bash
 sbatch --test-only -A pgs0407 --array=0%5 \
   --chdir="$ACC3_RUN_ROOT" \
@@ -1029,8 +1037,8 @@ Reject the protocol if the task fails because a required cluster mount is
 missing; do not weaken the filesystem allowlist after observing any model
 outcome.
 
-Only after that review may the full grid be submitted. Explicitly disable probe
-mode so an inherited shell variable cannot change the workload.
+The review of job `7087033` passed, so the full grid is authorized. Explicitly
+disable probe mode so an inherited shell variable cannot change the workload.
 
 ```bash
 ACC3_JOB_ID=$(sbatch --parsable -A pgs0407 \
