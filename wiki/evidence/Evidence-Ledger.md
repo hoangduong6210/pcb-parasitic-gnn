@@ -692,6 +692,7 @@ the entries below own the completed outcome.
 | R2 preflight | Job `7087033`, logical component `7087033_0`, `COMPLETED/0:0`, elapsed 20 s; loaded 1,209 graphs from `training_split_40.jsonl`, observed four hidden split artifacts, and did not start training |
 | Passing receipt | [`task_00.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/task_00.json), SHA-256 `dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9` |
 | Preflight admission | [`PREFLIGHT_ADMISSION.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/PREFLIGHT_ADMISSION.json), SHA-256 `9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773`; `checkpoint_training_may_start=true`; all held-out, claim, and speed gates remain false |
+| Checkpoint submission | Array `7087054`; 25 tasks with concurrency 5; source and lock are the active roots above; postterminal acceptance remains pending |
 | Claim use | None. Training, held-out finalization, model claims, and speed claims are not yet admitted. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure

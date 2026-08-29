@@ -3163,8 +3163,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v3/README.md",
-      "bytes": 5629,
-      "sha256": "c9074fab19b5ffdd61850874f99a66767821bdf160f25743d79861fb15991c30"
+      "bytes": 5948,
+      "sha256": "62da13fb706ff42fd6b7d8484aae1d5b2c99d35fd9e287e4c949696dc9f73f10"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
@@ -23528,8 +23528,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 11903,
-      "sha256": "da4e480af68a3562942a240ed6dd909be7318275eacc1412c752574c8ce7ef77"
+      "bytes": 11896,
+      "sha256": "4cf7d54a101c7fee3af41a44cb24076bd820db0458f965d04b1e1c7e831fb0ad"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -23583,8 +23583,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 64351,
-      "sha256": "7b1d8c02340e361e9c7421e2c4e9aac5b60915747847af687f4a68af2f87cd66"
+      "bytes": 64509,
+      "sha256": "30d0fee92cfaf5ab21d443bec5ba1c39c605f9db35dd6ad1f4cb3c5d9fd53c6e"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -23623,13 +23623,13 @@
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md",
-      "bytes": 6633,
-      "sha256": "4aff9120be9e88157b2766239301f203fbded306fda798c19c9e6fa38c721c9d"
+      "bytes": 6858,
+      "sha256": "be382d694851d7cdc8210889b9f5421f6fe81e786147eddc58b85dccb567ed84"
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md",
-      "bytes": 1200,
-      "sha256": "e638f4b6ef59ba0513e822449cb30a59d97e30da256d9e4b89f2e31f30823f89"
+      "bytes": 1184,
+      "sha256": "943ed65ca8b7b1602e4b10febb7ffca593de05a73e121bd7539a0ce9308de7b9"
     },
     {
       "path": "wiki/methods/FEM-Cps-Reference.md",
@@ -23708,15 +23708,15 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 6188,
-      "sha256": "8d8dcb1c015b46f80e2900ac35a999d73e4ef14370261c8ae824702dc6eae52b"
+      "bytes": 6106,
+      "sha256": "b7bd5046bb744ec33efc1f29c056401a65bb31b36c62064aca4f289d576a5d13"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 5491,
-      "sha256": "da31420f7a913b19b043583a1eef41d78af3aa63a9bae2d5abeb174bed08e499"
+      "bytes": 5456,
+      "sha256": "6ad03635177cc222eba367d57d4720a62c492894b8c188d8f2f73d2144917819"
     }
   ],
   "n_files": 4740,
-  "total_bytes": 170085053
+  "total_bytes": 170085615
 }

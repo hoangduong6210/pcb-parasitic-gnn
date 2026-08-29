@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Accuracy Protocol v3
-status: r2 sandbox preflight admitted; checkpoint training authorized
+status: r2 sandbox preflight admitted; checkpoint array active
 last_updated: 2026-08-29
 paper_source: false
 ---
@@ -135,3 +135,7 @@ distinct states. The current lock admits only preflight and, after its review,
 checkpoint training. Preflight review is now complete. No model or speed claim
 exists until the final archive is independently reviewed and entered in the
 claim registry.
+
+The authorized checkpoint grid is array `7087054`. Submission is an operational
+state only; individual candidates remain unaccepted until postterminal source,
+artifact, sandbox, and scheduler checks close the complete 25-task set.

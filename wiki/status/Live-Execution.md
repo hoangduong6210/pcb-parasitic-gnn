@@ -7,7 +7,7 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-08-29 17:20 UTC.
+Last scheduler-backed observation: 2026-08-29 17:25 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -20,7 +20,7 @@ Last scheduler-backed observation: 2026-08-29 17:20 UTC.
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
-| FEM-v2 accuracy v3 | `R2 PREFLIGHT ADMITTED; TRAINING AUTHORIZED` | Job `7087033` completed in 20 s, constructed 1,209 graphs, passed the local filesystem gate, opened no held-out bytes, and started no training | Submit the frozen 25-task checkpoint array from source `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` and lock r2 | Jobs `7086917` and `7086936` remain failed-closed infrastructure evidence. Held-out inference and every scientific claim remain closed. |
+| FEM-v2 accuracy v3 | `CHECKPOINT ARRAY ACTIVE` | Preflight `7087033` admitted; array `7087054` has 25 tasks at concurrency 5 from source `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` and lock r2 | Monitor exact logical elements, preserve every candidate, and build the postterminal accepted set | Jobs `7086917` and `7086936` remain failed-closed infrastructure evidence. Held-out inference and every scientific claim remain closed. |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a new FEM-v2 model, admitted accuracy evidence, and separately frozen latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
@@ -50,9 +50,8 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 Dataset generation is closed. Accuracy protocol v2 is also closed as diagnostic
 execution evidence: its checkpoint workload completed, but it is not eligible
 for an accepted set or finalizer. The next authorized transition is the
-frozen protocol-v3 25-task checkpoint array from source commit
-`c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. Preflight `7087033` authorizes
-that transition only. The accepted-set gate must later close all 25
+postterminal review of protocol-v3 checkpoint array `7087054`. Preflight
+`7087033` authorized that execution only. The accepted-set gate must close all 25
 checkpoints before held-out inference can begin. The existing `C-ACC-001`
 result remains immutable evidence for the archived 25-thread package and must
 not be relabelled as an FEM-v2 result.

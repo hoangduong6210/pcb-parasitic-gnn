@@ -11,7 +11,7 @@ no admitted accuracy, latency, speed, or physical-validation result.
 | Dataset and family registries | Frozen upstream inputs |
 | Protocol and deterministic plan | Frozen |
 | Filesystem sandbox preflight | Admitted by job `7087033` |
-| Checkpoint training | Authorized; not yet submitted |
+| Checkpoint training | Array `7087054` active; 25 tasks, concurrency 5 |
 | Accepted checkpoint set | Not created |
 | Held-out finalizer | Closed |
 | Scientific claim | Closed |
@@ -22,6 +22,11 @@ all 1,209 graphs, checked the mounted filesystem boundary, and exited without
 starting training. Its receipt records `sandbox_boundary_passed=true`,
 `heldout_bytes_opened=false`, and `training_started=false`; terminal accounting
 records `COMPLETED/0:0`. This admission opens checkpoint training only.
+
+The frozen checkpoint grid was submitted as array `7087054` from source commit
+`c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. This is an execution state, not
+an accepted checkpoint set. Held-out inference, finalization, and every claim
+remain closed until all 25 candidates pass postterminal admission.
 
 ## Frozen roots
 

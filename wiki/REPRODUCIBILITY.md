@@ -167,7 +167,7 @@ arbitrary routed PCB layouts.
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
 | FEM-v2 accuracy-v2 checkpoint training — diagnostic execution closed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy-v3 sandbox preflight r2 — admitted by job `7087033` after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exited before optimizer work | 1 |
-| FEM-v2 accuracy-v3 checkpoint training — authorized, not yet submitted | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
+| FEM-v2 accuracy-v3 checkpoint training — array `7087054` active | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy finalizer — blocked until all 25 checkpoints are accepted | 2 CPU requested, 16 GiB, 30 min | 1 |
 | Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Paired-latency full panel — blocked by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
