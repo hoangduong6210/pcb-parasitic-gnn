@@ -26,12 +26,19 @@ terminal scheduler record are reviewed.
 
 | Root | Identity |
 |---|---|
-| Source commit | `c4da7e3197db510e0407d14724cca516cb41a3ab` |
+| Active source commit | `07ad44d4e729fb92f1e9537326aefa40fc889b9b` |
 | Protocol | `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
 | Plan | `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
 | Task manifest | `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |
 | Held-out evaluation commitment | `ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046` |
-| Execution lock | `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c` |
+| Active execution lock r1 | `e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0` |
+
+The original execution lock, SHA-256
+`f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c`,
+is retained because preflight `7086917` used it and failed before sandbox
+startup. Lock r1 changes no scientific input or model setting. It replaces the
+unsupported Bubblewrap `--clearenv` option with `/usr/bin/env -i`; the rejected
+receipt is preserved under [`sandbox_probes/job_7086917/`](sandbox_probes/job_7086917/).
 
 The five split-scoped training artifacts contain training and validation rows
 only. Their hashes are:

@@ -45,7 +45,7 @@ instead of calling one column ground truth.
 | One-thread FEM reference qualification | `COMPLETE` | Nine-layout R3 and three-sentinel R4 repeatability passed; finite-panel domain sensitivity passed; finite-panel adjacent-mesh sensitivity was negative |
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
 | FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
-| FEM-v2 accuracy protocol v3 | `FROZEN; SANDBOX PREFLIGHT PENDING` | 5 family splits by 5 initialization seeds with split-scoped inputs; checkpoint training starts only after compute-node isolation passes |
+| FEM-v2 accuracy protocol v3 | `FROZEN; CORRECTED SANDBOX PREFLIGHT PENDING` | 5 family splits by 5 initialization seeds with split-scoped inputs; the first CLI-compatibility preflight failed before startup, and checkpoint training starts only after corrected isolation passes |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |

@@ -126,6 +126,12 @@ executable, fixed family splits, and complete 5 by 5 seed grid. It retains
 [accuracy-v3 evidence README](../results/corpus_v4/accuracy_v3/README.md) and
 [versioned method](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md).
 
+The first compute-node preflight rejected an unsupported Bubblewrap
+`--clearenv` option before sandbox startup. Execution-lock revision r1 replaces
+that command-line operation with `/usr/bin/env -i`; it does not change any
+dataset, split, model, optimization, metric, or mount boundary. The failed
+receipt remains in the tracked evidence namespace.
+
 ## Finalized pre-FEM-v2 accuracy closure
 
 The tracked accuracy closure preserves all 25 safe-NPZ checkpoints, training

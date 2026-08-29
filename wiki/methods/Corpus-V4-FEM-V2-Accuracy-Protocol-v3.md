@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Accuracy Protocol v3
-status: frozen; sandbox preflight pending
+status: frozen; corrected sandbox preflight pending
 last_updated: 2026-08-29
 paper_source: false
 ---
@@ -62,6 +62,13 @@ all graphs, verify the mount boundary, and exit before the optimizer starts.
 Its receipt and terminal accounting are reviewed before the 25-cell array is
 submitted. This operational gate tests the actual cluster namespace rather
 than relying only on source inspection.
+
+The first preflight stopped during Bubblewrap command parsing because the site
+executable does not implement `--clearenv`. It exited before namespace setup,
+data loading, graph construction, or optimizer work. The terminal failure is
+retained. Execution-lock revision r1 uses `/usr/bin/env -i` to provide the same
+empty-environment contract without changing any scientific setting. The
+corrected preflight remains mandatory.
 
 ## Model and optimization
 

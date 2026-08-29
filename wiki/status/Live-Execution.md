@@ -20,7 +20,7 @@ Last scheduler-backed admission: 2026-08-29 11:13 UTC.
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
-| FEM-v2 accuracy v3 | `FROZEN; PREFLIGHT PENDING` | Five split-scoped training artifacts and one held-out commitment; no task submitted | Submit singleton sandbox preflight from clean source commit `c4da7e3197db510e0407d14724cca516cb41a3ab` | Training, accepted-set construction, held-out finalization, and claims remain closed until their preceding gates pass |
+| FEM-v2 accuracy v3 | `FROZEN; CORRECTED PREFLIGHT PENDING` | Five split-scoped training artifacts and one held-out commitment; first preflight `7086917` failed in 2 s before sandbox startup | Submit corrected singleton from clean source commit `07ad44d4e729fb92f1e9537326aefa40fc889b9b` and lock r1 | Site Bubblewrap lacks `--clearenv`; r1 uses `/usr/bin/env -i` without changing the scientific protocol. Training and downstream gates remain closed |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a new FEM-v2 model, admitted accuracy evidence, and separately frozen latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
@@ -50,8 +50,8 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 Dataset generation is closed. Accuracy protocol v2 is also closed as diagnostic
 execution evidence: its checkpoint workload completed, but it is not eligible
 for an accepted set or finalizer. The next authorized transition is the
-protocol-v3 singleton sandbox preflight from source commit
-`c4da7e3197db510e0407d14724cca516cb41a3ab`. Only a passing preflight permits
+corrected protocol-v3 singleton sandbox preflight from source commit
+`07ad44d4e729fb92f1e9537326aefa40fc889b9b`. Only a passing preflight permits
 the separate v3 checkpoint array. Its accepted-set gate must later close all 25
 checkpoints before held-out inference can begin. The existing `C-ACC-001`
 result remains immutable evidence for the archived 25-thread package and must
