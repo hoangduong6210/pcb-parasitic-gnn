@@ -1127,19 +1127,19 @@ its `pending_task_set.json` as the retry allowlist, and later build `round_01`
 with separate `--attempt-root` arguments for the original and retry job roots.
 Do not overwrite or omit an earlier candidate inventory.
 
-The current finalizer wrapper is not compatible with an r2 accepted set. It
-names `protocols/corpus_v4_accuracy_execution_lock_v3.json`, while the training
-array is bound to `corpus_v4_accuracy_execution_lock_v3r2.json`. The r2 hash
-cannot validate the base lock, and the base-lock hash cannot satisfy the r2
-accepted-set binding. This is an explicit fail-closed provenance blocker, not
-an instruction to bypass the wrapper.
+The finalizer uses two independent trust roots. The historical training lock
+authenticates the unchanged r2 checkpoints and source commit. A separate
+finalizer lock authenticates the accepted-set hash, finalizer source closure,
+and finalizer execution commit. The wrapper validates both locks and must not
+modify, relabel, or silently rerun any r2 checkpoint.
 
-Before held-out finalization, freeze a separate finalizer provenance lock and
-entrypoint that authenticate the unchanged r2 accepted set. That work must not
-modify, relabel, or silently rerun the r2 checkpoints. Until the new finalizer
-boundary is committed, tested, and reviewed, do not submit a finalizer. No
-accuracy, latency, speed, or physical-validation claim follows from checkpoint
-completion or accepted-set construction alone.
+Do not create the production finalizer lock before the 25-task accepted set is
+complete and its hash is frozen. Afterward, generate the lock with
+`build_corpus_v4_accuracy_finalizer_lock_v3.py`, review and commit the complete
+boundary, and submit the finalizer from a clean checkout through SLURM. Until
+those steps pass, do not submit a finalizer. No accuracy, latency, speed, or
+physical-validation claim follows from checkpoint completion or accepted-set
+construction alone.
 
 ## 16. Submit the Corpus V4 paired-latency study
 

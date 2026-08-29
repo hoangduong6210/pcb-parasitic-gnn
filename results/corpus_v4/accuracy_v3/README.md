@@ -173,19 +173,19 @@ incomplete. Preserve `round_00`; a later retry round must use its pending set as
 the allowlist and index both original and retry attempt roots into a new output
 directory.
 
-## Finalizer provenance blocker
+## Finalizer provenance gate
 
-The current `submit_finalize_corpus_v4_accuracy_v3.sh` names the base
-`corpus_v4_accuracy_execution_lock_v3.json`, while array `7087054` and its
-future accepted set are bound to execution lock r2. Supplying the r2 hash to
-that wrapper fails the lock-file check; supplying the base-lock hash conflicts
-with the accepted-set binding. The mismatch is fail-closed.
+The finalizer now enforces two independent trust roots. The historical
+training lock authenticates the unchanged r2 checkpoints and source commit,
+while a separate finalizer lock authenticates the accepted set, finalizer
+source closure, and finalizer execution commit. This preserves the original
+training provenance without modifying or relabelling any r2 artifact.
 
-Held-out finalization therefore remains blocked even if all 25 checkpoints are
-accepted. It requires a separately frozen finalizer provenance lock and
-entrypoint that authenticate the immutable r2 accepted set without modifying
-or relabelling the r2 training artifacts. This documentation does not
-authorize a checkpoint rerun, held-out inference, or a scientific claim.
+The production finalizer lock is intentionally absent until all 25 tasks are
+accepted and the accepted-set hash is frozen. Held-out finalization remains
+blocked until that lock is generated, reviewed, committed, and executed from a
+clean checkout through SLURM. Checkpoint completion or accepted-set admission
+does not authorize held-out inference or a scientific claim.
 
 ## Rebuild and validate the plan
 
