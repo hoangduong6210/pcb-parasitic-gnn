@@ -49,6 +49,26 @@ OBSERVATION_KEYS = {
     "system_sha256",
     "units",
 }
+EXPECTED_WAVE_ADMISSIONS = (
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_000/admission/source_set_3297d44ec30f70499082aa1bb9094ae8c56b4c59ba595e7e746203e30c9caec4/finalizer_job_6963562/FINAL_ADMISSION.json",
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/admission/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/FINAL_ADMISSION.json",
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_002/admission/source_set_045bb74c31f4d3a6fd44162457105341b604a5a70be6c278da88bf8db9b7487a/finalizer_job_7022706/FINAL_ADMISSION.json",
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_003/admission/source_set_828a87e4831bc6eb22ef9352f6116a59ded59ea0adeac08618fb04d338d18e8d/finalizer_job_7057803/FINAL_ADMISSION.json",
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_004/admission/source_set_5e6e28ff339fed5501c89e62caddad748c8d5137ecbf6f8599bbf5d7d528a1c1/finalizer_job_7064646/FINAL_ADMISSION.json",
+    "results/corpus_v4/cps_reference_v2/production/v1/waves/r4/wave_000/admission/source_set_75ce1fe7bf7bd5b4ec5c77b9e691badcf54faf1543af93a6c85807fee38b6c17/finalizer_job_6963560/FINAL_ADMISSION.json",
+)
+ACCEPTED_ENTRY_KEYS = {
+    "array_task_id",
+    "artifact_manifest_path",
+    "artifact_manifest_sha256",
+    "artifact_result_path",
+    "artifact_result_sha256",
+    "fidelity_id",
+    "geometry_sha256",
+    "layout_id",
+    "source_array_job_id",
+    "task_index",
+}
 
 
 class ArchiveVerificationError(ValueError):
@@ -187,6 +207,91 @@ def _positive_number(value: Any, label: str) -> float:
     return converted
 
 
+def _verify_source_commit(source_commit: str, source_sha256: dict[str, Any]) -> None:
+    if not isinstance(source_commit, str) or re.fullmatch(r"[0-9a-f]{40}", source_commit) is None:
+        raise ArchiveVerificationError("source commit is malformed")
+    exists = subprocess.run(
+        ["git", "cat-file", "-e", f"{source_commit}^{{commit}}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_commit, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if exists.returncode != 0 or ancestor.returncode != 0:
+        raise ArchiveVerificationError("production source commit is absent or not an ancestor")
+    if not isinstance(source_sha256, dict) or not source_sha256:
+        raise ArchiveVerificationError("production source inventory is empty")
+    for relative, expected in sorted(source_sha256.items()):
+        _safe_relative_path(relative, "production source")
+        if not isinstance(expected, str) or SHA256_RE.fullmatch(expected) is None:
+            raise ArchiveVerificationError("production source hash is malformed")
+        current = ROOT / relative
+        if current.is_symlink() or not current.is_file() or _sha256_file(current) != expected:
+            raise ArchiveVerificationError(f"production source bytes changed: {relative}")
+        blob = subprocess.run(
+            ["git", "show", f"{source_commit}:{relative}"],
+            cwd=ROOT,
+            capture_output=True,
+            check=False,
+        )
+        if blob.returncode != 0 or hashlib.sha256(blob.stdout).hexdigest() != expected:
+            raise ArchiveVerificationError(
+                f"production source is not bound to its Git blob: {relative}"
+            )
+
+
+def _accepted_rows_from_receipt(
+    receipt: dict[str, Any], *, expected_fidelity: str, expected_count: int
+) -> tuple[set[tuple[str, int, str, str, str]], Path]:
+    files = receipt.get("preterminal_files", {})
+    path = _resolve_record(
+        {
+            "path": files.get("accepted_set_path"),
+            "sha256": files.get("accepted_set_sha256"),
+        },
+        f"{expected_fidelity} accepted set",
+    )
+    payload = _load_json(path)
+    entries = payload.get("entries")
+    if (
+        payload.get("schema")
+        != "pcb-gnn.corpus-v4-fem-v2-production-accepted-set.v1"
+        or payload.get("fidelity_id") != expected_fidelity
+        or not isinstance(entries, list)
+        or len(entries) != expected_count
+    ):
+        raise ArchiveVerificationError("final accepted-set header is invalid")
+    identities: set[tuple[str, int, str, str, str]] = set()
+    for index, entry in enumerate(entries):
+        if not isinstance(entry, dict) or set(entry) != ACCEPTED_ENTRY_KEYS:
+            raise ArchiveVerificationError(f"accepted-set entry {index} is not exact")
+        fidelity = entry.get("fidelity_id")
+        layout_id = entry.get("layout_id")
+        geometry = entry.get("geometry_sha256")
+        result_path = entry.get("artifact_result_path")
+        result_sha = entry.get("artifact_result_sha256")
+        if (
+            fidelity != expected_fidelity
+            or type(layout_id) is not int
+            or not isinstance(geometry, str)
+            or SHA256_RE.fullmatch(geometry) is None
+            or not isinstance(result_sha, str)
+            or SHA256_RE.fullmatch(result_sha) is None
+        ):
+            raise ArchiveVerificationError(f"accepted-set entry {index} is malformed")
+        _safe_relative_path(result_path, f"accepted-set entry {index}")
+        identity = (fidelity, layout_id, geometry, result_path, result_sha)
+        if identity in identities:
+            raise ArchiveVerificationError("accepted set contains a duplicate entry")
+        identities.add(identity)
+    return identities, path
+
+
 def _validate_wave_admission(
     path: Path,
     *,
@@ -216,6 +321,13 @@ def _validate_wave_admission(
         }
     ):
         raise ArchiveVerificationError(f"wave admission is not positive: {path}")
+    accounting_row = receipt.get("finalizer_terminal_accounting", {}).get("row", {})
+    if (
+        accounting_row.get("State") != "COMPLETED"
+        or accounting_row.get("ExitCode") != "0:0"
+        or not str(accounting_row.get("JobID", "")).isdigit()
+    ):
+        raise ArchiveVerificationError("wave finalizer accounting is not terminal-clean")
     observed_roots = receipt.get("roots", {})
     for name, expected in roots.items():
         if observed_roots.get(f"{name}_sha256") != expected:
@@ -242,6 +354,11 @@ def _validate_result(row: dict[str, Any], path: Path) -> None:
     result = _load_json(path)
     fidelity = row["fidelity_id"]
     expected_dir = "r3" if fidelity == R3_FIDELITY else "r4"
+    expected_refine = 3 if fidelity == R3_FIDELITY else 4
+    expected_coverage = 1500 if fidelity == R3_FIDELITY else 198
+    expected_role = (
+        "bulk_low_fidelity" if fidelity == R3_FIDELITY else "higher_fidelity_validation"
+    )
     relative = _repo_relative(path)
     prefix = (
         "results/corpus_v4/cps_reference_v2/production/v1/attempts/"
@@ -256,7 +373,15 @@ def _validate_result(row: dict[str, Any], path: Path) -> None:
         or result.get("training_may_start") is not False
         or result.get("claim_eligible") is not False
         or result.get("speed_claim_eligible") is not False
-        or result.get("fidelity", {}).get("fidelity_id") != fidelity
+        or result.get("fresh_production_solve") is not True
+        or result.get("fidelity")
+        != {
+            "coverage": expected_coverage,
+            "fidelity_id": fidelity,
+            "pad_mm": 16.0,
+            "refine": expected_refine,
+            "role": expected_role,
+        }
         or result.get("geometry")
         != {
             "geometry_sha256": row["geometry_sha256"],
@@ -274,6 +399,32 @@ def _validate_result(row: dict[str, Any], path: Path) -> None:
     }
     if any(worker.get(name) != expected for name, expected in comparisons.items()):
         raise ArchiveVerificationError(f"accepted result payload mismatch: {relative}")
+    execution = result.get("execution", {})
+    gates = result.get("gates", {})
+    numerical = gates.get("numerical_resource", {})
+    if (
+        execution.get("returncode") != 0
+        or execution.get("signal") is not None
+        or execution.get("timed_out") is not False
+        or execution.get("worker_result_count") != 1
+        or not isinstance(execution.get("stages"), list)
+        or not execution["stages"]
+        or gates.get("source_stable") is not True
+        or gates.get("gmsh_thread", {}).get("pass") is not True
+        or gates.get("gmsh_thread", {}).get("observed_gmsh_threads") != 1
+        or numerical.get("pass") is not True
+        or any(value is not True for value in numerical.get("checks", {}).values())
+        or worker.get("input_system_sha256") != worker.get("system_sha256")
+        or worker.get("refine") != expected_refine
+        or worker.get("pad_mm") != 16.0
+        or worker.get("rtol") != 1.0e-10
+        or worker.get("maxiter") != 500
+        or worker.get("solver_info") != 0
+        or worker.get("linear_solver") != "pyamg_smoothed_aggregation_cg"
+        or type(worker.get("iterations")) is not int
+        or not (0 < worker["iterations"] <= worker["maxiter"])
+    ):
+        raise ArchiveVerificationError(f"accepted solver contract mismatch: {relative}")
 
 
 def verify_archive(
@@ -292,6 +443,11 @@ def verify_archive(
         "speed_claim_from_dataset_generation",
     ]:
         raise ArchiveVerificationError("scientific boundary is not frozen")
+    if archive.get("accepted_artifacts") != {
+        "expected_result_files": 1698,
+        "inventory_source": "dataset observation rows",
+    }:
+        raise ArchiveVerificationError("accepted-artifact inventory is not frozen")
 
     closure: set[Path] = {archive_path}
     root_hashes: dict[str, str] = {}
@@ -326,6 +482,26 @@ def verify_archive(
         )
         wave_admissions[name] = receipt
         closure.update(wave_closure)
+    reference_roots = wave_admissions["r3"].get("roots", {})
+    if reference_roots.get("source_git_head") != archive["source_commit"]:
+        raise ArchiveVerificationError("wave source commit differs from archive")
+    _verify_source_commit(
+        archive["source_commit"], reference_roots.get("source_sha256", {})
+    )
+    admitted_result_rows: set[tuple[str, int, str, str, str]] = set()
+    for name, fidelity, expected in (
+        ("r3", R3_FIDELITY, 1500),
+        ("r4", R4_FIDELITY, 198),
+    ):
+        accepted_rows, accepted_path = _accepted_rows_from_receipt(
+            wave_admissions[name],
+            expected_fidelity=fidelity,
+            expected_count=expected,
+        )
+        if admitted_result_rows & accepted_rows:
+            raise ArchiveVerificationError("R3/R4 accepted sets overlap")
+        admitted_result_rows.update(accepted_rows)
+        closure.add(accepted_path)
 
     dataset = archive.get("dataset", {})
     expected_counts = {
@@ -363,6 +539,15 @@ def verify_archive(
         or admission.get("speed_claim_eligible") is not False
     ):
         raise ArchiveVerificationError("dataset admission boundary is invalid")
+    dataset_accounting = admission.get("finalizer_terminal_accounting", {}).get(
+        "row", {}
+    )
+    if (
+        dataset_accounting.get("State") != "COMPLETED"
+        or dataset_accounting.get("ExitCode") != "0:0"
+        or not str(dataset_accounting.get("JobID", "")).isdigit()
+    ):
+        raise ArchiveVerificationError("dataset finalizer accounting is not terminal-clean")
     admission_roots = admission.get("roots", {})
     for name, expected in root_hashes.items():
         if admission_roots.get(f"{name}_sha256") != expected:
@@ -423,6 +608,7 @@ def verify_archive(
     if len(observations) != 1698:
         raise ArchiveVerificationError("observation table does not contain 1698 rows")
     identities: set[tuple[str, int]] = set()
+    observation_result_rows: set[tuple[str, int, str, str, str]] = set()
     result_paths: set[Path] = set()
     fidelity_counts: Counter[str] = Counter()
     for row_number, row in enumerate(observations, 1):
@@ -468,6 +654,15 @@ def verify_archive(
             raise ArchiveVerificationError("accepted result path is reused")
         _validate_result(row, result_path)
         result_paths.add(result_path)
+        observation_result_rows.add(
+            (
+                fidelity,
+                layout_id,
+                geometry,
+                row["artifact_result_path"],
+                row["artifact_result_sha256"],
+            )
+        )
         fidelity_counts[fidelity] += 1
     if fidelity_counts != Counter({R3_FIDELITY: 1500, R4_FIDELITY: 198}):
         raise ArchiveVerificationError("observation fidelity coverage is incomplete")
@@ -477,6 +672,10 @@ def verify_archive(
         raise ArchiveVerificationError("R3 coverage is not dense 0..1499")
     if {layout_id for fidelity, layout_id in identities if fidelity == R4_FIDELITY} != expected_r4:
         raise ArchiveVerificationError("R4 coverage differs from the frozen registry")
+    if observation_result_rows != admitted_result_rows:
+        raise ArchiveVerificationError(
+            "dataset observations differ from the final admitted result union"
+        )
     closure.update(result_paths)
 
     production = archive_path.parent
@@ -488,12 +687,29 @@ def verify_archive(
     # accepted set and the one infrastructure-only retry.  Their scientific
     # decisions may be incomplete by design, but every receipt must share the
     # frozen roots and authenticate its exact five-file preterminal package.
-    for receipt_path in sorted(waves_root.rglob("FINAL_ADMISSION.json")):
+    observed_wave_receipts = {
+        _repo_relative(path) for path in waves_root.rglob("FINAL_ADMISSION.json")
+    }
+    if observed_wave_receipts != set(EXPECTED_WAVE_ADMISSIONS):
+        raise ArchiveVerificationError("wave receipt inventory is not exactly six")
+    for relative in EXPECTED_WAVE_ADMISSIONS:
+        receipt_path = ROOT / relative
         if receipt_path in closure:
             continue
         receipt = _load_json(receipt_path)
         if receipt.get("schema") != WAVE_SCHEMA:
             raise ArchiveVerificationError("unexpected intermediate wave schema")
+        accounting_row = receipt.get("finalizer_terminal_accounting", {}).get(
+            "row", {}
+        )
+        if (
+            accounting_row.get("State") != "COMPLETED"
+            or accounting_row.get("ExitCode") != "0:0"
+            or not str(accounting_row.get("JobID", "")).isdigit()
+        ):
+            raise ArchiveVerificationError(
+                "intermediate wave finalizer accounting is not terminal-clean"
+            )
         receipt_roots = receipt.get("roots", {})
         for name, expected in root_hashes.items():
             if receipt_roots.get(f"{name}_sha256") != expected:
