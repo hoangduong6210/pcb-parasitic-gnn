@@ -46,12 +46,13 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 
 ## Next transition
 
-Dataset generation and accuracy-v2 preparation are closed. The only authorized
-next transition is to submit the frozen 25-task checkpoint-only array from its
-clean execution commit. The accepted-set gate must close all checkpoints before
-held-out inference. The existing accuracy protocol, checkpoints, and
-`C-ACC-001` remain immutable evidence for the archived 25-thread package and
-must not be relabelled as FEM-v2 results.
+Dataset generation and accuracy-v2 preparation are closed, and the frozen
+25-task checkpoint-only array is running from its clean execution commit. The
+next authorized transition is a scheduler-backed accepted-set review after all
+array elements reach terminal accounting. The accepted-set gate must close all
+checkpoints before held-out inference or finalization can begin. The existing
+accuracy protocol, checkpoints, and `C-ACC-001` remain immutable evidence for
+the archived 25-thread package and must not be relabelled as FEM-v2 results.
 
 The completed production chain used R3 sources/finalizers
 `6963561/6963562`, `7004761/7004762`, `7022705/7022706`, and
