@@ -80,8 +80,11 @@ This receipt admits dataset generation and sets
 `accuracy_protocol_may_be_frozen=true`. It also retains
 `training_may_start=false`, `claim_eligible=false`, and
 `speed_claim_eligible=false`. The archived accuracy result above is not a model
-evaluation of these one-thread observations. A new accuracy protocol, plan, and
-execution lock must be frozen and admitted before training begins.
+evaluation of these one-thread observations. Accuracy protocol v2 completed a
+diagnostic checkpoint workload but is ineligible for held-out evaluation.
+Protocol v3 now freezes split-scoped training artifacts, a separate held-out
+commitment, and a filesystem sandbox. Its compute-node preflight must pass
+before a new checkpoint array begins.
 
 The scope remains deliberately narrow: co-directed, series-connected active
 legs of planar windings. Return conductors, vias, terminals, core windows, and

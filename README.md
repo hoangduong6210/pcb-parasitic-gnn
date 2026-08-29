@@ -16,9 +16,12 @@ baseline remains bound to its archived 25-thread capacitance package. A separate
 deterministic one-thread FEM-v2 package has now been admitted at the dataset
 generation boundary with 1,500 `cps_fem_r3_p16_t1_v2` observations and 198
 `cps_fem_r4_p16_t1_v2` observations. That admission authorizes freezing a new
-accuracy protocol. The new protocol, deterministic plan, and execution lock
-are now frozen and admit checkpoint-only SLURM training. They do not transfer
-the earlier model result, open held-out inference, or establish a new claim.
+accuracy protocol. Its first 25-task checkpoint grid is retained as diagnostic
+execution evidence because the process could read held-out bytes before
+checkpoint acceptance. No held-out inference or metric was admitted. Protocol
+v3 now freezes split-scoped training inputs and a filesystem sandbox. Its
+compute-node preflight must pass before checkpoint training begins. Neither
+revision transfers the earlier model result or establishes a new claim.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -98,12 +101,14 @@ archive. The [accuracy result](wiki/results/Corpus-V4-Accuracy.md) reports
 target-specific agreement with the synthetic numerical references and a
 matched R3/R4 capacitance view for the archived 25-thread package. It is not an
 accuracy result for the newly admitted one-thread FEM-v2 labels and does not
-claim physical-board accuracy. The FEM-v2 model stage has frozen and admitted
-its own protocol, deterministic plan, and execution lock. Its 25
-checkpoint-only training tasks are next; held-out inference and current-corpus
-paired latency remain blocked. See the
+claim physical-board accuracy. The FEM-v2 accuracy-v2 checkpoint workload
+completed but is closed as diagnostic-only evidence because process-level
+held-out byte isolation was not enforced. Protocol v3 has a separate plan,
+execution lock, split-scoped inputs, sandbox, result root, and future checkpoint
+set. Its compute-node sandbox preflight is next; held-out inference and
+current-corpus paired latency remain blocked. See the
 [archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
-[FEM-v2 accuracy protocol](wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md), the
+[FEM-v2 accuracy revision index](wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
 [`results/README.md`](results/README.md).
@@ -255,11 +260,12 @@ admission remains a separate wiki-reviewed step.
 ## Reproducing a result
 
 Do not rerun a submitted-v2 experiment as though it were current evidence. The
-deterministic FEM-v2 dataset, immutable evaluation join, swap-closed split
-contract, accuracy protocol, plan, and execution lock are now frozen. The next
-ordered stage is multi-seed checkpoint training through SLURM, followed by an
-accepted-set gate, held-out finalization, archive verification, and only then
-review of any new claim.
+active FEM-v2 revision is accuracy v3. Its deterministic dataset,
+swap-closed family splits, split-scoped training artifacts, held-out
+commitment, protocol, plan, sandbox policy, and execution lock are frozen. The
+next ordered stage is a singleton SLURM sandbox preflight. A passing preflight
+permits the multi-seed checkpoint array, followed by an accepted-set gate,
+held-out finalization, archive verification, and only then review of a claim.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make

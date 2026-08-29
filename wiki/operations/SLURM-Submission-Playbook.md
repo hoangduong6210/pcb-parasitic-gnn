@@ -947,6 +947,101 @@ set, final output, and archive manifest. Then rerun the command above with
 `--check --require-git-tracked`. Keep `C-ACC-001` blocked until that clean-clone
 check and the claim wording pass scientific review.
 
+## 15A. Submit FEM-v2 accuracy protocol v3
+
+Protocol v2 is closed as diagnostic evidence and must not be resumed. V3 has a
+separate source commit, result root, split-scoped inputs, sandbox, accepted set,
+and finalizer. Start from the exact clean source commit below. Do not substitute
+the documentation commit at the tip of the branch.
+
+```bash
+ACC3_RUN_ROOT=/absolute/path/to/clean-detached-v3-worktree
+ACC3_SOURCE_COMMIT=c4da7e3197db510e0407d14724cca516cb41a3ab
+ACC3_PROTOCOL_SHA256=d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1
+ACC3_PLAN_SHA256=04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f
+ACC3_TASKS_SHA256=e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71
+ACC3_LOCK_SHA256=f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c
+cd "$ACC3_RUN_ROOT"
+test "$(git rev-parse HEAD)" = "$ACC3_SOURCE_COMMIT"
+test -z "$(git status --short --untracked-files=all)"
+sha256sum /usr/bin/bwrap
+```
+
+The Bubblewrap digest must be
+`9dba99a1fa3be3b0d3e5cb7d6d297742b56a3b1749465f520503c651b38d99aa`.
+Validate the complete frozen closure without training:
+
+```bash
+python3 code/experiments/proofs/plan_corpus_v4_accuracy_v3.py \
+  --protocol protocols/corpus_v4_accuracy_v3.json \
+  --out results/corpus_v4/accuracy_v3/plan/v1 \
+  --check
+python3 code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py \
+  --protocol protocols/corpus_v4_accuracy_v3.json \
+  --expected-protocol-sha256 "$ACC3_PROTOCOL_SHA256" \
+  --plan results/corpus_v4/accuracy_v3/plan/v1/plan.json \
+  --expected-plan-sha256 "$ACC3_PLAN_SHA256" \
+  --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 "$ACC3_TASKS_SHA256" \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3.json \
+  --expected-execution-lock-sha256 "$ACC3_LOCK_SHA256" \
+  --expected-source-git-head "$ACC3_SOURCE_COMMIT" \
+  --output-root results/corpus_v4/accuracy_v3/jobs \
+  --validate-only
+```
+
+First submit only the sandbox preflight. The singleton retains the frozen
+training resource profile and array throttle, but exits before optimizer work.
+
+```bash
+sbatch --test-only -A pgs0407 --array=0%5 \
+  --chdir="$ACC3_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_ACCURACY_V3_EXECUTION_ROOT="$ACC3_RUN_ROOT",PCB_GNN_V4_ACCURACY_V3_SOURCE_COMMIT="$ACC3_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_V3_PROTOCOL_SHA256="$ACC3_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_V3_PLAN_SHA256="$ACC3_PLAN_SHA256",PCB_GNN_V4_ACCURACY_V3_TASK_MANIFEST_SHA256="$ACC3_TASKS_SHA256",PCB_GNN_V4_ACCURACY_V3_EXECUTION_LOCK_SHA256="$ACC3_LOCK_SHA256",PCB_GNN_V4_ACCURACY_V3_SANDBOX_PROBE_ONLY=true \
+  "$ACC3_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy_v3.sh"
+ACC3_PROBE_JOB_ID=$(sbatch --parsable -A pgs0407 --array=0%5 \
+  --chdir="$ACC3_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_ACCURACY_V3_EXECUTION_ROOT="$ACC3_RUN_ROOT",PCB_GNN_V4_ACCURACY_V3_SOURCE_COMMIT="$ACC3_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_V3_PROTOCOL_SHA256="$ACC3_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_V3_PLAN_SHA256="$ACC3_PLAN_SHA256",PCB_GNN_V4_ACCURACY_V3_TASK_MANIFEST_SHA256="$ACC3_TASKS_SHA256",PCB_GNN_V4_ACCURACY_V3_EXECUTION_LOCK_SHA256="$ACC3_LOCK_SHA256",PCB_GNN_V4_ACCURACY_V3_SANDBOX_PROBE_ONLY=true \
+  "$ACC3_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy_v3.sh")
+ACC3_PROBE_JOB_ID=${ACC3_PROBE_JOB_ID%%;*}
+[[ "$ACC3_PROBE_JOB_ID" =~ ^[0-9]+$ ]]
+```
+
+Wait for the exact logical component to reach `COMPLETED/0:0` and inspect the
+receipt before training:
+
+```bash
+sacct -X -n -P -j "$ACC3_PROBE_JOB_ID" \
+  --format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+jq . \
+  "results/corpus_v4/accuracy_v3/sandbox_probes/job_${ACC3_PROBE_JOB_ID}/task_00.json"
+```
+
+The receipt must record `sandbox_boundary_passed=true`,
+`heldout_bytes_opened=false`, and `training_started=false`. Its selected
+artifact must be `training_split_40.jsonl`, with four hidden split artifacts.
+Reject the protocol if the task fails because a required cluster mount is
+missing; do not weaken the filesystem allowlist after observing any model
+outcome.
+
+Only after that review may the full grid be submitted. Explicitly disable probe
+mode so an inherited shell variable cannot change the workload.
+
+```bash
+ACC3_JOB_ID=$(sbatch --parsable -A pgs0407 \
+  --chdir="$ACC3_RUN_ROOT" \
+  --export=ALL,PCB_GNN_V4_ACCURACY_V3_EXECUTION_ROOT="$ACC3_RUN_ROOT",PCB_GNN_V4_ACCURACY_V3_SOURCE_COMMIT="$ACC3_SOURCE_COMMIT",PCB_GNN_V4_ACCURACY_V3_PROTOCOL_SHA256="$ACC3_PROTOCOL_SHA256",PCB_GNN_V4_ACCURACY_V3_PLAN_SHA256="$ACC3_PLAN_SHA256",PCB_GNN_V4_ACCURACY_V3_TASK_MANIFEST_SHA256="$ACC3_TASKS_SHA256",PCB_GNN_V4_ACCURACY_V3_EXECUTION_LOCK_SHA256="$ACC3_LOCK_SHA256",PCB_GNN_V4_ACCURACY_V3_SANDBOX_PROBE_ONLY=false \
+  "$ACC3_RUN_ROOT/code/jobs/submit_corpus_v4_accuracy_v3.sh")
+ACC3_JOB_ID=${ACC3_JOB_ID%%;*}
+[[ "$ACC3_JOB_ID" =~ ^[0-9]+$ ]]
+```
+
+Resume planning, retries, finalization, and archive verification follow Section
+15 with the v3 script names and `results/corpus_v4/accuracy_v3/` namespace. A
+v3 accepted set must contain one disposition for every indexed candidate and
+must cross-bind each in-run numeric `JobId` to terminal `JobIDRaw` and logical
+`JobID`. Free-form rejection text is forbidden. The finalizer remains blocked
+until all 25 tasks are accepted.
+
 ## 16. Submit the Corpus V4 paired-latency study
 
 **Dependency:** complete the FEM repeatability source array, finalizer, and

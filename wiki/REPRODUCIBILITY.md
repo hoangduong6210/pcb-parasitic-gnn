@@ -102,20 +102,29 @@ retains `claim_eligible=false` and `speed_claim_eligible=false`. Replaying the
 hash closure does not establish mesh convergence, physical accuracy, surrogate
 accuracy, or speed.
 
-## Frozen FEM-v2 accuracy preparation
+## FEM-v2 accuracy revision boundary
 
-The deterministic one-thread target package now has a separate accuracy-v2
-protocol, 1,500-row evaluation join, 25-task manifest, and execution lock. The
-lock authenticates the upstream archive and dataset admission, every executable
-source file, the fixed family splits, and the complete five by five seed grid.
-Its decision opens checkpoint-only SLURM training while retaining
+Accuracy protocol v2 completed its 25 checkpoint tasks but is closed as a
+diagnostic execution. Its loader materialized the complete R3/R4 join before
+training membership was selected. The optimizer used the declared training
+partition and no held-out inference ran, but result flags cannot establish a
+byte boundary that the process did not enforce. The compact closure is indexed
+in the [accuracy-v2 evidence README](../results/corpus_v4/accuracy_v2/README.md).
+
+Protocol v3 is the active successor. Its deterministic planner produces one
+train-plus-validation artifact per split and a separate held-out artifact. A
+hash-pinned Bubblewrap sandbox mounts exactly one training artifact and does not
+mount the held-out join, other splits, repository data, `.git`, or host user
+roots. A singleton compute-node preflight must validate that namespace and
+construct all graphs before the training array is authorized.
+
+The v3 lock authenticates the upstream archive and dataset admission, all five
+training artifacts, the opaque held-out commitment, source files, sandbox
+executable, fixed family splits, and complete 5 by 5 seed grid. It retains
 `held_out_inference_may_start=false`, `claim_eligible=false`, and
-`speed_claim_eligible=false`.
-
-This preparation contains no new checkpoint or predictive metric. The exact
-frozen roots and lifecycle are indexed in the
-[accuracy-v2 evidence README](../results/corpus_v4/accuracy_v2/README.md) and
-[FEM-v2 accuracy method](methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md).
+`speed_claim_eligible=false`. Exact roots are indexed in the
+[accuracy-v3 evidence README](../results/corpus_v4/accuracy_v3/README.md) and
+[versioned method](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md).
 
 ## Finalized pre-FEM-v2 accuracy closure
 
@@ -141,7 +150,9 @@ arbitrary routed PCB layouts.
 | R3/R4 selected-registry audit — completed | 2 CPU, 8 GiB, 5 min | 1 |
 | Multi-seed training — completed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
-| FEM-v2 multi-seed checkpoint training — frozen, not yet executed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
+| FEM-v2 accuracy-v2 checkpoint training — diagnostic execution closed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
+| FEM-v2 accuracy-v3 sandbox preflight — pending | 8 CPU requested, 48 GiB, 4 h cap; exits before optimizer work | 1 |
+| FEM-v2 accuracy-v3 checkpoint training — blocked until preflight passes | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy finalizer — blocked until all 25 checkpoints are accepted | 2 CPU requested, 16 GiB, 30 min | 1 |
 | Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Paired-latency full panel — blocked by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |

@@ -18,8 +18,9 @@ Last scheduler-backed admission: 2026-08-29 11:13 UTC.
 | Pre-FEM-v2 Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | Version-scoped to the archived 25-thread capacitance package; does not transfer to FEM-v2 |
 | FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | None; its one-thread successor dataset is finalized | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
-| One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy-v2 preparation is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
-| FEM-v2 accuracy execution | `RUNNING` | Frozen 25-task 5 by 5 checkpoint array, scheduler identity `7085613`, concurrency five | Monitor terminal accounting; do not open held-out inference | First submission request omitted the mandatory account and was rejected before job creation; corrected submission uses account `pgs0407` |
+| One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
+| FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
+| FEM-v2 accuracy v3 | `FROZEN; PREFLIGHT PENDING` | Five split-scoped training artifacts and one held-out commitment; no task submitted | Submit singleton sandbox preflight from clean source commit `c4da7e3197db510e0407d14724cca516cb41a3ab` | Training, accepted-set construction, held-out finalization, and claims remain closed until their preceding gates pass |
 | Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a new FEM-v2 model, admitted accuracy evidence, and separately frozen latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
@@ -46,13 +47,15 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 
 ## Next transition
 
-Dataset generation and accuracy-v2 preparation are closed, and the frozen
-25-task checkpoint-only array is running from its clean execution commit. The
-next authorized transition is a scheduler-backed accepted-set review after all
-array elements reach terminal accounting. The accepted-set gate must close all
-checkpoints before held-out inference or finalization can begin. The existing
-accuracy protocol, checkpoints, and `C-ACC-001` remain immutable evidence for
-the archived 25-thread package and must not be relabelled as FEM-v2 results.
+Dataset generation is closed. Accuracy protocol v2 is also closed as diagnostic
+execution evidence: its checkpoint workload completed, but it is not eligible
+for an accepted set or finalizer. The next authorized transition is the
+protocol-v3 singleton sandbox preflight from source commit
+`c4da7e3197db510e0407d14724cca516cb41a3ab`. Only a passing preflight permits
+the separate v3 checkpoint array. Its accepted-set gate must later close all 25
+checkpoints before held-out inference can begin. The existing `C-ACC-001`
+result remains immutable evidence for the archived 25-thread package and must
+not be relabelled as an FEM-v2 result.
 
 The completed production chain used R3 sources/finalizers
 `6963561/6963562`, `7004761/7004762`, `7022705/7022706`, and

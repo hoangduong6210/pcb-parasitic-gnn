@@ -24,8 +24,9 @@ terminal scheduler record are reviewed.
 
 ## Frozen roots
 
-| Root | SHA-256 |
+| Root | Identity |
 |---|---|
+| Source commit | `c4da7e3197db510e0407d14724cca516cb41a3ab` |
 | Protocol | `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
 | Plan | `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
 | Task manifest | `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |

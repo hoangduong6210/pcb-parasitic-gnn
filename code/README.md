@@ -48,6 +48,7 @@ top-level README).
 | `gen_corpus_v3.py` | Geometry-valid v3 active-leg layouts; no labels are mixed into generation |
 | `audit_legacy_v2_geometry.py` | Reconstructs and quantifies v2 geometry/passivity failures without field solves |
 | `corpus_v4_accuracy_dataset.py` | Fail-closed `(layout_id, geometry_sha256)` join for R3 training targets, separate R4 comparator values, and frozen family splits |
+| `corpus_v4_accuracy_dataset_v3.py` | Split-scoped FEM-v2 accuracy loader; accepts one train-plus-validation artifact and rejects held-out membership or schema drift |
 
 ## `experiments/`
 
@@ -114,6 +115,11 @@ top-level README).
 | `run_corpus_v4_accuracy_task.py` | SLURM-only fixed-epoch trainer; emits validation-smoked checkpoints without held-out predictions | `corpus_v4/accuracy/jobs` |
 | `plan_corpus_v4_accuracy_resume.py` | Requires post-run task accounting, validates checkpoints, and emits candidate, accepted, and pending sets | `corpus_v4/accuracy/resume` |
 | `finalize_corpus_v4_accuracy.py` | SLURM-only first held-out inference, normalization reconstruction, prediction archive, and 5 by 5 matrices | `corpus_v4/accuracy/final` |
+| `plan_corpus_v4_accuracy_v3.py` | Freezes five split-scoped train-plus-validation artifacts, a separate held-out join, and 25 crossed task rows | `corpus_v4/accuracy_v3/plan/v1` |
+| `corpus_v4_accuracy_contract_v3.py` | Exact v3 schemas, source and input closures, sandbox policy, scheduler cross-binding, metrics, retry, and archive contracts | `corpus_v4/accuracy_v3` |
+| `run_corpus_v4_accuracy_task_v3.py` | Sandbox-only graph preflight and fixed-epoch training; training cannot mount test or R4 bytes | `corpus_v4/accuracy_v3/{sandbox_probes,jobs}` |
+| `plan_corpus_v4_accuracy_resume_v3.py` | Complete candidate disposition table and fail-closed accepted/pending sets with terminal job identity checks | `corpus_v4/accuracy_v3/resume` |
+| `finalize_corpus_v4_accuracy_v3.py` | First process allowed to open held-out references after all 25 v3 checkpoints are accepted | `corpus_v4/accuracy_v3/final` |
 
 The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
 path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest
@@ -153,6 +159,7 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `quality/verify_corpus_v4_archive.py` | Verifies the source commit, frozen plan chain, 1,698 accepted task records, and finalized explicit-fidelity observation table without running a solver |
 | `quality/verify_corpus_v4_discrepancy_archive.py` | Rebuilds the 198-pair R3/R4 audit, checks its job receipt and exact artifact inventory, and verifies every pinned input and output hash |
 | `quality/verify_corpus_v4_accuracy_archive.py` | Closes finalizer accounting and verifies accepted tasks, checkpoints, prediction rows, matrices, and the exact analysis inventory; supports scheduler-independent `--check` |
+| `quality/verify_corpus_v4_accuracy_archive_v3.py` | Verifies v3 split inputs, candidate dispositions, scheduler identities, accepted checkpoints, finalizer output, and clean-clone archive closure |
 | `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, sensitive-identifier exclusion, and deterministic prose-style checks across the full and summary papers |
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `inference/safe_npz_bundle.py` | Authenticated, pickle-free checkpoint writer/loader with ZIP, dtype, shape, finiteness, size, and smoke-inference gates |

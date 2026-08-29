@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-23
+last_updated: 2026-08-29
 paper_source: false
 ---
 
@@ -26,8 +26,10 @@ submitted elements at its busiest point instead of filling 998 slots at once.
 | FEM-v2 R4P16 one-thread generation | 198 | 1 requested CPU, 160 GiB | 2 | 7,200 s | 3 h |
 | FEM-v2 wave or dataset finalizer | 1 per wave | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Cps artifact-set finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
-| Accuracy training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
-| Accuracy finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
+| FEM-v2 accuracy-v2 diagnostic grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
+| FEM-v2 accuracy-v3 sandbox preflight | 1 | 8 CPU, 48 GiB | 1 | Exits before optimizer work | 4 h |
+| FEM-v2 accuracy-v3 training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
+| FEM-v2 accuracy-v3 finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
 | Paired-latency preflight | 3 | 25 CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
 | Paired-latency full panel — blocked | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
 | Paired-latency finalizer — blocked | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |

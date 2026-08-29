@@ -44,7 +44,8 @@ instead of calling one column ground truth.
 | FEM-R3P16 repeatability diagnostic | `POSTTERMINAL NEGATIVE` | Corrected 30-solve run: the existing 25-thread path failed mesh identity and repeatability on all three anchors; the one-thread diagnostic passed both on all three; paired latency is explicitly not authorized |
 | One-thread FEM reference qualification | `COMPLETE` | Nine-layout R3 and three-sentinel R4 repeatability passed; finite-panel domain sensitivity passed; finite-panel adjacent-mesh sensitivity was negative |
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
-| Deterministic one-thread FEM-v2 accuracy | `FROZEN; CHECKPOINT TRAINING ADMITTED` | 5 family splits by 5 initialization seeds; no checkpoint, held-out metric, model claim, or speed claim yet |
+| FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
+| FEM-v2 accuracy protocol v3 | `FROZEN; SANDBOX PREFLIGHT PENDING` | 5 family splits by 5 initialization seeds with split-scoped inputs; checkpoint training starts only after compute-node isolation passes |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -58,14 +59,17 @@ transition.
 1. Retain the admitted
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    version-scoped predictive baseline for the archived 25-thread package.
-2. Execute the frozen 25-task FEM-v2 checkpoint grid through SLURM. The
-   execution lock opens checkpoint training but not held-out inference.
-3. Admit all checkpoints, run the held-out finalizer, and close the new
+2. Execute and review the protocol-v3 singleton sandbox preflight through
+   SLURM. The preflight must prove that only one train-plus-validation artifact
+   is visible and that optimizer work did not start.
+3. If preflight passes, execute the separate 25-task protocol-v3 checkpoint
+   grid. The execution lock does not open held-out inference.
+4. Admit all checkpoints, run the held-out finalizer, and close the new
    multi-seed accuracy archive before designing a new paired-latency protocol.
    `C-LAT-001` and its 306-layout array remain closed.
-4. Repeat baseline, strict E(3), and ranking studies only under their own
+5. Repeat baseline, strict E(3), and ranking studies only under their own
    FEM-v2 frozen protocols.
-5. Admit claims in the wiki before generating a new paper snapshot.
+6. Admit claims in the wiki before generating a new paper snapshot.
 
 There is an admitted geometry-valid synthetic solver-agreement result for the
 archived numerical-target version and an admitted deterministic FEM-v2 dataset

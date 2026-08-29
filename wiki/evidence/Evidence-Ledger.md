@@ -636,11 +636,11 @@ the entries below own the completed outcome.
 | Supported lifecycle statement | `C-CPS-V2-FINAL-001` |
 | Scientific use | Admits deterministic one-thread dataset generation and authorizes freezing a new accuracy protocol. It does not transfer `C-ACC-001`, authorize training, establish surrogate accuracy or speed, or promote either fidelity to mesh-converged or physical truth. |
 
-## E-C4-FEM-V2-ACC-PREFLIGHT-01: Frozen checkpoint execution and submission
+## E-C4-FEM-V2-ACC-PREFLIGHT-01: Accuracy-v2 execution freeze and submission
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PROTOCOL FROZEN; CHECKPOINT ARRAY RUNNING; NO MODEL RESULT` |
+| Lifecycle | `SUPERSEDED BY V3; SEE DIAGNOSTIC CLOSURE` |
 | Source commit | `5a1026985a06e8a120b52e28e4cbc6d17d939c0f` |
 | Protocol | [`corpus_v4_accuracy_v2.json`](../../protocols/corpus_v4_accuracy_v2.json), SHA-256 `938f804d7bb754528c9b7665a815a10b076cb662038738c67cd81d338daf89cc` |
 | Deterministic plan | [`plan.json`](../../results/corpus_v4/accuracy_v2/plan/v1/plan.json), SHA-256 `960924bc10ca7e0199dcecb3a2e359624e1895288f0ef45f96f7848e4a82cb49`; task-manifest SHA-256 `e896864c8ced584c3ab526cdffabf99f916734ef7a5fb4a923c706dfb15e076c` |
@@ -650,8 +650,40 @@ the entries below own the completed outcome.
 | Resource request | Account `pgs0407`, partition `nextgen`, 8 CPU, 48 GiB, and four hours per array element |
 | Scheduler identity | Array `7085613`; tasks 0 through 24 |
 | Submission note | The first request omitted the mandatory account and was rejected before a job identity was created. The corrected request supplied `-A pgs0407`. |
-| Leakage boundary | Training tasks emit checkpoints and validation diagnostics only. Held-out and R4 inference remain closed until an accepted set authenticates all 25 checkpoints. |
-| Claim use | None. Submission and running state do not establish accuracy, physical validity, latency, or speed. |
+| Original execution boundary | Training tasks emitted checkpoints and validation diagnostics only; no held-out prediction was scheduled. The later process-boundary audit is owned by `E-C4-FEM-V2-ACC-V2-DIAG-01`. |
+| Claim use | None. This entry records the frozen v2 inputs and submission only. |
+
+## E-C4-FEM-V2-ACC-V2-DIAG-01: Accuracy-v2 diagnostic closure
+
+| Field | Value |
+|---|---|
+| Lifecycle | `CHECKPOINT EXECUTION COMPLETE; SCIENTIFIC RESULT INELIGIBLE` |
+| Scheduler closure | Array `7085613`; 25 of 25 logical tasks `COMPLETED/0:0`; elapsed 500 to 822 s per task |
+| Source commit | `5a1026985a06e8a120b52e28e4cbc6d17d939c0f` |
+| Artifact closure | 25 task manifests bind 125 payload files; checkpoint payloads are not copied into the diagnostic ledger |
+| Terminal accounting | [`terminal_accounting.json`](../../results/corpus_v4/accuracy_v2/diagnostics/job_7085613/terminal_accounting.json), SHA-256 `09433bb8cf6be7848c06faf7eb679267b13ca936faab0cc78d1d4da35e610f37` |
+| Artifact index | [`artifact_index.json`](../../results/corpus_v4/accuracy_v2/diagnostics/job_7085613/artifact_index.json), SHA-256 `d304df734840079976b67724cc2b58d4c86299da138e4d2b83074b89d41f8b58` |
+| Diagnostic decision | [`DIAGNOSTIC_CLOSURE.json`](../../results/corpus_v4/accuracy_v2/diagnostics/job_7085613/DIAGNOSTIC_CLOSURE.json), SHA-256 `28e32f44b4dc2258dffd067d1cfbfea003b8d6ea529a40001b6affd53c0a2938` |
+| Byte-access finding | The v2 process materialized all 1,500 R3 and 198 R4 records before selecting train and validation membership; split-scoped byte access was not enforced |
+| Negative facts | No held-out inference, R4 inference, finalizer, accepted set, model metric, latency result, or speed result was admitted |
+| Decision | `checkpoint_execution_complete=true`; all model, scientific, speed, reuse, finalizer, and held-out-inference gates are false |
+| Claim use | None. This is provenance for a closed diagnostic execution. |
+
+## E-C4-FEM-V2-ACC-V3-PREFLIGHT-01: Frozen split-scoped successor
+
+| Field | Value |
+|---|---|
+| Lifecycle | `PROTOCOL FROZEN; COMPUTE-NODE SANDBOX PREFLIGHT PENDING` |
+| Source commit | `c4da7e3197db510e0407d14724cca516cb41a3ab` |
+| Protocol | [`corpus_v4_accuracy_v3.json`](../../protocols/corpus_v4_accuracy_v3.json), SHA-256 `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
+| Plan | [`plan.json`](../../results/corpus_v4/accuracy_v3/plan/v1/plan.json), SHA-256 `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
+| Task manifest | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl), SHA-256 `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |
+| Held-out commitment | SHA-256 `ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046`; artifact not mounted during training |
+| Execution lock | [`corpus_v4_accuracy_execution_lock_v3.json`](../../protocols/corpus_v4_accuracy_execution_lock_v3.json), SHA-256 `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c` |
+| Training inputs | Five split-scoped train-plus-validation artifacts; exact hashes are listed in the [v3 evidence README](../../results/corpus_v4/accuracy_v3/README.md) |
+| Isolation | Hash-pinned Bubblewrap sandbox; exactly one training artifact is mounted; repository data, held-out evaluation, other split artifacts, `.git`, and host user roots are absent |
+| Preflight | Singleton compute-node task loads one split, constructs its graphs, verifies the boundary, and exits before training |
+| Claim use | None. Training, held-out finalization, model claims, and speed claims are not yet admitted. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

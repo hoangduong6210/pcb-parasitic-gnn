@@ -48,7 +48,9 @@ paper_source: false
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
-| [Corpus V4 FEM-v2 Accuracy Protocol](methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md) | Deterministic one-thread targets, crossed-family design, checkpoint boundary, and metric contract |
+| [Corpus V4 FEM-v2 Accuracy Protocol Index](methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md) | Stable revision index and non-mixing boundary |
+| [Corpus V4 FEM-v2 Accuracy Protocol v2](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v2.md) | Closed diagnostic execution and byte-access limitation |
+| [Corpus V4 FEM-v2 Accuracy Protocol v3](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md) | Split-scoped inputs, filesystem sandbox, accepted-set gate, and metric contract |
 | [Runtime Benchmark](methods/Runtime-Benchmark.md) | Timing boundaries and valid speed comparisons |
 
 ## Results and claims
@@ -117,9 +119,10 @@ paper_source: false
 | `E-C4-DISC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-FEM-V2-GATE-A-01`, `E-C4-FEM-V2-GATE-B-01`, `E-C4-FEM-V2-GATE-C-01`, `E-C4-FEM-V2-PROD-SUBMIT-01`, `E-C4-FEM-V2-PROD-RUN-01`, `E-C4-FEM-V2-FINAL-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| `E-C4-FEM-V2-ACC-PREFLIGHT-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-FEM-V2-ACC-PREFLIGHT-01`, `E-C4-FEM-V2-ACC-V2-DIAG-01`, `E-C4-FEM-V2-ACC-V3-PREFLIGHT-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-C4-FEM-D1-v2`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |
 | Decision `0002` | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) |
+| Decision `0003` | [Accuracy Protocol Revision Boundary](decisions/0003-accuracy-protocol-revision-boundary.md) |
 | Paper snapshots | Package identity and hashes live in each paper directory README; future exports also carry a snapshot manifest. |
