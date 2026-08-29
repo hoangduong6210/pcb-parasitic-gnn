@@ -5,6 +5,7 @@ import copy
 import json
 import os
 import sys
+import tempfile
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
@@ -30,6 +31,8 @@ import run_corpus_v4_accuracy_task_v3 as runner  # noqa: E402
 
 R2_LOCK_PATH = ROOT / "protocols/corpus_v4_accuracy_execution_lock_v3r2.json"
 R2_LOCK_SHA256 = "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
+R2_SOURCE_GIT_HEAD = "c0ffca0d0637e8fbba81c126c3f56f8316003a9a"
+R2_PREDECESSOR_GIT_HEAD = "07ad44d4e729fb92f1e9537326aefa40fc889b9b"
 R2_PROBE_ROOT = (
     ROOT / "results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033"
 )
@@ -124,13 +127,181 @@ def test_root_and_execution_source_closures_are_exact(tmp_path: Path) -> None:
 
 
 def test_checked_in_r2_execution_lock_is_exact() -> None:
-    lock, lock_sha = contract.validate_execution_lock(R2_LOCK_PATH, R2_LOCK_SHA256)
+    lock, lock_sha = contract.validate_historical_execution_lock(
+        R2_LOCK_PATH,
+        R2_LOCK_SHA256,
+        expected_source_git_head=R2_SOURCE_GIT_HEAD,
+    )
     script_path = ROOT / "code/jobs/submit_corpus_v4_accuracy_v3.sh"
 
     assert lock_sha == R2_LOCK_SHA256
     assert lock["source_sha256"][script_path.relative_to(ROOT).as_posix()] == (
-        contract.sha256_file(script_path)
+        "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af"
     )
+
+
+def _finalizer_lock_payload() -> dict[str, Any]:
+    return {
+        "accepted_set": {
+            "path": "results/corpus_v4/accuracy_v3/resume/accepted_artifact_set.json",
+            "sha256": "a" * 64,
+        },
+        "decision": {
+            "accepted_set_frozen": True,
+            "claim_eligible": False,
+            "held_out_inference_may_start": True,
+            "speed_claim_eligible": False,
+            "training_may_start": False,
+        },
+        "heldout_evaluation_sha256": "b" * 64,
+        "plan_sha256": "c" * 64,
+        "protocol_sha256": "d" * 64,
+        "schema": contract.FINALIZER_LOCK_SCHEMA,
+        "source_sha256": {
+            name: contract.sha256_file(ROOT / name)
+            for name in contract.FINALIZER_SOURCE_NAMES
+        },
+        "task_manifest_sha256": "e" * 64,
+        "training_execution": {
+            "lock_path": R2_LOCK_PATH.relative_to(ROOT).as_posix(),
+            "lock_sha256": R2_LOCK_SHA256,
+            "source_git_head": R2_SOURCE_GIT_HEAD,
+        },
+    }
+
+
+def test_finalizer_lock_validates_current_source_without_relabeling_r2(
+    tmp_path: Path,
+) -> None:
+    path = tmp_path / "finalizer-lock.json"
+    path.write_text(
+        json.dumps(_finalizer_lock_payload(), indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+    lock, digest = contract.validate_finalizer_execution_lock(
+        path, contract.sha256_file(path)
+    )
+
+    assert digest == contract.sha256_file(path)
+    assert lock["training_execution"] == {
+        "lock_path": R2_LOCK_PATH.relative_to(ROOT).as_posix(),
+        "lock_sha256": R2_LOCK_SHA256,
+        "source_git_head": R2_SOURCE_GIT_HEAD,
+    }
+    assert lock["decision"]["training_may_start"] is False
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ("missing_source", "changed_source", "malformed_training_head", "training_enabled"),
+)
+def test_finalizer_lock_rejects_source_and_provenance_tamper(
+    tmp_path: Path, mutation: str
+) -> None:
+    payload = _finalizer_lock_payload()
+    if mutation == "missing_source":
+        payload["source_sha256"].pop(next(iter(payload["source_sha256"])))
+    elif mutation == "changed_source":
+        payload["source_sha256"][next(iter(payload["source_sha256"]))] = "0" * 64
+    elif mutation == "malformed_training_head":
+        payload["training_execution"]["source_git_head"] = "c0ffca0"
+    elif mutation == "training_enabled":
+        payload["decision"]["training_may_start"] = True
+    else:  # pragma: no cover
+        raise AssertionError(mutation)
+    path = tmp_path / f"{mutation}.json"
+    path.write_text(
+        json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+    with pytest.raises(ValueError):
+        contract.validate_finalizer_execution_lock(path, contract.sha256_file(path))
+
+
+def test_historical_r2_lock_rejects_a_relabelled_source_commit() -> None:
+    with pytest.raises(ValueError, match="historical training Git blob"):
+        contract.validate_historical_execution_lock(
+            R2_LOCK_PATH,
+            R2_LOCK_SHA256,
+            expected_source_git_head=R2_PREDECESSOR_GIT_HEAD,
+        )
+
+
+def test_finalizer_lock_builder_cross_binds_historical_training() -> None:
+    plan_path = ROOT / "results/corpus_v4/accuracy_v3/plan/v1/plan.json"
+    task_manifest_path = plan_path.with_name("task_manifest.jsonl")
+    protocol, protocol_sha = contract.validate_protocol(planner.DEFAULT_PROTOCOL)
+    plan, task_rows, plan_sha, task_manifest_sha = contract.validate_plan(
+        plan_path, task_manifest_path
+    )
+    training_lock, training_lock_sha = contract.validate_historical_execution_lock(
+        R2_LOCK_PATH,
+        R2_LOCK_SHA256,
+        expected_source_git_head=R2_SOURCE_GIT_HEAD,
+    )
+
+    with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+        temporary = Path(directory)
+        accepted_path = temporary / "accepted_artifact_set.json"
+        accepted_path.write_text(
+            json.dumps(
+                {
+                    "decision": {
+                        "checkpoint_set_complete": True,
+                        "claim_eligible": False,
+                        "held_out_inference_may_start": True,
+                        "speed_claim_eligible": False,
+                    },
+                    "execution_lock_sha256": training_lock_sha,
+                    "n_accepted": 25,
+                    "n_expected": 25,
+                    "plan_sha256": plan_sha,
+                    "protocol_sha256": protocol_sha,
+                    "schema": contract.ACCEPTED_SCHEMA,
+                    "task_manifest_sha256": task_manifest_sha,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        output = temporary / "finalizer_lock.json"
+        payload = contract.write_finalizer_execution_lock(
+            output,
+            protocol_path=planner.DEFAULT_PROTOCOL,
+            plan_path=plan_path,
+            task_manifest_path=task_manifest_path,
+            accepted_set_path=accepted_path,
+            training_lock_path=R2_LOCK_PATH,
+            expected_training_lock_sha256=R2_LOCK_SHA256,
+            expected_training_source_git_head=R2_SOURCE_GIT_HEAD,
+        )
+        finalizer_lock, finalizer_lock_sha = (
+            contract.validate_finalizer_execution_lock(
+                output, contract.sha256_file(output)
+            )
+        )
+        contract.validate_finalizer_root_closure(
+            finalizer_lock=finalizer_lock,
+            protocol=protocol,
+            protocol_sha256=protocol_sha,
+            plan=plan,
+            plan_path=plan_path,
+            task_rows=task_rows,
+            task_manifest_sha256=task_manifest_sha,
+            accepted_set_path=accepted_path,
+            accepted_set_sha256=contract.sha256_file(accepted_path),
+            training_lock=training_lock,
+            training_lock_path=R2_LOCK_PATH,
+            training_lock_sha256=training_lock_sha,
+            training_source_git_head=R2_SOURCE_GIT_HEAD,
+        )
+
+        assert finalizer_lock_sha == contract.sha256_file(output)
+        assert finalizer_lock == payload
+        assert payload["training_execution"]["lock_sha256"] == R2_LOCK_SHA256
 
 
 def test_r2_sandbox_probe_admission_is_cross_bound() -> None:
@@ -1621,3 +1792,15 @@ def test_batch_resources_and_no_login_training_contract() -> None:
     assert "#SBATCH --mem=16G" in final
     assert "#SBATCH --time=00:30:00" in final
     assert "finalize_corpus_v4_accuracy_v3.py" in final
+    assert "#SBATCH --job-name=pcb-v4-accuracy-v3-final" in final
+    assert (
+        "--training-execution-lock "
+        "protocols/corpus_v4_accuracy_execution_lock_v3r2.json" in final
+    )
+    assert (
+        "--finalizer-execution-lock "
+        "protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json" in final
+    )
+    assert "--expected-training-source-git-head" in final
+    assert "--expected-finalizer-source-git-head" in final
+    assert "corpus_v4_accuracy_execution_lock_v3.json" not in final

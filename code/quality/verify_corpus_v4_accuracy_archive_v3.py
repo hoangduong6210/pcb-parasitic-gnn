@@ -30,8 +30,10 @@ from corpus_v4_accuracy_contract_v3 import (  # noqa: E402
     require_repo_relative_path,
     resolve_repo_path,
     tres_equivalent,
-    validate_execution_lock,
+    validate_finalizer_execution_lock,
+    validate_finalizer_root_closure,
     validate_file_manifest,
+    validate_historical_execution_lock,
     validate_plan,
     validate_protocol,
     validate_root_closure,
@@ -59,7 +61,7 @@ from scientific_artifact import (  # noqa: E402
 
 
 ANALYSIS_SCHEMA = "pcb-gnn.corpus-v4-accuracy-analysis-manifest.v3"
-ARCHIVE_SCHEMA = "pcb-gnn.corpus-v4-accuracy-archive.v3"
+ARCHIVE_SCHEMA = "pcb-gnn.corpus-v4-accuracy-archive.v4"
 CANDIDATE_REJECTION_REASON_CODES = frozenset(
     {
         "AMBIGUOUS_MULTIPLE_VALID_ATTEMPTS",
@@ -280,7 +282,8 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         args.plan,
         args.task_manifest,
         args.plan.parent / "evaluation_dataset.jsonl",
-        args.execution_lock,
+        args.training_execution_lock,
+        args.finalizer_execution_lock,
         args.accepted_set,
         args.analysis_manifest,
     ]
@@ -293,8 +296,10 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         expected_plan_sha256=args.expected_plan_sha256,
         expected_manifest_sha256=args.expected_task_manifest_sha256,
     )
-    lock, lock_sha = validate_execution_lock(
-        args.execution_lock, args.expected_execution_lock_sha256
+    training_lock, training_lock_sha = validate_historical_execution_lock(
+        args.training_execution_lock,
+        args.expected_training_execution_lock_sha256,
+        expected_source_git_head=args.expected_training_source_git_head,
     )
     validate_root_closure(
         protocol=protocol,
@@ -303,10 +308,32 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         plan_path=args.plan,
         task_rows=task_rows,
         task_manifest_sha256=task_manifest_sha,
-        lock=lock,
-        lock_sha256=lock_sha,
+        lock=training_lock,
+        lock_sha256=training_lock_sha,
     )
-    _validate_execution_git_closure(args.expected_source_git_head, lock["source_sha256"])
+    finalizer_lock, finalizer_lock_sha = validate_finalizer_execution_lock(
+        args.finalizer_execution_lock,
+        args.expected_finalizer_execution_lock_sha256,
+    )
+    validate_finalizer_root_closure(
+        finalizer_lock=finalizer_lock,
+        protocol=protocol,
+        protocol_sha256=protocol_sha,
+        plan=plan,
+        plan_path=args.plan,
+        task_rows=task_rows,
+        task_manifest_sha256=task_manifest_sha,
+        accepted_set_path=args.accepted_set,
+        accepted_set_sha256=args.expected_accepted_set_sha256,
+        training_lock=training_lock,
+        training_lock_path=args.training_execution_lock,
+        training_lock_sha256=training_lock_sha,
+        training_source_git_head=args.expected_training_source_git_head,
+    )
+    _validate_execution_git_closure(
+        args.expected_finalizer_source_git_head,
+        finalizer_lock["source_sha256"],
+    )
     _validate_upstream_archive(protocol)
     tracked_paths.extend(
         resolve_repo_path(record["path"], f"protocol input {name}")
@@ -321,7 +348,7 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
     )
     tracked_paths.extend(
         resolve_repo_path(name, "execution source")
-        for name in lock["source_sha256"]
+        for name in finalizer_lock["source_sha256"]
     )
     analysis, inventory = _verify_analysis_inventory(
         args.analysis_manifest,
@@ -330,7 +357,7 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         accepted_set_sha256=args.expected_accepted_set_sha256,
     )
     root_bindings = {
-        "execution_lock_sha256": lock_sha,
+        "execution_lock_sha256": training_lock_sha,
         "plan_sha256": plan_sha,
         "protocol_sha256": protocol_sha,
         "task_manifest_sha256": task_manifest_sha,
@@ -494,9 +521,9 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
             protocol_sha256=protocol_sha,
             plan_sha256=plan_sha,
             task_manifest_sha256=task_manifest_sha,
-            lock=lock,
-            lock_sha256=lock_sha,
-            expected_source_git_head=args.expected_source_git_head,
+            lock=training_lock,
+            lock_sha256=training_lock_sha,
+            expected_source_git_head=args.expected_training_source_git_head,
         )
         terminal_receipt = validate_terminal_receipt(
             task_result["provenance"]["scheduler"],
@@ -544,8 +571,13 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
     summary = load_json(summary_path)
     expected_bindings = {
         "accepted_set_sha256": args.expected_accepted_set_sha256,
-        **root_bindings,
-        "expected_source_git_head": args.expected_source_git_head,
+        "finalizer_execution_lock_sha256": finalizer_lock_sha,
+        "finalizer_source_git_head": args.expected_finalizer_source_git_head,
+        "plan_sha256": plan_sha,
+        "protocol_sha256": protocol_sha,
+        "task_manifest_sha256": task_manifest_sha,
+        "training_execution_lock_sha256": training_lock_sha,
+        "training_source_git_head": args.expected_training_source_git_head,
     }
     if (
         set(summary)
@@ -586,14 +618,16 @@ def verify_archive(args: argparse.Namespace) -> dict[str, Any]:
         or set(provenance)
         != {
             "finalizer_runtime",
+            "finalizer_source_file_sha256",
+            "finalizer_source_git_head",
             "scheduler",
-            "source_file_sha256",
-            "source_git_head",
             "task_software",
         }
         or provenance["finalizer_runtime"] != expected_finalizer_runtime
-        or provenance["source_file_sha256"] != lock["source_sha256"]
-        or provenance["source_git_head"] != args.expected_source_git_head
+        or provenance["finalizer_source_file_sha256"]
+        != finalizer_lock["source_sha256"]
+        or provenance["finalizer_source_git_head"]
+        != args.expected_finalizer_source_git_head
         or provenance["task_software"] != task_software
     ):
         raise ValueError("final summary provenance differs from accepted execution")
@@ -732,9 +766,12 @@ def main() -> None:
     parser.add_argument("--expected-plan-sha256", required=True)
     parser.add_argument("--task-manifest", type=Path, required=True)
     parser.add_argument("--expected-task-manifest-sha256", required=True)
-    parser.add_argument("--execution-lock", type=Path, required=True)
-    parser.add_argument("--expected-execution-lock-sha256", required=True)
-    parser.add_argument("--expected-source-git-head", required=True)
+    parser.add_argument("--training-execution-lock", type=Path, required=True)
+    parser.add_argument("--expected-training-execution-lock-sha256", required=True)
+    parser.add_argument("--expected-training-source-git-head", required=True)
+    parser.add_argument("--finalizer-execution-lock", type=Path, required=True)
+    parser.add_argument("--expected-finalizer-execution-lock-sha256", required=True)
+    parser.add_argument("--expected-finalizer-source-git-head", required=True)
     parser.add_argument("--accepted-set", type=Path, required=True)
     parser.add_argument("--expected-accepted-set-sha256", required=True)
     parser.add_argument("--analysis-manifest", type=Path, required=True)

@@ -96,6 +96,97 @@ artifact. The fixed training program does not open test or R4 values. The
 finalizer is the first scheduled project stage that mounts those bytes, and it
 remains closed until a complete accepted set authenticates all 25 checkpoints.
 
+## Postterminal checkpoint admission
+
+Array `7087054` must leave `squeue` before admission begins. An empty queue is
+not evidence of success. The terminal review must return one logical row for
+each component `7087054_0` through `7087054_24`, with state `COMPLETED` and
+exit code `0:0`:
+
+```bash
+ACC3_JOB_ID=7087054
+ACC3_ATTEMPT_ROOT="results/corpus_v4/accuracy_v3/jobs/job_${ACC3_JOB_ID}"
+ACC3_RESUME_ROOT=results/corpus_v4/accuracy_v3/resume/round_00
+
+squeue -h -j "$ACC3_JOB_ID"
+sacct -X -n -P -j "$ACC3_JOB_ID" \
+  --format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES
+```
+
+Run the resume planner from the clean detached r2 execution checkout. It is
+solver-free and training-free. It validates safe-NPZ bundles and smoke
+fixtures, so it performs bounded checkpoint I/O and small inference checks on
+the login node.
+
+```bash
+test "$(git rev-parse HEAD)" = \
+  "c0ffca0d0637e8fbba81c126c3f56f8316003a9a"
+test -z "$(git status --short --untracked-files=all -- \
+  code protocols requirements-proof.txt)"
+test ! -e "$ACC3_RESUME_ROOT"
+
+python3 code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py \
+  --protocol protocols/corpus_v4_accuracy_v3.json \
+  --expected-protocol-sha256 d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1 \
+  --plan results/corpus_v4/accuracy_v3/plan/v1/plan.json \
+  --expected-plan-sha256 04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f \
+  --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71 \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r2.json \
+  --expected-execution-lock-sha256 8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c \
+  --expected-source-git-head c0ffca0d0637e8fbba81c126c3f56f8316003a9a \
+  --attempt-root "$ACC3_ATTEMPT_ROOT" \
+  --out "$ACC3_RESUME_ROOT"
+```
+
+The immutable admission output is:
+
+```text
+results/corpus_v4/accuracy_v3/resume/round_00/
+|-- candidate_index.json
+|-- accepted_artifact_set.json
+`-- pending_task_set.json
+```
+
+Require 25 candidates, 25 accepted tasks, all dispositions accepted, and zero
+pending tasks before any later stage is considered:
+
+```bash
+jq -e '.entries | length == 25' \
+  "$ACC3_RESUME_ROOT/candidate_index.json"
+jq -e '
+  .n_accepted == 25 and
+  .n_expected == 25 and
+  .decision.checkpoint_set_complete == true and
+  .decision.held_out_inference_may_start == true and
+  .decision.claim_eligible == false and
+  .decision.speed_claim_eligible == false and
+  ([.candidate_dispositions[].outcome] | all(. == "accepted"))
+' "$ACC3_RESUME_ROOT/accepted_artifact_set.json"
+jq -e '.n_pending == 0 and (.pending | length == 0)' \
+  "$ACC3_RESUME_ROOT/pending_task_set.json"
+sha256sum "$ACC3_RESUME_ROOT"/*.json
+```
+
+Missing, corrupt, ambiguous, failed, or nonterminal tasks keep the accepted set
+incomplete. Preserve `round_00`; a later retry round must use its pending set as
+the allowlist and index both original and retry attempt roots into a new output
+directory.
+
+## Finalizer provenance blocker
+
+The current `submit_finalize_corpus_v4_accuracy_v3.sh` names the base
+`corpus_v4_accuracy_execution_lock_v3.json`, while array `7087054` and its
+future accepted set are bound to execution lock r2. Supplying the r2 hash to
+that wrapper fails the lock-file check; supplying the base-lock hash conflicts
+with the accepted-set binding. The mismatch is fail-closed.
+
+Held-out finalization therefore remains blocked even if all 25 checkpoints are
+accepted. It requires a separately frozen finalizer provenance lock and
+entrypoint that authenticate the immutable r2 accepted set without modifying
+or relabelling the r2 training artifacts. This documentation does not
+authorize a checkpoint rerun, held-out inference, or a scientific claim.
+
 ## Rebuild and validate the plan
 
 These commands are solver-free and may run on a login node:

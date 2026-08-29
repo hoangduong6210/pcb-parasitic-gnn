@@ -39,8 +39,10 @@ from corpus_v4_accuracy_contract_v3 import (  # noqa: E402
     resolve_repo_path,
     runtime_identity,
     tres_equivalent,
-    validate_execution_lock,
+    validate_finalizer_execution_lock,
+    validate_finalizer_root_closure,
     validate_file_manifest,
+    validate_historical_execution_lock,
     validate_plan,
     validate_protocol,
     validate_root_closure,
@@ -710,9 +712,12 @@ def main() -> None:
     parser.add_argument("--expected-plan-sha256", required=True)
     parser.add_argument("--task-manifest", type=Path, required=True)
     parser.add_argument("--expected-task-manifest-sha256", required=True)
-    parser.add_argument("--execution-lock", type=Path, required=True)
-    parser.add_argument("--expected-execution-lock-sha256", required=True)
-    parser.add_argument("--expected-source-git-head", required=True)
+    parser.add_argument("--training-execution-lock", type=Path, required=True)
+    parser.add_argument("--expected-training-execution-lock-sha256", required=True)
+    parser.add_argument("--expected-training-source-git-head", required=True)
+    parser.add_argument("--finalizer-execution-lock", type=Path, required=True)
+    parser.add_argument("--expected-finalizer-execution-lock-sha256", required=True)
+    parser.add_argument("--expected-finalizer-source-git-head", required=True)
     parser.add_argument("--accepted-set", type=Path, required=True)
     parser.add_argument("--expected-accepted-set-sha256", required=True)
     parser.add_argument("--output-root", type=Path, required=True)
@@ -725,8 +730,10 @@ def main() -> None:
         expected_plan_sha256=args.expected_plan_sha256,
         expected_manifest_sha256=args.expected_task_manifest_sha256,
     )
-    lock, lock_sha = validate_execution_lock(
-        args.execution_lock, args.expected_execution_lock_sha256
+    training_lock, training_lock_sha = validate_historical_execution_lock(
+        args.training_execution_lock,
+        args.expected_training_execution_lock_sha256,
+        expected_source_git_head=args.expected_training_source_git_head,
     )
     validate_root_closure(
         protocol=protocol,
@@ -735,37 +742,63 @@ def main() -> None:
         plan_path=args.plan,
         task_rows=task_rows,
         task_manifest_sha256=task_manifest_sha,
-        lock=lock,
-        lock_sha256=lock_sha,
+        lock=training_lock,
+        lock_sha256=training_lock_sha,
     )
     if args.accepted_set.is_symlink() or not args.accepted_set.is_file():
         raise ValueError("accepted set must be a regular non-symlink file")
     require_file_sha256(args.accepted_set, args.expected_accepted_set_sha256, "accepted set")
     accepted = load_json(args.accepted_set)
-    bindings = {
-        "execution_lock_sha256": lock_sha,
+    training_bindings = {
+        "execution_lock_sha256": training_lock_sha,
         "plan_sha256": plan_sha,
         "protocol_sha256": protocol_sha,
         "task_manifest_sha256": task_manifest_sha,
     }
-    entries = _validate_accepted_set(args.accepted_set, accepted, bindings=bindings)
+    entries = _validate_accepted_set(
+        args.accepted_set, accepted, bindings=training_bindings
+    )
+    finalizer_lock, finalizer_lock_sha = validate_finalizer_execution_lock(
+        args.finalizer_execution_lock,
+        args.expected_finalizer_execution_lock_sha256,
+    )
+    validate_finalizer_root_closure(
+        finalizer_lock=finalizer_lock,
+        protocol=protocol,
+        protocol_sha256=protocol_sha,
+        plan=plan,
+        plan_path=args.plan,
+        task_rows=task_rows,
+        task_manifest_sha256=task_manifest_sha,
+        accepted_set_path=args.accepted_set,
+        accepted_set_sha256=args.expected_accepted_set_sha256,
+        training_lock=training_lock,
+        training_lock_path=args.training_execution_lock,
+        training_lock_sha256=training_lock_sha,
+        training_source_git_head=args.expected_training_source_git_head,
+    )
 
     scheduler = validate_slurm_allocation(protocol, stage="finalizer")
     initial_head, initial_dirty, initial_untracked = _source_state()
     if initial_dirty or initial_untracked:
         raise SystemExit("refusing finalization from dirty or untracked source")
-    if initial_head != args.expected_source_git_head:
-        raise SystemExit("source commit differs from the external trust root")
+    if initial_head != args.expected_finalizer_source_git_head:
+        raise SystemExit("finalizer source commit differs from the external trust root")
     if runtime_identity() != protocol["runtime"]:
         raise SystemExit("finalizer runtime differs from the frozen proof environment")
     torch.use_deterministic_algorithms(True)
     torch.set_num_threads(int(protocol["resources"]["finalizer"]["scientific_threads"]))
     torch.set_num_interop_threads(1)
-    source_hashes = {name: sha256_file(ROOT / name) for name in lock["source_sha256"]}
-    if source_hashes != lock["source_sha256"]:
-        raise ValueError("finalizer source differs from execution lock")
+    source_hashes = {
+        name: sha256_file(ROOT / name)
+        for name in finalizer_lock["source_sha256"]
+    }
+    if source_hashes != finalizer_lock["source_sha256"]:
+        raise ValueError("finalizer source differs from its execution lock")
     executed_batch = Path(os.environ.get("PCB_GNN_EXECUTED_BATCH_SCRIPT", ""))
-    expected_batch_hash = lock["source_sha256"]["code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh"]
+    expected_batch_hash = finalizer_lock["source_sha256"][
+        "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh"
+    ]
     if not executed_batch.is_file() or sha256_file(executed_batch) != expected_batch_hash:
         raise SystemExit("executed finalizer batch differs from tracked source")
 
@@ -781,9 +814,9 @@ def main() -> None:
             protocol_sha256=protocol_sha,
             plan_sha256=plan_sha,
             task_manifest_sha256=task_manifest_sha,
-            lock=lock,
-            lock_sha256=lock_sha,
-            expected_source_git_head=args.expected_source_git_head,
+            lock=training_lock,
+            lock_sha256=training_lock_sha,
+            expected_source_git_head=args.expected_training_source_git_head,
         )
         if result.get("task") != canonical_task_row(task_id):
             raise ValueError("task result is not in canonical row-major order")
@@ -820,7 +853,7 @@ def main() -> None:
                 result=result,
                 protocol=protocol,
                 bindings={
-                    **bindings,
+                    **training_bindings,
                     "heldout_commitment_sha256": plan["artifact_sha256"][
                         "evaluation_dataset.jsonl"
                     ],
@@ -883,9 +916,14 @@ def main() -> None:
         all_r4_families = {evaluation[index]["family_id"] for index in all_r4_layouts}
         summary = {
             "bindings": {
-                **bindings,
                 "accepted_set_sha256": args.expected_accepted_set_sha256,
-                "expected_source_git_head": args.expected_source_git_head,
+                "finalizer_execution_lock_sha256": finalizer_lock_sha,
+                "finalizer_source_git_head": args.expected_finalizer_source_git_head,
+                "plan_sha256": plan_sha,
+                "protocol_sha256": protocol_sha,
+                "task_manifest_sha256": task_manifest_sha,
+                "training_execution_lock_sha256": training_lock_sha,
+                "training_source_git_head": args.expected_training_source_git_head,
             },
             "counts": {
                 "r4_panel_split_layout_memberships": len(panel_memberships),
@@ -906,8 +944,8 @@ def main() -> None:
                     "torch_build": torch.__version__,
                 },
                 "scheduler": scheduler,
-                "source_file_sha256": source_hashes,
-                "source_git_head": initial_head,
+                "finalizer_source_file_sha256": source_hashes,
+                "finalizer_source_git_head": initial_head,
                 "task_software": task_software,
             },
             "schema": FINAL_SCHEMA,
@@ -936,7 +974,10 @@ def main() -> None:
             },
         )
         final_head, final_dirty, final_untracked = _source_state()
-        final_sources = {name: sha256_file(ROOT / name) for name in lock["source_sha256"]}
+        final_sources = {
+            name: sha256_file(ROOT / name)
+            for name in finalizer_lock["source_sha256"]
+        }
         if (
             final_head != initial_head
             or final_dirty
@@ -944,6 +985,8 @@ def main() -> None:
             or final_sources != source_hashes
             or sha256_file(executed_batch) != expected_batch_hash
             or sha256_file(args.accepted_set) != args.expected_accepted_set_sha256
+            or sha256_file(args.finalizer_execution_lock) != finalizer_lock_sha
+            or sha256_file(args.training_execution_lock) != training_lock_sha
         ):
             raise SystemExit("source or accepted evidence changed during finalization")
         temporary.replace(output)

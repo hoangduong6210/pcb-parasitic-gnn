@@ -5,7 +5,7 @@
     ".github": 1,
     "Paper_Full": 20,
     "Paper_Summary": 5,
-    "code": 245,
+    "code": 246,
     "datasets": 12,
     "figures": 12,
     "logs": 108,
@@ -183,8 +183,8 @@
     },
     {
       "path": "code/README.md",
-      "bytes": 15616,
-      "sha256": "92b7d9a62a47a32592ea2f787d55a6ab627e88299c56d4a24a69ce820e56e090"
+      "bytes": 15929,
+      "sha256": "d5809fac0b7d5e5079657e311d7bcededcc684a6e8897e0c1f6bdbe19e99e5fc"
     },
     {
       "path": "code/core/experiments_v5.py",
@@ -387,6 +387,11 @@
       "sha256": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1"
     },
     {
+      "path": "code/experiments/proofs/build_corpus_v4_accuracy_finalizer_lock_v3.py",
+      "bytes": 1609,
+      "sha256": "6231586f1520025f7443543dd8abfeecb59b930408e9b220eab0f3e6d8166eab"
+    },
+    {
       "path": "code/experiments/proofs/build_corpus_v4_cps_candidate_index.py",
       "bytes": 2385,
       "sha256": "697962e73b5aed5d2690b2d835e7a43f44394172ee2c16723c8b00c38b57d37e"
@@ -408,8 +413,8 @@
     },
     {
       "path": "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py",
-      "bytes": 54295,
-      "sha256": "f4fc986c93c79031ab9fcdfe3cb5717b9d811c7c93c7a080e05376a150a05f6b"
+      "bytes": 65922,
+      "sha256": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99"
     },
     {
       "path": "code/experiments/proofs/corpus_v4_fem_v2_package.py",
@@ -588,8 +593,8 @@
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py",
-      "bytes": 40012,
-      "sha256": "4da2082f564702d8b5d09f30904a2e5b712130fd9f86604ccc9b3dc614a5e80c"
+      "bytes": 42033,
+      "sha256": "1f9bd64055d39a37d0cf1191d680c896590494459f365c0fc2728acf218de58d"
     },
     {
       "path": "code/experiments/proofs/finalize_corpus_v4_convergence_preflight.py",
@@ -1083,8 +1088,8 @@
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh",
-      "bytes": 2396,
-      "sha256": "f6f2102ce480ea81a1a157c2bb11d1ca9d8a1d5cbfa1e35e1131f7029c49453a"
+      "bytes": 2963,
+      "sha256": "dd96d9db98497c58153288e87f4b037f6bdc474ee3051aa356db591e2e85bbcb"
     },
     {
       "path": "code/jobs/submit_finalize_corpus_v4_convergence_preflight.sh",
@@ -1313,8 +1318,8 @@
     },
     {
       "path": "code/quality/verify_corpus_v4_accuracy_archive_v3.py",
-      "bytes": 30289,
-      "sha256": "49d4a532554fe44d78f87c63b11662fcff558e00c130eba4ae10fd8e46184b8e"
+      "bytes": 32089,
+      "sha256": "7d328a48177a14bb33f48707fc9d7653e5a05ef815afbd73adb2b86200a7f3ef"
     },
     {
       "path": "code/quality/verify_corpus_v4_archive.py",
@@ -3163,8 +3168,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v3/README.md",
-      "bytes": 5948,
-      "sha256": "62da13fb706ff42fd6b7d8484aae1d5b2c99d35fd9e287e4c949696dc9f73f10"
+      "bytes": 9779,
+      "sha256": "9df675f059618225d17a73166d7dce13753b054060adb74d2a2f13ded1f4fa2c"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
@@ -23313,8 +23318,8 @@
     },
     {
       "path": "tests/test_corpus_v4_accuracy_v3_archive.py",
-      "bytes": 29063,
-      "sha256": "ac251d037ed72a487bca73b67200c98b98d05c2d5e50536c3afb133e01d9dc50"
+      "bytes": 30210,
+      "sha256": "00cd72e1f0933813683daffcf79dbfd5a451f2ca2f5e21ff5d73b67b78ac2945"
     },
     {
       "path": "tests/test_corpus_v4_accuracy_v3_dataset.py",
@@ -23323,8 +23328,8 @@
     },
     {
       "path": "tests/test_corpus_v4_accuracy_v3_pipeline.py",
-      "bytes": 57859,
-      "sha256": "0005f79002f26061ca6c5cd3396307cffe72ee0e3458dd5edaeec2979bac058d"
+      "bytes": 64891,
+      "sha256": "67a98b16c381ce752cfe9ebdf4745333f977dd970897f8a349bf0614776286df"
     },
     {
       "path": "tests/test_corpus_v4_archive.py",
@@ -23683,8 +23688,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 80685,
-      "sha256": "e5379760230890fc385a3edf7f683e0e689f9659095b482838adf0e549821c95"
+      "bytes": 84246,
+      "sha256": "2d9897896df21aac5d648b97514a2ea5244f631b539b042975b6f4616570a17b"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -23717,6 +23722,6 @@
       "sha256": "6ad03635177cc222eba367d57d4720a62c492894b8c188d8f2f73d2144917819"
     }
   ],
-  "n_files": 4740,
-  "total_bytes": 170085615
+  "n_files": 4741,
+  "total_bytes": 170119123
 }

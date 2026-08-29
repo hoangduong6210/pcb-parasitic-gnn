@@ -1049,12 +1049,97 @@ ACC3_JOB_ID=${ACC3_JOB_ID%%;*}
 [[ "$ACC3_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
-Resume planning, retries, finalization, and archive verification follow Section
-15 with the v3 script names and `results/corpus_v4/accuracy_v3/` namespace. A
-v3 accepted set must contain one disposition for every indexed candidate and
-must cross-bind each in-run numeric `JobId` to terminal `JobIDRaw` and logical
-`JobID`. Free-form rejection text is forbidden. The finalizer remains blocked
-until all 25 tasks are accepted.
+Array `7087054` is the frozen r2 checkpoint grid. Wait until it is absent from
+`squeue`, then require one terminal logical row for every task. Empty `squeue`
+output alone is not success evidence.
+
+```bash
+ACC3_JOB_ID=7087054
+ACC3_ATTEMPT_ROOT="results/corpus_v4/accuracy_v3/jobs/job_${ACC3_JOB_ID}"
+ACC3_RESUME_ROOT=results/corpus_v4/accuracy_v3/resume/round_00
+
+squeue -h -j "$ACC3_JOB_ID"
+sacct -X -n -P -j "$ACC3_JOB_ID" \
+  --format=JobIDRaw,JobID,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES
+```
+
+The accounting table must contain exactly `7087054_0` through `7087054_24` as
+`JobID`, each with `COMPLETED/0:0`. `JobIDRaw` must match the numeric in-run
+`JobId`; `ReqTRES` and `AllocTRES` must be field-equivalent to the in-run
+receipt. The resume planner checks these rules again for every candidate.
+
+Build the initial candidate inventory and accepted/pending sets in a new
+directory. This command hashes and validates existing checkpoints, runs their
+small smoke fixtures, and queries accounting. It neither trains a model nor
+invokes a field solver.
+
+```bash
+test "$(git rev-parse HEAD)" = "$ACC3_SOURCE_COMMIT"
+test -z "$(git status --short --untracked-files=all -- \
+  code protocols requirements-proof.txt)"
+test ! -e "$ACC3_RESUME_ROOT"
+
+python3 code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py \
+  --protocol protocols/corpus_v4_accuracy_v3.json \
+  --expected-protocol-sha256 "$ACC3_PROTOCOL_SHA256" \
+  --plan results/corpus_v4/accuracy_v3/plan/v1/plan.json \
+  --expected-plan-sha256 "$ACC3_PLAN_SHA256" \
+  --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 "$ACC3_TASKS_SHA256" \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r2.json \
+  --expected-execution-lock-sha256 "$ACC3_LOCK_SHA256" \
+  --expected-source-git-head "$ACC3_SOURCE_COMMIT" \
+  --attempt-root "$ACC3_ATTEMPT_ROOT" \
+  --out "$ACC3_RESUME_ROOT"
+```
+
+The planner creates exactly this admission tree:
+
+```text
+results/corpus_v4/accuracy_v3/resume/round_00/
+|-- candidate_index.json
+|-- accepted_artifact_set.json
+`-- pending_task_set.json
+```
+
+Inspect the fail-closed decisions and freeze their hashes:
+
+```bash
+jq -e '.entries | length == 25' \
+  "$ACC3_RESUME_ROOT/candidate_index.json"
+jq -e '
+  .n_accepted == 25 and
+  .n_expected == 25 and
+  .decision.checkpoint_set_complete == true and
+  .decision.held_out_inference_may_start == true and
+  .decision.claim_eligible == false and
+  .decision.speed_claim_eligible == false and
+  ([.candidate_dispositions[].outcome] | all(. == "accepted"))
+' "$ACC3_RESUME_ROOT/accepted_artifact_set.json"
+jq -e '.n_pending == 0 and (.pending | length == 0)' \
+  "$ACC3_RESUME_ROOT/pending_task_set.json"
+sha256sum "$ACC3_RESUME_ROOT"/*.json
+```
+
+Every indexed candidate receives one fixed-code disposition. Free-form
+rejection text is forbidden. If any task is pending, preserve `round_00`, use
+its `pending_task_set.json` as the retry allowlist, and later build `round_01`
+with separate `--attempt-root` arguments for the original and retry job roots.
+Do not overwrite or omit an earlier candidate inventory.
+
+The current finalizer wrapper is not compatible with an r2 accepted set. It
+names `protocols/corpus_v4_accuracy_execution_lock_v3.json`, while the training
+array is bound to `corpus_v4_accuracy_execution_lock_v3r2.json`. The r2 hash
+cannot validate the base lock, and the base-lock hash cannot satisfy the r2
+accepted-set binding. This is an explicit fail-closed provenance blocker, not
+an instruction to bypass the wrapper.
+
+Before held-out finalization, freeze a separate finalizer provenance lock and
+entrypoint that authenticate the unchanged r2 accepted set. That work must not
+modify, relabel, or silently rerun the r2 checkpoints. Until the new finalizer
+boundary is committed, tested, and reviewed, do not submit a finalizer. No
+accuracy, latency, speed, or physical-validation claim follows from checkpoint
+completion or accepted-set construction alone.
 
 ## 16. Submit the Corpus V4 paired-latency study
 

@@ -119,7 +119,8 @@ top-level README).
 | `corpus_v4_accuracy_contract_v3.py` | Exact v3 schemas, source and input closures, sandbox policy, scheduler cross-binding, metrics, retry, and archive contracts | `corpus_v4/accuracy_v3` |
 | `run_corpus_v4_accuracy_task_v3.py` | Sandbox-only graph preflight and fixed-epoch training; training cannot mount test or R4 bytes | `corpus_v4/accuracy_v3/{sandbox_probes,jobs}` |
 | `plan_corpus_v4_accuracy_resume_v3.py` | Complete candidate disposition table and fail-closed accepted/pending sets with terminal job identity checks | `corpus_v4/accuracy_v3/resume` |
-| `finalize_corpus_v4_accuracy_v3.py` | First process allowed to open held-out references after all 25 v3 checkpoints are accepted | `corpus_v4/accuracy_v3/final` |
+| `build_corpus_v4_accuracy_finalizer_lock_v3.py` | Freezes a finalizer-only source lock over one complete accepted set while retaining the historical training lock and source identity | `protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json` |
+| `finalize_corpus_v4_accuracy_v3.py` | First process allowed to open held-out references; validates historical checkpoint provenance and current finalizer provenance as separate trust roots | `corpus_v4/accuracy_v3/final` |
 
 The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
 path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest

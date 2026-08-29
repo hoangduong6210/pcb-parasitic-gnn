@@ -8,6 +8,7 @@ CI can exercise the scientific contract without training on a login node.
 from __future__ import annotations
 
 import importlib.metadata
+import hashlib
 import json
 import math
 import os
@@ -39,12 +40,13 @@ PROTOCOL_SCHEMA = "pcb-gnn.corpus-v4-accuracy-protocol.v3"
 PLAN_SCHEMA = "pcb-gnn.corpus-v4-accuracy-plan.v3"
 TASK_ROW_SCHEMA = "pcb-gnn.corpus-v4-accuracy-task-row.v3"
 LOCK_SCHEMA = "pcb-gnn.corpus-v4-accuracy-execution-lock.v3"
+FINALIZER_LOCK_SCHEMA = "pcb-gnn.corpus-v4-accuracy-finalizer-execution-lock.v1"
 TASK_RESULT_SCHEMA = "pcb-gnn.corpus-v4-accuracy-task-result.v3"
 TASK_MANIFEST_SCHEMA = "pcb-gnn.corpus-v4-accuracy-task-artifact-manifest.v3"
 CANDIDATE_SCHEMA = "pcb-gnn.corpus-v4-accuracy-candidate-index.v3"
 ACCEPTED_SCHEMA = "pcb-gnn.corpus-v4-accuracy-accepted-set.v3"
 PENDING_SCHEMA = "pcb-gnn.corpus-v4-accuracy-pending-set.v3"
-FINAL_SCHEMA = "pcb-gnn.corpus-v4-accuracy-final.v3"
+FINAL_SCHEMA = "pcb-gnn.corpus-v4-accuracy-final.v4"
 TARGETS = ("Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH")
 SEEDS = (40, 41, 42, 43, 44)
 TRAINING_ARTIFACT_NAMES = tuple(f"training_split_{seed}.jsonl" for seed in SEEDS)
@@ -93,6 +95,14 @@ EXECUTION_SOURCE_NAMES = (
     "code/quality/verify_corpus_v4_accuracy_archive_v3.py",
     "code/quality/verify_corpus_v4_fem_v2_production_archive.py",
     "requirements-proof.txt",
+)
+FINALIZER_SOURCE_NAMES = tuple(
+    sorted(
+        {
+            *EXECUTION_SOURCE_NAMES,
+            "code/experiments/proofs/build_corpus_v4_accuracy_finalizer_lock_v3.py",
+        }
+    )
 )
 SCHEDULER_RECORD_ALLOWLIST = (
     "AllocTRES",
@@ -855,7 +865,9 @@ def validate_file_manifest(path: Path) -> dict[str, Any]:
     return manifest
 
 
-def validate_execution_lock(path: Path, expected_sha256: str) -> tuple[dict[str, Any], str]:
+def _load_execution_lock(
+    path: Path, expected_sha256: str
+) -> tuple[dict[str, Any], str]:
     if path.is_symlink() or not path.is_file():
         raise ValueError("execution lock must be a regular non-symlink file")
     require_file_sha256(path, expected_sha256, "execution lock")
@@ -890,8 +902,6 @@ def validate_execution_lock(path: Path, expected_sha256: str) -> tuple[dict[str,
         expected = source[name]
         if not isinstance(expected, str) or SHA256_RE.fullmatch(expected) is None:
             raise ValueError(f"execution lock has invalid source SHA-256: {name}")
-        source_path = resolve_repo_path(name, "execution source")
-        require_file_sha256(source_path, expected, name)
     for name in (
         "heldout_evaluation_sha256",
         "plan_sha256",
@@ -914,6 +924,204 @@ def validate_execution_lock(path: Path, expected_sha256: str) -> tuple[dict[str,
     ):
         raise ValueError("execution lock training-artifact closure is not exact")
     return lock, sha256_file(path)
+
+
+def validate_execution_lock(
+    path: Path, expected_sha256: str
+) -> tuple[dict[str, Any], str]:
+    """Validate a training lock against the source bytes in this checkout."""
+    lock, lock_sha256 = _load_execution_lock(path, expected_sha256)
+    for name, expected in lock["source_sha256"].items():
+        source_path = resolve_repo_path(name, "execution source")
+        require_file_sha256(source_path, expected, name)
+    return lock, lock_sha256
+
+
+def validate_historical_execution_lock(
+    path: Path,
+    expected_sha256: str,
+    *,
+    expected_source_git_head: str,
+) -> tuple[dict[str, Any], str]:
+    """Validate an immutable training lock against exact historical Git blobs."""
+    lock, lock_sha256 = _load_execution_lock(path, expected_sha256)
+    if (
+        not isinstance(expected_source_git_head, str)
+        or re.fullmatch(r"[0-9a-f]{40}", expected_source_git_head) is None
+    ):
+        raise ValueError("historical training source Git head is malformed")
+    commit = subprocess.run(
+        ["git", "cat-file", "-e", f"{expected_source_git_head}^{{commit}}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", expected_source_git_head, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if commit.returncode != 0 or ancestor.returncode != 0:
+        raise ValueError("historical training source is missing or not an ancestor")
+    try:
+        lock_relative = path.resolve().relative_to(ROOT.resolve()).as_posix()
+    except ValueError as exc:
+        raise ValueError("historical training lock escapes the repository") from exc
+    historical_files = {lock_relative: lock_sha256, **lock["source_sha256"]}
+    for relative, expected in sorted(historical_files.items()):
+        blob = subprocess.run(
+            ["git", "show", f"{expected_source_git_head}:{relative}"],
+            cwd=ROOT,
+            capture_output=True,
+            check=False,
+        )
+        if (
+            blob.returncode != 0
+            or hashlib.sha256(blob.stdout).hexdigest() != expected
+        ):
+            raise ValueError(f"historical training Git blob differs: {relative}")
+    return lock, lock_sha256
+
+
+def validate_finalizer_execution_lock(
+    path: Path, expected_sha256: str
+) -> tuple[dict[str, Any], str]:
+    """Validate the independent lock for held-out finalization source bytes."""
+    if path.is_symlink() or not path.is_file():
+        raise ValueError("finalizer lock must be a regular non-symlink file")
+    require_file_sha256(path, expected_sha256, "finalizer execution lock")
+    lock = load_json(path)
+    if set(lock) != {
+        "accepted_set",
+        "decision",
+        "heldout_evaluation_sha256",
+        "plan_sha256",
+        "protocol_sha256",
+        "schema",
+        "source_sha256",
+        "task_manifest_sha256",
+        "training_execution",
+    } or lock.get("schema") != FINALIZER_LOCK_SCHEMA:
+        raise ValueError("unexpected finalizer execution-lock schema")
+    if lock.get("decision") != {
+        "accepted_set_frozen": True,
+        "claim_eligible": False,
+        "held_out_inference_may_start": True,
+        "speed_claim_eligible": False,
+        "training_may_start": False,
+    }:
+        raise ValueError("finalizer lock does not authorize only held-out finalization")
+    for name in (
+        "heldout_evaluation_sha256",
+        "plan_sha256",
+        "protocol_sha256",
+        "task_manifest_sha256",
+    ):
+        if not isinstance(lock.get(name), str) or SHA256_RE.fullmatch(lock[name]) is None:
+            raise ValueError(f"finalizer lock has invalid {name}")
+    accepted_set = lock.get("accepted_set")
+    if (
+        not isinstance(accepted_set, dict)
+        or set(accepted_set) != {"path", "sha256"}
+        or require_repo_relative_path(
+            accepted_set.get("path"), "finalizer accepted set"
+        )
+        != accepted_set["path"]
+        or not isinstance(accepted_set.get("sha256"), str)
+        or SHA256_RE.fullmatch(accepted_set["sha256"]) is None
+    ):
+        raise ValueError("finalizer accepted-set binding is malformed")
+    training = lock.get("training_execution")
+    if (
+        not isinstance(training, dict)
+        or set(training) != {"lock_path", "lock_sha256", "source_git_head"}
+        or require_repo_relative_path(
+            training.get("lock_path"), "historical training lock"
+        )
+        != training["lock_path"]
+        or not isinstance(training.get("lock_sha256"), str)
+        or SHA256_RE.fullmatch(training["lock_sha256"]) is None
+        or not isinstance(training.get("source_git_head"), str)
+        or re.fullmatch(r"[0-9a-f]{40}", training["source_git_head"]) is None
+    ):
+        raise ValueError("finalizer historical-training binding is malformed")
+    source = lock.get("source_sha256")
+    if not isinstance(source, dict) or set(source) != set(FINALIZER_SOURCE_NAMES):
+        raise ValueError("finalizer source closure is not exact")
+    for name in FINALIZER_SOURCE_NAMES:
+        expected = source[name]
+        if not isinstance(expected, str) or SHA256_RE.fullmatch(expected) is None:
+            raise ValueError(f"finalizer lock has invalid source SHA-256: {name}")
+        require_file_sha256(
+            resolve_repo_path(name, "finalizer source"), expected, name
+        )
+    return lock, sha256_file(path)
+
+
+def validate_finalizer_root_closure(
+    *,
+    finalizer_lock: Mapping[str, Any],
+    protocol: Mapping[str, Any],
+    protocol_sha256: str,
+    plan: Mapping[str, Any],
+    plan_path: Path,
+    task_rows: Sequence[Mapping[str, Any]],
+    task_manifest_sha256: str,
+    accepted_set_path: Path,
+    accepted_set_sha256: str,
+    training_lock: Mapping[str, Any],
+    training_lock_path: Path,
+    training_lock_sha256: str,
+    training_source_git_head: str,
+) -> None:
+    """Cross-bind a finalizer lock without relabeling historical training."""
+    evaluation_sha256 = validate_root_closure(
+        protocol=protocol,
+        protocol_sha256=protocol_sha256,
+        plan=plan,
+        plan_path=plan_path,
+        task_rows=task_rows,
+        task_manifest_sha256=task_manifest_sha256,
+        lock=training_lock,
+        lock_sha256=training_lock_sha256,
+    )
+    for path, label in (
+        (accepted_set_path, "accepted set"),
+        (training_lock_path, "historical training lock"),
+    ):
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f"{label} must be a regular non-symlink file")
+    require_file_sha256(accepted_set_path, accepted_set_sha256, "accepted set")
+    require_file_sha256(
+        training_lock_path, training_lock_sha256, "historical training lock"
+    )
+    try:
+        accepted_relative = accepted_set_path.resolve().relative_to(
+            ROOT.resolve()
+        ).as_posix()
+        training_relative = training_lock_path.resolve().relative_to(
+            ROOT.resolve()
+        ).as_posix()
+    except ValueError as exc:
+        raise ValueError("finalizer input escapes the repository") from exc
+    expected = {
+        "accepted_set": {
+            "path": accepted_relative,
+            "sha256": accepted_set_sha256,
+        },
+        "heldout_evaluation_sha256": evaluation_sha256,
+        "plan_sha256": sha256_file(plan_path),
+        "protocol_sha256": protocol_sha256,
+        "task_manifest_sha256": task_manifest_sha256,
+        "training_execution": {
+            "lock_path": training_relative,
+            "lock_sha256": training_lock_sha256,
+            "source_git_head": training_source_git_head,
+        },
+    }
+    if any(finalizer_lock.get(name) != value for name, value in expected.items()):
+        raise ValueError("finalizer lock differs from its historical training roots")
 
 
 def parse_tres(value: Any) -> dict[str, str]:
@@ -1227,6 +1435,104 @@ def assert_finite_json(value: Any, label: str = "artifact") -> None:
     elif isinstance(value, list):
         for child in value:
             assert_finite_json(child, label)
+
+
+def write_finalizer_execution_lock(
+    output: Path,
+    *,
+    protocol_path: Path,
+    plan_path: Path,
+    task_manifest_path: Path,
+    accepted_set_path: Path,
+    training_lock_path: Path,
+    expected_training_lock_sha256: str,
+    expected_training_source_git_head: str,
+) -> dict[str, Any]:
+    """Freeze a post-training lock while preserving historical task bindings."""
+    if output.exists() or output.is_symlink():
+        raise FileExistsError(output)
+    protocol, protocol_sha256 = validate_protocol(protocol_path)
+    plan, task_rows, plan_sha256, task_manifest_sha256 = validate_plan(
+        plan_path, task_manifest_path
+    )
+    training_lock, training_lock_sha256 = validate_historical_execution_lock(
+        training_lock_path,
+        expected_training_lock_sha256,
+        expected_source_git_head=expected_training_source_git_head,
+    )
+    evaluation_sha256 = validate_root_closure(
+        protocol=protocol,
+        protocol_sha256=protocol_sha256,
+        plan=plan,
+        plan_path=plan_path,
+        task_rows=task_rows,
+        task_manifest_sha256=task_manifest_sha256,
+        lock=training_lock,
+        lock_sha256=training_lock_sha256,
+    )
+    if accepted_set_path.is_symlink() or not accepted_set_path.is_file():
+        raise ValueError("accepted set must be a regular non-symlink file")
+    accepted_set_sha256 = sha256_file(accepted_set_path)
+    accepted = load_json(accepted_set_path)
+    accepted_roots = {
+        "execution_lock_sha256": training_lock_sha256,
+        "plan_sha256": plan_sha256,
+        "protocol_sha256": protocol_sha256,
+        "task_manifest_sha256": task_manifest_sha256,
+    }
+    if (
+        not isinstance(accepted, dict)
+        or accepted.get("schema") != ACCEPTED_SCHEMA
+        or accepted.get("n_accepted") != 25
+        or accepted.get("n_expected") != 25
+        or accepted.get("decision")
+        != {
+            "checkpoint_set_complete": True,
+            "claim_eligible": False,
+            "held_out_inference_may_start": True,
+            "speed_claim_eligible": False,
+        }
+        or any(accepted.get(name) != value for name, value in accepted_roots.items())
+    ):
+        raise ValueError("accepted set is not a complete historical training admission")
+    try:
+        accepted_relative = accepted_set_path.resolve().relative_to(
+            ROOT.resolve()
+        ).as_posix()
+        training_relative = training_lock_path.resolve().relative_to(
+            ROOT.resolve()
+        ).as_posix()
+    except ValueError as exc:
+        raise ValueError("finalizer lock input escapes the repository") from exc
+    payload = {
+        "accepted_set": {
+            "path": accepted_relative,
+            "sha256": accepted_set_sha256,
+        },
+        "decision": {
+            "accepted_set_frozen": True,
+            "claim_eligible": False,
+            "held_out_inference_may_start": True,
+            "speed_claim_eligible": False,
+            "training_may_start": False,
+        },
+        "heldout_evaluation_sha256": evaluation_sha256,
+        "plan_sha256": plan_sha256,
+        "protocol_sha256": protocol_sha256,
+        "schema": FINALIZER_LOCK_SCHEMA,
+        "source_sha256": {
+            name: sha256_file(resolve_repo_path(name, "finalizer source"))
+            for name in FINALIZER_SOURCE_NAMES
+        },
+        "task_manifest_sha256": task_manifest_sha256,
+        "training_execution": {
+            "lock_path": training_relative,
+            "lock_sha256": training_lock_sha256,
+            "source_git_head": expected_training_source_git_head,
+        },
+    }
+    atomic_write_json(output, payload)
+    return payload
 
 
 def write_execution_lock(

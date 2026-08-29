@@ -489,7 +489,9 @@ def _archive_replay_fixture(
         "r4_unseen_selected_layouts": 0,
         "tasks": 25,
     }
-    source_head = "2" * 40
+    training_source_head = "2" * 40
+    finalizer_source_head = "3" * 40
+    finalizer_lock_sha256 = "6" * 64
     runtime = {
         "numpy_distribution": "2.0.2",
         "python": "3.9.21",
@@ -512,8 +514,15 @@ def _archive_replay_fixture(
     summary = {
         "bindings": {
             "accepted_set_sha256": archive.sha256_file(accepted_path),
-            **roots,
-            "expected_source_git_head": source_head,
+            "finalizer_execution_lock_sha256": finalizer_lock_sha256,
+            "finalizer_source_git_head": finalizer_source_head,
+            "plan_sha256": roots["plan_sha256"],
+            "protocol_sha256": roots["protocol_sha256"],
+            "task_manifest_sha256": roots["task_manifest_sha256"],
+            "training_execution_lock_sha256": roots[
+                "execution_lock_sha256"
+            ],
+            "training_source_git_head": training_source_head,
         },
         "counts": expected_counts,
         "created_utc": "2026-08-29T12:00:00+00:00",
@@ -521,8 +530,8 @@ def _archive_replay_fixture(
         "provenance": {
             "finalizer_runtime": {**runtime, "torch_build": "2.8.0"},
             "scheduler": _finalizer_scheduler(),
-            "source_file_sha256": {},
-            "source_git_head": source_head,
+            "finalizer_source_file_sha256": {},
+            "finalizer_source_git_head": finalizer_source_head,
             "task_software": task_software,
         },
         "schema": archive.FINAL_SCHEMA,
@@ -615,9 +624,21 @@ def _archive_replay_fixture(
     )
     monkeypatch.setattr(
         archive,
-        "validate_execution_lock",
-        lambda *_: ({"source_sha256": {}}, roots["execution_lock_sha256"]),
+        "validate_historical_execution_lock",
+        lambda *_args, **_kwargs: (
+            {"source_sha256": {}},
+            roots["execution_lock_sha256"],
+        ),
     )
+    monkeypatch.setattr(
+        archive,
+        "validate_finalizer_execution_lock",
+        lambda *_args, **_kwargs: (
+            {"source_sha256": {}},
+            finalizer_lock_sha256,
+        ),
+    )
+    monkeypatch.setattr(archive, "validate_finalizer_root_closure", lambda **_: None)
     monkeypatch.setattr(archive, "validate_root_closure", lambda **_: None)
     monkeypatch.setattr(archive, "_validate_execution_git_closure", lambda *_: None)
     monkeypatch.setattr(archive, "_validate_upstream_archive", lambda *_: None)
@@ -645,11 +666,11 @@ def _archive_replay_fixture(
         assert plan_sha256 == roots["plan_sha256"]
         assert task_manifest_sha256 == roots["task_manifest_sha256"]
         assert lock_sha256 == roots["execution_lock_sha256"]
-        assert expected_source_git_head == source_head
+        assert expected_source_git_head == training_source_head
         return {
             "bindings": {
                 **roots,
-                "expected_source_git_head": source_head,
+                "expected_source_git_head": training_source_head,
                 "heldout_commitment_sha256": task_row[
                     "evaluation_dataset_sha256"
                 ],
@@ -707,13 +728,16 @@ def _archive_replay_fixture(
         accepted_set=accepted_path,
         analysis_manifest=analysis_root / "ANALYSIS_MANIFEST.json",
         check=False,
-        execution_lock=root / "execution-lock.json",
+        training_execution_lock=root / "training-execution-lock.json",
+        finalizer_execution_lock=root / "finalizer-execution-lock.json",
         expected_accepted_set_sha256=archive.sha256_file(accepted_path),
         expected_analysis_manifest_sha256="3" * 64,
-        expected_execution_lock_sha256=roots["execution_lock_sha256"],
+        expected_training_execution_lock_sha256=roots["execution_lock_sha256"],
+        expected_finalizer_execution_lock_sha256=finalizer_lock_sha256,
         expected_plan_sha256=roots["plan_sha256"],
         expected_protocol_sha256=roots["protocol_sha256"],
-        expected_source_git_head=source_head,
+        expected_training_source_git_head=training_source_head,
+        expected_finalizer_source_git_head=finalizer_source_head,
         expected_task_manifest_sha256=roots["task_manifest_sha256"],
         out=archive_path,
         plan=plan_root / "plan.json",
