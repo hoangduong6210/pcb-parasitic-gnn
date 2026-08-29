@@ -1,0 +1,34 @@
+{
+  "bindings": {
+    "execution_lock_sha256": "e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0",
+    "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "source_git_head": "07ad44d4e729fb92f1e9537326aefa40fc889b9b",
+    "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+  },
+  "decision": {
+    "checkpoint_training_may_start": false,
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "preflight_passed": false,
+    "speed_claim_eligible": false
+  },
+  "failure": {
+    "code": "SANDBOX_SLURM_CLIENT_UNAVAILABLE",
+    "data_loading_started": false,
+    "optimizer_started": false,
+    "stage": "scheduler_self_authentication",
+    "stderr_path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/stderr.txt",
+    "stderr_sha256": "3c8038153f42c148ce6fa66496bdb4fc63080486f90032e61cd48ed7a0b6bd6a"
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-sandbox-preflight-failure.v3",
+  "terminal_accounting": {
+    "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+    "ElapsedRaw": "18",
+    "ExitCode": "1:0",
+    "JobID": "7086936_0",
+    "JobIDRaw": "7086936",
+    "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+    "State": "FAILED"
+  }
+}
