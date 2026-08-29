@@ -115,10 +115,19 @@ fi
   --dir /etc \
   --ro-bind /etc/slurm /etc/slurm \
   --ro-bind /etc/hosts /etc/hosts \
+  --ro-bind /etc/passwd /etc/passwd \
+  --ro-bind /etc/group /etc/group \
   --ro-bind /etc/nsswitch.conf /etc/nsswitch.conf \
   --ro-bind /etc/resolv.conf /etc/resolv.conf \
   --dir /run \
   --ro-bind /run/munge /run/munge \
+  --ro-bind /run/slurm /run/slurm \
+  --dir /var \
+  --dir /var/run \
+  --ro-bind /run/munge /var/run/munge \
+  --dir /var/spool \
+  --dir /var/spool/slurmd \
+  --ro-bind /var/spool/slurmd/conf-cache /var/spool/slurmd/conf-cache \
   --dir /opt \
   --dir /opt/pcb-python \
   --ro-bind "$SITE_PACKAGES" /opt/pcb-python/site-packages \
@@ -174,7 +183,7 @@ fi
   --expected-plan-sha256 "$PCB_GNN_V4_ACCURACY_V3_PLAN_SHA256" \
   --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$PCB_GNN_V4_ACCURACY_V3_TASK_MANIFEST_SHA256" \
-  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r1.json \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r2.json \
   --expected-execution-lock-sha256 "$PCB_GNN_V4_ACCURACY_V3_EXECUTION_LOCK_SHA256" \
   --expected-source-git-head "$PCB_GNN_V4_ACCURACY_V3_SOURCE_COMMIT" \
   "${RETRY_ARGS[@]}" \

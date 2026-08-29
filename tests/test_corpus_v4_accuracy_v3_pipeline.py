@@ -28,6 +28,10 @@ import plan_corpus_v4_accuracy_resume_v3 as resume  # noqa: E402
 import run_corpus_v4_accuracy_task_v3 as runner  # noqa: E402
 
 
+R2_LOCK_PATH = ROOT / "protocols/corpus_v4_accuracy_execution_lock_v3r2.json"
+R2_LOCK_SHA256 = "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
+
+
 def _materialize(artifacts: dict[str, bytes], directory: Path) -> None:
     directory.mkdir(exist_ok=True)
     for name, content in artifacts.items():
@@ -113,6 +117,16 @@ def test_root_and_execution_source_closures_are_exact(tmp_path: Path) -> None:
         contract.validate_execution_lock(
             invalid_lock_path, contract.sha256_file(invalid_lock_path)
         )
+
+
+def test_checked_in_r2_execution_lock_is_exact() -> None:
+    lock, lock_sha = contract.validate_execution_lock(R2_LOCK_PATH, R2_LOCK_SHA256)
+    script_path = ROOT / "code/jobs/submit_corpus_v4_accuracy_v3.sh"
+
+    assert lock_sha == R2_LOCK_SHA256
+    assert lock["source_sha256"][script_path.relative_to(ROOT).as_posix()] == (
+        contract.sha256_file(script_path)
+    )
 
 
 def test_protocol_rejects_type_coercion_in_frozen_fields(tmp_path: Path) -> None:
@@ -1557,7 +1571,16 @@ def test_batch_resources_and_no_login_training_contract() -> None:
     assert "SLURM_ARRAY_TASK_COUNT\" == \"1" in training
     assert "/usr/bin/env -i" in training
     assert "--clearenv" not in training
-    assert "corpus_v4_accuracy_execution_lock_v3r1.json" in training
+    assert "corpus_v4_accuracy_execution_lock_v3r2.json" in training
+    assert "--ro-bind /etc/passwd /etc/passwd" in training
+    assert "--ro-bind /etc/group /etc/group" in training
+    assert "--ro-bind /run/munge /run/munge" in training
+    assert "--ro-bind /run/munge /var/run/munge" in training
+    assert "--ro-bind /run/slurm /run/slurm" in training
+    assert (
+        "--ro-bind /var/spool/slurmd/conf-cache "
+        "/var/spool/slurmd/conf-cache" in training
+    )
     assert "#SBATCH --cpus-per-task=2" in final
     assert "#SBATCH --mem=16G" in final
     assert "#SBATCH --time=00:30:00" in final
