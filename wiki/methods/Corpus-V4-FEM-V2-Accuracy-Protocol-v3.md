@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Accuracy Protocol v3
-status: frozen; corrected sandbox preflight pending
+status: frozen; r2 sandbox preflight pending
 last_updated: 2026-08-29
 paper_source: false
 ---
@@ -55,7 +55,10 @@ its root. The mount allowlist contains source code, protocol files, the plan,
 the task manifest, exactly one split-scoped training artifact, the Python
 environment, and task output paths. It excludes `.git`, `datasets/`, the joined
 evaluation artifact, the four other split artifacts, the final result root,
-and `/users`.
+and `/users` from the local mounted filesystem. The host network namespace is
+shared because the task authenticates its SLURM allocation. The isolation claim
+is therefore limited to the mounted local filesystem; it is not a claim that
+the process lacks every network route to externally hosted bytes.
 
 A singleton compute-node preflight must load the selected artifact, construct
 all graphs, verify the mount boundary, and exit before the optimizer starts.
@@ -63,12 +66,15 @@ Its receipt and terminal accounting are reviewed before the 25-cell array is
 submitted. This operational gate tests the actual cluster namespace rather
 than relying only on source inspection.
 
-The first preflight stopped during Bubblewrap command parsing because the site
-executable does not implement `--clearenv`. It exited before namespace setup,
-data loading, graph construction, or optimizer work. The terminal failure is
-retained. Execution-lock revision r1 uses `/usr/bin/env -i` to provide the same
-empty-environment contract without changing any scientific setting. The
-corrected preflight remains mandatory.
+Two infrastructure preflights failed closed. Job `7086917` stopped during
+Bubblewrap command parsing because the site executable does not implement
+`--clearenv`. It exited before namespace setup, data loading, graph
+construction, or optimizer work. Revision r1 used `/usr/bin/env -i` to provide
+the same empty-environment contract. Job `7086936` reached the isolated path
+but stopped at scheduler self-authentication before data loading or optimizer
+work. Revision r2 adds a fixed read-only NSS, Munge, and configless-SLURM
+runtime allowlist. It does not change scientific inputs, family membership,
+model, optimization, or held-out exclusion. The r2 preflight remains mandatory.
 
 ## Model and optimization
 

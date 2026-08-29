@@ -673,20 +673,23 @@ the entries below own the completed outcome.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PROTOCOL FROZEN; FIRST PREFLIGHT REJECTED; CORRECTED PREFLIGHT PENDING` |
-| Active source commit | `07ad44d4e729fb92f1e9537326aefa40fc889b9b` |
+| Lifecycle | `PROTOCOL FROZEN; TWO INFRASTRUCTURE PREFLIGHTS FAILED CLOSED; R2 PREFLIGHT PENDING` |
+| Active source commit | `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` |
 | Protocol | [`corpus_v4_accuracy_v3.json`](../../protocols/corpus_v4_accuracy_v3.json), SHA-256 `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
 | Plan | [`plan.json`](../../results/corpus_v4/accuracy_v3/plan/v1/plan.json), SHA-256 `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
 | Task manifest | [`task_manifest.jsonl`](../../results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl), SHA-256 `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |
 | Held-out commitment | SHA-256 `ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046`; artifact not mounted during training |
 | Rejected execution lock | [`corpus_v4_accuracy_execution_lock_v3.json`](../../protocols/corpus_v4_accuracy_execution_lock_v3.json), SHA-256 `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c` |
-| Active execution lock r1 | [`corpus_v4_accuracy_execution_lock_v3r1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v3r1.json), SHA-256 `e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0` |
+| Rejected execution lock r1 | [`corpus_v4_accuracy_execution_lock_v3r1.json`](../../protocols/corpus_v4_accuracy_execution_lock_v3r1.json), SHA-256 `e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0` |
+| Active execution lock r2 | [`corpus_v4_accuracy_execution_lock_v3r2.json`](../../protocols/corpus_v4_accuracy_execution_lock_v3r2.json), SHA-256 `8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c` |
 | Training inputs | Five split-scoped train-plus-validation artifacts; exact hashes are listed in the [v3 evidence README](../../results/corpus_v4/accuracy_v3/README.md) |
-| Isolation | Hash-pinned Bubblewrap sandbox; exactly one training artifact is mounted; repository data, held-out evaluation, other split artifacts, `.git`, and host user roots are absent |
+| Isolation | Hash-pinned Bubblewrap sandbox; exactly one training artifact is mounted; repository data, held-out evaluation, other split artifacts, `.git`, and host user roots are absent from the local mounted filesystem. The host network namespace is shared for SLURM self-authentication. |
 | First preflight | Job `7086917`, logical component `7086917_0`, `FAILED/1:0`, elapsed 2 s; stopped at Bubblewrap CLI parsing because `--clearenv` is unsupported; no data, graph, or optimizer stage started |
 | Rejected receipt | [`PREFLIGHT_FAILURE.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7086917/PREFLIGHT_FAILURE.json); stderr SHA-256 `abf04cabb51191aac0776b0833c0a8742a34d62f47cf027aedbab6f63c11d747` |
-| Corrective boundary | Lock r1 replaces only the unsupported environment-clearing option with `/usr/bin/env -i`; protocol, plan, task manifest, training artifacts, held-out commitment, sandbox mounts, model, and optimization remain unchanged |
-| Corrected preflight | Pending. The singleton must load one split, construct its graphs, verify the boundary, and exit before training |
+| Second preflight | Lock r1 job `7086936`, logical component `7086936_0`, `FAILED/1:0`, elapsed 18 s; reached the isolated execution path but stopped at scheduler self-authentication before data loading or optimizer work |
+| Second rejected receipt | [`PREFLIGHT_FAILURE.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/PREFLIGHT_FAILURE.json), SHA-256 `cafc7c02c27575ddc051050ef3381c9174ae983ff3c7acad1c6a6f0b274d2b48`; stderr SHA-256 `3c8038153f42c148ce6fa66496bdb4fc63080486f90032e61cd48ed7a0b6bd6a` |
+| Corrective boundary | Lock r2 adds only a fixed read-only NSS, Munge, and configless-SLURM runtime allowlist. Protocol, plan, task manifest, training artifacts, held-out commitment, model, and optimization remain unchanged. |
+| R2 preflight | Pending. The singleton must load one split, construct its graphs, verify the local filesystem boundary, and exit before training. |
 | Claim use | None. Training, held-out finalization, model claims, and speed claims are not yet admitted. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure

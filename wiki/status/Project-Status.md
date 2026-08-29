@@ -45,7 +45,7 @@ instead of calling one column ground truth.
 | One-thread FEM reference qualification | `COMPLETE` | Nine-layout R3 and three-sentinel R4 repeatability passed; finite-panel domain sensitivity passed; finite-panel adjacent-mesh sensitivity was negative |
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
 | FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
-| FEM-v2 accuracy protocol v3 | `FROZEN; CORRECTED SANDBOX PREFLIGHT PENDING` | 5 family splits by 5 initialization seeds with split-scoped inputs; the first CLI-compatibility preflight failed before startup, and checkpoint training starts only after corrected isolation passes |
+| FEM-v2 accuracy protocol v3 | `FROZEN; R2 SANDBOX PREFLIGHT PENDING` | 5 family splits by 5 initialization seeds with split-scoped inputs; two infrastructure preflights failed closed before data loading, and checkpoint training starts only after the r2 local-filesystem gate passes |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -60,8 +60,10 @@ transition.
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
    version-scoped predictive baseline for the archived 25-thread package.
 2. Execute and review the protocol-v3 singleton sandbox preflight through
-   SLURM. The preflight must prove that only one train-plus-validation artifact
-   is visible and that optimizer work did not start.
+   SLURM from source commit `c0ffca0d0637e8fbba81c126c3f56f8316003a9a`
+   and lock r2. The preflight must prove that the local mounted filesystem
+   contains only one train-plus-validation artifact and that optimizer work did
+   not start.
 3. If preflight passes, execute the separate 25-task protocol-v3 checkpoint
    grid. The execution lock does not open held-out inference.
 4. Admit all checkpoints, run the held-out finalizer, and close the new

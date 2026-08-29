@@ -956,11 +956,11 @@ the documentation commit at the tip of the branch.
 
 ```bash
 ACC3_RUN_ROOT=/absolute/path/to/clean-detached-v3-worktree
-ACC3_SOURCE_COMMIT=07ad44d4e729fb92f1e9537326aefa40fc889b9b
+ACC3_SOURCE_COMMIT=c0ffca0d0637e8fbba81c126c3f56f8316003a9a
 ACC3_PROTOCOL_SHA256=d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1
 ACC3_PLAN_SHA256=04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f
 ACC3_TASKS_SHA256=e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71
-ACC3_LOCK_SHA256=e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0
+ACC3_LOCK_SHA256=8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c
 cd "$ACC3_RUN_ROOT"
 test "$(git rev-parse HEAD)" = "$ACC3_SOURCE_COMMIT"
 test -z "$(git status --short --untracked-files=all)"
@@ -983,7 +983,7 @@ python3 code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py \
   --expected-plan-sha256 "$ACC3_PLAN_SHA256" \
   --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
   --expected-task-manifest-sha256 "$ACC3_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r1.json \
+  --execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r2.json \
   --expected-execution-lock-sha256 "$ACC3_LOCK_SHA256" \
   --expected-source-git-head "$ACC3_SOURCE_COMMIT" \
   --output-root results/corpus_v4/accuracy_v3/jobs \
@@ -993,8 +993,11 @@ python3 code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py \
 First submit only the sandbox preflight. The singleton retains the frozen
 training resource profile and array throttle, but exits before optimizer work.
 Preflight `7086917` used the original lock and failed at CLI parsing because
-the site Bubblewrap lacks `--clearenv`. The active r1 lock uses
-`/usr/bin/env -i`. Do not reuse the original lock or source commit.
+the site Bubblewrap lacks `--clearenv`. Lock r1 used `/usr/bin/env -i`, but its
+job `7086936` stopped at scheduler self-authentication before data loading or
+optimizer work because the isolated client could not resolve the active SLURM
+component. The active r2 lock adds a fixed read-only NSS, Munge, and configless
+SLURM runtime allowlist. Do not reuse either rejected lock or source commit.
 
 ```bash
 sbatch --test-only -A pgs0407 --array=0%5 \

@@ -115,8 +115,11 @@ Protocol v3 is the active successor. Its deterministic planner produces one
 train-plus-validation artifact per split and a separate held-out artifact. A
 hash-pinned Bubblewrap sandbox mounts exactly one training artifact and does not
 mount the held-out join, other splits, repository data, `.git`, or host user
-roots. A singleton compute-node preflight must validate that namespace and
-construct all graphs before the training array is authorized.
+roots in its local filesystem. Its network namespace remains shared for SLURM
+self-authentication, so the gate establishes local byte exclusion rather than
+network-level non-reachability. A singleton compute-node preflight must validate
+the mounted namespace and construct all graphs before the training array is
+authorized.
 
 The v3 lock authenticates the upstream archive and dataset admission, all five
 training artifacts, the opaque held-out commitment, source files, sandbox
@@ -126,11 +129,14 @@ executable, fixed family splits, and complete 5 by 5 seed grid. It retains
 [accuracy-v3 evidence README](../results/corpus_v4/accuracy_v3/README.md) and
 [versioned method](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md).
 
-The first compute-node preflight rejected an unsupported Bubblewrap
-`--clearenv` option before sandbox startup. Execution-lock revision r1 replaces
-that command-line operation with `/usr/bin/env -i`; it does not change any
-dataset, split, model, optimization, metric, or mount boundary. The failed
-receipt remains in the tracked evidence namespace.
+Two infrastructure preflight attempts failed closed. Job `7086917` rejected an
+unsupported Bubblewrap `--clearenv` option before sandbox startup. Revision r1
+replaced that operation with `/usr/bin/env -i`; job `7086936` then reached the
+isolated execution path but stopped at scheduler self-authentication before
+data loading or optimizer work. Revision r2 adds a fixed read-only NSS, Munge,
+and configless-SLURM runtime allowlist. It changes no dataset, split, model,
+optimization, metric, or held-out mount. Both failed receipts remain in the
+tracked evidence namespace, and the r2 preflight remains pending.
 
 ## Finalized pre-FEM-v2 accuracy closure
 
@@ -157,7 +163,7 @@ arbitrary routed PCB layouts.
 | Multi-seed training — completed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
 | FEM-v2 accuracy-v2 checkpoint training — diagnostic execution closed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
-| FEM-v2 accuracy-v3 sandbox preflight — pending | 8 CPU requested, 48 GiB, 4 h cap; exits before optimizer work | 1 |
+| FEM-v2 accuracy-v3 sandbox preflight r2 — pending after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exits before optimizer work | 1 |
 | FEM-v2 accuracy-v3 checkpoint training — blocked until preflight passes | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy finalizer — blocked until all 25 checkpoints are accepted | 2 CPU requested, 16 GiB, 30 min | 1 |
 | Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |

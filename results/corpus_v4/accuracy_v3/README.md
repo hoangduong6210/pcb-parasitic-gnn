@@ -26,19 +26,26 @@ terminal scheduler record are reviewed.
 
 | Root | Identity |
 |---|---|
-| Active source commit | `07ad44d4e729fb92f1e9537326aefa40fc889b9b` |
+| Active source commit | `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` |
 | Protocol | `d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1` |
 | Plan | `04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f` |
 | Task manifest | `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |
 | Held-out evaluation commitment | `ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046` |
-| Active execution lock r1 | `e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0` |
+| Active execution lock r2 | `8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c` |
 
 The original execution lock, SHA-256
 `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c`,
 is retained because preflight `7086917` used it and failed before sandbox
-startup. Lock r1 changes no scientific input or model setting. It replaces the
-unsupported Bubblewrap `--clearenv` option with `/usr/bin/env -i`; the rejected
-receipt is preserved under [`sandbox_probes/job_7086917/`](sandbox_probes/job_7086917/).
+startup. Lock r1, SHA-256
+`e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0`,
+replaced the unsupported Bubblewrap `--clearenv` option with
+`/usr/bin/env -i`. Its preflight `7086936` reached the isolated execution path
+but stopped at scheduler self-authentication before data loading or optimizer
+work. Lock r2 adds a fixed read-only NSS, Munge, and configless-SLURM runtime
+allowlist. Scientific inputs, splits, model, optimization, and held-out
+exclusion are unchanged. The two failed-closed attempts are preserved under
+[`sandbox_probes/job_7086917/`](sandbox_probes/job_7086917/) and
+[`sandbox_probes/job_7086936/`](sandbox_probes/job_7086936/).
 
 The five split-scoped training artifacts contain training and validation rows
 only. Their hashes are:
@@ -57,7 +64,7 @@ training families, 7 validation families, and 13 held-out test families.
 ## Byte-access boundary
 
 Training runs under the pinned `/usr/bin/bwrap` executable with sandbox root
-`/workspace`. The task sees:
+`/workspace`. The local mounted filesystem contains:
 
 - the source and protocol directories;
 - `plan.json` and `task_manifest.jsonl`;
@@ -65,12 +72,15 @@ Training runs under the pinned `/usr/bin/bwrap` executable with sandbox root
 - its writable output directory; and
 - the pinned Python site-packages directory.
 
-The sandbox does not expose the repository `.git` directory, `datasets/`, the
-joined evaluation artifact, the four other split artifacts, the final result
-directory, or `/users`. The task result records the selected artifact hash and
-an opaque commitment to the held-out artifact. Test and R4 values first become
-readable to the finalizer after a complete accepted set authenticates all 25
-checkpoints.
+The local mounted filesystem does not contain the repository `.git` directory,
+`datasets/`, the joined evaluation artifact, the four other split artifacts,
+the final result directory, or `/users`. The host network namespace remains
+shared for SLURM self-authentication; therefore this gate proves local
+filesystem exclusion, not network-level non-reachability. The task result
+records the selected artifact hash and an opaque commitment to the held-out
+artifact. The fixed training program does not open test or R4 values. The
+finalizer is the first scheduled project stage that mounts those bytes, and it
+remains closed until a complete accepted set authenticates all 25 checkpoints.
 
 ## Rebuild and validate the plan
 

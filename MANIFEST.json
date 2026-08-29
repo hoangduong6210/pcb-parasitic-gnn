@@ -9,8 +9,8 @@
     "datasets": 12,
     "figures": 12,
     "logs": 108,
-    "protocols": 19,
-    "results": 4213,
+    "protocols": 20,
+    "results": 4215,
     "root": 10,
     "tests": 47,
     "wiki": 43
@@ -883,8 +883,8 @@
     },
     {
       "path": "code/jobs/submit_corpus_v4_accuracy_v3.sh",
-      "bytes": 7299,
-      "sha256": "ed4c36e76bc4066797806b452da127d300741e7ccb08a44b833d2da87d1f82f9"
+      "bytes": 7604,
+      "sha256": "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af"
     },
     {
       "path": "code/jobs/submit_corpus_v4_analytical_audit.sh",
@@ -2087,6 +2087,11 @@
       "sha256": "e8916801d3479f06b6eb71477796c4ae1b15408bf90aa7e516ad8ac7c02adbf0"
     },
     {
+      "path": "protocols/corpus_v4_accuracy_execution_lock_v3r2.json",
+      "bytes": 3952,
+      "sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
+    },
+    {
       "path": "protocols/corpus_v4_accuracy_v1.json",
       "bytes": 6093,
       "sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf"
@@ -3158,8 +3163,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v3/README.md",
-      "bytes": 4411,
-      "sha256": "4f2807dd309384e7781dae0b1f24c148677e615c04d22b1f8b09601e709bd952"
+      "bytes": 5134,
+      "sha256": "9d0f52c440c347f7d134b26ced2ad6290140a8ffa984dda6941ffaa9ed914db1"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
@@ -3210,6 +3215,16 @@
       "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086917/stderr.txt",
       "bytes": 33,
       "sha256": "abf04cabb51191aac0776b0833c0a8742a34d62f47cf027aedbab6f63c11d747"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/PREFLIGHT_FAILURE.json",
+      "bytes": 1349,
+      "sha256": "cafc7c02c27575ddc051050ef3381c9174ae983ff3c7acad1c6a6f0b274d2b48"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086936/stderr.txt",
+      "bytes": 47,
+      "sha256": "3c8038153f42c148ce6fa66496bdb4fc63080486f90032e61cd48ed7a0b6bd6a"
     },
     {
       "path": "results/corpus_v4/convergence_preflight/final/job_6833716/results_corpus_v4_convergence_preflight.json",
@@ -23298,8 +23313,8 @@
     },
     {
       "path": "tests/test_corpus_v4_accuracy_v3_pipeline.py",
-      "bytes": 55351,
-      "sha256": "5f7f29f1024cfcd20d227f4dac90eaeae1b3276da1d11a283dfbb1da693668d8"
+      "bytes": 56306,
+      "sha256": "38709272c46c887e564adf0599ab02bb5f1064531bf1fc18b83a78f7e55c3880"
     },
     {
       "path": "tests/test_corpus_v4_archive.py",
@@ -23503,8 +23518,8 @@
     },
     {
       "path": "wiki/REPRODUCIBILITY.md",
-      "bytes": 11145,
-      "sha256": "13147555ff060989e35a6a7a3f4ea07a4dd9817e5d03d246a8285181951e1569"
+      "bytes": 11646,
+      "sha256": "7d56b29f0039fc4fb4091245dd6c289acf8304fd55b3809f93dae54e0cd54622"
     },
     {
       "path": "wiki/START-HERE.md",
@@ -23558,8 +23573,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 62953,
-      "sha256": "95268da98adc995c6e6df8be476309740c360d0b24df2226dfe7c94b7880120d"
+      "bytes": 63807,
+      "sha256": "3a335ba2ada713c4dc481b9c07dc3676197a30990a7c502f2342eba67eeca33b"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -23598,13 +23613,13 @@
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md",
-      "bytes": 5842,
-      "sha256": "7148b978c908b3ccb0dd944f4277be37fbb8718e95c38c62076d9c77b93199bc"
+      "bytes": 6377,
+      "sha256": "32d6f33cf3f546e6a14ddd93a1ef38eae66218650d2ab9daccfeffbbd87f92c1"
     },
     {
       "path": "wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md",
-      "bytes": 1246,
-      "sha256": "a686c9001d9e204966cf102f63ddd4aaa11c94f90fdc28560c6e1d4fd0e96525"
+      "bytes": 1242,
+      "sha256": "042b32c4fa10f019d67be531cbc46d9fedba138c37f953e7c8b6ce179cfc38e9"
     },
     {
       "path": "wiki/methods/FEM-Cps-Reference.md",
@@ -23658,8 +23673,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 80013,
-      "sha256": "08736824cf689c68da8039ac5857c9463e3a7622cec848496bf2f93d5d15f074"
+      "bytes": 80274,
+      "sha256": "4478118f76008e3c40f6ef6242c6426cac095d492344c8cf14fee0870cb90e46"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -23683,15 +23698,15 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 6194,
-      "sha256": "4d782de35b6989161885cd0cf4ab98eb6a1a9e4cea3403531cff51b1988ad953"
+      "bytes": 6229,
+      "sha256": "7248594c4ca2886bdfe7f42ef073d705a5fff03a3f58c2609c16c5cc09312ac0"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 5609,
-      "sha256": "20bc168204fe5cf09c41f368c38399f15eb5a3c2916bbe6eb2c3f0ff68ce9338"
+      "bytes": 5722,
+      "sha256": "2d4d5dcfce5b87a50a7fbbe06938d5f97f909fa24462de876e4824c2fb77eebf"
     }
   ],
-  "n_files": 4735,
-  "total_bytes": 170065909
+  "n_files": 4738,
+  "total_bytes": 170075535
 }
