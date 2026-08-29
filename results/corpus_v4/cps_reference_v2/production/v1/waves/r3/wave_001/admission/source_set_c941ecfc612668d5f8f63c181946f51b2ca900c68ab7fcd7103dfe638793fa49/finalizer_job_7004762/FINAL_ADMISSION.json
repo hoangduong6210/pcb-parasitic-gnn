@@ -1,0 +1,3302 @@
+{
+  "admission_eligible": true,
+  "artifact_stage": "postterminal_wave_admission",
+  "claim_eligible": false,
+  "counts": {
+    "accepted": 795,
+    "expected": 1500,
+    "pending": 705,
+    "terminal_negative": 0
+  },
+  "created_utc": "2026-08-25T00:27:25.246140+00:00",
+  "cumulative_source_inventory": [
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 0
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 1
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 2
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 3
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 4
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 5
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 6
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 7
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 8
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 9
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 10
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 11
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 12
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 13
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 14
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 15
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 16
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 17
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 18
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 19
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 20
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 21
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 22
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 23
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 24
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 25
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 26
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 27
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 28
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 29
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 30
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 31
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 32
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 33
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 34
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 35
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 36
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 37
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 38
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 39
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 40
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 41
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 42
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 43
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 44
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 45
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 46
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 47
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 48
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 49
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 50
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 51
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 52
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 53
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 54
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 55
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 56
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 57
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 58
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 59
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 60
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 61
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 62
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 63
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 64
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 65
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 66
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 67
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 68
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 69
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 70
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 71
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 72
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 73
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 74
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 75
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 76
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 77
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 78
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 79
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 80
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 81
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 82
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 83
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 84
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 85
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 86
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 87
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 88
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 89
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 90
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 91
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 92
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 93
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 94
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 95
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 96
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 97
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 98
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 99
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 100
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 101
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 102
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 103
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 104
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 105
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 106
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 107
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 108
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 109
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 110
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 111
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 112
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 113
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 114
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 115
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 116
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 117
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 118
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 119
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 120
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 121
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 122
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 123
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 124
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 125
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 126
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 127
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 128
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 129
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 130
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 131
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 132
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 133
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 134
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 135
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 136
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 137
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 138
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 139
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 140
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 141
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 142
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 143
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 144
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 145
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 146
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 147
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 148
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 149
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 150
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 151
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 152
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 153
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 154
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 155
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 156
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 157
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 158
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 159
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 160
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 161
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 162
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 163
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 164
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 165
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 166
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 167
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 168
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 169
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 170
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 171
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 172
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 173
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 174
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 175
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 176
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 177
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 178
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 179
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 180
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 181
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 182
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 183
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 184
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 185
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 186
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 187
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 188
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 189
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 190
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 191
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 192
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 193
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 194
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 195
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 196
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 197
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 198
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 199
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 200
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 201
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 202
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 203
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 204
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 205
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 206
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 207
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 208
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 209
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 210
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 211
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 212
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 213
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 214
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 215
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 216
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 217
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 218
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 219
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 220
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 221
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 222
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 223
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 224
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 225
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 226
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 227
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 228
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 229
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 230
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 231
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 232
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 233
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 234
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 235
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 236
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 237
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 238
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 239
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 240
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 241
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 242
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 243
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 244
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 245
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 246
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 247
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 248
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 249
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 250
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 251
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 252
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 253
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 254
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 255
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 256
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 257
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 258
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 259
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 260
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 261
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 262
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 263
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 264
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 265
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 266
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 267
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 268
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 269
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 270
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 271
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 272
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 273
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 274
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 275
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 276
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 277
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 278
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 279
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 280
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 281
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 282
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 283
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 284
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 285
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 286
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 287
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 288
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 289
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 290
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 291
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 292
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 293
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 294
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 295
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 296
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 297
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 298
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 299
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 300
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 301
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 302
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 303
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 304
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 305
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 306
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 307
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 308
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 309
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 310
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 311
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 312
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 313
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 314
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 315
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 316
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 317
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 318
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 319
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 320
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 321
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 322
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 323
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 324
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 325
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 326
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 327
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 328
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 329
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 330
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 331
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 332
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 333
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 334
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 335
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 336
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 337
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 338
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 339
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 340
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 341
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 342
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 343
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 344
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 345
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 346
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 347
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 348
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 349
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 350
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 351
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 352
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 353
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 354
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 355
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 356
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 357
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 358
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 359
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 360
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 361
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 362
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 363
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 364
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 365
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 366
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 367
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 368
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 369
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 370
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 371
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 372
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 373
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 374
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 375
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 376
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 377
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 378
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 379
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 380
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 381
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 382
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 383
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 384
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 385
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 386
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 387
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 388
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 389
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 390
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 391
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 392
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 393
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 394
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 395
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 396
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 397
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 398
+    },
+    {
+      "source_array_job_id": "6963561",
+      "task_index": 399
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 400
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 401
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 402
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 403
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 404
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 405
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 406
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 407
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 408
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 409
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 410
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 411
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 412
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 413
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 414
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 415
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 416
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 417
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 418
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 419
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 420
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 421
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 422
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 423
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 424
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 425
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 426
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 427
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 428
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 429
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 430
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 431
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 432
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 433
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 434
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 435
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 436
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 437
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 438
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 439
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 440
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 441
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 442
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 443
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 444
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 445
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 446
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 447
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 448
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 449
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 450
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 451
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 452
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 453
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 454
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 455
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 456
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 457
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 458
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 459
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 460
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 461
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 462
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 463
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 464
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 465
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 466
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 467
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 468
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 469
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 470
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 471
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 472
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 473
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 474
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 475
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 476
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 477
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 478
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 479
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 480
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 481
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 482
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 483
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 484
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 485
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 486
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 487
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 488
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 489
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 490
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 491
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 492
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 493
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 494
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 495
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 496
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 497
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 498
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 499
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 500
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 501
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 502
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 503
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 504
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 505
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 506
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 507
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 508
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 509
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 510
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 511
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 512
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 513
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 514
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 515
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 516
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 517
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 518
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 519
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 520
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 521
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 522
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 523
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 524
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 525
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 526
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 527
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 528
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 529
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 530
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 531
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 532
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 533
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 534
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 535
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 536
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 537
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 538
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 539
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 540
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 541
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 542
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 543
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 544
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 545
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 546
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 547
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 548
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 549
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 550
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 551
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 552
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 553
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 554
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 555
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 556
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 557
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 558
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 559
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 560
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 561
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 562
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 563
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 564
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 565
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 566
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 567
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 568
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 569
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 570
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 571
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 572
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 573
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 574
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 575
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 576
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 577
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 578
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 579
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 580
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 581
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 582
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 583
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 584
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 585
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 586
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 587
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 588
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 589
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 590
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 591
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 592
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 593
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 594
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 595
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 596
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 597
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 598
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 599
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 600
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 601
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 602
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 603
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 604
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 605
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 606
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 607
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 608
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 609
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 610
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 611
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 612
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 613
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 614
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 615
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 616
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 617
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 618
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 619
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 620
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 621
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 622
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 623
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 624
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 625
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 626
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 627
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 628
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 629
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 630
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 631
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 632
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 633
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 634
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 635
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 636
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 637
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 638
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 639
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 640
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 641
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 642
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 643
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 644
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 645
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 646
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 647
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 648
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 649
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 650
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 651
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 652
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 653
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 654
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 655
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 656
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 657
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 658
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 659
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 660
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 661
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 662
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 663
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 664
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 665
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 666
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 667
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 668
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 669
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 670
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 671
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 672
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 673
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 674
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 675
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 676
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 677
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 678
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 679
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 680
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 681
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 682
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 683
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 684
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 685
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 686
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 687
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 688
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 689
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 690
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 691
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 692
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 693
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 694
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 695
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 696
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 697
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 698
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 699
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 700
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 701
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 702
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 703
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 704
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 705
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 706
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 707
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 708
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 709
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 710
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 711
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 712
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 713
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 714
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 715
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 716
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 717
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 718
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 719
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 720
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 721
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 722
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 723
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 724
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 725
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 726
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 727
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 728
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 729
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 730
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 731
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 732
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 733
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 734
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 735
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 736
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 737
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 738
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 739
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 740
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 741
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 742
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 743
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 744
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 745
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 746
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 747
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 748
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 749
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 750
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 751
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 752
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 753
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 754
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 755
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 756
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 757
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 758
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 759
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 760
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 761
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 762
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 763
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 764
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 765
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 766
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 767
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 768
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 769
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 770
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 771
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 772
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 773
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 774
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 775
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 776
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 777
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 778
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 779
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 780
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 781
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 782
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 783
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 784
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 785
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 786
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 787
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 788
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 789
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 790
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 791
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 792
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 793
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 794
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 795
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 796
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 797
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 798
+    },
+    {
+      "source_array_job_id": "7004761",
+      "task_index": 799
+    }
+  ],
+  "decision": {
+    "coverage_complete": false,
+    "dataset_finalize_may_start": false,
+    "retry_may_start": true,
+    "scientific_outcome": "INDETERMINATE",
+    "terminal_negative": false
+  },
+  "fidelity_id": "cps_fem_r3_p16_t1_v2",
+  "finalizer_terminal_accounting": {
+    "provenance": {
+      "canonical_rows_sha256": "39f30b566f993d57fb5107a40f16d27f7d6fd2ba8a4b145aee6c3e8ccd513237",
+      "command": [
+        "sacct",
+        "-X",
+        "-n",
+        "-P",
+        "-j",
+        "7004762",
+        "--format=JobID,JobIDRaw,State,ExitCode,Account,Partition,Timelimit,NodeList,Restarts,ElapsedRaw,ReqTRES,AllocTRES"
+      ],
+      "origin": "live_sacct",
+      "queried_utc": "2026-08-25T00:27:25.243669+00:00",
+      "raw_stdout_sha256": "d72d325c026739ae1a2da79fd6c6553a73807829399f5de947c1974fbfc51b77",
+      "row_count": 1,
+      "schema": "pcb-gnn.corpus-v4-fem-v2-production-accounting.v1"
+    },
+    "row": {
+      "Account": "pgs0407",
+      "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+      "ElapsedRaw": "20",
+      "ExitCode": "0:0",
+      "JobID": "7004762",
+      "JobIDRaw": "7004762",
+      "NodeList": "a0104",
+      "Partition": "nextgen",
+      "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+      "Restarts": "0",
+      "State": "COMPLETED",
+      "Timelimit": "00:30:00",
+      "normalized_state": "COMPLETED",
+      "terminal_success": true
+    }
+  },
+  "preterminal_files": {
+    "accepted_set_path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/final/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/accepted_artifact_set.json",
+    "accepted_set_sha256": "3830dfa7930286fc94956e7788beba238f38520df43bcb55a34a6bcb38e61067",
+    "final_manifest_path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/final/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/FINAL_MANIFEST.json",
+    "final_manifest_sha256": "7395a4a1182cd85f73717b55b185e578c5790fbd039b0a6955de6e55d75d420f",
+    "pending_set_path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/final/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/pending_task_set.json",
+    "pending_set_sha256": "a1b825768d0b4a49bc1592e7c37163c541ed4635525ac12f776f9ca32e61e0f8",
+    "result_path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/final/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/result.json",
+    "result_sha256": "438e15f0ba620432f003ea138bb211f2b7ae569c8b0ef5e4d7fac186779be176",
+    "terminal_negative_set_path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_001/final/source_set_c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49/finalizer_job_7004762/terminal_negative_set.json",
+    "terminal_negative_set_sha256": "690f3eab48ad25eafc5bccee93ac784ed3dd756fbab5f4e07bef3f24d60c7455"
+  },
+  "roots": {
+    "execution_lock_sha256": "84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a",
+    "plan_sha256": "5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20",
+    "protocol_sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709",
+    "source_git_head": "c01b97bc90cbe3d1f2094e9441eb2e18219e4eb1",
+    "source_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/corpus_v4_fem_v2_package.py": "9f43db2e0be40b6322fe31e4aaa479da24e5ed9b916491a9f6bd9d91f167891f",
+      "code/experiments/proofs/corpus_v4_fem_v2_production.py": "0a12d837f611cd6177f81a1ae07ad6f27dc175be472dd277f2998a805b55ac4e",
+      "code/experiments/proofs/experiments_corpus_v4_fem_repeatability.py": "6bb4a7199868db4aebe1d91265597798e7ae564d3c608cb9eff6cb11e96ac90f",
+      "code/experiments/proofs/run_corpus_v4_cps_multifidelity_task.py": "e8f2d2bf39937c380d0396535fa95229bb8295cd6c2a0f3c1e2d5b238973cffb",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_fem_v2_r3.sh": "5965065b31c4198d3063703915c4b5b589784dfc35247b62c3fcc123a46b4712",
+      "code/jobs/submit_corpus_v4_fem_v2_r4.sh": "6e9fcd2e7479be4cb0c774231b22b656ce1ed7cfb2f64cad2a6ef09526f6c10f",
+      "code/jobs/submit_finalize_corpus_v4_fem_v2_dataset.sh": "fe89f9f735e469502904535c572e82359ee3c42420d91ff946f69f0c51d372f1",
+      "code/jobs/submit_finalize_corpus_v4_fem_v2_wave.sh": "ee4bcf3c5ccf58c1edd62bce6df9570d682d65ba94231aab74fec066089cb36d",
+      "code/operations/corpus_v4_fem_v2_controller.py": "3510425223f3f1ceee864faf710a40e2f222a0c406882b97778eb1eecdd86e5a",
+      "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+      "code/solvers/fem_cps_bounded_worker.py": "d0f99a3a651ec2c4ff828b6ecfec3ab543a4f315863821a7eaee20ebdbea29ec",
+      "code/solvers/fem_cps_diagnostic_worker.py": "10a20fb1e66acf83db7bdb39d432b78d7153e9e05800c0a6548c415f8386a648",
+      "code/solvers/fem_cps_repeatability_worker.py": "34f1c27932122f6953dd376121afd5d24f70def5f928db611aa36bde3f840a37",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-wave-admission.v1",
+  "solver_executed": false,
+  "source_set_sha256": "c941ecfc612668d5f8f63c181946f51b2ca900c68ab7fcd7103dfe638793fa49",
+  "speed_claim_eligible": false,
+  "training_may_start": false,
+  "wave_id": 1
+}

@@ -1,0 +1,93 @@
+{
+  "accepted_artifacts": {
+    "expected_result_files": 1698,
+    "inventory_source": "dataset observation rows"
+  },
+  "dataset": {
+    "admission": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/admission/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_ADMISSION.json",
+      "sha256": "b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed"
+    },
+    "counts": {
+      "geometries": 1500,
+      "r3_observations": 1500,
+      "r4_observations": 198,
+      "total_observations": 1698
+    },
+    "final_manifest": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_MANIFEST.json",
+      "sha256": "6ff8d39ecc45fd2bbea9271235f221a7b18006389a45cbbda4b4f2adf450e57e"
+    },
+    "observations": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/label_observations.jsonl",
+      "sha256": "83a771bf318c0660731c6e5d1e5e91a6b15642e178b8172b2b46dedb656a1784"
+    },
+    "source_set_sha256": "f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b",
+    "summary": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/summary.json",
+      "sha256": "07ba65109c30469df417c349ce6a25b15d7743c7d14ade3cd858e31ed58a2c43"
+    }
+  },
+  "forbidden_claims": [
+    "ground_truth",
+    "mesh_converged",
+    "physical_accuracy_validated",
+    "speed_claim_from_dataset_generation"
+  ],
+  "frozen_roots": {
+    "execution_lock": {
+      "path": "protocols/corpus_v4_fem_v2_production_lock_v1.json",
+      "sha256": "84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a"
+    },
+    "plan": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/plan/plan.json",
+      "sha256": "5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20"
+    },
+    "protocol": {
+      "path": "protocols/corpus_v4_fem_v2_production_v1.json",
+      "sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-archive.v1",
+  "source_commit": "c01b97bc90cbe3d1f2094e9441eb2e18219e4eb1",
+  "source_corpus": {
+    "family_registry": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/geometry_families.jsonl",
+      "sha256": "adb015939c5dcc29f63e5068e843c65bacde046591f30619612a15ebd3c6589d"
+    },
+    "hf_selection_registry": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/hf_selection_registry.json",
+      "sha256": "675f46e1777c2f07d4774853d0fa78f89851e3abc78acd184771832ec0973da9"
+    },
+    "inductance_labels": {
+      "path": "datasets/corpus_v3/labels.jsonl",
+      "sha256": "48fa10572883fd2f36baa3b02189cb778fc1bbd65986c9fcc3b7024a4fd50327"
+    },
+    "layouts": {
+      "path": "datasets/corpus_v3/layouts.jsonl",
+      "sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b"
+    },
+    "split_registry": {
+      "path": "results/corpus_v4/cps_multifidelity/plan/v1/split_registry.json",
+      "sha256": "c30e06e33a58f03336c02d04fc9081d58ac7663338afe355610cfc0fdc7aa641"
+    },
+    "summary": {
+      "path": "datasets/corpus_v3/summary.json",
+      "sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+    }
+  },
+  "wave_admissions": {
+    "r3": {
+      "accepted": 1500,
+      "fidelity_id": "cps_fem_r3_p16_t1_v2",
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_004/admission/source_set_5e6e28ff339fed5501c89e62caddad748c8d5137ecbf6f8599bbf5d7d528a1c1/finalizer_job_7064646/FINAL_ADMISSION.json",
+      "sha256": "98cb1dc5950584fa05e71ac162c231b3e68f8c17e76de9053260ddbcab50a2bb"
+    },
+    "r4": {
+      "accepted": 198,
+      "fidelity_id": "cps_fem_r4_p16_t1_v2",
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/waves/r4/wave_000/admission/source_set_75ce1fe7bf7bd5b4ec5c77b9e691badcf54faf1543af93a6c85807fee38b6c17/finalizer_job_6963560/FINAL_ADMISSION.json",
+      "sha256": "b5a02396de010c7534d61c251f54e4f7a79335a0fa775663a29135a6092c9bc6"
+    }
+  }
+}

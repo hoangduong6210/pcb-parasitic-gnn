@@ -1,0 +1,11 @@
+{
+  "entries": [],
+  "execution_lock_sha256": "84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a",
+  "fidelity_id": "cps_fem_r4_p16_t1_v2",
+  "manifest_sha256": "c2708e01f50710046bcdd9db2c0f69f09b3803b7bd9768e97c3f74f9964b8eac",
+  "plan_sha256": "5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20",
+  "protocol_sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-pending-set.v1",
+  "source_set_sha256": "75ce1fe7bf7bd5b4ec5c77b9e691badcf54faf1543af93a6c85807fee38b6c17",
+  "wave_id": 0
+}

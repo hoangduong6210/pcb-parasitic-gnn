@@ -1,0 +1,13 @@
+{
+  "fidelity_id": "cps_fem_r3_p16_t1_v2",
+  "files_sha256": {
+    "accepted_artifact_set.json": "9df29384affcd15b7221d891350c9186d18fb52049249f653871aed3a5b17747",
+    "pending_task_set.json": "0a9041ccaed1a18e5c929c527f6ae361e62ce9d11512d1f15dcf7443f20eaa13",
+    "result.json": "55e1b3fdd698164ecd9c614e2fca11cc0f775a64d01948cdb46a6e4f320172e7",
+    "terminal_negative_set.json": "ef9f57be8eaf7d839e447a927d156e93f829078ae2841357045feec220e5e63e"
+  },
+  "finalizer_job_id": "7064646",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-production-wave-final-manifest.v1",
+  "source_set_sha256": "5e6e28ff339fed5501c89e62caddad748c8d5137ecbf6f8599bbf5d7d528a1c1",
+  "wave_id": 4
+}
