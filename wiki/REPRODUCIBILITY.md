@@ -1,7 +1,7 @@
 ---
 title: Reproducibility
 status: active runbook
-last_updated: 2026-08-21
+last_updated: 2026-08-29
 paper_source: false
 ---
 
@@ -59,6 +59,49 @@ rejects extra or untracked artifacts:
 python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
 ```
 
+## Finalized deterministic FEM-v2 dataset closure
+
+The one-thread FEM-v2 package is a separate closure from the archived
+25-thread package above. Its tracked production namespace preserves the 1,500
+R3 task results, 198 R4 task results, wave accepted/pending/terminal-negative
+sets, postterminal wave admissions, joint observation table, final manifest,
+and postterminal dataset admission:
+
+```text
+results/corpus_v4/cps_reference_v2/production/v1/
+```
+
+The joint source-set SHA-256 is
+`f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b`.
+Within finalizer job `7084776`, the long-form observation table, summary, final
+manifest, and postterminal admission have SHA-256 values
+`83a771bf318c0660731c6e5d1e5e91a6b15642e178b8172b2b46dedb656a1784`,
+`07ba65109c30469df417c349ce6a25b15d7743c7d14ade3cd858e31ed58a2c43`,
+`6ff8d39ecc45fd2bbea9271235f221a7b18006389a45cbbda4b4f2adf450e57e`,
+and
+`b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed`,
+respectively. The admission authenticates finalizer `7084776` as
+`COMPLETED/0:0` and records 1,500 geometries, 1,500 R3 observations, 198 R4
+observations, and 1,698 total observations.
+
+The tracked `ARCHIVE_MANIFEST.json` has SHA-256
+`89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc`.
+A clean clone verifies the frozen roots, six wave packages, 1,698 accepted
+task-result hashes, joint dataset receipt, exact membership, and absence of
+unindexed closure files without running a solver:
+
+```bash
+python3 code/quality/verify_corpus_v4_fem_v2_production_archive.py \
+  --require-git-tracked
+```
+
+This is a dataset-generation closure, not a model closure. Its exact decisions
+are `dataset_generation_admitted=true`,
+`accuracy_protocol_may_be_frozen=true`, and `training_may_start=false`; it also
+retains `claim_eligible=false` and `speed_claim_eligible=false`. Replaying the
+hash closure does not establish mesh convergence, physical accuracy, surrogate
+accuracy, or speed.
+
 ## Finalized accuracy closure
 
 The tracked accuracy closure preserves all 25 safe-NPZ checkpoints, training
@@ -89,6 +132,10 @@ arbitrary routed PCB layouts.
 | FEM repeatability source array — completed; 15 elements with two sequential FEM arms each | 25 CPU requested, 48 GiB, 2 h per element; 1,800 s cap per arm | 3 |
 | FEM repeatability finalizer — completed | 2 CPU requested, 8 GiB, 30 min | 1 |
 | FEM repeatability postterminal admission — completed negative, solver-free | No compute allocation; live finalizer `sacct` was authenticated when the receipt was minted | Not applicable |
+| Deterministic FEM-v2 R3/P16, 1,500 layouts — completed | 1 CPU requested, 48 GiB, 2 h per layout | 8 |
+| Deterministic FEM-v2 R4/P16, 198 layouts — completed | 1 CPU requested, 160 GiB, 3 h per layout | 2 |
+| Deterministic FEM-v2 dataset finalizer — completed | 2 CPU requested, 16 GiB, 30 min; 5 CPU and 16 GiB allocated | 1 |
+| Deterministic FEM-v2 postterminal dataset admission — completed positive, solver-free | Live finalizer accounting authenticated; no solver executed | Not applicable |
 
 Resource caps are part of the frozen protocol. A cap failure is an infeasibility
 result and does not authorize changing limits after inspecting outcomes.
@@ -108,3 +155,8 @@ first held-out inference; and the post-run verifier freezes finalizer
 accounting for later scheduler-independent clean-clone checks. The complete
 contract is specified in
 [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md).
+
+That accuracy closure remains bound to the archived 25-thread capacitance
+package. It is not an accuracy closure for `D-C4-FEM-D1-v2`. The latter requires
+a newly versioned evaluation join, protocol, plan, execution lock, model jobs,
+finalizer, and postterminal admission before any model result is reported.

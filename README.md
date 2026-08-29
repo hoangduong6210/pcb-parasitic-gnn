@@ -11,11 +11,13 @@
 A pure-PyTorch, geometry-aware message-passing model for four lumped parasitics
 of PCB winding active-leg abstractions. The repository now has a finalized
 1,500-layout geometry-valid corpus under one contract shared by graph
-construction, FastHenry, and electrostatic FEM. The finalized capacitance
-package contains 1,500 FEM-R3P16 observations and a frozen set of 198
-FEM-R4P16 observations. That higher-resolution panel contains nine anchors
-inherited from the earlier convergence study and 189 geometry-only selections.
-Current model evaluation follows under the frozen family-disjoint protocol.
+construction, FastHenry, and electrostatic FEM. The earlier admitted accuracy
+baseline remains bound to its archived 25-thread capacitance package. A separate
+deterministic one-thread FEM-v2 package has now been admitted at the dataset
+generation boundary with 1,500 `cps_fem_r3_p16_t1_v2` observations and 198
+`cps_fem_r4_p16_t1_v2` observations. That admission authorizes freezing a new
+accuracy protocol; it does not transfer the earlier model result and does not
+yet authorize training.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -88,13 +90,16 @@ remains archival and outside current geometry-valid claims. The strict E(3)
 encoded-graph check remains an admitted implementation property, not a
 predictive claim.
 
-The current accuracy study is complete. It crossed five family-held-out splits
+The pre-FEM-v2 accuracy baseline is complete. It crossed five family-held-out splits
 with five initialization seeds, admitted all checkpoints before held-out
 inference, and preserved every prediction and metric matrix in a tracked
 archive. The [accuracy result](wiki/results/Corpus-V4-Accuracy.md) reports
 target-specific agreement with the synthetic numerical references and a
-matched R3/R4 capacitance view. It does not claim physical-board accuracy.
-Current-corpus paired latency remains blocked. See the
+matched R3/R4 capacitance view for the archived 25-thread package. It is not an
+accuracy result for the newly admitted one-thread FEM-v2 labels and does not
+claim physical-board accuracy. The next model stage must freeze and admit its
+own FEM-v2 accuracy protocol, plan, and execution lock. Current-corpus paired
+latency remains blocked. See the
 [accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
 [`datasets/README.md`](datasets/README.md), and
@@ -153,14 +158,15 @@ refine-3/refine-4 study executed 27 solves over nine layouts: refine-3 at 12 and
 0.189658% and maximum 2.491566%; mesh sensitivity failed with median 8.273879%
 and maximum 13.886399% under the declared 2%/5% gates.
 
-The completed execution stage validated all 1,500 `FEM-R3P16` observations and
-198 selected `FEM-R4P16` observations, three per swap-closed turn family,
-before joint finalization. A separate job-backed audit then paired all 198
-fidelities and froze the descriptive discrepancy record. The production run
-used one layout and one fidelity per atomic array task, immutable selection and
-split registries, and safe resume across job attempts. The tracked closure
-package contains all 1,698 accepted task records plus the long-form observation
-table. Exact scientific semantics are maintained in
+The earlier 25-thread execution stage validated all 1,500 `FEM-R3P16`
+observations and 198 selected `FEM-R4P16` observations before joint
+finalization. A separate job-backed audit paired all 198 fidelities and froze
+the descriptive discrepancy record. The later one-thread FEM-v2 production run
+also closed all 1,698 planned observations: 1,500 dense R3/P16 targets and the
+same frozen 198-layout R4/P16 panel. Its postterminal admission is a dataset
+generation result only: `accuracy_protocol_may_be_frozen=true`, while
+`training_may_start=false`, `claim_eligible=false`, and
+`speed_claim_eligible=false`. Exact scientific semantics are maintained in
 [the corpus target contract](wiki/datasets/Corpus-and-Target-Contract.md); job
 identifiers and hashes stay in [the evidence ledger](wiki/evidence/Evidence-Ledger.md).
 
@@ -245,12 +251,13 @@ admission remains a separate wiki-reviewed step.
 
 ## Reproducing a result
 
-Do not rerun a v2 experiment as though it were current evidence. The active
-pipeline is ordered and gated: frozen v3 geometry, explicit R3/R4 observation
-generation, multi-fidelity finalization, swap-closed split construction,
-multi-seed training, paired evaluation, and only then admitted manuscript
-assets. A downstream submission is created only after the upstream summary and
-artifact hashes pass.
+Do not rerun a submitted-v2 experiment as though it were current evidence. The
+deterministic FEM-v2 dataset generation stage is complete, but its model stage
+is still ordered and gated: freeze a new immutable evaluation join, preserve the
+swap-closed split contract, freeze and admit the accuracy protocol, plan, and
+execution lock, run multi-seed training through SLURM, finalize held-out
+evaluation, and only then review any new claim. A downstream submission is
+created only after the upstream summary and artifact hashes pass.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make
@@ -270,9 +277,9 @@ audit.
 
 ### Provenance
 
-The finalized v3 corpus, FEM convergence studies, and v4 multi-fidelity package
-and family-crossed accuracy study resolve to job-backed artifacts and immutable
-hashes recorded in
+The finalized v3 corpus, FEM convergence studies, archived v4 multi-fidelity
+package and accuracy study, and the distinct deterministic one-thread FEM-v2
+dataset closure resolve to job-backed artifacts and immutable hashes recorded in
 [`wiki/evidence/Evidence-Ledger.md`](wiki/evidence/Evidence-Ledger.md).
 Historical records remain under `results/` for forensic traceability and are
 indexed as quarantined in [`results/README.md`](results/README.md). No
@@ -285,6 +292,7 @@ verified with:
 python3 code/quality/build_manifest.py --check
 python3 code/quality/verify_corpus_v4_archive.py --require-git-tracked
 python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-tracked
+python3 code/quality/verify_corpus_v4_fem_v2_production_archive.py --require-git-tracked
 ```
 
 The accuracy verifier has additional frozen hash arguments; its exact

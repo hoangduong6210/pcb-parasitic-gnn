@@ -1,32 +1,37 @@
 ---
 title: Live Execution Snapshot
 status: active operational snapshot
-last_updated: 2026-08-23
+last_updated: 2026-08-29
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Last scheduler observation: 2026-08-24 00:09 UTC.
+Last scheduler-backed admission: 2026-08-29 11:13 UTC.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
-| FEM-R3P16 | `VALIDATED` | 1,500 of 1,500 accepted | None | Four missing final-array elements recovered as hash-pinned singletons |
-| FEM-R4P16 | `VALIDATED` | 198 of 198 accepted | None | One scheduler-preflight miss recovered as a hash-pinned singleton |
-| Joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
+| Archived 25-thread FEM-R3P16 | `VALIDATED` | 1,500 of 1,500 accepted | None | Four missing final-array elements recovered as hash-pinned singletons |
+| Archived 25-thread FEM-R4P16 | `VALIDATED` | 198 of 198 accepted | None | One scheduler-preflight miss recovered as a hash-pinned singleton |
+| Archived 25-thread joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
-| Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | The earlier attempt failed closed at admission. The corrected run, finalizer, archive replay, and Git-tracked gate all passed |
-| FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | Version a deterministic one-thread FEM reference and regenerate Cps labels before retraining | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
-| One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | Prepare deterministic R3/R4 generation protocols and task manifests | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities must remain explicit |
-| One-thread FEM-v2 production | `SUBMITTED; TERMINAL ACCOUNTING PENDING` | R4 source `6963559` covers 198 tasks; R3 wave-zero source `6963561` covers the first 400 tasks; finalizers `6963560` and `6963562` are dependency-bound | Retain controller receipts and wait for scheduler visibility; do not resubmit | SLURM accepted all four submissions at 2026-08-24 00:08 UTC, then its controller and accounting endpoints became unavailable |
-| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a versioned deterministic FEM reference, regenerated labels, model, accuracy evidence, and new latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
+| Pre-FEM-v2 Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | Version-scoped to the archived 25-thread capacitance package; does not transfer to FEM-v2 |
+| FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | None; its one-thread successor dataset is finalized | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
+| One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
+| One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | Freeze a separate accuracy-v2 protocol, plan, and execution lock; training remains closed | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
+| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a new FEM-v2 model, admitted accuracy evidence, and separately frozen latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
 
-The successful finalizer closed 1,500 R3 observations and 198 R4 observations
-over 1,500 unique geometries. Its output keeps fidelity identifiers explicit.
-It does not call either fidelity ground truth, mesh-converged, or physically
-validated.
+Two versioned capacitance packages now exist. The archived 25-thread package
+owns `C-ACC-001` and the admitted selected-registry discrepancy. The new
+one-thread FEM-v2 finalizer `7084776` closed 1,500 R3 observations and 198 R4
+observations over the unchanged 1,500 geometries. Its postterminal receipt sets
+`dataset_generation_admitted=true` and
+`accuracy_protocol_may_be_frozen=true`, but retains
+`training_may_start=false`, `claim_eligible=false`, and
+`speed_claim_eligible=false`. Neither fidelity is ground truth, mesh-converged,
+or physically validated.
 
-## Why R4 took longer
+## Why the archived R4 run took longer
 
 For the matched layout 717, R3 used 2,062,878 nodes, 12,477,301 tetrahedra,
 18.565 GiB peak memory, and 528.949 s. R4 used 9,241,959 nodes, 56,742,824
@@ -40,78 +45,24 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 
 ## Next transition
 
-The accuracy pipeline has no remaining execution stage. The paired-latency
-scope is now frozen around the designated split-42/init-42 checkpoint, all 306
-held-out layouts, and the sequential FastHenry-at-100-kHz plus FEM-R3P16
-four-target workflow. The GNN boundary is warm-loaded, batch one, and begins
-from an in-memory raw JSON record; model loading is reported separately.
+Dataset generation is closed. The only authorized next transition is to build
+and freeze a new accuracy-v2 evaluation join, protocol, plan, and execution
+lock against `D-C4-FEM-D1-v2`. Their own admission must explicitly open model
+training before any training job is submitted. The existing accuracy protocol,
+checkpoints, and `C-ACC-001` remain immutable evidence for the archived
+25-thread package and must not be relabelled as FEM-v2 results.
 
-The task runner, accepted-set planner, finalizer, archive verifier, and
-deterministic 306-layout plan are implemented. The initial submission request
-was rejected before SLURM created a job because it omitted account `pgs0407`.
-The account-bound retry entered the scheduler, but all three elements ended
-nonzero. Tasks 0 and 152 reached the reference-agreement gate; the old runner
-discarded their numerical diagnostics. Task 305 passed that gate and wrote an
-artifact, then failed while printing a relative path. Terminal failure makes
-the entire preflight ineligible.
+The completed production chain used R3 sources/finalizers
+`6963561/6963562`, `7004761/7004762`, `7022705/7022706`, and
+`7057802/7057803`, followed by the exact 55-task hash-pinned retry
+`7064645/7064646`. The final R3 admission closed 1,500 accepted, zero pending,
+and zero terminal-negative tasks. R4 source/finalizer `6963559/6963560`
+closed 198 accepted, zero pending, and zero terminal-negative tasks. Dataset
+finalizer `7084776` then completed `0:0`; the solver-free admission replayed the
+full closure.
 
-The diagnostic rerun used the same frozen tolerance and tasks under source
-commit `1766b27`. All three elements produced authenticated, non-admissible
-failure artifacts and ended `FAILED/1:0`. Only Cps changed; the three
-FastHenry-derived inductance targets matched their frozen references in every
-task. Maximum relative Cps drift was `2.6572226e-4`, `1.6908165e-3`, and
-`1.0065129e-3` for canonical tasks 0, 152, and 305, respectively, against the
-unchanged `1e-4` gate. These are diagnostic values from rejected job `6909354`,
-not performance results.
-
-The evidence points to fresh Gmsh meshes changing across executions. A
-separately frozen, SLURM-only repeatability study therefore evaluated the same
-three preselected anchors with five fresh-mesh repeats under the existing
-25-thread meshing path and five under a one-thread diagnostic candidate. The
-executable protocol is frozen at SHA-256
-`faa71236ce1a77c0d371b2511af2ad3766e57a823c9dd792bee0d4252be438a2`.
-The first source array, Job `6915210`, completed all 15 elements and preserved
-30 arm records. Finalizer Job `6915245` failed closed before aggregation because
-the source producer did not retain three scheduler identities that it had
-already authenticated, while the finalizer required their nested copies. The
-source artifacts remain unchanged and non-admissible. The corrected contract
-retained the identity projection and reran all 30 solves from source commit
-`6404073`; no numerical setting or tolerance changed. All 15 source elements
-and the finalizer completed with exit code `0:0`. Arm A failed mesh identity
-and repeatability on all three layouts, while Arm B passed both on all three.
-The terminal admission therefore records
-`paired_latency_preflight_may_resume=false`. That result motivated the
-versioned one-thread FEM qualification described below. Complete Cps-label,
-training, accuracy, and latency regeneration is still required. Until that
-sequence closes, `C-LAT-001` remains
-blocked and no current speed value is permitted. Baseline, strict E(3), and
-ranking comparisons also require their own frozen protocols and jobs.
-
-The new reference is governed by
-[Decision 0002](../decisions/0002-deterministic-fem-reference.md). All three
-qualification stages are terminal and admitted. Gate A completed all 45 R3P16 solves
-with a maximum within-layout relative Cps spread of
-`1.1743017900469024e-14`. Gate B completed all nine R3P20 solves; the selected
-panel's domain delta had median `0.20585933141613427%` and maximum
-`1.0860887365856715%`. The Gate A and B arrays, their finalizers, and their two
-admission receipts retain the exact commit, protocol, scheduler, and resource
-records.
-
-Gate C source array `6923579` completed all 21 elements with exit code `0:0`;
-finalizer `6923586` and the postterminal admission also completed normally.
-The three R4 sentinels passed mesh identity and repeatability with maximum
-relative spreads between `9.6256205214e-15` and `1.7598308135e-14`. The
-nine-layout adjacent-mesh comparison returned median delta
-`8.004837428851205%` and maximum `13.929354258624992%`, exceeding the frozen 2%
-and 5% limits. The next transition is full one-thread R3 and R4 regeneration
-with separate fidelity identifiers, followed by retraining and new accuracy
-and latency protocols. No old model or speed value transfers to this version.
-
-The production submission is pinned to source commit `c01b97b`, which passed
-GitHub Actions run `32651670577` before submission. The controller first
-submitted the 198-element R4 array and its `afterany` finalizer, followed by
-the first 400-element R3 array and its finalizer. These 600 expanded scheduler
-elements remain below the frozen 950-element operating ceiling. The four job
-identifiers above are submission receipts only: no terminal state, numerical
-result, dataset coverage, or scientific claim may be inferred until `sacct`
-returns and the postterminal admissions pass.
+The frozen adjacent-mesh result remains negative, so the new package is still
+multi-fidelity rather than mesh-converged. Paired latency, baseline, strict
+E(3), and ranking results require their own FEM-v2 protocols and jobs after a
+new model is admitted. `C-LAT-001` remains blocked and no current speed value is
+permitted.

@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-23
+last_updated: 2026-08-29
 paper_source: false
 ---
 
@@ -587,7 +587,7 @@ first attempt.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `SUBMITTED; TERMINAL ACCOUNTING AND ADMISSION PENDING` |
+| Lifecycle | `SUBMISSION RECEIPT; CLOSED BY E-C4-FEM-V2-PROD-RUN-01 AND E-C4-FEM-V2-FINAL-01` |
 | Source and CI | Commit `c01b97bc90cbe3d1f2094e9441eb2e18219e4eb1`; GitHub Actions run `32651670577` passed before submission |
 | Protocol SHA-256 | `ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709` |
 | Plan SHA-256 | `5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20` |
@@ -596,14 +596,45 @@ first attempt.
 | Initial R3 wave | Source array `6963561`, canonical tasks 0 through 399 at concurrency eight; dependency-held finalizer `6963562` |
 | Resource requests | R4: one CPU, 160 GiB, three hours per element; R3: one CPU, 48 GiB, two hours per element; finalizers: two CPU, 16 GiB, 30 minutes |
 | Submission capacity | 600 expanded elements after the initial tick, below the frozen 950-element operating ceiling and 1,000-element QOS limit |
-| Control-plane observation | SLURM accepted the four submissions at 2026-08-24 00:08 UTC; immediately subsequent controller and accounting queries returned service-unavailable errors, so no terminal state is recorded here |
-| Scientific use | None while pending. Submission identifiers do not establish completed solves, accepted coverage, model accuracy, latency, speed, or physical accuracy |
+| Control-plane observation | SLURM accepted the four submissions at 2026-08-24 00:08 UTC; immediately subsequent controller and accounting queries returned service-unavailable errors. This row preserves that historical submission-time observation; terminal evidence is recorded below. |
+| Scientific use | None from submission alone. Completed coverage and dataset admission are supported only by the postterminal entries below. |
 
-The controller state is retained in the detached execution checkout. It must
-not be edited into a successful outcome. Once scheduler visibility returns,
-the source and finalizer components require exact `sacct` validation followed
-by solver-free postterminal admission. Later R3 waves remain closed until the
-preceding R3 admission is bound by canonical path and SHA-256.
+The controller subsequently recovered scheduler visibility and advanced only
+after each source/finalizer pair received solver-free postterminal admission.
+The submission receipt above remains unchanged evidence of the initial state;
+the entries below own the completed outcome.
+
+## E-C4-FEM-V2-PROD-RUN-01: Completed deterministic multi-fidelity production
+
+| Field | Value |
+|---|---|
+| Lifecycle | `EXECUTED; ALL WAVES FINALIZED; R3 AND R4 POSTTERMINAL POSITIVE` |
+| Source root | Commit `c01b97bc90cbe3d1f2094e9441eb2e18219e4eb1`; protocol SHA-256 `ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709`; plan SHA-256 `5193b000a9884fde364f3d0a05f84b5ad4c4c33bfaa477b6fa8f37db03277e20`; execution-lock SHA-256 `84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a` |
+| R3 scheduler chain | Sources/finalizers `6963561/6963562`, `7004761/7004762`, `7022705/7022706`, and `7057802/7057803`; exact 55-task pending-set retry `7064645/7064646` |
+| R3 cumulative coverage | Wave admissions closed at 400, 795, 1,195, 1,445, and 1,500 accepted tasks. The final state is 1,500 accepted, zero pending, and zero terminal-negative. |
+| R3 admission chain | SHA-256 `6697a76153e18aa3e485898b89dd526010eaff964a6baa7032aec480ff7b1362`, `fc306cb8307d8a63e0cad270fa87afb5b76b1eed4eae7440e258989a32907b88`, `b110a4e92da4ae1eeeef6d0ed832fad6c7d6e44a818946845a775b86a00560cb`, `bc3c5ee5fca5af9741a2c3ba34a66b9da833325933ddc33fe5ae1e5178403f08`, and final `98cb1dc5950584fa05e71ac162c231b3e68f8c17e76de9053260ddbcab50a2bb` |
+| R3 final evidence | [Final R3 admission](../../results/corpus_v4/cps_reference_v2/production/v1/waves/r3/wave_004/admission/source_set_5e6e28ff339fed5501c89e62caddad748c8d5137ecbf6f8599bbf5d7d528a1c1/finalizer_job_7064646/FINAL_ADMISSION.json), SHA-256 `98cb1dc5950584fa05e71ac162c231b3e68f8c17e76de9053260ddbcab50a2bb` |
+| R4 scheduler chain | Source array `6963559`; dependency-held finalizer `6963560` |
+| R4 coverage | 198 accepted, zero pending, and zero terminal-negative |
+| R4 final evidence | [Final R4 admission](../../results/corpus_v4/cps_reference_v2/production/v1/waves/r4/wave_000/admission/source_set_75ce1fe7bf7bd5b4ec5c77b9e691badcf54faf1543af93a6c85807fee38b6c17/finalizer_job_6963560/FINAL_ADMISSION.json), SHA-256 `b5a02396de010c7534d61c251f54e4f7a79335a0fa775663a29135a6092c9bc6` |
+| Recovery semantics | Five tasks in the second R3 wave and 50 tasks in the fourth planned wave were cancelled by infrastructure before an accepted terminal artifact. They remained pending, not terminal-negative, and were retried only through the exact admission-pinned 55-task set. No accepted task was replaced or resubmitted. |
+| Scientific use | Establishes complete task-level production coverage under the frozen one-thread contract. It does not by itself establish a joint dataset, model accuracy, mesh convergence, speed, or physical truth. |
+
+## E-C4-FEM-V2-FINAL-01: Admitted deterministic FEM-v2 dataset closure
+
+| Field | Value |
+|---|---|
+| Lifecycle | `FINALIZED; POSTTERMINAL DATASET ADMITTED` |
+| Dataset finalizer | Job `7084776`, `COMPLETED/0:0`, elapsed 15 s; requested 2 CPU and 16 GiB and was allocated 5 CPU and 16 GiB |
+| Coverage | 1,500 geometries; 1,500 `cps_fem_r3_p16_t1_v2` observations; 198 `cps_fem_r4_p16_t1_v2` observations; 1,698 total observations |
+| Dataset source set | SHA-256 `f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b` |
+| Long-form observations | [label_observations.jsonl](../../results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/label_observations.jsonl), SHA-256 `83a771bf318c0660731c6e5d1e5e91a6b15642e178b8172b2b46dedb656a1784` |
+| Finalizer artifacts | [Summary](../../results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/summary.json), SHA-256 `07ba65109c30469df417c349ce6a25b15d7743c7d14ade3cd858e31ed58a2c43`; [final manifest](../../results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_MANIFEST.json), SHA-256 `6ff8d39ecc45fd2bbea9271235f221a7b18006389a45cbbda4b4f2adf450e57e` |
+| Final admission | [FINAL_ADMISSION.json](../../results/corpus_v4/cps_reference_v2/production/v1/dataset/admission/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_ADMISSION.json), SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
+| Tracked closure | [Archive README](../../results/corpus_v4/cps_reference_v2/production/v1/README.md); [archive manifest](../../results/corpus_v4/cps_reference_v2/production/v1/ARCHIVE_MANIFEST.json), SHA-256 `89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc`; clean-clone verifier `code/quality/verify_corpus_v4_fem_v2_production_archive.py --require-git-tracked` |
+| Admission decision | `dataset_generation_admitted=true`; `accuracy_protocol_may_be_frozen=true`; `training_may_start=false`; `claim_eligible=false`; `speed_claim_eligible=false`; admission executed no solver |
+| Supported lifecycle statement | `C-CPS-V2-FINAL-001` |
+| Scientific use | Admits deterministic one-thread dataset generation and authorizes freezing a new accuracy protocol. It does not transfer `C-ACC-001`, authorize training, establish surrogate accuracy or speed, or promote either fidelity to mesh-converged or physical truth. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

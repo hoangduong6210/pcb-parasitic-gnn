@@ -24,7 +24,8 @@ source identity, and a closed artifact-hash manifest. Those inherited
 capacitance observations are not the active `FEM-R3P16`/`FEM-R4P16`
 multi-fidelity corpus.
 
-Capacitance now follows an explicit multi-fidelity contract:
+The archived 25-thread capacitance package follows this explicit multi-fidelity
+contract:
 
 | Fidelity | Numerical setting | Current role |
 |---|---|---|
@@ -55,13 +56,42 @@ identity, environment, and artifact hash. Missing higher-fidelity observations
 remain missing; loaders may not silently substitute a lower fidelity. See the
 canonical [corpus and target contract](../wiki/datasets/Corpus-and-Target-Contract.md).
 
+## Deterministic one-thread FEM-v2 dataset
+
+`D-C4-FEM-D1-v2` is a separate numerical-target version on the unchanged
+1,500-layout geometry root. It contains 1,500
+`cps_fem_r3_p16_t1_v2` observations and the frozen 198-layout
+`cps_fem_r4_p16_t1_v2` panel, for 1,698 long-form observations. Every source
+task used one Gmsh thread. The joint finalizer and its solver-free
+postterminal admission completed without pending or terminal-negative tasks.
+
+The canonical closure is under
+[`results/corpus_v4/cps_reference_v2/production/v1/`](../results/corpus_v4/cps_reference_v2/production/v1/README.md).
+Its dataset source-set SHA-256 is
+`f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b`.
+The final admission has SHA-256
+`b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed`;
+the long-form observation table has SHA-256
+`83a771bf318c0660731c6e5d1e5e91a6b15642e178b8172b2b46dedb656a1784`.
+The tracked archive manifest has SHA-256
+`89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc`.
+
+This receipt admits dataset generation and sets
+`accuracy_protocol_may_be_frozen=true`. It also retains
+`training_may_start=false`, `claim_eligible=false`, and
+`speed_claim_eligible=false`. The archived accuracy result above is not a model
+evaluation of these one-thread observations. A new accuracy protocol, plan, and
+execution lock must be frozen and admitted before training begins.
+
 The scope remains deliberately narrow: co-directed, series-connected active
 legs of planar windings. Return conductors, vias, terminals, core windows, and
 complete routed loops are excluded and must not be inferred from the data.
 
 Execution identifiers and immutable corpus hashes are recorded separately in
 the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
-The tracked closure package and its clean-clone verification commands are in
+The archived 25-thread closure package and its clean-clone verification commands are in
 [`results/corpus_v4/cps_multifidelity/`](../results/corpus_v4/cps_multifidelity/README.md).
+The deterministic one-thread production evidence is kept in the distinct
+`cps_reference_v2/production/v1` namespace above.
 The complete dataset version boundary, including the proposed vendor geometry
 track, is maintained in the [Dataset Registry](../wiki/datasets/Dataset-Registry.md).

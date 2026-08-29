@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-08-23
+last_updated: 2026-08-29
 paper_source: false
 ---
 
@@ -90,8 +90,9 @@ paper_source: false
 | `C-FEM-001`, `C-FEM-002`, `C-FEM-003` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted method, positive domain result, and negative mesh result |
 | `C-CPS-DISC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted deterministic selected-registry fidelity discrepancy |
 | `C-E3-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted encoded-graph implementation property |
-| `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Finalized explicit-fidelity artifact lifecycle |
-| `C-ACC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed current-corpus accuracy claim |
+| `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Finalized archived 25-thread explicit-fidelity artifact lifecycle |
+| `C-CPS-V2-FINAL-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Finalized deterministic one-thread dataset lifecycle; no model claim |
+| `C-ACC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed pre-FEM-v2 accuracy claim, bound to the archived 25-thread package |
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked current-corpus latency claim |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 
@@ -114,6 +115,7 @@ paper_source: false
 | `E-C4-SUBMIT-00`, `E-C4-SUBMIT-01`, `E-C4-RUN-01`, `E-C4-FINAL-01`, `E-C4-OPS-02`, `E-C4-OPS-03`, `E-C4-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-DISC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-FEM-V2-GATE-A-01`, `E-C4-FEM-V2-GATE-B-01`, `E-C4-FEM-V2-GATE-C-01`, `E-C4-FEM-V2-PROD-SUBMIT-01`, `E-C4-FEM-V2-PROD-RUN-01`, `E-C4-FEM-V2-FINAL-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-C4-FEM-D1-v2`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |

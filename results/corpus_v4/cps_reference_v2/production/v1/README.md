@@ -84,3 +84,13 @@ python3 code/quality/verify_corpus_v4_fem_v2_production_archive.py \
 It verifies the frozen protocol, plan, execution lock, all wave packages, the
 dataset receipt, exact R3/R4 membership, every accepted task-result hash, and
 the absence of unindexed files inside the tracked closure.
+
+## Public provenance boundary
+
+Accepted results preserve scheduler-generated account, numeric user/group,
+node, job, and absolute execution-path fields because those bytes are part of
+the admitted artifact hashes. They contain no access token, password, private
+key, or redistributed solver binary. This machine provenance is public research
+evidence under `results/`; it is excluded from paper packages and every wiki
+page marked `paper_source: true`. Altering or redacting those JSON files in
+place would invalidate the final accepted-set and observation-table chain.

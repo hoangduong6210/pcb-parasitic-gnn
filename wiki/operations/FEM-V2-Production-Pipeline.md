@@ -1,7 +1,7 @@
 ---
 title: FEM V2 Production Pipeline
-status: active execution contract
-last_updated: 2026-08-23
+status: completed dataset-generation contract
+last_updated: 2026-08-29
 paper_source: false
 ---
 
@@ -104,6 +104,13 @@ It submits only the canonical wrappers whose bytes are named in the execution
 lock, writes only the canonical controller-status path, and exports an explicit
 environment list instead of inheriting the login shell.
 
+The completed execution used R3 source/finalizer pairs
+`6963561/6963562`, `7004761/7004762`, `7022705/7022706`, and
+`7057802/7057803`, followed by the admission-pinned pending-set retry
+`7064645/7064646`. R4 used source/finalizer `6963559/6963560`.
+Postterminal admission closed R3 at 1,500 accepted and R4 at 198 accepted, with
+zero pending and zero terminal-negative tasks in both final states.
+
 ## Failure and retry rules
 
 An infrastructure or nonterminal failure may be retried only for the same
@@ -127,8 +134,8 @@ finalizer output is not an admission.
 
 ## When training may begin
 
-Dataset generation remains open until a joint dataset admission proves all of the
-following:
+Dataset generation remained open until a joint dataset admission proved all of
+the following:
 
 1. R3 has exactly 1,500 accepted terminal tasks and no pending task.
 2. R4 has exactly the frozen 198 accepted terminal tasks and no pending task.
@@ -139,18 +146,28 @@ following:
 5. A solver-free postterminal admission verifies the finalizer itself as
    `COMPLETED/0:0` and replays the full hash closure.
 
-That final receipt sets `accuracy_protocol_may_be_frozen=true` while retaining
-`training_may_start=false`. It authorizes creation of a new training protocol,
-plan, and execution lock; only their own admission may open model training. It does not
-transfer old accuracy, latency, or speed claims. Those require fresh model
-training and evaluation jobs under their own frozen contracts.
+All five conditions are now satisfied. Dataset finalizer `7084776` completed
+`0:0` and produced 1,698 observations under dataset source-set SHA-256
+`f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b`.
+The solver-free postterminal admission has SHA-256
+`b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed`.
 
-## Expected cost
+That final receipt sets `dataset_generation_admitted=true` and
+`accuracy_protocol_may_be_frozen=true` while retaining
+`training_may_start=false`, `claim_eligible=false`, and
+`speed_claim_eligible=false`. It authorizes creation of a new accuracy
+protocol, plan, and execution lock; only their own admission may open model
+training. It does not transfer the archived 25-thread accuracy, latency, or
+speed claims. Those require fresh model training and evaluation jobs under
+their own frozen contracts.
+
+## Frozen planning cost
 
 Qualification timing projects about 27.3 active hours for R3 at concurrency
 eight and 94.1 active hours for R4 at concurrency two. The R4 path is therefore
 the critical path at roughly four days before queueing and retries. These are
-planning values, not claims about a completed bulk run.
+planning values retained from before execution, not measured summaries of the
+completed bulk run.
 
 See [SLURM Resource Plan](SLURM-Resource-Plan.md) for requested resources and
 [Live Execution](../status/Live-Execution.md) for the current scheduler state.
