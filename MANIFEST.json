@@ -3058,8 +3058,8 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v2/README.md",
-      "bytes": 3244,
-      "sha256": "f6a4e94cc36a682d98fc93cb1387e0e6db2803e5037a07e79d245008d29e4fda"
+      "bytes": 3391,
+      "sha256": "05c12d3f1243cf3c169eb3070ae651c8449f89935354ef14ea14b3cafda0a6d5"
     },
     {
       "path": "results/corpus_v4/accuracy_v2/plan/v1/evaluation_dataset.jsonl",
@@ -23333,8 +23333,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 8948,
-      "sha256": "181c7262fa121cbf34c44547e46f14648c37c004b81196e1c4cf19db00e987f1"
+      "bytes": 9032,
+      "sha256": "9e260208e913affb7932b17e631250b2a7d8ecee3daa7c7265b29ab2bbd2c031"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -23398,8 +23398,8 @@
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
-      "bytes": 56950,
-      "sha256": "f3b9d11f95c7679e295ff02ec85c138b860e69049eb49e828ce4140ffd2ded7e"
+      "bytes": 58721,
+      "sha256": "ccc42879274edd80dc009f5526831a9d208b3a947bfd47b54da3ab3a4c9c5d03"
     },
     {
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
@@ -23513,8 +23513,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 5442,
-      "sha256": "e3e496c7d3292539cbb21580c242ed221536919a8d390518870720a219cf81ad"
+      "bytes": 5510,
+      "sha256": "8bba24d0a0578d2f55ae69eccb691db3a83bab4d59dd64d5159726389827a54e"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -23523,5 +23523,5 @@
     }
   ],
   "n_files": 4701,
-  "total_bytes": 138458534
+  "total_bytes": 138460604
 }

@@ -636,6 +636,23 @@ the entries below own the completed outcome.
 | Supported lifecycle statement | `C-CPS-V2-FINAL-001` |
 | Scientific use | Admits deterministic one-thread dataset generation and authorizes freezing a new accuracy protocol. It does not transfer `C-ACC-001`, authorize training, establish surrogate accuracy or speed, or promote either fidelity to mesh-converged or physical truth. |
 
+## E-C4-FEM-V2-ACC-PREFLIGHT-01: Frozen checkpoint execution and submission
+
+| Field | Value |
+|---|---|
+| Lifecycle | `PROTOCOL FROZEN; CHECKPOINT ARRAY RUNNING; NO MODEL RESULT` |
+| Source commit | `5a1026985a06e8a120b52e28e4cbc6d17d939c0f` |
+| Protocol | [`corpus_v4_accuracy_v2.json`](../../protocols/corpus_v4_accuracy_v2.json), SHA-256 `938f804d7bb754528c9b7665a815a10b076cb662038738c67cd81d338daf89cc` |
+| Deterministic plan | [`plan.json`](../../results/corpus_v4/accuracy_v2/plan/v1/plan.json), SHA-256 `960924bc10ca7e0199dcecb3a2e359624e1895288f0ef45f96f7848e4a82cb49`; task-manifest SHA-256 `e896864c8ced584c3ab526cdffabf99f916734ef7a5fb4a923c706dfb15e076c` |
+| Evaluation join | 1,500 rows, SHA-256 `58bbf1e2846696d904c99e7bd998566ea1033c89ea2cba23a535f5f8d0d58a2e` |
+| Execution lock | [`corpus_v4_accuracy_execution_lock_v2.json`](../../protocols/corpus_v4_accuracy_execution_lock_v2.json), SHA-256 `5e60a112ca077f7a32090a625ab99ea6ab8b8ab769eabee52db5043e03494535` |
+| Training design | Five frozen family splits crossed with five initialization seeds; 25 checkpoint-only tasks; fixed 200 epochs; concurrency five |
+| Resource request | Account `pgs0407`, partition `nextgen`, 8 CPU, 48 GiB, and four hours per array element |
+| Scheduler identity | Array `7085613`; tasks 0 through 24 |
+| Submission note | The first request omitted the mandatory account and was rejected before a job identity was created. The corrected request supplied `-A pgs0407`. |
+| Leakage boundary | Training tasks emit checkpoints and validation diagnostics only. Held-out and R4 inference remain closed until an accepted set authenticates all 25 checkpoints. |
+| Claim use | None. Submission and running state do not establish accuracy, physical validity, latency, or speed. |
+
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 
 `code/data/audit_legacy_v2_geometry.py` implements the legacy integrity audit,

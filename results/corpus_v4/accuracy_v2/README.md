@@ -14,6 +14,8 @@ The protocol, deterministic plan, task manifest, executable source, and
 admitted FEM-v2 dataset are frozen by the reviewed execution lock. That lock
 admits checkpoint-only SLURM training. It does not admit held-out inference, a
 model result, or a speed claim. No accuracy-v2 training result is present yet.
+The checkpoint array is currently running under scheduler identity `7085613`;
+submission alone is not evidence of completion or model performance.
 
 | Frozen root | SHA-256 |
 |---|---|
