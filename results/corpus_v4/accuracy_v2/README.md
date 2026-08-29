@@ -8,14 +8,20 @@ The archive under [`../accuracy/`](../accuracy/) remains bound to the earlier
 25-thread capacitance package and claim `C-ACC-001`. Its numerical values do not
 transfer to this namespace.
 
-## Current lifecycle state
+## Closed lifecycle state
 
 The protocol, deterministic plan, task manifest, executable source, and
-admitted FEM-v2 dataset are frozen by the reviewed execution lock. That lock
-admits checkpoint-only SLURM training. It does not admit held-out inference, a
-model result, or a speed claim. No accuracy-v2 training result is present yet.
-The checkpoint array is currently running under scheduler identity `7085613`;
-submission alone is not evidence of completion or model performance.
+admitted FEM-v2 dataset were frozen by the v2 execution lock. Array `7085613`
+completed all 25 fixed-epoch checkpoint tasks. The run is retained as diagnostic
+execution evidence and is not an admitted model result.
+
+The v2 process loaded the complete joined evaluation artifact before selecting
+training and validation membership. Its optimizer used the declared training
+partition, and no held-out predictions or finalizer were run, but the process
+boundary did not prevent pre-acceptance access to test and R4 bytes. The v2
+checkpoint set is therefore closed with `claim_eligible=false` and may not be
+resumed, finalized, or reused by a successor protocol. The compact diagnostic
+closure is in [`diagnostics/job_7085613/`](diagnostics/job_7085613/).
 
 | Frozen root | SHA-256 |
 |---|---|
@@ -57,16 +63,15 @@ inductance passivity diagnostic
 A prediction that violates this relation remains in the metrics. The diagnostic
 is not a checkpoint acceptance rule.
 
-## Planned artifact lifecycle
+## Successor boundary
 
-1. Freeze `plan/v1/evaluation_dataset.jsonl`, `task_manifest.jsonl`, and
-   `plan.json`.
-2. Freeze the source and execution lock.
-3. Run checkpoint-only training through SLURM.
-4. Build candidate, accepted, and pending sets from terminal task records.
-5. Run held-out inference in a separate SLURM finalizer.
-6. Close `ARCHIVE_MANIFEST.json` with the offline archive verifier.
-7. Review the evidence before adding any claim to the wiki or a manuscript.
+Protocol v3 uses one split-scoped training artifact per split and executes each
+training task in a filesystem sandbox. The sandbox exposes only source code,
+the selected training-plus-validation artifact, immutable control files, and
+the task output directory. The joined test/R4 artifact is not mounted. V3 has
+its own plan, lock, result root, checkpoints, accepted set, finalizer, and
+archive; no v2 payload is an input.
 
-The canonical scientific protocol is
-[`wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md`](../../../wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md).
+The revision index is
+[`wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md`](../../../wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md),
+and the active evidence namespace is [`../accuracy_v3/`](../accuracy_v3/).

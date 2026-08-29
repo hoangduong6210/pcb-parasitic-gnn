@@ -1,0 +1,47 @@
+{
+  "artifact_index": {
+    "path": "results/corpus_v4/accuracy_v2/diagnostics/job_7085613/artifact_index.json",
+    "sha256": "d304df734840079976b67724cc2b58d4c86299da138e4d2b83074b89d41f8b58"
+  },
+  "bindings": {
+    "evaluation_dataset_sha256": "58bbf1e2846696d904c99e7bd998566ea1033c89ea2cba23a535f5f8d0d58a2e",
+    "execution_lock_sha256": "5e60a112ca077f7a32090a625ab99ea6ab8b8ab769eabee52db5043e03494535",
+    "plan_sha256": "960924bc10ca7e0199dcecb3a2e359624e1895288f0ef45f96f7848e4a82cb49",
+    "protocol_sha256": "938f804d7bb754528c9b7665a815a10b076cb662038738c67cd81d338daf89cc",
+    "source_git_head": "5a1026985a06e8a120b52e28e4cbc6d17d939c0f",
+    "task_manifest_sha256": "e896864c8ced584c3ab526cdffabf99f916734ef7a5fb4a923c706dfb15e076c"
+  },
+  "decision": {
+    "additional_training_may_start": false,
+    "archive_finalizer_may_start": false,
+    "checkpoint_execution_complete": true,
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "model_result_eligible": false,
+    "reusable_by_successor_protocol": false,
+    "scientific_result_eligible": false,
+    "speed_claim_eligible": false
+  },
+  "evidence_scope": {
+    "artifact_manifest_closure_validated": true,
+    "checkpoint_tasks": 25,
+    "full_r3_layouts_materialized_before_training": 1500,
+    "full_r4_layouts_materialized_before_training": 198,
+    "held_out_inference_performed": false,
+    "preacceptance_heldout_bytes_materialized": true,
+    "r4_inference_performed": false,
+    "split_scoped_byte_access_enforced": false,
+    "task_reported_integrity_passed": true,
+    "task_test_predictions_emitted": false,
+    "terminal_completed_zero_exit_tasks": 25,
+    "training_epochs_per_task": 200,
+    "validation_role": "diagnostic only; fixed final epoch"
+  },
+  "reason": "Terminal diagnostic closure of the v2 checkpoint-only execution. No held-out inference or finalizer ran, but the process materialized the full R3 and R4 inputs before training, so the byte-access boundary was not enforced and no scientific model result is admitted.",
+  "schema": "pcb-gnn.corpus-v4-accuracy-v2-diagnostic-closure.v1",
+  "source_array_job_id": "7085613",
+  "terminal_accounting": {
+    "path": "results/corpus_v4/accuracy_v2/diagnostics/job_7085613/terminal_accounting.json",
+    "sha256": "09433bb8cf6be7848c06faf7eb679267b13ca936faab0cc78d1d4da35e610f37"
+  }
+}

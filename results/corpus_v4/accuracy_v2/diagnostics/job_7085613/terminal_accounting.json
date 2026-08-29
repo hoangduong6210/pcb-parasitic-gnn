@@ -1,0 +1,275 @@
+{
+  "array_job_id": "7085613",
+  "counts": {
+    "completed_zero_exit": 25,
+    "expected_tasks": 25,
+    "records": 25
+  },
+  "query_contract": {
+    "fields": [
+      "JobID",
+      "JobIDRaw",
+      "State",
+      "ExitCode",
+      "ElapsedRaw",
+      "ReqTRES",
+      "AllocTRES"
+    ],
+    "logical_array_records_only": true,
+    "terminal_state_required": "COMPLETED",
+    "zero_exit_required": "0:0"
+  },
+  "records": [
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 752,
+      "exit_code": "0:0",
+      "job_id_raw": "7085614",
+      "logical_job_id": "7085613_0",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 0
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 660,
+      "exit_code": "0:0",
+      "job_id_raw": "7085615",
+      "logical_job_id": "7085613_1",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 1
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 774,
+      "exit_code": "0:0",
+      "job_id_raw": "7085616",
+      "logical_job_id": "7085613_2",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 2
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 671,
+      "exit_code": "0:0",
+      "job_id_raw": "7085617",
+      "logical_job_id": "7085613_3",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 3
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 709,
+      "exit_code": "0:0",
+      "job_id_raw": "7085618",
+      "logical_job_id": "7085613_4",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 4
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 569,
+      "exit_code": "0:0",
+      "job_id_raw": "7085628",
+      "logical_job_id": "7085613_5",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 5
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 735,
+      "exit_code": "0:0",
+      "job_id_raw": "7085629",
+      "logical_job_id": "7085613_6",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 6
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 533,
+      "exit_code": "0:0",
+      "job_id_raw": "7085631",
+      "logical_job_id": "7085613_7",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 7
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 760,
+      "exit_code": "0:0",
+      "job_id_raw": "7085632",
+      "logical_job_id": "7085613_8",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 8
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 759,
+      "exit_code": "0:0",
+      "job_id_raw": "7085634",
+      "logical_job_id": "7085613_9",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 9
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 544,
+      "exit_code": "0:0",
+      "job_id_raw": "7085638",
+      "logical_job_id": "7085613_10",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 10
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 686,
+      "exit_code": "0:0",
+      "job_id_raw": "7085639",
+      "logical_job_id": "7085613_11",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 11
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 556,
+      "exit_code": "0:0",
+      "job_id_raw": "7085641",
+      "logical_job_id": "7085613_12",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 12
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 710,
+      "exit_code": "0:0",
+      "job_id_raw": "7085644",
+      "logical_job_id": "7085613_13",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 13
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 521,
+      "exit_code": "0:0",
+      "job_id_raw": "7085645",
+      "logical_job_id": "7085613_14",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 14
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 676,
+      "exit_code": "0:0",
+      "job_id_raw": "7085654",
+      "logical_job_id": "7085613_15",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 15
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 525,
+      "exit_code": "0:0",
+      "job_id_raw": "7085656",
+      "logical_job_id": "7085613_16",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 16
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 527,
+      "exit_code": "0:0",
+      "job_id_raw": "7085657",
+      "logical_job_id": "7085613_17",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 17
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 536,
+      "exit_code": "0:0",
+      "job_id_raw": "7085664",
+      "logical_job_id": "7085613_18",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 18
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 721,
+      "exit_code": "0:0",
+      "job_id_raw": "7085674",
+      "logical_job_id": "7085613_19",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 19
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 822,
+      "exit_code": "0:0",
+      "job_id_raw": "7085676",
+      "logical_job_id": "7085613_20",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 20
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 680,
+      "exit_code": "0:0",
+      "job_id_raw": "7085677",
+      "logical_job_id": "7085613_21",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 21
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 793,
+      "exit_code": "0:0",
+      "job_id_raw": "7085679",
+      "logical_job_id": "7085613_22",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 22
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 665,
+      "exit_code": "0:0",
+      "job_id_raw": "7085681",
+      "logical_job_id": "7085613_23",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 23
+    },
+    {
+      "alloc_tres": "billing=13,cpu=13,mem=48G,node=1",
+      "elapsed_raw_s": 500,
+      "exit_code": "0:0",
+      "job_id_raw": "7085613",
+      "logical_job_id": "7085613_24",
+      "req_tres": "billing=8,cpu=8,mem=48G,node=1",
+      "state": "COMPLETED",
+      "task_id": 24
+    }
+  ],
+  "schema": "pcb-gnn.corpus-v4-accuracy-v2-diagnostic-terminal-accounting.v1"
+}
