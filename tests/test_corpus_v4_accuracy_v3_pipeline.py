@@ -30,6 +30,10 @@ import run_corpus_v4_accuracy_task_v3 as runner  # noqa: E402
 
 R2_LOCK_PATH = ROOT / "protocols/corpus_v4_accuracy_execution_lock_v3r2.json"
 R2_LOCK_SHA256 = "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
+R2_PROBE_ROOT = (
+    ROOT / "results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033"
+)
+R2_PROBE_SHA256 = "dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9"
 
 
 def _materialize(artifacts: dict[str, bytes], directory: Path) -> None:
@@ -127,6 +131,38 @@ def test_checked_in_r2_execution_lock_is_exact() -> None:
     assert lock["source_sha256"][script_path.relative_to(ROOT).as_posix()] == (
         contract.sha256_file(script_path)
     )
+
+
+def test_r2_sandbox_probe_admission_is_cross_bound() -> None:
+    receipt_path = R2_PROBE_ROOT / "task_00.json"
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    admission = json.loads(
+        (R2_PROBE_ROOT / "PREFLIGHT_ADMISSION.json").read_text(encoding="utf-8")
+    )
+
+    assert contract.sha256_file(receipt_path) == R2_PROBE_SHA256
+    assert admission["bindings"]["probe_receipt_sha256"] == R2_PROBE_SHA256
+    assert admission["bindings"]["execution_lock_sha256"] == R2_LOCK_SHA256
+    for key in ("protocol_sha256", "plan_sha256", "task_manifest_sha256"):
+        assert admission["bindings"][key] == receipt["bindings"][key]
+    assert admission["decision"] == {
+        "checkpoint_training_may_start": True,
+        "claim_eligible": False,
+        "held_out_inference_may_start": False,
+        "preflight_passed": True,
+        "speed_claim_eligible": False,
+    }
+    assert receipt["decision"] == {
+        "heldout_bytes_opened": False,
+        "sandbox_boundary_passed": True,
+        "training_started": False,
+    }
+    scheduler = receipt["provenance"]["scheduler"]
+    terminal = admission["terminal_accounting"]
+    assert terminal["JobIDRaw"] == scheduler["array_job_id"] == "7087033"
+    assert terminal["JobID"] == f"{terminal['JobIDRaw']}_0"
+    assert terminal["State"] == "COMPLETED"
+    assert terminal["ExitCode"] == "0:0"
 
 
 def test_protocol_rejects_type_coercion_in_frozen_fields(tmp_path: Path) -> None:

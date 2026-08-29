@@ -1,0 +1,37 @@
+{
+  "bindings": {
+    "execution_lock_sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c",
+    "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "probe_receipt_path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/task_00.json",
+    "probe_receipt_sha256": "dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9",
+    "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "source_git_head": "c0ffca0d0637e8fbba81c126c3f56f8316003a9a",
+    "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+  },
+  "decision": {
+    "checkpoint_training_may_start": true,
+    "claim_eligible": false,
+    "held_out_inference_may_start": false,
+    "preflight_passed": true,
+    "speed_claim_eligible": false
+  },
+  "probe_observation": {
+    "graph_count": 1209,
+    "heldout_bytes_opened": false,
+    "hidden_training_artifact_count": 4,
+    "sandbox_boundary_passed": true,
+    "selected_training_artifact": "training_split_40.jsonl",
+    "training_started": false
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-sandbox-preflight-admission.v3",
+  "terminal_accounting": {
+    "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+    "ElapsedRaw": "20",
+    "ExitCode": "0:0",
+    "JobID": "7087033_0",
+    "JobIDRaw": "7087033",
+    "MaxRSS": "",
+    "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+    "State": "COMPLETED"
+  }
+}
