@@ -1,7 +1,7 @@
 ---
 title: Full Paper Source Outline
 status: canonical manuscript map
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -19,7 +19,7 @@ content. It is not a draft response to reviewers.
 | Capacitance reference | FEM Cps Reference, FEM R3/R4 Convergence, and Cps R3/R4 Production Discrepancy | Negative mesh result and selected-registry discrepancy retained |
 | Dataset and splits | Dataset Registry and Geometry Family Splits | Multi-fidelity finalizer complete |
 | GNN and strict E(3) model | Graph Surrogate and Strict E3 and EGNN | Separate property from accuracy effect |
-| Accuracy experiments | Corpus V4 Family-Held-Out Accuracy; future FEM-v2 accuracy-v3 result page | The archived result stays version-scoped; FEM-v2 values require v3 accepted-set, finalizer, archive, and claim admission |
+| Accuracy experiments | Corpus V4 Family-Held-Out Accuracy; Corpus V4 FEM-v2 Accuracy | Keep the pre-FEM-v2 `C-ACC-001` and FEM-v2 `C-ACC-FEMV2-001` results version-scoped; use only the result page and claim ID matching the stated target package |
 | Runtime experiments | Runtime Benchmark and future result page | Same model, target scope, and paired boundary |
 | Commercial geometry | Vendor Geometry Track | Only after its own admission gates pass |
 | Limitations and conclusion | Limitations and Claim Registry | No extension beyond admitted scope |

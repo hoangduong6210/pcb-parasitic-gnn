@@ -1,7 +1,7 @@
 ---
 title: SLURM Submission Playbook
 status: active operational runbook
-last_updated: 2026-08-21
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -1157,8 +1157,13 @@ For this execution, round 01 accepted-set SHA-256 is
 `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe`.
 The generated finalizer lock SHA-256 is
 `cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3`.
-These values permit provenance review and a later clean-checkout submission;
-they do not admit a result or claim.
+Finalizer job `7102842` ran from clean source commit
+`cdd3a7555377360208e1c582b6e94aca8fbfdd60` and reached `COMPLETED/0:0` in
+61 s. Its archive manifest binds 31 analysis files and passed the clean-tracked
+verification command recorded in the
+[v3 evidence README](../../results/corpus_v4/accuracy_v3/README.md#clean-clone-verification).
+Scientific review then admitted `C-ACC-FEMV2-001` only. Latency, speed, mesh
+convergence, and physical-validation claims remain closed.
 
 ## 16. Submit the Corpus V4 paired-latency study
 

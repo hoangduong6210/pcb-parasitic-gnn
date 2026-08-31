@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -692,8 +692,31 @@ the entries below own the completed outcome.
 | R2 preflight | Job `7087033`, logical component `7087033_0`, `COMPLETED/0:0`, elapsed 20 s; loaded 1,209 graphs from `training_split_40.jsonl`, observed four hidden split artifacts, and did not start training |
 | Passing receipt | [`task_00.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/task_00.json), SHA-256 `dce1aa2f28a54ab04912f92729ed63942fcf35348bc1ff4a7fa790335796c0a9` |
 | Preflight admission | [`PREFLIGHT_ADMISSION.json`](../../results/corpus_v4/accuracy_v3/sandbox_probes/job_7087033/PREFLIGHT_ADMISSION.json), SHA-256 `9e131158e14ec1e4bf41fc20e2326f11b27e8b8bffe283025427975daca52773`; `checkpoint_training_may_start=true`; all held-out, claim, and speed gates remain false |
-| Checkpoint submission | Array `7087054`; 25 tasks with concurrency 5; source and lock are the active roots above; postterminal acceptance remains pending |
-| Claim use | None. Training, held-out finalization, model claims, and speed claims are not yet admitted. |
+| Checkpoint submission | Array `7087054`; 25 tasks with concurrency 5; the later acceptance, finalization, and archive outcome is owned by `E-C4-FEM-V2-ACC-V3-01` |
+| Claim use | Preflight provenance only. The admitted model result is governed by `E-C4-FEM-V2-ACC-V3-01`; speed claims remain closed. |
+
+## E-C4-FEM-V2-ACC-V3-01: Finalized family-crossed FEM-v2 accuracy
+
+| Field | Value |
+|---|---|
+| Lifecycle | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` |
+| Training source | `c0ffca0d0637e8fbba81c126c3f56f8316003a9a` under execution lock r2, SHA-256 `8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c` |
+| Checkpoint execution | Array `7087054`; 25 of 25 logical components `COMPLETED/0:0`; elapsed 464 to 755 s; five-way concurrency |
+| Accepted set | [`accepted_artifact_set.json`](../../results/corpus_v4/accuracy_v3/resume/round_01/accepted_artifact_set.json), SHA-256 `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe`; 25 accepted, zero pending, zero rejected |
+| Preserved negative admission | Round 00 recorded 25 `SCHEDULER_NOT_COMPLETED` dispositions when its process could not reach `slurmdbd`; the candidate index SHA-256 `e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a` is identical in rounds 00 and 01; no checkpoint was rerun |
+| Finalizer source | `cdd3a7555377360208e1c582b6e94aca8fbfdd60` under finalizer lock v1, SHA-256 `cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3` |
+| Finalizer execution | Job `7102842`, `COMPLETED/0:0`, elapsed 61 s; requested 2 CPU and 16 GiB; allocated 5 CPU and 16 GiB; scientific thread cap 2 |
+| Analysis manifest | [`ANALYSIS_MANIFEST.json`](../../results/corpus_v4/accuracy_v3/final/job_7102842/ANALYSIS_MANIFEST.json), SHA-256 `4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc` |
+| Summary | [`summary.json`](../../results/corpus_v4/accuracy_v3/final/job_7102842/summary.json), SHA-256 `e48fa58aa48304353cc471e33f5a3e3559fa0628728eb938098dae089c05eb3b` |
+| Metric matrices | [`matrices.json`](../../results/corpus_v4/accuracy_v3/final/job_7102842/matrices.json); primary values are `views.r3_full_test.<target>.family_macro_mape_pct.mean_across_25_cells`; intervals are the paired `descriptive_interval` fields |
+| Task metrics | [`task_metrics.json`](../../results/corpus_v4/accuracy_v3/final/job_7102842/task_metrics.json); 25 task-level metric records and passivity diagnostics |
+| Prediction coverage | 25 prediction tables; 7,350 full-test layout-model rows; five R4 panels of 39 layouts per split and initialization seed |
+| Archive | [`ARCHIVE_MANIFEST.json`](../../results/corpus_v4/accuracy_v3/ARCHIVE_MANIFEST.json), SHA-256 `a741b0ff1002f11b5ac5eef466baff81137da1245a8ea6e609b2a608279e8f06`; schema `pcb-gnn.corpus-v4-accuracy-archive.v4`; 31 analysis files verified |
+| Clean-clone closure | `verify_corpus_v4_accuracy_archive_v3.py --check --require-git-tracked` passed at archive commit `54c3ae0`; verification uses the stored terminal receipt and does not require live scheduler accounting |
+| Scientific result | Mean family-macro MAPE across the complete 5 by 5 grid: 12.550% for `Cps_pF`, 4.173% for `L_pri_nH`, 3.964% for `L_sec_nH`, and 3.413% for `L_mut_nH` |
+| Scope | Family-held-out agreement with one-thread FEM-v2 R3P16 capacitance and FastHenry inductance references on synthetic active-leg geometries; R4 is a higher-resolution comparator, not truth |
+| Supported claim | `C-ACC-FEMV2-001` |
+| Excluded claims | No current latency or speed result, mesh convergence, fabricated-board accuracy, manufacturing robustness, or arbitrary-PCB generalization |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

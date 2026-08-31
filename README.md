@@ -13,15 +13,16 @@ of PCB winding active-leg abstractions. The repository now has a finalized
 1,500-layout geometry-valid corpus under one contract shared by graph
 construction, FastHenry, and electrostatic FEM. The earlier admitted accuracy
 baseline remains bound to its archived 25-thread capacitance package. A separate
-deterministic one-thread FEM-v2 package has now been admitted at the dataset
-generation boundary with 1,500 `cps_fem_r3_p16_t1_v2` observations and 198
-`cps_fem_r4_p16_t1_v2` observations. That admission authorizes freezing a new
-accuracy protocol. Its first 25-task checkpoint grid is retained as diagnostic
-execution evidence because the process could read held-out bytes before
-checkpoint acceptance. No held-out inference or metric was admitted. Protocol
-v3 now freezes split-scoped training inputs and a filesystem sandbox. Its
-compute-node preflight must pass before checkpoint training begins. Neither
-revision transfers the earlier model result or establishes a new claim.
+deterministic one-thread FEM-v2 package has 1,500
+`cps_fem_r3_p16_t1_v2` observations and 198
+`cps_fem_r4_p16_t1_v2` observations. Accuracy protocol v2 is retained only as
+diagnostic execution evidence. Protocol v3 enforced split-scoped training
+inputs and a filesystem sandbox, accepted all 25 checkpoints before held-out
+inference, and archived the finalized predictions and metric matrices. Its
+[version-scoped result](wiki/results/Corpus-V4-FEM-v2-Accuracy.md) reports mean
+family-macro MAPE of 12.550% for capacitance and 4.173%, 3.964%, and 3.413% for
+primary, secondary, and mutual inductance. These are synthetic numerical-reference
+results, not physical-board accuracy or a latency claim.
 
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
@@ -103,10 +104,11 @@ matched R3/R4 capacitance view for the archived 25-thread package. It is not an
 accuracy result for the newly admitted one-thread FEM-v2 labels and does not
 claim physical-board accuracy. The FEM-v2 accuracy-v2 checkpoint workload
 completed but is closed as diagnostic-only evidence because process-level
-held-out byte isolation was not enforced. Protocol v3 has a separate plan,
-execution lock, split-scoped inputs, sandbox, result root, and future checkpoint
-set. Its compute-node sandbox preflight is next; held-out inference and
-current-corpus paired latency remain blocked. See the
+held-out byte isolation was not enforced. Protocol v3 has now completed its
+separate plan, execution lock, split-scoped inputs, sandbox, 25-checkpoint grid,
+accepted-set gate, held-out finalizer, archive verification, and claim review.
+Current-corpus paired latency remains blocked and is not implied by this
+accuracy result. See the
 [archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
 [FEM-v2 accuracy revision index](wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
@@ -260,12 +262,13 @@ admission remains a separate wiki-reviewed step.
 ## Reproducing a result
 
 Do not rerun a submitted-v2 experiment as though it were current evidence. The
-active FEM-v2 revision is accuracy v3. Its deterministic dataset,
-swap-closed family splits, split-scoped training artifacts, held-out
-commitment, protocol, plan, sandbox policy, and execution lock are frozen. The
-next ordered stage is a singleton SLURM sandbox preflight. A passing preflight
-permits the multi-seed checkpoint array, followed by an accepted-set gate,
-held-out finalization, archive verification, and only then review of a claim.
+current FEM-v2 accuracy result is the finalized v3 closure. Its deterministic
+dataset, swap-closed family splits, split-scoped training artifacts, held-out
+commitment, protocol, execution locks, accepted checkpoint set, final output,
+and archive are frozen. The exact clean-clone verification command is recorded
+in the [v3 evidence README](results/corpus_v4/accuracy_v3/README.md). Recomputing
+the checkpoints remains a SLURM workload; verifying the tracked archive does
+not train a model or run a field solver.
 
 Submit from the repository root. `slurm_job_env.sh` resolves the checkout from its
 own path, while `PCB_GNN_DATA_ROOT`, `PCB_GNN_PYTHON`, and solver variables make

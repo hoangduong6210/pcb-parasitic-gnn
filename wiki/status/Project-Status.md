@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: active scientific status
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -45,7 +45,7 @@ instead of calling one column ground truth.
 | One-thread FEM reference qualification | `COMPLETE` | Nine-layout R3 and three-sentinel R4 repeatability passed; finite-panel domain sensitivity passed; finite-panel adjacent-mesh sensitivity was negative |
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
 | FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
-| FEM-v2 accuracy protocol v3 | `CHECKPOINT ARRAY ACTIVE` | Job `7087033` admitted the local-filesystem gate; 5 family splits by 5 initialization seeds are executing as array `7087054`; no held-out inference or model claim is admitted |
+| FEM-v2 accuracy protocol v3 | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | The 5 by 5 family-split and initialization grid is complete; all 25 checkpoints were accepted before held-out inference; the tracked archive supports `C-ACC-FEMV2-001` |
 | Current-corpus paired four-target latency | `PREFLIGHT REJECTED / BLOCKED` | Two three-task preflights executed and were rejected; 0 of 3 tasks accepted; the 306-layout full array was not submitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
@@ -56,21 +56,20 @@ transition.
 
 ## Next scientific stages
 
-1. Retain the admitted
-   [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) as the
-   version-scoped predictive baseline for the archived 25-thread package.
-2. Monitor the active 25-task protocol-v3 checkpoint grid `7087054`, preserve
-   every candidate and terminal scheduler record, and build a complete
-   postterminal accepted set. The execution lock does not open held-out
-   inference.
-3. Admit all checkpoints, run the held-out finalizer, and close the new
-   multi-seed accuracy archive before designing a new paired-latency protocol.
-   `C-LAT-001` and its 306-layout array remain closed.
+1. Retain the admitted archived-target
+   [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) under
+   `C-ACC-001` without relabelling it as FEM-v2 evidence.
+2. Use the current
+   [FEM-v2 family-held-out result](../results/Corpus-V4-FEM-v2-Accuracy.md)
+   under `C-ACC-FEMV2-001` for the deterministic one-thread target package.
+3. Design and freeze a new paired-latency protocol around the admitted
+   designated checkpoint. `C-LAT-001` remains closed until that separate
+   execution and admission chain completes.
 4. Repeat baseline, strict E(3), and ranking studies only under their own
    FEM-v2 frozen protocols.
 5. Admit claims in the wiki before generating a new paper snapshot.
 
-There is an admitted geometry-valid synthetic solver-agreement result for the
-archived numerical-target version and an admitted deterministic FEM-v2 dataset
-generation closure. There is no FEM-v2 model-accuracy result, current-corpus
-paired speed headline, or hardware-accuracy claim.
+There are separate admitted family-crossed results for the archived 25-thread
+target package and the deterministic one-thread FEM-v2 package. There is no
+current-corpus paired speed headline, mesh-converged capacitance result, or
+hardware-accuracy claim.

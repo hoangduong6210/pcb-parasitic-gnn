@@ -1,7 +1,7 @@
 ---
 title: Reproducibility
 status: active runbook
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -111,14 +111,14 @@ partition and no held-out inference ran, but result flags cannot establish a
 byte boundary that the process did not enforce. The compact closure is indexed
 in the [accuracy-v2 evidence README](../results/corpus_v4/accuracy_v2/README.md).
 
-Protocol v3 is the active successor. Its deterministic planner produces one
+Protocol v3 is the finalized successor. Its deterministic planner produces one
 train-plus-validation artifact per split and a separate held-out artifact. A
 hash-pinned Bubblewrap sandbox mounts exactly one training artifact and does not
 mount the held-out join, other splits, repository data, `.git`, or host user
 roots in its local filesystem. Its network namespace remains shared for SLURM
 self-authentication, so the gate establishes local byte exclusion rather than
-network-level non-reachability. A singleton compute-node preflight must validate
-the mounted namespace and construct all graphs before the training array is
+network-level non-reachability. A singleton compute-node preflight validated
+the mounted namespace and constructed all graphs before the training array was
 authorized.
 
 The v3 lock authenticates the upstream archive and dataset admission, all five
@@ -138,8 +138,35 @@ and configless-SLURM runtime allowlist. It changes no dataset, split, model,
 optimization, metric, or held-out mount. Both failed receipts remain in the
 tracked evidence namespace. R2 job `7087033` then completed in 20 s, loaded all
 1,209 graphs for split 40, passed the local filesystem boundary, opened no
-held-out bytes, and started no training. Its cross-bound admission authorizes
-checkpoint training while every held-out and claim gate remains closed.
+held-out bytes, and started no training. Its cross-bound admission authorized
+checkpoint training only. The later accepted-set, finalizer, archive, and
+scientific-review gates independently controlled held-out access and claim
+admission.
+
+## Finalized FEM-v2 accuracy closure
+
+The FEM-v2 v3 archive preserves all 25 checkpoints from the complete 5 by 5
+family-split and initialization grid. Round 00 failed closed when its process
+could not reach scheduler accounting. Round 01 later evaluated the same
+candidate inventory and original attempt root after accounting access returned;
+it accepted all 25 checkpoints without retraining any task. The candidate-index
+hash is identical across both rounds.
+
+The held-out finalizer was submitted from its own clean source commit after the
+accepted set and a separate finalizer lock were frozen. The training lock and
+finalizer lock are independent trust roots. The archived output contains 25
+prediction tables plus the task index, metric matrices, R3/R4 comparator view,
+reference-fidelity gap, summary, and analysis manifest: 31 analysis files in
+total.
+
+A clean clone can authenticate the complete closure without live scheduler
+access, retraining, or field solving. The exact hash-pinned command is maintained
+in the [v3 evidence README](../results/corpus_v4/accuracy_v3/README.md#clean-clone-verification).
+
+The admitted scientific wording and numerical scope are maintained in the
+[FEM-v2 accuracy result](results/Corpus-V4-FEM-v2-Accuracy.md). The archive does
+not admit latency, speed, physical-board accuracy, or unrestricted PCB
+generalization.
 
 ## Finalized pre-FEM-v2 accuracy closure
 
@@ -167,8 +194,8 @@ arbitrary routed PCB layouts.
 | Accuracy finalizer — completed | 2 CPU requested, 16 GiB, 30 min | 1 |
 | FEM-v2 accuracy-v2 checkpoint training — diagnostic execution closed | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy-v3 sandbox preflight r2 — admitted by job `7087033` after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exited before optimizer work | 1 |
-| FEM-v2 accuracy-v3 checkpoint training — array `7087054` active | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
-| FEM-v2 accuracy finalizer — blocked until all 25 checkpoints are accepted | 2 CPU requested, 16 GiB, 30 min | 1 |
+| FEM-v2 accuracy-v3 checkpoint training — completed and all 25 checkpoints accepted | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
+| FEM-v2 accuracy finalizer — completed by job `7102842` | 2 CPU requested, 16 GiB, 30 min; 5 CPU and 16 GiB allocated; scientific thread cap 2 | 1 |
 | Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Paired-latency full panel — blocked by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
 | Paired-latency finalizer — blocked | 2 CPU requested, 8 GiB, 20 min | 1 |
@@ -199,7 +226,8 @@ accounting for later scheduler-independent clean-clone checks. The complete
 contract is specified in
 [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md).
 
-That accuracy closure remains bound to the archived 25-thread capacitance
-package. It is not an accuracy closure for `D-C4-FEM-D1-v2`. The latter requires
-a newly versioned evaluation join, protocol, plan, execution lock, model jobs,
-finalizer, and postterminal admission before any model result is reported.
+That pre-FEM-v2 accuracy closure remains bound to the archived 25-thread
+capacitance package. The separate `D-C4-FEM-D1-v2` v3 study has now completed
+its versioned evaluation join, protocol, plan, execution lock, checkpoint jobs,
+accepted-set gate, finalizer, archive verification, and claim review. Results
+from the two target versions remain separate and must not be pooled.

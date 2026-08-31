@@ -1,7 +1,7 @@
 ---
 title: Current Claim Registry
 status: canonical claim registry
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -23,6 +23,7 @@ it becomes paper eligible.
 | `C-CPS-DISC-001` | On the frozen deterministic 198-layout registry, with three designs from each of 66 swap-closed turn-count families, every FEM-R3P16 observation exceeded its paired FEM-R4P16 observation; the selected-registry median R3-to-R4 relative discrepancy was 8.479%, with an observed range of 2.754% to 17.517%. | Deterministic selected registry, not a probability sample. Nine anchors were inherited from a label-informed convergence selection; the other 189 entries were geometry-only selections. R4 is a higher-resolution comparator, not truth. No confidence interval, population inference, or global correction is attached. | `E-C4-DISC-01` | Yes, with all stated qualifiers |
 | `C-E3-001` | The tested coordinate-update implementation is E(3)-equivariant in its coordinate state and invariant in its scalar output on the encoded graph within numerical tolerance. | 200 encoded-graph transforms; maximum output and coordinate residuals \(3.919\times10^{-7}\) and \(1.407\times10^{-7}\); tolerance \(2\times10^{-5}\). This is not a predictive-accuracy claim. | `E-V2-E3-01` | Yes |
 | `C-ACC-001` | On the frozen 1,500-layout synthetic active-leg corpus, mean family-macro MAPE across five family-held-out splits crossed with five initialization seeds was 12.890% for \(C_{ps}\) against the archived 25-thread FEM-R3P16 observations, 4.272% for \(L_p\), 4.076% for \(L_s\), and 3.554% for \(M\) against FastHenry. | This is the pre-FEM-v2, version-scoped `D-C4` result and does not transfer to `D-C4-FEM-D1-v2`. The respective 95% crossed-axis seed-grid sensitivity intervals were 12.001 to 13.796%, 3.407 to 5.394%, 3.275 to 4.967%, and 3.243 to 3.814%. These intervals are descriptive, not population confidence intervals. The result measures agreement with frozen synthetic numerical artifacts, not regeneration stability, fabricated-board accuracy, or arbitrary-PCB accuracy. | `E-C4-ACC-01` | Yes, only as an archived-target-version result with all stated qualifiers |
+| `C-ACC-FEMV2-001` | On `D-C4-FEM-D1-v2`, mean family-macro MAPE across five family-held-out splits crossed with five initialization seeds was 12.550% for \(C_{ps}\) against one-thread FEM-v2 R3P16, 4.173% for \(L_p\), 3.964% for \(L_s\), and 3.413% for \(M\) against FastHenry. | The respective 95% crossed-axis descriptive intervals were 11.796 to 13.366%, 3.414 to 5.015%, 3.263 to 4.729%, and 3.052 to 3.734%. These are seed-grid sensitivity intervals, not population confidence intervals. The study uses synthetic active-leg abstractions and fixed numerical references. It does not establish mesh convergence, fabricated-board accuracy, manufacturing robustness, or arbitrary-PCB generalization. | `E-C4-FEM-V2-ACC-V3-01` | Yes, with the complete dataset, reference, interval, and synthetic-scope qualifiers |
 
 ## Validated or finalized artifacts not yet admitted as headline results
 
@@ -60,6 +61,7 @@ Do not write:
 - a current accuracy, ranking, or speed number derived from v0 through v2;
 - “95% confidence interval” for the crossed-axis descriptive ranges;
 - 12.890% as physical or fabricated-board accuracy; or
+- 12.550% as physical or fabricated-board accuracy; or
 - five independent R4 panels, because the split panels overlap.
 
 ## Required capacitance wording
@@ -79,10 +81,11 @@ discrepancy is 8.479%, with an observed range of 2.754% to 17.517%; this
 descriptive panel result is not a full-corpus estimate or a calibration factor.
 
 The deterministic one-thread `D-C4-FEM-D1-v2` dataset is a separate version
-with 1,500 R3 and 198 R4 observations. Its postterminal receipt admits dataset
-generation and permits an accuracy protocol to be frozen, but it does not
-admit training or any new accuracy, latency, speed, convergence, or physical
-claim. `C-ACC-001` must not be quoted as a result on the one-thread labels.
+with 1,500 R3 and 198 R4 observations. `C-ACC-FEMV2-001` owns its admitted
+family-crossed surrogate result. `C-ACC-001` remains bound to the archived
+25-thread package and must not be relabelled as a one-thread result. Neither
+accuracy claim authorizes a current latency, speed, convergence, or physical
+validation statement.
 
 The [Historical Claim Ledger](Historical-Claim-Ledger.md) preserves earlier
 numbers and explains why they cannot be promoted into current statements.

@@ -1,7 +1,7 @@
 ---
 title: Dataset Registry
 status: canonical dataset index
-last_updated: 2026-08-29
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -18,7 +18,7 @@ latency claim.
 | `D-V2` | `synth_v2` | Submitted solver-surrogate feasibility | Archived feasibility snapshot; scope-bound claims only |
 | `D-C3` | `corpus_v3` | Geometry-contract repair over 1,500 layouts | Geometry root validated; inherited capacitance fidelity is not mesh-converged |
 | `D-C4` | `corpus_v4` | Multi-fidelity capacitance package on the accepted v3 geometry root | Finalized: 1,500 R3 and 198 R4 observations; selected-registry discrepancy admitted descriptively |
-| `D-C4-FEM-D1-v2` | `cps_reference_v2` | Deterministic one-thread multi-fidelity FEM observations on the unchanged accepted geometry root | Dataset generation admitted: 1,500 R3 and 198 R4 observations; accuracy protocol v3 is frozen with split-scoped training inputs and a pending sandbox preflight |
+| `D-C4-FEM-D1-v2` | `cps_reference_v2` | Deterministic one-thread multi-fidelity FEM observations on the unchanged accepted geometry root | Dataset generation admitted: 1,500 R3 and 198 R4 observations; downstream accuracy v3 separately finalized and archived under `C-ACC-FEMV2-001` |
 | `D-VENDOR-750341134` | Local vendor assets | Commercial geometry and datasheet anchor | External validation track; not a training corpus |
 
 Corpus v4 is not a fourth geometry generator. It retains the accepted corpus-v3
@@ -43,12 +43,13 @@ and its postterminal admission SHA-256 is
 The finite-panel and production evidence retain R3 and R4 as separate named
 fidelities rather than promoting either to ground truth. Dataset generation is
 admitted and the dataset receipt retains `training_may_start=false`,
-`claim_eligible=false`, and `speed_claim_eligible=false`. Downstream accuracy
-protocol v2 is closed as diagnostic evidence. Protocol v3 separately freezes
-split-scoped inputs and a sandbox; it does not alter the dataset receipt or open
-held-out inference. The archived `C-ACC-001`
-model result remains bound to `D-C4`; it is not a result on
-`D-C4-FEM-D1-v2`.
+`claim_eligible=false`, and `speed_claim_eligible=false`. Those flags describe
+the dataset-generation receipt and remain unchanged. Downstream accuracy
+protocol v2 is closed as diagnostic evidence. Protocol v3 separately enforced
+split-scoped inputs and a sandbox, accepted all 25 checkpoints, finalized
+held-out predictions, and archived `C-ACC-FEMV2-001`; that closure does not
+rewrite or broaden the dataset receipt. The archived `C-ACC-001` model result
+remains bound to `D-C4` and is not pooled with the FEM-v2 result.
 
 ## Role of v2 in the research program
 

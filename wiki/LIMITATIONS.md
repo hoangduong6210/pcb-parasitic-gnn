@@ -1,10 +1,10 @@
 ---
 title: Limitations
 status: canonical
-last_updated: 2026-08-19
+last_updated: 2026-08-31
 paper_source: true
 prose_reviewed: true
-claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-LAT-001
+claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001
 ---
 
 # Limitations

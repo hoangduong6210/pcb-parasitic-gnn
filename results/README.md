@@ -23,8 +23,9 @@ Current evidence is admitted only in this order:
    25-thread target package — complete and admitted for that version only;
 9. a closed FEM-v2 accuracy-v2 diagnostic execution whose checkpoint workload
    completed but whose process-level held-out byte boundary was not enforced;
-10. a separately frozen accuracy-v3 protocol with split-scoped training inputs
-   and a compute-node filesystem sandbox;
+10. a separately frozen accuracy-v3 protocol with split-scoped training inputs,
+    compute-node filesystem isolation, 25 accepted checkpoints, held-out
+    finalization, and a verified archive — complete and admitted;
 11. baseline, ranking, symmetry, and paired end-to-end timing jobs on the same
    corpus and split registry;
 12. figures and manuscript tables generated only from accepted wiki content.
@@ -45,10 +46,12 @@ rejected at 8.273879% median and 13.886399% maximum.
 The archived 25-thread GNN accuracy result is accepted under its frozen
 family-held-out protocol. The deterministic one-thread FEM-v2 accuracy-v2
 checkpoint grid is diagnostic only and is closed without held-out inference.
-Protocol v3 is the active successor; its sandbox preflight is the next gate, and
-current-corpus paired speed remains blocked. The archived
-numerical result and its scope are maintained in
-[`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md).
+Protocol v3 is the finalized successor: all 25 checkpoints were accepted before
+held-out inference, and its 31-file analysis archive passed clean-clone
+verification. Current-corpus paired speed remains blocked. The two
+version-scoped numerical results are maintained in
+[`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md)
+and [`Corpus V4 FEM-v2 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-FEM-v2-Accuracy.md).
 Canonical lifecycle status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
 values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
@@ -56,6 +59,6 @@ values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
 The current accuracy artifact layout and checkpoint-before-test lifecycle are
 indexed in [`corpus_v4/accuracy/README.md`](corpus_v4/accuracy/README.md).
 The closed diagnostic revision is indexed in
-[`corpus_v4/accuracy_v2/README.md`](corpus_v4/accuracy_v2/README.md). The active
+[`corpus_v4/accuracy_v2/README.md`](corpus_v4/accuracy_v2/README.md). The finalized
 split-scoped revision is indexed in
 [`corpus_v4/accuracy_v3/README.md`](corpus_v4/accuracy_v3/README.md).

@@ -1,8 +1,9 @@
 # Corpus V4 FEM-v2 accuracy protocol v3
 
 This directory owns the active family-crossed graph-surrogate study on
-`D-C4-FEM-D1-v2`. The protocol is frozen for checkpoint training. It contains
-no admitted accuracy, latency, speed, or physical-validation result.
+`D-C4-FEM-D1-v2`. Its checkpoint, held-out finalizer, and archive stages are
+complete. It contains an admitted numerical-reference agreement result, but no
+latency, speed, mesh-convergence, or physical-validation result.
 
 ## Lifecycle
 
@@ -13,8 +14,9 @@ no admitted accuracy, latency, speed, or physical-validation result.
 | Filesystem sandbox preflight | Admitted by job `7087033` |
 | Checkpoint training | Array `7087054` completed; 25 of 25 tasks at `COMPLETED/0:0` |
 | Accepted checkpoint set | Round 01 admitted 25 of 25 immutable candidates |
-| Held-out finalizer | Provenance lock frozen; SLURM execution not started |
-| Scientific claim | Closed |
+| Held-out finalizer | Job `7102842` completed at `COMPLETED/0:0` |
+| Archive | Clean-tracked replay passed; 31 analysis files verified |
+| Scientific claim | `C-ACC-FEMV2-001` admitted with synthetic numerical-reference scope |
 
 The sandbox preflight is intentionally solver-free and optimizer-free. Job
 `7087033` ran on a compute node, loaded the selected split artifact, constructed
@@ -27,8 +29,7 @@ The frozen checkpoint grid ran as array `7087054` from source commit
 `c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. All 25 logical components
 completed with exit code `0:0`. Postterminal round 01 admitted every immutable
 candidate and left zero pending tasks. Held-out inference has not started, and
-every scientific claim remains closed until finalization and archive admission
-pass.
+the archive is now closed under `E-C4-FEM-V2-ACC-V3-01`.
 
 ## Frozen roots
 
@@ -42,6 +43,9 @@ pass.
 | Active execution lock r2 | `8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c` |
 | Accepted artifact set, round 01 | `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe` |
 | Finalizer execution lock v1 | `cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3` |
+| Analysis manifest | `4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc` |
+| Summary | `e48fa58aa48304353cc471e33f5a3e3559fa0628728eb938098dae089c05eb3b` |
+| Archive manifest | `a741b0ff1002f11b5ac5eef466baff81137da1245a8ea6e609b2a608279e8f06` |
 
 The original execution lock, SHA-256
 `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c`,
@@ -192,6 +196,62 @@ candidates. The admission artifacts have these hashes:
 | 01 | Accepted set | `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe` |
 | 01 | Pending set | `e63aa06ce5247a1a58de1e4dd2a40163aac597484ae1e120f12d782aafb2190e` |
 
+## Finalized scientific output
+
+Finalizer `7102842` ran from clean source commit
+`cdd3a7555377360208e1c582b6e94aca8fbfdd60`, completed in 61 s, and wrote
+25 prediction tables. The primary fields are
+`views.r3_full_test.<target>.family_macro_mape_pct.mean_across_25_cells`
+and their paired `descriptive_interval` values in
+[`matrices.json`](final/job_7102842/matrices.json).
+
+| Target | Mean family-macro MAPE | Crossed-axis descriptive interval |
+|---|---:|---:|
+| `Cps_pF` | 12.550% | 11.796 to 13.366% |
+| `L_pri_nH` | 4.173% | 3.414 to 5.015% |
+| `L_sec_nH` | 3.964% | 3.263 to 4.729% |
+| `L_mut_nH` | 3.413% | 3.052 to 3.734% |
+
+The archive is
+[`ARCHIVE_MANIFEST.json`](ARCHIVE_MANIFEST.json), schema
+`pcb-gnn.corpus-v4-accuracy-archive.v4`. It binds finalizer job `7102842`, the
+two source commits, both execution locks, accepted set, analysis manifest, and
+31 analysis-file hashes. The clean-tracked replay command is the verifier
+below with `--check --require-git-tracked`.
+
+These intervals describe sensitivity within the fixed 5 by 5 seed grid. They
+are not population confidence intervals. R3P16 and R4P16 are numerical
+fidelities rather than physical truth, and the R4 panels overlap. Exact
+publication wording is controlled by `C-ACC-FEMV2-001` in the wiki claim
+registry.
+
+## Clean-clone verification
+
+This command hashes and validates the tracked archive. It does not query live
+scheduler accounting, train a model, or run a field solver.
+
+```bash
+python3 code/quality/verify_corpus_v4_accuracy_archive_v3.py \
+  --protocol protocols/corpus_v4_accuracy_v3.json \
+  --expected-protocol-sha256 d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1 \
+  --plan results/corpus_v4/accuracy_v3/plan/v1/plan.json \
+  --expected-plan-sha256 04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f \
+  --task-manifest results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl \
+  --expected-task-manifest-sha256 e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71 \
+  --training-execution-lock protocols/corpus_v4_accuracy_execution_lock_v3r2.json \
+  --expected-training-execution-lock-sha256 8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c \
+  --expected-training-source-git-head c0ffca0d0637e8fbba81c126c3f56f8316003a9a \
+  --finalizer-execution-lock protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json \
+  --expected-finalizer-execution-lock-sha256 cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3 \
+  --expected-finalizer-source-git-head cdd3a7555377360208e1c582b6e94aca8fbfdd60 \
+  --accepted-set results/corpus_v4/accuracy_v3/resume/round_01/accepted_artifact_set.json \
+  --expected-accepted-set-sha256 291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe \
+  --analysis-manifest results/corpus_v4/accuracy_v3/final/job_7102842/ANALYSIS_MANIFEST.json \
+  --expected-analysis-manifest-sha256 4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc \
+  --out results/corpus_v4/accuracy_v3/ARCHIVE_MANIFEST.json \
+  --check --require-git-tracked
+```
+
 ## Finalizer provenance gate
 
 The finalizer now enforces two independent trust roots. The historical
@@ -204,9 +264,11 @@ The production finalizer lock is now frozen at
 `protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json`, SHA-256
 `cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3`.
 It binds the round 01 accepted set and historical r2 training provenance.
-Held-out finalization remains blocked until this complete boundary is reviewed,
-committed, and executed from a clean checkout through SLURM. Checkpoint
-completion or accepted-set admission does not authorize a scientific claim.
+The lock was committed before finalizer submission. Job `7102842` then executed
+from the clean locked checkout through SLURM. Its output was committed and the
+archive verifier passed with `--check --require-git-tracked`. The finalizer
+closure authorizes only the scoped accuracy claim above; it does not authorize
+a latency, speed, convergence, or physical-validation claim.
 
 ## Rebuild and validate the plan
 

@@ -1,7 +1,7 @@
 ---
 title: Corpus V4 FEM-v2 Accuracy Protocol v3
-status: r2 sandbox preflight admitted; checkpoint array active
-last_updated: 2026-08-29
+status: finalized; archive validated; claim admitted
+last_updated: 2026-08-31
 paper_source: false
 ---
 
@@ -131,11 +131,13 @@ alternative protocols, fabricated hardware, or arbitrary PCB layouts.
 
 Protocol freeze, sandbox preflight, checkpoint execution, accepted-set closure,
 held-out finalization, archive verification, and scientific claim review are
-distinct states. The current lock admits only preflight and, after its review,
-checkpoint training. Preflight review is now complete. No model or speed claim
-exists until the final archive is independently reviewed and entered in the
-claim registry.
+distinct states. All accuracy states are now closed. The checkpoint array
+completed all 25 cells, and round 01 accepted the unchanged original candidates
+after scheduler accounting became reachable. The held-out finalizer ran only
+after that complete set and its separate finalizer lock were frozen. The tracked
+archive passed clean-clone verification.
 
-The authorized checkpoint grid is array `7087054`. Submission is an operational
-state only; individual candidates remain unaccepted until postterminal source,
-artifact, sandbox, and scheduler checks close the complete 25-task set.
+The admitted result is `C-ACC-FEMV2-001`. It is limited to family-held-out
+agreement with the named synthetic numerical references. It does not admit
+latency, speed, physical-board accuracy, mesh convergence, strict E(3) model
+superiority, or unrestricted PCB generalization.
