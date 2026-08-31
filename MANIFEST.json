@@ -8,9 +8,9 @@
     "code": 246,
     "datasets": 12,
     "figures": 12,
-    "logs": 108,
+    "logs": 110,
     "protocols": 21,
-    "results": 4373,
+    "results": 4406,
     "root": 10,
     "tests": 47,
     "wiki": 43
@@ -1802,6 +1802,16 @@
       "sha256": "c307bb538e03850fc8420f2df683baed4d48ffd65998ea715ede35808f3b7626"
     },
     {
+      "path": "logs/pcb-v4-accuracy-v3-final-7102842.err",
+      "bytes": 373,
+      "sha256": "4e234aa4cb875a27404743da39872b846478330b62e7e6f8169f02e34820db80"
+    },
+    {
+      "path": "logs/pcb-v4-accuracy-v3-final-7102842.out",
+      "bytes": 133,
+      "sha256": "758a59c420c39882231fb3defa9741b8cbe65d589532620fc3c7469b37e44926"
+    },
+    {
       "path": "logs/pcb-v4-conv-final-6833716.err",
       "bytes": 578,
       "sha256": "48a8450452318b427ca96609c6843d8522bc9ad165012f296d6ac383d839094f"
@@ -3172,9 +3182,174 @@
       "sha256": "e896864c8ced584c3ab526cdffabf99f916734ef7a5fb4a923c706dfb15e076c"
     },
     {
+      "path": "results/corpus_v4/accuracy_v3/ARCHIVE_MANIFEST.json",
+      "bytes": 4402,
+      "sha256": "a741b0ff1002f11b5ac5eef466baff81137da1245a8ea6e609b2a608279e8f06"
+    },
+    {
       "path": "results/corpus_v4/accuracy_v3/README.md",
       "bytes": 11282,
       "sha256": "20a1dcf5184c301ef6e5a5e1e03bdc2ac525d8d996bfd40fd02d0857867dec1c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/ANALYSIS_MANIFEST.json",
+      "bytes": 5403,
+      "sha256": "4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/checkpoint_index.json",
+      "bytes": 12548,
+      "sha256": "820cd6c414b274f7d4013f7d87e3180ad0a783da90f852447b931d2a5f93fa02"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/matrices.json",
+      "bytes": 94872,
+      "sha256": "28c7904b15684c565d6f37bbb30f6cdb12de74885d10353ee1c55be15a348e31"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_00.jsonl",
+      "bytes": 130169,
+      "sha256": "dc5d5d14efb1e2eedafbf541d4cc42d9d1d12f68dd249ea668b61485d58c4d17"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_01.jsonl",
+      "bytes": 130125,
+      "sha256": "9f0f2e4d37a4bec7d753714f4b8d763db8ed2b89120ec22c70538f11eaf7143c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_02.jsonl",
+      "bytes": 130110,
+      "sha256": "897ebaacd5e5282bbc37053a631a2c6b09ecb2c60e65eaa0cfa97d98f5e31463"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_03.jsonl",
+      "bytes": 130142,
+      "sha256": "a0ccde04de864b8b67e7bc2018c859a6894c6cd19d5c24f80bac32abd6450b16"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_04.jsonl",
+      "bytes": 130122,
+      "sha256": "28129f1fea5e90e752a3fea4a323da0fd5fc28d6b2436332d09f3d4fa3e32b1b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_05.jsonl",
+      "bytes": 126282,
+      "sha256": "1955a3797f4ab96ab6afaa6c88f190f5e43443b9ad866047539d03aa0e2e3492"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_06.jsonl",
+      "bytes": 126270,
+      "sha256": "282027204e0fb02a215c9e1b68f449ad6768a666dc23824d2227867140b5bdab"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_07.jsonl",
+      "bytes": 126266,
+      "sha256": "887950308378627acde1dbf4fedd21e9f949504a44c88141d122d97e7dad0135"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_08.jsonl",
+      "bytes": 126312,
+      "sha256": "f6c8c6e2ada3978a9b43d64c71f6c93969039079f1a5ca30a233df369345e4a4"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_09.jsonl",
+      "bytes": 126274,
+      "sha256": "e19823c43c92068fa052fafeefbc53bd57479ff708d6a4d7edbbf6b71a6ea7b7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_10.jsonl",
+      "bytes": 137060,
+      "sha256": "2b3256fcbbc6c2918b1480bf6c1766f6197c08691130a565b8ef952670124ed1"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_11.jsonl",
+      "bytes": 137068,
+      "sha256": "c5387cb4a46db55139974b7dedaa1e1f72bef62aa1ff28da4a60eb56c4d196dd"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_12.jsonl",
+      "bytes": 137058,
+      "sha256": "32fc7f51b73b5b5f31dc74d1835c6ba0fb1cba806c853c5b1d5b63fab3caeead"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_13.jsonl",
+      "bytes": 137032,
+      "sha256": "5402356cb09e6c4f59dbc136382952830f54746289acebdeba2b5ffa058e395f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_14.jsonl",
+      "bytes": 137052,
+      "sha256": "324644d896bc65be3e86fb3a5399164f4ec75ac74a1bbd02840927a4d2cf9b96"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_15.jsonl",
+      "bytes": 133895,
+      "sha256": "1e1e9316d617e67eedb1b192d3d52997cca34f0f90cfd55ed291dcf55aea067e"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_16.jsonl",
+      "bytes": 133863,
+      "sha256": "7792df2763a2d6b635a3fece426480f5d94b93fe2436189e1b8ef6056fe4703b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_17.jsonl",
+      "bytes": 133877,
+      "sha256": "9d44fd39cc789ad0488dc1a3467f1f7b7b751deacdaf55e23e828ea7073f4ea0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_18.jsonl",
+      "bytes": 133874,
+      "sha256": "d4cff8d73e21618bbd4520ae5dbd824a3467160ed55c1f4110b9bdd8c02535c7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_19.jsonl",
+      "bytes": 133889,
+      "sha256": "4774db9c6a3be5eb77b6234d40e780ece54a91a13594a44ad307d45856959a65"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_20.jsonl",
+      "bytes": 130844,
+      "sha256": "d7a0bc1ea9d2aa619e5233238ddc99f04134b6a21744192e858caa41c7242ac3"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_21.jsonl",
+      "bytes": 130824,
+      "sha256": "ac7aa55ab73f0f58d4578e770a21bb41a796fc94e9bfb50ced192cc34d495933"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_22.jsonl",
+      "bytes": 130832,
+      "sha256": "b5f7aeff912792d1947054031f5ea6aad1b1d773cfc28badd41ba69ea94a4ee9"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_23.jsonl",
+      "bytes": 130807,
+      "sha256": "806d2e46c1167365e29702f13ede3ba8e5ad1ce8301c0de0190c4a7e905d94e1"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/predictions/task_24.jsonl",
+      "bytes": 130825,
+      "sha256": "b0d87c4491a2441e14c03e29a7dc7d23de922b2c608ef08d92517130876be35b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/reference_fidelity_gap.json",
+      "bytes": 8718,
+      "sha256": "bac5bb3e480be46485d046d292564fa58744533c7962db463f95816d5b045b98"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/summary.json",
+      "bytes": 6270,
+      "sha256": "e48fa58aa48304353cc471e33f5a3e3559fa0628728eb938098dae089c05eb3b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/task_index.json",
+      "bytes": 16883,
+      "sha256": "2c7d54047f9f46444dd282b632d091bae4dc43e048753f3541d27fed0ce54229"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/task_metrics.json",
+      "bytes": 112917,
+      "sha256": "27e43d00e40ec1a3515fd10b802c7f373b87a393eecb3552b479599417981505"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/TASK_MANIFEST.json",
@@ -24507,6 +24682,6 @@
       "sha256": "6ad03635177cc222eba367d57d4720a62c492894b8c188d8f2f73d2144917819"
     }
   ],
-  "n_files": 4898,
-  "total_bytes": 197927402
+  "n_files": 4933,
+  "total_bytes": 201480793
 }

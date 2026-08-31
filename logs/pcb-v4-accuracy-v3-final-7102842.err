@@ -1,0 +1,2 @@
+/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/accuracy-v3-finalizer-cdd3a75/code/models/gnn/gnn_baseline.py:109: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+  out = init.index_reduce(0, index, src, reduce="amax", include_self=True)

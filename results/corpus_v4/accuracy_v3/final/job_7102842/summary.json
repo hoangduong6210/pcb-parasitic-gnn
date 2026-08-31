@@ -1,0 +1,115 @@
+{
+  "bindings": {
+    "accepted_set_sha256": "291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe",
+    "finalizer_execution_lock_sha256": "cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3",
+    "finalizer_source_git_head": "cdd3a7555377360208e1c582b6e94aca8fbfdd60",
+    "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71",
+    "training_execution_lock_sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c",
+    "training_source_git_head": "c0ffca0d0637e8fbba81c126c3f56f8316003a9a"
+  },
+  "counts": {
+    "r4_family_split_appearance_histogram": {
+      "3": 28,
+      "6": 14,
+      "9": 3
+    },
+    "r4_layout_split_appearance_histogram": {
+      "1": 84,
+      "2": 42,
+      "3": 9
+    },
+    "r4_panel_split_layout_memberships": 195,
+    "r4_task_layout_evaluations": 975,
+    "r4_unique_families_across_split_panels": 45,
+    "r4_unique_layouts_across_split_panels": 135,
+    "r4_unseen_selected_families": 21,
+    "r4_unseen_selected_layouts": 63,
+    "tasks": 25
+  },
+  "created_utc": "2026-08-31T05:13:53.122234+00:00",
+  "designated_downstream_checkpoint": {
+    "archive_sha256": "8efc90f4209a818f9a334e2eefcf43a30ae38363262c5de39302e328d736e2b5",
+    "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle",
+    "designated_downstream_checkpoint": true,
+    "init_seed": 42,
+    "metadata_sha256": "99136b0b28b731494dc20442a0bdb2b8ba4fb858458c334d37f6e57ffd1e2d02",
+    "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+    "split_seed": 42,
+    "task_id": 12
+  },
+  "provenance": {
+    "finalizer_runtime": {
+      "numpy_distribution": "2.0.2",
+      "python": "3.9.21",
+      "torch_build": "2.8.0+cu128",
+      "torch_distribution": "2.8.0"
+    },
+    "finalizer_source_file_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+      "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v3.py": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1",
+      "code/experiments/proofs/build_corpus_v4_accuracy_finalizer_lock_v3.py": "6231586f1520025f7443543dd8abfeecb59b930408e9b220eab0f3e6d8166eab",
+      "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99",
+      "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py": "1f9bd64055d39a37d0cf1191d680c896590494459f365c0fc2728acf218de58d",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py": "1d5206c8fd52729a62f21e873ffe930a3e601850276d1a57f32fa7686afa8112",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_v3.py": "dffb3a43cc1ebdb21e106515648fb300fef6fb06b93026bb710ff3eaa94f1a2b",
+      "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+      "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_accuracy_v3.sh": "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af",
+      "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh": "dd96d9db98497c58153288e87f4b037f6bdc474ee3051aa356db591e2e85bbcb",
+      "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+      "code/quality/verify_corpus_v4_accuracy_archive_v3.py": "7d328a48177a14bb33f48707fc9d7653e5a05ef815afbd73adb2b86200a7f3ef",
+      "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    },
+    "finalizer_source_git_head": "cdd3a7555377360208e1c582b6e94aca8fbfdd60",
+    "scheduler": {
+      "allocated_cpus_per_task": 5,
+      "array_job_id": null,
+      "array_task_id": null,
+      "environment_cpus_per_task": 5,
+      "job_id": "7102842",
+      "requested_cpus_per_task": 2,
+      "requested_memory_gib": 16,
+      "scheduler_record": {
+        "AllocTRES": "cpu=5,mem=16G,node=1,billing=5",
+        "CPUs/Task": "5",
+        "JobId": "7102842",
+        "JobState": "RUNNING",
+        "MinMemoryNode": "16G",
+        "NumCPUs": "5",
+        "NumTasks": "1",
+        "Partition": "nextgen",
+        "ReqTRES": "cpu=2,mem=16G,node=1,billing=2",
+        "TimeLimit": "00:30:00",
+        "TresPerTask": "cpu=2"
+      },
+      "scientific_threads": 2
+    },
+    "task_software": {
+      "numpy_distribution": "2.0.2",
+      "python": "3.9.21",
+      "scipy": "1.13.1",
+      "torch_build": "2.8.0+cu128",
+      "torch_distribution": "2.8.0"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-final.v4",
+  "scientific_scope": {
+    "checkpoint_gate": "all 25 checkpoints accepted before first held-out inference",
+    "passivity": "prediction diagnostics report the 2x2 inductance PSD condition and are not an integrity gate",
+    "r3": "all held-out-family test layouts; admitted FEM-v2 R3P16T1 Cps plus FastHenry inductance references",
+    "r4": "the same predictions on exactly 39 selected held-out-family layouts per split",
+    "r4_is_truth": false,
+    "r4_panels_independent": false,
+    "validation_role": "diagnostic only; all checkpoints are fixed final epoch"
+  }
+}

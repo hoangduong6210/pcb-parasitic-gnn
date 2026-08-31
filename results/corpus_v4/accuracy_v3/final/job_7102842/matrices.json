@@ -1,0 +1,3263 @@
+{
+  "schema": "pcb-gnn.corpus-v4-accuracy-matrices.v3",
+  "views": {
+    "physical_validity": {
+      "prediction": {
+        "n_coupling_factor_unavailable": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_violations": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "violation_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        }
+      },
+      "reference_r3": {
+        "n_coupling_factor_unavailable": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_violations": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "violation_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        }
+      }
+    },
+    "r3_full_test": {
+      "Cps_pF": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            11.795762883561927,
+            13.3662379895299
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              10.936729903665876,
+              11.201759862386279,
+              13.02077244820582,
+              15.666975429126726,
+              13.953557623050248
+            ],
+            [
+              12.222325137404631,
+              13.670442965175985,
+              13.13870513741179,
+              13.205131573636189,
+              13.32327003905547
+            ],
+            [
+              11.160091686771654,
+              10.877079130753149,
+              12.949654972896639,
+              13.36319844323499,
+              13.303282302901282
+            ],
+            [
+              10.952035078362476,
+              12.123048949819314,
+              12.87126186927757,
+              12.064149962500734,
+              14.299433841947426
+            ],
+            [
+              12.924022688879583,
+              11.55554785754888,
+              12.85459386036731,
+              11.294310312106587,
+              10.824652706700673
+            ]
+          ],
+          "max_across_25_cells": 15.666975429126726,
+          "mean_across_25_cells": 12.550241351327491,
+          "min_across_25_cells": 10.824652706700673,
+          "std_across_25_cells": 1.2432100568019655
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            6.162793496553226,
+            7.324203863474917
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              5.786365599853447,
+              6.04310143040345,
+              6.753097269793337,
+              8.100492884687148,
+              7.424341470443103
+            ],
+            [
+              5.779349757030931,
+              6.667135502121563,
+              5.970349190474013,
+              6.22357250348213,
+              6.337826321955776
+            ],
+            [
+              7.087747975331781,
+              6.668072123124264,
+              8.167871985951493,
+              8.055698052424061,
+              8.052196715936363
+            ],
+            [
+              5.454357546080657,
+              5.96890491547466,
+              6.183674680584315,
+              6.194367835555163,
+              7.229183784701115
+            ],
+            [
+              6.851044238980998,
+              6.62691521475327,
+              7.261474083317893,
+              6.227768986462999,
+              6.031266394282748
+            ]
+          ],
+          "max_across_25_cells": 8.167871985951493,
+          "mean_across_25_cells": 6.6858470585282666,
+          "min_across_25_cells": 5.454357546080657,
+          "std_across_25_cells": 0.800097064756643
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            11.742020731554902,
+            13.269143539566386
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              10.841749970829706,
+              11.325262460495251,
+              12.695512223256577,
+              15.46022566026141,
+              13.984499577364058
+            ],
+            [
+              12.228214180441489,
+              13.709854554659287,
+              13.109004566884781,
+              13.066922056461717,
+              13.233927614772625
+            ],
+            [
+              11.206840338336786,
+              10.738950233200589,
+              12.679610886870423,
+              13.255507028053216,
+              12.907237216606044
+            ],
+            [
+              10.898419060128877,
+              12.23889166701943,
+              12.736224644157383,
+              12.04568010918211,
+              14.369093799551875
+            ],
+            [
+              12.796657015515548,
+              11.626041734210448,
+              12.731771472624631,
+              11.15573479083942,
+              10.638340049227907
+            ]
+          ],
+          "max_across_25_cells": 15.46022566026141,
+          "mean_across_25_cells": 12.467206916438066,
+          "min_across_25_cells": 10.638340049227907,
+          "std_across_25_cells": 1.224508967491661
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            9.038833394798004,
+            10.644434302201578
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              8.100585197276875,
+              8.787981082675351,
+              10.887982673646523,
+              12.170673693932393,
+              11.534960717328811
+            ],
+            [
+              9.295769518005054,
+              10.18509124045594,
+              10.020398060682883,
+              10.13383988800334,
+              10.685518138681955
+            ],
+            [
+              8.99774710068725,
+              9.11305262096918,
+              11.309249201243565,
+              10.53049877778366,
+              10.952104126103542
+            ],
+            [
+              8.101813415343265,
+              9.598169669333005,
+              9.78143823043078,
+              8.776265970017846,
+              11.234002018946295
+            ],
+            [
+              8.76024156722789,
+              9.308767979574506,
+              9.818635918465386,
+              8.294212178752428,
+              8.396345482709677
+            ]
+          ],
+          "max_across_25_cells": 12.170673693932393,
+          "mean_across_25_cells": 9.791013778731095,
+          "min_across_25_cells": 8.100585197276875,
+          "std_across_25_cells": 1.1531621897844406
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            30.281169154187083,
+            35.19380371700512
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              28.549111007729728,
+              31.7347647710047,
+              29.935223175482065,
+              42.610421935719,
+              30.752819872440277
+            ],
+            [
+              32.522346600887204,
+              38.661636514090816,
+              40.18783469224939,
+              33.05318946658318,
+              34.23593446575866
+            ],
+            [
+              27.58589300994946,
+              28.66658584908882,
+              30.1569575463162,
+              33.831153497002546,
+              30.698931334424962
+            ],
+            [
+              30.525240982488693,
+              32.63351153218707,
+              35.69123004580285,
+              32.09396795239544,
+              38.83869179926919
+            ],
+            [
+              35.92087147334001,
+              28.466364920994135,
+              31.738004697517223,
+              30.847659633105195,
+              27.104278666316315
+            ]
+          ],
+          "max_across_25_cells": 42.610421935719,
+          "mean_across_25_cells": 32.68170501768573,
+          "min_across_25_cells": 27.104278666316315,
+          "std_across_25_cells": 4.040427696003951
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.9035459573478538,
+            0.9421625221906426
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.9221622360366512,
+              0.9130265652689805,
+              0.9005003667486489,
+              0.8522681134588228,
+              0.8787284563416751
+            ],
+            [
+              0.9382681730976049,
+              0.9111095355844622,
+              0.9361884383152436,
+              0.9322940246161022,
+              0.9282322530609401
+            ],
+            [
+              0.9238332225739633,
+              0.9330381806758605,
+              0.9047425697810355,
+              0.9020238310603382,
+              0.9047382516882834
+            ],
+            [
+              0.9619948240265518,
+              0.9585589243308781,
+              0.9539124972247399,
+              0.9527685779726367,
+              0.9360811326196817
+            ],
+            [
+              0.9256885740428535,
+              0.935324619345176,
+              0.9182275611528871,
+              0.9424341160414029,
+              0.9429768318269165
+            ]
+          ],
+          "max_across_25_cells": 0.9619948240265518,
+          "mean_across_25_cells": 0.9243648750756935,
+          "min_across_25_cells": 0.8522681134588228,
+          "std_across_25_cells": 0.02512455339366401
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            -1.0605923916600322,
+            -0.4170322697016248
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              -0.22154703249266522,
+              0.006982567500393518,
+              -0.05893334826060741,
+              -1.1287613225265036,
+              -0.5899355415032449
+            ],
+            [
+              -0.8055745890576361,
+              -0.5818721281955301,
+              -0.0834892540958027,
+              -0.22419771786564155,
+              -0.4942260269397965
+            ],
+            [
+              -0.9377074767815405,
+              -0.9064329510910846,
+              -1.655119216851644,
+              -1.6108956846236804,
+              -1.0998261206892932
+            ],
+            [
+              -0.11730776406708317,
+              -0.5399924101160757,
+              -0.6658786604895097,
+              -0.9416906074507732,
+              -1.32734046012794
+            ],
+            [
+              -0.9720461675533306,
+              -0.967335884705657,
+              -0.8489509970833863,
+              -0.5051800635669581,
+              -1.0949378975468071
+            ]
+          ],
+          "max_across_25_cells": 0.006982567500393518,
+          "mean_across_25_cells": -0.7348878702472719,
+          "min_across_25_cells": -1.655119216851644,
+          "std_across_25_cells": 0.4636796633411302
+        }
+      },
+      "L_mut_nH": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            3.052484759266658,
+            3.7342704652693044
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.4841392739785317,
+              2.749944300911755,
+              3.2086526630450556,
+              3.680403199997033,
+              3.4312974958301905
+            ],
+            [
+              3.8041982023912406,
+              3.675925124159526,
+              3.5246794035641646,
+              4.201155517188472,
+              3.534927059515241
+            ],
+            [
+              2.8463679290044186,
+              2.5726445959342144,
+              3.2827699883637584,
+              3.8010773537173566,
+              3.03211534839213
+            ],
+            [
+              3.6480951029055118,
+              3.442999305427916,
+              4.189202500181476,
+              3.647990060726395,
+              4.039490107296753
+            ],
+            [
+              3.234650545556019,
+              3.2252512035259926,
+              3.2036849002295655,
+              3.2687928494718554,
+              3.596269977172211
+            ]
+          ],
+          "max_across_25_cells": 4.201155517188472,
+          "mean_across_25_cells": 3.413068960339471,
+          "min_across_25_cells": 2.4841392739785317,
+          "std_across_25_cells": 0.4517671868102481
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            21.232660936776206,
+            25.03121078651138
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              17.04047965871695,
+              18.765422192893737,
+              21.661846059486926,
+              24.125279585877376,
+              22.6387985491625
+            ],
+            [
+              21.887209619401812,
+              22.28901308009861,
+              20.664733818365605,
+              24.380095791037157,
+              20.53360505570189
+            ],
+            [
+              24.147768551702192,
+              21.60990101726329,
+              26.27489349042155,
+              30.533498388646425,
+              25.45717583469319
+            ],
+            [
+              22.742123451968087,
+              22.395654047749172,
+              25.516837601144196,
+              22.627930573297732,
+              24.871285207523286
+            ],
+            [
+              23.706845348186704,
+              23.524055760287403,
+              22.07685108590494,
+              23.024429638553283,
+              24.806824600068083
+            ]
+          ],
+          "max_across_25_cells": 30.533498388646425,
+          "mean_across_25_cells": 23.092102320326088,
+          "min_across_25_cells": 17.04047965871695,
+          "std_across_25_cells": 2.6114483186197073
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            3.0191531096612763,
+            3.6683283401235474
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.4574675628380778,
+              2.7746646169599427,
+              3.1660282453260504,
+              3.5875208844699986,
+              3.3722307879365605
+            ],
+            [
+              3.8387209003221288,
+              3.6957324960141387,
+              3.5709325608183344,
+              4.1786018359442885,
+              3.540449256991265
+            ],
+            [
+              2.805250797175011,
+              2.52948034886272,
+              3.212102560864781,
+              3.704960218820394,
+              2.9586363855860096
+            ],
+            [
+              3.4652265640836677,
+              3.374987121271634,
+              3.9917513331448506,
+              3.46534729675551,
+              3.9491738421337423
+            ],
+            [
+              3.277208005461395,
+              3.206095346913012,
+              3.1791198570468118,
+              3.2190203897955234,
+              3.58053282967794
+            ]
+          ],
+          "max_across_25_cells": 4.1786018359442885,
+          "mean_across_25_cells": 3.364049681808551,
+          "min_across_25_cells": 2.4574675628380778,
+          "std_across_25_cells": 0.4347048472290634
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            2.4433802777241547,
+            2.883263874976215
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.1766011485192513,
+              2.4228433651200167,
+              2.574114746348992,
+              3.0398680836263408,
+              2.5116596037582597
+            ],
+            [
+              2.851866225102094,
+              2.9974767795617385,
+              2.798745542477711,
+              3.3748658346085123,
+              2.586079766453928
+            ],
+            [
+              2.445057100654989,
+              2.0958344028454596,
+              2.3209650186604414,
+              3.015029854985101,
+              2.467648004693144
+            ],
+            [
+              2.749143553454604,
+              2.4579059903661933,
+              2.8131419971945006,
+              2.7882280487735445,
+              3.2333010793613113
+            ],
+            [
+              2.4997210006753,
+              2.6010390076473726,
+              2.3132223788529007,
+              2.4415529441541555,
+              2.8676969102269867
+            ]
+          ],
+          "max_across_25_cells": 3.3748658346085123,
+          "mean_across_25_cells": 2.6577443355249137,
+          "min_across_25_cells": 2.0958344028454596,
+          "std_across_25_cells": 0.3195068472678618
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            7.456971397191214,
+            10.122912301806984
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              5.87082036113977,
+              6.280502905134123,
+              8.141746971962917,
+              9.258110790104839,
+              8.817732615950867
+            ],
+            [
+              11.196391478890913,
+              9.841599163043385,
+              10.048762099373521,
+              12.351238472453982,
+              10.903678652644839
+            ],
+            [
+              6.07558516447033,
+              6.400993153439913,
+              8.39109413821141,
+              8.59420558811207,
+              7.356278027889848
+            ],
+            [
+              8.656248543351808,
+              8.557184317800578,
+              10.202291274244683,
+              9.896344588756424,
+              10.419266956674797
+            ],
+            [
+              7.932901962859189,
+              7.960235656535582,
+              8.96610304028677,
+              8.285700080070459,
+              9.588819906863552
+            ]
+          ],
+          "max_across_25_cells": 12.351238472453982,
+          "mean_across_25_cells": 8.799753436410663,
+          "min_across_25_cells": 5.87082036113977,
+          "std_across_25_cells": 1.6420035470007992
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.9917661569122719,
+            0.9946392734708781
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.9949271462150265,
+              0.9945103308203201,
+              0.9917882388831162,
+              0.9901186868738658,
+              0.9912166970888883
+            ],
+            [
+              0.9923143024149831,
+              0.9921521575246665,
+              0.9935114752264783,
+              0.9906800829670063,
+              0.9932412721628983
+            ],
+            [
+              0.9932464844131765,
+              0.9942029053365394,
+              0.9916286981342992,
+              0.9891873552794996,
+              0.992164448285843
+            ],
+            [
+              0.9961354283791023,
+              0.9961765541048142,
+              0.995209765779867,
+              0.9964123295008583,
+              0.9958163816223438
+            ],
+            [
+              0.9926539368302175,
+              0.9926685492450473,
+              0.993218888220286,
+              0.9933094244583394,
+              0.9922368943818423
+            ]
+          ],
+          "max_across_25_cells": 0.9964123295008583,
+          "mean_across_25_cells": 0.9931491373659729,
+          "min_across_25_cells": 0.9891873552794996,
+          "std_across_25_cells": 0.0019282870291234648
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            -4.976853996331762,
+            -0.025762292570343837
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              -1.1927514663682677,
+              -1.5200479733193957,
+              -2.667863027522061,
+              -1.5151274391907013,
+              -0.8915706522262294
+            ],
+            [
+              1.4742403009211271,
+              -2.8517329535875455,
+              -1.7139547817369465,
+              -1.2395424809688556,
+              -2.517360397692631
+            ],
+            [
+              -1.4905364028453159,
+              -1.812938209291943,
+              -4.141691017051023,
+              -4.442181274688511,
+              -2.5336657616957847
+            ],
+            [
+              -6.575502180242537,
+              -5.662819734241708,
+              -6.789008995004975,
+              -8.062719138927473,
+              -8.309233772617924
+            ],
+            [
+              0.9960213222852443,
+              -1.1289354547243027,
+              -0.3689187013386195,
+              1.7003807693926754,
+              4.267782130609049
+            ]
+          ],
+          "max_across_25_cells": 4.267782130609049,
+          "mean_across_25_cells": -2.359587091682986,
+          "min_across_25_cells": -8.309233772617924,
+          "std_across_25_cells": 3.052563829926697
+        }
+      },
+      "L_pri_nH": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            3.4135641193811415,
+            5.015224024197089
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.9677744678884963,
+              3.3313854072999165,
+              3.1138074574238948,
+              3.3854131771013587,
+              3.1434178781604833
+            ],
+            [
+              4.789378593428455,
+              6.329515352739754,
+              4.563210221495266,
+              5.628075169862115,
+              5.050651927658381
+            ],
+            [
+              3.035511189325634,
+              2.83683731535147,
+              3.2827512440804156,
+              3.1460899021070543,
+              3.4190855886780347
+            ],
+            [
+              4.675555535174321,
+              5.018350175947088,
+              5.6189372483008855,
+              5.086955337292097,
+              3.966903724213232
+            ],
+            [
+              3.824183568866261,
+              4.485449945016973,
+              4.830193858789158,
+              4.687716738971465,
+              4.103812462592682
+            ]
+          ],
+          "max_across_25_cells": 6.329515352739754,
+          "mean_across_25_cells": 4.172838539510596,
+          "min_across_25_cells": 2.83683731535147,
+          "std_across_25_cells": 0.9870975345894677
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            30.43659338481847,
+            36.27948449237837
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              28.838553582174097,
+              27.34857274440444,
+              28.126338274430196,
+              28.614559458842677,
+              26.47776752517848
+            ],
+            [
+              36.91234488248976,
+              34.07613523726055,
+              34.21123504651925,
+              36.16716543470183,
+              35.42943974889846
+            ],
+            [
+              31.989399944085033,
+              30.745067656817387,
+              32.752002203097746,
+              32.620997026516825,
+              34.50648889503329
+            ],
+            [
+              34.06776219181128,
+              37.37817639195302,
+              37.7574635783547,
+              35.35425098189881,
+              30.04224823588683
+            ],
+            [
+              32.98315251920078,
+              34.92345702994937,
+              39.83585055654231,
+              39.805083122774306,
+              37.16372553632038
+            ]
+          ],
+          "max_across_25_cells": 39.83585055654231,
+          "mean_across_25_cells": 33.525089512205675,
+          "min_across_25_cells": 26.47776752517848,
+          "std_across_25_cells": 3.7729313567296643
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            3.393349321432522,
+            5.040107379808939
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.998226081484417,
+              3.2853548391153238,
+              3.122658710731798,
+              3.326146142641713,
+              3.0480306268155077
+            ],
+            [
+              4.944857357503815,
+              6.2856098737256,
+              4.61382529722458,
+              5.749618372438566,
+              5.141195696857292
+            ],
+            [
+              3.0662887869386197,
+              2.8998178187418313,
+              3.212480453329227,
+              3.210588919590079,
+              3.3942453796809735
+            ],
+            [
+              4.677183874579703,
+              5.074347019353593,
+              5.745454660707753,
+              5.1565605968446695,
+              3.9958915283501075
+            ],
+            [
+              3.7341002483888466,
+              4.290482937261153,
+              4.748162089375926,
+              4.627221311858824,
+              4.0651746675090985
+            ]
+          ],
+          "max_across_25_cells": 6.2856098737256,
+          "mean_across_25_cells": 4.176540931641961,
+          "min_across_25_cells": 2.8998178187418313,
+          "std_across_25_cells": 1.0108629304686372
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            2.5867093790727465,
+            3.159059688749963
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.2846451699700614,
+              2.5802896448424026,
+              2.4649172680037363,
+              2.416670785269843,
+              2.2963811805799024
+            ],
+            [
+              3.1509583653035547,
+              2.8008192521506716,
+              3.2836389823520764,
+              3.174428010373398,
+              3.011724730542708
+            ],
+            [
+              2.6704745835741357,
+              2.3494967790361336,
+              2.6691905322106892,
+              2.653790908772005,
+              2.8151562829224153
+            ],
+            [
+              3.366345196445216,
+              3.2537368236939272,
+              3.4669658007417032,
+              3.334779329442438,
+              2.7354357838585477
+            ],
+            [
+              2.5622279067270406,
+              2.94780241314149,
+              3.2680423097715545,
+              3.1822640345488855,
+              3.027798859707641
+            ]
+          ],
+          "max_across_25_cells": 3.4669658007417032,
+          "mean_across_25_cells": 2.870719237359287,
+          "min_across_25_cells": 2.2846451699700614,
+          "std_across_25_cells": 0.3685175827549121
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            9.005622025158493,
+            16.33584628202921
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              8.239463647848105,
+              9.310661449914509,
+              7.861288350328055,
+              9.407429737423268,
+              8.03653148907023
+            ],
+            [
+              17.247091977345573,
+              20.96008017989482,
+              13.710835078823653,
+              21.01944851385346,
+              17.77188070309249
+            ],
+            [
+              7.2193403599048995,
+              7.818951062087404,
+              7.978128345249448,
+              8.423733292044645,
+              8.105027336158585
+            ],
+            [
+              14.862416679272764,
+              16.717482790188843,
+              19.667717070156332,
+              16.59657581071678,
+              11.704372761067603
+            ],
+            [
+              10.009606304621096,
+              11.007874049138193,
+              14.362125451707554,
+              13.296821440067733,
+              10.785313584521656
+            ]
+          ],
+          "max_across_25_cells": 21.01944851385346,
+          "mean_across_25_cells": 12.484807898579907,
+          "min_across_25_cells": 7.2193403599048995,
+          "std_across_25_cells": 4.514223746678709
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.9931018000244176,
+            0.9948319670996433
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.9940776967112129,
+              0.9955699240745627,
+              0.995117790712633,
+              0.9949838957408924,
+              0.995684223543697
+            ],
+            [
+              0.9938571822109941,
+              0.9943236311263611,
+              0.9945502263946746,
+              0.994427252987702,
+              0.9942771186571904
+            ],
+            [
+              0.9944612710903088,
+              0.9949927326236812,
+              0.994256322843116,
+              0.9941502219396572,
+              0.9937432602482446
+            ],
+            [
+              0.994518416050298,
+              0.9934792634597714,
+              0.9935894944358862,
+              0.9944091792275794,
+              0.9958954236650772
+            ],
+            [
+              0.9937299759697951,
+              0.9934193596886418,
+              0.9917428371809418,
+              0.9903869045601311,
+              0.9927089534272345
+            ]
+          ],
+          "max_across_25_cells": 0.9958954236650772,
+          "mean_across_25_cells": 0.9940941023428114,
+          "min_across_25_cells": 0.9903869045601311,
+          "std_across_25_cells": 0.0011908981811991368
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            -1.9076895134644027,
+            2.796807028196747
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.973422652227638,
+              -0.10156388113110244,
+              -1.6638277070570835,
+              0.7501647104144494,
+              -1.796569411514996
+            ],
+            [
+              5.556271261057975,
+              7.63504641012302,
+              4.561182610709169,
+              3.967830938361911,
+              1.0914339943282396
+            ],
+            [
+              -1.5433791206526013,
+              -1.8284963455755892,
+              -1.1232209728690379,
+              0.8388341714837525,
+              -0.4729493853733744
+            ],
+            [
+              -4.557501836909482,
+              -1.388907025186109,
+              2.767342993546856,
+              1.805354903611298,
+              -6.7046537959327726
+            ],
+            [
+              2.4147549909745853,
+              1.2055186485591767,
+              -6.431540231032653,
+              -4.092450742970241,
+              0.8539495186136473
+            ]
+          ],
+          "max_across_25_cells": 7.63504641012302,
+          "mean_across_25_cells": 0.18864189391226696,
+          "min_across_25_cells": -6.7046537959327726,
+          "std_across_25_cells": 3.5002176399310727
+        }
+      },
+      "L_sec_nH": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            3.2630415762267204,
+            4.729397670866331
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.711661842782166,
+              3.0814469112237193,
+              3.1644486251130144,
+              3.787598142352481,
+              3.0832291015919018
+            ],
+            [
+              4.68045534637015,
+              5.564225764166613,
+              5.031505556701807,
+              5.444834888001255,
+              4.7835820261590225
+            ],
+            [
+              2.903187316519867,
+              3.112819379003329,
+              2.8556112121129527,
+              3.174348034216683,
+              3.0064697826779465
+            ],
+            [
+              4.134123662006575,
+              4.1990750472354526,
+              5.357149511366913,
+              5.0504106132279105,
+              3.9167927683253256
+            ],
+            [
+              3.817705329920704,
+              3.6529947322169276,
+              4.245563990592758,
+              4.47238865717617,
+              3.8680722464348913
+            ]
+          ],
+          "max_across_25_cells": 5.564225764166613,
+          "mean_across_25_cells": 3.9639880194998613,
+          "min_across_25_cells": 2.711661842782166,
+          "std_across_25_cells": 0.8935653324026215
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            30.64975665299047,
+            39.471223008485524
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              25.007065473625303,
+              27.145702132243855,
+              29.444284496742604,
+              32.28296248598442,
+              27.293554398188558
+            ],
+            [
+              40.89852799253013,
+              42.781526591089786,
+              40.15452793339736,
+              46.952010851581136,
+              39.564003027703926
+            ],
+            [
+              31.75606610240911,
+              33.89948984360518,
+              32.821207487743344,
+              35.07057683148296,
+              31.103885679337324
+            ],
+            [
+              33.71582691824883,
+              33.37376272716956,
+              42.98822130829593,
+              40.39006797842944,
+              31.294756294065493
+            ],
+            [
+              35.33186063812864,
+              32.005194447596494,
+              35.94876302235892,
+              36.9324717706606,
+              35.85503176085162
+            ]
+          ],
+          "max_across_25_cells": 46.952010851581136,
+          "mean_across_25_cells": 34.96045392773882,
+          "min_across_25_cells": 25.007065473625303,
+          "std_across_25_cells": 5.407323964244347
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            3.2986718497833314,
+            4.753107541266228
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.793426384219141,
+              3.1582852843852742,
+              3.216548655098619,
+              3.8627167141889243,
+              3.1197085958712685
+            ],
+            [
+              4.764523116694899,
+              5.559301111410059,
+              5.144022007635979,
+              5.53714597745604,
+              4.866869236967883
+            ],
+            [
+              3.0159445686590005,
+              3.084942951275866,
+              2.9399557374180407,
+              3.185524396609179,
+              3.0070775909892915
+            ],
+            [
+              4.138983878541152,
+              4.270646741798447,
+              5.28267992371538,
+              4.9842199888558465,
+              3.9462786029877592
+            ],
+            [
+              3.8261528256104365,
+              3.5944028330292017,
+              4.144249602931891,
+              4.4431015983156446,
+              3.9063125627786857
+            ]
+          ],
+          "max_across_25_cells": 5.559301111410059,
+          "mean_across_25_cells": 3.9917208354977562,
+          "min_across_25_cells": 2.793426384219141,
+          "std_across_25_cells": 0.8831252847183769
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            2.5339098296855456,
+            3.388226946218641
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              2.1230062366245264,
+              2.434241016728804,
+              2.5698862967136127,
+              3.189094811651734,
+              2.458849291106958
+            ],
+            [
+              3.4331254255736434,
+              3.7610360463503505,
+              3.8286373950977053,
+              3.416424109337246,
+              3.5243714485128534
+            ],
+            [
+              2.3485178002862623,
+              2.5380740593491256,
+              2.072793611811323,
+              2.675546702291867,
+              2.348273354928354
+            ],
+            [
+              3.1836806737001595,
+              3.1696749699098627,
+              3.893764118268301,
+              3.6326856229561173,
+              2.9789724244316553
+            ],
+            [
+              2.782871128195479,
+              2.463149416422463,
+              2.9622761439047327,
+              2.8157368706850443,
+              3.207597715258922
+            ]
+          ],
+          "max_across_25_cells": 3.893764118268301,
+          "mean_across_25_cells": 2.9524914676038843,
+          "min_across_25_cells": 2.072793611811323,
+          "std_across_25_cells": 0.5458783942304941
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            8.798539108801572,
+            13.994923001691832
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              7.514889782886636,
+              8.067866392445875,
+              8.281336636282084,
+              9.767459145844331,
+              8.146105293938215
+            ],
+            [
+              13.414326309524055,
+              15.766602171175625,
+              15.421963785661832,
+              18.25171670603816,
+              14.685663785349117
+            ],
+            [
+              7.722149903539229,
+              8.199882799945607,
+              8.319100078052735,
+              8.4462368109176,
+              7.754540020879134
+            ],
+            [
+              11.458730992381724,
+              11.699475317728911,
+              15.385703644894678,
+              13.50268100830318,
+              11.24700318955982
+            ],
+            [
+              10.076918978780277,
+              9.47306914815874,
+              12.681916842386656,
+              14.939400153726428,
+              10.653119751190465
+            ]
+          ],
+          "max_across_25_cells": 18.25171670603816,
+          "mean_across_25_cells": 11.235114345983643,
+          "min_across_25_cells": 7.514889782886636,
+          "std_across_25_cells": 3.1716730379130147
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.9914071594574897,
+            0.9952370962874151
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.9964028575968793,
+              0.9960822421208331,
+              0.9954530696820642,
+              0.994785180602347,
+              0.9960936739070694
+            ],
+            [
+              0.9914605780562991,
+              0.9890388624423784,
+              0.9915243154261647,
+              0.9861156032000884,
+              0.992307943533988
+            ],
+            [
+              0.9954039358836085,
+              0.9945453574184165,
+              0.9942518929814699,
+              0.9940965707334841,
+              0.9955110302337192
+            ],
+            [
+              0.9952794134793456,
+              0.9951575343281756,
+              0.9913800763491487,
+              0.9928039312269801,
+              0.9957543069893477
+            ],
+            [
+              0.9933520894139526,
+              0.993958273284492,
+              0.9936880818158829,
+              0.9927394693289346,
+              0.9928399068598924
+            ]
+          ],
+          "max_across_25_cells": 0.9964028575968793,
+          "mean_across_25_cells": 0.9936010478757984,
+          "min_across_25_cells": 0.9861156032000884,
+          "std_across_25_cells": 0.002396925827524997
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            -13.685006846826104,
+            -1.7127913705825208
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              -5.744105992568195,
+              0.32475878738204916,
+              -3.157375757189867,
+              -2.7150296178165316,
+              -0.2107255450805688
+            ],
+            [
+              -16.15992546674975,
+              -9.166420016134758,
+              -10.22680917172991,
+              -23.325203617553477,
+              -18.55095816808301
+            ],
+            [
+              -1.297673385349711,
+              -4.519703690078588,
+              -4.6761023523762555,
+              -2.569018982855709,
+              -3.6597065467241543
+            ],
+            [
+              -14.66741565424491,
+              -9.875425255120415,
+              -23.672121240598443,
+              -18.72902201856101,
+              -6.052343835682639
+            ],
+            [
+              -1.1758476493337844,
+              -1.7810731421662245,
+              2.2910908174959226,
+              -1.7517814714422704,
+              1.0035836445453108
+            ]
+          ],
+          "max_across_25_cells": 2.2910908174959226,
+          "mean_across_25_cells": -7.202574213120677,
+          "min_across_25_cells": -23.672121240598443,
+          "std_across_25_cells": 7.718483593963956
+        }
+      }
+    },
+    "r4_panel_r3": {
+      "Cps_pF": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            11.974633220713704,
+            14.112592087272128
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              10.836283446571553,
+              11.324156123714404,
+              13.960874250607985,
+              17.611641070586863,
+              15.32947112456296
+            ],
+            [
+              11.795840180478347,
+              12.701394656156756,
+              12.504521767490047,
+              12.898162635109015,
+              14.020977337269617
+            ],
+            [
+              13.154168968816252,
+              10.62736828272049,
+              14.624139003156042,
+              14.145978056682184,
+              12.36456619328862
+            ],
+            [
+              10.918301237531654,
+              11.618220388049318,
+              14.044561724329819,
+              13.122220967722281,
+              12.090372340534891
+            ],
+            [
+              13.001706768232866,
+              11.692764661509734,
+              12.796784459745568,
+              12.43900928511937,
+              13.296437097429095
+            ]
+          ],
+          "max_across_25_cells": 17.611641070586863,
+          "mean_across_25_cells": 12.916796881096626,
+          "min_across_25_cells": 10.62736828272049,
+          "std_across_25_cells": 1.5560159315826125
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            6.317638976319947,
+            7.986262368046601
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              6.312550405482597,
+              7.037156831363559,
+              7.826077054793564,
+              9.85449474475199,
+              8.713618107659858
+            ],
+            [
+              5.393977693503602,
+              6.245396428107718,
+              5.955525410968341,
+              6.220626909876089,
+              7.10538455524566
+            ],
+            [
+              8.102952097529839,
+              6.741032470744231,
+              8.826052022102173,
+              8.644339880458906,
+              7.609695547605461
+            ],
+            [
+              5.475307303902004,
+              6.18396266274723,
+              7.274789649054822,
+              7.37229600939952,
+              7.282823277107389
+            ],
+            [
+              6.8564299374942355,
+              6.415309604361639,
+              6.6322773295175415,
+              6.619933335241717,
+              6.354956090355858
+            ]
+          ],
+          "max_across_25_cells": 9.85449474475199,
+          "mean_across_25_cells": 7.0822786143750225,
+          "min_across_25_cells": 5.393977693503602,
+          "std_across_25_cells": 1.0986069644702487
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            11.974633220713704,
+            14.112592087272128
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              10.836283446571555,
+              11.324156123714404,
+              13.960874250607985,
+              17.611641070586863,
+              15.32947112456296
+            ],
+            [
+              11.795840180478347,
+              12.701394656156756,
+              12.504521767490049,
+              12.898162635109015,
+              14.020977337269615
+            ],
+            [
+              13.154168968816252,
+              10.627368282720491,
+              14.624139003156039,
+              14.14597805668218,
+              12.364566193288617
+            ],
+            [
+              10.918301237531653,
+              11.618220388049318,
+              14.044561724329816,
+              13.122220967722281,
+              12.090372340534891
+            ],
+            [
+              13.001706768232863,
+              11.692764661509733,
+              12.796784459745568,
+              12.439009285119369,
+              13.296437097429093
+            ]
+          ],
+          "max_across_25_cells": 17.611641070586863,
+          "mean_across_25_cells": 12.916796881096626,
+          "min_across_25_cells": 10.627368282720491,
+          "std_across_25_cells": 1.5560159315826119
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            9.076590367169587,
+            11.38419864403821
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              6.047873114662697,
+              8.294143970116993,
+              14.619685456937004,
+              13.622608450204332,
+              12.384671706742727
+            ],
+            [
+              9.655024313427345,
+              12.069229372812499,
+              9.619056978413207,
+              9.71823243686887,
+              11.452260033180757
+            ],
+            [
+              9.878852382248025,
+              9.12745722276869,
+              12.140628227687737,
+              10.996176310597944,
+              9.923333807919363
+            ],
+            [
+              7.703377745489777,
+              10.368837773923804,
+              8.769142757224731,
+              9.148372362424466,
+              10.176747693354036
+            ],
+            [
+              8.907256299702443,
+              9.89267187077551,
+              9.695962022937527,
+              8.769934167080232,
+              10.506892544462806
+            ]
+          ],
+          "max_across_25_cells": 14.619685456937004,
+          "mean_across_25_cells": 10.139537160878541,
+          "min_across_25_cells": 6.047873114662697,
+          "std_across_25_cells": 1.8488154348188424
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            29.691061772211384,
+            36.23076436955187
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              31.27708143656816,
+              25.509288769374734,
+              33.971033053725115,
+              44.53222542156051,
+              35.050449630756155
+            ],
+            [
+              29.262668559858877,
+              30.59057641736244,
+              29.254426840646484,
+              32.02707116982846,
+              29.241298358796946
+            ],
+            [
+              33.11240824803263,
+              27.669876173102804,
+              33.02133164029298,
+              37.62510837531039,
+              30.646011693649438
+            ],
+            [
+              35.15706580727436,
+              31.52096160385361,
+              43.52233453729468,
+              32.686755010751405,
+              28.27573290773004
+            ],
+            [
+              31.669433527348648,
+              25.543143062298544,
+              35.11444371128623,
+              39.84521517681046,
+              29.364733581826467
+            ]
+          ],
+          "max_across_25_cells": 44.53222542156051,
+          "mean_across_25_cells": 32.619626988613625,
+          "min_across_25_cells": 25.509288769374734,
+          "std_across_25_cells": 4.829291958738264
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.8995454395851926,
+            0.9531631474768003
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.9156707551123049,
+              0.9100896979856056,
+              0.8884696532428423,
+              0.8334564339778099,
+              0.8663212842240491
+            ],
+            [
+              0.952571967408971,
+              0.9309236822214573,
+              0.9478549964430356,
+              0.9382019325801285,
+              0.9196656472261482
+            ],
+            [
+              0.91945428907562,
+              0.9459492787412002,
+              0.9192659890791971,
+              0.8999069159104519,
+              0.9274327626046731
+            ],
+            [
+              0.9801471381621393,
+              0.9770161146334277,
+              0.9653315943393483,
+              0.9604782216325145,
+              0.9601982140756207
+            ],
+            [
+              0.922590489006711,
+              0.9416239683030078,
+              0.9254369658230618,
+              0.9234377982874499,
+              0.9382338963149788
+            ]
+          ],
+          "max_across_25_cells": 0.9801471381621393,
+          "mean_across_25_cells": 0.9283891874564704,
+          "min_across_25_cells": 0.8334564339778099,
+          "std_across_25_cells": 0.03302122165386352
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            -2.096202606819784,
+            -0.1751029832338809
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              -0.7024910730478237,
+              -1.4771007706934198,
+              1.1321471129922374,
+              -2.164535988396702,
+              -0.569874079684423
+            ],
+            [
+              0.8833319001289959,
+              -0.7860637329364973,
+              -0.19315880074327643,
+              0.15365433453736288,
+              -0.11107727576379207
+            ],
+            [
+              -0.7745864908799018,
+              -0.20130887747127657,
+              -1.7060315170520688,
+              -0.8900946541898384,
+              -0.6957947112367012
+            ],
+            [
+              -0.5745605451860657,
+              -1.6930702413713,
+              -2.4541484406291803,
+              -4.2756518314050505,
+              -4.720047673767851
+            ],
+            [
+              -0.9458136950858949,
+              -0.6275692085722775,
+              0.08892114266359978,
+              -0.32968599825699146,
+              -0.20013018726058462
+            ]
+          ],
+          "max_across_25_cells": 1.1321471129922374,
+          "mean_across_25_cells": -0.9533896521323487,
+          "min_across_25_cells": -4.720047673767851,
+          "std_across_25_cells": 1.3504118829694534
+        }
+      }
+    },
+    "r4_panel_r4": {
+      "Cps_pF": {
+        "family_macro_mape_pct": {
+          "descriptive_interval": [
+            13.712887766683972,
+            16.303100939917712
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              13.250159040480087,
+              13.020258432937899,
+              18.592446469833583,
+              19.47728196703861,
+              17.954963611103462
+            ],
+            [
+              15.144029997435497,
+              15.139614320639321,
+              14.569806114563798,
+              14.810338632794636,
+              16.175667608916406
+            ],
+            [
+              14.933786215047478,
+              12.462519197166262,
+              15.255811163896295,
+              15.839412438098739,
+              13.993867142404811
+            ],
+            [
+              14.396829886039482,
+              13.637719666862493,
+              15.3977953544028,
+              13.877914361082421,
+              11.832190842814233
+            ],
+            [
+              14.023840573148005,
+              12.590557815090996,
+              16.044720863244798,
+              14.088760133631164,
+              14.448145309997795
+            ]
+          ],
+          "max_across_25_cells": 19.47728196703861,
+          "mean_across_25_cells": 14.838337486346845,
+          "min_across_25_cells": 11.832190842814233,
+          "std_across_25_cells": 1.8318604034836459
+        },
+        "mae_physical_units": {
+          "descriptive_interval": [
+            6.459266166608351,
+            7.929890497757686
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              6.701008217433056,
+              7.043656616519411,
+              9.186440630561039,
+              9.521476100232814,
+              8.89759155221952
+            ],
+            [
+              6.445650976211935,
+              6.734523128413193,
+              6.2644890998148055,
+              6.4084327587893934,
+              7.584553008717939
+            ],
+            [
+              8.05897150190873,
+              6.8082019369221864,
+              7.800593688491644,
+              8.227609034653666,
+              7.440207489276286
+            ],
+            [
+              6.620270181017377,
+              6.263958478134443,
+              6.116795812454656,
+              6.3499207971092355,
+              5.7463272211299365
+            ],
+            [
+              7.022119795077656,
+              6.312711786415502,
+              7.565161369243838,
+              6.168192856510261,
+              6.566071152827421
+            ]
+          ],
+          "max_across_25_cells": 9.521476100232814,
+          "mean_across_25_cells": 7.114197407603438,
+          "min_across_25_cells": 5.7463272211299365,
+          "std_across_25_cells": 1.015456136056844
+        },
+        "mean_ape_pct": {
+          "descriptive_interval": [
+            13.712887766683972,
+            16.303100939917716
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              13.250159040480089,
+              13.0202584329379,
+              18.592446469833583,
+              19.477281967038607,
+              17.95496361110347
+            ],
+            [
+              15.144029997435492,
+              15.139614320639325,
+              14.569806114563802,
+              14.810338632794636,
+              16.175667608916406
+            ],
+            [
+              14.933786215047476,
+              12.462519197166264,
+              15.255811163896295,
+              15.839412438098734,
+              13.993867142404815
+            ],
+            [
+              14.396829886039482,
+              13.637719666862491,
+              15.397795354402803,
+              13.877914361082421,
+              11.832190842814233
+            ],
+            [
+              14.023840573148005,
+              12.590557815090996,
+              16.044720863244798,
+              14.088760133631162,
+              14.448145309997798
+            ]
+          ],
+          "max_across_25_cells": 19.477281967038607,
+          "mean_across_25_cells": 14.838337486346845,
+          "min_across_25_cells": 11.832190842814233,
+          "std_across_25_cells": 1.8318604034836459
+        },
+        "median_ape_pct": {
+          "descriptive_interval": [
+            9.179526320567717,
+            12.474754994095806
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              12.074551599214388,
+              10.575904239179335,
+              14.7110829625407,
+              15.51681630366283,
+              13.199938133411992
+            ],
+            [
+              8.955610226467552,
+              9.426686643452618,
+              12.649080245599817,
+              10.097759437189962,
+              13.25393765941037
+            ],
+            [
+              14.38459646431928,
+              8.455030602426495,
+              12.715413980998655,
+              9.939426523978959,
+              8.295568651792255
+            ],
+            [
+              11.006822706701426,
+              8.88833937075869,
+              11.265162502824557,
+              9.76695587642186,
+              8.123868598175727
+            ],
+            [
+              8.995719329506283,
+              8.733567631192713,
+              11.529388075923256,
+              7.189043466720753,
+              8.940293145022874
+            ]
+          ],
+          "max_across_25_cells": 15.51681630366283,
+          "mean_across_25_cells": 10.74762257507573,
+          "min_across_25_cells": 7.189043466720753,
+          "std_across_25_cells": 2.2900136230540573
+        },
+        "n_nonfinite_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "n_nonpositive_predictions": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "nonpositive_prediction_rate_pct": {
+          "descriptive_interval": [
+            0.0,
+            0.0
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "max_across_25_cells": 0.0,
+          "mean_across_25_cells": 0.0,
+          "min_across_25_cells": 0.0,
+          "std_across_25_cells": 0.0
+        },
+        "p95_ape_pct": {
+          "descriptive_interval": [
+            35.37328377406327,
+            44.43680604716829
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              34.758533723481015,
+              29.911665882715234,
+              44.90978871007409,
+              56.30173189253784,
+              45.63410799236208
+            ],
+            [
+              44.79470675790647,
+              38.36181040426666,
+              40.579378443157005,
+              43.51418349227672,
+              39.027110813683336
+            ],
+            [
+              39.48397611300207,
+              33.225829296933014,
+              38.349038187102174,
+              39.87921564168444,
+              34.11512425044584
+            ],
+            [
+              34.171751564481646,
+              35.398151202572066,
+              44.62355946896939,
+              35.72986266506282,
+              30.568831439686477
+            ],
+            [
+              38.75203668884157,
+              33.990245285317194,
+              44.999086485746936,
+              52.28536205318816,
+              35.893859300448284
+            ]
+          ],
+          "max_across_25_cells": 56.30173189253784,
+          "mean_across_25_cells": 39.5703579102377,
+          "min_across_25_cells": 29.911665882715234,
+          "std_across_25_cells": 6.400586914569763
+        },
+        "r2": {
+          "descriptive_interval": [
+            0.8729642214330217,
+            0.9454813528348955
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              0.8864757886558272,
+              0.8891958700621156,
+              0.8306773544043551,
+              0.8206881761519275,
+              0.8304766467663617
+            ],
+            [
+              0.9131394010982363,
+              0.9112320944739472,
+              0.9244634437506183,
+              0.9070874048394058,
+              0.8898632087335416
+            ],
+            [
+              0.9051237687981986,
+              0.9240046343690801,
+              0.9066912864726046,
+              0.8822094072169319,
+              0.9076991558493368
+            ],
+            [
+              0.9698347206301717,
+              0.9737903888877922,
+              0.9732049784611566,
+              0.9727500696572214,
+              0.9753467979555743
+            ],
+            [
+              0.8933581071347814,
+              0.9153701565594332,
+              0.891977085137414,
+              0.9012660017532204,
+              0.9068742083044583
+            ]
+          ],
+          "max_across_25_cells": 0.9753467979555743,
+          "mean_across_25_cells": 0.9081120062449485,
+          "min_across_25_cells": 0.8206881761519275,
+          "std_across_25_cells": 0.042671937315795425
+        },
+        "signed_bias_physical_units": {
+          "descriptive_interval": [
+            3.174924877673122,
+            4.7089035874234515
+          ],
+          "interval_label": "crossed-axis seed-grid resampling interval",
+          "interval_semantics": "descriptive sensitivity interval, not a population confidence interval",
+          "matrix_rows_split_seeds_columns_init_seeds": [
+            [
+              4.160024937542849,
+              3.385415239897253,
+              5.99466312358291,
+              2.6979800221939696,
+              4.292641930906249
+            ],
+            [
+              5.51454926266381,
+              3.845153629598316,
+              4.438058561791538,
+              4.784871697072177,
+              4.520140086771021
+            ],
+            [
+              4.757922275745888,
+              5.331199889154512,
+              3.8264772495737205,
+              4.642414112435951,
+              4.836714055389089
+            ],
+            [
+              4.97733281937801,
+              3.858823123192777,
+              3.097744923934896,
+              1.2762415331590253,
+              0.8318456907962257
+            ],
+            [
+              3.880785897069479,
+              4.199030383583097,
+              4.9155207348189744,
+              4.496913593898382,
+              4.626469404894792
+            ]
+          ],
+          "max_across_25_cells": 5.99466312358291,
+          "mean_across_25_cells": 4.127557367161796,
+          "min_across_25_cells": 0.8318456907962257,
+          "std_across_25_cells": 1.180015725903197
+        }
+      }
+    }
+  }
+}

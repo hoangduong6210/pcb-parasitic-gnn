@@ -1,0 +1,255 @@
+{
+  "entries": [
+    {
+      "archive_sha256": "df9460d90ef83e15d3056f8fd2f572a7b6fcfef07043bfaea41c0c798ea5c966",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "metadata_sha256": "2fc15e29081a50887cfc0a304b330d4871f6bef7d0f10ee682b2c3f16c79f9b2",
+      "smoke_examples_sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6",
+      "split_seed": 40,
+      "task_id": 0
+    },
+    {
+      "archive_sha256": "f3ffa4a2a61b5398a3f16b60c4ca0b393e484f2fc4a96832e92a4320aaca1b2d",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "metadata_sha256": "101f4256ea1aa28559f7d4a86c5d817d44992ac428a3e69b34bbe52351a88f8d",
+      "smoke_examples_sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6",
+      "split_seed": 40,
+      "task_id": 1
+    },
+    {
+      "archive_sha256": "df3df6ce76d120b12c7ea8f8c5efdb8cad50365fb5b45e9d4999f6f30e00354d",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "metadata_sha256": "2441052f4896fe19d4049f457037f6e9ec741d4841288af6a218476fd27b09b8",
+      "smoke_examples_sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6",
+      "split_seed": 40,
+      "task_id": 2
+    },
+    {
+      "archive_sha256": "804b6458b789db092f716b9b29840fb74e60c80039af88cd6ba49964770c89bd",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "metadata_sha256": "454aac6971ade82865f4c801d2cdc766c4d27212b785e09ed13ed4751a9cbaa3",
+      "smoke_examples_sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6",
+      "split_seed": 40,
+      "task_id": 3
+    },
+    {
+      "archive_sha256": "21c2aca3a25a27cfb1bdfaf4451d5a4c55e039316d71745b2aef4a1f70829a99",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "metadata_sha256": "c2725c0c18df27767cb46dc231a598c84347de49515cc4e6a64f5f1168fc5b85",
+      "smoke_examples_sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6",
+      "split_seed": 40,
+      "task_id": 4
+    },
+    {
+      "archive_sha256": "6282ea28365b4a82aa4ef81bf619d432a18ee2aef62b9f77381348cc424bee38",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "metadata_sha256": "559a56791bf2365a55b5ee93f95722d0393cfc49c90767915aae6b1df944bdae",
+      "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23",
+      "split_seed": 41,
+      "task_id": 5
+    },
+    {
+      "archive_sha256": "83fb7812ae3ca4a0553bd0c1dd9cf91cebdba52525d29e018024b67377dff728",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "metadata_sha256": "21374d3d3f1eeadc1fd1866c1cae301a1b35cba8bb827c5477ae20b631492d9a",
+      "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23",
+      "split_seed": 41,
+      "task_id": 6
+    },
+    {
+      "archive_sha256": "b175aa601b802f52b1efb3b06f60d3009db333329b884d9f968467c48566b345",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "metadata_sha256": "e44984da75357295fcc2f4a05f6c9a0364cf3535bbdfa7206437ecbd053be8c4",
+      "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23",
+      "split_seed": 41,
+      "task_id": 7
+    },
+    {
+      "archive_sha256": "46e839599ee200a8e856400316477a95db5bd1defc5584be5d551e825e0f903d",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "metadata_sha256": "590b82226350ae325a411aeef3d5ad8590b250d632dd5f576cd1b852d3134629",
+      "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23",
+      "split_seed": 41,
+      "task_id": 8
+    },
+    {
+      "archive_sha256": "59639b624927ee3818418a81eec886d0409fafabfaa86bc145754ab54d35408f",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "metadata_sha256": "c94bd6aa98ea18448e2fe82310fc21133e64fd8541e5926f7a65b06dcaaa8c51",
+      "smoke_examples_sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23",
+      "split_seed": 41,
+      "task_id": 9
+    },
+    {
+      "archive_sha256": "897b2baf41d001a10bfcb2b4916fb9c672258e7303b34e7c3c138ded1e370d7d",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "metadata_sha256": "e0aa2454b9b232f815f96eacf74e6e5f657705d45c1e269caafd5714ba53b3fe",
+      "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+      "split_seed": 42,
+      "task_id": 10
+    },
+    {
+      "archive_sha256": "4aca62382b8237fbedd40b4740ead6a207231e528747253d659542352fcb4bfd",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "metadata_sha256": "7e96e6c5f14708e7341efd53b4d8faec05a100d16c021686b07d48a2d8725894",
+      "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+      "split_seed": 42,
+      "task_id": 11
+    },
+    {
+      "archive_sha256": "8efc90f4209a818f9a334e2eefcf43a30ae38363262c5de39302e328d736e2b5",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle",
+      "designated_downstream_checkpoint": true,
+      "init_seed": 42,
+      "metadata_sha256": "99136b0b28b731494dc20442a0bdb2b8ba4fb858458c334d37f6e57ffd1e2d02",
+      "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+      "split_seed": 42,
+      "task_id": 12
+    },
+    {
+      "archive_sha256": "a1b4d54b4ef437d4e73e6e3881ebdeade6d386ee1139c7bdb6847f55f1a3479b",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "metadata_sha256": "55440c5ddb7488d02aa1fe00b95385d05501b7cf5dee0569aa2e9ec2dfccd735",
+      "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+      "split_seed": 42,
+      "task_id": 13
+    },
+    {
+      "archive_sha256": "97979db98ed0517972206c41531908b9d42fc69763a8283cbd745e2d55cf1ca7",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "metadata_sha256": "9e7e69c11c87df7cd00be82f05bbb74300b9585b9a0db5aaf5010c9ae254b0e2",
+      "smoke_examples_sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752",
+      "split_seed": 42,
+      "task_id": 14
+    },
+    {
+      "archive_sha256": "4729fa9b9fa3003d4c0b56eaf02d2762b9058c31ceea3018359bf22347e02ffa",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "metadata_sha256": "2ffd72b2873552a54062d49e2c7353f789cac11358bcbfeb14e46c1b8e91b7d2",
+      "smoke_examples_sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0",
+      "split_seed": 43,
+      "task_id": 15
+    },
+    {
+      "archive_sha256": "01975d2703f14f406c45833d9b710b8c299a1ed59f198efddcb5c156047b5ae8",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "metadata_sha256": "ca8271989235737467316cd3d4d6630f7e5ff085724ed603ba02ae41b967f28d",
+      "smoke_examples_sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0",
+      "split_seed": 43,
+      "task_id": 16
+    },
+    {
+      "archive_sha256": "5629fce88c8dac807d759c10e2eb4f414085448076bc7d9bd7e733ed533a112f",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "metadata_sha256": "15a628cb6c5b61cff5c52838b28e63458636e67cd472405537aa9495a374f7ac",
+      "smoke_examples_sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0",
+      "split_seed": 43,
+      "task_id": 17
+    },
+    {
+      "archive_sha256": "67f368d0bb4baf03763863bb7d3e834a40352fe6a0b8b4d6529214b9c04c7436",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "metadata_sha256": "968ecbc3dea200cca7ea949e9a04f8201a7bdd3763b3c77486724e34524b81a3",
+      "smoke_examples_sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0",
+      "split_seed": 43,
+      "task_id": 18
+    },
+    {
+      "archive_sha256": "c14ff55829bdc4bb99e0bcbd30eb1190d5e5d0ff4eea8c2fa1cf7a4746d1898c",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "metadata_sha256": "5f5afbde04e26adfa7f9bc5dbcc2a16dbd21d7335a81f5a64157fc569a90f222",
+      "smoke_examples_sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0",
+      "split_seed": 43,
+      "task_id": 19
+    },
+    {
+      "archive_sha256": "0db20fc0f870ba90e21a88e1389ab29b6c3befbdcfeab7f8a32ec726b984bb77",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "metadata_sha256": "f28e34636d5001302211a325c89b53582d263fd4ca1b224569229b45ae1cc265",
+      "smoke_examples_sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb",
+      "split_seed": 44,
+      "task_id": 20
+    },
+    {
+      "archive_sha256": "6afb6ab35b3cf1cb267c81536ef206b2607bc9198fd480ea7cdb6ae33139802c",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "metadata_sha256": "57174bd0e930541edfdb18498a30ef4d34418cbf9df869391d1e4715c5a51e6a",
+      "smoke_examples_sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb",
+      "split_seed": 44,
+      "task_id": 21
+    },
+    {
+      "archive_sha256": "d691ac47d075e5c5cce4f5e746bb458772f932988bd9a7f8a5ef6875b3fb63b9",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "metadata_sha256": "d7c44fc9f3f5a8c57f049746a88920548328f0712e47f9053cf3b07633f948bb",
+      "smoke_examples_sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb",
+      "split_seed": 44,
+      "task_id": 22
+    },
+    {
+      "archive_sha256": "2d7ef90b21023ae9da1c05074bc6a897664a75273ec900637577c43a8ee07991",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "metadata_sha256": "84fd10c103ffe11f64ca04afe3b66db3c2f69479947c45f78fdbcf24bcc442ea",
+      "smoke_examples_sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb",
+      "split_seed": 44,
+      "task_id": 23
+    },
+    {
+      "archive_sha256": "feef530e3bf35b79117979ed59408057fe8471925277942cc7aad57553990fbf",
+      "bundle_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/bundle",
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "metadata_sha256": "d525471ffc2327cfee5976ff6e8bb341d3cb12392b116843910cd61a60591f36",
+      "smoke_examples_sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb",
+      "split_seed": 44,
+      "task_id": 24
+    }
+  ],
+  "schema": "pcb-gnn.corpus-v4-accuracy-checkpoint-index.v3"
+}
