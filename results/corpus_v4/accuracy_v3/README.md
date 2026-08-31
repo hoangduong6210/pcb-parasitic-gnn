@@ -11,9 +11,9 @@ no admitted accuracy, latency, speed, or physical-validation result.
 | Dataset and family registries | Frozen upstream inputs |
 | Protocol and deterministic plan | Frozen |
 | Filesystem sandbox preflight | Admitted by job `7087033` |
-| Checkpoint training | Array `7087054` active; 25 tasks, concurrency 5 |
-| Accepted checkpoint set | Not created |
-| Held-out finalizer | Closed |
+| Checkpoint training | Array `7087054` completed; 25 of 25 tasks at `COMPLETED/0:0` |
+| Accepted checkpoint set | Round 01 admitted 25 of 25 immutable candidates |
+| Held-out finalizer | Provenance lock frozen; SLURM execution not started |
 | Scientific claim | Closed |
 
 The sandbox preflight is intentionally solver-free and optimizer-free. Job
@@ -23,10 +23,12 @@ starting training. Its receipt records `sandbox_boundary_passed=true`,
 `heldout_bytes_opened=false`, and `training_started=false`; terminal accounting
 records `COMPLETED/0:0`. This admission opens checkpoint training only.
 
-The frozen checkpoint grid was submitted as array `7087054` from source commit
-`c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. This is an execution state, not
-an accepted checkpoint set. Held-out inference, finalization, and every claim
-remain closed until all 25 candidates pass postterminal admission.
+The frozen checkpoint grid ran as array `7087054` from source commit
+`c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. All 25 logical components
+completed with exit code `0:0`. Postterminal round 01 admitted every immutable
+candidate and left zero pending tasks. Held-out inference has not started, and
+every scientific claim remains closed until finalization and archive admission
+pass.
 
 ## Frozen roots
 
@@ -38,6 +40,8 @@ remain closed until all 25 candidates pass postterminal admission.
 | Task manifest | `e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71` |
 | Held-out evaluation commitment | `ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046` |
 | Active execution lock r2 | `8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c` |
+| Accepted artifact set, round 01 | `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe` |
+| Finalizer execution lock v1 | `cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3` |
 
 The original execution lock, SHA-256
 `f93521a5abed8f7010fdb8050a5f472df19594ba36c83eb97ae750caa7c2397c`,
@@ -169,9 +173,24 @@ sha256sum "$ACC3_RESUME_ROOT"/*.json
 ```
 
 Missing, corrupt, ambiguous, failed, or nonterminal tasks keep the accepted set
-incomplete. Preserve `round_00`; a later retry round must use its pending set as
-the allowlist and index both original and retry attempt roots into a new output
-directory.
+incomplete. Preserve every admission round and never overwrite its inventory.
+
+Round 00 preserved a fail-closed control-plane observation: the planner could
+not reach `slurmdbd`, so all 25 candidates received
+`SCHEDULER_NOT_COMPLETED`. Its candidate index nevertheless matches round 01
+byte for byte. Once accounting access returned, the same original attempt root
+was evaluated into round 01 without retraining or changing any checkpoint.
+Round 01 records 25 accepted candidates, zero pending tasks, and zero rejected
+candidates. The admission artifacts have these hashes:
+
+| Round | Artifact | SHA-256 |
+|---:|---|---|
+| 00 | Candidate index | `e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a` |
+| 00 | Accepted set | `bf53ad8ab326ff2317a446fb39cafc7a0a1c08c329195d7a0d6fc4d211349bd6` |
+| 00 | Pending set | `a56d38d33da765ce7b0f88e86c3ba3d3a28706453c29c675855ac050fe3db5a7` |
+| 01 | Candidate index | `e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a` |
+| 01 | Accepted set | `291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe` |
+| 01 | Pending set | `e63aa06ce5247a1a58de1e4dd2a40163aac597484ae1e120f12d782aafb2190e` |
 
 ## Finalizer provenance gate
 
@@ -181,11 +200,13 @@ while a separate finalizer lock authenticates the accepted set, finalizer
 source closure, and finalizer execution commit. This preserves the original
 training provenance without modifying or relabelling any r2 artifact.
 
-The production finalizer lock is intentionally absent until all 25 tasks are
-accepted and the accepted-set hash is frozen. Held-out finalization remains
-blocked until that lock is generated, reviewed, committed, and executed from a
-clean checkout through SLURM. Checkpoint completion or accepted-set admission
-does not authorize held-out inference or a scientific claim.
+The production finalizer lock is now frozen at
+`protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json`, SHA-256
+`cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3`.
+It binds the round 01 accepted set and historical r2 training provenance.
+Held-out finalization remains blocked until this complete boundary is reviewed,
+committed, and executed from a clean checkout through SLURM. Checkpoint
+completion or accepted-set admission does not authorize a scientific claim.
 
 ## Rebuild and validate the plan
 

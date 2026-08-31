@@ -1,0 +1,823 @@
+{
+  "candidate_dispositions": [
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/TASK_MANIFEST.json",
+        "sha256": "77905e88be7940fcd061a900bfcce1e34242e8e97530bea0d619652ed4d3d7fe",
+        "task_id": 0
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "528",
+        "ExitCode": "0:0",
+        "JobID": "7087054_0",
+        "JobIDRaw": "7087055",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/TASK_MANIFEST.json",
+        "sha256": "965ecde6e9ccb85e3940b2a2c1aaeec9baf8c3c8500ee6a04d0022c6c51bca78",
+        "task_id": 1
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "751",
+        "ExitCode": "0:0",
+        "JobID": "7087054_1",
+        "JobIDRaw": "7087056",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/TASK_MANIFEST.json",
+        "sha256": "d60cce832fef4909293db8280cda81683ebd9ff42d6aacc015f61c4897a453b7",
+        "task_id": 2
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "755",
+        "ExitCode": "0:0",
+        "JobID": "7087054_2",
+        "JobIDRaw": "7087057",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/TASK_MANIFEST.json",
+        "sha256": "e40b793cccf88edb2e318c89446385c177aa852460c4bfe0c5a4a04ff59024e9",
+        "task_id": 3
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "525",
+        "ExitCode": "0:0",
+        "JobID": "7087054_3",
+        "JobIDRaw": "7087058",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/TASK_MANIFEST.json",
+        "sha256": "66166d84f6aa0ddff945d17d87ab93e58b5e1356639244f46eb5bab9f5569c9e",
+        "task_id": 4
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "525",
+        "ExitCode": "0:0",
+        "JobID": "7087054_4",
+        "JobIDRaw": "7087059",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/TASK_MANIFEST.json",
+        "sha256": "63df6094f320d5664087105c197b375f8bd2567f4558178a468482d171b5dcbc",
+        "task_id": 5
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "536",
+        "ExitCode": "0:0",
+        "JobID": "7087054_5",
+        "JobIDRaw": "7087085",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/TASK_MANIFEST.json",
+        "sha256": "f0c4c8a676b65d0362884b9b8e81a0fc81ffc973098b44a1f2a5f76d0c573ba8",
+        "task_id": 6
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "540",
+        "ExitCode": "0:0",
+        "JobID": "7087054_6",
+        "JobIDRaw": "7087086",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/TASK_MANIFEST.json",
+        "sha256": "a44c4d66e1e99a8e2e523b77a9efe8417171e2c2a2347566a0973fd3e45a89b5",
+        "task_id": 7
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "541",
+        "ExitCode": "0:0",
+        "JobID": "7087054_7",
+        "JobIDRaw": "7087087",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/TASK_MANIFEST.json",
+        "sha256": "663b2b48bbefd889e673faba2acef39be936793056bdcc9722d168bc4b3a5e10",
+        "task_id": 8
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "534",
+        "ExitCode": "0:0",
+        "JobID": "7087054_8",
+        "JobIDRaw": "7087096",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/TASK_MANIFEST.json",
+        "sha256": "8677cbfc097b75190cece5f3edf0804f2e981e3d8795797cb90191300ce03966",
+        "task_id": 9
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "537",
+        "ExitCode": "0:0",
+        "JobID": "7087054_9",
+        "JobIDRaw": "7087097",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/TASK_MANIFEST.json",
+        "sha256": "1305dd0a879c2c79ba700d3b1d0cfd8a0d14e72c859810b9c7608da196a67c39",
+        "task_id": 10
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "464",
+        "ExitCode": "0:0",
+        "JobID": "7087054_10",
+        "JobIDRaw": "7087106",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/TASK_MANIFEST.json",
+        "sha256": "b9821b0c8a3f2dccbf75c65317a104b6a5f3cfc410deb328391eb0d9bd525468",
+        "task_id": 11
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "483",
+        "ExitCode": "0:0",
+        "JobID": "7087054_11",
+        "JobIDRaw": "7087107",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/TASK_MANIFEST.json",
+        "sha256": "57bc95abbfa4f00210d69405d200b6c46ef3c0d851b98e7ee7034eee53ba73eb",
+        "task_id": 12
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "485",
+        "ExitCode": "0:0",
+        "JobID": "7087054_12",
+        "JobIDRaw": "7087108",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/TASK_MANIFEST.json",
+        "sha256": "215a34906da7f231997753039d983af21dff5e51054baf6974c58d60f097d0de",
+        "task_id": 13
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "499",
+        "ExitCode": "0:0",
+        "JobID": "7087054_13",
+        "JobIDRaw": "7087119",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/TASK_MANIFEST.json",
+        "sha256": "c2a9ec0e86dfe0e0b5c21af4750e0ccf9eb0e8c3f929140a951217a793eeae6b",
+        "task_id": 14
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "541",
+        "ExitCode": "0:0",
+        "JobID": "7087054_14",
+        "JobIDRaw": "7087120",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/TASK_MANIFEST.json",
+        "sha256": "f3e44f8883a811fb1cd44dd1262b1728c5058df93411c88dc1284ecf60aecfb2",
+        "task_id": 15
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "497",
+        "ExitCode": "0:0",
+        "JobID": "7087054_15",
+        "JobIDRaw": "7087133",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/TASK_MANIFEST.json",
+        "sha256": "b0186eaf45ace3a479b7d5cd6d3b00012060f6c18cc1b93cd1c8cae61712a091",
+        "task_id": 16
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "523",
+        "ExitCode": "0:0",
+        "JobID": "7087054_16",
+        "JobIDRaw": "7087138",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/TASK_MANIFEST.json",
+        "sha256": "f2c7c9bdd300cb8d5dcd9f0bf4ba84ad0068c948bc2926be346f2b2c4a532cc5",
+        "task_id": 17
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "689",
+        "ExitCode": "0:0",
+        "JobID": "7087054_17",
+        "JobIDRaw": "7087139",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/TASK_MANIFEST.json",
+        "sha256": "579ff549235b8c76443794aa0c92822fff83635f55011398bbd147269bf67630",
+        "task_id": 18
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "522",
+        "ExitCode": "0:0",
+        "JobID": "7087054_18",
+        "JobIDRaw": "7087152",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/TASK_MANIFEST.json",
+        "sha256": "1f666f6e34298b7abcc9a8b706618471b907d22a57fa8e05e7773d597b05d046",
+        "task_id": 19
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "542",
+        "ExitCode": "0:0",
+        "JobID": "7087054_19",
+        "JobIDRaw": "7087153",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/TASK_MANIFEST.json",
+        "sha256": "31fe5aea283dcb8be90dfcfe5abf807deb0c9dc8b0bde4ae2d64773c0a702062",
+        "task_id": 20
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "486",
+        "ExitCode": "0:0",
+        "JobID": "7087054_20",
+        "JobIDRaw": "7087164",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/TASK_MANIFEST.json",
+        "sha256": "75adb9416002bf476299e63ebb7e3056a75c7d5795773869107cb3ff14be995f",
+        "task_id": 21
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "507",
+        "ExitCode": "0:0",
+        "JobID": "7087054_21",
+        "JobIDRaw": "7087170",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/TASK_MANIFEST.json",
+        "sha256": "e7fcd6d0e888478741117d6c2898d35287e64b3425c1bb16ec765e2c58d695b6",
+        "task_id": 22
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "665",
+        "ExitCode": "0:0",
+        "JobID": "7087054_22",
+        "JobIDRaw": "7087179",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/TASK_MANIFEST.json",
+        "sha256": "f7284c19cbeb30b34d764220d3fd9098c4e063166a9d64bbee7a172ebe8b5506",
+        "task_id": 23
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "510",
+        "ExitCode": "0:0",
+        "JobID": "7087054_23",
+        "JobIDRaw": "7087183",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    },
+    {
+      "candidate": {
+        "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/TASK_MANIFEST.json",
+        "sha256": "9908f1cfb1fb19750561ec05dd4d12af9ce90c66c66c65ae6c5625a57362c76a",
+        "task_id": 24
+      },
+      "outcome": "accepted",
+      "reason_code": null,
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "530",
+        "ExitCode": "0:0",
+        "JobID": "7087054_24",
+        "JobIDRaw": "7087054",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      }
+    }
+  ],
+  "candidate_index": {
+    "path": "results/corpus_v4/accuracy_v3/resume/round_01/candidate_index.json",
+    "sha256": "e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a"
+  },
+  "decision": {
+    "checkpoint_set_complete": true,
+    "claim_eligible": false,
+    "held_out_inference_may_start": true,
+    "speed_claim_eligible": false
+  },
+  "entries": [
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/TASK_MANIFEST.json",
+      "manifest_sha256": "77905e88be7940fcd061a900bfcce1e34242e8e97530bea0d619652ed4d3d7fe",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "528",
+        "ExitCode": "0:0",
+        "JobID": "7087054_0",
+        "JobIDRaw": "7087055",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 0
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/TASK_MANIFEST.json",
+      "manifest_sha256": "965ecde6e9ccb85e3940b2a2c1aaeec9baf8c3c8500ee6a04d0022c6c51bca78",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "751",
+        "ExitCode": "0:0",
+        "JobID": "7087054_1",
+        "JobIDRaw": "7087056",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 1
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/TASK_MANIFEST.json",
+      "manifest_sha256": "d60cce832fef4909293db8280cda81683ebd9ff42d6aacc015f61c4897a453b7",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "755",
+        "ExitCode": "0:0",
+        "JobID": "7087054_2",
+        "JobIDRaw": "7087057",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 2
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/TASK_MANIFEST.json",
+      "manifest_sha256": "e40b793cccf88edb2e318c89446385c177aa852460c4bfe0c5a4a04ff59024e9",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "525",
+        "ExitCode": "0:0",
+        "JobID": "7087054_3",
+        "JobIDRaw": "7087058",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 3
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/TASK_MANIFEST.json",
+      "manifest_sha256": "66166d84f6aa0ddff945d17d87ab93e58b5e1356639244f46eb5bab9f5569c9e",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "525",
+        "ExitCode": "0:0",
+        "JobID": "7087054_4",
+        "JobIDRaw": "7087059",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 4
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/TASK_MANIFEST.json",
+      "manifest_sha256": "63df6094f320d5664087105c197b375f8bd2567f4558178a468482d171b5dcbc",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "536",
+        "ExitCode": "0:0",
+        "JobID": "7087054_5",
+        "JobIDRaw": "7087085",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 5
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/TASK_MANIFEST.json",
+      "manifest_sha256": "f0c4c8a676b65d0362884b9b8e81a0fc81ffc973098b44a1f2a5f76d0c573ba8",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "540",
+        "ExitCode": "0:0",
+        "JobID": "7087054_6",
+        "JobIDRaw": "7087086",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 6
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/TASK_MANIFEST.json",
+      "manifest_sha256": "a44c4d66e1e99a8e2e523b77a9efe8417171e2c2a2347566a0973fd3e45a89b5",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "541",
+        "ExitCode": "0:0",
+        "JobID": "7087054_7",
+        "JobIDRaw": "7087087",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 7
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/TASK_MANIFEST.json",
+      "manifest_sha256": "663b2b48bbefd889e673faba2acef39be936793056bdcc9722d168bc4b3a5e10",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "534",
+        "ExitCode": "0:0",
+        "JobID": "7087054_8",
+        "JobIDRaw": "7087096",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 8
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/TASK_MANIFEST.json",
+      "manifest_sha256": "8677cbfc097b75190cece5f3edf0804f2e981e3d8795797cb90191300ce03966",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "537",
+        "ExitCode": "0:0",
+        "JobID": "7087054_9",
+        "JobIDRaw": "7087097",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 9
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/TASK_MANIFEST.json",
+      "manifest_sha256": "1305dd0a879c2c79ba700d3b1d0cfd8a0d14e72c859810b9c7608da196a67c39",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "464",
+        "ExitCode": "0:0",
+        "JobID": "7087054_10",
+        "JobIDRaw": "7087106",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 10
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/TASK_MANIFEST.json",
+      "manifest_sha256": "b9821b0c8a3f2dccbf75c65317a104b6a5f3cfc410deb328391eb0d9bd525468",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "483",
+        "ExitCode": "0:0",
+        "JobID": "7087054_11",
+        "JobIDRaw": "7087107",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 11
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/TASK_MANIFEST.json",
+      "manifest_sha256": "57bc95abbfa4f00210d69405d200b6c46ef3c0d851b98e7ee7034eee53ba73eb",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "485",
+        "ExitCode": "0:0",
+        "JobID": "7087054_12",
+        "JobIDRaw": "7087108",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 12
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/TASK_MANIFEST.json",
+      "manifest_sha256": "215a34906da7f231997753039d983af21dff5e51054baf6974c58d60f097d0de",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "499",
+        "ExitCode": "0:0",
+        "JobID": "7087054_13",
+        "JobIDRaw": "7087119",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 13
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/TASK_MANIFEST.json",
+      "manifest_sha256": "c2a9ec0e86dfe0e0b5c21af4750e0ccf9eb0e8c3f929140a951217a793eeae6b",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "541",
+        "ExitCode": "0:0",
+        "JobID": "7087054_14",
+        "JobIDRaw": "7087120",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 14
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/TASK_MANIFEST.json",
+      "manifest_sha256": "f3e44f8883a811fb1cd44dd1262b1728c5058df93411c88dc1284ecf60aecfb2",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "497",
+        "ExitCode": "0:0",
+        "JobID": "7087054_15",
+        "JobIDRaw": "7087133",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 15
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/TASK_MANIFEST.json",
+      "manifest_sha256": "b0186eaf45ace3a479b7d5cd6d3b00012060f6c18cc1b93cd1c8cae61712a091",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "523",
+        "ExitCode": "0:0",
+        "JobID": "7087054_16",
+        "JobIDRaw": "7087138",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 16
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/TASK_MANIFEST.json",
+      "manifest_sha256": "f2c7c9bdd300cb8d5dcd9f0bf4ba84ad0068c948bc2926be346f2b2c4a532cc5",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "689",
+        "ExitCode": "0:0",
+        "JobID": "7087054_17",
+        "JobIDRaw": "7087139",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 17
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/TASK_MANIFEST.json",
+      "manifest_sha256": "579ff549235b8c76443794aa0c92822fff83635f55011398bbd147269bf67630",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "522",
+        "ExitCode": "0:0",
+        "JobID": "7087054_18",
+        "JobIDRaw": "7087152",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 18
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/TASK_MANIFEST.json",
+      "manifest_sha256": "1f666f6e34298b7abcc9a8b706618471b907d22a57fa8e05e7773d597b05d046",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "542",
+        "ExitCode": "0:0",
+        "JobID": "7087054_19",
+        "JobIDRaw": "7087153",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 19
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/TASK_MANIFEST.json",
+      "manifest_sha256": "31fe5aea283dcb8be90dfcfe5abf807deb0c9dc8b0bde4ae2d64773c0a702062",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "486",
+        "ExitCode": "0:0",
+        "JobID": "7087054_20",
+        "JobIDRaw": "7087164",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 20
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/TASK_MANIFEST.json",
+      "manifest_sha256": "75adb9416002bf476299e63ebb7e3056a75c7d5795773869107cb3ff14be995f",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "507",
+        "ExitCode": "0:0",
+        "JobID": "7087054_21",
+        "JobIDRaw": "7087170",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 21
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/TASK_MANIFEST.json",
+      "manifest_sha256": "e7fcd6d0e888478741117d6c2898d35287e64b3425c1bb16ec765e2c58d695b6",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "665",
+        "ExitCode": "0:0",
+        "JobID": "7087054_22",
+        "JobIDRaw": "7087179",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 22
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/TASK_MANIFEST.json",
+      "manifest_sha256": "f7284c19cbeb30b34d764220d3fd9098c4e063166a9d64bbee7a172ebe8b5506",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "510",
+        "ExitCode": "0:0",
+        "JobID": "7087054_23",
+        "JobIDRaw": "7087183",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 23
+    },
+    {
+      "manifest_path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/TASK_MANIFEST.json",
+      "manifest_sha256": "9908f1cfb1fb19750561ec05dd4d12af9ce90c66c66c65ae6c5625a57362c76a",
+      "scheduler_completion": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "530",
+        "ExitCode": "0:0",
+        "JobID": "7087054_24",
+        "JobIDRaw": "7087054",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "State": "COMPLETED"
+      },
+      "task_id": 24
+    }
+  ],
+  "execution_lock_sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c",
+  "n_accepted": 25,
+  "n_expected": 25,
+  "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+  "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+  "schema": "pcb-gnn.corpus-v4-accuracy-accepted-set.v3",
+  "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+}

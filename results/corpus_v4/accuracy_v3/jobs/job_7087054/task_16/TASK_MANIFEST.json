@@ -1,0 +1,10 @@
+{
+  "files_sha256": {
+    "bundle/metadata.json": "ca8271989235737467316cd3d4d6630f7e5ff085724ed603ba02ae41b967f28d",
+    "bundle/weights_and_norm.npz": "01975d2703f14f406c45833d9b710b8c299a1ed59f198efddcb5c156047b5ae8",
+    "learning_curve.jsonl": "bcbcfce26739baa76295d2f05724f337c5063ca3fcb76df339411d6a6e693819",
+    "result.json": "27e699dfe6380ba5e015966186b99e1029bf9d9a56e412f21eb4aad21f4c17bf",
+    "smoke_examples.jsonl": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+  },
+  "schema": "pcb-gnn.corpus-v4-accuracy-task-artifact-manifest.v3"
+}

@@ -9,8 +9,8 @@
     "datasets": 12,
     "figures": 12,
     "logs": 108,
-    "protocols": 20,
-    "results": 4217,
+    "protocols": 21,
+    "results": 4373,
     "root": 10,
     "tests": 47,
     "wiki": 43
@@ -2097,6 +2097,11 @@
       "sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
     },
     {
+      "path": "protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json",
+      "bytes": 3704,
+      "sha256": "cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3"
+    },
+    {
       "path": "protocols/corpus_v4_accuracy_v1.json",
       "bytes": 6093,
       "sha256": "f707eb45e44042bc7231a4393caa1b998a283658ce2c3d4093e7c6c7a3eaf3bf"
@@ -3168,8 +3173,758 @@
     },
     {
       "path": "results/corpus_v4/accuracy_v3/README.md",
-      "bytes": 9782,
-      "sha256": "21ed5cee680b4664df078a58289285372391eb28d22af375435f15d542d2af07"
+      "bytes": 11282,
+      "sha256": "20a1dcf5184c301ef6e5a5e1e03bdc2ac525d8d996bfd40fd02d0857867dec1c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "77905e88be7940fcd061a900bfcce1e34242e8e97530bea0d619652ed4d3d7fe"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/bundle/metadata.json",
+      "bytes": 7436,
+      "sha256": "2fc15e29081a50887cfc0a304b330d4871f6bef7d0f10ee682b2c3f16c79f9b2"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/bundle/weights_and_norm.npz",
+      "bytes": 1033565,
+      "sha256": "df9460d90ef83e15d3056f8fd2f572a7b6fcfef07043bfaea41c0c798ea5c966"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/learning_curve.jsonl",
+      "bytes": 39389,
+      "sha256": "d49bb6c5d87e426b87ff465b8d2cffa9dec0e5d32d28199ff2945d79a168b186"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/result.json",
+      "bytes": 9125,
+      "sha256": "38fbeb94e3d64c55d08d62b64173d3547d12d63c7ae54fcc281b6e343bdd33c5"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_00/smoke_examples.jsonl",
+      "bytes": 21632,
+      "sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "965ecde6e9ccb85e3940b2a2c1aaeec9baf8c3c8500ee6a04d0022c6c51bca78"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/bundle/metadata.json",
+      "bytes": 7437,
+      "sha256": "101f4256ea1aa28559f7d4a86c5d817d44992ac428a3e69b34bbe52351a88f8d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/bundle/weights_and_norm.npz",
+      "bytes": 1033547,
+      "sha256": "f3ffa4a2a61b5398a3f16b60c4ca0b393e484f2fc4a96832e92a4320aaca1b2d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/learning_curve.jsonl",
+      "bytes": 39360,
+      "sha256": "56059b452146e665cb1d3942bf9494611f4f5816087caaa382057b95a48696df"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/result.json",
+      "bytes": 9124,
+      "sha256": "6fa5d203a3715cd4f4d8b3bb086216f8c3471052ae0e764355b8ca187c77f13f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_01/smoke_examples.jsonl",
+      "bytes": 21632,
+      "sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "d60cce832fef4909293db8280cda81683ebd9ff42d6aacc015f61c4897a453b7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/bundle/metadata.json",
+      "bytes": 7436,
+      "sha256": "2441052f4896fe19d4049f457037f6e9ec741d4841288af6a218476fd27b09b8"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/bundle/weights_and_norm.npz",
+      "bytes": 1033187,
+      "sha256": "df3df6ce76d120b12c7ea8f8c5efdb8cad50365fb5b45e9d4999f6f30e00354d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/learning_curve.jsonl",
+      "bytes": 39364,
+      "sha256": "52fd2f7871087d523d5962120be5b6c2d82313a5b4c003042d35fbc188bb9d83"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/result.json",
+      "bytes": 9124,
+      "sha256": "0c17c819927743afe48a95c0549dbdc5b4c050db21d31a65dc35728ff52952cb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_02/smoke_examples.jsonl",
+      "bytes": 21632,
+      "sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "e40b793cccf88edb2e318c89446385c177aa852460c4bfe0c5a4a04ff59024e9"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/bundle/metadata.json",
+      "bytes": 7436,
+      "sha256": "454aac6971ade82865f4c801d2cdc766c4d27212b785e09ed13ed4751a9cbaa3"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/bundle/weights_and_norm.npz",
+      "bytes": 1033416,
+      "sha256": "804b6458b789db092f716b9b29840fb74e60c80039af88cd6ba49964770c89bd"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/learning_curve.jsonl",
+      "bytes": 39356,
+      "sha256": "b7d55bf33fd7eab6ab18dd8410ab9729d3452c6732903e73898067689794b675"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/result.json",
+      "bytes": 9125,
+      "sha256": "b37be56893af32b4c78c422f32b9efc95fdc231a5a0380854c0bd5e8d9123ee0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_03/smoke_examples.jsonl",
+      "bytes": 21632,
+      "sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "66166d84f6aa0ddff945d17d87ab93e58b5e1356639244f46eb5bab9f5569c9e"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/bundle/metadata.json",
+      "bytes": 7434,
+      "sha256": "c2725c0c18df27767cb46dc231a598c84347de49515cc4e6a64f5f1168fc5b85"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/bundle/weights_and_norm.npz",
+      "bytes": 1033781,
+      "sha256": "21c2aca3a25a27cfb1bdfaf4451d5a4c55e039316d71745b2aef4a1f70829a99"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/learning_curve.jsonl",
+      "bytes": 39348,
+      "sha256": "ffe59a2844036438de06cf5c1e98ce496ce69f5d1cc057082bd84da8f53d8a6d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/result.json",
+      "bytes": 9124,
+      "sha256": "7d80094f9910812d493d31f5c1a6182d6332c6d650628a4cecc448c842e36600"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_04/smoke_examples.jsonl",
+      "bytes": 21632,
+      "sha256": "fbc4e844fdb27f1d87c91f8da4e8ace7c6e2267d04fde6e1217d797b6f9bf6d6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "63df6094f320d5664087105c197b375f8bd2567f4558178a468482d171b5dcbc"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/bundle/metadata.json",
+      "bytes": 7437,
+      "sha256": "559a56791bf2365a55b5ee93f95722d0393cfc49c90767915aae6b1df944bdae"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/bundle/weights_and_norm.npz",
+      "bytes": 1034062,
+      "sha256": "6282ea28365b4a82aa4ef81bf619d432a18ee2aef62b9f77381348cc424bee38"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/learning_curve.jsonl",
+      "bytes": 39277,
+      "sha256": "0dc676620ecd004541c3c3176042ff9005dfb93f3237a38cf44fff3d5e1f3a18"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/result.json",
+      "bytes": 9124,
+      "sha256": "e37d3a4dfe88fb2f92bc7336c530c97929851212e50ec5b8e1a194128d084312"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_05/smoke_examples.jsonl",
+      "bytes": 18144,
+      "sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "f0c4c8a676b65d0362884b9b8e81a0fc81ffc973098b44a1f2a5f76d0c573ba8"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/bundle/metadata.json",
+      "bytes": 7432,
+      "sha256": "21374d3d3f1eeadc1fd1866c1cae301a1b35cba8bb827c5477ae20b631492d9a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/bundle/weights_and_norm.npz",
+      "bytes": 1033594,
+      "sha256": "83fb7812ae3ca4a0553bd0c1dd9cf91cebdba52525d29e018024b67377dff728"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/learning_curve.jsonl",
+      "bytes": 39295,
+      "sha256": "a791a3a82c24c978b151f73e4b0b41c33fdc08628595aa7be1424a09a70d8026"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/result.json",
+      "bytes": 9123,
+      "sha256": "55f21d7f31a6af430a991e58155e4975f98a64766cc481c02d9e99a08b6b9cb2"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_06/smoke_examples.jsonl",
+      "bytes": 18144,
+      "sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "a44c4d66e1e99a8e2e523b77a9efe8417171e2c2a2347566a0973fd3e45a89b5"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/bundle/metadata.json",
+      "bytes": 7434,
+      "sha256": "e44984da75357295fcc2f4a05f6c9a0364cf3535bbdfa7206437ecbd053be8c4"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/bundle/weights_and_norm.npz",
+      "bytes": 1033155,
+      "sha256": "b175aa601b802f52b1efb3b06f60d3009db333329b884d9f968467c48566b345"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/learning_curve.jsonl",
+      "bytes": 39308,
+      "sha256": "479d8e602f068571b23c1b5bae05ff2e5ae938fd05273741da5fa4b91f291816"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/result.json",
+      "bytes": 9124,
+      "sha256": "3ff9a0b47100c6b367073d00dc2712ee8feefd31560e9149f35555ec3c6ccd47"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_07/smoke_examples.jsonl",
+      "bytes": 18144,
+      "sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "663b2b48bbefd889e673faba2acef39be936793056bdcc9722d168bc4b3a5e10"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/bundle/metadata.json",
+      "bytes": 7433,
+      "sha256": "590b82226350ae325a411aeef3d5ad8590b250d632dd5f576cd1b852d3134629"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/bundle/weights_and_norm.npz",
+      "bytes": 1033669,
+      "sha256": "46e839599ee200a8e856400316477a95db5bd1defc5584be5d551e825e0f903d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/learning_curve.jsonl",
+      "bytes": 39321,
+      "sha256": "38343b38d9080a52762a1b730c21ae5c22588554df77b990dc93706a85416be4"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/result.json",
+      "bytes": 9123,
+      "sha256": "bef52212b260245ea4bc58e63add41356308cad0db72702a52dfdd9b8990f610"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_08/smoke_examples.jsonl",
+      "bytes": 18144,
+      "sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "8677cbfc097b75190cece5f3edf0804f2e981e3d8795797cb90191300ce03966"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/bundle/metadata.json",
+      "bytes": 7432,
+      "sha256": "c94bd6aa98ea18448e2fe82310fc21133e64fd8541e5926f7a65b06dcaaa8c51"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/bundle/weights_and_norm.npz",
+      "bytes": 1033841,
+      "sha256": "59639b624927ee3818418a81eec886d0409fafabfaa86bc145754ab54d35408f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/learning_curve.jsonl",
+      "bytes": 39308,
+      "sha256": "580cec47e8cfa7ebc1aad068e203b500dcadc67750466aaefcaf42ac9c92913f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/result.json",
+      "bytes": 9124,
+      "sha256": "cdeb9aa4957b470401d3e9a63095d0a575495fbd39ece0706a98a977d03418d3"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_09/smoke_examples.jsonl",
+      "bytes": 18144,
+      "sha256": "382f44fdc8db41c34255fae70ae051328a3e4829e3b3fd4de5f9d87b6e4dff23"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "1305dd0a879c2c79ba700d3b1d0cfd8a0d14e72c859810b9c7608da196a67c39"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/bundle/metadata.json",
+      "bytes": 7438,
+      "sha256": "e0aa2454b9b232f815f96eacf74e6e5f657705d45c1e269caafd5714ba53b3fe"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/bundle/weights_and_norm.npz",
+      "bytes": 1033338,
+      "sha256": "897b2baf41d001a10bfcb2b4916fb9c672258e7303b34e7c3c138ded1e370d7d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/learning_curve.jsonl",
+      "bytes": 39369,
+      "sha256": "0b4c42a5ee3479b5103040bc2d10743017e72bfaf529e124bce9dc3a02ccee71"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/result.json",
+      "bytes": 9127,
+      "sha256": "996bcfe6527253a8375ab15a1bde0b03c2247bac7fea92d429b8d4bef248db4c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_10/smoke_examples.jsonl",
+      "bytes": 19176,
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "b9821b0c8a3f2dccbf75c65317a104b6a5f3cfc410deb328391eb0d9bd525468"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/bundle/metadata.json",
+      "bytes": 7436,
+      "sha256": "7e96e6c5f14708e7341efd53b4d8faec05a100d16c021686b07d48a2d8725894"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/bundle/weights_and_norm.npz",
+      "bytes": 1033713,
+      "sha256": "4aca62382b8237fbedd40b4740ead6a207231e528747253d659542352fcb4bfd"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/learning_curve.jsonl",
+      "bytes": 39355,
+      "sha256": "2ab4a5b72841f36e6b0993c9853d6de5a32ef94428f7fed8ecb31a729e2037f9"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/result.json",
+      "bytes": 9127,
+      "sha256": "80a8e192b43410ec2bd19e05ece7b7cbc81f2ae708f9713f405784e036ade98b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_11/smoke_examples.jsonl",
+      "bytes": 19176,
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "57bc95abbfa4f00210d69405d200b6c46ef3c0d851b98e7ee7034eee53ba73eb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle/metadata.json",
+      "bytes": 7431,
+      "sha256": "99136b0b28b731494dc20442a0bdb2b8ba4fb858458c334d37f6e57ffd1e2d02"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle/weights_and_norm.npz",
+      "bytes": 1034240,
+      "sha256": "8efc90f4209a818f9a334e2eefcf43a30ae38363262c5de39302e328d736e2b5"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/learning_curve.jsonl",
+      "bytes": 39370,
+      "sha256": "db238428060794b53204734abe5e0cbc6a95f04de3169e692ca2acfcb6dddb27"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/result.json",
+      "bytes": 9126,
+      "sha256": "2e695b44dc96181bab3a4864793c8c26eaa1505e64f8dd03080ec05a81283cb9"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/smoke_examples.jsonl",
+      "bytes": 19176,
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "215a34906da7f231997753039d983af21dff5e51054baf6974c58d60f097d0de"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/bundle/metadata.json",
+      "bytes": 7433,
+      "sha256": "55440c5ddb7488d02aa1fe00b95385d05501b7cf5dee0569aa2e9ec2dfccd735"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/bundle/weights_and_norm.npz",
+      "bytes": 1033269,
+      "sha256": "a1b4d54b4ef437d4e73e6e3881ebdeade6d386ee1139c7bdb6847f55f1a3479b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/learning_curve.jsonl",
+      "bytes": 39363,
+      "sha256": "815b42cc90f32d1de349cbf74f3c915dbfa41559b5981c998c0635c51874ac01"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/result.json",
+      "bytes": 9128,
+      "sha256": "57b7fc400a8c5c897bf093c64ba54eb59fabc8f35c338363039bf5faf89ea5d7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_13/smoke_examples.jsonl",
+      "bytes": 19176,
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "c2a9ec0e86dfe0e0b5c21af4750e0ccf9eb0e8c3f929140a951217a793eeae6b"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/bundle/metadata.json",
+      "bytes": 7436,
+      "sha256": "9e7e69c11c87df7cd00be82f05bbb74300b9585b9a0db5aaf5010c9ae254b0e2"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/bundle/weights_and_norm.npz",
+      "bytes": 1033673,
+      "sha256": "97979db98ed0517972206c41531908b9d42fc69763a8283cbd745e2d55cf1ca7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/learning_curve.jsonl",
+      "bytes": 39348,
+      "sha256": "6c678dfa046a212cadfab6becbee75d00b47a1dca76ac19031d177aa63ec84c6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/result.json",
+      "bytes": 9127,
+      "sha256": "8326f45e8a3783d8a77dfc9cfd7014b29593bbcca3250866dc199480b25be9b5"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_14/smoke_examples.jsonl",
+      "bytes": 19176,
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "f3e44f8883a811fb1cd44dd1262b1728c5058df93411c88dc1284ecf60aecfb2"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/bundle/metadata.json",
+      "bytes": 7439,
+      "sha256": "2ffd72b2873552a54062d49e2c7353f789cac11358bcbfeb14e46c1b8e91b7d2"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/bundle/weights_and_norm.npz",
+      "bytes": 1033743,
+      "sha256": "4729fa9b9fa3003d4c0b56eaf02d2762b9058c31ceea3018359bf22347e02ffa"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/learning_curve.jsonl",
+      "bytes": 39348,
+      "sha256": "9c00ae73848ad08cbae33cfaab8c6b4580c62ed8717706d7ed68f9326ead6872"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/result.json",
+      "bytes": 9127,
+      "sha256": "e04da8d59d2cdb214540ed371ffe3f9fadf0c73506e6e3c8ffcfc92d450dfbaf"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_15/smoke_examples.jsonl",
+      "bytes": 17952,
+      "sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "b0186eaf45ace3a479b7d5cd6d3b00012060f6c18cc1b93cd1c8cae61712a091"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/bundle/metadata.json",
+      "bytes": 7437,
+      "sha256": "ca8271989235737467316cd3d4d6630f7e5ff085724ed603ba02ae41b967f28d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/bundle/weights_and_norm.npz",
+      "bytes": 1033532,
+      "sha256": "01975d2703f14f406c45833d9b710b8c299a1ed59f198efddcb5c156047b5ae8"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/learning_curve.jsonl",
+      "bytes": 39342,
+      "sha256": "bcbcfce26739baa76295d2f05724f337c5063ca3fcb76df339411d6a6e693819"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/result.json",
+      "bytes": 9127,
+      "sha256": "27e699dfe6380ba5e015966186b99e1029bf9d9a56e412f21eb4aad21f4c17bf"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_16/smoke_examples.jsonl",
+      "bytes": 17952,
+      "sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "f2c7c9bdd300cb8d5dcd9f0bf4ba84ad0068c948bc2926be346f2b2c4a532cc5"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/bundle/metadata.json",
+      "bytes": 7440,
+      "sha256": "15a628cb6c5b61cff5c52838b28e63458636e67cd472405537aa9495a374f7ac"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/bundle/weights_and_norm.npz",
+      "bytes": 1034014,
+      "sha256": "5629fce88c8dac807d759c10e2eb4f414085448076bc7d9bd7e733ed533a112f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/learning_curve.jsonl",
+      "bytes": 39307,
+      "sha256": "5b344f2cd191b35e9db84189cb648fa95b3b041fc15efb890858fae0a7a8885d"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/result.json",
+      "bytes": 9126,
+      "sha256": "efb0748e2d905589237307076d63210a83eafc9b0eea9dd3955f36a853313c27"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_17/smoke_examples.jsonl",
+      "bytes": 17952,
+      "sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "579ff549235b8c76443794aa0c92822fff83635f55011398bbd147269bf67630"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/bundle/metadata.json",
+      "bytes": 7438,
+      "sha256": "968ecbc3dea200cca7ea949e9a04f8201a7bdd3763b3c77486724e34524b81a3"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/bundle/weights_and_norm.npz",
+      "bytes": 1033868,
+      "sha256": "67f368d0bb4baf03763863bb7d3e834a40352fe6a0b8b4d6529214b9c04c7436"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/learning_curve.jsonl",
+      "bytes": 39328,
+      "sha256": "de6f9013fa696efee1c1c772f6d09095d13acd5833a40e35ce9a6f24f7f21943"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/result.json",
+      "bytes": 9127,
+      "sha256": "10b80b4e1ab596d76b944f06553226cec32bd9518c1536edd9e5f0686b526f5c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_18/smoke_examples.jsonl",
+      "bytes": 17952,
+      "sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "1f666f6e34298b7abcc9a8b706618471b907d22a57fa8e05e7773d597b05d046"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/bundle/metadata.json",
+      "bytes": 7438,
+      "sha256": "5f5afbde04e26adfa7f9bc5dbcc2a16dbd21d7335a81f5a64157fc569a90f222"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/bundle/weights_and_norm.npz",
+      "bytes": 1034009,
+      "sha256": "c14ff55829bdc4bb99e0bcbd30eb1190d5e5d0ff4eea8c2fa1cf7a4746d1898c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/learning_curve.jsonl",
+      "bytes": 39342,
+      "sha256": "2e48793dd72764a7e05c1c0a7e6ad67577174053ffdb64ea50f1e00f96548a94"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/result.json",
+      "bytes": 9127,
+      "sha256": "b912b2e27c087dad7ad0cb98611ea7594339b0cf9205f9e2e6fe3ac6693b2fba"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_19/smoke_examples.jsonl",
+      "bytes": 17952,
+      "sha256": "26c8b57a9ec602486e8ccdd486ccb47505cc3f3c9d1824a927ef413418f6a2f0"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "31fe5aea283dcb8be90dfcfe5abf807deb0c9dc8b0bde4ae2d64773c0a702062"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/bundle/metadata.json",
+      "bytes": 7437,
+      "sha256": "f28e34636d5001302211a325c89b53582d263fd4ca1b224569229b45ae1cc265"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/bundle/weights_and_norm.npz",
+      "bytes": 1033580,
+      "sha256": "0db20fc0f870ba90e21a88e1389ab29b6c3befbdcfeab7f8a32ec726b984bb77"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/learning_curve.jsonl",
+      "bytes": 39303,
+      "sha256": "deb2b408b74b0f2f72fb082caa3014d1ffd5afb8102a7d7fbf83287549a4afe7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/result.json",
+      "bytes": 9127,
+      "sha256": "7dbc0ce045b8d1e722cb8221cf7486f34e7433f34f317a49a5190bbf680da118"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_20/smoke_examples.jsonl",
+      "bytes": 22257,
+      "sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "75adb9416002bf476299e63ebb7e3056a75c7d5795773869107cb3ff14be995f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/bundle/metadata.json",
+      "bytes": 7440,
+      "sha256": "57174bd0e930541edfdb18498a30ef4d34418cbf9df869391d1e4715c5a51e6a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/bundle/weights_and_norm.npz",
+      "bytes": 1033433,
+      "sha256": "6afb6ab35b3cf1cb267c81536ef206b2607bc9198fd480ea7cdb6ae33139802c"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/learning_curve.jsonl",
+      "bytes": 39335,
+      "sha256": "da65871fe31ad263fe6e50f5f5543350f77d80cbc9cbc659798538550f3d8e27"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/result.json",
+      "bytes": 9128,
+      "sha256": "5d525edd9b966f18f44aa59b51c314854f76c41d6e4a34eb24a739e04e2dce19"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_21/smoke_examples.jsonl",
+      "bytes": 22257,
+      "sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "e7fcd6d0e888478741117d6c2898d35287e64b3425c1bb16ec765e2c58d695b6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/bundle/metadata.json",
+      "bytes": 7435,
+      "sha256": "d7c44fc9f3f5a8c57f049746a88920548328f0712e47f9053cf3b07633f948bb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/bundle/weights_and_norm.npz",
+      "bytes": 1033608,
+      "sha256": "d691ac47d075e5c5cce4f5e746bb458772f932988bd9a7f8a5ef6875b3fb63b9"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/learning_curve.jsonl",
+      "bytes": 39302,
+      "sha256": "236d43ce0fa68792d576ad06fa6d45e2ab86c142de85436e43a4d0604d4ca295"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/result.json",
+      "bytes": 9127,
+      "sha256": "58c727d01664d74493bd0f2e31f2febc2ceb78301f7d968768e132c35be035d3"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_22/smoke_examples.jsonl",
+      "bytes": 22257,
+      "sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "f7284c19cbeb30b34d764220d3fd9098c4e063166a9d64bbee7a172ebe8b5506"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/bundle/metadata.json",
+      "bytes": 7432,
+      "sha256": "84fd10c103ffe11f64ca04afe3b66db3c2f69479947c45f78fdbcf24bcc442ea"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/bundle/weights_and_norm.npz",
+      "bytes": 1033580,
+      "sha256": "2d7ef90b21023ae9da1c05074bc6a897664a75273ec900637577c43a8ee07991"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/learning_curve.jsonl",
+      "bytes": 39327,
+      "sha256": "2d3d60f42819501f5eaa02f1805d2db720b422132720083ac8e84f69670b735f"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/result.json",
+      "bytes": 9128,
+      "sha256": "fd83f4841c27919f970a9ec2ce547172d5977142612b46f1fb86886528424088"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_23/smoke_examples.jsonl",
+      "bytes": 22257,
+      "sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/TASK_MANIFEST.json",
+      "bytes": 573,
+      "sha256": "9908f1cfb1fb19750561ec05dd4d12af9ce90c66c66c65ae6c5625a57362c76a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/bundle/metadata.json",
+      "bytes": 7439,
+      "sha256": "d525471ffc2327cfee5976ff6e8bb341d3cb12392b116843910cd61a60591f36"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/bundle/weights_and_norm.npz",
+      "bytes": 1033752,
+      "sha256": "feef530e3bf35b79117979ed59408057fe8471925277942cc7aad57553990fbf"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/learning_curve.jsonl",
+      "bytes": 39349,
+      "sha256": "8a0f886efe16887a0dda3960dc25f0cfb039ed5d9cf5b698dc2c583a49a96cb4"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/result.json",
+      "bytes": 9127,
+      "sha256": "988d574bc6e021c0e21dc82a7b68655504c833c5788a6eb8179fd68b80327391"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_24/smoke_examples.jsonl",
+      "bytes": 22257,
+      "sha256": "594b35c7b3a0568e6919be3d551863e9adee16118f0db7c5afbca35ce97598eb"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
@@ -3210,6 +3965,36 @@
       "path": "results/corpus_v4/accuracy_v3/plan/v1/training_split_44.jsonl",
       "bytes": 5969167,
       "sha256": "c7cd0fad11783f934272e831683d16e016e49608aadbb5868578a489cdc64411"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_00/accepted_artifact_set.json",
+      "bytes": 9760,
+      "sha256": "bf53ad8ab326ff2317a446fb39cafc7a0a1c08c329195d7a0d6fc4d211349bd6"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_00/candidate_index.json",
+      "bytes": 5273,
+      "sha256": "e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_00/pending_task_set.json",
+      "bytes": 3675,
+      "sha256": "a56d38d33da765ce7b0f88e86c3ba3d3a28706453c29c675855ac050fe3db5a7"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_01/accepted_artifact_set.json",
+      "bytes": 28856,
+      "sha256": "291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_01/candidate_index.json",
+      "bytes": 5273,
+      "sha256": "e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a"
+    },
+    {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_01/pending_task_set.json",
+      "bytes": 458,
+      "sha256": "e63aa06ce5247a1a58de1e4dd2a40163aac597484ae1e120f12d782aafb2190e"
     },
     {
       "path": "results/corpus_v4/accuracy_v3/sandbox_probes/job_7086917/PREFLIGHT_FAILURE.json",
@@ -23688,8 +24473,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
-      "bytes": 84222,
-      "sha256": "0e327858030d64d50f3dffdf7f7791bf7c7a41c59fbed3133431083946a8cb56"
+      "bytes": 85295,
+      "sha256": "33f34e7bc3101b8efc5715eef3d1bee99464794ab9fd61efc2beb253e09ac25e"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -23713,8 +24498,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 6106,
-      "sha256": "b7bd5046bb744ec33efc1f29c056401a65bb31b36c62064aca4f289d576a5d13"
+      "bytes": 6079,
+      "sha256": "0d3984448372aef13769a6c46ec9f37fb4c106f39dc3c975fb5bd0bcd1eebd21"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -23722,6 +24507,6 @@
       "sha256": "6ad03635177cc222eba367d57d4720a62c492894b8c188d8f2f73d2144917819"
     }
   ],
-  "n_files": 4741,
-  "total_bytes": 170119102
+  "n_files": 4898,
+  "total_bytes": 197927402
 }

@@ -1,0 +1,47 @@
+{
+  "accepted_set": {
+    "path": "results/corpus_v4/accuracy_v3/resume/round_01/accepted_artifact_set.json",
+    "sha256": "291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe"
+  },
+  "decision": {
+    "accepted_set_frozen": true,
+    "claim_eligible": false,
+    "held_out_inference_may_start": true,
+    "speed_claim_eligible": false,
+    "training_may_start": false
+  },
+  "heldout_evaluation_sha256": "ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046",
+  "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+  "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+  "schema": "pcb-gnn.corpus-v4-accuracy-finalizer-execution-lock.v1",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+    "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v3.py": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1",
+    "code/experiments/proofs/build_corpus_v4_accuracy_finalizer_lock_v3.py": "6231586f1520025f7443543dd8abfeecb59b930408e9b220eab0f3e6d8166eab",
+    "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99",
+    "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py": "1f9bd64055d39a37d0cf1191d680c896590494459f365c0fc2728acf218de58d",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py": "1d5206c8fd52729a62f21e873ffe930a3e601850276d1a57f32fa7686afa8112",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_v3.py": "dffb3a43cc1ebdb21e106515648fb300fef6fb06b93026bb710ff3eaa94f1a2b",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_accuracy_v3.sh": "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af",
+    "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh": "dd96d9db98497c58153288e87f4b037f6bdc474ee3051aa356db591e2e85bbcb",
+    "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+    "code/quality/verify_corpus_v4_accuracy_archive_v3.py": "7d328a48177a14bb33f48707fc9d7653e5a05ef815afbd73adb2b86200a7f3ef",
+    "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71",
+  "training_execution": {
+    "lock_path": "protocols/corpus_v4_accuracy_execution_lock_v3r2.json",
+    "lock_sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c",
+    "source_git_head": "c0ffca0d0637e8fbba81c126c3f56f8316003a9a"
+  }
+}

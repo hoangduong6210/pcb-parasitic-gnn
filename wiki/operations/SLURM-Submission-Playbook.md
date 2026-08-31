@@ -1127,6 +1127,18 @@ its `pending_task_set.json` as the retry allowlist, and later build `round_01`
 with separate `--attempt-root` arguments for the original and retry job roots.
 Do not overwrite or omit an earlier candidate inventory.
 
+For array `7087054`, all 25 tasks reached `COMPLETED/0:0`. Round 00 then
+recorded 25 `SCHEDULER_NOT_COMPLETED` dispositions because that planner process
+could not reach `slurmdbd`. This was a control-plane observation, not an
+artifact failure. After accounting access returned, the unchanged original
+attempt root was evaluated into round 01 without a task retry. The candidate
+index hash remained
+`e357c50e9cce1d0d70bf6060754e54e2829566eb4550980873d56405ce31709a`;
+round 01 accepted all 25 candidates and left zero pending. Re-evaluating an
+unchanged attempt root is valid only for a transient accounting-access failure.
+Artifact, identity, smoke, or terminal-state failures still require the normal
+pending-set recovery path.
+
 The finalizer uses two independent trust roots. The historical training lock
 authenticates the unchanged r2 checkpoints and source commit. A separate
 finalizer lock authenticates the accepted-set hash, finalizer source closure,
@@ -1140,6 +1152,13 @@ boundary, and submit the finalizer from a clean checkout through SLURM. Until
 those steps pass, do not submit a finalizer. No accuracy, latency, speed, or
 physical-validation claim follows from checkpoint completion or accepted-set
 construction alone.
+
+For this execution, round 01 accepted-set SHA-256 is
+`291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe`.
+The generated finalizer lock SHA-256 is
+`cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3`.
+These values permit provenance review and a later clean-checkout submission;
+they do not admit a result or claim.
 
 ## 16. Submit the Corpus V4 paired-latency study
 

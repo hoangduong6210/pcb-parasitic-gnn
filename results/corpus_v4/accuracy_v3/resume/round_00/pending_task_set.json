@@ -1,0 +1,160 @@
+{
+  "execution_lock_sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c",
+  "n_pending": 25,
+  "pending": [
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "split_seed": 40,
+      "task_id": 0
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "split_seed": 40,
+      "task_id": 1
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "split_seed": 40,
+      "task_id": 2
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "split_seed": 40,
+      "task_id": 3
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "split_seed": 40,
+      "task_id": 4
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "split_seed": 41,
+      "task_id": 5
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "split_seed": 41,
+      "task_id": 6
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "split_seed": 41,
+      "task_id": 7
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "split_seed": 41,
+      "task_id": 8
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "split_seed": 41,
+      "task_id": 9
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "split_seed": 42,
+      "task_id": 10
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "split_seed": 42,
+      "task_id": 11
+    },
+    {
+      "designated_downstream_checkpoint": true,
+      "init_seed": 42,
+      "split_seed": 42,
+      "task_id": 12
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "split_seed": 42,
+      "task_id": 13
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "split_seed": 42,
+      "task_id": 14
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "split_seed": 43,
+      "task_id": 15
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "split_seed": 43,
+      "task_id": 16
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "split_seed": 43,
+      "task_id": 17
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "split_seed": 43,
+      "task_id": 18
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "split_seed": 43,
+      "task_id": 19
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 40,
+      "split_seed": 44,
+      "task_id": 20
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 41,
+      "split_seed": 44,
+      "task_id": 21
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 42,
+      "split_seed": 44,
+      "task_id": 22
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 43,
+      "split_seed": 44,
+      "task_id": 23
+    },
+    {
+      "designated_downstream_checkpoint": false,
+      "init_seed": 44,
+      "split_seed": 44,
+      "task_id": 24
+    }
+  ],
+  "plan_sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+  "protocol_sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+  "schema": "pcb-gnn.corpus-v4-accuracy-pending-set.v3",
+  "task_manifest_sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+}
