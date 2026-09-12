@@ -28,7 +28,7 @@ Current evidence is admitted only in this order:
     finalization, and a verified archive — complete and admitted;
 11. separately frozen baseline, ranking, symmetry, and paired end-to-end timing
    studies on the same corpus and split registry; the FEM-v2 latency protocol
-   is frozen, but its preflight is still pending;
+   has admitted its three-task preflight, but the full panel is incomplete;
 12. figures and manuscript tables generated only from accepted wiki content.
 
 Each current number must resolve to a job-scoped result, raw record, immutable
@@ -49,8 +49,8 @@ family-held-out protocol. The deterministic one-thread FEM-v2 accuracy-v2
 checkpoint grid is diagnostic only and is closed without held-out inference.
 Protocol v3 is the finalized successor: all 25 checkpoints were accepted before
 held-out inference, and its 31-file analysis archive passed clean-clone
-verification. The FEM-v2 paired-latency protocol is frozen, but no preflight,
-full-array, or speed result is admitted. The two
+verification. The FEM-v2 paired-latency preflight is admitted, but no full-array
+or speed result is admitted. The two
 version-scoped numerical results are maintained in
 [`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md)
 and [`Corpus V4 FEM-v2 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-FEM-v2-Accuracy.md).

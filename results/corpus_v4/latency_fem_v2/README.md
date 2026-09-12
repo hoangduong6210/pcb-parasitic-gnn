@@ -1,7 +1,9 @@
 # FEM-v2 paired-latency study
 
-Status: protocol and panel frozen; SLURM preflight array `7259818` submitted,
-initially `PENDING`. No preflight result or speedup admitted.
+Status: protocol and panel frozen. SLURM preflight array `7259818` completed
+3/3 tasks and was independently admitted; full array `7260429` is running
+with an expected 306 tasks. No complete panel, final speedup, or current speed
+claim has been admitted.
 
 Execution source commit: `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`.
 The documentation branch may advance while this detached checkout remains
@@ -70,6 +72,23 @@ and requires a separately versioned study.
   `b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5`.
 
 These hashes describe a planned computation and are not runtime results.
+
+## Preflight execution and live job
+
+The three immutable job-scoped preflight tasks and their SHA-256 manifests are
+in [`preflight/attempts/job_7259818`](preflight/attempts/job_7259818).
+The [`preflight admission`](preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json)
+has SHA-256
+`0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf`.
+Its independently replayed gate accepted all three terminal `0:0` tasks for
+full-array submission while explicitly setting `claim_eligible=false`.
+Six raw SLURM stdout/stderr captures are under [`preflight/logs`](preflight/logs).
+The initial relative-output admission invocation saved the file and then
+exited nonzero only when printing a relative path as if it were absolute.
+No admission artifact was overwritten; an independent exact-SHA replay passed
+before full array `7260429` was submitted. Pass an absolute `--out` path when
+building another admission, as indexed by the
+[SLURM playbook](../../../wiki/operations/SLURM-Submission-Playbook.md).
 
 ## Claim boundary
 

@@ -99,7 +99,7 @@ paper_source: false
 | `C-ACC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed pre-FEM-v2 accuracy claim, bound to the archived 25-thread package |
 | `C-ACC-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed one-thread FEM-v2 numerical-reference agreement claim |
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked archival 25-thread latency claim |
-| `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Frozen one-thread paired-latency protocol; preflight pending and no speed result admitted |
+| `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Three-task preflight admitted; 306-task full array running; no speed result admitted |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 
 ### Historical claims

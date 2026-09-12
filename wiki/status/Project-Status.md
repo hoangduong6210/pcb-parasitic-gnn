@@ -46,7 +46,7 @@ instead of calling one column ground truth.
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
 | FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
 | FEM-v2 accuracy protocol v3 | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | The 5 by 5 family-split and initialization grid is complete; all 25 checkpoints were accepted before held-out inference; the tracked archive supports `C-ACC-FEMV2-001` |
-| FEM-v2 paired four-target latency | `PREFLIGHT ARRAY SUBMITTED; NOT ADMITTED` | Preflight array `7259818` has three selected tasks; the eventual 306-layout panel cannot run until preflight admission, and no current speed result exists |
+| FEM-v2 paired four-target latency | `PREFLIGHT ADMITTED; FULL ARRAY RUNNING` | Preflight `7259818` accepted all three layouts; full array `7260429` has 306 planned tasks, is incomplete, and no current speed result exists |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
@@ -62,8 +62,8 @@ transition.
 2. Use the current
    [FEM-v2 family-held-out result](../results/Corpus-V4-FEM-v2-Accuracy.md)
    under `C-ACC-FEMV2-001` for the deterministic one-thread target package.
-3. Validate the three-task preflight array `7259818` for the frozen FEM-v2 paired-latency protocol.
-   `C-LAT-FEMV2-001` remains closed until its separate execution, finalization,
+3. Monitor full array `7260429` for the frozen FEM-v2 paired-latency protocol.
+   `C-LAT-FEMV2-001` remains closed until its complete execution, finalization,
    archive, and claim-admission chain completes.
 4. Repeat baseline, strict E(3), and ranking studies only under their own
    FEM-v2 frozen protocols.

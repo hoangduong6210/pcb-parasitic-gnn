@@ -107,8 +107,9 @@ completed but is closed as diagnostic-only evidence because process-level
 held-out byte isolation was not enforced. Protocol v3 has now completed its
 separate plan, execution lock, split-scoped inputs, sandbox, 25-checkpoint grid,
 accepted-set gate, held-out finalizer, archive verification, and claim review.
-The FEM-v2 paired-latency protocol is frozen and awaits its three-task
-preflight; no speed result is admitted or implied by the accuracy result. See
+The FEM-v2 paired-latency protocol passed its three-task preflight admission;
+the separately submitted 306-task full array is still running. No speed result
+is admitted or implied by the accuracy result. See
 the [runtime protocol](wiki/methods/Runtime-Benchmark.md), its
 [frozen artifact index](results/corpus_v4/latency_fem_v2/README.md), the
 [archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the

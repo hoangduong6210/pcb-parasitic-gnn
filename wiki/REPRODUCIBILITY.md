@@ -199,8 +199,8 @@ arbitrary routed PCB layouts.
 | Archived 25-thread paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
 | Archived 25-thread paired-latency full panel — closed by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
 | Archived 25-thread paired-latency finalizer — not run | 2 CPU requested, 8 GiB, 20 min | 1 |
-| FEM-v2 paired-latency preflight — protocol frozen; no job submitted | 1 CPU requested, 48 GiB, 2 h per layout; three predesignated layouts | 1 |
-| FEM-v2 paired-latency full panel — gated by preflight admission | 1 CPU requested, 48 GiB, 2 h per layout; 306 layouts | 8 |
+| FEM-v2 paired-latency preflight — array `7259818`, 3/3 tasks terminal and admission replay passed; not a speed result | 1 CPU requested, 48 GiB, 2 h per layout; three predesignated layouts | 1 |
+| FEM-v2 paired-latency full panel — array `7260429` submitted against preflight admission; incomplete | 1 CPU requested, 48 GiB, 2 h per layout; 306 layouts | 8 |
 | FEM-v2 paired-latency finalizer — gated by a complete accepted set | 2 CPU requested, 8 GiB, 20 min | 1 |
 | FEM repeatability source array — completed; 15 elements with two sequential FEM arms each | 25 CPU requested, 48 GiB, 2 h per element; 1,800 s cap per arm | 3 |
 | FEM repeatability finalizer — completed | 2 CPU requested, 8 GiB, 30 min | 1 |

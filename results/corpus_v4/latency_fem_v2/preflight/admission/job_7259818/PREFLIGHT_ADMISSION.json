@@ -1,0 +1,104 @@
+{
+  "accounting_provenance": {
+    "canonical_rows_sha256": "5645620ed7b69a79c6bd65617c65e951400f8230913488f10ccee6c6ec914869",
+    "command": [
+      "sacct",
+      "-X",
+      "-n",
+      "-P",
+      "-j",
+      "7259818",
+      "--format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,Partition,Timelimit,NodeList,Restarts"
+    ],
+    "queried_utc": "2026-09-12T05:56:15.148341+00:00",
+    "raw_stdout_sha256": "0458a7960c60f487fe28f08300cfea70e1bc2bb08dc8e09c637c252c713e84a6",
+    "row_count": 3
+  },
+  "bindings": {
+    "execution_lock_sha256": "b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5",
+    "panel_records_sha256": "a32682b8d6263d0ee256584b66883499883b6fd3ff3511011967743e3c6d4e32",
+    "plan_sha256": "2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb",
+    "protocol_sha256": "6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9",
+    "task_manifest_sha256": "75ce9cebb34d4288077d38a33d418e5de391ebc94bd8aa3f10e03bee51631d04"
+  },
+  "claim_eligible": false,
+  "entries": [
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/preflight/attempts/job_7259818/task_000/TASK_MANIFEST.json",
+      "manifest_sha256": "56711901e470aeded83a6e6be782a620616df6ba759f0cdb8b53e14d62a8bff5",
+      "result_sha256": "712dddbd12fbf45074ab1d549542a6fcfd2064c705f484690834e65ad062e4f0",
+      "scheduler_completion": {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "478",
+        "ExitCode": "0:0",
+        "JobID": "7259818_0",
+        "JobIDRaw": "7259835",
+        "NodeList": "a0104",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00"
+      },
+      "task_id": 0
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/preflight/attempts/job_7259818/task_152/TASK_MANIFEST.json",
+      "manifest_sha256": "5055a748b96ac87d0a3fe8045b9f33f3a8d38d2bccb2be25367d3a1133af5d76",
+      "result_sha256": "5a2d5f1a1c4750ff97809ba042864d63b2f7804d63075db18d0dfc1e3f472bee",
+      "scheduler_completion": {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "583",
+        "ExitCode": "0:0",
+        "JobID": "7259818_152",
+        "JobIDRaw": "7259955",
+        "NodeList": "a0102",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00"
+      },
+      "task_id": 152
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/preflight/attempts/job_7259818/task_305/TASK_MANIFEST.json",
+      "manifest_sha256": "d0bedd3313de9b8240b6f60082caed05e0cf7dd7dfe79e5f5327955be101a7b5",
+      "result_sha256": "96a27212012a3dc9bfdda07a5057fbc3ac66464b3ea817d6e40526c500fb6767",
+      "scheduler_completion": {
+        "Account": "pgs0407",
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "532",
+        "ExitCode": "0:0",
+        "JobID": "7259818_305",
+        "JobIDRaw": "7259818",
+        "NodeList": "a0152",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=1,cpu=1,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "02:00:00"
+      },
+      "task_id": 305
+    }
+  ],
+  "expected_task_ids": [
+    0,
+    152,
+    305
+  ],
+  "fem_v2_dataset_admission": {
+    "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/admission/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_ADMISSION.json",
+    "sha256": "b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed"
+  },
+  "full_array_authorized": true,
+  "n_accepted": 3,
+  "n_expected": 3,
+  "preflight_array_job_id": "7259818",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-preflight-admission.v1",
+  "source_git_head": "186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6",
+  "status": "admitted-for-full-array",
+  "validator_source_sha256": "125a0212613f3514b8bb2d4dae5c6fecbabf45dec6c05771e296be57857d8ed7"
+}

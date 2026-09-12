@@ -34,7 +34,7 @@ it becomes paper eligible.
 | `C-CPS-FINAL-001` | `FINALIZED` | The archived 25-thread package contains 1,500 R3 and 198 R4 observations over 1,500 geometries with explicit fidelity identifiers. | Corpus closure alone is not an accuracy, convergence, or physical-validation claim. |
 | `C-CPS-V2-FINAL-001` | `FINALIZED; POSTTERMINAL ADMITTED` | The deterministic one-thread FEM-v2 package contains 1,500 `cps_fem_r3_p16_t1_v2` and 198 `cps_fem_r4_p16_t1_v2` observations over the unchanged 1,500 geometries. Dataset generation is admitted and a new accuracy protocol may be frozen. | `training_may_start=false`, `claim_eligible=false`, and `speed_claim_eligible=false`; this lifecycle statement is not a model, convergence, speed, or physical-validation claim. |
 | `C-LAT-001` | `ARCHIVAL BLOCKED` | The rejected 25-thread latency chain admits no speed result. | Historical chain only; it cannot be resumed or relabelled as FEM-v2 evidence. |
-| `C-LAT-FEMV2-001` | `PROTOCOL FROZEN; PREFLIGHT PENDING` | No FEM-v2 paired speed result is admitted. | Three-task preflight, complete 306-layout full array, terminal accepted set, SLURM finalizer, clean archive replay, and claim review. |
+| `C-LAT-FEMV2-001` | `PREFLIGHT ADMITTED; FULL ARRAY INCOMPLETE` | No FEM-v2 paired speed result is admitted. | Complete 306-layout full array, terminal accepted set, SLURM finalizer, clean archive replay, and claim review. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
 
 ## Rejected positive claims

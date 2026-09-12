@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Paired Runtime Benchmark Protocol
-status: frozen; preflight pending
+status: frozen; preflight admitted; full panel incomplete
 last_updated: 2026-09-12
 paper_source: true
 prose_reviewed: true

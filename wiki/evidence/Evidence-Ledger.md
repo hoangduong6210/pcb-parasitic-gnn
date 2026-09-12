@@ -722,8 +722,13 @@ the entries below own the completed outcome.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `PREFLIGHT ARRAY SUBMITTED; NO TASK OR SPEED RESULT ADMITTED` |
-| Preflight job | SLURM array `7259818` (tasks 0, 152, and 305), `nextgen`, initial observation `PENDING` on 2026-09-12; terminal accounting and task manifests still required |
+| Lifecycle | `THREE-TASK PREFLIGHT ADMITTED; 306-TASK FULL ARRAY RUNNING; NO SPEED RESULT` |
+| Preflight job | SLURM array `7259818` (tasks 0, 152, and 305), `nextgen`; `COMPLETED/0:0`, `Restarts=0`, 478/583/532 s on a0104/a0102/a0152; no task retry |
+| Preflight task artifacts | [`job_7259818`](../../results/corpus_v4/latency_fem_v2/preflight/attempts/job_7259818): exactly one `result.json` and one `TASK_MANIFEST.json` per task; manifest SHA-256 by task: `56711901e470aeded83a6e6be782a620616df6ba759f0cdb8b53e14d62a8bff5`, `5055a748b96ac87d0a3fe8045b9f33f3a8d38d2bccb2be25367d3a1133af5d76`, `d0bedd3313de9b8240b6f60082caed05e0cf7dd7dfe79e5f5327955be101a7b5` |
+| Preflight admission | [`PREFLIGHT_ADMISSION.json`](../../results/corpus_v4/latency_fem_v2/preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json), SHA-256 `0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf`; standalone `validate_preflight_admission` replay passed 3/3 and returned `full_array_authorized=true`, `claim_eligible=false` |
+| Builder print failure | The initial relative `--out` wrote the immutable admission before its final path-print raised `ValueError`. Independent replay succeeded on the exact saved file without overwriting it; the documented command now passes an absolute output path. |
+| Diagnostic logs | [`preflight/logs/`](../../results/corpus_v4/latency_fem_v2/preflight/logs) contains six stdout/stderr captures; PyTorch's `index_reduce` beta warning is nonterminal. |
+| Full-array job | SLURM `7260429` (`0-305%8`), submitted after admission against its SHA; initial eight tasks `RUNNING`, complete 306-task accepted set absent |
 | Pinned execution commit | `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`; source-only detached checkout is clean, and documentation may advance separately |
 | Protocol | [`corpus_v4_latency_fem_v2_v1.json`](../../protocols/corpus_v4_latency_fem_v2_v1.json), SHA-256 `6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9` |
 | Deterministic plan | [`plan.json`](../../results/corpus_v4/latency_fem_v2/plan/v1/plan.json), SHA-256 `2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb` |
@@ -731,11 +736,11 @@ the entries below own the completed outcome.
 | Panel records | [`panel_records.jsonl`](../../results/corpus_v4/latency_fem_v2/plan/v1/panel_records.jsonl), SHA-256 `a32682b8d6263d0ee256584b66883499883b6fd3ff3511011967743e3c6d4e32` |
 | Execution lock | [`corpus_v4_latency_fem_v2_execution_lock_v1.json`](../../protocols/corpus_v4_latency_fem_v2_execution_lock_v1.json), SHA-256 `b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5` |
 | Panel and checkpoint | All 306 layouts in the split-42 held-out partition; 13 held-out families; predesignated accuracy-v3 task-12 checkpoint, split seed 42 and initialization seed 42 |
-| Predesignated preflight | Task IDs 0, 152, and 305, submitted with concurrency one from the clean pinned source; no completion has been asserted |
+| Predesignated preflight | Task IDs 0, 152, and 305, submitted with concurrency one from the clean pinned source; all three have terminal accounting and hash-backed numerical/mesh replay |
 | Timing boundary | Primary denominator is warm-loaded batch-one inference from canonical in-memory JSON bytes through four materialized physical outputs; model-only timing is diagnostic and excluded from speedup calculations |
 | Reference workflow | Sequential FastHenry at 100 kHz for three inductance targets plus deterministic one-thread FEM-v2 R3P16 for capacitance; fresh values, mesh identity, source identity, resource telemetry, and scheduler completion are hard gates |
 | Statistical plan | Median of 306 paired all-four-target solver/GNN ratios; 10,000 whole-family resamples provide a descriptive sensitivity range, not a confidence interval |
-| Claim status | No latency or speed number is admitted. `C-LAT-FEMV2-001` awaits preflight terminal verification. |
+| Claim status | No latency or speed number is admitted. `C-LAT-FEMV2-001` awaits all 306 full-array tasks, accepted-set closure, finalization, archive replay, and scientific review. |
 | Historical exclusion | The 1.16845 ms, rounded 5 s, approximately 4,300-fold, and archived 670-fold values are not evidence for this protocol. |
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure

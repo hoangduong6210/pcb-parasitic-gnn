@@ -8,9 +8,11 @@ paper_source: false
 # Live Execution Snapshot
 
 Last scheduler-backed observation: 2026-09-12. FEM-v2 latency preflight array
-`7259818` was submitted on `nextgen` from pinned execution commit
-`186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`. Its first accounting
-observation was `PENDING`; no task result or speed value has been admitted.
+`7259818` finished all three tasks `COMPLETED/0:0` with no restarts. Admission
+replay passed at SHA-256
+`0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf`.
+The independent full array `7260429` has started eight tasks on `nextgen`.
+Neither three-layout preflight timing nor a partial full array is a speed claim.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -24,7 +26,7 @@ observation was `PENDING`; no task result or speed value has been admitted.
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
 | FEM-v2 accuracy v3 | `FINALIZED; ARCHIVE VALIDATED` | Array `7087054` completed 25 of 25 tasks; round 01 accepted all 25 candidates; finalizer `7102842` completed `0:0`; clean-tracked archive replay passed | Freeze the next study from the admitted designated checkpoint | Round 00 preserved a transient scheduler-accounting access failure. No checkpoint was rerun. `C-ACC-FEMV2-001` is admitted; latency and speed remain closed. |
-| FEM-v2 paired latency | `PREFLIGHT SUBMITTED; NOT ADMITTED` | Array `7259818` queues tasks 0, 152, and 305 on `nextgen`; eventual full scope is 306 layouts across 13 families | Monitor all three terminal rows, then replay admission; submit no full array until all gates pass | No FEM-v2 latency task result or speed value has been admitted; rejected 25-thread latency remains historical |
+| FEM-v2 paired latency | `PREFLIGHT ADMITTED; FULL ARRAY RUNNING` | Array `7259818`: 3/3 terminal with no restarts and 3/3 replayed; array `7260429`: 306 planned tasks at `%8`, first eight running | Monitor every full-array terminal row; build one complete accepted set before finalizing | No 306-layout accepted set, final summary, archive replay, or current speed value exists; rejected 25-thread latency remains historical |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
 owns `C-ACC-001` and the admitted selected-registry discrepancy. The new
@@ -70,12 +72,12 @@ The frozen adjacent-mesh result remains negative, so the new package is still
 multi-fidelity rather than mesh-converged. A new paired-latency protocol now
 binds the admitted accuracy-v3 task-12 checkpoint and the one-thread FEM-v2
 dataset. Its future claim identifier is `C-LAT-FEMV2-001`; the claim remains
-pending until preflight, full execution, finalization, and archive replay close.
+pending until full execution, finalization, and archive replay close.
 No current speed value is permitted. Baseline, strict E(3), and ranking results
 still require their own FEM-v2 protocols and jobs.
 
-Check array `7259818` with `squeue -j 7259818` and
-`sacct -X -n -P -j 7259818 --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS,Restarts,Partition,Timelimit,NodeList`.
-The job writes only to the detached execution checkout and stays in SLURM's
-queue when this documentation process stops. Do not interpret `PENDING`, a
-single completed component, or an unverified log as preflight admission.
+Check full array `7260429` with `squeue -j 7260429` and
+`sacct -X -n -P -j 7260429 --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS,Restarts,Partition,Timelimit,NodeList`.
+The job writes only to the detached execution checkout and remains under
+SLURM when this documentation process stops. A partial array, failed task,
+or isolated sample speedup does not authorize finalization.

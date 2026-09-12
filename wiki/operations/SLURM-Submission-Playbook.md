@@ -1250,13 +1250,31 @@ the failed preflight.
 ```bash
 LAT_PREFLIGHT_ADMISSION=results/corpus_v4/latency_fem_v2/preflight/admission/job_${LAT_PREFLIGHT_JOB_ID}/PREFLIGHT_ADMISSION.json
 
-python3 code/experiments/proofs/admit_corpus_v4_latency_preflight_v2.py   --protocol "$LAT_PROTOCOL"   --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256"   --plan "$LAT_PLAN"   --expected-plan-sha256 "$LAT_PLAN_SHA256"   --task-manifest "$LAT_TASKS"   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256"   --execution-lock "$LAT_LOCK"   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256"   --expected-source-git-head "$LAT_SOURCE_COMMIT"   --array-job-id "$LAT_PREFLIGHT_JOB_ID"   --out "$LAT_PREFLIGHT_ADMISSION"
+python3 code/experiments/proofs/admit_corpus_v4_latency_preflight_v2.py \
+  --protocol "$LAT_PROTOCOL" \
+  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
+  --plan "$LAT_PLAN" \
+  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
+  --task-manifest "$LAT_TASKS" \
+  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
+  --execution-lock "$LAT_LOCK" \
+  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
+  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
+  --array-job-id "$LAT_PREFLIGHT_JOB_ID" \
+  --out "$LAT_ROOT/$LAT_PREFLIGHT_ADMISSION"
 
 LAT_PREFLIGHT_ADMISSION_SHA256=$(sha256sum "$LAT_PREFLIGHT_ADMISSION" | awk '{print $1}')
 ```
 
 The builder replays live terminal accounting and every preflight task artifact.
 The file is authorization for the full array, not a speed result.
+Use an absolute path for `--out`: this pinned CLI prints the saved path by
+calling `relative_to` on the absolute repository root. During array `7259818`,
+the first call with a relative output path wrote a valid file and then exited
+nonzero solely at that final print statement. Its exact saved SHA-256 was
+independently replayed by `validate_preflight_admission` before full-array
+submission. A write followed by a CLI error is not admission without that
+explicit replay; never overwrite an existing admission artifact.
 
 ### 16.4 Submit the complete panel
 
