@@ -1,7 +1,7 @@
 ---
 title: PCB Parasitic GNN Research Wiki
 status: canonical home
-last_updated: 2026-08-23
+last_updated: 2026-09-12
 paper_source: false
 ---
 

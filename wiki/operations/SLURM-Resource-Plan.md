@@ -1,7 +1,7 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-08-29
+last_updated: 2026-09-12
 paper_source: false
 ---
 
@@ -30,9 +30,9 @@ submitted elements at its busiest point instead of filling 998 slots at once.
 | FEM-v2 accuracy-v3 sandbox preflight | 1 | 8 CPU, 48 GiB | 1 | Exits before optimizer work | 4 h |
 | FEM-v2 accuracy-v3 training grid | 25 | 8 CPU, 48 GiB | 5 | Not applicable | 4 h |
 | FEM-v2 accuracy-v3 finalizer | 1 | 2 CPU, 16 GiB | 1 | Not applicable | 30 min |
-| Paired-latency preflight | 3 | 25 CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
-| Paired-latency full panel — blocked | 306 | 25 CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
-| Paired-latency finalizer — blocked | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
+| FEM-v2 paired-latency preflight | 3 | 1 requested CPU, 48 GiB | 1 | 1,800 s FEM; 300 s FastHenry | 2 h |
+| FEM-v2 paired-latency full panel, gated by preflight | 306 | 1 requested CPU, 48 GiB | 8 | 1,800 s FEM; 300 s FastHenry | 2 h |
+| FEM-v2 paired-latency finalizer, gated by complete panel | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 20 min |
 | FEM repeatability diagnostic — completed negative | 15 elements, 2 FEM solves per element | 25 CPU, 48 GiB | 3 | 1,800 s per FEM arm | 2 h |
 | FEM repeatability finalizer — completed | 1 | 2 CPU, 8 GiB | 1 | Not applicable | 30 min |
 | One-thread FEM v2 Gate A qualification | 45 | 1 requested CPU, 48 GiB | 8 | 1,800 s | 2 h |

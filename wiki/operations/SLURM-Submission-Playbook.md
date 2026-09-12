@@ -1165,205 +1165,161 @@ verification command recorded in the
 Scientific review then admitted `C-ACC-FEMV2-001` only. Latency, speed, mesh
 convergence, and physical-validation claims remain closed.
 
-## 16. Submit the Corpus V4 paired-latency study
+## 16. Submit the FEM-v2 paired-latency study
 
-**Dependency:** complete the FEM repeatability source array, finalizer, and
-postterminal admission in Section 17 before running any command in this
-section. A positive `FINAL_ADMISSION.json` is mandatory; the ordering of these
-reference sections is not an authorization to skip that prerequisite.
+This section applies only to
+`protocols/corpus_v4_latency_fem_v2_v1.json`. The rejected 25-thread
+latency protocol, its negative repeatability receipt, and every artifact under
+`results/corpus_v4/latency/` are historical inputs to neither planning nor
+execution here.
 
-The paired-latency pipeline is bound to account `pgs0407`. The batch wrappers
-also declare the account, but every admission command repeats `-A pgs0407` so a
-missing or stale wrapper fails during review. Exporting an account variable is
-not a substitute for the scheduler account option.
+The protocol binds accuracy-v3 task 12, all 306 split-42 test layouts, and the
+admitted one-thread FEM-v2 dataset. Solver and training work is prohibited on
+the login node. Planning, hash verification, scheduler queries, and admission
+construction are solver-free and may run there.
 
-Copy the reviewed hashes from the latency evidence README after the plan and
-execution lock are regenerated. The source commit remains an external trust
-root because placing it inside its own source lock would create a cycle.
+### 16.1 Prepare a clean execution checkout
+
+Use a clean checkout at the reviewed commit. The FastHenry executable is
+external, but its SHA-256 must equal the digest frozen in the protocol.
 
 ```bash
-LAT_ROOT=/absolute/path/to/clean-detached-worktree
-LAT_SOURCE_COMMIT=replace-with-reviewed-40-character-commit
-LAT_PROTOCOL_SHA256=5bafd175e5df19f2a94382b543c6a4a9dba2c9e6ecca365b5e9d0b4de00b90a2
-LAT_PLAN_SHA256=9ef641a1ccd3d4a12f72e30971a61eb82813d59e41b9666ebfd6e1602a9d1281
-LAT_TASKS_SHA256=db47a120c8113c156d0d7010204721fe2770dda848c4f1a547753de3b046b8c2
-LAT_LOCK_SHA256=e54b9ef326006a60a62446d90c43d6565cf1d52bbbef5315fc0bdc28d109de13
+LAT_ROOT=/absolute/path/to/clean-execution-checkout
 FASTHENRY_BIN=/absolute/path/to/verified-fasthenry
-: "${FEM_REP_ADMISSION:?Complete Section 17 and export its canonical receipt path}"
-: "${FEM_REP_ADMISSION_SHA256:?Complete Section 17 and export its receipt SHA-256}"
 cd "$LAT_ROOT"
-test "$(git rev-parse HEAD)" = "$LAT_SOURCE_COMMIT"
-test -z "$(git status --short --untracked-files=no)"
-test -z "$(git status --short --untracked-files=all -- code protocols requirements-proof.txt)"
+
+LAT_SOURCE_COMMIT=$(git rev-parse HEAD)
+LAT_PROTOCOL=protocols/corpus_v4_latency_fem_v2_v1.json
+LAT_PLAN=results/corpus_v4/latency_fem_v2/plan/v1/plan.json
+LAT_TASKS=results/corpus_v4/latency_fem_v2/plan/v1/task_manifest.jsonl
+LAT_LOCK=protocols/corpus_v4_latency_fem_v2_execution_lock_v1.json
+LAT_PROTOCOL_SHA256=$(sha256sum "$LAT_PROTOCOL" | awk '{print $1}')
+LAT_PLAN_SHA256=$(sha256sum "$LAT_PLAN" | awk '{print $1}')
+LAT_TASKS_SHA256=$(sha256sum "$LAT_TASKS" | awk '{print $1}')
+LAT_LOCK_SHA256=$(sha256sum "$LAT_LOCK" | awk '{print $1}')
+
+test -z "$(git status --short)"
+test "$(sha256sum "$FASTHENRY_BIN" | awk '{print $1}')" =   ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056
+python3 code/experiments/proofs/plan_corpus_v4_latency_v2.py   --protocol "$LAT_PROTOCOL"   --out results/corpus_v4/latency_fem_v2/plan/v1   --check
 ```
 
-Admission validation is solver-free. Run it before the three-layout preflight.
+A source edit after lock construction invalidates the lock. Rebuild the plan
+and lock, review the new hashes, commit, push, and recreate the clean checkout
+before submission.
+
+### 16.2 Submit the three-layout preflight
+
+The wrapper requests one CPU and 48 GiB. The scheduler may allocate more CPUs
+to satisfy memory policy, while the scientific thread settings remain one for
+Gmsh, BLAS, and Torch.
 
 ```bash
-python3 code/experiments/proofs/plan_corpus_v4_latency.py --check
-sbatch --test-only -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION="$FEM_REP_ADMISSION",PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256="$FEM_REP_ADMISSION_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_preflight.sh"
-LAT_PREFLIGHT_JOB_ID=$(sbatch --parsable -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION="$FEM_REP_ADMISSION",PCB_GNN_V4_FEM_REPEATABILITY_ADMISSION_SHA256="$FEM_REP_ADMISSION_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_preflight.sh")
+LAT_EXPORTS=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256"
+
+sbatch --test-only -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_EXPORTS"   "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_preflight_v2.sh"
+
+LAT_PREFLIGHT_JOB_ID=$(sbatch --parsable -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_EXPORTS"   "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_preflight_v2.sh")
 LAT_PREFLIGHT_JOB_ID=${LAT_PREFLIGHT_JOB_ID%%;*}
 [[ "$LAT_PREFLIGHT_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
-The preflight tasks are 0, 152, and 305 and are excluded from the final
-statistics. Inspect their terminal accounting and artifacts. If all three pass
-the unchanged contract, build the canonical admission artifact. The builder
-independently requires exact `COMPLETED/0:0` accounting, account and TRES
-agreement, immutable task artifacts, the current clean source commit, and the
-frozen roots. A failed preflight cannot create this artifact.
+Monitor exact array components rather than relying on the aggregate job row.
 
 ```bash
-sacct -X -n -P -j "$LAT_PREFLIGHT_JOB_ID" \
-  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
-find "results/corpus_v4/latency/preflight/attempts/job_${LAT_PREFLIGHT_JOB_ID}" \
-  -maxdepth 2 -type f -print
-LAT_PREFLIGHT_ADMISSION="results/corpus_v4/latency/preflight/admission/job_${LAT_PREFLIGHT_JOB_ID}/PREFLIGHT_ADMISSION.json"
-python3 code/experiments/proofs/admit_corpus_v4_latency_preflight.py \
-  --protocol protocols/corpus_v4_latency_v1.json \
-  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v2/plan.json \
-  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
-  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
-  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
-  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
-  --array-job-id "$LAT_PREFLIGHT_JOB_ID" \
-  --out "$LAT_PREFLIGHT_ADMISSION"
+squeue -j "$LAT_PREFLIGHT_JOB_ID"   -o '%.18i %.12T %.10M %.6D %.20R'
+sacct -X -n -P -j "$LAT_PREFLIGHT_JOB_ID"   --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+```
+
+Only tasks 0, 152, and 305 are valid. All three must reach
+`COMPLETED/0:0`, reproduce the four numerical references, match the admitted
+FEM mesh and system identities, and pass the GNN block-drift gate. If any task
+fails, stop. Do not submit the full array and do not reuse timing values from
+the failed preflight.
+
+### 16.3 Admit the preflight
+
+```bash
+LAT_PREFLIGHT_ADMISSION=results/corpus_v4/latency_fem_v2/preflight/admission/job_${LAT_PREFLIGHT_JOB_ID}/PREFLIGHT_ADMISSION.json
+
+python3 code/experiments/proofs/admit_corpus_v4_latency_preflight_v2.py   --protocol "$LAT_PROTOCOL"   --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256"   --plan "$LAT_PLAN"   --expected-plan-sha256 "$LAT_PLAN_SHA256"   --task-manifest "$LAT_TASKS"   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256"   --execution-lock "$LAT_LOCK"   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256"   --expected-source-git-head "$LAT_SOURCE_COMMIT"   --array-job-id "$LAT_PREFLIGHT_JOB_ID"   --out "$LAT_PREFLIGHT_ADMISSION"
+
 LAT_PREFLIGHT_ADMISSION_SHA256=$(sha256sum "$LAT_PREFLIGHT_ADMISSION" | awk '{print $1}')
-sbatch --test-only -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION="$LAT_PREFLIGHT_ADMISSION",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256="$LAT_PREFLIGHT_ADMISSION_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_corpus_v4_latency.sh"
-LAT_JOB_ID=$(sbatch --parsable -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION="$LAT_PREFLIGHT_ADMISSION",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256="$LAT_PREFLIGHT_ADMISSION_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_corpus_v4_latency.sh")
+```
+
+The builder replays live terminal accounting and every preflight task artifact.
+The file is authorization for the full array, not a speed result.
+
+### 16.4 Submit the complete panel
+
+```bash
+LAT_FULL_EXPORTS="$LAT_EXPORTS",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION="$LAT_PREFLIGHT_ADMISSION",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256="$LAT_PREFLIGHT_ADMISSION_SHA256"
+
+sbatch --test-only -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_FULL_EXPORTS"   "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_v2.sh"
+
+LAT_JOB_ID=$(sbatch --parsable -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_FULL_EXPORTS"   "$LAT_ROOT/code/jobs/submit_corpus_v4_latency_v2.sh")
 LAT_JOB_ID=${LAT_JOB_ID%%;*}
 [[ "$LAT_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
-After all logical components have terminal accounting, build an accepted set.
-Do not submit a retry while accounting is incomplete. A retry uses only the
-hash-pinned pending set emitted by the resume planner and keeps all original
-resource limits.
+The array reruns the three preflight layouts and contains every task from 0
+through 305. Wait for all components to become terminal. This protocol does
+not admit a sparse retry or combine attempts. Any incomplete task blocks the
+accepted set and requires a new versioned study.
+
+### 16.5 Build the accepted set and finalize
 
 ```bash
-sacct -X -n -P -j "$LAT_JOB_ID" \
-  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
-python3 code/experiments/proofs/plan_corpus_v4_latency_resume.py \
-  --protocol protocols/corpus_v4_latency_v1.json \
+sacct -X -n -P -j "$LAT_JOB_ID"   --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
+
+LAT_RESUME=results/corpus_v4/latency_fem_v2/resume/round_00
+python3 code/experiments/proofs/plan_corpus_v4_latency_resume_v2.py \
+  --protocol "$LAT_PROTOCOL" \
   --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v2/plan.json \
+  --plan "$LAT_PLAN" \
   --expected-plan-sha256 "$LAT_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
+  --task-manifest "$LAT_TASKS" \
   --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
+  --execution-lock "$LAT_LOCK" \
   --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --preflight-admission "$LAT_PREFLIGHT_ADMISSION" \
   --expected-preflight-admission-sha256 "$LAT_PREFLIGHT_ADMISSION_SHA256" \
-  --attempt-root results/corpus_v4/latency/jobs/attempts \
-  --out-dir results/corpus_v4/latency/resume/round_00
-```
+  --attempt-root "results/corpus_v4/latency_fem_v2/jobs/attempts/job_${LAT_JOB_ID}" \
+  --out-dir "$LAT_RESUME"
 
-If `pending_task_ids` is nonempty, submit only that frozen sparse set. After
-terminal accounting arrives, rerun the resume planner into `round_01` with the
-same shared attempt root. Repeat with a new round name; never overwrite a prior
-round.
-
-```bash
-LAT_PENDING=results/corpus_v4/latency/resume/round_00/pending_task_set.json
-LAT_PENDING_SHA256=$(sha256sum "$LAT_PENDING" | awk '{print $1}')
-LAT_RETRY_ARRAY=$(jq -r '.pending_task_ids | join(",")' "$LAT_PENDING")
-if [[ -n "$LAT_RETRY_ARRAY" ]]; then
-  LAT_RETRY_JOB_ID=$(sbatch --parsable -A pgs0407 \
-    --array="${LAT_RETRY_ARRAY}%8" \
-    --chdir="$LAT_ROOT" \
-    --export=ALL,FASTHENRY_BIN="$FASTHENRY_BIN",PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION="$LAT_PREFLIGHT_ADMISSION",PCB_GNN_V4_LATENCY_PREFLIGHT_ADMISSION_SHA256="$LAT_PREFLIGHT_ADMISSION_SHA256",PCB_GNN_V4_LATENCY_PENDING_SET="$LAT_PENDING",PCB_GNN_V4_LATENCY_PENDING_SET_SHA256="$LAT_PENDING_SHA256" \
-    "$LAT_ROOT/code/jobs/submit_corpus_v4_latency.sh")
-  LAT_RETRY_JOB_ID=${LAT_RETRY_JOB_ID%%;*}
-  [[ "$LAT_RETRY_JOB_ID" =~ ^[0-9]+$ ]]
-fi
-```
-
-Finalization is allowed only when all 306 canonical tasks are accepted and the
-pending set is empty. The finalizer runs on SLURM and repeats the same account
-gate. Point `LAT_FINAL_ROUND` to the latest immutable resume round.
-
-```bash
-LAT_FINAL_ROUND=round_00
-LAT_ACCEPTED="results/corpus_v4/latency/resume/${LAT_FINAL_ROUND}/accepted_artifact_set.json"
+LAT_ACCEPTED="$LAT_RESUME/accepted_artifact_set.json"
 LAT_ACCEPTED_SHA256=$(sha256sum "$LAT_ACCEPTED" | awk '{print $1}')
-sbatch --test-only -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_ACCEPTED_SET="$LAT_ACCEPTED",PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256="$LAT_ACCEPTED_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_finalize_corpus_v4_latency.sh"
-LAT_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407 \
-  --chdir="$LAT_ROOT" \
-  --export=ALL,PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_ACCEPTED_SET="$LAT_ACCEPTED",PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256="$LAT_ACCEPTED_SHA256" \
-  "$LAT_ROOT/code/jobs/submit_finalize_corpus_v4_latency.sh")
+LAT_FINAL_EXPORTS=ALL,PCB_GNN_V4_EXECUTION_ROOT="$LAT_ROOT",PCB_GNN_V4_SOURCE_COMMIT="$LAT_SOURCE_COMMIT",PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256",PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256",PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256",PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256",PCB_GNN_V4_LATENCY_ACCEPTED_SET="$LAT_ACCEPTED",PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256="$LAT_ACCEPTED_SHA256"
+
+sbatch --test-only -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_FINAL_EXPORTS"   "$LAT_ROOT/code/jobs/submit_finalize_corpus_v4_latency_v2.sh"
+
+LAT_FINAL_JOB_ID=$(sbatch --parsable -A pgs0407   --chdir="$LAT_ROOT"   --export="$LAT_FINAL_EXPORTS"   "$LAT_ROOT/code/jobs/submit_finalize_corpus_v4_latency_v2.sh")
 LAT_FINAL_JOB_ID=${LAT_FINAL_JOB_ID%%;*}
 [[ "$LAT_FINAL_JOB_ID" =~ ^[0-9]+$ ]]
 ```
 
-Wait for exact `COMPLETED/0:0` accounting, then create the archive manifest.
-The first command queries live accounting; after the artifacts are committed,
-the second invocation is scheduler-independent and requires every closure file
-to be Git-tracked and clean.
+Finalization is valid only after the accepted set contains exactly 306 tasks.
+It recomputes the three scoped ratio estimands, the family-cluster sensitivity
+ranges, the timing-stability diagnostics, and the outer-wall decomposition.
 
-```bash
-sacct -X -n -P -j "$LAT_FINAL_JOB_ID" \
-  --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS
-LAT_ANALYSIS="results/corpus_v4/latency/final/job_${LAT_FINAL_JOB_ID}/ANALYSIS_MANIFEST.json"
-LAT_ANALYSIS_SHA256=$(sha256sum "$LAT_ANALYSIS" | awk '{print $1}')
-python3 code/quality/verify_corpus_v4_latency_archive.py \
-  --protocol protocols/corpus_v4_latency_v1.json \
-  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v2/plan.json \
-  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
-  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
-  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
-  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
-  --accepted-set "$LAT_ACCEPTED" \
-  --expected-accepted-set-sha256 "$LAT_ACCEPTED_SHA256" \
-  --analysis-manifest "$LAT_ANALYSIS" \
-  --expected-analysis-manifest-sha256 "$LAT_ANALYSIS_SHA256" \
-  --out results/corpus_v4/latency/ARCHIVE_MANIFEST.json
+### 16.6 Build and replay the archive
+
+After the finalizer reaches `COMPLETED/0:0`, build the archive manifest with
+the exact final paths and hashes. Commit all evidence, then run the same command
+with `--check --require-git-tracked` from a clean checkout. Only that replay
+can move `C-LAT-FEMV2-001` from pending to claim review.
+
+The archive verifier is:
+
+```text
+code/quality/verify_corpus_v4_latency_archive_v2.py
 ```
 
-```bash
-python3 code/quality/verify_corpus_v4_latency_archive.py \
-  --protocol protocols/corpus_v4_latency_v1.json \
-  --expected-protocol-sha256 "$LAT_PROTOCOL_SHA256" \
-  --plan results/corpus_v4/latency/plan/v2/plan.json \
-  --expected-plan-sha256 "$LAT_PLAN_SHA256" \
-  --task-manifest results/corpus_v4/latency/plan/v2/task_manifest.jsonl \
-  --expected-task-manifest-sha256 "$LAT_TASKS_SHA256" \
-  --execution-lock protocols/corpus_v4_latency_execution_lock_v3.json \
-  --expected-execution-lock-sha256 "$LAT_LOCK_SHA256" \
-  --expected-source-git-head "$LAT_SOURCE_COMMIT" \
-  --accepted-set "$LAT_ACCEPTED" \
-  --expected-accepted-set-sha256 "$LAT_ACCEPTED_SHA256" \
-  --analysis-manifest "$LAT_ANALYSIS" \
-  --expected-analysis-manifest-sha256 "$LAT_ANALYSIS_SHA256" \
-  --out results/corpus_v4/latency/ARCHIVE_MANIFEST.json \
-  --check --require-git-tracked
-```
+Its required arguments are listed by:
 
-Keep `C-LAT-001` blocked until the finalizer artifact, archive manifest,
-terminal account and resource receipts, Git-tracked clean-clone verifier, and
-claim wording all pass.
+```bash
+python3 code/quality/verify_corpus_v4_latency_archive_v2.py --help
+```
 
 ## 17. Submit the FEM mesh-repeatability diagnostic
 

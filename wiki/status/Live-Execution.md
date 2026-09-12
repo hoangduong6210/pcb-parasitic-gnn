@@ -1,13 +1,14 @@
 ---
 title: Live Execution Snapshot
 status: active operational snapshot
-last_updated: 2026-08-31
+last_updated: 2026-09-12
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-08-31.
+Last scheduler-backed observation: 2026-08-31. Protocol work recorded on
+2026-09-12 has not yet produced a scheduler result.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -16,12 +17,12 @@ Last scheduler-backed observation: 2026-08-31.
 | Archived 25-thread joint finalizer | `FINALIZED` | 1,698 long-form observations | None | First submission used a wrong helper path; corrected submission completed |
 | R3/R4 discrepancy audit | `COMPLETED` | 198 of 198 pairs across 66 families | None | First job failed closed when site policy allocated 3 CPUs for a 2-CPU request; the corrected gate distinguished requested and allocated resources |
 | Pre-FEM-v2 Corpus V4 accuracy | `FINALIZED AND ADMITTED` | 25 of 25 checkpoints accepted; 25 prediction tables; 7,350 full-test rows | None | Version-scoped to the archived 25-thread capacitance package; does not transfer to FEM-v2 |
-| FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | None; its one-thread successor dataset is finalized | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; paired latency remains closed |
+| FEM mesh repeatability | `POSTTERMINAL NEGATIVE` | Corrected source Job `6916045`: 15 of 15 elements `COMPLETED/0:0`; Finalizer Job `6916047`: `COMPLETED/0:0`; 30 arm records and terminal admission preserved | None; its one-thread successor dataset is finalized | Existing 25-thread arm failed all three mesh/repeatability gates; one-thread diagnostic arm passed all three; the 25-thread paired-latency chain remains closed |
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
 | FEM-v2 accuracy v3 | `FINALIZED; ARCHIVE VALIDATED` | Array `7087054` completed 25 of 25 tasks; round 01 accepted all 25 candidates; finalizer `7102842` completed `0:0`; clean-tracked archive replay passed | Freeze the next study from the admitted designated checkpoint | Round 00 preserved a transient scheduler-accounting access failure. No checkpoint was rerun. `C-ACC-FEMV2-001` is admitted; latency and speed remain closed. |
-| Corpus V4 paired latency | `PREFLIGHT REJECTED / BLOCKED` | 0 of 3 preflight tasks accepted; frozen full scope remains 306 layouts across 13 held-out families | Await a new FEM-v2 model, admitted accuracy evidence, and separately frozen latency protocol | Repeatability admission explicitly records `paired_latency_preflight_may_resume=false` |
+| FEM-v2 paired latency | `PROTOCOL FROZEN; PREFLIGHT PENDING` | Planned scope is 306 layouts across 13 held-out families; preflight tasks are 0, 152, and 305 | Commit and submit the three-task one-thread preflight | No FEM-v2 latency task has run; the rejected 25-thread latency chain remains historical and cannot authorize this study |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
 owns `C-ACC-001` and the admitted selected-registry discrepancy. The new
@@ -64,6 +65,9 @@ finalizer `7084776` then completed `0:0`; the solver-free admission replayed the
 full closure.
 
 The frozen adjacent-mesh result remains negative, so the new package is still
-multi-fidelity rather than mesh-converged. Paired latency, baseline, strict
-E(3), and ranking results require their own FEM-v2 protocols and jobs.
-`C-LAT-001` remains blocked and no current speed value is permitted.
+multi-fidelity rather than mesh-converged. A new paired-latency protocol now
+binds the admitted accuracy-v3 task-12 checkpoint and the one-thread FEM-v2
+dataset. Its future claim identifier is `C-LAT-FEMV2-001`; the claim remains
+pending until preflight, full execution, finalization, and archive replay close.
+No current speed value is permitted. Baseline, strict E(3), and ranking results
+still require their own FEM-v2 protocols and jobs.

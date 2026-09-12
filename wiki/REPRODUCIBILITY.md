@@ -1,7 +1,7 @@
 ---
 title: Reproducibility
 status: active runbook
-last_updated: 2026-08-31
+last_updated: 2026-09-12
 paper_source: false
 ---
 
@@ -196,9 +196,12 @@ arbitrary routed PCB layouts.
 | FEM-v2 accuracy-v3 sandbox preflight r2 — admitted by job `7087033` after two failed-closed infrastructure attempts | 8 CPU requested, 48 GiB, 4 h cap; exited before optimizer work | 1 |
 | FEM-v2 accuracy-v3 checkpoint training — completed and all 25 checkpoints accepted | 8 CPU requested, 48 GiB, 4 h per split/init model | 5 |
 | FEM-v2 accuracy finalizer — completed by job `7102842` | 2 CPU requested, 16 GiB, 30 min; 5 CPU and 16 GiB allocated; scientific thread cap 2 | 1 |
-| Paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
-| Paired-latency full panel — blocked by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
-| Paired-latency finalizer — blocked | 2 CPU requested, 8 GiB, 20 min | 1 |
+| Archived 25-thread paired-latency preflight — executed and rejected; 0 of 3 accepted; excluded from statistics | 25 CPU requested, 48 GiB, 2 h per layout | 1 |
+| Archived 25-thread paired-latency full panel — closed by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
+| Archived 25-thread paired-latency finalizer — not run | 2 CPU requested, 8 GiB, 20 min | 1 |
+| FEM-v2 paired-latency preflight — protocol frozen; no job submitted | 1 CPU requested, 48 GiB, 2 h per layout; three predesignated layouts | 1 |
+| FEM-v2 paired-latency full panel — gated by preflight admission | 1 CPU requested, 48 GiB, 2 h per layout; 306 layouts | 8 |
+| FEM-v2 paired-latency finalizer — gated by a complete accepted set | 2 CPU requested, 8 GiB, 20 min | 1 |
 | FEM repeatability source array — completed; 15 elements with two sequential FEM arms each | 25 CPU requested, 48 GiB, 2 h per element; 1,800 s cap per arm | 3 |
 | FEM repeatability finalizer — completed | 2 CPU requested, 8 GiB, 30 min | 1 |
 | FEM repeatability postterminal admission — completed negative, solver-free | No compute allocation; live finalizer `sacct` was authenticated when the receipt was minted | Not applicable |

@@ -1,7 +1,7 @@
 ---
 title: FEM Mesh Repeatability Diagnostic
 status: postterminal negative result
-last_updated: 2026-08-21
+last_updated: 2026-09-12
 paper_source: false
 ---
 
@@ -112,19 +112,22 @@ layout and passed the repeatability gate, but its reference drift is reported
 only; by protocol it cannot retroactively relabel the existing corpus.
 
 The postterminal receipt consequently records
-`paired_latency_preflight_may_resume=false`. The next scientific transition is
-to version the deterministic one-thread formulation as a new FEM reference,
-regenerate all Cps labels, retrain the model, and rerun accuracy and latency.
-The old and new Cps labels must not be mixed.
+`paired_latency_preflight_may_resume=false` for the 25-thread branch. The
+project subsequently versioned the deterministic one-thread formulation as a
+new FEM reference, regenerated the capacitance observations, and completed a
+separate accuracy study. The old and new capacitance observations remain
+distinct.
 
 The SLURM finalizer first writes a non-admissible preterminal result under a
 path containing both the source-array and finalizer job identities. Only after
 the finalizer reaches exact `COMPLETED/0:0` may the solver-free admission step
 replay all 15 source tasks, 30 arm records, hashes, gates, and live finalizer
-accounting. Its immutable `FINAL_ADMISSION.json` is the only artifact accepted
-by a new latency preflight. Later full-array and archive verification replay
-the same evidence offline, so clean-clone checks do not depend on scheduler
-accounting retention.
+accounting. Its immutable `FINAL_ADMISSION.json` closes the old 25-thread
+branch; it is not an input to the FEM-v2 latency study. The current protocol
+instead binds the admitted deterministic one-thread dataset closure described
+in the [project status](../status/Project-Status.md). Later archive verification
+replays the relevant versioned evidence offline, so clean-clone checks do not
+depend on scheduler-accounting retention.
 
 ## Decision rule
 

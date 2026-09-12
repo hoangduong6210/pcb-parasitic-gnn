@@ -1,0 +1,265 @@
+{
+  "checkpoint": {
+    "accepted_before_latency_measurement": true,
+    "bundle_format": "NumPy NPZ; allow_pickle=False",
+    "bundle_schema": "pcb-gnn.safe-npz-bundle.v1",
+    "designated_task_id": 12,
+    "init_seed": 42,
+    "maximum_archive_bytes": 67108864,
+    "maximum_uncompressed_bytes": 134217728,
+    "smoke_examples": 5,
+    "split_seed": 42
+  },
+  "forbidden_actions": {
+    "aggregate_median_ratio_as_headline": true,
+    "batching_across_designs": true,
+    "capacitance_only_or_inductance_only_generalization": true,
+    "fastest_attempt_selection": true,
+    "hardware_or_population_confidence_interval_wording": true,
+    "historical_4300x_or_670x_as_current_evidence": true,
+    "layout_replacement_after_failure": true,
+    "login_node_solver_execution": true,
+    "outcome_or_timing_based_filtering": true,
+    "solver_result_cache_reuse": true,
+    "timeout_or_resource_change_on_retry": true,
+    "within_study_full_array_retry": true
+  },
+  "gnn_timing": {
+    "batch_size": 1,
+    "block_median_ratio_max": 1.25,
+    "boundary_end": "four inverse-transformed target values materialized as float64",
+    "boundary_name": "warm-loaded in-memory raw-JSON-record-to-four-output latency",
+    "boundary_start": "canonical UTF-8 JSON bytes resident in memory",
+    "cpu_only": true,
+    "include": [
+      "strict JSON parsing",
+      "geometry validation",
+      "graph construction",
+      "feature normalization",
+      "batch-one collation",
+      "model forward pass",
+      "inverse target transformation",
+      "four-value output materialization"
+    ],
+    "measured_repetitions": 200,
+    "measurement_blocks": [
+      "100 repetitions before the solver workflow",
+      "100 repetitions after the solver workflow"
+    ],
+    "measured_repetitions_per_block": 100,
+    "model_load_excluded_and_reported_separately": true,
+    "model_only_supporting": {
+      "boundary_end": "standardized four-output CPU tensor resident",
+      "boundary_start": "normalized batch-one graph tensors resident",
+      "measured_repetitions": 200,
+      "role": "secondary diagnostic; never the denominator of the solver-workflow speedup",
+      "timer": "time.perf_counter_ns",
+      "warmup_repetitions": 50
+    },
+    "python_startup_excluded": true,
+    "raw_record_serialization": "canonical JSON; UTF-8; sorted keys; compact separators; finite values only",
+    "storage_io_excluded": true,
+    "timer": "time.perf_counter_ns",
+    "torch_interop_threads": 1,
+    "torch_intraop_threads": 1,
+    "warmup_repetitions": 50
+  },
+  "inputs": {
+    "accuracy_accepted_set": {
+      "path": "results/corpus_v4/accuracy_v3/resume/round_01/accepted_artifact_set.json",
+      "sha256": "291a76231ef348d150fcec0f1cb70031537f1db5530ff0813365ed2932e326fe"
+    },
+    "accuracy_analysis_manifest": {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/ANALYSIS_MANIFEST.json",
+      "sha256": "4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc"
+    },
+    "accuracy_archive": {
+      "path": "results/corpus_v4/accuracy_v3/ARCHIVE_MANIFEST.json",
+      "sha256": "a741b0ff1002f11b5ac5eef466baff81137da1245a8ea6e609b2a608279e8f06"
+    },
+    "accuracy_checkpoint_index": {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/checkpoint_index.json",
+      "sha256": "820cd6c414b274f7d4013f7d87e3180ad0a783da90f852447b931d2a5f93fa02"
+    },
+    "accuracy_final_summary": {
+      "path": "results/corpus_v4/accuracy_v3/final/job_7102842/summary.json",
+      "sha256": "e48fa58aa48304353cc471e33f5a3e3559fa0628728eb938098dae089c05eb3b"
+    },
+    "accuracy_finalizer_execution_lock": {
+      "path": "protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json",
+      "sha256": "cdb53640f9d9c206b37651e28a04781a19d5dda81d520cf50b77c628468cadf3"
+    },
+    "accuracy_plan": {
+      "path": "results/corpus_v4/accuracy_v3/plan/v1/plan.json",
+      "sha256": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f"
+    },
+    "accuracy_protocol": {
+      "path": "protocols/corpus_v4_accuracy_v3.json",
+      "sha256": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1"
+    },
+    "accuracy_task_manifest": {
+      "path": "results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl",
+      "sha256": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71"
+    },
+    "accuracy_training_execution_lock": {
+      "path": "protocols/corpus_v4_accuracy_execution_lock_v3r2.json",
+      "sha256": "8f70369457382ab1d4066e194b2f4664813ece98deb514628ead27fb365c5e8c"
+    },
+    "checkpoint_archive": {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle/weights_and_norm.npz",
+      "sha256": "8efc90f4209a818f9a334e2eefcf43a30ae38363262c5de39302e328d736e2b5"
+    },
+    "checkpoint_metadata": {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/bundle/metadata.json",
+      "sha256": "99136b0b28b731494dc20442a0bdb2b8ba4fb858458c334d37f6e57ffd1e2d02"
+    },
+    "checkpoint_smoke_examples": {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/smoke_examples.jsonl",
+      "sha256": "3a9716838c36c2a519d0242075abe1b18960238a963fa4b9faab587dc1dbb752"
+    },
+    "designated_task_manifest": {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/TASK_MANIFEST.json",
+      "sha256": "57bc95abbfa4f00210d69405d200b6c46ef3c0d851b98e7ee7034eee53ba73eb"
+    },
+    "designated_task_result": {
+      "path": "results/corpus_v4/accuracy_v3/jobs/job_7087054/task_12/result.json",
+      "sha256": "2e695b44dc96181bab3a4864793c8c26eaa1505e64f8dd03080ec05a81283cb9"
+    },
+    "evaluation_dataset": {
+      "path": "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl",
+      "sha256": "ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046"
+    },
+    "fem_v2_dataset_admission": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/admission/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/FINAL_ADMISSION.json",
+      "sha256": "b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed"
+    },
+    "fem_v2_dataset_archive": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/ARCHIVE_MANIFEST.json",
+      "sha256": "89b2e235ff5d1aaa06ab589a95578f7a3ef129d60f2386494ea2d1686de6dbbc"
+    },
+    "fem_v2_final_observations": {
+      "path": "results/corpus_v4/cps_reference_v2/production/v1/dataset/final/source_set_f5c5b99b47fb6e58ac4110e3ab4e564a805b015565833c91013d19c8d404cf3b/finalizer_job_7084776/label_observations.jsonl",
+      "sha256": "83a771bf318c0660731c6e5d1e5e91a6b15642e178b8172b2b46dedb656a1784"
+    },
+    "fem_v2_production_lock": {
+      "path": "protocols/corpus_v4_fem_v2_production_lock_v1.json",
+      "sha256": "84c832aa08fc8800e604979730c315e1950d26fa4d0a2f1f7c34b9f2f34e402a"
+    },
+    "fem_v2_production_protocol": {
+      "path": "protocols/corpus_v4_fem_v2_production_v1.json",
+      "sha256": "ba66f1ecfccd9eea3d2b36b9824dcae3f2399ffa2e9a73883f786ddca33dc709"
+    }
+  },
+  "panel": {
+    "family_key": "swap-closed unordered turn-count pair",
+    "layout_order": "ascending frozen layout_id within split-42 test membership",
+    "n_designs": 306,
+    "n_families": 13,
+    "scope": "all layouts in the frozen split-42 family-held-out test partition",
+    "selection_uses_labels_predictions_or_timings": false,
+    "split_seed": 42
+  },
+  "protocol_name": "corpus-v4-fem-v2-paired-latency-v1",
+  "resources": {
+    "finalizer": {
+      "allocated_cpus_may_exceed_request": true,
+      "cpus_per_task": 2,
+      "memory_gib": 8,
+      "partition": "nextgen",
+      "scientific_threads": 2,
+      "time_limit": "00:20:00"
+    },
+    "full_array": {
+      "allocated_cpus_may_exceed_request": true,
+      "array": "0-305%8",
+      "cpus_per_task": 1,
+      "memory_gib": 48,
+      "partition": "nextgen",
+      "scientific_threads": {
+        "blas": 1,
+        "gmsh": 1,
+        "torch": 1
+      },
+      "time_limit": "02:00:00"
+    },
+    "preflight": {
+      "allocated_cpus_may_exceed_request": true,
+      "array": "0,152,305%1",
+      "cpus_per_task": 1,
+      "excluded_from_final_statistics": true,
+      "memory_gib": 48,
+      "partition": "nextgen",
+      "task_ids": [0, 152, 305],
+      "time_limit": "02:00:00"
+    },
+    "scheduler_account": "pgs0407"
+  },
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "meshio": "5.3.5",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1",
+      "torch": "2.8.0"
+    },
+    "python": "3.9.21",
+    "thread_environment": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "1"
+    }
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-protocol.v1",
+  "solver_workflow": {
+    "boundary_end": "all four target values parsed and materialized as float64",
+    "boundary_start": "the same canonical UTF-8 JSON bytes resident in memory",
+    "capacitance": {
+      "fidelity_id": "cps_fem_r3_p16_t1_v2",
+      "linear_solver": "pyamg_smoothed_aggregation_cg",
+      "pad_mm": 16.0,
+      "refine": 3,
+      "target": "Cps_pF",
+      "timeout_s": 1800
+    },
+    "comparison_scope": "sequential FastHenry-plus-one-thread-FEM-v2-R3P16 workflow used to obtain all four targets",
+    "execution_order": ["FastHenry", "FEM-v2-R3P16-one-thread"],
+    "inductance": {
+      "binary_sha256": "ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056",
+      "fidelity_id": "fasthenry_100khz_active_leg",
+      "frequency_hz": 100000.0,
+      "targets": ["L_pri_nH", "L_sec_nH", "L_mut_nH"],
+      "timeout_s": 300
+    },
+    "reference_agreement_max_relative_error": 0.0001,
+    "repetitions_per_design": 1,
+    "sequential": true,
+    "sequential_outer_wall_timer": true,
+    "solver_result_cache_reuse": false,
+    "timer": "time.perf_counter_ns"
+  },
+  "statistics": {
+    "bootstrap": {
+      "cluster_unit": "held-out geometry family",
+      "label": "family-cluster bootstrap sensitivity interval on the evaluated split and CPU-node class",
+      "percentiles": [2.5, 97.5],
+      "quantile_method": "Hyndman-Fan type 7",
+      "resamples": 10000,
+      "seed": 20260820,
+      "semantics": "descriptive sensitivity interval, not a population or hardware confidence interval"
+    },
+    "design_gnn_latency": "median of 200 measured repetitions",
+    "design_solver_latency": "one sequential FastHenry-plus-one-thread-FEM-v2-R3P16 observation",
+    "primary_estimand": "median over 306 designs of paired solver latency divided by design-median GNN latency",
+    "report_component_medians_descriptively": true,
+    "report_every_design_ratio": true,
+    "secondary_estimands": [
+      "median over 306 designs of FastHenry latency divided by design-median GNN latency",
+      "median over 306 designs of one-thread FEM-v2 latency divided by design-median GNN latency"
+    ]
+  }
+}

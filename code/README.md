@@ -33,6 +33,7 @@ top-level README).
 | `fastcap_ref.py` | Capacitance via **FastCap**. Did **not** converge on ~0.1 mm gaps — kept as the documented failed path |
 | `fastercap_ref.py` | Adaptive-mesh FasterCap; ~3 min/solve, too slow for corpus labelling |
 | `fem_capacitance_3d.py` | 3-D electrostatic FEM kernel (scikit-fem + gmsh); its output is meaningful only together with an explicit fidelity setting |
+| `fem_corpus_v4_latency_v2.py` | Frozen R3P16 FEM-v2 latency arm; validates numerical residual and geometry identity under compute-node execution |
 | `fem_cps_diagnostic_worker.py` | Isolated, bounded AMG-CG mesh/domain-sensitivity worker used by SLURM convergence protocols |
 | `fem_capacitance_ref.py` | Independent 2-D electrostatic FEM cross-check |
 | `fem_inductance_ref.py` | Independent multi-filament **Neumann** double-integral — the third solver used for the cross-solver check |
@@ -121,6 +122,13 @@ top-level README).
 | `plan_corpus_v4_accuracy_resume_v3.py` | Complete candidate disposition table and fail-closed accepted/pending sets with terminal job identity checks | `corpus_v4/accuracy_v3/resume` |
 | `build_corpus_v4_accuracy_finalizer_lock_v3.py` | Freezes a finalizer-only source lock over one complete accepted set while retaining the historical training lock and source identity | `protocols/corpus_v4_accuracy_finalizer_execution_lock_v1.json` |
 | `finalize_corpus_v4_accuracy_v3.py` | First process allowed to open held-out references; validates historical checkpoint provenance and current finalizer provenance as separate trust roots | `corpus_v4/accuracy_v3/final` |
+| `plan_corpus_v4_latency_v2.py` | Freezes all 306 family-held-out paired-latency tasks without a solver | `corpus_v4/latency_fem_v2/plan/v1` |
+| `build_corpus_v4_latency_execution_lock_v2.py` | Pins protocol, plan, source bytes and runtime inputs before SLURM submission | `protocols/corpus_v4_latency_fem_v2_execution_lock_v1.json` |
+| `corpus_v4_latency_contract_v2.py` | Exact schema, source, checkpoint, dataset-admission, preflight and terminal accounting gates | `corpus_v4/latency_fem_v2` |
+| `experiments_corpus_v4_latency_task_v2.py` | Compute-node-only paired FastHenry/R3P16 and raw-layout GNN timing worker | `corpus_v4/latency_fem_v2/{preflight,jobs}` |
+| `admit_corpus_v4_latency_preflight_v2.py` | Authenticates three independently timed layout records before authorizing full array | `corpus_v4/latency_fem_v2/preflight/admission` |
+| `plan_corpus_v4_latency_resume_v2.py` | Rejects incomplete arrays and multiple dispatch artifacts; accepts only the full original job | `corpus_v4/latency_fem_v2/resume` |
+| `finalize_corpus_v4_latency_v2.py` | SLURM-only final summary, paired ratios, family sensitivity and source audit | `corpus_v4/latency_fem_v2/final` |
 
 The earlier `experiments_corpus_v4_refined_cps.py` / `finalize_corpus_v4.py`
 path is retained as a legacy R2P12 artifact protocol. R2P12 is not the highest
@@ -161,10 +169,13 @@ see [`wiki/datasets/Corpus-and-Target-Contract.md`](../wiki/datasets/Corpus-and-
 | `quality/verify_corpus_v4_discrepancy_archive.py` | Rebuilds the 198-pair R3/R4 audit, checks its job receipt and exact artifact inventory, and verifies every pinned input and output hash |
 | `quality/verify_corpus_v4_accuracy_archive.py` | Closes finalizer accounting and verifies accepted tasks, checkpoints, prediction rows, matrices, and the exact analysis inventory; supports scheduler-independent `--check` |
 | `quality/verify_corpus_v4_accuracy_archive_v3.py` | Verifies v3 split inputs, candidate dispositions, scheduler identities, accepted checkpoints, finalizer output, and clean-clone archive closure |
+| `quality/verify_corpus_v4_latency_archive_v2.py` | Replays all 306 job-bound timing rows, mesh references, scheduler receipts and finalizer arithmetic |
+| `inference/corpus_v4_latency_inference_v2.py` | Raw JSON record to warm checkpoint prediction for the paired-latency boundary |
 | `quality/audit_research_prose.py` | Enforces publication-source metadata, packaging boundaries, sensitive-identifier exclusion, and deterministic prose-style checks across the full and summary papers |
 | `inference/predict_safe_bundle.py` | Loads numeric NumPy weights with `allow_pickle=False` and predicts all four targets from JSONL layouts |
 | `inference/safe_npz_bundle.py` | Authenticated, pickle-free checkpoint writer/loader with ZIP, dtype, shape, finiteness, size, and smoke-inference gates |
 | `quality/build_proof_updates.py` | Validates job schemas/clean commits and deterministically builds the manuscript aggregate |
 | `operations/corpus_v4_fem_v2_controller.py` | Login-safe, hash-pinned R4-first/R3-wave SLURM submission controller and terminal-accounting watcher; never imports a solver |
-| `jobs/submit_*.sh` | SLURM scripts, one per experiment family. No account code — pass `sbatch -A <your-account> …` |
+| `jobs/submit_corpus_v4_latency_preflight_v2.sh`, `submit_corpus_v4_latency_v2.sh`, `submit_finalize_corpus_v4_latency_v2.sh` | Frozen nextgen SLURM resources for the isolated preflight, 306-layout full panel and finalizer; external site account is also passed to `sbatch -A` |
+| `jobs/submit_*.sh` | Other experiment-family SLURM wrappers; check each wrapper's site account and resource headers before submission |
 | `jobs/slurm_job_env.sh` | Shared root, Python, and `PYTHONPATH` resolver for portable batch execution |

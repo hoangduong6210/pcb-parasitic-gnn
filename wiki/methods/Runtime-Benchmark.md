@@ -1,122 +1,124 @@
 ---
-title: Runtime Benchmark Protocol
-status: frozen current-corpus protocol; preflight rejected; full array blocked
-last_updated: 2026-08-20
+title: FEM-v2 Paired Runtime Benchmark Protocol
+status: frozen; preflight pending
+last_updated: 2026-09-12
 paper_source: true
 prose_reviewed: true
-claim_ids: C-LAT-001
+claim_ids: C-LAT-FEMV2-001
 ---
 
-# Runtime Benchmark Protocol
+# FEM-v2 Paired Runtime Benchmark Protocol
 
-Runtime claims are valid only when the compared outputs and timing boundaries
-match. The project distinguishes three GNN boundaries:
+This protocol asks a narrow question: on the evaluated CPU class, how long
+does the implemented four-target solver workflow take relative to one
+warm-loaded GNN query for the same layout? No runtime result is admitted yet.
 
-| Boundary | Included work |
-|---|---|
-| Pre-collated batch throughput | Forward execution of an already batched graph bank |
-| Prepared single forward | One already constructed graph through the model |
-| Warm-loaded raw-record end to end | Parse one in-memory raw JSON record, validate it, construct and normalize the graph, collate a batch of one, run inference, invert the target transform, and materialize four outputs |
+## Fixed panel and model
 
-The current benchmark uses the third boundary. The model and normalization are
-loaded and authenticated before timing. Model-load time is measured and
-reported separately; process startup and storage I/O are outside the primary
-per-query boundary. Each timed repetition begins from the same immutable JSON
-bytes in memory. It does not reuse a parsed layout, graph, or collated batch.
+The panel contains all 306 layouts in the split-42 held-out partition. These
+layouts belong to 13 swap-closed winding-turn families that do not occur in
+training or validation for that split. Panel membership follows the accuracy
+task manifest and cannot depend on labels, predictions, solver outcomes, or
+timings.
 
-## Frozen comparison
+The checkpoint is accuracy-v3 task 12, with split seed 42 and initialization
+seed 42. It was designated before held-out evaluation and accepted in the
+accuracy-v3 artifact set before this runtime protocol was written. The model,
+normalization arrays, metadata, smoke examples, and task result are all bound
+by SHA-256.
 
-The benchmark uses the accepted checkpoint designated as task 12 before any
-accuracy outcome was observed. Its split seed and initialization seed are both
-42. The evaluation set is the complete 306-layout test partition: 13
-swap-closed geometry families that are absent from training and validation. No
-layout is sampled from, or substituted into, this partition for timing.
+## Compared workflows
 
-For each layout, the reference path runs FastHenry at 100 kHz to obtain
-\(L_p\), \(L_s\), and \(M\), followed by FEM-R3P16 to obtain \(C_{ps}\). The two
-solvers are executed sequentially, so the reference time is their summed wall
-time. The GNN path returns all four quantities from one warm-loaded, batch-one
-call at the raw-record boundary above. Both paths run within the same scheduler
-allocation for that layout.
+The reference workflow starts from canonical JSON bytes already resident in
+memory. It parses the layout, runs FastHenry at 100 kHz for \(L_p\), \(L_s\),
+and \(M\), then runs the one-thread FEM-v2 R3P16 path for \(C_{ps}\). An outer
+wall timer encloses both sequential calls through materialization of all four
+float64 values. Component times and the orchestration residual are retained.
 
-This is a comparison with the implemented sequential four-target workflow. It
-does not describe a parallel solver deployment, an inductance-only request, a
-capacitance-only request, or every program that may be called a 3-D solver.
+The primary GNN boundary also starts from the same in-memory JSON bytes. It
+includes strict parsing, geometry validation, graph construction,
+normalization, batch-one collation, forward inference, inverse target
+transformation, and materialization of four float64 values. Model loading,
+Python startup, scheduler queueing, and storage I/O are outside this boundary.
+Model-load time is reported separately.
 
-## Timing and estimator
+A supporting model-only measurement begins with a normalized batch-one graph
+already resident in memory and ends with a standardized four-output CPU tensor.
+It helps distinguish neural execution from preprocessing cost. It is not a
+denominator for a solver speedup and is not comparable to the historical
+400-graph batched-throughput number without stating the different batch size.
 
-Each layout has one timed execution of the complete solver workflow. This
-choice controls compute cost but does not estimate solver run-to-run variation.
-The GNN receives 50 untimed warm-up calls, followed by 100 timed repetitions
-before the solver workflow and 100 timed repetitions after it. Warm-up outputs
-are checked but excluded. The combined 200 observations define the layout's
-GNN median, while the two block medians remain available as an order and load
-diagnostic. Every timed repetition begins from the raw JSON bytes, uses batch
-size one, and retains its individual duration.
+## Timing design
 
-Let \(T_i^{\mathrm{ref}}\) be the FastHenry wall time plus the FEM-R3P16 wall
-time for layout \(i\), and let \(T_i^{\mathrm{gnn}}\) be the median of its 200
-GNN repetitions. The paired ratio is
+For each layout, the GNN receives 50 untimed raw-record warm-ups, 100 timed
+calls before the solver workflow, and 100 timed calls after it. The layout-level
+GNN time is the median of all 200 raw-record observations. The larger block
+median divided by the smaller must not exceed 1.25. The supporting model-only record
+uses 50 warm-ups and 200 timed batch-one forward calls.
+
+There is one fresh solver execution per layout. Consequently, the study does
+not estimate solver run-to-run variance. Every task retains the individual GNN
+durations and the complete solver decomposition.
+
+For layout \(i\), define
 
 \[
-S_i=\frac{T_i^{\mathrm{ref}}}{T_i^{\mathrm{gnn}}}.
+S_i^{\mathrm{all4}} =
+\frac{T_i^{\mathrm{FH+FEM}}}{\operatorname{median}(T_{i,1:200}^{\mathrm{GNN,raw}})}.
 \]
 
-The primary result is the median of the 306 values \(S_i\). The median reference
-time and median GNN time may be reported as supporting summaries, but their
-ratio is not the paired-speedup estimator.
+The primary statistic is the median of the 306 values
+\(S_i^{\mathrm{all4}}\). Two secondary statistics use the same raw-record GNN
+denominator and report FastHenry-only and FEM-only component ratios separately.
+They apply to three inductance targets and one capacitance target,
+respectively. The ratio of aggregate medians is retained as a diagnostic and
+cannot replace the median paired ratio.
 
-The uncertainty calculation uses 10,000 family-cluster bootstrap draws. Each
-draw resamples the 13 held-out families as whole clusters and recomputes the
-median paired ratio. The resulting 95% range is called a family-cluster
-bootstrap sensitivity interval on the evaluated split and allocation. It is
-not a population confidence interval. In particular, it excludes solver
-run-to-run variation, system load, other hardware, software changes, model
-retraining, other split choices, arbitrary PCB layouts, and fabrication
-variability.
+The interval calculation performs 10,000 resamples of the 13 held-out families
+as whole clusters. Its 2.5 and 97.5 percentiles form a descriptive
+family-cluster sensitivity interval on the evaluated split and CPU-node class.
+It is not a population or hardware confidence interval. It excludes changes
+in software, node class, system load, solver repetition, checkpoint training,
+split choice, PCB population, and fabrication.
 
-## Execution and failure gates
+## Numerical and execution gates
 
-The timer is monotonic and high resolution. The record freezes the CPU model,
-requested and allocated resources, affinity, scientific thread settings,
-device, batch size, warm-up and repeat counts, timer, software versions, solver
-settings, checkpoint identity, and source identity. Public records omit private
-node names.
+FastHenry and FEM run only inside SLURM tasks. The preflight and full-array
+wrappers request one CPU and 48 GiB per task; site policy may allocate more
+CPUs for memory. Torch, BLAS, and Gmsh each remain at one scientific thread,
+and the worker telemetry must confirm the Gmsh setting.
 
-A layout is accepted only when both solvers complete, reproduce their frozen
-references within the declared numerical tolerances, and emit one complete
-timing record. A missing layout, timeout, nonfinite duration, solver failure,
-reference drift, resource mismatch, or non-successful scheduler outcome blocks
-the final result. Recovery repeats the same layout under the same protocol in a
-new attempt. It does not replace the layout, change the timeout, discard a slow
-observation, or select the fastest attempt.
+Fresh solver values must reproduce the frozen four-target references within
+relative tolerance \(10^{-4}\). The FEM solve must also match the admitted
+mesh-node count, tetrahedron count, and system SHA-256 for that layout. A
+timeout, reference drift, mesh-identity drift, nonfinite time, source change,
+resource mismatch, missing layout, or nonzero scheduler outcome blocks the
+study.
 
-The claim remains blocked until all 306 layouts enter one accepted set, the
-SLURM finalizer completes, and the tracked archive passes clean-clone
-verification.
+Tasks 0, 152, and 305 form the predesignated preflight. Their observations are
+excluded from the final statistics, and the full array reruns them. The current
+protocol does not combine retries: incomplete full-array evidence cannot
+produce an accepted set. A later attempt would require a new versioned study
+instead of selecting among timings.
 
-The intervening FEM repeatability protocol is frozen but not yet submitted. The
-full panel remains closed until that diagnostic reaches its frozen decision, a
-postterminal receipt replays the preterminal evidence and live finalizer
-accounting, and a new three-task latency preflight receives authenticated
-terminal admission. The numerical latency protocol remains byte-identical to
-the rejected diagnostic runs; the repeatability prerequisite is a separately
-versioned execution-safety overlay in latency plan v2 and execution lock v2.
+## Claim language after admission
 
-## Prohibited wording
+When every gate closes, the allowable headline has this structure:
 
-Do not write:
+> On the frozen 306-layout, 13-family split-42 held-out panel, the predesignated
+> accuracy-v3 task-12 checkpoint achieved a median per-layout speedup of
+> \(X\)-fold for the sequential FastHenry-100-kHz plus one-thread FEM-v2 R3P16
+> workflow used to obtain all four targets, relative to warm-loaded batch-one
+> inference from an in-memory raw-layout record to four materialized outputs.
+> The 2.5th-to-97.5th-percentile family-cluster resampling sensitivity range
+> was \(L\) to \(U\)-fold on the evaluated CPU-node class.
 
-- “faster than 3-D solvers” without naming the sequential FastHenry-plus-
-  FEM-R3P16 four-target workflow;
-- “end-to-end including model load” for the warm-loaded per-query boundary;
-- a ratio of aggregate medians as the median paired speedup;
-- an inductance-only or capacitance-only speedup from the four-target ratio;
-- the historical approximately 4,300-fold or 670-fold values as current-corpus
-  evidence;
-- a universal hardware or PCB speedup from the evaluated allocation;
-- “95% confidence interval” for the family-cluster sensitivity range; or
-- a current speed value before finalization and archive closure.
+Until finalization and archive replay pass, \(X\), \(L\), and \(U\) remain
+unset. The wording must not be shortened to “faster than 3-D solvers,” applied
+to an inductance-only or capacitance-only request, or presented as a universal
+hardware result.
 
-Historical timing boundaries and their exact interpretation are listed in the
-[Historical Claim Ledger](../claims/Historical-Claim-Ledger.md).
+The historical 1.16845 ms, rounded 5 s, approximately 4,300-fold, and archived
+670-fold values belong only to the
+[Historical Claim Ledger](../claims/Historical-Claim-Ledger.md). They are not
+priors or evidence for this protocol.

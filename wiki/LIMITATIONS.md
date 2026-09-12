@@ -1,10 +1,10 @@
 ---
 title: Limitations
 status: canonical
-last_updated: 2026-08-31
+last_updated: 2026-09-12
 paper_source: true
 prose_reviewed: true
-claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001
+claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001, C-LAT-FEMV2-001
 ---
 
 # Limitations
@@ -20,9 +20,9 @@ claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-
    manufacturing variability are not modeled.
 5. FastHenry supplies free-space winding inductances. The GNN does not model the
    nonlinear ferrite magnetic circuit or frequency-dependent permeability.
-6. The current family-crossed accuracy study is complete, but paired
-   current-corpus latency is not. Historical v2 values cannot be promoted to
-   current claims.
+6. The current family-crossed accuracy study is complete. The FEM-v2 paired
+   latency protocol is frozen, but no preflight or full-array result has been
+   admitted. Historical v2 values cannot be promoted to current claims.
 7. The crossed-axis ranges are descriptive sensitivity intervals for the
    evaluated split and initialization grid. They are not population confidence
    intervals and do not cover cross-machine, protocol, or fabrication

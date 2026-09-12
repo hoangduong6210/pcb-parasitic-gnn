@@ -107,8 +107,10 @@ completed but is closed as diagnostic-only evidence because process-level
 held-out byte isolation was not enforced. Protocol v3 has now completed its
 separate plan, execution lock, split-scoped inputs, sandbox, 25-checkpoint grid,
 accepted-set gate, held-out finalizer, archive verification, and claim review.
-Current-corpus paired latency remains blocked and is not implied by this
-accuracy result. See the
+The FEM-v2 paired-latency protocol is frozen and awaits its three-task
+preflight; no speed result is admitted or implied by the accuracy result. See
+the [runtime protocol](wiki/methods/Runtime-Benchmark.md), its
+[frozen artifact index](results/corpus_v4/latency_fem_v2/README.md), the
 [archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the
 [FEM-v2 accuracy revision index](wiki/methods/Corpus-V4-FEM-V2-Accuracy-Protocol.md), the
 [wiki status](wiki/status/Project-Status.md),
@@ -306,9 +308,9 @@ python3 code/quality/verify_corpus_v4_discrepancy_archive.py --require-git-track
 python3 code/quality/verify_corpus_v4_fem_v2_production_archive.py --require-git-tracked
 ```
 
-The accuracy verifier has additional frozen hash arguments; its exact
+The current accuracy verifier has additional frozen hash arguments; its exact
 clean-clone command is maintained in the
-[accuracy evidence README](results/corpus_v4/accuracy/README.md#clean-clone-verification).
+[accuracy-v3 evidence README](results/corpus_v4/accuracy_v3/README.md#clean-clone-verification).
 
 ## Known limitations
 
