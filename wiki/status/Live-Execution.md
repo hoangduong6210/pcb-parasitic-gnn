@@ -7,8 +7,10 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-08-31. Protocol work recorded on
-2026-09-12 has not yet produced a scheduler result.
+Last scheduler-backed observation: 2026-09-12. FEM-v2 latency preflight array
+`7259818` was submitted on `nextgen` from pinned execution commit
+`186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`. Its first accounting
+observation was `PENDING`; no task result or speed value has been admitted.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -22,7 +24,7 @@ Last scheduler-backed observation: 2026-08-31. Protocol work recorded on
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
 | FEM-v2 accuracy v3 | `FINALIZED; ARCHIVE VALIDATED` | Array `7087054` completed 25 of 25 tasks; round 01 accepted all 25 candidates; finalizer `7102842` completed `0:0`; clean-tracked archive replay passed | Freeze the next study from the admitted designated checkpoint | Round 00 preserved a transient scheduler-accounting access failure. No checkpoint was rerun. `C-ACC-FEMV2-001` is admitted; latency and speed remain closed. |
-| FEM-v2 paired latency | `PROTOCOL FROZEN; PREFLIGHT PENDING` | Planned scope is 306 layouts across 13 held-out families; preflight tasks are 0, 152, and 305 | Commit and submit the three-task one-thread preflight | No FEM-v2 latency task has run; the rejected 25-thread latency chain remains historical and cannot authorize this study |
+| FEM-v2 paired latency | `PREFLIGHT SUBMITTED; NOT ADMITTED` | Array `7259818` queues tasks 0, 152, and 305 on `nextgen`; eventual full scope is 306 layouts across 13 families | Monitor all three terminal rows, then replay admission; submit no full array until all gates pass | No FEM-v2 latency task result or speed value has been admitted; rejected 25-thread latency remains historical |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
 owns `C-ACC-001` and the admitted selected-registry discrepancy. The new
@@ -71,3 +73,9 @@ dataset. Its future claim identifier is `C-LAT-FEMV2-001`; the claim remains
 pending until preflight, full execution, finalization, and archive replay close.
 No current speed value is permitted. Baseline, strict E(3), and ranking results
 still require their own FEM-v2 protocols and jobs.
+
+Check array `7259818` with `squeue -j 7259818` and
+`sacct -X -n -P -j 7259818 --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS,Restarts,Partition,Timelimit,NodeList`.
+The job writes only to the detached execution checkout and stays in SLURM's
+queue when this documentation process stops. Do not interpret `PENDING`, a
+single completed component, or an unverified log as preflight admission.

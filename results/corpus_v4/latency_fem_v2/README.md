@@ -1,6 +1,7 @@
 # FEM-v2 paired-latency study
 
-Status: protocol and panel frozen; SLURM preflight pending.
+Status: protocol and panel frozen; SLURM preflight array `7259818` submitted,
+initially `PENDING`. No preflight result or speedup admitted.
 
 Execution source commit: `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`.
 The documentation branch may advance while this detached checkout remains
