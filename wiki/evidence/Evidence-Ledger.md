@@ -723,6 +723,7 @@ the entries below own the completed outcome.
 | Field | Value |
 |---|---|
 | Lifecycle | `PROTOCOL FROZEN; NO JOB SUBMITTED` |
+| Pinned execution commit | `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`; source-only detached checkout is clean, and documentation may advance separately |
 | Protocol | [`corpus_v4_latency_fem_v2_v1.json`](../../protocols/corpus_v4_latency_fem_v2_v1.json), SHA-256 `6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9` |
 | Deterministic plan | [`plan.json`](../../results/corpus_v4/latency_fem_v2/plan/v1/plan.json), SHA-256 `2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb` |
 | Task manifest | [`task_manifest.jsonl`](../../results/corpus_v4/latency_fem_v2/plan/v1/task_manifest.jsonl), SHA-256 `75ce9cebb34d4288077d38a33d418e5de391ebc94bd8aa3f10e03bee51631d04` |

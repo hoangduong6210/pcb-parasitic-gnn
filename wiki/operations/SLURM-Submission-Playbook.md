@@ -1184,23 +1184,32 @@ Use a clean checkout at the reviewed commit. The FastHenry executable is
 external, but its SHA-256 must equal the digest frozen in the protocol.
 
 ```bash
-LAT_ROOT=/absolute/path/to/clean-execution-checkout
-FASTHENRY_BIN=/absolute/path/to/verified-fasthenry
+LAT_ROOT=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/latency-fem-v2-run
+FASTHENRY_BIN=/users/PGS0407/binben14/VietHuy/Hoang/ADE/Research/13_PCB_Parasitic_GNN/04_code/tools/fasthenry
 cd "$LAT_ROOT"
 
-LAT_SOURCE_COMMIT=$(git rev-parse HEAD)
+LAT_SOURCE_COMMIT=186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6
 LAT_PROTOCOL=protocols/corpus_v4_latency_fem_v2_v1.json
 LAT_PLAN=results/corpus_v4/latency_fem_v2/plan/v1/plan.json
 LAT_TASKS=results/corpus_v4/latency_fem_v2/plan/v1/task_manifest.jsonl
 LAT_LOCK=protocols/corpus_v4_latency_fem_v2_execution_lock_v1.json
-LAT_PROTOCOL_SHA256=$(sha256sum "$LAT_PROTOCOL" | awk '{print $1}')
-LAT_PLAN_SHA256=$(sha256sum "$LAT_PLAN" | awk '{print $1}')
-LAT_TASKS_SHA256=$(sha256sum "$LAT_TASKS" | awk '{print $1}')
-LAT_LOCK_SHA256=$(sha256sum "$LAT_LOCK" | awk '{print $1}')
+LAT_PROTOCOL_SHA256=6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9
+LAT_PLAN_SHA256=2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb
+LAT_TASKS_SHA256=75ce9cebb34d4288077d38a33d418e5de391ebc94bd8aa3f10e03bee51631d04
+LAT_LOCK_SHA256=b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5
 
+test "$(git rev-parse HEAD)" = "$LAT_SOURCE_COMMIT"
 test -z "$(git status --short)"
-test "$(sha256sum "$FASTHENRY_BIN" | awk '{print $1}')" =   ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056
-python3 code/experiments/proofs/plan_corpus_v4_latency_v2.py   --protocol "$LAT_PROTOCOL"   --out results/corpus_v4/latency_fem_v2/plan/v1   --check
+test "$(sha256sum "$FASTHENRY_BIN" | awk '{print $1}')" = \
+  ad5c8825d36523b62844df1851c816ae9b967ef12614887eb49c158af3b03056
+test "$(sha256sum "$LAT_PROTOCOL" | awk '{print $1}')" = "$LAT_PROTOCOL_SHA256"
+test "$(sha256sum "$LAT_PLAN" | awk '{print $1}')" = "$LAT_PLAN_SHA256"
+test "$(sha256sum "$LAT_TASKS" | awk '{print $1}')" = "$LAT_TASKS_SHA256"
+test "$(sha256sum "$LAT_LOCK" | awk '{print $1}')" = "$LAT_LOCK_SHA256"
+python3 code/experiments/proofs/plan_corpus_v4_latency_v2.py \
+  --protocol "$LAT_PROTOCOL" \
+  --out results/corpus_v4/latency_fem_v2/plan/v1 \
+  --check
 ```
 
 A source edit after lock construction invalidates the lock. Rebuild the plan

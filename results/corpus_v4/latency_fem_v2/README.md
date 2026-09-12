@@ -2,6 +2,10 @@
 
 Status: protocol and panel frozen; SLURM preflight pending.
 
+Execution source commit: `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`.
+The documentation branch may advance while this detached checkout remains
+fixed; never substitute the documentation commit for the execution commit.
+
 This namespace holds the current paired runtime study. It is independent of
 the rejected 25-thread experiments in `results/corpus_v4/latency/`. Historical
 records are preserved in that directory and cannot be copied into this study.
