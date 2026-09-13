@@ -14,14 +14,26 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | Submitted; PENDING (Priority) at 2026-09-13 12:28 UTC |
-| Job | `7275182` |
+| Status | VALIDATED initialized synthetic-model check; no predictive claim |
+| Job | `7275182`, `COMPLETED/0:0`, 21 s, zero restarts |
 | Source commit | `9a1733ca4e64762f92578f4d158f71c9a8b41f13` |
 | Qualification protocol SHA-256 | `a7fc5cdf3ee08e0bc431060719659c2d156ff827265c59766f35253b3a711f64` |
 | Planned scope | Two synthetic graphs; five initialized seeds; three arms; 40 transforms per seed |
 | Requested resources | One node, one task, two scientific threads, 16 GiB, 10 minutes; requeue disabled |
 | Exclusions | No fitting, corpus access, trained-checkpoint gate, sandbox qualification or predictive result |
 | Claim boundary | Operational implementation qualification only; `C-E3-FEMV2-001` remains proposed |
+| Receipt | [Initialized-model qualification](../../results/corpus_v4/strict_e3_fem_v2/qualification/job_7275182/result.json) |
+| Receipt SHA-256 | `07cd5b4ba54b688c5aac25bb8d07a05b14a7a0d4f57ea1e6b9f1427881c005b3` |
+| Observed maximum scalar residual | `5.960464477539063e-08` |
+| Observed maximum coordinate residual | `1.6362917025841673e-07` |
+| Observed maximum separate/batched residual | `5.960464477539063e-08` |
+| Frozen normalized-residual tolerance | `2e-5`; all 15 seed/arm records passed |
+
+Independent review checked source hashes and exact seed/arm coverage. The
+stderr contains the existing PyTorch `index_reduce` beta warning, not an
+execution failure. The receipt records the running scheduler state; terminal
+accounting was checked separately. This initialized-model result does not
+replace future trained-checkpoint symmetry gates or the historical proof.
 
 ## E-C4-BASE-FEMV2-PLAN-01 — Fixed baseline execution and validation closure
 

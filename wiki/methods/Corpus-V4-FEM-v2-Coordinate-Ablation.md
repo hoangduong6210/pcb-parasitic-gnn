@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: proposed; implementation in progress
+status: proposed predictive study; initialized model qualified
 last_updated: 2026-09-13
 paper_source: false
 prose_reviewed: true
@@ -90,3 +90,8 @@ benefit. All corpus training and scientific qualification jobs use SLURM.
 
 The [live status](../status/Live-Execution.md) owns job progress. No predictive
 result or new symmetry residual is admitted by this design page.
+
+The initialized synthetic-model qualification passed its frozen checks and
+is indexed by `E-C4-E3-FEMV2-QUAL-01` in the
+[Evidence Ledger](../evidence/Evidence-Ledger.md). This closes only the initial
+model check, not the predictive study's execution or trained-model gates.

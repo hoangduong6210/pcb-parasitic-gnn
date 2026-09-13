@@ -2,10 +2,13 @@
 
 Status: design and model implementation; predictive training is disabled.
 
-Initialized-model qualification job `7275182` is submitted from source
+Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
 `9a1733ca4e64762f92578f4d158f71c9a8b41f13`. Its protocol SHA-256 is
 `a7fc5cdf3ee08e0bc431060719659c2d156ff827265c59766f35253b3a711f64`.
-No passing numerical result is recorded yet.
+All 15 seed/arm records passed the initialized-model checks. The
+[qualification receipt](qualification/job_7275182/result.json) has SHA-256
+`07cd5b4ba54b688c5aac25bb8d07a05b14a7a0d4f57ea1e6b9f1427881c005b3`.
+Predictive training remains disabled; this result is not an accuracy claim.
 
 The [design page](../../../wiki/methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
 defines three arms and distinguishes coordinate-update benefit from the

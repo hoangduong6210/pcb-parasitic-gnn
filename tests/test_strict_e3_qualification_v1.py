@@ -53,3 +53,20 @@ def test_worker_excludes_training_and_corpus_loaders():
     assert "/usr/bin/env -i" in wrapper
     assert "--no-requeue" in wrapper
     assert "PYTHONNOUSERSITE=1" in wrapper
+
+
+def test_committed_receipt_is_initialized_only_and_complete():
+    import hashlib
+    path = ROOT / "results/corpus_v4/strict_e3_fem_v2/qualification/job_7275182/result.json"
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == "07cd5b4ba54b688c5aac25bb8d07a05b14a7a0d4f57ea1e6b9f1427881c005b3"
+    data = json.loads(path.read_text())
+    assert data["passed"] is True
+    assert data["training_started"] is data["corpus_bytes_opened"] is data["claim_eligible"] is False
+    assert len(data["results"]) == 15
+    assert {(r["seed"], r["arm"]) for r in data["results"]} == {(s, a) for s in range(40, 45) for a in ("strict96", "fixed96", "fixed_matched")}
+    assert data["protocol"]["transforms_per_seed"] == 40
+    for row in data["results"]:
+        assert row["passed"] is True
+        assert all(value <= 2e-5 for value in row["max_relative_residual"].values())
+    for name, sha in data["source_sha256"].items():
+        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == sha
