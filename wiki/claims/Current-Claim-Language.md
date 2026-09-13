@@ -1,7 +1,7 @@
 ---
 title: Current Claim Registry
 status: canonical claim registry
-last_updated: 2026-09-12
+last_updated: 2026-09-13
 paper_source: false
 ---
 
@@ -24,6 +24,7 @@ it becomes paper eligible.
 | `C-E3-001` | The tested coordinate-update implementation is E(3)-equivariant in its coordinate state and invariant in its scalar output on the encoded graph within numerical tolerance. | 200 encoded-graph transforms; maximum output and coordinate residuals \(3.919\times10^{-7}\) and \(1.407\times10^{-7}\); tolerance \(2\times10^{-5}\). This is not a predictive-accuracy claim. | `E-V2-E3-01` | Yes |
 | `C-ACC-001` | On the frozen 1,500-layout synthetic active-leg corpus, mean family-macro MAPE across five family-held-out splits crossed with five initialization seeds was 12.890% for \(C_{ps}\) against the archived 25-thread FEM-R3P16 observations, 4.272% for \(L_p\), 4.076% for \(L_s\), and 3.554% for \(M\) against FastHenry. | This is the pre-FEM-v2, version-scoped `D-C4` result and does not transfer to `D-C4-FEM-D1-v2`. The respective 95% crossed-axis seed-grid sensitivity intervals were 12.001 to 13.796%, 3.407 to 5.394%, 3.275 to 4.967%, and 3.243 to 3.814%. These intervals are descriptive, not population confidence intervals. The result measures agreement with frozen synthetic numerical artifacts, not regeneration stability, fabricated-board accuracy, or arbitrary-PCB accuracy. | `E-C4-ACC-01` | Yes, only as an archived-target-version result with all stated qualifiers |
 | `C-ACC-FEMV2-001` | On `D-C4-FEM-D1-v2`, mean family-macro MAPE across five family-held-out splits crossed with five initialization seeds was 12.550% for \(C_{ps}\) against one-thread FEM-v2 R3P16, 4.173% for \(L_p\), 3.964% for \(L_s\), and 3.413% for \(M\) against FastHenry. | The respective 95% crossed-axis descriptive intervals were 11.796 to 13.366%, 3.414 to 5.015%, 3.263 to 4.729%, and 3.052 to 3.734%. These are seed-grid sensitivity intervals, not population confidence intervals. The study uses synthetic active-leg abstractions and fixed numerical references. It does not establish mesh convergence, fabricated-board accuracy, manufacturing robustness, or arbitrary-PCB generalization. | `E-C4-FEM-V2-ACC-V3-01` | Yes, with the complete dataset, reference, interval, and synthetic-scope qualifiers |
+| `C-LAT-FEMV2-001` | On the frozen 306-layout, 13-family split-42 held-out panel, the median per-design ratio was 70,099.076-fold for the sequential FastHenry plus one-thread FEM-v2 R3P16 workflow obtaining all four targets relative to warm-loaded batch-one inference from resident raw JSON to four GNN outputs. | The 95% family-cluster descriptive sensitivity interval was 58,104.638 to 93,493.252-fold on the evaluated CPU class. One designated checkpoint and one solver observation per design; loading, initial storage I/O and startup excluded. Not a population confidence interval, optimized universal solver comparison, or physical-validation result. | `E-C4-LAT-FEMV2-RUN-01` | Yes, with the complete workflow, timing, fixed-fidelity, and sensitivity qualifiers |
 
 ## Validated or finalized artifacts not yet admitted as headline results
 
@@ -34,7 +35,6 @@ it becomes paper eligible.
 | `C-CPS-FINAL-001` | `FINALIZED` | The archived 25-thread package contains 1,500 R3 and 198 R4 observations over 1,500 geometries with explicit fidelity identifiers. | Corpus closure alone is not an accuracy, convergence, or physical-validation claim. |
 | `C-CPS-V2-FINAL-001` | `FINALIZED; POSTTERMINAL ADMITTED` | The deterministic one-thread FEM-v2 package contains 1,500 `cps_fem_r3_p16_t1_v2` and 198 `cps_fem_r4_p16_t1_v2` observations over the unchanged 1,500 geometries. Dataset generation is admitted and a new accuracy protocol may be frozen. | `training_may_start=false`, `claim_eligible=false`, and `speed_claim_eligible=false`; this lifecycle statement is not a model, convergence, speed, or physical-validation claim. |
 | `C-LAT-001` | `ARCHIVAL BLOCKED` | The rejected 25-thread latency chain admits no speed result. | Historical chain only; it cannot be resumed or relabelled as FEM-v2 evidence. |
-| `C-LAT-FEMV2-001` | `PREFLIGHT ADMITTED; FULL ARRAY INCOMPLETE` | No FEM-v2 paired speed result is admitted. | Complete 306-layout full array, terminal accepted set, SLURM finalizer, clean archive replay, and claim review. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
 
 ## Rejected positive claims

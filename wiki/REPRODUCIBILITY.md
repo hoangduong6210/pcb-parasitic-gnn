@@ -1,7 +1,7 @@
 ---
 title: Reproducibility
 status: active runbook
-last_updated: 2026-09-12
+last_updated: 2026-09-13
 paper_source: false
 ---
 
@@ -168,6 +168,53 @@ The admitted scientific wording and numerical scope are maintained in the
 not admit latency, speed, physical-board accuracy, or unrestricted PCB
 generalization.
 
+## Finalized FEM-v2 paired-latency closure
+
+All 306 layouts from the fixed split-42 held-out panel were accepted from array
+`7260429`. The timing source remains commit
+`186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`, authenticated by
+`protocols/corpus_v4_latency_fem_v2_execution_lock_v1.json` with SHA-256
+`b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5`.
+The accepted set at
+`results/corpus_v4/latency_fem_v2/resume/round_00/accepted_artifact_set.json`
+has SHA-256
+`90ba1f8d44a5db921a77fad50aec6b99171ef31b4e129fde59202a800ee6d221`.
+
+The first finalizer, `7271384`, wrote diagnostic outputs but failed while
+printing a relative output path. Those outputs are not admitted. Recovery used
+the same accepted measurements without another field solve. Finalizer `7271440`
+completed with exit `0:0` under its separate source commit
+`b2f2ac66ee61cbcd9149b80dfbf68269fcae3c08` and
+`protocols/corpus_v4_latency_fem_v2_finalizer_execution_lock_v1.json`, SHA-256
+`ecf8b64473a1e779072763e2ce12186abecd54483f4dc9d675fd7e2cb325457f`.
+Its additional lock preserves all original timing-source hashes and binds the
+unchanged accepted set. Statistical functions are unchanged.
+
+The admitted analysis manifest is
+`results/corpus_v4/latency_fem_v2/final/job_7271440/ANALYSIS_MANIFEST.json`,
+SHA-256 `5baabeaab51555df5855c89ba9f70bd6828f9f6971542c969b929beb2e87a9a4`.
+The archive at `results/corpus_v4/latency_fem_v2/ARCHIVE_MANIFEST.json` has
+SHA-256 `553998934490b40cb380a6c490893c5bffe0915309a45898ae8b0e286b0bdcdf`.
+Archive creation `7271461` and tracked-clean replay `7271469` completed with
+exit `0:0`. Replay authenticates both source roots, all task records and
+terminal receipts, and reconstructs the summary without invoking a solver.
+
+From a clean tracked checkout with the declared proof environment, submit:
+
+```bash
+export PCB_GNN_V4_EXECUTION_ROOT="$PWD"
+export PCB_GNN_V4_LATENCY_FINALIZER_JOB_ID=7271440
+export PCB_GNN_V4_ARCHIVE_ACTION=check
+sbatch --chdir="$PWD" code/jobs/submit_verify_corpus_v4_latency_recovery.sh
+```
+
+The wrapper carries the frozen protocol, task, accepted-set, and source pins.
+`check` replays the stored accounting rather than querying the historical jobs.
+It does not reproduce hardware-dependent wall times or retrain the model.
+See the [admitted latency result](results/Corpus-V4-FEM-v2-Latency.md) for the
+conditional comparison: sequential FastHenry plus one-thread FEM-R3P16 for all
+four targets versus warm-loaded in-memory raw-record GNN inference.
+
 ## Finalized pre-FEM-v2 accuracy closure
 
 The tracked accuracy closure preserves all 25 safe-NPZ checkpoints, training
@@ -200,8 +247,9 @@ arbitrary routed PCB layouts.
 | Archived 25-thread paired-latency full panel — closed by negative repeatability admission | 25 CPU requested, 48 GiB, 2 h per layout | 8 |
 | Archived 25-thread paired-latency finalizer — not run | 2 CPU requested, 8 GiB, 20 min | 1 |
 | FEM-v2 paired-latency preflight — array `7259818`, 3/3 tasks terminal and admission replay passed; not a speed result | 1 CPU requested, 48 GiB, 2 h per layout; three predesignated layouts | 1 |
-| FEM-v2 paired-latency full panel — array `7260429` submitted against preflight admission; incomplete | 1 CPU requested, 48 GiB, 2 h per layout; 306 layouts | 8 |
-| FEM-v2 paired-latency finalizer — gated by a complete accepted set | 2 CPU requested, 8 GiB, 20 min | 1 |
+| FEM-v2 paired-latency full panel — array `7260429`, all 306 accepted | 1 CPU requested, 48 GiB, 2 h per layout; 306 layouts | 8 |
+| FEM-v2 paired-latency finalizer — recovery `7271440` completed after diagnostic failure `7271384` | 2 CPU requested, 8 GiB, 20 min; 3 CPU allocated for recovery | 1 |
+| FEM-v2 paired-latency archive creation and tracked-clean replay — `7271461` and `7271469` completed | 2 CPU requested, 8 GiB, 20 min; no field solve or training | 1 |
 | FEM repeatability source array — completed; 15 elements with two sequential FEM arms each | 25 CPU requested, 48 GiB, 2 h per element; 1,800 s cap per arm | 3 |
 | FEM repeatability finalizer — completed | 2 CPU requested, 8 GiB, 30 min | 1 |
 | FEM repeatability postterminal admission — completed negative, solver-free | No compute allocation; live finalizer `sacct` was authenticated when the receipt was minted | Not applicable |

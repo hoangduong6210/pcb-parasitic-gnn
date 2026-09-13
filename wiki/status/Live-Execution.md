@@ -14,9 +14,10 @@ replay passed at SHA-256
 The independent full array `7260429` completed all 306 tasks with exit `0:0`.
 The round-00 accepted set contains all 306 tasks. Finalizer `7271384` wrote
 analysis files but exited `1:0` when printing a relative output path against
-an absolute repository root. Those files remain diagnostic evidence. A
-separately authenticated finalizer recovery is required before claim admission;
-the solver observations do not need to be repeated.
+an absolute repository root. Those files remain diagnostic evidence. Recovery
+finalizer `7271440` completed `0:0` in 22 s. Archive reconstruction `7271461`
+and clean-tracked replay `7271469` completed `0:0` in 10 and 17 s, respectively.
+The reviewed result is admitted under `C-LAT-FEMV2-001`; no solver was repeated.
 
 | Stage | State | Coverage | Active work | Anomalies |
 |---|---|---:|---|---|
@@ -29,8 +30,8 @@ the solver observations do not need to be repeated.
 | One-thread FEM qualification | `ALL STAGES ADMITTED` | Gate A: 45 of 45 source tasks completed; Gate B: 9 of 9 completed; Gate C: 21 of 21 completed; one postterminal stage admission per gate | None | Gate C passed three-sentinel R4 repeatability but returned a negative finite-panel mesh-sensitivity observation; both fidelities remain explicit |
 | One-thread FEM-v2 production | `FINALIZED AND POSTTERMINAL ADMITTED` | 1,500 of 1,500 R3; 198 of 198 R4; 1,698 long-form observations; no pending or terminal-negative task | None; downstream accuracy protocol v3 is frozen separately | Infrastructure cancellations were recovered only through hash-pinned pending sets; final admission SHA-256 `b38e5225ee474aa1a848fc1884bc643bb4772c801287052fde0891a292ac7bed` |
 | FEM-v2 accuracy v2 | `DIAGNOSTIC EXECUTION CLOSED` | 25 of 25 fixed-epoch checkpoint tasks completed under array `7085613`; no held-out inference | None; preserve compact diagnostic closure only | Full joined R3/R4 bytes were materialized before training, so process-level held-out isolation was not enforced and no model result is eligible |
-| FEM-v2 accuracy v3 | `FINALIZED; ARCHIVE VALIDATED` | Array `7087054` completed 25 of 25 tasks; round 01 accepted all 25 candidates; finalizer `7102842` completed `0:0`; clean-tracked archive replay passed | Freeze the next study from the admitted designated checkpoint | Round 00 preserved a transient scheduler-accounting access failure. No checkpoint was rerun. `C-ACC-FEMV2-001` is admitted; latency and speed remain closed. |
-| FEM-v2 paired latency | `306 ACCEPTED; FINALIZER RECOVERY REQUIRED` | Array `7260429`: 306/306 `COMPLETED/0:0`; round 00 accepts all 306 | Preserve task provenance and run a separately pinned analysis-only recovery | Finalizer `7271384` failed at output-path printing; its summary is diagnostic and no speed claim is admitted |
+| FEM-v2 accuracy v3 | `FINALIZED; ARCHIVE VALIDATED` | Array `7087054` completed 25 of 25 tasks; round 01 accepted all 25 candidates; finalizer `7102842` completed `0:0`; clean-tracked archive replay passed | Freeze the next study from the admitted designated checkpoint | Round 00 preserved a transient scheduler-accounting access failure. No checkpoint was rerun. `C-ACC-FEMV2-001` is admitted; latency has its own separate evidence chain. |
+| FEM-v2 paired latency | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | Array `7260429`: 306/306; finalizer `7271440`, archive reconstruction `7271461`, tracked replay `7271469`: all `COMPLETED/0:0` | Preserve source roots and reviewed workflow scope | Failed finalizer `7271384` remains diagnostic; its replacement used unchanged timing observations |
 
 Two versioned capacitance packages now exist. The archived 25-thread package
 owns `C-ACC-001` and the admitted selected-registry discrepancy. The new
@@ -75,10 +76,10 @@ full closure.
 The frozen adjacent-mesh result remains negative, so the new package is still
 multi-fidelity rather than mesh-converged. A new paired-latency protocol now
 binds the admitted accuracy-v3 task-12 checkpoint and the one-thread FEM-v2
-dataset. Its future claim identifier is `C-LAT-FEMV2-001`; the claim remains
-pending until full execution, finalization, and archive replay close.
-No current speed value is permitted. Baseline, strict E(3), and ranking results
-still require their own FEM-v2 protocols and jobs.
+dataset. `C-LAT-FEMV2-001` now admits the version-scoped
+[paired runtime result](../results/Corpus-V4-FEM-v2-Latency.md).
+Baseline, strict E(3), and ranking results still require their own FEM-v2
+protocols and jobs.
 
 Check full array `7260429` with `squeue -j 7260429` and
 `sacct -X -n -P -j 7260429 --format=JobID,JobIDRaw,Account,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS,Restarts,Partition,Timelimit,NodeList`.
@@ -87,3 +88,8 @@ set is preserved at `results/corpus_v4/latency_fem_v2/resume/round_00/`.
 Failed finalizer evidence is preserved under
 `results/corpus_v4/latency_fem_v2/diagnostics/job_7271384/`.
 A failed finalizer does not authorize publication of its written summary.
+
+The measurement source remains `186ba2c`; recovery source is `b2f2ac6`.
+The local evidence and recovery commits are not yet published: GitHub rejected
+the configured credentials on 2026-09-13. Re-authentication is required before
+pushing `protocol/corpus-v4-accuracy-v3`; no archived paper was changed.

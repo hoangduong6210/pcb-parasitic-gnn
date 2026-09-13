@@ -1,7 +1,7 @@
 ---
 title: Limitations
 status: canonical
-last_updated: 2026-09-12
+last_updated: 2026-09-13
 paper_source: true
 prose_reviewed: true
 claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001, C-LAT-FEMV2-001
@@ -20,10 +20,14 @@ claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-
    manufacturing variability are not modeled.
 5. FastHenry supplies free-space winding inductances. The GNN does not model the
    nonlinear ferrite magnetic circuit or frequency-dependent permeability.
-6. The current family-crossed accuracy study is complete. The FEM-v2 paired
-   latency preflight admitted three layouts only; its 306-layout panel is still
-   incomplete, and no speed result is admitted. Historical v2 values cannot
-   be promoted to current claims.
+6. The current family-crossed accuracy study and the 306-layout FEM-v2 paired
+   latency panel are complete. The [latency result](results/Corpus-V4-FEM-v2-Latency.md)
+   describes one fixed split and checkpoint: sequential FastHenry plus
+   one-thread FEM-R3P16 for all four targets versus warm-loaded in-memory
+   raw-record GNN inference. It excludes checkpoint loading and file I/O and
+   does not establish a generic speedup over 3-D solvers, cross-hardware
+   performance, or mesh-converged accuracy. Historical v2 ratios cannot be
+   promoted to this version's claims.
 7. The crossed-axis ranges are descriptive sensitivity intervals for the
    evaluated split and initialization grid. They are not population confidence
    intervals and do not cover cross-machine, protocol, or fabrication
@@ -33,3 +37,7 @@ claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-
    capacitance order statistics, while 189 entries were selected from geometry
    descriptors. Its discrepancy summaries describe that panel and do not
    support population coverage or a global correction.
+9. The latency family-cluster bootstrap interval is descriptive sensitivity
+   for the evaluated 306-layout panel and execution environment. It does not
+   cover machine variation, system load across repeat runs, retraining seeds,
+   alternative solvers, or a population of manufactured boards.

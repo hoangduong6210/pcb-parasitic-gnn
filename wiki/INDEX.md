@@ -63,6 +63,7 @@ paper_source: false
 | [Cps R3/R4 Production Discrepancy](results/Cps-R3-R4-Production-Discrepancy.md) | Admitted descriptive fidelity comparison on the frozen selected registry |
 | [Corpus V4 Family-Held-Out Accuracy](results/Corpus-V4-Accuracy.md) | Admitted 5 by 5 crossed accuracy result and matched R3/R4 capacitance view |
 | [Corpus V4 FEM-v2 Family-Held-Out Accuracy](results/Corpus-V4-FEM-v2-Accuracy.md) | Admitted one-thread FEM-v2 5 by 5 crossed result and matched R3/R4 view |
+| [Corpus V4 FEM-v2 Paired Latency](results/Corpus-V4-FEM-v2-Latency.md) | Admitted 306-layout all-four-target workflow comparison and family-cluster sensitivity |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
@@ -99,7 +100,7 @@ paper_source: false
 | `C-ACC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed pre-FEM-v2 accuracy claim, bound to the archived 25-thread package |
 | `C-ACC-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted family-crossed one-thread FEM-v2 numerical-reference agreement claim |
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked archival 25-thread latency claim |
-| `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Three-task preflight admitted; 306-task full array running; no speed result admitted |
+| `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 
 ### Historical claims
@@ -123,7 +124,7 @@ paper_source: false
 | `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-FEM-V2-GATE-A-01`, `E-C4-FEM-V2-GATE-B-01`, `E-C4-FEM-V2-GATE-C-01`, `E-C4-FEM-V2-PROD-SUBMIT-01`, `E-C4-FEM-V2-PROD-RUN-01`, `E-C4-FEM-V2-FINAL-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-FEM-V2-ACC-PREFLIGHT-01`, `E-C4-FEM-V2-ACC-V2-DIAG-01`, `E-C4-FEM-V2-ACC-V3-PREFLIGHT-01`, `E-C4-FEM-V2-ACC-V3-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
-| `E-C4-LAT-FEMV2-PLAN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-LAT-FEMV2-PLAN-01`, `E-C4-LAT-FEMV2-RUN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-C4-FEM-D1-v2`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |

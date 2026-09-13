@@ -722,7 +722,7 @@ the entries below own the completed outcome.
 
 | Field | Value |
 |---|---|
-| Lifecycle | `306 TASKS ACCEPTED; FINALIZER RECOVERY REQUIRED; NO ADMITTED SPEED RESULT` |
+| Lifecycle | `COMPLETE; SUCCESSOR RESULT ADMITTED UNDER E-C4-LAT-FEMV2-RUN-01` |
 | Preflight job | SLURM array `7259818` (tasks 0, 152, and 305), `nextgen`; `COMPLETED/0:0`, `Restarts=0`, 478/583/532 s on a0104/a0102/a0152; no task retry |
 | Preflight task artifacts | [`job_7259818`](../../results/corpus_v4/latency_fem_v2/preflight/attempts/job_7259818): exactly one `result.json` and one `TASK_MANIFEST.json` per task; manifest SHA-256 by task: `56711901e470aeded83a6e6be782a620616df6ba759f0cdb8b53e14d62a8bff5`, `5055a748b96ac87d0a3fe8045b9f33f3a8d38d2bccb2be25367d3a1133af5d76`, `d0bedd3313de9b8240b6f60082caed05e0cf7dd7dfe79e5f5327955be101a7b5` |
 | Preflight admission | [`PREFLIGHT_ADMISSION.json`](../../results/corpus_v4/latency_fem_v2/preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json), SHA-256 `0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf`; standalone `validate_preflight_admission` replay passed 3/3 and returned `full_array_authorized=true`, `claim_eligible=false` |
@@ -742,8 +742,31 @@ the entries below own the completed outcome.
 | Timing boundary | Primary denominator is warm-loaded batch-one inference from canonical in-memory JSON bytes through four materialized physical outputs; model-only timing is diagnostic and excluded from speedup calculations |
 | Reference workflow | Sequential FastHenry at 100 kHz for three inductance targets plus deterministic one-thread FEM-v2 R3P16 for capacitance; fresh values, mesh identity, source identity, resource telemetry, and scheduler completion are hard gates |
 | Statistical plan | Median of 306 paired all-four-target solver/GNN ratios; 10,000 whole-family resamples provide a descriptive sensitivity range, not a confidence interval |
-| Claim status | No latency or speed number is admitted. `C-LAT-FEMV2-001` awaits successful recovery finalization, archive replay, and scientific review. |
+| Claim status | `C-LAT-FEMV2-001` is admitted through the completed run and analysis chain below. |
 | Historical exclusion | The 1.16845 ms, rounded 5 s, approximately 4,300-fold, and archived 670-fold values are not evidence for this protocol. |
+
+## E-C4-LAT-FEMV2-RUN-01: Admitted paired runtime
+
+| Field | Value |
+|---|---|
+| Claim and result | `C-LAT-FEMV2-001`; [scientific result](../results/Corpus-V4-FEM-v2-Latency.md), admitted with complete workflow and timing qualifiers |
+| Timing tasks | `7260429`, all 306 `COMPLETED/0:0`; 13 held-out families, fixed split 42 and designated initialization 42 |
+| Timing source | `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`; original execution lock and all 39 source hashes unchanged |
+| Accepted set | [Round 00](../../results/corpus_v4/latency_fem_v2/resume/round_00/accepted_artifact_set.json), SHA-256 `90ba1f8d44a5db921a77fad50aec6b99171ef31b4e129fde59202a800ee6d221` |
+| Recovery source | `b2f2ac66ee61cbcd9149b80dfbf68269fcae3c08`; additive analysis-only correction, identical statistical functions |
+| Recovery lock | [Finalizer execution lock](../../protocols/corpus_v4_latency_fem_v2_finalizer_execution_lock_v1.json), SHA-256 `ecf8b64473a1e779072763e2ce12186abecd54483f4dc9d675fd7e2cb325457f`; binds original task lock, source, accepted set and 44-file source closure |
+| Successful finalizer | `7271440`, `COMPLETED/0:0`, 22 s, `a0104`, zero restarts; [analysis manifest](../../results/corpus_v4/latency_fem_v2/final/job_7271440/ANALYSIS_MANIFEST.json), SHA-256 `5baabeaab51555df5855c89ba9f70bd6828f9f6971542c969b929beb2e87a9a4` |
+| Archive reconstruction | `7271461`, `COMPLETED/0:0`, 10 s, `a0104`; [archive manifest](../../results/corpus_v4/latency_fem_v2/ARCHIVE_MANIFEST.json), SHA-256 `553998934490b40cb380a6c490893c5bffe0915309a45898ae8b0e286b0bdcdf` |
+| Clean-tracked replay | `7271469`, `COMPLETED/0:0`, 17 s, `a0104`; `--check --require-git-tracked` passed from evidence commit `bb2e4306e9d4cac9b22388817a3b18000b3855fb` |
+| Primary result | Median of 306 per-design all-four-target workflow ratios: 70,099.07618253483; 95% family-cluster descriptive sensitivity endpoints 58,104.63829425987 and 93,493.25234352694 |
+| Component medians | Raw-record GNN 7.41935875 ms; sequential all-four-target solver 522.9824510685 s; FastHenry 80.9660385 ms; one-thread FEM-v2 R3P16 522.9051177215 s; model-only forward 2.764812 ms |
+| Diagnostic exclusion | Failed analysis `7271384` remains preserved separately. Its successful replacement did not rerun solvers, replace observations, or alter the estimand |
+| Review | Numerical replay, source/mesh identity, timing stability, terminal accounting and tracked archive closure passed. Sensitivity is conditional on one split, checkpoint, reference configuration and CPU class; it is not a hardware or population confidence interval |
+
+The ratio of component medians is a different statistic and must not replace
+the primary median per-design ratio. This result is not an improvement claim
+over historical 670-fold or approximately 4,300-fold studies, which used
+different geometries, fidelities and timing boundaries.
 
 ## E-V2-GEOM-PENDING: Legacy geometry audit closure
 

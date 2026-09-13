@@ -1,7 +1,7 @@
 ---
 title: FEM-v2 Paired Runtime Benchmark Protocol
-status: frozen; preflight admitted; full panel incomplete
-last_updated: 2026-09-12
+status: frozen; execution and scoped result admitted
+last_updated: 2026-09-13
 paper_source: true
 prose_reviewed: true
 claim_ids: C-LAT-FEMV2-001
@@ -11,7 +11,8 @@ claim_ids: C-LAT-FEMV2-001
 
 This protocol asks a narrow question: on the evaluated CPU class, how long
 does the implemented four-target solver workflow take relative to one
-warm-loaded GNN query for the same layout? No runtime result is admitted yet.
+warm-loaded GNN query for the same layout? The admitted
+[runtime result](../results/Corpus-V4-FEM-v2-Latency.md) follows this protocol.
 
 ## Fixed panel and model
 
@@ -113,8 +114,9 @@ When every gate closes, the allowable headline has this structure:
 > The 2.5th-to-97.5th-percentile family-cluster resampling sensitivity range
 > was \(L\) to \(U\)-fold on the evaluated CPU-node class.
 
-Until finalization and archive replay pass, \(X\), \(L\), and \(U\) remain
-unset. The wording must not be shortened to “faster than 3-D solvers,” applied
+Finalization and archive replay passed. The admitted values are
+\(X=70{,}099.076\), \(L=58{,}104.638\), and \(U=93{,}493.252\).
+The wording must not be shortened to “faster than 3-D solvers,” applied
 to an inductance-only or capacitance-only request, or presented as a universal
 hardware result.
 

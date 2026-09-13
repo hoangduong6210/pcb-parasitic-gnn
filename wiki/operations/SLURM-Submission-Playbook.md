@@ -1357,6 +1357,57 @@ Its required arguments are listed by:
 python3 code/quality/verify_corpus_v4_latency_archive_v2.py --help
 ```
 
+### 16.7 Analysis-only recovery and tracked replay
+
+The completed recovery used timing source `186ba2c`, finalizer source
+`b2f2ac6`, and the unchanged round-00 accepted set. All 39 original source
+files stayed byte-identical. The separate recovery lock is
+`protocols/corpus_v4_latency_fem_v2_finalizer_execution_lock_v1.json`, SHA-256
+`ecf8b64473a1e779072763e2ce12186abecd54483f4dc9d675fd7e2cb325457f`.
+Its source closure includes the five additive recovery files. It must not
+replace or rewrite the timing-task execution lock.
+
+For a new analysis replay, prepare a clean detached checkout of the full
+recovery source commit `b2f2ac66ee61cbcd9149b80dfbf68269fcae3c08` inside the
+project workspace. Retain the original protocol, plan, task and accepted-set
+SHA variables from sections 16.1 and 16.5. Set `LAT_RECOVERY_ROOT` to that
+checkout's absolute path and submit:
+
+```bash
+export PCB_GNN_V4_EXECUTION_ROOT="$LAT_RECOVERY_ROOT"
+export PCB_GNN_V4_SOURCE_COMMIT=186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6
+export PCB_GNN_V4_LATENCY_FINALIZER_SOURCE_COMMIT=b2f2ac66ee61cbcd9149b80dfbf68269fcae3c08
+export PCB_GNN_V4_LATENCY_PROTOCOL_SHA256="$LAT_PROTOCOL_SHA256"
+export PCB_GNN_V4_LATENCY_PLAN_SHA256="$LAT_PLAN_SHA256"
+export PCB_GNN_V4_LATENCY_TASK_MANIFEST_SHA256="$LAT_TASKS_SHA256"
+export PCB_GNN_V4_LATENCY_EXECUTION_LOCK_SHA256="$LAT_LOCK_SHA256"
+export PCB_GNN_V4_LATENCY_ACCEPTED_SET=results/corpus_v4/latency_fem_v2/resume/round_00/accepted_artifact_set.json
+export PCB_GNN_V4_LATENCY_ACCEPTED_SET_SHA256=90ba1f8d44a5db921a77fad50aec6b99171ef31b4e129fde59202a800ee6d221
+export PCB_GNN_V4_LATENCY_FINALIZER_EXECUTION_LOCK_SHA256=ecf8b64473a1e779072763e2ce12186abecd54483f4dc9d675fd7e2cb325457f
+sbatch --test-only -A pgs0407 --chdir="$LAT_RECOVERY_ROOT" --export=ALL "$LAT_RECOVERY_ROOT/code/jobs/submit_finalize_corpus_v4_latency_v3.sh"
+sbatch --parsable -A pgs0407 --chdir="$LAT_RECOVERY_ROOT" --export=ALL "$LAT_RECOVERY_ROOT/code/jobs/submit_finalize_corpus_v4_latency_v3.sh"
+```
+
+The admitted finalizer is `7271440`, terminal `COMPLETED/0:0`. Archive
+construction `7271461` and clean-tracked replay `7271469` also passed. The
+archive replay wrapper was committed separately at `2ff0c4f`; it invokes the
+locked verifier and does not change the frozen execution checkout. To check
+the existing committed archive from the current evidence checkout:
+
+```bash
+export PCB_GNN_V4_EXECUTION_ROOT="$PWD"
+export PCB_GNN_V4_LATENCY_FINALIZER_JOB_ID=7271440
+export PCB_GNN_V4_ARCHIVE_ACTION=check
+sbatch --test-only -A pgs0407 --chdir="$PWD" --export=ALL code/jobs/submit_verify_corpus_v4_latency_recovery.sh
+sbatch --parsable -A pgs0407 --chdir="$PWD" --export=ALL code/jobs/submit_verify_corpus_v4_latency_recovery.sh
+```
+
+For a new analysis package, `create` builds an absent archive manifest only
+after its finalizer succeeds. Preserve and commit that package, then use
+`check` to require tracked, unchanged evidence. Never overwrite the admitted
+archive with a replay. No scientific solve or bootstrap runs on the login node
+in this recovery chain.
+
 ## 17. Submit the FEM mesh-repeatability diagnostic
 
 This diagnostic must be submitted only from the reviewed clean detached

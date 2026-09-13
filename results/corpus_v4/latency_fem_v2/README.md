@@ -2,8 +2,9 @@
 
 Status: full array `7260429` completed all 306 tasks with exit `0:0`, and
 round 00 accepted every observation. Finalizer `7271384` failed at output-path
-printing after writing analysis files. Recovery finalization and archive
-replay are required; no current speed claim has been admitted.
+printing after writing analysis files. Recovery finalizer `7271440`, archive
+reconstruction `7271461`, and clean-tracked replay `7271469` completed `0:0`.
+The reviewed result is admitted as `C-LAT-FEMV2-001` with its workflow qualifiers.
 
 Execution source commit: `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`.
 The documentation branch may advance while this detached checkout remains
@@ -92,9 +93,10 @@ building another admission, as indexed by the
 
 ## Claim boundary
 
-No speed value is currently admitted. A result becomes eligible only after
-the preflight admission, complete 306-task execution, terminal accepted set,
-SLURM finalizer, archive reconstruction, and wiki claim review all pass.
+The preflight admission, complete 306-task execution, terminal accepted set,
+SLURM finalizer, archive reconstruction, and wiki claim review have passed.
+The [result page](../../../wiki/results/Corpus-V4-FEM-v2-Latency.md) owns
+the admitted numerical values and their exact scope.
 
 Historical 1.16845 ms throughput, the rounded 5 s estimate, approximately
 4,300-fold, and the archived 670-fold result do not enter this protocol. Their
@@ -108,7 +110,8 @@ measurement boundaries remain documented in the Historical Claim Ledger.
 - `logs/full_array_7260429/`: original task stdout and stderr.
 - `resume/round_00/`: complete accepted set, candidate index and empty pending set.
 - `diagnostics/job_7271384/`: failed analysis attempt; excluded from claims.
-- `final/`: successful analysis packages, when admitted through archive replay.
+- `final/job_7271440/`: successful analysis package admitted through archive replay.
+- `ARCHIVE_MANIFEST.json`: reconstructed closure, independently replayed from tracked files.
 
 All 306 source tasks completed with exit `0:0`. The original finalizer failed
 after writing output because its final path-print combined relative and absolute

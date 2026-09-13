@@ -73,7 +73,10 @@ current-result admission. New paper content is admitted through the wiki first.
 
 ## Current evidence status
 
-There is deliberately no current speed headline. The 1,500-layout v3 corpus has
+The [current paired runtime result](wiki/results/Corpus-V4-FEM-v2-Latency.md)
+is scoped to sequential FastHenry plus one-thread FEM-v2 R3P16 obtaining all
+four targets versus a warm-loaded GNN. It is not a universal solver comparison.
+The 1,500-layout v3 corpus has
 passed geometry, identity, finite-label, passivity, clean-source, and
 artifact-hash gates. A frozen nine-layout numerical study then found that
 refine-3 is stable to the tested 12-to-16 mm domain expansion but fails the
@@ -107,9 +110,10 @@ completed but is closed as diagnostic-only evidence because process-level
 held-out byte isolation was not enforced. Protocol v3 has now completed its
 separate plan, execution lock, split-scoped inputs, sandbox, 25-checkpoint grid,
 accepted-set gate, held-out finalizer, archive verification, and claim review.
-The FEM-v2 paired-latency protocol passed its three-task preflight admission;
-the separately submitted 306-task full array is still running. No speed result
-is admitted or implied by the accuracy result. See
+The separate FEM-v2 paired-latency study has completed all 306 measurements,
+finalization, archive replay, and claim review. Its
+[result page](wiki/results/Corpus-V4-FEM-v2-Latency.md) reports the paired
+ratios, component timings, and required interpretation limits. See
 the [runtime protocol](wiki/methods/Runtime-Benchmark.md), its
 [frozen artifact index](results/corpus_v4/latency_fem_v2/README.md), the
 [archived accuracy protocol](wiki/methods/Corpus-V4-Accuracy-Protocol.md), the

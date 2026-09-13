@@ -26,9 +26,10 @@ Current evidence is admitted only in this order:
 10. a separately frozen accuracy-v3 protocol with split-scoped training inputs,
     compute-node filesystem isolation, 25 accepted checkpoints, held-out
     finalization, and a verified archive — complete and admitted;
-11. separately frozen baseline, ranking, symmetry, and paired end-to-end timing
-   studies on the same corpus and split registry; the FEM-v2 latency protocol
-   has admitted its three-task preflight, but the full panel is incomplete;
+11. a separately frozen FEM-v2 paired-latency study on 306 layouts from the
+    designated held-out split, with all measurements accepted and finalizer
+    and archive replay complete; baseline, ranking, and symmetry studies
+    require their own version-scoped admission;
 12. figures and manuscript tables generated only from accepted wiki content.
 
 Each current number must resolve to a job-scoped result, raw record, immutable
@@ -49,11 +50,16 @@ family-held-out protocol. The deterministic one-thread FEM-v2 accuracy-v2
 checkpoint grid is diagnostic only and is closed without held-out inference.
 Protocol v3 is the finalized successor: all 25 checkpoints were accepted before
 held-out inference, and its 31-file analysis archive passed clean-clone
-verification. The FEM-v2 paired-latency preflight is admitted, but no full-array
-or speed result is admitted. The two
-version-scoped numerical results are maintained in
+verification. The FEM-v2 paired-latency archive also passed tracked-clean
+replay. Its median per-layout ratio is 70,099.076× for the sequential
+FastHenry-plus-one-thread-FEM-R3P16 workflow obtaining all four targets versus
+warm-loaded in-memory raw-record GNN inference on the fixed 306-layout panel.
+This is not a generic speed claim or a mesh-converged solver comparison.
+The version-scoped numerical results are maintained in
 [`Corpus V4 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-Accuracy.md)
-and [`Corpus V4 FEM-v2 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-FEM-v2-Accuracy.md).
+and [`Corpus V4 FEM-v2 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-FEM-v2-Accuracy.md),
+with timing boundaries and sensitivity intervals in
+[`Corpus V4 FEM-v2 Paired Latency`](../wiki/results/Corpus-V4-FEM-v2-Latency.md).
 Canonical lifecycle status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
 values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).
