@@ -10,6 +10,19 @@ paper_source: false
 Every entry names the claims it can support. An execution record marked
 operational or pending archival is not publication evidence.
 
+## E-C4-E3-FEMV2-QUAL-01 — Initialized coordinate-model qualification
+
+| Field | Value |
+|---|---|
+| Status | Submitted; PENDING (Priority) at 2026-09-13 12:28 UTC |
+| Job | `7275182` |
+| Source commit | `9a1733ca4e64762f92578f4d158f71c9a8b41f13` |
+| Qualification protocol SHA-256 | `a7fc5cdf3ee08e0bc431060719659c2d156ff827265c59766f35253b3a711f64` |
+| Planned scope | Two synthetic graphs; five initialized seeds; three arms; 40 transforms per seed |
+| Requested resources | One node, one task, two scientific threads, 16 GiB, 10 minutes; requeue disabled |
+| Exclusions | No fitting, corpus access, trained-checkpoint gate, sandbox qualification or predictive result |
+| Claim boundary | Operational implementation qualification only; `C-E3-FEMV2-001` remains proposed |
+
 ## E-C4-BASE-FEMV2-PLAN-01 — Fixed baseline execution and validation closure
 
 | Field | Value |

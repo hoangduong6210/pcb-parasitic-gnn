@@ -24,6 +24,15 @@ disabled until its full isolated execution and archive pipeline is ready.
 See the [new design](../methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) and
 submission playbook section 16C. No old source or numerical evidence changed.
 
+Qualification submitted at 2026-09-13 12:28 UTC: job `7275182` is PENDING
+with reason `Priority`. Frozen source is
+`9a1733ca4e64762f92578f4d158f71c9a8b41f13`; qualification protocol SHA-256 is
+`a7fc5cdf3ee08e0bc431060719659c2d156ff827265c59766f35253b3a711f64`.
+The focused suite passed 131 tests, with only the existing PyTorch
+`index_reduce` beta warning. Prose audit and shell syntax checks passed.
+An independent monitor watches this initialized-model job. The draft
+75-checkpoint predictive study remains disabled, regardless of this outcome.
+
 Commit-scope review on 2026-09-13 confirmed the five baseline commits through
 `5af4a78`, whose push was verified in the preceding execution session. They
 add the baseline pipeline, frozen protocol, evidence, tests and wiki updates;
