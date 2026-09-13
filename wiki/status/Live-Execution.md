@@ -7,6 +7,19 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Project-owner decision on 2026-09-13: the scoped baseline wording is approved.
+`C-BASE-FEMV2-001` is now ADMITTED for requested paper snapshots, without
+modifying existing manuscripts or immutable experiment receipts. Work has
+moved to design and integration review for a separate FEM-v2 strict-E(3)
+predictive ablation. No strict-E(3) training has been submitted in this stage.
+
+Commit-scope review on 2026-09-13 confirmed the five baseline commits through
+`5af4a78`, whose push was verified in the preceding execution session. They
+add the baseline pipeline, frozen protocol, evidence, tests and wiki updates;
+they do not modify the papers, original datasets or root README. This review
+made no new scheduler submission or remote mutation. This local review note
+is not included in those five published commits.
+
 Last scheduler-backed observation: 2026-09-13 07:40 UTC. Baseline array
 `7273435` completed all 25 tasks with exit `0:0` and zero restarts, in 26 to
 40 s per task. Admission `7273449` completed `0:0` in 43 s and accepted all
@@ -16,7 +29,7 @@ Clean-tracked replay `7273758` completed `0:0` in 87 s with zero restarts.
 All computational gates are closed. No task failed. Independent
 receipt review confirmed held-out isolation and exact task coverage.
 
-Publication was verified on GitHub at `a6a6a1841a5a1b9c61b6ac385ec22b898b7233b6`
+Publication was verified on GitHub at `5af4a78fde5fadb51c49662243521f94c390f472`
 on `protocol/corpus-v4-accuracy-v3`, including all checkpoints and reconstructed
 analysis. This final status update records the subsequent tracked replay.
 The final focused suite passed 133 tests. Prose and table reviews passed;
@@ -79,7 +92,7 @@ admissions are unchanged. Remote verification confirmed governance commit
 perform a new scheduler query.
 
 The user authorized implementation of the baseline-comparison stage on
-2026-09-13. The active state is **baseline VALIDATED; scientific admission pending**,
+2026-09-13. The active state is **baseline ADMITTED; strict-E(3) design review**,
 not another corpus solve. The existing accuracy study evaluates the designated
 GNN across splits and initializations; the next question is whether its graph
 representation adds predictive value over simpler reference models on the
@@ -110,8 +123,7 @@ artifact closure at `a6a6a18`. The immutable machine receipts retain
 `claim_eligible=false`; they do not make an editorial admission decision.
 The preflight receipt is indexed in
 `E-C4-BASE-FEMV2-PLAN-01` in the [Evidence Ledger](../evidence/Evidence-Ledger.md).
-No baseline publication claim is admitted yet. Next: the project owner's
-scientific admission of the scoped wording proposed in the result page.
+The project owner subsequently approved the scoped baseline claim.
 No additional computation is needed to close this baseline comparison.
 
 After that comparison, separately freeze the strict-E(3) predictive ablation

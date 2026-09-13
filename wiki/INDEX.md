@@ -65,7 +65,7 @@ paper_source: false
 | [Corpus V4 Family-Held-Out Accuracy](results/Corpus-V4-Accuracy.md) | Admitted 5 by 5 crossed accuracy result and matched R3/R4 capacitance view |
 | [Corpus V4 FEM-v2 Family-Held-Out Accuracy](results/Corpus-V4-FEM-v2-Accuracy.md) | Admitted one-thread FEM-v2 5 by 5 crossed result and matched R3/R4 view |
 | [Corpus V4 FEM-v2 Paired Latency](results/Corpus-V4-FEM-v2-Latency.md) | Admitted 306-layout all-four-target workflow comparison and family-cluster sensitivity |
-| [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Validated fixed-baseline errors and descriptive paired differences; scientific admission pending |
+| [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Admitted fixed-baseline comparison and descriptive paired differences |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
@@ -104,7 +104,7 @@ paper_source: false
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked archival 25-thread latency claim |
 | `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
-| `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Validated baseline comparison; project-owner scientific admission pending |
+| `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped fixed-baseline comparison |
 
 ### Historical claims
 

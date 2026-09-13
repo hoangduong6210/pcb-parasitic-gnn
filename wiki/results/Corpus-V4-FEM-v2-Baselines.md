@@ -1,8 +1,8 @@
 ---
 title: Corpus V4 FEM-v2 Fixed Baseline Comparison
-status: validated result; scientific admission pending
+status: admitted version-scoped result
 last_updated: 2026-09-13
-paper_source: false
+paper_source: true
 prose_reviewed: true
 claim_ids: C-BASE-FEMV2-001
 ---
@@ -103,15 +103,18 @@ agreement with one frozen numerical dataset, not physical extraction accuracy.
 ## Evidence ownership
 
 The archive passed exact numerical reconstruction and clean-tracked replay.
-`C-BASE-FEMV2-001` remains pending the project owner's scientific admission.
+The project owner admitted the scoped wording of `C-BASE-FEMV2-001` on
+2026-09-13. This editorial decision does not modify the immutable machine
+receipts or expand the numerical validation into physical validation.
 The [Evidence Ledger](../evidence/Evidence-Ledger.md) owns execution provenance;
 the [artifact index](../../results/corpus_v4/baseline_fem_v2/README.md) links the
 machine-readable predictions, metrics and archive closure. The GNN row is
 owned by [the admitted accuracy study](Corpus-V4-FEM-v2-Accuracy.md).
 
-Proposed wording for that admission: On the already evaluated synthetic
+Admitted wording: On the already evaluated synthetic
 FEM-v2 benchmark, the existing GNN had lower family-macro MAPE than each of
 four frozen pooled-feature baseline procedures for all four targets in every
 matched split/initialization cell. This post-hoc fixed-budget result does not
 establish superiority to tuned alternatives or isolate a causal effect of
-graph connectivity. Until admission, this page is not a paper-export source.
+graph connectivity. This page is eligible for a requested paper snapshot
+only with these scope qualifiers.

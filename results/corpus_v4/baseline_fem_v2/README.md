@@ -1,7 +1,7 @@
 # FEM-v2 fixed baseline comparison
 
 Status: VALIDATED; all 25 checkpoints accepted and clean-tracked replay passed.
-No baseline accuracy claim is admitted by this index.
+Scoped claim `C-BASE-FEMV2-001` was admitted by the project owner on 2026-09-13.
 
 Preflight `7273416_0` completed `0:0` without fitting or opening held-out bytes.
 Its [receipt](probes/job_7273416/task_00/probe.json) records the frozen source,
@@ -15,8 +15,8 @@ every numeric model bundle and terminal task record. Held-out finalizer
 [predictions](final/job_7273521/predictions.jsonl) are preserved without edits.
 Archive replay `7273643` passed exact reconstruction; its
 [receipt](ARCHIVE_MANIFEST.json) authenticates the analysis closure. The
-[result page](../../../wiki/results/Corpus-V4-FEM-v2-Baselines.md) remains
-pending the project owner's scientific admission. Clean-tracked replay
+[result page](../../../wiki/results/Corpus-V4-FEM-v2-Baselines.md) records the
+admitted wording and its limitations. Clean-tracked replay
 `7273758` completed successfully at checkout `a6a6a18`; the machine receipt
 continues to set `claim_eligible=false`, independently of editorial decisions.
 
