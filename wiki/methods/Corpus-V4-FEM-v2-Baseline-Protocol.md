@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Fixed Baseline Comparison Protocol
-status: frozen protocol; scheduler preflight pending
+status: frozen protocol; training running
 last_updated: 2026-09-13
 paper_source: true
 prose_reviewed: true

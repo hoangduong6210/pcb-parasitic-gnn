@@ -1408,6 +1408,63 @@ after its finalizer succeeds. Preserve and commit that package, then use
 archive with a replay. No scientific solve or bootstrap runs on the login node
 in this recovery chain.
 
+## 16B. Submit the fixed FEM-v2 baseline extension
+
+The frozen baseline extension uses source
+`23ca6d046528e0da22d5fbaa24454da9101c7315`, which was pushed and verified before
+preflight. It does not modify the accuracy or latency execution locks. Prepare
+a clean detached checkout of that commit within the project workspace and set
+`BASELINE_ROOT` to its absolute path. The scientific scope is defined in the
+[baseline protocol](../methods/Corpus-V4-FEM-v2-Baseline-Protocol.md).
+
+```bash
+export PCB_GNN_BASELINE_ROOT="$BASELINE_ROOT"
+export PCB_GNN_BASELINE_SOURCE_COMMIT=23ca6d046528e0da22d5fbaa24454da9101c7315
+export PCB_GNN_BASELINE_PROTOCOL_SHA256=f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802
+export PCB_GNN_BASELINE_LOCK_SHA256=1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243
+export PCB_GNN_BASELINE_PROBE_ONLY=true
+sbatch --test-only -A pgs0407 --array=0%5 --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_corpus_v4_baseline_v1.sh"
+sbatch --parsable -A pgs0407 --array=0%5 --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_corpus_v4_baseline_v1.sh"
+```
+
+The singleton must use `0%5`: the frozen scheduler gate checks the throttle
+even for a one-task probe. The probe opens only the selected split's
+train/validation input and writes `probe.json`; `training_started` must be
+false. Require terminal `COMPLETED/0:0`, the exact source/runtime/input hashes,
+and successful filesystem-isolation assertions before starting training.
+The task-private output directory is created empty by the wrapper and mounted
+alone; the Python worker must write directly into it, not append another
+job/task directory. Do not mount the whole output tree into a training process.
+
+After the probe passes:
+
+```bash
+export PCB_GNN_BASELINE_PROBE_ONLY=false
+sbatch --test-only -A pgs0407 --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_corpus_v4_baseline_v1.sh"
+sbatch --parsable -A pgs0407 --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_corpus_v4_baseline_v1.sh"
+```
+
+Preserve the returned array ID as `BASELINE_ARRAY_ID`. No within-study training
+retry is permitted. All 25 task directories and safe bundles must pass
+admission; completion counts alone do not permit held-out prediction.
+
+```bash
+BASELINE_ACCEPTED="$BASELINE_ROOT/results/corpus_v4/baseline_fem_v2/resume/round_00/accepted_artifact_set.json"
+sbatch --test-only -A pgs0407 --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_finalize_corpus_v4_baseline_v1.sh" admit --attempt-root "$BASELINE_ROOT/results/corpus_v4/baseline_fem_v2/jobs/job_${BASELINE_ARRAY_ID}" --accepted-set "$BASELINE_ACCEPTED"
+sbatch --parsable -A pgs0407 --dependency="afterok:${BASELINE_ARRAY_ID}" --kill-on-invalid-dep=yes --chdir="$BASELINE_ROOT" --export=ALL "$BASELINE_ROOT/code/jobs/submit_finalize_corpus_v4_baseline_v1.sh" admit --attempt-root "$BASELINE_ROOT/results/corpus_v4/baseline_fem_v2/jobs/job_${BASELINE_ARRAY_ID}" --accepted-set "$BASELINE_ACCEPTED"
+```
+
+After successful admission, pin the accepted-set SHA-256 and submit the same
+finalizer wrapper with stage `finalize`, `--accepted-set`,
+`--expected-accepted-set-sha256`, and absolute `--output-root` ending in
+`results/corpus_v4/baseline_fem_v2/final`. Require terminal success, then stage
+`verify` with the same accepted-set pins plus `--analysis-manifest`,
+`--expected-analysis-manifest-sha256`, and `--out` for the new archive receipt.
+After committing all evidence, repeat `verify --check --require-git-tracked`
+from a clean evidence checkout. The exact historical execution source remains
+pinned even when the evidence checkout has a newer documentation commit.
+Neither training nor scientific numerical replay runs on the login node.
+
 ## 17. Submit the FEM mesh-repeatability diagnostic
 
 This diagnostic must be submitted only from the reviewed clean detached

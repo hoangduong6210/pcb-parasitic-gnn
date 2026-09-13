@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-09-12
+last_updated: 2026-09-13
 paper_source: false
 ---
 
@@ -9,6 +9,27 @@ paper_source: false
 
 Every entry names the claims it can support. An execution record marked
 operational or pending archival is not publication evidence.
+
+## E-C4-BASE-FEMV2-PLAN-01 — Fixed baseline execution preflight
+
+| Field | Value |
+|---|---|
+| Status | Operational preflight validated; training and admission pending |
+| Scope | Frozen fixed-baseline extension; no new solver labels |
+| Source commit | `23ca6d046528e0da22d5fbaa24454da9101c7315` |
+| Protocol SHA-256 | `f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802` |
+| Execution-lock SHA-256 | `1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243` |
+| Preflight | `7273416_0`, `COMPLETED/0:0`, 18 s, zero restarts |
+| Receipt | [Task-private filesystem probe](../../results/corpus_v4/baseline_fem_v2/probes/job_7273416/task_00/probe.json) |
+| Receipt SHA-256 | `343f1961901bd378e932a13134b49086eb3f372d427788e784b7a8ecfd9db9be` |
+| Boundary | No fitting; no held-out bytes opened; other-task checkpoints invisible |
+| Training array | `7273435`, 25 tasks, concurrency cap five |
+| Terminal admission job | `7273449`, dependent on successful full-array completion |
+| Prospective claim | `C-BASE-FEMV2-001`, not admitted |
+
+The receipt contains the scheduler record observed while the probe was running.
+A subsequent terminal accounting query confirmed successful completion. It
+does not establish baseline accuracy or a benefit from graph connectivity.
 
 ## E-C3-GEOM-01 — Geometry-valid corpus root
 

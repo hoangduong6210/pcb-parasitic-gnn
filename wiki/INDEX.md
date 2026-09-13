@@ -103,7 +103,7 @@ paper_source: false
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked archival 25-thread latency claim |
 | `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
-| `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Protocol implementation; no admitted baseline result |
+| `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Frozen protocol running; no admitted baseline result |
 
 ### Historical claims
 

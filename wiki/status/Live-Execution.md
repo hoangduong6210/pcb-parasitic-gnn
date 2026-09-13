@@ -7,7 +7,11 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-09-13. FEM-v2 latency preflight array
+Last scheduler-backed observation: 2026-09-13 07:28 UTC. Baseline array
+`7273435` has 10 completed tasks with exit `0:0`; 15 remain pending at this
+observation. Admission `7273449` waits on the full array. No task failed.
+
+Previously completed chain: FEM-v2 latency preflight array
 `7259818` finished all three tasks `COMPLETED/0:0` with no restarts. Admission
 replay passed at SHA-256
 `0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf`.
@@ -64,7 +68,7 @@ admissions are unchanged. Remote verification confirmed governance commit
 perform a new scheduler query.
 
 The user authorized implementation of the baseline-comparison stage on
-2026-09-13. The active state is **protocol frozen; scheduler preflight pending**,
+2026-09-13. The active state is **preflight validated; baseline training running**,
 not another corpus solve. The existing accuracy study evaluates the designated
 GNN across splits and initializations; the next question is whether its graph
 representation adds predictive value over simpler reference models on the
@@ -76,7 +80,17 @@ benchmark exposure. A combined regression run passed 223 tests, and the final
 baseline suite contains 52 passing tests using synthetic fixtures only. The
 research-prose audit passed. The execution lock authenticates the unchanged
 upstream inputs; a singleton SLURM filesystem preflight is required before
-the 25-task training array. No baseline result is admitted yet.
+the 25-task training array. Source `23ca6d0` was pushed and verified; static
+hash/runtime validation passed in its clean execution checkout. Singleton
+preflight `7273416_0` completed `0:0` in 18 s without fitting or opening held-out
+bytes. Its receipt confirms task-private output isolation. The independent
+25-task training array `7273435` is running, with five concurrent tasks and
+eight scientific threads per task. Admission job `7273449` waits on
+`afterok:7273435` and will validate exact coverage and safe numeric bundles
+before held-out inference is permitted. The preflight receipt is indexed in
+`E-C4-BASE-FEMV2-PLAN-01` in the [Evidence Ledger](../evidence/Evidence-Ledger.md).
+No baseline result is admitted yet. Next: terminal admission, held-out
+finalization, independent archive replay, then scientific claim review.
 
 After that comparison, separately freeze the strict-E(3) predictive ablation
 and ranking study. The admitted encoded-graph symmetry property does not
