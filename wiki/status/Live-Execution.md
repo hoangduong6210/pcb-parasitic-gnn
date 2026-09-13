@@ -57,6 +57,25 @@ finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 
 ## Next transition
 
+Status review at 2026-09-13 07:01 UTC: the recorded accuracy and latency
+admissions are unchanged. Remote verification confirmed governance commit
+`1d03a0941d47cd07af1e363227f43f8dcdd07926` on
+`protocol/corpus-v4-accuracy-v3`. This review did not submit a computation or
+perform a new scheduler query.
+
+The next proposed state is **baseline-comparison protocol preparation**, not
+another corpus solve. The existing accuracy study evaluates the designated
+GNN across splits and initializations; the next question is whether its graph
+representation adds predictive value over simpler reference models on the
+same FEM-v2 targets. Model choices, features, split reuse, tuning budget,
+training-only preprocessing, metrics and admission gates must be frozen before
+execution. No such new baseline protocol is frozen by this status review.
+
+After that comparison, separately freeze the strict-E(3) predictive ablation
+and ranking study. The admitted encoded-graph symmetry property does not
+already establish an accuracy benefit. Heavy work must be submitted through
+SLURM. A paper export remains conditional on a requested snapshot.
+
 Dataset generation is closed. Accuracy protocol v2 remains diagnostic evidence
 and is not eligible for an accepted set or finalizer. Protocol v3 completed its
 checkpoint, accepted-set, held-out finalizer, and clean-tracked archive gates.
