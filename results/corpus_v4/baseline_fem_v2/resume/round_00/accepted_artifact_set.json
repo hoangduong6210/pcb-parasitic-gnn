@@ -1,0 +1,487 @@
+{
+  "accepted": [
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_00/result.json",
+        "sha256": "dede6c669db8ffb89fc4b4c0f168ed31b647d86f163a10867c808e33fe64cee0"
+      },
+      "task_id": 0,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "31",
+        "ExitCode": "0:0",
+        "JobID": "7273435_0",
+        "JobIDRaw": "7273440",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_01/result.json",
+        "sha256": "3d91956fe602749323d1ee15155fabfbcf0006b0b7ab47dd9426db81e9cb2759"
+      },
+      "task_id": 1,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "39",
+        "ExitCode": "0:0",
+        "JobID": "7273435_1",
+        "JobIDRaw": "7273441",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_02/result.json",
+        "sha256": "079f9986de775e38fcd7dea496beb1aaac0b3d248081db9bcb639f126df5ccf2"
+      },
+      "task_id": 2,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "39",
+        "ExitCode": "0:0",
+        "JobID": "7273435_2",
+        "JobIDRaw": "7273442",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_03/result.json",
+        "sha256": "dcb11b20964f516eda47438671c525adf86269396d296aabd9b73bbd82a57cac"
+      },
+      "task_id": 3,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "39",
+        "ExitCode": "0:0",
+        "JobID": "7273435_3",
+        "JobIDRaw": "7273443",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_04/result.json",
+        "sha256": "238abbb1f26115d8306a3908c83bfebf055836ad33d607d067b4725ec1b1bad8"
+      },
+      "task_id": 4,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "39",
+        "ExitCode": "0:0",
+        "JobID": "7273435_4",
+        "JobIDRaw": "7273444",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_05/result.json",
+        "sha256": "dca3ee567595843434ff5d073ff165e4ecdfedcf58f0d9fa24f8fee81b9e698e"
+      },
+      "task_id": 5,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_5",
+        "JobIDRaw": "7273454",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_06/result.json",
+        "sha256": "7a1b78a89fdeee41e4a22afca74c1137ff76d58b60ceceddc8d67a77e16fbd59"
+      },
+      "task_id": 6,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_6",
+        "JobIDRaw": "7273455",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_07/result.json",
+        "sha256": "9523af60be3a484d841a24ef9e455b5adc9ecd8beaea9eba890db53b1a3447b0"
+      },
+      "task_id": 7,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_7",
+        "JobIDRaw": "7273456",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_08/result.json",
+        "sha256": "7ccc24cbf67a1518b232a4244edc56ab3a81ff77303926841650833665429611"
+      },
+      "task_id": 8,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "29",
+        "ExitCode": "0:0",
+        "JobID": "7273435_8",
+        "JobIDRaw": "7273457",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_09/result.json",
+        "sha256": "7cb51e60294605120b651aab806090d73f29ebeef5a091b7ac267eddda98b827"
+      },
+      "task_id": 9,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_9",
+        "JobIDRaw": "7273458",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_10/result.json",
+        "sha256": "e1fba6b655f6aaa4f20fa14873e5bd5f2ea9f7b826df766481ac62a64be6374d"
+      },
+      "task_id": 10,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "40",
+        "ExitCode": "0:0",
+        "JobID": "7273435_10",
+        "JobIDRaw": "7273492",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_11/result.json",
+        "sha256": "20e05fb72a1786b7ebb0879fef064d17a1ecc746bf8c43b863a38dde0b0f7160"
+      },
+      "task_id": 11,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "40",
+        "ExitCode": "0:0",
+        "JobID": "7273435_11",
+        "JobIDRaw": "7273493",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_12/result.json",
+        "sha256": "4e6b82a4720cb387cd88155042d5593925ad11d384ffda60be19774307d8baea"
+      },
+      "task_id": 12,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "40",
+        "ExitCode": "0:0",
+        "JobID": "7273435_12",
+        "JobIDRaw": "7273494",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_13/result.json",
+        "sha256": "013b5c575a2dffa7047ee3918a5615fc96c5d6faf80149bfab92a3f45e2904ab"
+      },
+      "task_id": 13,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "40",
+        "ExitCode": "0:0",
+        "JobID": "7273435_13",
+        "JobIDRaw": "7273495",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_14/result.json",
+        "sha256": "61a2ed2826030a40aeaa9a8436bb5d7cf72f66d9d0a510cacc8f414a646bb81f"
+      },
+      "task_id": 14,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "26",
+        "ExitCode": "0:0",
+        "JobID": "7273435_14",
+        "JobIDRaw": "7273496",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_15/result.json",
+        "sha256": "7755ea3bc4fd1ec15a1869dbf26f80c7bb26000c6421f780ec13527dfbda7f66"
+      },
+      "task_id": 15,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "26",
+        "ExitCode": "0:0",
+        "JobID": "7273435_15",
+        "JobIDRaw": "7273499",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_16/result.json",
+        "sha256": "32ac34c56d022c1f7bf94fe2a019ff5c771f905ef1a016bf4bc71e214271e56e"
+      },
+      "task_id": 16,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "26",
+        "ExitCode": "0:0",
+        "JobID": "7273435_16",
+        "JobIDRaw": "7273500",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_17/result.json",
+        "sha256": "d68bab13f96a7c0765b28d2da9b8816e05585bedfca8c88867f130409838b7fb"
+      },
+      "task_id": 17,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_17",
+        "JobIDRaw": "7273501",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_18/result.json",
+        "sha256": "45afe3db8e229dad0633dbe31637a36accee14cfd759951c200f18c20b2b8393"
+      },
+      "task_id": 18,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "30",
+        "ExitCode": "0:0",
+        "JobID": "7273435_18",
+        "JobIDRaw": "7273502",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_19/result.json",
+        "sha256": "372c0d908d725999750b3afea7a722e3e294b629861569dd144fe53c75dfae0c"
+      },
+      "task_id": 19,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "27",
+        "ExitCode": "0:0",
+        "JobID": "7273435_19",
+        "JobIDRaw": "7273503",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_20/result.json",
+        "sha256": "4c2690314600eddbb0feb77857f5f50ea0ef0e68318cdaec73126033be49c136"
+      },
+      "task_id": 20,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "37",
+        "ExitCode": "0:0",
+        "JobID": "7273435_20",
+        "JobIDRaw": "7273504",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_21/result.json",
+        "sha256": "05abe19e56102b7f7d08cc22be3528588df5317ab02ba5613349335d043430fe"
+      },
+      "task_id": 21,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "30",
+        "ExitCode": "0:0",
+        "JobID": "7273435_21",
+        "JobIDRaw": "7273505",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_22/result.json",
+        "sha256": "53e28445100b332fec7525c4d02617dd7138155c11f38de621470976c4deeaca"
+      },
+      "task_id": 22,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "29",
+        "ExitCode": "0:0",
+        "JobID": "7273435_22",
+        "JobIDRaw": "7273506",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_23/result.json",
+        "sha256": "cf74783487de8e84d8ef833537e888f56a18384c64257125bf8cf47cc399992d"
+      },
+      "task_id": 23,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "29",
+        "ExitCode": "0:0",
+        "JobID": "7273435_23",
+        "JobIDRaw": "7273507",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    },
+    {
+      "result": {
+        "path": "results/corpus_v4/baseline_fem_v2/jobs/job_7273435/task_24/result.json",
+        "sha256": "c65d280a410c861349bbf87ada40804e766024bbae022e3a16292dcd33944cd5"
+      },
+      "task_id": 24,
+      "terminal": {
+        "AllocTRES": "billing=13,cpu=13,mem=48G,node=1",
+        "ElapsedRaw": "32",
+        "ExitCode": "0:0",
+        "JobID": "7273435_24",
+        "JobIDRaw": "7273435",
+        "Partition": "nextgen",
+        "ReqTRES": "billing=8,cpu=8,mem=48G,node=1",
+        "Restarts": "0",
+        "State": "COMPLETED",
+        "Timelimit": "04:00:00"
+      }
+    }
+  ],
+  "bindings": {
+    "execution_lock_sha256": "1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243",
+    "protocol_sha256": "f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802",
+    "source_git_head": "23ca6d046528e0da22d5fbaa24454da9101c7315"
+  },
+  "claim_eligible": false,
+  "heldout_inference_permitted": true,
+  "schema": "pcb-gnn.baseline-accepted.v1"
+}

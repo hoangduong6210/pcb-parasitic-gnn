@@ -1,13 +1,15 @@
 # FEM-v2 fixed baseline comparison
 
-Status: protocol and execution lock frozen; preflight validated; training running.
-No baseline training or held-out comparison is admitted by this index.
+Status: all 25 training checkpoints accepted; held-out finalization pending.
+No baseline accuracy claim is admitted by this index.
 
 Preflight `7273416_0` completed `0:0` without fitting or opening held-out bytes.
 Its [receipt](probes/job_7273416/task_00/probe.json) records the frozen source,
 runtime and task-private filesystem checks. Training array `7273435` contains
-25 tasks; terminal admission job `7273449` depends on successful completion
-of the entire array. These are operational records, not accuracy evidence.
+25 completed tasks; terminal admission job `7273449` accepted the full array.
+The [accepted set](resume/round_00/accepted_artifact_set.json) authenticates
+every numeric model bundle and terminal task record. Held-out finalizer
+`7273521` is submitted. These are operational records, not accuracy evidence.
 
 The study reuses accuracy-v3's exact five split-scoped train/validation tables,
 test partitions and admitted GNN predictions. Each of 25 split/initialization

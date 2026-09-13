@@ -14,7 +14,7 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | Operational preflight validated; training and admission pending |
+| Status | Preflight validated; all training checkpoints accepted; held-out finalization pending |
 | Scope | Frozen fixed-baseline extension; no new solver labels |
 | Source commit | `23ca6d046528e0da22d5fbaa24454da9101c7315` |
 | Protocol SHA-256 | `f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802` |
@@ -23,8 +23,11 @@ operational or pending archival is not publication evidence.
 | Receipt | [Task-private filesystem probe](../../results/corpus_v4/baseline_fem_v2/probes/job_7273416/task_00/probe.json) |
 | Receipt SHA-256 | `343f1961901bd378e932a13134b49086eb3f372d427788e784b7a8ecfd9db9be` |
 | Boundary | No fitting; no held-out bytes opened; other-task checkpoints invisible |
-| Training array | `7273435`, 25 tasks, concurrency cap five |
-| Terminal admission job | `7273449`, dependent on successful full-array completion |
+| Training array | `7273435`, 25 tasks, all `COMPLETED/0:0`, zero restarts, concurrency cap five |
+| Terminal admission job | `7273449`, `COMPLETED/0:0`, 43 s |
+| Accepted set | [Round-00 admission](../../results/corpus_v4/baseline_fem_v2/resume/round_00/accepted_artifact_set.json) |
+| Accepted-set SHA-256 | `3779355148fd79ecc919d99fde0bb086be540f9e7ee55c4ce7470736ab2dd475` |
+| Held-out finalizer | `7273521`, submitted after terminal admission |
 | Prospective claim | `C-BASE-FEMV2-001`, not admitted |
 
 The receipt contains the scheduler record observed while the probe was running.
