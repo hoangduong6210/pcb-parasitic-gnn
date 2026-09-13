@@ -1,0 +1,42 @@
+{
+  "analysis_manifest": {
+    "path": "results/corpus_v4/latency_fem_v2/final/job_7271440/ANALYSIS_MANIFEST.json",
+    "sha256": "5baabeaab51555df5855c89ba9f70bd6828f9f6971542c969b929beb2e87a9a4"
+  },
+  "bindings": {
+    "accepted_set_sha256": "90ba1f8d44a5db921a77fad50aec6b99171ef31b4e129fde59202a800ee6d221",
+    "execution_lock_sha256": "b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5",
+    "expected_finalizer_source_git_head": "b2f2ac66ee61cbcd9149b80dfbf68269fcae3c08",
+    "expected_source_git_head": "186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6",
+    "finalizer_execution_lock_sha256": "ecf8b64473a1e779072763e2ce12186abecd54483f4dc9d675fd7e2cb325457f",
+    "full_array_job_id": "7260429",
+    "panel_records_sha256": "a32682b8d6263d0ee256584b66883499883b6fd3ff3511011967743e3c6d4e32",
+    "plan_sha256": "2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb",
+    "preflight_admission": {
+      "path": "results/corpus_v4/latency_fem_v2/preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json",
+      "sha256": "0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf"
+    },
+    "protocol_sha256": "6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9",
+    "task_manifest_sha256": "75ce9cebb34d4288077d38a33d418e5de391ebc94bd8aa3f10e03bee51631d04"
+  },
+  "finalizer_scheduler_completion": {
+    "Account": "pgs0407",
+    "AllocTRES": "billing=3,cpu=3,mem=8G,node=1",
+    "ElapsedRaw": "22",
+    "ExitCode": "0:0",
+    "JobID": "7271440",
+    "JobIDRaw": "7271440",
+    "NodeList": "a0104",
+    "Partition": "nextgen",
+    "ReqTRES": "billing=2,cpu=2,mem=8G,node=1",
+    "Restarts": "0",
+    "State": "COMPLETED",
+    "Timelimit": "00:20:00"
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-archive.v2",
+  "verified_analysis_files_sha256": {
+    "records.jsonl": "c0ceb7d5b0f79065b8caedc310c835be1431b0a6b04090955879efbb5a87a4e2",
+    "summary.json": "f968ed39ebb49f571822b09e3043fb78ae76754e475fdcad6113fd7dad4acdbd",
+    "task_index.json": "cfa2043847c8478ba407dd7afd4cf09f141759704fbdad57b458863a00a218ae"
+  }
+}
