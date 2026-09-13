@@ -90,6 +90,16 @@ Failed finalizer evidence is preserved under
 A failed finalizer does not authorize publication of its written summary.
 
 The measurement source remains `186ba2c`; recovery source is `b2f2ac6`.
-The local evidence and recovery commits are not yet published: GitHub rejected
-the configured credentials on 2026-09-13. Re-authentication is required before
-pushing `protocol/corpus-v4-accuracy-v3`; no archived paper was changed.
+The initial push failed authentication on 2026-09-13. A subsequent authenticated
+push published all four evidence and wiki commits to
+`protocol/corpus-v4-accuracy-v3`. Remote verification confirmed
+`82e788317c408c29cc05ca2af134261200803b9a`; the authentication blocker is resolved.
+No archived paper was changed. Existing execution and evidence commit hashes
+were preserved; the configured email for future commits was updated separately.
+
+Governance observation, 2026-09-13: wiki synchronization is mandatory for every
+project task, including status checks and publication updates. The rule is
+enforced in repository `AGENTS.md` and defined in
+[Contributing](../CONTRIBUTING.md). No new scientific computation is needed for
+this correction. Baseline, strict E(3), and ranking studies remain separate
+future stages requiring their own frozen FEM-v2 protocols.

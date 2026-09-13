@@ -1,11 +1,30 @@
 ---
 title: Contributing to the Research Wiki
 status: canonical governance
-last_updated: 2026-08-17
+last_updated: 2026-09-13
 paper_source: false
 ---
 
 # Contributing to the Research Wiki
+
+## Mandatory wiki synchronization
+
+Every project task must update the wiki before handoff, including monitoring,
+review, implementation, experiment execution, commit, push and recovery tasks.
+This is a completion requirement, not optional documentation work. A status
+check with no change still records the observation date and unchanged state.
+
+Update the semantic owner and the live execution page with verified outcomes,
+evidence links, remaining blockers and the next action. Index every new page.
+Distinguish a local commit from a successful push: verify the remote branch
+hash and record the last confirmed published commit. Preserve historical
+failures, but remove obsolete blockers from the current status statement.
+Never copy credentials into documentation.
+
+Run the wiki contract tests and deterministic research-prose audit before
+committing the update. An execution failure or external blocker does not waive
+wiki synchronization: record what failed and what remains. Paper exports
+continue to use admitted wiki claims and are generated only on request.
 
 ## Page ownership
 
