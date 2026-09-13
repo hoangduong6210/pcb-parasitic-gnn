@@ -1311,8 +1311,8 @@ python3 code/experiments/proofs/plan_corpus_v4_latency_resume_v2.py \
   --expected-source-git-head "$LAT_SOURCE_COMMIT" \
   --preflight-admission "$LAT_PREFLIGHT_ADMISSION" \
   --expected-preflight-admission-sha256 "$LAT_PREFLIGHT_ADMISSION_SHA256" \
-  --attempt-root "results/corpus_v4/latency_fem_v2/jobs/attempts/job_${LAT_JOB_ID}" \
-  --out-dir "$LAT_RESUME"
+  --attempt-root "$LAT_ROOT/results/corpus_v4/latency_fem_v2/jobs/attempts/job_${LAT_JOB_ID}" \
+  --out-dir "$LAT_ROOT/$LAT_RESUME"
 
 LAT_ACCEPTED="$LAT_RESUME/accepted_artifact_set.json"
 LAT_ACCEPTED_SHA256=$(sha256sum "$LAT_ACCEPTED" | awk '{print $1}')
@@ -1328,6 +1328,15 @@ LAT_FINAL_JOB_ID=${LAT_FINAL_JOB_ID%%;*}
 Finalization is valid only after the accepted set contains exactly 306 tasks.
 It recomputes the three scoped ratio estimands, the family-cluster sensitivity
 ranges, the timing-stability diagnostics, and the outer-wall decomposition.
+
+Operational correction, 2026-09-13: the original finalizer submission above is
+retained as execution history, not as the recovery command. Job `7271384`
+wrote analysis output and then failed while printing a relative output path.
+Do not resubmit that wrapper unchanged. The recovery uses a separately pinned
+finalizer source and execution lock while retaining the original task lock,
+protocol, accepted set, and all 306 timing observations. The resume command
+above uses absolute attempt and output paths to avoid the same path-reporting
+error in the original planner. Never overwrite an existing resume round.
 
 ### 16.6 Build and replay the archive
 

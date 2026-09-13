@@ -1,0 +1,6 @@
+{
+  "files_sha256": {
+    "result.json": "f9ebda2ff8fcfb793c60d46fce17ba3c5df08dca33c5f915fd0d9337db6a226c"
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-task-artifact-manifest.v1"
+}

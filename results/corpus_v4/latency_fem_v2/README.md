@@ -1,9 +1,9 @@
 # FEM-v2 paired-latency study
 
-Status: protocol and panel frozen. SLURM preflight array `7259818` completed
-3/3 tasks and was independently admitted; full array `7260429` is running
-with an expected 306 tasks. No complete panel, final speedup, or current speed
-claim has been admitted.
+Status: full array `7260429` completed all 306 tasks with exit `0:0`, and
+round 00 accepted every observation. Finalizer `7271384` failed at output-path
+printing after writing analysis files. Recovery finalization and archive
+replay are required; no current speed claim has been admitted.
 
 Execution source commit: `186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6`.
 The documentation branch may advance while this detached checkout remains
@@ -99,3 +99,26 @@ SLURM finalizer, archive reconstruction, and wiki claim review all pass.
 Historical 1.16845 ms throughput, the rounded 5 s estimate, approximately
 4,300-fold, and the archived 670-fold result do not enter this protocol. Their
 measurement boundaries remain documented in the Historical Claim Ledger.
+
+## Artifact map
+
+- `plan/v1/`: frozen plan, panel and task order.
+- `preflight/`: three-layout qualification and admission.
+- `jobs/attempts/job_7260429/`: 306 original timing records and task manifests.
+- `logs/full_array_7260429/`: original task stdout and stderr.
+- `resume/round_00/`: complete accepted set, candidate index and empty pending set.
+- `diagnostics/job_7271384/`: failed analysis attempt; excluded from claims.
+- `final/`: successful analysis packages, when admitted through archive replay.
+
+All 306 source tasks completed with exit `0:0`. The original finalizer failed
+after writing output because its final path-print combined relative and absolute
+paths. Recovery changes analysis provenance and path handling only. It does not
+repeat solvers, select new observations, or change the statistical estimand.
+
+The original task execution lock and its 39 source hashes remain unchanged.
+A separate finalizer execution lock binds that task lock, its source commit,
+the accepted-set hash and the recovery source closure. Finalizer success and
+archive verification are required before its output supports a claim.
+
+See the [evidence ledger](../../../wiki/evidence/Evidence-Ledger.md) and
+[live execution page](../../../wiki/status/Live-Execution.md) for admission status.

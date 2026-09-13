@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: active scientific status
-last_updated: 2026-09-12
+last_updated: 2026-09-13
 paper_source: false
 ---
 
@@ -46,7 +46,7 @@ instead of calling one column ground truth.
 | Deterministic one-thread FEM-v2 dataset | `FINALIZED; POSTTERMINAL ADMITTED` | 1,500 R3 plus 198 R4 observations over 1,500 geometries; its dataset receipt keeps training closed, while the separate downstream accuracy lock governs model execution |
 | FEM-v2 accuracy protocol v2 | `SUPERSEDED; DIAGNOSTIC EXECUTION CLOSED` | 25 checkpoint tasks completed, but the process materialized held-out bytes before acceptance; no held-out inference or model claim was admitted |
 | FEM-v2 accuracy protocol v3 | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | The 5 by 5 family-split and initialization grid is complete; all 25 checkpoints were accepted before held-out inference; the tracked archive supports `C-ACC-FEMV2-001` |
-| FEM-v2 paired four-target latency | `PREFLIGHT ADMITTED; FULL ARRAY RUNNING` | Preflight `7259818` accepted all three layouts; full array `7260429` has 306 planned tasks, is incomplete, and no current speed result exists |
+| FEM-v2 paired four-target latency | `306 ACCEPTED; FINALIZER RECOVERY REQUIRED` | Full array `7260429` completed all 306 tasks; round 00 accepted all observations. Finalizer `7271384` failed at output-path printing; no current speed claim is admitted |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
@@ -62,7 +62,7 @@ transition.
 2. Use the current
    [FEM-v2 family-held-out result](../results/Corpus-V4-FEM-v2-Accuracy.md)
    under `C-ACC-FEMV2-001` for the deterministic one-thread target package.
-3. Monitor full array `7260429` for the frozen FEM-v2 paired-latency protocol.
+3. Recover only the analysis finalizer for the frozen FEM-v2 paired-latency protocol.
    `C-LAT-FEMV2-001` remains closed until its complete execution, finalization,
    archive, and claim-admission chain completes.
 4. Repeat baseline, strict E(3), and ranking studies only under their own

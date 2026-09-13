@@ -1,0 +1,2458 @@
+{
+  "entries": [
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_000/TASK_MANIFEST.json",
+      "manifest_sha256": "b39d5270a1af9cc278904450ab675a23ae43b5bd5b4761ce4c6cfcf138aa1139",
+      "reason": null,
+      "task_id": 0,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_001/TASK_MANIFEST.json",
+      "manifest_sha256": "3d38da41a7eba1466512b9320851e322cf4b3f0feb90708538574ff11195eed5",
+      "reason": null,
+      "task_id": 1,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_002/TASK_MANIFEST.json",
+      "manifest_sha256": "5989e52c9e81e2930ef6b52cb77ae1378bf479f4677113ea1278311e7264251f",
+      "reason": null,
+      "task_id": 2,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_003/TASK_MANIFEST.json",
+      "manifest_sha256": "67cdb37bf059ce1b68d78f0a5f95f9ccab1865dc3e26cc886310dd8b70a44f7e",
+      "reason": null,
+      "task_id": 3,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_004/TASK_MANIFEST.json",
+      "manifest_sha256": "4578fac9350c64ff5be6e6c82f903a6ab4ddd3f48c1f4a597fce4fd996276b34",
+      "reason": null,
+      "task_id": 4,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_005/TASK_MANIFEST.json",
+      "manifest_sha256": "3563575368472908cc8a4d08a74a2a19a42e31778e9569c7ce38928c9dc37004",
+      "reason": null,
+      "task_id": 5,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_006/TASK_MANIFEST.json",
+      "manifest_sha256": "9c1e0afca35574bf38aecfff99e11b9391a34227ca132a9ba9d515b874caced4",
+      "reason": null,
+      "task_id": 6,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_007/TASK_MANIFEST.json",
+      "manifest_sha256": "4223af989bf14929f06f723faf12c72f6ecb1e08c1d32ea1e57448a5dcff4b89",
+      "reason": null,
+      "task_id": 7,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_008/TASK_MANIFEST.json",
+      "manifest_sha256": "874d2839d6656f1fa823d5d262c74ce49099b3adda63c9386069a855f7049366",
+      "reason": null,
+      "task_id": 8,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_009/TASK_MANIFEST.json",
+      "manifest_sha256": "52aab354adec2fdedbfa220af8e58ce4abfe0fd2b4deceea940f045747c942a7",
+      "reason": null,
+      "task_id": 9,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_010/TASK_MANIFEST.json",
+      "manifest_sha256": "835f854ded9a661a8de928ebb0f79926c08154e7b11e155e6966f3b282fcebdd",
+      "reason": null,
+      "task_id": 10,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_011/TASK_MANIFEST.json",
+      "manifest_sha256": "9a3f5db51803d92db7a1820cee4e3df16e762329baef3665019e17198e794350",
+      "reason": null,
+      "task_id": 11,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_012/TASK_MANIFEST.json",
+      "manifest_sha256": "1a0d3d33c035bd402fcab471cb9fcdb8c8a4050d61ef294973e372bb1f0d0942",
+      "reason": null,
+      "task_id": 12,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_013/TASK_MANIFEST.json",
+      "manifest_sha256": "d20f144eb5695a490a6b68bd29dedcb1d1a142a52c3ebd85af7edc241b291b02",
+      "reason": null,
+      "task_id": 13,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_014/TASK_MANIFEST.json",
+      "manifest_sha256": "24df85a8ebaa383ec85091b1a29d16d71a63cbcd99925fe08e58bf92f5535814",
+      "reason": null,
+      "task_id": 14,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_015/TASK_MANIFEST.json",
+      "manifest_sha256": "fec04197adccb274d8e1b9c195026295825c49eeb7fdd084f2143dabab2b203f",
+      "reason": null,
+      "task_id": 15,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_016/TASK_MANIFEST.json",
+      "manifest_sha256": "9ad34920cdd04deda93115cf9eff8861d1c0b59e532c376139d56caa66e4736b",
+      "reason": null,
+      "task_id": 16,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_017/TASK_MANIFEST.json",
+      "manifest_sha256": "e6e9df218933a37072c8673e4987f7af98dd4da2b1dc84c778c7093b8d2e9655",
+      "reason": null,
+      "task_id": 17,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_018/TASK_MANIFEST.json",
+      "manifest_sha256": "074f1d6ab7d0b544217a2fc717165cb019b484e5c0563d26b3d2f478ede540b1",
+      "reason": null,
+      "task_id": 18,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_019/TASK_MANIFEST.json",
+      "manifest_sha256": "f349d25ddacc97d524365217e6e88edee97e9cbc9edc2109984e70e11d48c653",
+      "reason": null,
+      "task_id": 19,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_020/TASK_MANIFEST.json",
+      "manifest_sha256": "2c116d0956759a13f930c92a947ff0fd42b427ff743f411d529987c8550ed4a5",
+      "reason": null,
+      "task_id": 20,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_021/TASK_MANIFEST.json",
+      "manifest_sha256": "3576ad978fa54ba58d5b32e58ba91de0ca85e18ec96452ce5ca208f16a52a29c",
+      "reason": null,
+      "task_id": 21,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_022/TASK_MANIFEST.json",
+      "manifest_sha256": "c78ad5650ec1b486e5cc7d96f035622f6ee9bce32e7b0aa1d99451054473b970",
+      "reason": null,
+      "task_id": 22,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_023/TASK_MANIFEST.json",
+      "manifest_sha256": "100153165efb323001b6c01b511ff53f86ea488527b88249490bb6a0978bd446",
+      "reason": null,
+      "task_id": 23,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_024/TASK_MANIFEST.json",
+      "manifest_sha256": "d87db17a05c08f1e4d0eaf14e91fb9b15738c6d97ddfe202fb4e9fd786e7d850",
+      "reason": null,
+      "task_id": 24,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_025/TASK_MANIFEST.json",
+      "manifest_sha256": "eb9729658748d6ce6ca2884a828e9841bd78062289dde45cd5d2214abb32f5d3",
+      "reason": null,
+      "task_id": 25,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_026/TASK_MANIFEST.json",
+      "manifest_sha256": "bfc3947869c7e49238ae86da2262fdb01bf2626ef2ab74f0b3834dcd51d15f84",
+      "reason": null,
+      "task_id": 26,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_027/TASK_MANIFEST.json",
+      "manifest_sha256": "9486af7aad074138a0ce87affcf10012c8f9e9fd63403288f98c7affa4effaae",
+      "reason": null,
+      "task_id": 27,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_028/TASK_MANIFEST.json",
+      "manifest_sha256": "a50a35aa79c29471c74f0fbe72c727603377c29f36626dec3370d632417a5ddd",
+      "reason": null,
+      "task_id": 28,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_029/TASK_MANIFEST.json",
+      "manifest_sha256": "5390d89a8274e82d8b1885fa5a9ea919105b726817f70d37ef97fed768de4084",
+      "reason": null,
+      "task_id": 29,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_030/TASK_MANIFEST.json",
+      "manifest_sha256": "bc427c26e3767559b35bb7b7540bb30a0a34077c0909f317b4160aca5d4dcb3a",
+      "reason": null,
+      "task_id": 30,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_031/TASK_MANIFEST.json",
+      "manifest_sha256": "ef6bbdbe82913f7d686a54cd2e82662df1760e2399c157aca528d644740f5517",
+      "reason": null,
+      "task_id": 31,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_032/TASK_MANIFEST.json",
+      "manifest_sha256": "9771f1a39b911f0deb6ba02d7c0cd9001735b866602c2a3e4fa7093a461d93ec",
+      "reason": null,
+      "task_id": 32,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_033/TASK_MANIFEST.json",
+      "manifest_sha256": "83f22807568f8146e362a1b5621e3bc545bedbbb0c4b5e1ec21cd49a2615a727",
+      "reason": null,
+      "task_id": 33,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_034/TASK_MANIFEST.json",
+      "manifest_sha256": "59c89afb3700ec9d06b95c67057ade5eaf27792260f1e6db8120721bf50bcd96",
+      "reason": null,
+      "task_id": 34,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_035/TASK_MANIFEST.json",
+      "manifest_sha256": "257238e07361b40a6ee62225accde90fe4b43e210bd385bf65c9210f9970b4d6",
+      "reason": null,
+      "task_id": 35,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_036/TASK_MANIFEST.json",
+      "manifest_sha256": "15a1ddb5d4bfcf3b25b32ad94ea8d43845d11ea27a824fb7975c1f81ccb47813",
+      "reason": null,
+      "task_id": 36,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_037/TASK_MANIFEST.json",
+      "manifest_sha256": "b439a9e490dd0d73e319230451f66ec30003b7170cbb87b5635884d6ca5c76b1",
+      "reason": null,
+      "task_id": 37,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_038/TASK_MANIFEST.json",
+      "manifest_sha256": "588f1edf479767b5d089840bee17e0372f066023b4347d2f3214f8f18d4db234",
+      "reason": null,
+      "task_id": 38,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_039/TASK_MANIFEST.json",
+      "manifest_sha256": "6bd3978cd7b8366fb26743b686a1a54e93050251a42b71105b1c9c317bebbc60",
+      "reason": null,
+      "task_id": 39,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_040/TASK_MANIFEST.json",
+      "manifest_sha256": "91139fe62e7b03c6c0747f725fa971281130ef3c0bfedfc0855c981b8df343c9",
+      "reason": null,
+      "task_id": 40,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_041/TASK_MANIFEST.json",
+      "manifest_sha256": "ddfe1bbcbb0dbb5277d7154d9eaff9690042a5b654c6c98affd66384e36b0789",
+      "reason": null,
+      "task_id": 41,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_042/TASK_MANIFEST.json",
+      "manifest_sha256": "95aa9795aa7d2f0a36bf59751836123bb1ed6f490058b94a9f777faaef721d77",
+      "reason": null,
+      "task_id": 42,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_043/TASK_MANIFEST.json",
+      "manifest_sha256": "54499f6af4631d0a9275a254020ba9d8c348b0c75735286cfba2be0230f3196e",
+      "reason": null,
+      "task_id": 43,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_044/TASK_MANIFEST.json",
+      "manifest_sha256": "71e4cf074d967a599800c0fbe36c8407a613e88f335c2c3573202bb2622f5acb",
+      "reason": null,
+      "task_id": 44,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_045/TASK_MANIFEST.json",
+      "manifest_sha256": "67ef6331d4a4c39a7ebc0819293a868277229e83388913ed12dd5eb81cd18726",
+      "reason": null,
+      "task_id": 45,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_046/TASK_MANIFEST.json",
+      "manifest_sha256": "8054dada536c31124910e37337d9f8f197d7fc481020a36eae671adcd8d14d3e",
+      "reason": null,
+      "task_id": 46,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_047/TASK_MANIFEST.json",
+      "manifest_sha256": "6f6e5fbcd68f1b519b14d52cc2f70e10a50e852039810d0b4d8947c4d656a70d",
+      "reason": null,
+      "task_id": 47,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_048/TASK_MANIFEST.json",
+      "manifest_sha256": "28161222f03e5d3cc067a4638a20b2c1f4b1fad968670abd85927c11828f85dc",
+      "reason": null,
+      "task_id": 48,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_049/TASK_MANIFEST.json",
+      "manifest_sha256": "62a4afb38b835122b2bd926c4a4f6b8fa33c91616743cfda4ac6b75de02e0f1b",
+      "reason": null,
+      "task_id": 49,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_050/TASK_MANIFEST.json",
+      "manifest_sha256": "db8f8b8769d06a40f21eefb662bbb171b9e3916a7baeea18b5d604b4c58b31e0",
+      "reason": null,
+      "task_id": 50,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_051/TASK_MANIFEST.json",
+      "manifest_sha256": "3a3c381b4f8118ca7383a95e73a0f90c56ee1707460258a8265c23ceaedd9e17",
+      "reason": null,
+      "task_id": 51,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_052/TASK_MANIFEST.json",
+      "manifest_sha256": "f152c6c83b984a6f591675d9ab09052557be4eba5d71dbdc60903d3f49d5d80a",
+      "reason": null,
+      "task_id": 52,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_053/TASK_MANIFEST.json",
+      "manifest_sha256": "64960a27178fdd4a66d248aa1da9cb84813542c4f05f9974bc3ef4021f1a413b",
+      "reason": null,
+      "task_id": 53,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_054/TASK_MANIFEST.json",
+      "manifest_sha256": "f4010c5a7c71510b893e5118bfd44d152e70bdb88cf346c2295c9ab3925434ae",
+      "reason": null,
+      "task_id": 54,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_055/TASK_MANIFEST.json",
+      "manifest_sha256": "cdf02205acabaf4e0a06197d4aa2a275b0ad082a465b98d18364fb8071ab28db",
+      "reason": null,
+      "task_id": 55,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_056/TASK_MANIFEST.json",
+      "manifest_sha256": "c2a6b4009214cd1bd9e6cb613335632359faad6866e9513daed22838a7f58e9f",
+      "reason": null,
+      "task_id": 56,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_057/TASK_MANIFEST.json",
+      "manifest_sha256": "9395d6ede30e8ada1fcd19073ef7af7088e71f2e21f5ebe0a31a7d58b3c9efd2",
+      "reason": null,
+      "task_id": 57,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_058/TASK_MANIFEST.json",
+      "manifest_sha256": "f3e320e50dff03375546fc88fd3cd525d3be0b98a9641bcdfca1a992c71b70ed",
+      "reason": null,
+      "task_id": 58,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_059/TASK_MANIFEST.json",
+      "manifest_sha256": "894607e87ca380dc2a92df7536ff06a8c13ae849d601528e82a897eaa5e9beee",
+      "reason": null,
+      "task_id": 59,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_060/TASK_MANIFEST.json",
+      "manifest_sha256": "01813e1f90b00f90793e6f8fe48556ee31be47eee33cf1f2928faa71191fe81f",
+      "reason": null,
+      "task_id": 60,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_061/TASK_MANIFEST.json",
+      "manifest_sha256": "beda7b663437198e6d5663e5fe503de6dca12867dcccd62824f45d7f81a5a8d2",
+      "reason": null,
+      "task_id": 61,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_062/TASK_MANIFEST.json",
+      "manifest_sha256": "2dcafd6814e26d500583359dbb161c4ab9564c129f6c86e4601e333548b220fa",
+      "reason": null,
+      "task_id": 62,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_063/TASK_MANIFEST.json",
+      "manifest_sha256": "7ee231fc3afb33ad1b17710c790bfa43aaed1de7c06fe29ca1edf69e0e89a466",
+      "reason": null,
+      "task_id": 63,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_064/TASK_MANIFEST.json",
+      "manifest_sha256": "d88add45323f76ea3302ef607c78d42eada504353e082f9ab4b141270f929cfd",
+      "reason": null,
+      "task_id": 64,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_065/TASK_MANIFEST.json",
+      "manifest_sha256": "eff374e81cdf27fe9a48875a5b8ad66ac9969f46bd445621430e01ebffeba116",
+      "reason": null,
+      "task_id": 65,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_066/TASK_MANIFEST.json",
+      "manifest_sha256": "ab6d9ef72d6839cbddf1d52d8af3435fc7f5b8363ec20c23fc1c7567dc162095",
+      "reason": null,
+      "task_id": 66,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_067/TASK_MANIFEST.json",
+      "manifest_sha256": "390a33b34dd75a306d95a8df08bdb1d55948250eee9acfa055002d6acacf6a7f",
+      "reason": null,
+      "task_id": 67,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_068/TASK_MANIFEST.json",
+      "manifest_sha256": "a3e517b55c5d36ce94f658f8dd146812ddf67f5f9a36fe03fba27b0728dac077",
+      "reason": null,
+      "task_id": 68,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_069/TASK_MANIFEST.json",
+      "manifest_sha256": "fa2bab7d650394b8eee9c0c816a278ab2442eb64c4e6781c5cb3b96fd3802331",
+      "reason": null,
+      "task_id": 69,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_070/TASK_MANIFEST.json",
+      "manifest_sha256": "46d7adf05dbfe409f44522a1242dc1102d5fa305ff4eb238477fbaf2a4d5d951",
+      "reason": null,
+      "task_id": 70,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_071/TASK_MANIFEST.json",
+      "manifest_sha256": "3ea3e71048f708b2130a5c0e00068d93e1fc1b3e8393d830aa6aa5a820ebc386",
+      "reason": null,
+      "task_id": 71,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_072/TASK_MANIFEST.json",
+      "manifest_sha256": "ef7a9bbf7f94e7965e7554f9ba180b8f02ed46226046e3a8307d45f3eaa4e396",
+      "reason": null,
+      "task_id": 72,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_073/TASK_MANIFEST.json",
+      "manifest_sha256": "6537e18f083898ffc7e77f65804718397c55086bad62443f6f23c9a97092f2fb",
+      "reason": null,
+      "task_id": 73,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_074/TASK_MANIFEST.json",
+      "manifest_sha256": "35a37f59087e1eafb5e672f274434f8fd1ce9f0b7c239c52ae65234d8fde9027",
+      "reason": null,
+      "task_id": 74,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_075/TASK_MANIFEST.json",
+      "manifest_sha256": "8d3ee7d213360357b10a394639b7221dde6efdd3caff1fee6786895cf7474660",
+      "reason": null,
+      "task_id": 75,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_076/TASK_MANIFEST.json",
+      "manifest_sha256": "7be9c845ce006683e17420844ff253389d2793fbce9547fc13f9da8f0e6f920e",
+      "reason": null,
+      "task_id": 76,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_077/TASK_MANIFEST.json",
+      "manifest_sha256": "9935d53af7918943659823c62820d7db0296004df40a0978da141331af4fcf3d",
+      "reason": null,
+      "task_id": 77,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_078/TASK_MANIFEST.json",
+      "manifest_sha256": "d06bb279ad9ae5745ef4c092c58151cc6d2aef47671181c810401f19c3b6f9b7",
+      "reason": null,
+      "task_id": 78,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_079/TASK_MANIFEST.json",
+      "manifest_sha256": "115a03e7783eb6571117e2a882c8c76e8998baf7980f9e32d6db2bb338d5abcf",
+      "reason": null,
+      "task_id": 79,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_080/TASK_MANIFEST.json",
+      "manifest_sha256": "03954470313efc702ff38d564ebe637058f5ef8f024cca5ebc1bfa049783afe9",
+      "reason": null,
+      "task_id": 80,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_081/TASK_MANIFEST.json",
+      "manifest_sha256": "e1b052e0bb7ed728bb188df8f9e3fb64108f1d948ece3c69d0ae3f7d5f1e9e52",
+      "reason": null,
+      "task_id": 81,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_082/TASK_MANIFEST.json",
+      "manifest_sha256": "139f3829506d25d21a7d7b1a23bf84c2bda5a490d53163e17ae87ca979e9a96d",
+      "reason": null,
+      "task_id": 82,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_083/TASK_MANIFEST.json",
+      "manifest_sha256": "cc8c5de2cf6ffab945d342aa790de8a5004632f68f8810e761370cb903a6771a",
+      "reason": null,
+      "task_id": 83,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_084/TASK_MANIFEST.json",
+      "manifest_sha256": "a92da12eba8644cc0cb002bbdcfa5dd10fc7ab40ddae237b668989c3a0348067",
+      "reason": null,
+      "task_id": 84,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_085/TASK_MANIFEST.json",
+      "manifest_sha256": "44bd9180a9e670630f480b9046452ec42eb946ef1b946f6ecff702efa2f29de5",
+      "reason": null,
+      "task_id": 85,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_086/TASK_MANIFEST.json",
+      "manifest_sha256": "7d2a28db31c4dad6d294d7960aa64f83992a7be0775f986e4a6f7c49ee85fc12",
+      "reason": null,
+      "task_id": 86,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_087/TASK_MANIFEST.json",
+      "manifest_sha256": "052e424f0b52f2a2a95cefb4082303c34cd82e0b5d24bbee539bfa63f31f5dd1",
+      "reason": null,
+      "task_id": 87,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_088/TASK_MANIFEST.json",
+      "manifest_sha256": "b30e9ee8f22381f8ed2dc2ab44f3b0240c014358f37144b2d26777fb554334ea",
+      "reason": null,
+      "task_id": 88,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_089/TASK_MANIFEST.json",
+      "manifest_sha256": "33c5e1f644f4cf03ec28fef5694f3a75db5ea7a13019d540ff34d3f3dd010a42",
+      "reason": null,
+      "task_id": 89,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_090/TASK_MANIFEST.json",
+      "manifest_sha256": "a3b885ad00836cf581cade59b313063ad91d316112ef7af3d00f0e269201c316",
+      "reason": null,
+      "task_id": 90,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_091/TASK_MANIFEST.json",
+      "manifest_sha256": "84f8aeaacd633433f98e62309477dfb902ab29d6458c69f1ddf4fd2c183d889a",
+      "reason": null,
+      "task_id": 91,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_092/TASK_MANIFEST.json",
+      "manifest_sha256": "0d358f924fcabcb35b4c202a2360708212c9356217c362a17779bb3c7020420e",
+      "reason": null,
+      "task_id": 92,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_093/TASK_MANIFEST.json",
+      "manifest_sha256": "5c21cde8d02a1fb8d73c4da8dc7ecf069514e28769ba62fe5884e4299ca2f0d5",
+      "reason": null,
+      "task_id": 93,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_094/TASK_MANIFEST.json",
+      "manifest_sha256": "edd43f0fa53a540bdd5aa2120540db13b947f56f34a9736e0486233d4f8f7677",
+      "reason": null,
+      "task_id": 94,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_095/TASK_MANIFEST.json",
+      "manifest_sha256": "b31941229793c792542b3b02a7d9646812a17b567cc1e15d9d5fc240d332dcc3",
+      "reason": null,
+      "task_id": 95,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_096/TASK_MANIFEST.json",
+      "manifest_sha256": "f067eb7bfb6c10a79697f75be39e182d0dc9a5cc1f721051f637a1a8ec80f0b3",
+      "reason": null,
+      "task_id": 96,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_097/TASK_MANIFEST.json",
+      "manifest_sha256": "9e297d6906d7a286933de97a360d28a7da6689623ee1169bdbf73653442df8c2",
+      "reason": null,
+      "task_id": 97,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_098/TASK_MANIFEST.json",
+      "manifest_sha256": "3a8efb37f1c149891e5f2686fa8940e9eab6fd3940470aa82fedaa2b3341bc56",
+      "reason": null,
+      "task_id": 98,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_099/TASK_MANIFEST.json",
+      "manifest_sha256": "7808566b8d2ee570bb7310ea0e89fe438e31fe1a2f791dc85983665d0f157ac7",
+      "reason": null,
+      "task_id": 99,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_100/TASK_MANIFEST.json",
+      "manifest_sha256": "dc227ad8730924011949d0dff2a49ba93e0de9e58416d57c01c78f5ce6dfb1e4",
+      "reason": null,
+      "task_id": 100,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_101/TASK_MANIFEST.json",
+      "manifest_sha256": "0e644d422978034d2ddd4c2e9489219e7cf634eda098b3d204c032ef6e0e9c47",
+      "reason": null,
+      "task_id": 101,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_102/TASK_MANIFEST.json",
+      "manifest_sha256": "61683ed372e812ecf5f2bccbba0df21ec458cff67612cf6e5b6d04eddbd740cc",
+      "reason": null,
+      "task_id": 102,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_103/TASK_MANIFEST.json",
+      "manifest_sha256": "813b89a4533b2a43619963d69b5eb5d982c2e631b964024f513bdce4f0b6f9f4",
+      "reason": null,
+      "task_id": 103,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_104/TASK_MANIFEST.json",
+      "manifest_sha256": "f1fa90900de4c4b47dc09a3c47fd13490223f5626b24afe223d3e1b62830d698",
+      "reason": null,
+      "task_id": 104,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_105/TASK_MANIFEST.json",
+      "manifest_sha256": "f26c822b9417af70a05598209598a051ad426aa39e8fde55b2715f7baf870a40",
+      "reason": null,
+      "task_id": 105,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_106/TASK_MANIFEST.json",
+      "manifest_sha256": "302445c7d2b92858e2e997d36a41a39f23eb05feaf38181b84b50db0dcb042ef",
+      "reason": null,
+      "task_id": 106,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_107/TASK_MANIFEST.json",
+      "manifest_sha256": "64814c21bf7855366d359e5e9ecd2c95637ba22f1975d279839567b42de268d1",
+      "reason": null,
+      "task_id": 107,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_108/TASK_MANIFEST.json",
+      "manifest_sha256": "a2b73187c8da95eba58d727ee562bfd626493bab4cfa40d8c8c91f424750a6b4",
+      "reason": null,
+      "task_id": 108,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_109/TASK_MANIFEST.json",
+      "manifest_sha256": "85fa99b5e45de8b8bfd9318d256d606da51a3d9460b8b505b5545d94905c262c",
+      "reason": null,
+      "task_id": 109,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_110/TASK_MANIFEST.json",
+      "manifest_sha256": "060bba0b25dd38c17b6bd689650d952930e0354daf9d91a2c23d720968d5f3c7",
+      "reason": null,
+      "task_id": 110,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_111/TASK_MANIFEST.json",
+      "manifest_sha256": "8e27d62a60cb4f23e0f01377c6e39e85827bf95aa65af3dd6d951e64ac23e1f1",
+      "reason": null,
+      "task_id": 111,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_112/TASK_MANIFEST.json",
+      "manifest_sha256": "57753e302843aab709be0ae34eb4d307a7f23fbf781faf3863b7cb59837b9e80",
+      "reason": null,
+      "task_id": 112,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_113/TASK_MANIFEST.json",
+      "manifest_sha256": "7beaac619edbb54c401dc7d5f87643671ed1dd513a65a368866f5e594e35459c",
+      "reason": null,
+      "task_id": 113,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_114/TASK_MANIFEST.json",
+      "manifest_sha256": "22f92edf492c66bd24cfcd8c7bbbc69ae02c744c54219ec3f29fd218f6965098",
+      "reason": null,
+      "task_id": 114,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_115/TASK_MANIFEST.json",
+      "manifest_sha256": "093da8d3747d6dd3cefa85443ee4384048e58633887de80acc38f16d20cb3c39",
+      "reason": null,
+      "task_id": 115,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_116/TASK_MANIFEST.json",
+      "manifest_sha256": "92fe5a278c69666447a773ab7e712a91a66497fb0659bed73a9a6fbfcacc7a94",
+      "reason": null,
+      "task_id": 116,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_117/TASK_MANIFEST.json",
+      "manifest_sha256": "4900821810b3e7c0f92c59ad261d38683de0e438f73730e10007d3cb8c29f728",
+      "reason": null,
+      "task_id": 117,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_118/TASK_MANIFEST.json",
+      "manifest_sha256": "b0219a20d238a5d7afe39af905fc4a8abfae5afc0b48a711646d6e16bea30bec",
+      "reason": null,
+      "task_id": 118,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_119/TASK_MANIFEST.json",
+      "manifest_sha256": "73e988a9a25e86a54178def54736145031399b4d79a3d467ab76fb2480804e08",
+      "reason": null,
+      "task_id": 119,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_120/TASK_MANIFEST.json",
+      "manifest_sha256": "7e2300d9de7ac83198d45132e0e9b1d8b3f43393449975c045b3cb3dfff65941",
+      "reason": null,
+      "task_id": 120,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_121/TASK_MANIFEST.json",
+      "manifest_sha256": "2a2d9eb3fa32a40a058f98692174967df6a71ea9a0d71c9156948e00d9e22412",
+      "reason": null,
+      "task_id": 121,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_122/TASK_MANIFEST.json",
+      "manifest_sha256": "0f2c50990b0fe996651d21d3de09025446dfd5223ae528e0f40b09deb0be5018",
+      "reason": null,
+      "task_id": 122,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_123/TASK_MANIFEST.json",
+      "manifest_sha256": "01b039a614cea8f0f1087c42e51f5044a4ff5ac463788aac7f4ae59b65704692",
+      "reason": null,
+      "task_id": 123,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_124/TASK_MANIFEST.json",
+      "manifest_sha256": "2435a529f590e4bface5c1a2442a9b759f5f04ec880fc34d4e580a6fafad3670",
+      "reason": null,
+      "task_id": 124,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_125/TASK_MANIFEST.json",
+      "manifest_sha256": "100789210c22d66aa096e084cf21799edb409a6990a81c513d736e66920a423f",
+      "reason": null,
+      "task_id": 125,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_126/TASK_MANIFEST.json",
+      "manifest_sha256": "90003f326fe08027bcadfff1a8ec119958168068b8ccbb0b8e588d0f7bf3ea81",
+      "reason": null,
+      "task_id": 126,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_127/TASK_MANIFEST.json",
+      "manifest_sha256": "0dcb0e44067c663a7413fd3f61b00c475700c53a4060b0d58f8745dcd9eb7862",
+      "reason": null,
+      "task_id": 127,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_128/TASK_MANIFEST.json",
+      "manifest_sha256": "da84559ae37be8bd5139fe254fea61f70046eeaf744f5ed933a44ac1909da943",
+      "reason": null,
+      "task_id": 128,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_129/TASK_MANIFEST.json",
+      "manifest_sha256": "e468b7f1bb8f3bbe223c63c2d98919d9f1613486dfa3613ce69c9fba751dcb2d",
+      "reason": null,
+      "task_id": 129,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_130/TASK_MANIFEST.json",
+      "manifest_sha256": "3e6ac2d14eb3e6f9b39a3526dc0e718bebb28ec4c6392a05f71140735a86f82b",
+      "reason": null,
+      "task_id": 130,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_131/TASK_MANIFEST.json",
+      "manifest_sha256": "a3a26b3acf505662ba06ab235fb07c5dc0f5513ca29dc21e72f00cf06ae2c60f",
+      "reason": null,
+      "task_id": 131,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_132/TASK_MANIFEST.json",
+      "manifest_sha256": "d70aa84fb420098c5765c7bfe2978091a8ecadc472b22749171e6b63357f16d0",
+      "reason": null,
+      "task_id": 132,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_133/TASK_MANIFEST.json",
+      "manifest_sha256": "561526b5b8bf2efcac14eb679cb4bd4ab91828fde20e7c5b3937aa90182e41a2",
+      "reason": null,
+      "task_id": 133,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_134/TASK_MANIFEST.json",
+      "manifest_sha256": "3729013e5fa5ecb760310038d7a27037cd9247918b5e6b5db896f8e10b2daa44",
+      "reason": null,
+      "task_id": 134,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_135/TASK_MANIFEST.json",
+      "manifest_sha256": "c51ceb0eaca5462d84302b5b8d2aad26e877f14ec024ceea19330737f3163ba5",
+      "reason": null,
+      "task_id": 135,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_136/TASK_MANIFEST.json",
+      "manifest_sha256": "dd9c2e493083c515b31028bac832754a56c3a2965e81a27dbd8511004e822016",
+      "reason": null,
+      "task_id": 136,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_137/TASK_MANIFEST.json",
+      "manifest_sha256": "71c133063743e1af9fbf9286fd9f45f4501da4672993aa7e5d47fc6aac46ce3e",
+      "reason": null,
+      "task_id": 137,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_138/TASK_MANIFEST.json",
+      "manifest_sha256": "dfe24c44636ab8a4a24a5728e75c12844c93ebd8b2a51d8863f148cd6e293c67",
+      "reason": null,
+      "task_id": 138,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_139/TASK_MANIFEST.json",
+      "manifest_sha256": "c7641ac994af591ce4a39ad031601911d0682f915e4b0029cd6e07f07ab38903",
+      "reason": null,
+      "task_id": 139,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_140/TASK_MANIFEST.json",
+      "manifest_sha256": "09e7928fa507c1d34ee9795e48d04dffb7c7bcc436dea49acd21893df00b9f7e",
+      "reason": null,
+      "task_id": 140,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_141/TASK_MANIFEST.json",
+      "manifest_sha256": "ecda7de2e07d2692e0e15d92c2e8a514a1480c8fae0f73315c54fb80a0efb9f3",
+      "reason": null,
+      "task_id": 141,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_142/TASK_MANIFEST.json",
+      "manifest_sha256": "9ed5d97c9432dbbba4dd227c5c86d47b3829eba45d92c1f6d2923de0c65bc06b",
+      "reason": null,
+      "task_id": 142,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_143/TASK_MANIFEST.json",
+      "manifest_sha256": "ebd2053a94168a6cc7835dd2ac600302a58e786a67d93a81fa23771ec88d419a",
+      "reason": null,
+      "task_id": 143,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_144/TASK_MANIFEST.json",
+      "manifest_sha256": "9e0b163d25ed5db1bc44ec22f26031c2795675182bb65eab96acb13e769b855a",
+      "reason": null,
+      "task_id": 144,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_145/TASK_MANIFEST.json",
+      "manifest_sha256": "16aa46f8670063cffaea3eba8c357415f86221fb4a0acb524351a1a271c3b6c8",
+      "reason": null,
+      "task_id": 145,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_146/TASK_MANIFEST.json",
+      "manifest_sha256": "06fff665e28f79712a59522a749f42b6ad659fd6f960f4a76ae55b9e81798250",
+      "reason": null,
+      "task_id": 146,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_147/TASK_MANIFEST.json",
+      "manifest_sha256": "3767853fdb913806f5a622f3025d9ec72637c30d06083f7c236fe2fdbc5c6347",
+      "reason": null,
+      "task_id": 147,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_148/TASK_MANIFEST.json",
+      "manifest_sha256": "954f6e0247d42197def3953ee112a4867000c3cc71ec9d8c6d998d1550ae20eb",
+      "reason": null,
+      "task_id": 148,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_149/TASK_MANIFEST.json",
+      "manifest_sha256": "5b670583e522112ceef978b60a671d084eeed535801cd30d7dcd7fecb98b2e2e",
+      "reason": null,
+      "task_id": 149,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_150/TASK_MANIFEST.json",
+      "manifest_sha256": "9efe3ec48af59eb597cb88607f8b76467bbcc2cc2976452594bcd63a47ae09b5",
+      "reason": null,
+      "task_id": 150,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_151/TASK_MANIFEST.json",
+      "manifest_sha256": "d1ec8452e57d999df4a464d5fbdf357f28fbf4ba77c5938a802bb5f0812e48fa",
+      "reason": null,
+      "task_id": 151,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_152/TASK_MANIFEST.json",
+      "manifest_sha256": "0fe6ddee2cbf5a5cc8aeab73206e5896c8befe8edef0684bc37d8e9dc021ba6a",
+      "reason": null,
+      "task_id": 152,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_153/TASK_MANIFEST.json",
+      "manifest_sha256": "8bf7f2f9c3f2ad46f9ee68dbc5ef946868c0527011a558a5403d605c56ba9e7e",
+      "reason": null,
+      "task_id": 153,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_154/TASK_MANIFEST.json",
+      "manifest_sha256": "16947bc9c5ed9d20f48b5be8c35cb24820a7a00cb67ea2628ad22882ba7f7cf2",
+      "reason": null,
+      "task_id": 154,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_155/TASK_MANIFEST.json",
+      "manifest_sha256": "3b4e6d327d225a13e5896223a7abb0c3e1c15bd95401732f2dae17f217d876ed",
+      "reason": null,
+      "task_id": 155,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_156/TASK_MANIFEST.json",
+      "manifest_sha256": "d9dab706636d00514c6e975d0166fd58cff0aae7e25c45799fe0314aad417d9e",
+      "reason": null,
+      "task_id": 156,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_157/TASK_MANIFEST.json",
+      "manifest_sha256": "fa3f349881c7586f0ac4dcb65e83c151b7b9f6720fdf4d1751a08b67e4fcc3ee",
+      "reason": null,
+      "task_id": 157,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_158/TASK_MANIFEST.json",
+      "manifest_sha256": "6a91f8e074e24d35b051bc0d1d0dd8240d042387c647c70e5b267fed3d138875",
+      "reason": null,
+      "task_id": 158,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_159/TASK_MANIFEST.json",
+      "manifest_sha256": "bf190d19e028e73038f9c051922b9bf22957458192853fc0d4bd52dc45bcc57b",
+      "reason": null,
+      "task_id": 159,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_160/TASK_MANIFEST.json",
+      "manifest_sha256": "ff69d7c00c89db0a844be63ecf63f255556242fd350d08935d3cbb17fdc32354",
+      "reason": null,
+      "task_id": 160,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_161/TASK_MANIFEST.json",
+      "manifest_sha256": "4a49c4b47471d81089c148c8cfc74f019962c3411839ab0429a92031e4856ae5",
+      "reason": null,
+      "task_id": 161,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_162/TASK_MANIFEST.json",
+      "manifest_sha256": "1f63379a340bf080efa1d6fc0a0ccab98c5f9df3bdeeb9322f4a53bb6247bf4e",
+      "reason": null,
+      "task_id": 162,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_163/TASK_MANIFEST.json",
+      "manifest_sha256": "af5ab5bb925821950d3190829614eb9667a0abdd1780e928feccb33b8c48c24f",
+      "reason": null,
+      "task_id": 163,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_164/TASK_MANIFEST.json",
+      "manifest_sha256": "3daa10617ce3e9a7314b7309ef0867b2d71d3e704fa644781b4ca8358fc2031d",
+      "reason": null,
+      "task_id": 164,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_165/TASK_MANIFEST.json",
+      "manifest_sha256": "290ab09195052c8387403c82231f0af281c0545ffef3e7b278d1f6ae96647ea5",
+      "reason": null,
+      "task_id": 165,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_166/TASK_MANIFEST.json",
+      "manifest_sha256": "f7232e6ebad9b78cd6ad7e6ca477b303827223fbeea342c0c438ae8f7778e29b",
+      "reason": null,
+      "task_id": 166,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_167/TASK_MANIFEST.json",
+      "manifest_sha256": "0959fed788507b012f94dc4ebeafb27bd322eca77c51b294a371a493166b96f7",
+      "reason": null,
+      "task_id": 167,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_168/TASK_MANIFEST.json",
+      "manifest_sha256": "b98a31788256127f8d6453f6660754b5d57dd5a0b635adc76e6de3d03fecad53",
+      "reason": null,
+      "task_id": 168,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_169/TASK_MANIFEST.json",
+      "manifest_sha256": "d60867aaa5f825341d6004dc4f31c3d67dd35e6c9aae9565c14a51d4a031b623",
+      "reason": null,
+      "task_id": 169,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_170/TASK_MANIFEST.json",
+      "manifest_sha256": "478b2b007b13520dd299f83dc1b9ea8fef5390db2b7e3169ddf465de09d3d558",
+      "reason": null,
+      "task_id": 170,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_171/TASK_MANIFEST.json",
+      "manifest_sha256": "3981f1cfa86c7511a08455bd2c087cc5c399d94a7c5c268bd0fc899ff784e46d",
+      "reason": null,
+      "task_id": 171,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_172/TASK_MANIFEST.json",
+      "manifest_sha256": "de03a141f8382d84ebc4917b95b18bdb2f6c9dc71974b4ec4ea1a0ca7d3757b3",
+      "reason": null,
+      "task_id": 172,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_173/TASK_MANIFEST.json",
+      "manifest_sha256": "a1a227a0633e3ea7eecb6ac328aa4b56ee8e5a97b0bc07b33b4d253f529ed3ea",
+      "reason": null,
+      "task_id": 173,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_174/TASK_MANIFEST.json",
+      "manifest_sha256": "861e5e1c47bc480cec91797f0cd4e496f38edf17fd854ff7ab09bc84a0292f89",
+      "reason": null,
+      "task_id": 174,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_175/TASK_MANIFEST.json",
+      "manifest_sha256": "5f22c04286793aa1bab5e3169f7edda7ea3a49c8e00a9887505d388088a591f5",
+      "reason": null,
+      "task_id": 175,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_176/TASK_MANIFEST.json",
+      "manifest_sha256": "bfe190bcde17cf8f48c2a78de55f0e090bb8eba90d05f681abb83478cd3f36fb",
+      "reason": null,
+      "task_id": 176,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_177/TASK_MANIFEST.json",
+      "manifest_sha256": "6b1460f27f78b315b52434196ab4cd93272413c78f0a9054cdac546ddd0931c7",
+      "reason": null,
+      "task_id": 177,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_178/TASK_MANIFEST.json",
+      "manifest_sha256": "cebab7c1d4fd30a131374d14bac252c225788cb194f86d1e03916024214c5698",
+      "reason": null,
+      "task_id": 178,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_179/TASK_MANIFEST.json",
+      "manifest_sha256": "06e35bfb0a01c8e90d5e852760816d0519af03d8146f6fac2c0679efbed5e6c2",
+      "reason": null,
+      "task_id": 179,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_180/TASK_MANIFEST.json",
+      "manifest_sha256": "5e3ccba5c25300fb4eee959643258c8897d6d90159020ae1f8b81d8ab95cbca1",
+      "reason": null,
+      "task_id": 180,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_181/TASK_MANIFEST.json",
+      "manifest_sha256": "a40aac1fe1b1d4fbf79f360708183853ea7d416530cffcb1877d98082ad6e4c5",
+      "reason": null,
+      "task_id": 181,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_182/TASK_MANIFEST.json",
+      "manifest_sha256": "c1478b5748a1caa26a8516e479d2c1537e0f7ff66078fb9d04ac79165c234389",
+      "reason": null,
+      "task_id": 182,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_183/TASK_MANIFEST.json",
+      "manifest_sha256": "1457724348b264509d357850ca347686f881b5da285cac487d134b38438be14d",
+      "reason": null,
+      "task_id": 183,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_184/TASK_MANIFEST.json",
+      "manifest_sha256": "df968ccd30c0fb369fd4c8a44ad4f890e485b8bbdc3fd997b996dcb1f058930e",
+      "reason": null,
+      "task_id": 184,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_185/TASK_MANIFEST.json",
+      "manifest_sha256": "c68dda4aefe583b9d63f31895ec4d494c7a2a56052e6c60169781a8d7b76605d",
+      "reason": null,
+      "task_id": 185,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_186/TASK_MANIFEST.json",
+      "manifest_sha256": "bf7286a21d2ed23d7aa7b46cc97d442d9f18815a4ab25e9f59b3aaa9fe7fa326",
+      "reason": null,
+      "task_id": 186,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_187/TASK_MANIFEST.json",
+      "manifest_sha256": "de334b0cbf2972509c8f683fc2c07422d57de1df37eae4e5a3a99efb7c5419ba",
+      "reason": null,
+      "task_id": 187,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_188/TASK_MANIFEST.json",
+      "manifest_sha256": "f8969cd9e757491c707077efef2a3348e483ce33b53a0ec4d825dd5e18d40362",
+      "reason": null,
+      "task_id": 188,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_189/TASK_MANIFEST.json",
+      "manifest_sha256": "8ce05150eea36eb8085334e753ef62d963116de9472dc0c8db86c79d6bbddc04",
+      "reason": null,
+      "task_id": 189,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_190/TASK_MANIFEST.json",
+      "manifest_sha256": "bba30a850726c6a167d039dbba6db71d48449fb2bef81957307808808bb938c6",
+      "reason": null,
+      "task_id": 190,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_191/TASK_MANIFEST.json",
+      "manifest_sha256": "99d089ed61552eee4192eb1d513173d58422e39ccd1c728b30634565c564d367",
+      "reason": null,
+      "task_id": 191,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_192/TASK_MANIFEST.json",
+      "manifest_sha256": "3de7e74efdabc26b58e9f49902fef4094a1e4c512a0d7867481e01e04c76f754",
+      "reason": null,
+      "task_id": 192,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_193/TASK_MANIFEST.json",
+      "manifest_sha256": "babca8b06be5454349d667581439daa9b519dc14864a92fec3c570281438fa29",
+      "reason": null,
+      "task_id": 193,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_194/TASK_MANIFEST.json",
+      "manifest_sha256": "7dd4848c2aaa0961368273d3a6bece9222218a55b5a508604ab4f685fe460191",
+      "reason": null,
+      "task_id": 194,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_195/TASK_MANIFEST.json",
+      "manifest_sha256": "23af3f40e16edf562a267c2d69d41f50d50c04f3296f23ae775b6557d2a75752",
+      "reason": null,
+      "task_id": 195,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_196/TASK_MANIFEST.json",
+      "manifest_sha256": "3acf526573e2ff79a6b33e2b20f1bb8f91a00c94ee94620ea1042be1d2edf8ce",
+      "reason": null,
+      "task_id": 196,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_197/TASK_MANIFEST.json",
+      "manifest_sha256": "8820a936aebba53188bc6b6a7ff25e6254a376b36c077753fa65b5c83bdd74b2",
+      "reason": null,
+      "task_id": 197,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_198/TASK_MANIFEST.json",
+      "manifest_sha256": "12d34898ec67fcc01a8e2d0e406b9d59952ef3f5963336b64a5199e06b4fe4ab",
+      "reason": null,
+      "task_id": 198,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_199/TASK_MANIFEST.json",
+      "manifest_sha256": "5a4ecf7aeb824c92dc40c0d62cc839c7f34fcf6bedff389ae67e472949c501ed",
+      "reason": null,
+      "task_id": 199,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_200/TASK_MANIFEST.json",
+      "manifest_sha256": "4c5caf64310ff42e16083f3d9106cf5b72831459d7c4e2bda70789202def5c58",
+      "reason": null,
+      "task_id": 200,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_201/TASK_MANIFEST.json",
+      "manifest_sha256": "585668de1a88c225ac88168cf5202c844dc2c503bdb80d48cdfaf58830885569",
+      "reason": null,
+      "task_id": 201,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_202/TASK_MANIFEST.json",
+      "manifest_sha256": "2a7f89e78a89a7e6932cfc2d67ce51c58f35306b9f64928e1e3ed604b2c117e5",
+      "reason": null,
+      "task_id": 202,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_203/TASK_MANIFEST.json",
+      "manifest_sha256": "868216874a087d470137f07f13cd4015333c4c3b64fe5ae542d8d2447b0a5689",
+      "reason": null,
+      "task_id": 203,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_204/TASK_MANIFEST.json",
+      "manifest_sha256": "f6a8f12e0adbfdfa6e52f1d9292c4c4a7e5c60792793bdfb100980ccfd9b946e",
+      "reason": null,
+      "task_id": 204,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_205/TASK_MANIFEST.json",
+      "manifest_sha256": "9f5cd98a0fdd5e32345ccd1b5b4290201970baa83d57dca63c2b85b9e7dfab0c",
+      "reason": null,
+      "task_id": 205,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_206/TASK_MANIFEST.json",
+      "manifest_sha256": "df05f5b6133412cfb30a8dcc58a0dc63a1948d43998399081e2904b91607f198",
+      "reason": null,
+      "task_id": 206,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_207/TASK_MANIFEST.json",
+      "manifest_sha256": "2f368d87414ba901dd07a63fe9d68c25182ba87913d7f385de66c8da2ae1f820",
+      "reason": null,
+      "task_id": 207,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_208/TASK_MANIFEST.json",
+      "manifest_sha256": "247a3ba5e009f78c9ff16efbadf9b3c67edf5b0e1d2507940e2d274d05c234fd",
+      "reason": null,
+      "task_id": 208,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_209/TASK_MANIFEST.json",
+      "manifest_sha256": "308107de5923619292997d174fe87413bbac40f7ecbc027eb6e4bf7dd6d017fd",
+      "reason": null,
+      "task_id": 209,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_210/TASK_MANIFEST.json",
+      "manifest_sha256": "0e85c20eb819a025f5bbda25d626af54194cb6453be1a3fd4797e31cd38c0dd8",
+      "reason": null,
+      "task_id": 210,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_211/TASK_MANIFEST.json",
+      "manifest_sha256": "e23980d6880c28f481bcc8197d7636006ed191febb6c1f888bf93760b5c74bc4",
+      "reason": null,
+      "task_id": 211,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_212/TASK_MANIFEST.json",
+      "manifest_sha256": "5a499338fe1bbd7dda48e7c2bcbe3f49969c1269b4b05f9ae621af660fb1e276",
+      "reason": null,
+      "task_id": 212,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_213/TASK_MANIFEST.json",
+      "manifest_sha256": "8bcde9499eb42e05813533df871795dde735bf1b90a65badfdc09582de2a4bc1",
+      "reason": null,
+      "task_id": 213,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_214/TASK_MANIFEST.json",
+      "manifest_sha256": "0aaa27e72a4e99d6d77b455ce5da4e841267f66081aa5788de56ce92087fa989",
+      "reason": null,
+      "task_id": 214,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_215/TASK_MANIFEST.json",
+      "manifest_sha256": "72e3e841e4249b79dc4b09a470a2099df208d6a0dfe6d9fb6387f545eadaadee",
+      "reason": null,
+      "task_id": 215,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_216/TASK_MANIFEST.json",
+      "manifest_sha256": "28fb8a00c0c2dc5c72885c3cd946b023404c49cc15082c2d44dba6b8b65f5417",
+      "reason": null,
+      "task_id": 216,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_217/TASK_MANIFEST.json",
+      "manifest_sha256": "ce3019ed19e27b73145c3c6fd21a57a7b396f65420a7cafd8ee04e10b4ec7b62",
+      "reason": null,
+      "task_id": 217,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_218/TASK_MANIFEST.json",
+      "manifest_sha256": "863552aaa86ade891d37c9d610832ef2bd54392b549949757f1702be2bbfcebb",
+      "reason": null,
+      "task_id": 218,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_219/TASK_MANIFEST.json",
+      "manifest_sha256": "54fe856abdbd8041fef5077ac82462304a13aabbbf158773eab1814f95915127",
+      "reason": null,
+      "task_id": 219,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_220/TASK_MANIFEST.json",
+      "manifest_sha256": "3ba075941ff35349ed7b04c865194247a57216cf54a0223e5944e656eaa44edf",
+      "reason": null,
+      "task_id": 220,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_221/TASK_MANIFEST.json",
+      "manifest_sha256": "3ffbef7093e72f07c2c1f6292a8f3805848d61897c3ab3d8644dc35845cb9d26",
+      "reason": null,
+      "task_id": 221,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_222/TASK_MANIFEST.json",
+      "manifest_sha256": "ad27360e9a8b501db8f83cce870b9ba6cc4b23b40cd7c5b5c8a9985801046ce6",
+      "reason": null,
+      "task_id": 222,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_223/TASK_MANIFEST.json",
+      "manifest_sha256": "95db01e6dcfcc69b9eaabeff57299cf410d0bafb911edf9ef53f1b78a5d018a9",
+      "reason": null,
+      "task_id": 223,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_224/TASK_MANIFEST.json",
+      "manifest_sha256": "732955a850c90321c673368143d90f800cc4685aee0f607ee176b22391b5a70f",
+      "reason": null,
+      "task_id": 224,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_225/TASK_MANIFEST.json",
+      "manifest_sha256": "0aa22dcfca0817473a6183a7791c403c5571561132ab90f951893dab8ffe9475",
+      "reason": null,
+      "task_id": 225,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_226/TASK_MANIFEST.json",
+      "manifest_sha256": "5879f249644fb5a967503addf5ceabb021a20ea441a7b365e335e03db3f22006",
+      "reason": null,
+      "task_id": 226,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_227/TASK_MANIFEST.json",
+      "manifest_sha256": "48c342d13c3f963838ad09ae0c999b784af8c5d3a9ef6686803b75a3d70cd502",
+      "reason": null,
+      "task_id": 227,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_228/TASK_MANIFEST.json",
+      "manifest_sha256": "d6dfc7742d2870ad24e927c5ba05e90966fabd5c83a455127b8385aa87d7c171",
+      "reason": null,
+      "task_id": 228,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_229/TASK_MANIFEST.json",
+      "manifest_sha256": "e4b8d30f5eb014d72f6ed4dafc49f21ff1b7151d9a3d0fce2d02c584cf8c6ea4",
+      "reason": null,
+      "task_id": 229,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_230/TASK_MANIFEST.json",
+      "manifest_sha256": "34aee2db8ed74a3a8ccbe2d6d6188c602305d9d24ac6605bd7d3c7be73f2fe36",
+      "reason": null,
+      "task_id": 230,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_231/TASK_MANIFEST.json",
+      "manifest_sha256": "5eb5d85e84ab726f9cbed0d37203fd9e6b859ae43f93f180cf2ac888d8b85e60",
+      "reason": null,
+      "task_id": 231,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_232/TASK_MANIFEST.json",
+      "manifest_sha256": "2ed350974aa74683eab3d1e0b62756d2c795b1b517ee0f657c90cad2c972fe93",
+      "reason": null,
+      "task_id": 232,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_233/TASK_MANIFEST.json",
+      "manifest_sha256": "f86c50641c62188822e8e81e7f142cb1dca61d7566ea93a4693b526beccb92bb",
+      "reason": null,
+      "task_id": 233,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_234/TASK_MANIFEST.json",
+      "manifest_sha256": "ca8665381c8c2425c5aea260b7980f0e519822af91dcbb503b4702c43904d1cf",
+      "reason": null,
+      "task_id": 234,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_235/TASK_MANIFEST.json",
+      "manifest_sha256": "6193947bfc1304db1c1ffa15c1bace67a21ceac65c8ad0b11c64fdf7c8472c84",
+      "reason": null,
+      "task_id": 235,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_236/TASK_MANIFEST.json",
+      "manifest_sha256": "afd4a599aff32553f8ba4e8d8bd55ead100608ce5465ec4e5cabe4a879ba04e7",
+      "reason": null,
+      "task_id": 236,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_237/TASK_MANIFEST.json",
+      "manifest_sha256": "8206827885875113c774e668410229a782578ebe866d5de68c9a8ab5e5758e2f",
+      "reason": null,
+      "task_id": 237,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_238/TASK_MANIFEST.json",
+      "manifest_sha256": "4e825ccf7c39a112109bbce173c9d8e0ae45c7fc2139be37052b05f8fca811af",
+      "reason": null,
+      "task_id": 238,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_239/TASK_MANIFEST.json",
+      "manifest_sha256": "b81685b8a6f2e948837bcb5bc48f98c99c858aa40a19843b58df9f25f1f20b10",
+      "reason": null,
+      "task_id": 239,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_240/TASK_MANIFEST.json",
+      "manifest_sha256": "c4a7264c9beb19b830fc48b568b5d75a9a1b858b38701c5c3904787083c471d9",
+      "reason": null,
+      "task_id": 240,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_241/TASK_MANIFEST.json",
+      "manifest_sha256": "c36f37786ac3b790dab1395be379dd13d180652b60aa8ac9a2581eacf7d7390e",
+      "reason": null,
+      "task_id": 241,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_242/TASK_MANIFEST.json",
+      "manifest_sha256": "b1420389333f4b0f7c875706fa4612acaa7e52e6ad6632cb23222115da9ab260",
+      "reason": null,
+      "task_id": 242,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_243/TASK_MANIFEST.json",
+      "manifest_sha256": "338f26a5271aae937594281aa2af44591f932799b4df288764511a64f39f208a",
+      "reason": null,
+      "task_id": 243,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_244/TASK_MANIFEST.json",
+      "manifest_sha256": "953b3cb1a9a63eebfaa765b203f65f14ee6f2966540bf4f6e99c169bd9eb4b90",
+      "reason": null,
+      "task_id": 244,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_245/TASK_MANIFEST.json",
+      "manifest_sha256": "b7e7f07181e45111db050787b3e565515887b51a74a7bb054e8a3bd218b84e20",
+      "reason": null,
+      "task_id": 245,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_246/TASK_MANIFEST.json",
+      "manifest_sha256": "b327630781a2a2a15ac0a4b918db722397c52df2fa35edc1f668633602fc5fcf",
+      "reason": null,
+      "task_id": 246,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_247/TASK_MANIFEST.json",
+      "manifest_sha256": "fb0cd19c5931bb8a291e17ac6b9990052c583a05baabb25c7541e09d5c470e13",
+      "reason": null,
+      "task_id": 247,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_248/TASK_MANIFEST.json",
+      "manifest_sha256": "03a3bf913294afc275191c2247b6ca5324996c637cb7873f36bedaf41dfd7a76",
+      "reason": null,
+      "task_id": 248,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_249/TASK_MANIFEST.json",
+      "manifest_sha256": "d6ff094dfbb42a59c2b8eadab608366eb4b6f66596c7b740f1c07474b091f3f3",
+      "reason": null,
+      "task_id": 249,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_250/TASK_MANIFEST.json",
+      "manifest_sha256": "702f229974e55cb56c0f411060391b5edbae81fc75b8ae49bd0408622d72bba5",
+      "reason": null,
+      "task_id": 250,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_251/TASK_MANIFEST.json",
+      "manifest_sha256": "7bd74998507e636a53a3e97786284993bdaa21ae1fa1380d6dacb9be2c568e43",
+      "reason": null,
+      "task_id": 251,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_252/TASK_MANIFEST.json",
+      "manifest_sha256": "d1b0b9b0cf6d3a1425a611064bf3ef729fe2cf0f17d533f697d975e443c02154",
+      "reason": null,
+      "task_id": 252,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_253/TASK_MANIFEST.json",
+      "manifest_sha256": "d1ccdee2307cd0923052b0febaa83ada698f993c533de5a840c3a495c318109c",
+      "reason": null,
+      "task_id": 253,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_254/TASK_MANIFEST.json",
+      "manifest_sha256": "8230a65dbfcadd30007cd92f3f6101459d09150cd4b569b79f6f73576a77fcdf",
+      "reason": null,
+      "task_id": 254,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_255/TASK_MANIFEST.json",
+      "manifest_sha256": "42eeda1e9df652e14fd6b2c6140e04ccbf5635bb2bd2387dff08351c67df3a46",
+      "reason": null,
+      "task_id": 255,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_256/TASK_MANIFEST.json",
+      "manifest_sha256": "8d2aa7d848f433d39a7188f5ce58a7ad4d7f9785dbc17bcd5ea5bafb9fe9bc81",
+      "reason": null,
+      "task_id": 256,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_257/TASK_MANIFEST.json",
+      "manifest_sha256": "e471578639721fa336333440a32d300b6d3120f9a91877ecde56e2b8e93dba3c",
+      "reason": null,
+      "task_id": 257,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_258/TASK_MANIFEST.json",
+      "manifest_sha256": "77c4cebe1d5091012358fdc5664b4ad5cdb41cd8e4136447bb9579d259fc5176",
+      "reason": null,
+      "task_id": 258,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_259/TASK_MANIFEST.json",
+      "manifest_sha256": "6cf0257161428a7d0e3fa7a20399e84c3a5f926dbc000ab61d2a9425b1f4dbf6",
+      "reason": null,
+      "task_id": 259,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_260/TASK_MANIFEST.json",
+      "manifest_sha256": "336468f1f663537ce0792748fab2b6812137e90afce6bae04fa7c02b98feceb1",
+      "reason": null,
+      "task_id": 260,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_261/TASK_MANIFEST.json",
+      "manifest_sha256": "bb29126649821b184794e4cc3c9b8c68a8775eb71dd8f2a82c3ffc531e8e95b8",
+      "reason": null,
+      "task_id": 261,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_262/TASK_MANIFEST.json",
+      "manifest_sha256": "26475799085a6582cd9c1f1f084be7983dc2ae55efb2ac5d54a5e64b4edc473f",
+      "reason": null,
+      "task_id": 262,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_263/TASK_MANIFEST.json",
+      "manifest_sha256": "0a7b7eecb98af4227762c4fa2bafe993910ebee96689ae2cf6537b0a9ab6325f",
+      "reason": null,
+      "task_id": 263,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_264/TASK_MANIFEST.json",
+      "manifest_sha256": "a3fd3f18c8d521d840972133c0ed9cc9b86d25b3dbc207d551a3744a8d2cd1f3",
+      "reason": null,
+      "task_id": 264,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_265/TASK_MANIFEST.json",
+      "manifest_sha256": "36f431ab10ad9319730be6f3cf42c46b48d6cc80caada477112714d482c26ff4",
+      "reason": null,
+      "task_id": 265,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_266/TASK_MANIFEST.json",
+      "manifest_sha256": "9f8cdafa0622af936e0d2d683dd1ce19397cf68ce5fd5c68da40cf16e1a44328",
+      "reason": null,
+      "task_id": 266,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_267/TASK_MANIFEST.json",
+      "manifest_sha256": "88135a6ac2494dcf238bb1d9507eb4e19912b013f01c6c7f493ccda3f6f2afa8",
+      "reason": null,
+      "task_id": 267,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_268/TASK_MANIFEST.json",
+      "manifest_sha256": "89cee99afac3bc4dc119fe0c2c411684d8facba255bf2a8a5d6950d6ff836c6f",
+      "reason": null,
+      "task_id": 268,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_269/TASK_MANIFEST.json",
+      "manifest_sha256": "13a5b98dd6a22eccce2b7566905a429cf7fd226f4c98cd38b2a49c042443a09c",
+      "reason": null,
+      "task_id": 269,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_270/TASK_MANIFEST.json",
+      "manifest_sha256": "fb739e2e6edd50a6eba5fd83bd2127c0d8175531fe39c3f35e0f7eb1ff4dbffc",
+      "reason": null,
+      "task_id": 270,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_271/TASK_MANIFEST.json",
+      "manifest_sha256": "7665e063ec00a6d5f08df4537f1cf1af6fdba1d9155fe19a44b919357afcb87a",
+      "reason": null,
+      "task_id": 271,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_272/TASK_MANIFEST.json",
+      "manifest_sha256": "c8bef05ef4b1ad372cab1529a26820a08bc95385bc322f9ef9c0fc3511b2b6b8",
+      "reason": null,
+      "task_id": 272,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_273/TASK_MANIFEST.json",
+      "manifest_sha256": "4a71385af2c5d24ad7a2a42e9e4d2c54b8ae196271537ecccf93d8f0cd635149",
+      "reason": null,
+      "task_id": 273,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_274/TASK_MANIFEST.json",
+      "manifest_sha256": "449d3f23686752cf0473ffd69ca8fd3752709418039509ac3a358a6a80344a8b",
+      "reason": null,
+      "task_id": 274,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_275/TASK_MANIFEST.json",
+      "manifest_sha256": "11fb57ff40ee8a8c320bedf0d4f922851b1b3549f46ce0f0d05c17aa18e81721",
+      "reason": null,
+      "task_id": 275,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_276/TASK_MANIFEST.json",
+      "manifest_sha256": "2f85c23756b946e3ee020af2bbe156884be1379e6f214ac8b0dddc293877350b",
+      "reason": null,
+      "task_id": 276,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_277/TASK_MANIFEST.json",
+      "manifest_sha256": "c9204dfac68e2397e74f81530be13ac6f40c4cab2e3276072b068dbdd563a116",
+      "reason": null,
+      "task_id": 277,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_278/TASK_MANIFEST.json",
+      "manifest_sha256": "9e5171e3e6a3eda4b1d772ca8dfbeba3d795dc1cf4a3550948e0c7aaaa8075f9",
+      "reason": null,
+      "task_id": 278,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_279/TASK_MANIFEST.json",
+      "manifest_sha256": "2422d3042b2fe17ec5921779bbf7d9831a89b89ae3baf5851fe611baec503ea9",
+      "reason": null,
+      "task_id": 279,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_280/TASK_MANIFEST.json",
+      "manifest_sha256": "f38825039865fc009489fd98b7aa30d1e56087e46ccae25a3be084d6bb989bfd",
+      "reason": null,
+      "task_id": 280,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_281/TASK_MANIFEST.json",
+      "manifest_sha256": "4f1f78538262525aa03c33586a57a73e96e78b5511a76ee1f2ef91837de08fe5",
+      "reason": null,
+      "task_id": 281,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_282/TASK_MANIFEST.json",
+      "manifest_sha256": "0cc7d20e1f457ab8c2676d0253ec6c7968a5eb28ac161f05dbcae7686459654c",
+      "reason": null,
+      "task_id": 282,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_283/TASK_MANIFEST.json",
+      "manifest_sha256": "811285cdd19395f3d39d24c2e1a19e5c2ca8384f0746a0d74b78793a576072b0",
+      "reason": null,
+      "task_id": 283,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_284/TASK_MANIFEST.json",
+      "manifest_sha256": "73c42437685e15f89b0055f10bafe31dd861cbd714a870de9f0d4ad34422c9ae",
+      "reason": null,
+      "task_id": 284,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_285/TASK_MANIFEST.json",
+      "manifest_sha256": "2b7907c722a35b7d68a8d9e001ce323aa1b77a677c7329fc334466bcf67c6e99",
+      "reason": null,
+      "task_id": 285,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_286/TASK_MANIFEST.json",
+      "manifest_sha256": "91e7b1cc27c2f13adb47325978ace127f2d317bea5b3831dae49fa6b4ce5c367",
+      "reason": null,
+      "task_id": 286,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_287/TASK_MANIFEST.json",
+      "manifest_sha256": "bbfa0e3feb25bf5743489b5614b50e97b6c742541cedf92eb653e8b09bc4116f",
+      "reason": null,
+      "task_id": 287,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_288/TASK_MANIFEST.json",
+      "manifest_sha256": "af86591d000d4aec7ab4d3c84902bc44c838b8b083d33e22618402b86d169768",
+      "reason": null,
+      "task_id": 288,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_289/TASK_MANIFEST.json",
+      "manifest_sha256": "22bd2dab623f421f15f242f82fa71cf98b17abd0fa573a8342b85643c03658c3",
+      "reason": null,
+      "task_id": 289,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_290/TASK_MANIFEST.json",
+      "manifest_sha256": "b1948399ba7172fd766a2ba44e38dacbc3f7efbcf049c5be57e13b16b6e7db46",
+      "reason": null,
+      "task_id": 290,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_291/TASK_MANIFEST.json",
+      "manifest_sha256": "75c5662da2b27f0e266df36b6ca495e38fcc82c93adc38adae63fcf12af82b65",
+      "reason": null,
+      "task_id": 291,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_292/TASK_MANIFEST.json",
+      "manifest_sha256": "5a424c3789148de1ad4cbb9b09d45e018226d518916ff09339524f177b79ee5f",
+      "reason": null,
+      "task_id": 292,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_293/TASK_MANIFEST.json",
+      "manifest_sha256": "67ceeb083910484c80b6d91d1f653f6023819955fc6b7a2409718686678606d9",
+      "reason": null,
+      "task_id": 293,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_294/TASK_MANIFEST.json",
+      "manifest_sha256": "e25d18ea73df7d4d750d16d71710ecc1b97028a524430a46a9e0029c4664ddf8",
+      "reason": null,
+      "task_id": 294,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_295/TASK_MANIFEST.json",
+      "manifest_sha256": "19917f7877a6a0c4652e4cbc9d4dec64bdf75fa2ead653d6c37c224b0b2e1620",
+      "reason": null,
+      "task_id": 295,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_296/TASK_MANIFEST.json",
+      "manifest_sha256": "cd9c3a70ca9f5bb731ab39e9fa3485d197f9b2f476015ea85564b3809bde4520",
+      "reason": null,
+      "task_id": 296,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_297/TASK_MANIFEST.json",
+      "manifest_sha256": "b473e09314b66346b5c9dc4738dea7483fe6cf6cc4a7dee332be5a972921ca2a",
+      "reason": null,
+      "task_id": 297,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_298/TASK_MANIFEST.json",
+      "manifest_sha256": "b439b3011523b30b2c4c95d8ad9e8df88d29a6baebb97fce4f1f916b57beacb8",
+      "reason": null,
+      "task_id": 298,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_299/TASK_MANIFEST.json",
+      "manifest_sha256": "21018c8470a4639aaad5f7a22f0f603a9ab693c15b4ae9112fc27af7342d40cb",
+      "reason": null,
+      "task_id": 299,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_300/TASK_MANIFEST.json",
+      "manifest_sha256": "966eebaf620b08f0fe0f3ad45ced6c9f96491ef4ed3a6b244dcac2f5d98648a8",
+      "reason": null,
+      "task_id": 300,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_301/TASK_MANIFEST.json",
+      "manifest_sha256": "77ebdc5433ba5bda29b51f383403e38841d5d8e52edfbec084276b6fd0d02372",
+      "reason": null,
+      "task_id": 301,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_302/TASK_MANIFEST.json",
+      "manifest_sha256": "82ae4367d53203ece75ac654f32c9b8a14e008a7f0393c21bf9a3c22e8e98e5e",
+      "reason": null,
+      "task_id": 302,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_303/TASK_MANIFEST.json",
+      "manifest_sha256": "3a0410fed0cda8010daa357db46ce53e78b228a8f245d07bc707d47b656498d3",
+      "reason": null,
+      "task_id": 303,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_304/TASK_MANIFEST.json",
+      "manifest_sha256": "6d5e2fbfbb0df187a315a6b6ff316a05c21c0ce8ab57db8536b36e0a43f4c02f",
+      "reason": null,
+      "task_id": 304,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    },
+    {
+      "manifest_path": "results/corpus_v4/latency_fem_v2/jobs/attempts/job_7260429/task_305/TASK_MANIFEST.json",
+      "manifest_sha256": "2b4245f005ec0e225ff0f39d02be28044063084560ecae162295c27b6d233a0f",
+      "reason": null,
+      "task_id": 305,
+      "terminally_accepted": true,
+      "valid_artifact": true
+    }
+  ],
+  "full_array_job_id": "7260429",
+  "preflight_admission": {
+    "path": "results/corpus_v4/latency_fem_v2/preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json",
+    "sha256": "0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf"
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-candidate-index.v1"
+}

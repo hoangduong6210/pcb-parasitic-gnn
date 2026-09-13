@@ -1,0 +1,15 @@
+{
+  "execution_lock_sha256": "b5ee0844267f261f7766bd1fb4265f8cf93da55f4194bcd67f81d38ada6061e5",
+  "full_array_job_id": "7260429",
+  "n_pending": 0,
+  "panel_records_sha256": "a32682b8d6263d0ee256584b66883499883b6fd3ff3511011967743e3c6d4e32",
+  "pending_task_ids": [],
+  "plan_sha256": "2ad12cdc11c356716e0cf0422f4e429a25bc1c094fe9a5ead4c7bc0ee0479cfb",
+  "preflight_admission": {
+    "path": "results/corpus_v4/latency_fem_v2/preflight/admission/job_7259818/PREFLIGHT_ADMISSION.json",
+    "sha256": "0cd724afb3b80be4e4b424da511009a0d931dce88b3ab1ba200766ffba47c5cf"
+  },
+  "protocol_sha256": "6459fb716b79f0a95436691c9430e6505d5590d493f1e7e3ff191cbd602b4bf9",
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-pending-set.v1",
+  "task_manifest_sha256": "75ce9cebb34d4288077d38a33d418e5de391ebc94bd8aa3f10e03bee51631d04"
+}

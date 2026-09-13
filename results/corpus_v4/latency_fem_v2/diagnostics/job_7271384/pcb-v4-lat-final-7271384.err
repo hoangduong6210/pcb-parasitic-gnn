@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/latency-fem-v2-run/code/experiments/proofs/finalize_corpus_v4_latency_v2.py", line 1173, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/latency-fem-v2-run/code/experiments/proofs/finalize_corpus_v4_latency_v2.py", line 1169, in main
+    print(output.relative_to(ROOT), flush=True)
+  File "/usr/lib64/python3.9/pathlib.py", line 857, in relative_to
+    raise ValueError("{!r} is not in the subpath of {!r}"
+ValueError: 'results/corpus_v4/latency_fem_v2/final/job_7271384' is not in the subpath of '/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/latency-fem-v2-run' OR one path is relative and the other is absolute.
