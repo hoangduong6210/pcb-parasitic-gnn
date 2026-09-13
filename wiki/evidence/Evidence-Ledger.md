@@ -14,7 +14,7 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | Preflight validated; all training checkpoints accepted; held-out finalization pending |
+| Status | All checkpoints accepted; analysis reconstructed; clean-tracked replay pending |
 | Scope | Frozen fixed-baseline extension; no new solver labels |
 | Source commit | `23ca6d046528e0da22d5fbaa24454da9101c7315` |
 | Protocol SHA-256 | `f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802` |
@@ -27,7 +27,11 @@ operational or pending archival is not publication evidence.
 | Terminal admission job | `7273449`, `COMPLETED/0:0`, 43 s |
 | Accepted set | [Round-00 admission](../../results/corpus_v4/baseline_fem_v2/resume/round_00/accepted_artifact_set.json) |
 | Accepted-set SHA-256 | `3779355148fd79ecc919d99fde0bb086be540f9e7ee55c4ce7470736ab2dd475` |
-| Held-out finalizer | `7273521`, submitted after terminal admission |
+| Held-out finalizer | `7273521`, `COMPLETED/0:0`, 79 s |
+| Analysis manifest | [Frozen held-out analysis](../../results/corpus_v4/baseline_fem_v2/final/job_7273521/ANALYSIS_MANIFEST.json) |
+| Analysis-manifest SHA-256 | `f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28` |
+| Numerical archive replay | `7273643`, `COMPLETED/0:0`, 101 s; exact reconstruction passed |
+| Archive receipt | [Numerical reconstruction closure](../../results/corpus_v4/baseline_fem_v2/ARCHIVE_MANIFEST.json) |
 | Prospective claim | `C-BASE-FEMV2-001`, not admitted |
 
 The receipt contains the scheduler record observed while the probe was running.

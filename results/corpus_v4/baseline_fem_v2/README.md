@@ -1,6 +1,6 @@
 # FEM-v2 fixed baseline comparison
 
-Status: all 25 training checkpoints accepted; held-out finalization pending.
+Status: all 25 checkpoints accepted; analysis reconstructed; tracked replay pending.
 No baseline accuracy claim is admitted by this index.
 
 Preflight `7273416_0` completed `0:0` without fitting or opening held-out bytes.
@@ -9,7 +9,14 @@ runtime and task-private filesystem checks. Training array `7273435` contains
 25 completed tasks; terminal admission job `7273449` accepted the full array.
 The [accepted set](resume/round_00/accepted_artifact_set.json) authenticates
 every numeric model bundle and terminal task record. Held-out finalizer
-`7273521` is submitted. These are operational records, not accuracy evidence.
+`7273521` completed successfully. Its
+[summary](final/job_7273521/summary.json),
+[metrics](final/job_7273521/metrics.json), and
+[predictions](final/job_7273521/predictions.jsonl) are preserved without edits.
+Archive replay `7273643` passed exact reconstruction; its
+[receipt](ARCHIVE_MANIFEST.json) authenticates the analysis closure. The
+[result page](../../../wiki/results/Corpus-V4-FEM-v2-Baselines.md) remains
+provisional until archive validation and scientific admission.
 
 The study reuses accuracy-v3's exact five split-scoped train/validation tables,
 test partitions and admitted GNN predictions. Each of 25 split/initialization

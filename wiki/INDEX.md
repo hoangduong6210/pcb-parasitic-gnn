@@ -65,6 +65,7 @@ paper_source: false
 | [Corpus V4 Family-Held-Out Accuracy](results/Corpus-V4-Accuracy.md) | Admitted 5 by 5 crossed accuracy result and matched R3/R4 capacitance view |
 | [Corpus V4 FEM-v2 Family-Held-Out Accuracy](results/Corpus-V4-FEM-v2-Accuracy.md) | Admitted one-thread FEM-v2 5 by 5 crossed result and matched R3/R4 view |
 | [Corpus V4 FEM-v2 Paired Latency](results/Corpus-V4-FEM-v2-Latency.md) | Admitted 306-layout all-four-target workflow comparison and family-cluster sensitivity |
+| [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Matched fixed-baseline errors and descriptive paired differences; archive review pending |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 

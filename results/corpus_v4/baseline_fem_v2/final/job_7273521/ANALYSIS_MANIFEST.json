@@ -1,0 +1,12 @@
+{
+  "bindings": {
+    "execution_lock_sha256": "1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243",
+    "protocol_sha256": "f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802",
+    "source_git_head": "23ca6d046528e0da22d5fbaa24454da9101c7315"
+  },
+  "files": {
+    "metrics.json": "d588cd5899ce2d0bf319ef4f5274e6fd44d03fe8d71127064ab59da2a4368bdc",
+    "predictions.jsonl": "795c1690745b19106017c96344102b495b809aafad2d908146d31926369c9fec",
+    "summary.json": "f16404ede4220b0b3fec9002e75ebe0507322b29e94bc5c56ab1943857db6163"
+  }
+}

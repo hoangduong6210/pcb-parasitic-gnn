@@ -7,10 +7,12 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-09-13 07:31 UTC. Baseline array
+Last scheduler-backed observation: 2026-09-13 07:35 UTC. Baseline array
 `7273435` completed all 25 tasks with exit `0:0` and zero restarts, in 26 to
 40 s per task. Admission `7273449` completed `0:0` in 43 s and accepted all
-25 tasks. Held-out finalizer `7273521` is submitted. No task failed. Independent
+25 tasks. Held-out finalizer `7273521` completed `0:0` in 79 s. Archive replay
+`7273643` completed `0:0` in 101 s with exact numerical reconstruction.
+Clean-tracked replay is next. No task failed. Independent
 receipt review confirmed held-out isolation and exact task coverage.
 
 Previously completed chain: FEM-v2 latency preflight array
@@ -70,7 +72,7 @@ admissions are unchanged. Remote verification confirmed governance commit
 perform a new scheduler query.
 
 The user authorized implementation of the baseline-comparison stage on
-2026-09-13. The active state is **baseline checkpoints accepted; held-out finalizer submitted**,
+2026-09-13. The active state is **baseline archive reconstructed; tracked replay next**,
 not another corpus solve. The existing accuracy study evaluates the designated
 GNN across splits and initializations; the next question is whether its graph
 representation adds predictive value over simpler reference models on the
@@ -91,7 +93,12 @@ eight scientific threads per task. Admission job `7273449` started after
 `afterok:7273435` and validated exact coverage and safe numeric bundles.
 The accepted-set SHA-256 is
 `3779355148fd79ecc919d99fde0bb086be540f9e7ee55c4ce7470736ab2dd475`.
-Finalizer `7273521` now binds that accepted set for held-out inference.
+Finalizer `7273521` bound that accepted set for held-out inference and completed.
+Its analysis-manifest SHA-256 is
+`f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28`.
+The [baseline result page](../results/Corpus-V4-FEM-v2-Baselines.md) records
+the provisional matched comparison, pending independent archive replay and
+clean-tracked verification. Replay job `7273643` passed exact reconstruction.
 The preflight receipt is indexed in
 `E-C4-BASE-FEMV2-PLAN-01` in the [Evidence Ledger](../evidence/Evidence-Ledger.md).
 No baseline result is admitted yet. Next: terminal admission, held-out

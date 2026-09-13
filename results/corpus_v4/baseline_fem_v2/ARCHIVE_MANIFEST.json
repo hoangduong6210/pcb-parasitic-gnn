@@ -1,0 +1,30 @@
+{
+  "accepted_set": {
+    "path": "results/corpus_v4/baseline_fem_v2/resume/round_00/accepted_artifact_set.json",
+    "sha256": "3779355148fd79ecc919d99fde0bb086be540f9e7ee55c4ce7470736ab2dd475"
+  },
+  "analysis_manifest": {
+    "path": "results/corpus_v4/baseline_fem_v2/final/job_7273521/ANALYSIS_MANIFEST.json",
+    "sha256": "f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28"
+  },
+  "bindings": {
+    "execution_lock_sha256": "1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243",
+    "protocol_sha256": "f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802",
+    "source_git_head": "23ca6d046528e0da22d5fbaa24454da9101c7315"
+  },
+  "claim_eligible": false,
+  "finalizer_terminal": {
+    "AllocTRES": "billing=5,cpu=5,mem=16G,node=1",
+    "ElapsedRaw": "79",
+    "ExitCode": "0:0",
+    "JobID": "7273521",
+    "JobIDRaw": "7273521",
+    "Partition": "nextgen",
+    "ReqTRES": "billing=2,cpu=2,mem=16G,node=1",
+    "Restarts": "0",
+    "State": "COMPLETED",
+    "Timelimit": "00:30:00"
+  },
+  "numerical_reconstruction_passed": true,
+  "schema": "pcb-gnn.baseline-archive.v1"
+}

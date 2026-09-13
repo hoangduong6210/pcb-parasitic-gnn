@@ -1,0 +1,253 @@
+{
+  "accepted_set_sha256": "3779355148fd79ecc919d99fde0bb086be540f9e7ee55c4ce7470736ab2dd475",
+  "bindings": {
+    "execution_lock_sha256": "1c76d1b84cdbb674dbc7b9b615e2625ba7c29d672fe29e6e841076bd0d23e243",
+    "protocol_sha256": "f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802",
+    "source_git_head": "23ca6d046528e0da22d5fbaa24454da9101c7315"
+  },
+  "claim_eligible": false,
+  "results": {
+    "difference_sign": "baseline minus GNN; positive means lower GNN family-macro MAPE",
+    "hyperparameter_search_trials": 0,
+    "models": {
+      "constant": {
+        "Cps_pF": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 62.42123360599596,
+          "mean_paired_difference_pp": 49.870992254668465,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            38.47563779463849,
+            61.25266137697235
+          ],
+          "paired_difference_max_pp": 71.16193421981102,
+          "paired_difference_min_pp": 31.664756558098322
+        },
+        "L_mut_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 57.02642067438217,
+          "mean_paired_difference_pp": 53.6133517140427,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            40.87477294291628,
+            67.33207607213372
+          ],
+          "paired_difference_max_pp": 80.8950699754574,
+          "paired_difference_min_pp": 36.138923614761104
+        },
+        "L_pri_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 71.12860016922745,
+          "mean_paired_difference_pp": 66.95576162971685,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            56.26224169253192,
+            77.78738589766621
+          ],
+          "paired_difference_max_pp": 85.94813618649853,
+          "paired_difference_min_pp": 52.041297938000575
+        },
+        "L_sec_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 68.89831474072929,
+          "mean_paired_difference_pp": 64.93432672122941,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            57.185376395748925,
+            72.75481305097969
+          ],
+          "paired_difference_max_pp": 77.33868323677581,
+          "paired_difference_min_pp": 54.25653858451949
+        }
+      },
+      "extra_trees": {
+        "Cps_pF": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 42.12962489870525,
+          "mean_paired_difference_pp": 29.579383547377756,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            23.210603738770537,
+            35.775615251587105
+          ],
+          "paired_difference_max_pp": 39.14770620060274,
+          "paired_difference_min_pp": 19.20060756768248
+        },
+        "L_mut_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 29.427517675320765,
+          "mean_paired_difference_pp": 26.014448714981295,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            18.889202052058582,
+            33.1927785844023
+          ],
+          "paired_difference_max_pp": 37.991023706928154,
+          "paired_difference_min_pp": 14.996329889544594
+        },
+        "L_pri_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 30.32540974982255,
+          "mean_paired_difference_pp": 26.152571210311958,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            23.03383957787918,
+            28.71852500838909
+          ],
+          "paired_difference_max_pp": 31.074335084190544,
+          "paired_difference_min_pp": 20.115984250009596
+        },
+        "L_sec_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 39.76279611844467,
+          "mean_paired_difference_pp": 35.79880809894481,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            23.972564475036016,
+            47.83785618242006
+          ],
+          "paired_difference_max_pp": 55.83918531116671,
+          "paired_difference_min_pp": 18.830833935864156
+        }
+      },
+      "random_forest": {
+        "Cps_pF": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 42.528048978416884,
+          "mean_paired_difference_pp": 29.97780762708939,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            23.945568356488774,
+            35.38128035301525
+          ],
+          "paired_difference_max_pp": 37.5485636379175,
+          "paired_difference_min_pp": 18.86759359584542
+        },
+        "L_mut_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 33.39742513022623,
+          "mean_paired_difference_pp": 29.98435616988676,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            24.4975663263659,
+            34.9421388632627
+          ],
+          "paired_difference_max_pp": 37.5055811221833,
+          "paired_difference_min_pp": 18.817199047906733
+        },
+        "L_pri_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 36.977322779809576,
+          "mean_paired_difference_pp": 32.80448424029898,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            27.12640896526223,
+            38.40430036429849
+          ],
+          "paired_difference_max_pp": 41.543782193958805,
+          "paired_difference_min_pp": 24.432911114198
+        },
+        "L_sec_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": false,
+          "mean_family_macro_mape_pct": 39.92925143511661,
+          "mean_paired_difference_pp": 35.965263415616754,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            26.233555483320703,
+            45.8679541863204
+          ],
+          "paired_difference_max_pp": 49.042089793593604,
+          "paired_difference_min_pp": 21.069078110542
+        }
+      },
+      "ridge": {
+        "Cps_pF": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 44.47988306312449,
+          "mean_paired_difference_pp": 31.929641711796993,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            26.290685156479853,
+            38.05674257291676
+          ],
+          "paired_difference_max_pp": 44.249461280013485,
+          "paired_difference_min_pp": 22.234471377652735
+        },
+        "L_mut_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 35.82598037362947,
+          "mean_paired_difference_pp": 32.412911413290004,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            27.257248568352953,
+            38.9228311306997
+          ],
+          "paired_difference_max_pp": 44.98001707665496,
+          "paired_difference_min_pp": 25.66440031955467
+        },
+        "L_pri_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 48.6663614861769,
+          "mean_paired_difference_pp": 44.493522946666296,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            39.88474981778769,
+            49.986608605655015
+          ],
+          "paired_difference_max_pp": 55.611608277691296,
+          "paired_difference_min_pp": 36.27809804384023
+        },
+        "L_sec_nH": {
+          "cells_better_than_gnn": 0,
+          "deterministic_model_repeated_initializations": true,
+          "mean_family_macro_mape_pct": 39.522328690020046,
+          "mean_paired_difference_pp": 35.55834067052018,
+          "paired_difference_crossed_axis_95pct_interval_pp": [
+            29.893971824634665,
+            41.11831523680662
+          ],
+          "paired_difference_max_pp": 42.845542094800344,
+          "paired_difference_min_pp": 24.97157604674951
+        }
+      }
+    },
+    "n_cells": 25,
+    "resampling": {
+      "axes": [
+        "split",
+        "initialization"
+      ],
+      "deterministic_controls": "initialization resampling reflects paired GNN variability, not additional constant/ridge fits",
+      "pairing": "shared crossed-axis draws of baseline-minus-GNN cell differences",
+      "resamples": 10000,
+      "seed": 20260913,
+      "semantics": "descriptive seed-grid sensitivity interval, not a population confidence interval"
+    },
+    "scope": "post-hoc fixed-budget benchmark; no causal graph advantage or population confidence claim",
+    "split_panels_independent": false
+  },
+  "scheduler": {
+    "allocated_cpus_per_task": 5,
+    "array_job_id": null,
+    "array_task_id": null,
+    "environment_cpus_per_task": 5,
+    "job_id": "7273521",
+    "requested_cpus_per_task": 2,
+    "requested_memory_gib": 16,
+    "scheduler_record": {
+      "AllocTRES": "cpu=5,mem=16G,node=1,billing=5",
+      "CPUs/Task": "5",
+      "JobId": "7273521",
+      "JobState": "RUNNING",
+      "MinMemoryNode": "16G",
+      "NumCPUs": "5",
+      "NumTasks": "1",
+      "Partition": "nextgen",
+      "ReqTRES": "cpu=2,mem=16G,node=1,billing=2",
+      "TimeLimit": "00:30:00",
+      "TresPerTask": "cpu=2"
+    },
+    "scientific_threads": 2
+  },
+  "schema": "pcb-gnn.baseline-analysis.v1"
+}
