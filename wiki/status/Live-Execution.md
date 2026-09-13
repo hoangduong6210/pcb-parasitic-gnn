@@ -7,13 +7,20 @@ paper_source: false
 
 # Live Execution Snapshot
 
-Last scheduler-backed observation: 2026-09-13 07:35 UTC. Baseline array
+Last scheduler-backed observation: 2026-09-13 07:40 UTC. Baseline array
 `7273435` completed all 25 tasks with exit `0:0` and zero restarts, in 26 to
 40 s per task. Admission `7273449` completed `0:0` in 43 s and accepted all
 25 tasks. Held-out finalizer `7273521` completed `0:0` in 79 s. Archive replay
 `7273643` completed `0:0` in 101 s with exact numerical reconstruction.
-Clean-tracked replay is next. No task failed. Independent
+Clean-tracked replay `7273758` completed `0:0` in 87 s with zero restarts.
+All computational gates are closed. No task failed. Independent
 receipt review confirmed held-out isolation and exact task coverage.
+
+Publication was verified on GitHub at `a6a6a1841a5a1b9c61b6ac385ec22b898b7233b6`
+on `protocol/corpus-v4-accuracy-v3`, including all checkpoints and reconstructed
+analysis. This final status update records the subsequent tracked replay.
+The final focused suite passed 133 tests. Prose and table reviews passed;
+the deterministic prose audit is not an authorship detector.
 
 Previously completed chain: FEM-v2 latency preflight array
 `7259818` finished all three tasks `COMPLETED/0:0` with no restarts. Admission
@@ -72,7 +79,7 @@ admissions are unchanged. Remote verification confirmed governance commit
 perform a new scheduler query.
 
 The user authorized implementation of the baseline-comparison stage on
-2026-09-13. The active state is **baseline archive reconstructed; tracked replay next**,
+2026-09-13. The active state is **baseline VALIDATED; scientific admission pending**,
 not another corpus solve. The existing accuracy study evaluates the designated
 GNN across splits and initializations; the next question is whether its graph
 representation adds predictive value over simpler reference models on the
@@ -97,12 +104,15 @@ Finalizer `7273521` bound that accepted set for held-out inference and completed
 Its analysis-manifest SHA-256 is
 `f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28`.
 The [baseline result page](../results/Corpus-V4-FEM-v2-Baselines.md) records
-the provisional matched comparison, pending independent archive replay and
-clean-tracked verification. Replay job `7273643` passed exact reconstruction.
+the validated matched comparison. Replay job `7273643` passed exact
+reconstruction and job `7273758` repeated it against the clean, Git-tracked
+artifact closure at `a6a6a18`. The immutable machine receipts retain
+`claim_eligible=false`; they do not make an editorial admission decision.
 The preflight receipt is indexed in
 `E-C4-BASE-FEMV2-PLAN-01` in the [Evidence Ledger](../evidence/Evidence-Ledger.md).
-No baseline result is admitted yet. Next: terminal admission, held-out
-finalization, independent archive replay, then scientific claim review.
+No baseline publication claim is admitted yet. Next: the project owner's
+scientific admission of the scoped wording proposed in the result page.
+No additional computation is needed to close this baseline comparison.
 
 After that comparison, separately freeze the strict-E(3) predictive ablation
 and ranking study. The admitted encoded-graph symmetry property does not

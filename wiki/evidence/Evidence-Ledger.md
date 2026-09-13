@@ -10,11 +10,11 @@ paper_source: false
 Every entry names the claims it can support. An execution record marked
 operational or pending archival is not publication evidence.
 
-## E-C4-BASE-FEMV2-PLAN-01 — Fixed baseline execution preflight
+## E-C4-BASE-FEMV2-PLAN-01 — Fixed baseline execution and validation closure
 
 | Field | Value |
 |---|---|
-| Status | All checkpoints accepted; analysis reconstructed; clean-tracked replay pending |
+| Status | VALIDATED; complete checkpoint and clean-tracked numerical closure; scientific admission pending |
 | Scope | Frozen fixed-baseline extension; no new solver labels |
 | Source commit | `23ca6d046528e0da22d5fbaa24454da9101c7315` |
 | Protocol SHA-256 | `f7464ad2c0fc259491d84e5c3c064f1001a708523f4ba19e9303c36b79798802` |
@@ -32,11 +32,18 @@ operational or pending archival is not publication evidence.
 | Analysis-manifest SHA-256 | `f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28` |
 | Numerical archive replay | `7273643`, `COMPLETED/0:0`, 101 s; exact reconstruction passed |
 | Archive receipt | [Numerical reconstruction closure](../../results/corpus_v4/baseline_fem_v2/ARCHIVE_MANIFEST.json) |
+| Archive SHA-256 | `77b19ceacf78db1ea9768ec6c9993dd6517c68ca10e1c96bb9dfc1ea2ea185f0` |
+| Clean-tracked replay | `7273758`, `COMPLETED/0:0`, 87 s, zero restarts, checkout `a6a6a18` |
+| Replay log | [Successful tracked reconstruction](../../logs/pcb-v4-base-final-7273758.out) |
+| Coverage | 400 per-target metric rows and 29,400 four-output baseline prediction rows; 25 split/initialization cells |
 | Prospective claim | `C-BASE-FEMV2-001`, not admitted |
 
 The receipt contains the scheduler record observed while the probe was running.
 A subsequent terminal accounting query confirmed successful completion. It
-does not establish baseline accuracy or a benefit from graph connectivity.
+does not by itself establish baseline accuracy or a benefit from graph
+connectivity. The subsequent accepted set, analysis and two replay jobs
+validate the numerical comparison. Its exact wording and limitations are
+recorded in the [baseline result page](../results/Corpus-V4-FEM-v2-Baselines.md).
 
 ## E-C3-GEOM-01 — Geometry-valid corpus root
 
