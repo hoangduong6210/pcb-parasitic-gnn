@@ -1,0 +1,12 @@
+{
+  "accepted_set": {
+    "path": "results/corpus_v4/latency_fem_v2/resume/round_00/accepted_artifact_set.json",
+    "sha256": "90ba1f8d44a5db921a77fad50aec6b99171ef31b4e129fde59202a800ee6d221"
+  },
+  "files_sha256": {
+    "records.jsonl": "c0ceb7d5b0f79065b8caedc310c835be1431b0a6b04090955879efbb5a87a4e2",
+    "summary.json": "f968ed39ebb49f571822b09e3043fb78ae76754e475fdcad6113fd7dad4acdbd",
+    "task_index.json": "cfa2043847c8478ba407dd7afd4cf09f141759704fbdad57b458863a00a218ae"
+  },
+  "schema": "pcb-gnn.corpus-v4-fem-v2-paired-latency-analysis-manifest.v1"
+}
