@@ -1,0 +1,140 @@
+{
+  "schema": "pcb-gnn.corpus-v4-strict-e3-design.v1",
+  "design_name": "corpus-v4-fem-v2-coordinate-update-ablation-v1",
+  "status": "implementation_pending",
+  "training_may_start": false,
+  "execution_lock": null,
+  "claim_eligible": false,
+  "scope": "Post-hoc predictive ablation on the previously evaluated FEM-v2 benchmark; encoded-graph E(3) symmetry only, not a blind benchmark or full raw-layout equivariance claim",
+  "upstream": {
+    "protocols/corpus_v4_accuracy_v3.json": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "results/corpus_v4/accuracy_v3/plan/v1/plan.json": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "results/corpus_v4/accuracy_v3/plan/v1/task_manifest.jsonl": "e5a444204e99bc92462ac87d3b4721d5a4d33db9bd7d3b8e7d274ebe5d723b71",
+    "results/corpus_v4/accuracy_v3/plan/v1/training_split_40.jsonl": "d7c009d4a85e1b84eabc56e716080516ba22add1248359c518466099b9165fdb",
+    "results/corpus_v4/accuracy_v3/plan/v1/training_split_41.jsonl": "f439b182c055ad917ed07af2d08d26f656ed42e447eec0ec5c55a9d74e2a5648",
+    "results/corpus_v4/accuracy_v3/plan/v1/training_split_42.jsonl": "98bfaef69c79ab882fa9028706df2a858a995e4174b34932c6de08804b5c381d",
+    "results/corpus_v4/accuracy_v3/plan/v1/training_split_43.jsonl": "16fa3a32bc231fdb5d50f7229b23554b8e83e0f0fe5831d98ff2cce8e18e493d",
+    "results/corpus_v4/accuracy_v3/plan/v1/training_split_44.jsonl": "c7cd0fad11783f934272e831683d16e016e49608aadbb5868578a489cdc64411",
+    "results/corpus_v4/accuracy_v3/plan/v1/evaluation_dataset.jsonl": "ff02a28aa41f2526bea1b087e1222479d743f5eb766d13e4dfa48f42cc791046"
+  },
+  "immutable_reuse_sources": {
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+    "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/experiments/proofs/corpus_v4_baseline_v1.py": "01f13a882b1498a44a529f329def4d4602112705c3ca543c6a53f04f5492324a",
+    "code/jobs/submit_corpus_v4_baseline_v1.sh": "203aa81da5c8ebe6e73c9fde04448e4776a6156233ce32f6c7c2a8ab40a7391d"
+  },
+  "source_pin_scope": "Reuse references only; this design is not a complete execution-source closure and does not authorize execution of the referenced historical runners",
+  "seeds": {
+    "split": [40, 41, 42, 43, 44],
+    "initialization": [40, 41, 42, 43, 44],
+    "cells": 25,
+    "mapping": "task_id = split_index * 5 + initialization_index",
+    "arms_per_cell": 3,
+    "required_checkpoints": 75,
+    "families_per_split": {"train": 46, "validation": 7, "test": 13},
+    "regenerate_splits": false
+  },
+  "arms": {
+    "coordinate_update": {"hidden": 96, "parameters": 301354, "layers": 4, "coordinate_update_layers_zero_based": [0, 1, 2]},
+    "fixed_same_width": {"hidden": 96, "parameters": 273127, "layers": 4, "coordinate_update_layers_zero_based": []},
+    "fixed_parameter_matched": {
+      "hidden": 101,
+      "parameters": 301997,
+      "hidden_resolution": "Analytically choose nearest parameter count to coordinate_update; integer widths 1 through twice the strict hidden width inclusive; ties choose smaller width; resolved width 101 must be recorded in the execution lock",
+      "layers": 4,
+      "coordinate_update_layers_zero_based": []
+    }
+  },
+  "architecture": {
+    "module": "code/models/gnn/strict_e3_ablation_v1.py",
+    "arm_api_mapping": {"coordinate_update": "strict96", "fixed_same_width": "fixed96", "fixed_parameter_matched": "fixed_matched"},
+    "node_scalar_dim": 6,
+    "edge_scalar_dim": 3,
+    "targets": 4,
+    "distance_input": "squared Euclidean distance recomputed from current coordinates in both arms",
+    "final_coordinate_branch": "omitted because it cannot affect the scalar prediction",
+    "parameter_accounting": "report total and prediction-active parameter counts; all retained learned branches must affect prediction",
+    "historical_gnn_role": "contextual result only; not a controlled equivariance arm"
+  },
+  "features": {
+    "raw_node_dim": 9,
+    "raw_edge_dim": 7,
+    "coordinate_columns": [0, 1, 2],
+    "node_scalar_columns": [3, 4, 5, 6, 7, 8],
+    "edge_scalar_columns": [1, 5, 6],
+    "metadata_semantics": "width, length, thickness, log conductivity, permittivity, normalized layer, overlap and edge-kind flags are fixed scalar attributes under the encoded-graph group action",
+    "forbidden_learned_inputs": ["raw_xyz_in_scalar_encoder", "raw_relative_vector", "stored_distance", "layout_id", "family_id", "geometry_sha256", "split_seed"],
+    "raw_layout_regeneration_under_rotation": false
+  },
+  "normalization": {
+    "fit_partition": "train only",
+    "moment_dtype": "float64",
+    "population_std_ddof": 0,
+    "scalar_scale_floor": 0.000001,
+    "target_scale_floor": 0.00000001,
+    "coordinate_scale": "max(sqrt(mean squared raw edge-relative Euclidean norm over training edges), 1e-6); one shared isotropic scalar",
+    "coordinate_centering": false,
+    "coordinate_per_axis_scaling": false,
+    "edgeless_training_policy": "future corpus pipeline must fail closed when the complete training partition contains no edges",
+    "pure_module_edgeless_fallback": "for synthetic use only: coordinate scale 1.0, edge mean zero and edge scale 1e-6; this does not bypass the future corpus gate",
+    "edgeless_sample_policy": "empty edge features have shape (0,3); scalar messages aggregate to zero",
+    "target_transform": "log1p positive reference; train mean and population std with floor; expm1 inverse without clipping",
+    "shared_between_arms": true
+  },
+  "targets": ["Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH"],
+  "target_fidelities": ["cps_fem_r3_p16_t1_v2", "fasthenry_100khz_active_leg", "fasthenry_100khz_active_leg", "fasthenry_100khz_active_leg"],
+  "optimization": {
+    "epochs": 200,
+    "batch_size": 32,
+    "optimizer": "AdamW",
+    "learning_rate": 0.002,
+    "weight_decay": 0.00001,
+    "gradient_clip_norm": 5.0,
+    "loss": "SmoothL1 on train-standardized log1p targets",
+    "lr_schedule": "CosineAnnealingLR over exactly 200 epochs",
+    "model_selection": "fixed final epoch; validation is diagnostic only",
+    "hyperparameter_search_trials": 0,
+    "refit_train_plus_validation": false
+  },
+  "initialization": {
+    "seed_before_model_construction": true,
+    "seed_sources": ["python", "numpy", "torch"],
+    "same_width_common_state": "copy every matching non-coordinate tensor from the initialized fixed_same_width reference into coordinate_update; hash and verify identical shared initial tensors",
+    "parameter_matched_state": "separate model initialized after resetting the same cell initialization seed; shape mismatch precludes tensor-wise pairing",
+    "parameter_search_consumes_training_rng": false,
+    "batch_order": "fresh numpy default_rng(initialization_seed) for each arm, shuffling the identical canonical training-ID order each epoch",
+    "same_batch_order_all_arms": true,
+    "cpu_only": true,
+    "torch_deterministic_algorithms": true,
+    "interop_threads_set_once_per_process": true
+  },
+  "evaluation": {
+    "primary_metric": "per-target family-macro MAPE percent on frozen test families",
+    "paired_difference": "coordinate_update minus fixed control family-macro MAPE, percentage points; positive favors the fixed control",
+    "controls_reported": ["fixed_same_width", "fixed_parameter_matched"],
+    "aggregate": "mean over all 25 cells; retain per-cell metrics and paired differences",
+    "resampling": {"resamples": 10000, "seed": 20260913, "percentiles": [2.5, 97.5], "axes": ["split", "initialization"], "paired_draws": true, "semantics": "descriptive crossed-axis seed-grid sensitivity interval, not a population confidence interval"},
+    "equivalence_conclusion_authorized": false,
+    "r4": "excluded; no R4 target or evaluation claim",
+    "prediction_clipping": false,
+    "nonpositive_predictions_reported": true,
+    "passivity_relative_tolerance": 0.000000001,
+    "accuracy_threshold_is_integrity_gate": false,
+    "heldout_inference_before_all_checkpoint_admission": false
+  },
+  "lifecycle": {
+    "design_document_is_submission_authority": false,
+    "required_before_training": ["complete_additive_pipeline", "resolved_arm_width_and_parameter_counts", "frozen_protocol_and_execution_lock", "clean_pinned_execution_commit", "passing_contract_tests", "slurm_no_fit_task_private_sandbox_probe"],
+    "required_before_heldout": ["all_75_numeric_checkpoints", "terminal_scheduler_admission", "exact_cell_and_arm_coverage", "safe_bundle_schema_validation", "verified_initialization_and_normalization_receipts"],
+    "required_before_claim_validation": ["heldout_finalizer", "artifact_archive", "independent_numerical_replay", "clean_tracked_replay", "scientific_scope_review"],
+    "missing_implementation": ["pipeline", "sandbox_wrappers", "checkpoint_admission", "heldout_finalizer", "archive_replay"],
+    "heavy_work_location": "SLURM compute nodes only",
+    "training_namespace": "selected split train and validation table plus task-private output only; no test, R4, other split, other task checkpoint or previous finalizer bytes",
+    "symmetry_gate": "freeze transform set and numeric tolerance before execution; check encoded-graph rotation, reflection, translation and permutation including raw-coordinate normalization path",
+    "failed_attempts": "preserve all evidence; no result-selected retry or silent protocol modification"
+  }
+}

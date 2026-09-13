@@ -1465,6 +1465,37 @@ from a clean evidence checkout. The exact historical execution source remains
 pinned even when the evidence checkout has a newer documentation commit.
 Neither training nor scientific numerical replay runs on the login node.
 
+## 16C. Qualify the new coordinate-update model before pipeline integration
+
+This is an initialized-model synthetic qualification, not training, a corpus
+preflight, or a predictive result. It checks five seeds and 40 transforms per
+seed for three arms. Unit tests separately cover permutation and gradients;
+the qualification job covers proper/improper orthogonal transforms,
+translation before isotropic normalization, and separate-versus-batched
+execution. It neither reads the corpus nor establishes namespace isolation.
+
+Use a clean detached source checkout. The wrapper requests account `pgs0407`,
+partition `nextgen`, one node, one task, two scientific CPU threads, 16 GiB and
+10 minutes, with requeue disabled. Site allocation may exceed requested CPUs.
+The worker starts with a sanitized environment and validates its source,
+runtime, executed wrapper and scheduler resource identity before execution.
+
+```bash
+export PCB_E3_QUAL_ROOT=/absolute/path/to/clean-qualification-checkout
+export PCB_E3_QUAL_COMMIT=replace-with-reviewed-40-character-commit
+export PCB_E3_QUAL_PROTOCOL_SHA256=replace-with-reviewed-qualification-hash
+cd "$PCB_E3_QUAL_ROOT"
+sbatch --test-only -A pgs0407 --chdir="$PWD" --export=ALL code/jobs/submit_qualify_strict_e3_model_v1.sh
+sbatch --parsable -A pgs0407 --chdir="$PWD" --export=ALL code/jobs/submit_qualify_strict_e3_model_v1.sh
+```
+
+Require terminal `COMPLETED/0:0`, zero restarts, and a passing receipt under
+`results/corpus_v4/strict_e3_fem_v2/qualification/job_JOB/`. Preserve failure
+logs without changing the frozen attempt. The draft predictive design keeps
+`training_may_start=false` even if this initialized-model check passes.
+Its arm-specific sandbox, checkpoints, admission, finalizer and archive
+verification must be implemented before any corpus training is authorized.
+
 ## 17. Submit the FEM mesh-repeatability diagnostic
 
 This diagnostic must be submitted only from the reviewed clean detached

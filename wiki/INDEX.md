@@ -43,6 +43,7 @@ paper_source: false
 |---|---|
 | [Graph Surrogate](methods/Graph-Surrogate.md) | Graph features, MPNN, targets, and training boundary |
 | [Strict E3 and EGNN](methods/Strict-E3-and-EGNN.md) | Symmetry proof scope and predictive ablation interpretation |
+| [FEM-v2 Coordinate-Update Ablation Design](methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Three-arm predictive question, initialization controls and execution gates |
 | [FastHenry Inductance](methods/FastHenry-Inductance.md) | Inductance reference and winding aggregation |
 | [FEM Cps Reference](methods/FEM-Cps-Reference.md) | Electrostatic formulation and numerical gates |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
@@ -105,6 +106,7 @@ paper_source: false
 | `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 | `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped fixed-baseline comparison |
+| `C-E3-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed coordinate-update predictive ablation; no result |
 
 ### Historical claims
 

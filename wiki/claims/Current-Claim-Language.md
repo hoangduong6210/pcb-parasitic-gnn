@@ -38,6 +38,14 @@ it becomes paper eligible.
 | `C-LAT-001` | `ARCHIVAL BLOCKED` | The rejected 25-thread latency chain admits no speed result. | Historical chain only; it cannot be resumed or relabelled as FEM-v2 evidence. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
 
+## Proposed coordinate-update study
+
+The separate `C-E3-FEMV2-001` study is PROPOSED, with no admitted result.
+Its [design](../methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) compares
+coordinate updates with two fixed-coordinate controls. Both model classes
+retain encoded-graph E(3) invariance; a result must not be relabelled as a
+general equivariance-versus-non-equivariance comparison.
+
 ## Rejected positive claims
 
 The evidence supports the negative statement in `C-FEM-003`; it rejects the

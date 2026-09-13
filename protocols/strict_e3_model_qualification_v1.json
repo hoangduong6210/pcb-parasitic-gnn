@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.strict-e3-initialized-qualification-protocol.v1",
+  "seeds": [40, 41, 42, 43, 44],
+  "transforms_per_seed": 40,
+  "transform_seed_offset": 20260913,
+  "relative_tolerance": 0.00002,
+  "relative_residual": "maximum absolute difference divided by max(1, maximum absolute expected state)",
+  "runtime": {"numpy": "2.0.2", "torch": "2.8.0", "python": "3.9.21"},
+  "scope": "initialized models on two synthetic encoded graphs, one edgeless; transformations before fitted isotropic normalization; no training, corpus, raw-layout rebuild or predictive claim",
+  "orthogonal_transforms": "alternating determinant +1 and -1 with translation, shared across arms",
+  "training_may_start": false,
+  "claim_eligible": false
+}

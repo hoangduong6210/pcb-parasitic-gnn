@@ -13,6 +13,17 @@ modifying existing manuscripts or immutable experiment receipts. Work has
 moved to design and integration review for a separate FEM-v2 strict-E(3)
 predictive ablation. No strict-E(3) training has been submitted in this stage.
 
+Implementation update at 2026-09-13 12:27 UTC: owner-approved baseline
+admission commit `dbcd319a02fa65c8bf90d520463f1bd17431be7e` was pushed and
+verified. The new solver-free coordinate-update model and draft three-arm
+design are implemented. Independent review identified and addressed seeded
+initialization order, explicit shared-state pairing, the prediction-dead final
+coordinate branch, and symmetry-preserving normalization. The next bounded
+job qualifies initialized synthetic models only. Predictive training remains
+disabled until its full isolated execution and archive pipeline is ready.
+See the [new design](../methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) and
+submission playbook section 16C. No old source or numerical evidence changed.
+
 Commit-scope review on 2026-09-13 confirmed the five baseline commits through
 `5af4a78`, whose push was verified in the preceding execution session. They
 add the baseline pipeline, frozen protocol, evidence, tests and wiki updates;
