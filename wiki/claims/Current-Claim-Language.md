@@ -36,6 +36,7 @@ it becomes paper eligible.
 | `C-CPS-V2-FINAL-001` | `FINALIZED; POSTTERMINAL ADMITTED` | The deterministic one-thread FEM-v2 package contains 1,500 `cps_fem_r3_p16_t1_v2` and 198 `cps_fem_r4_p16_t1_v2` observations over the unchanged 1,500 geometries. Dataset generation is admitted and a new accuracy protocol may be frozen. | `training_may_start=false`, `claim_eligible=false`, and `speed_claim_eligible=false`; this lifecycle statement is not a model, convergence, speed, or physical-validation claim. |
 | `C-LAT-001` | `ARCHIVAL BLOCKED` | The rejected 25-thread latency chain admits no speed result. | Historical chain only; it cannot be resumed or relabelled as FEM-v2 evidence. |
 | `C-VENDOR-001` | `PROPOSED` | The vendor files define a commercial-geometry validation track, not a completed validation result. | License review, segmentation, materials, terminals, convergence, and matching external quantity. |
+| `C-BASE-FEMV2-001` | `PROPOSED; PROTOCOL FROZEN` | A fixed baseline extension is frozen on the already evaluated FEM-v2 benchmark. No relative model-accuracy outcome is admitted. | Scheduler preflight, isolated training, complete checkpoint acceptance, held-out finalizer, archive replay and review. |
 
 ## Rejected positive claims
 

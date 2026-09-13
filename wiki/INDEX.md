@@ -52,6 +52,7 @@ paper_source: false
 | [Corpus V4 FEM-v2 Accuracy Protocol v2](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v2.md) | Closed diagnostic execution and byte-access limitation |
 | [Corpus V4 FEM-v2 Accuracy Protocol v3](methods/Corpus-V4-FEM-V2-Accuracy-Protocol-v3.md) | Split-scoped inputs, filesystem sandbox, accepted-set gate, and metric contract |
 | [Runtime Benchmark](methods/Runtime-Benchmark.md) | Timing boundaries and valid speed comparisons |
+| [FEM-v2 Baseline Comparison Protocol](methods/Corpus-V4-FEM-v2-Baseline-Protocol.md) | Fixed pooled-feature references, matched comparisons and preacceptance data isolation |
 
 ## Results and claims
 
@@ -102,6 +103,7 @@ paper_source: false
 | `C-LAT-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Blocked archival 25-thread latency claim |
 | `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
+| `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Protocol implementation; no admitted baseline result |
 
 ### Historical claims
 

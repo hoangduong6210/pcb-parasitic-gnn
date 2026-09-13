@@ -7,6 +7,26 @@ paper_source: false
 
 # SLURM Resource Plan
 
+## FEM-v2 fixed baseline extension
+
+The baseline protocol prepares 25 split/initialization tasks. Each task fits
+the four fixed controls and writes one numeric checkpoint bundle. Constant
+and Ridge are deterministic controls repeated in the matched grid, not extra
+independent initialization replicates. The stage generates no solver labels.
+
+| Stage | Requested allocation | Concurrency | Gate |
+|---|---|---:|---|
+| Filesystem preflight | 8 CPUs, 48 GiB, 4 h limit; singleton task 0 | 1 | No fitting; verify source, selected split and task-private namespace |
+| Full training grid | 8 CPUs, 48 GiB, 4 h limit per task; 25 tasks | 5 | Fixed 8 scientific threads; no model selection |
+| Acceptance, held-out finalizer and archive replay | 2 CPUs, 16 GiB, 30 min limit per stage | 1 | Accept all bundles before held-out prediction; terminal success and independent replay |
+
+The full grid's requested simultaneous ceiling is 40 CPUs and 240 GiB.
+These are resource limits, not measured consumption or completion estimates.
+The cluster may allocate additional CPUs to satisfy memory policy; record
+requested, allocated and scientific-thread counts separately. Training and
+scientific aggregation remain on compute nodes. The preflight is not one of
+the 25 training results.
+
 Field solves and model training are not executed on a login node. The table
 records frozen allocations used or planned across Corpus V4 solver, accuracy,
 latency, and diagnostic stages.

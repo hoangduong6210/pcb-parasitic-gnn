@@ -1,0 +1,50 @@
+{
+  "schema": "pcb-gnn.corpus-v4-baseline-protocol.v1",
+  "protocol_name": "corpus-v4-fem-v2-fixed-pooled-baselines-v1",
+  "upstream": {
+    "protocols/corpus_v4_accuracy_v3.json": "d4930c2e67e8c366466b8f847d71323b87ea33cce9a0b97644bbac550c7c0af1",
+    "results/corpus_v4/accuracy_v3/plan/v1/plan.json": "04fab5efbc8428682fa0ea572001d95b1179b86e912b03deb4c8d5c4accbb40f",
+    "results/corpus_v4/accuracy_v3/ARCHIVE_MANIFEST.json": "a741b0ff1002f11b5ac5eef466baff81137da1245a8ea6e609b2a608279e8f06"
+  },
+  "study_design": "Post-hoc fixed-budget benchmark after GNN results were known; not a prospective blind comparison or causal graph ablation",
+  "seeds": {"split": [40, 41, 42, 43, 44], "init": [40, 41, 42, 43, 44], "tasks": 25},
+  "features": {
+    "node_dim": 9, "edge_dim": 7, "pooled_dim": 48,
+    "normalization": "node and edge population mean/std fitted on training layouts only; then 48 pooled feature mean/std fitted on training layouts only; all scale floors 1e-6",
+    "pooling": "concatenate node mean,max,sign(sum)*log1p(abs(sum)), then the same edge statistics",
+    "empty_edge_policy": "21 zeros after pooling",
+    "forbidden_features": ["labels", "layout_id", "family_id", "geometry_sha256", "split_seed"]
+  },
+  "targets": ["Cps_pF", "L_pri_nH", "L_sec_nH", "L_mut_nH"],
+  "target_transform": "train-standardized log1p, population std floor 1e-8; expm1 inverse without clipping",
+  "models": {
+    "constant": {"prediction": "train mean log1p target", "deterministic": true},
+    "ridge": {"alpha": 1.0, "solver": "svd", "fit_intercept": true, "deterministic": true},
+    "random_forest": {"n_estimators": 500, "max_depth": 16, "min_samples_leaf": 2, "max_features": 1.0, "bootstrap": true, "criterion": "squared_error", "n_jobs": 8},
+    "extra_trees": {"n_estimators": 500, "max_depth": 16, "min_samples_leaf": 2, "max_features": 1.0, "bootstrap": false, "criterion": "squared_error", "n_jobs": 8}
+  },
+  "optimization": {"hyperparameter_search_trials": 0, "validation": "diagnostic only", "refit_train_plus_validation": false, "model_selection": "none; report every fixed model"},
+  "evaluation": {
+    "primary": "per-target paired family-macro MAPE difference, baseline minus archived GNN on identical split/init cells",
+    "aggregation": "mean, minimum, maximum across the fixed 25-cell grid plus paired crossed-axis resampling",
+    "resampling": {"resamples": 10000, "seed": 20260913, "percentiles": [2.5, 97.5], "axes": ["split", "initialization"], "paired_draws": true, "semantics": "descriptive seed-grid sensitivity interval, not a population confidence interval"},
+    "joint_prediction_diagnostics": {"inductance_psd": true, "relative_tolerance": 1e-9, "integrity_gate": false, "repair_predictions": false},
+    "deterministic_model_initializations": "constant and ridge are duplicated controls; not independent initialization replicates",
+    "r4": "excluded from this baseline study; no new R4 claim",
+    "accuracy_threshold_is_integrity_gate": false,
+    "prediction_clipping": false,
+    "heldout_inference_before_all_checkpoint_admission": false
+  },
+  "retry_policy": "one fixed full array; failed attempts retained, any training retry requires a new protocol identity",
+  "checkpoint": {"format": "numeric NPZ allow_pickle=False; packed tree arrays", "max_archive_bytes": 67108864, "max_expanded_bytes": 268435456},
+  "resources": {
+    "training": {"allocated_cpus_may_exceed_request": true, "array": "0-24%5", "cpus_per_task": 8, "memory_gib": 48, "partition": "nextgen", "scientific_threads": 8, "time_limit": "04:00:00"},
+    "finalizer": {"allocated_cpus_may_exceed_request": true, "cpus_per_task": 2, "memory_gib": 16, "partition": "nextgen", "scientific_threads": 2, "time_limit": "00:30:00"}
+  },
+  "runtime": {"python": "3.9.21", "numpy": "2.0.2", "scipy": "1.13.1", "scikit-learn": "1.6.1", "torch": "2.8.0"},
+  "sandbox": {
+    "backend": "bubblewrap", "executable": "/usr/bin/bwrap", "executable_sha256": "9dba99a1fa3be3b0d3e5cb7d6d297742b56a3b1749465f520503c651b38d99aa",
+    "required": true, "sandbox_root": "/workspace",
+    "training_files": "selected split-scoped training dataset only; no test/R4/other-split bytes or checkpoint outputs"
+  }
+}

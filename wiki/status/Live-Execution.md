@@ -63,13 +63,20 @@ admissions are unchanged. Remote verification confirmed governance commit
 `protocol/corpus-v4-accuracy-v3`. This review did not submit a computation or
 perform a new scheduler query.
 
-The next proposed state is **baseline-comparison protocol preparation**, not
-another corpus solve. The existing accuracy study evaluates the designated
+The user authorized implementation of the baseline-comparison stage on
+2026-09-13. The active state is **protocol frozen; scheduler preflight pending**,
+not another corpus solve. The existing accuracy study evaluates the designated
 GNN across splits and initializations; the next question is whether its graph
 representation adds predictive value over simpler reference models on the
 same FEM-v2 targets. Model choices, features, split reuse, tuning budget,
 training-only preprocessing, metrics and admission gates must be frozen before
-execution. No such new baseline protocol is frozen by this status review.
+execution. The [baseline protocol](../methods/Corpus-V4-FEM-v2-Baseline-Protocol.md)
+records fixed models, train-only transformations, matched metrics and known
+benchmark exposure. A combined regression run passed 223 tests, and the final
+baseline suite contains 52 passing tests using synthetic fixtures only. The
+research-prose audit passed. The execution lock authenticates the unchanged
+upstream inputs; a singleton SLURM filesystem preflight is required before
+the 25-task training array. No baseline result is admitted yet.
 
 After that comparison, separately freeze the strict-E(3) predictive ablation
 and ranking study. The admitted encoded-graph symmetry property does not
