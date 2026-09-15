@@ -7,6 +7,19 @@ paper_source: false
 
 # Live Execution Snapshot
 
+No-fit probe submission on 2026-09-15: scheduler dry-run accepted the frozen
+request, and actual singleton array `7315639` was submitted as task `0%5` with
+`PCB_GNN_E3_PROBE_ONLY=true`. Its initial state was `PENDING`; no start time or
+reason was yet reported. The immutable execution checkout is
+`efeb123c9975ae481d10cd7c0af899406c46e787`, protocol SHA-256 is
+`9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc`,
+and execution-lock SHA-256 is
+`f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20`.
+Static validation passed before submission. The probe is prohibited from
+constructing an optimizer or opening held-out bytes. Full training remains
+blocked until its terminal accounting and receipt pass independent review.
+This transition is indexed by `E-C4-E3-FEMV2-PREFLIGHT-01`.
+
 Execution-lock transition on 2026-09-15: the reviewed coordinate-ablation
 source set at `d700f1c41b5e6317a4197d2af5b69e9ddce7c1d8` was published and remotely
 verified. The hash-only lock builder then closed 26 source files and 58 inputs

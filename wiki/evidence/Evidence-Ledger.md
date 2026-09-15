@@ -1,7 +1,7 @@
 ---
 title: Evidence Ledger
 status: canonical execution ledger
-last_updated: 2026-09-13
+last_updated: 2026-09-15
 paper_source: false
 ---
 
@@ -9,6 +9,24 @@ paper_source: false
 
 Every entry names the claims it can support. An execution record marked
 operational or pending archival is not publication evidence.
+
+## E-C4-E3-FEMV2-PREFLIGHT-01 — Predictive sandbox probe
+
+| Field | Value |
+|---|---|
+| Status | PENDING scheduler execution; no predictive evidence |
+| Probe array | `7315639`, singleton task `0%5` |
+| Source commit | `efeb123c9975ae481d10cd7c0af899406c46e787` |
+| Protocol SHA-256 | `9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc` |
+| Execution-lock SHA-256 | `f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20` |
+| Requested resources | One task, eight CPUs, 48 GiB, four-hour scheduler cap; no requeue |
+| Initial scheduler observation | `PENDING`; start time and reason not yet assigned |
+| Required receipt | `training_started=false`, `model_fitting_started=false`, `heldout_bytes_opened=false` |
+| Claim boundary | Filesystem and source-binding preflight only; `C-E3-FEMV2-001` remains proposed |
+
+The full 25-task array is not authorized by submission alone. Terminal
+`COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
+task-private probe receipt must all be checked first.
 
 ## E-C4-E3-FEMV2-QUAL-01 — Initialized coordinate-model qualification
 
