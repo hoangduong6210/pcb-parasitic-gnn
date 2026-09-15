@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: predictive pipeline reviewed; source freeze pending
+status: predictive source and inputs locked; no-fit probe pending
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
@@ -115,6 +115,12 @@ Python compilation, shell syntax, diff hygiene and the deterministic research-
 prose audit also passed. These are implementation checks, not predictive
 results. The exact execution sequence is maintained in section 16D of the
 [SLURM Submission Playbook](../operations/SLURM-Submission-Playbook.md).
+
+The production execution lock was generated after the reviewed source commit
+and authenticates 26 source files plus 58 immutable inputs. Its SHA-256 is
+`f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20`.
+This hash is operational provenance, not predictive evidence. Static validation
+and the singleton no-fit SLURM probe remain mandatory before training.
 
 The initialized synthetic-model qualification passed its frozen checks and
 is indexed by `E-C4-E3-FEMV2-QUAL-01` in the

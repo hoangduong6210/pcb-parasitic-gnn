@@ -7,6 +7,14 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Execution-lock transition on 2026-09-15: the reviewed coordinate-ablation
+source set at `d700f1c41b5e6317a4197d2af5b69e9ddce7c1d8` was published and remotely
+verified. The hash-only lock builder then closed 26 source files and 58 inputs
+in `protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json`; its SHA-256
+is `f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20`.
+No training, inference or solver ran. The lock still requires a clean commit,
+remote verification, static validation, and a singleton no-fit SLURM probe.
+
 Implementation review closed on 2026-09-15: the additive FEM-v2 coordinate-
 update predictive pipeline, execution protocol, task-private training wrapper,
 and admission/finalization/archive wrapper passed final contract review. The
