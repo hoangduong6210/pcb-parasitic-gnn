@@ -7,6 +7,17 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Training submission on 2026-09-15: validated probe evidence was pushed and
+remotely verified at `24d51a33f385dfb0c08d6e708e50d809df6d5aee`. The frozen
+training array `7318063` was then submitted with all 25 tasks and a concurrency
+cap of five. Each task trains three arms sequentially, for 75 checkpoints in
+total. Initial state is `PENDING`. Admission job `7318065` is queued with
+`afterok:7318063` and invalid-dependency cancellation enabled. It must validate
+every checkpoint before held-out finalization is submitted. Both jobs use
+execution source `efeb123c9975ae481d10cd7c0af899406c46e787` and the unchanged
+protocol and execution-lock hashes recorded below. A read-only watcher monitors
+both jobs. No training retry or predictive result is available at submission.
+
 Status check at 2026-09-15 02:23 EDT: probe `7315639_0` completed successfully
 on node `a0109`, from 02:11:48 to 02:12:38 EDT, with exit `0:0`, 50 s elapsed
 and zero restarts. Independent review verified all 26 source hashes and 58

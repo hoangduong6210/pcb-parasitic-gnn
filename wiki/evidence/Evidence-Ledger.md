@@ -26,6 +26,9 @@ operational or pending archival is not publication evidence.
 | Initial scheduler observation | `PENDING`; start time and reason not yet assigned |
 | Required receipt | `training_started=false`, `model_fitting_started=false`, `heldout_bytes_opened=false` |
 | Claim boundary | Filesystem and source-binding preflight only; `C-E3-FEMV2-001` remains proposed |
+| Evidence publication | `24d51a33f385dfb0c08d6e708e50d809df6d5aee`, remotely verified before training submission |
+| Subsequent training array | `7318063`, 25 tasks, concurrency five; initially PENDING |
+| Dependent admission | `7318065`, `afterok:7318063`; no held-out finalizer submitted |
 
 The full 25-task array is not authorized by submission alone. Terminal
 `COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
