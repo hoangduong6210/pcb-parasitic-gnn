@@ -14,7 +14,10 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | PENDING scheduler execution; no predictive evidence |
+| Status | VALIDATED sandbox probe; no predictive evidence |
+| Terminal accounting | `COMPLETED/0:0`, 50 s, zero restarts, node `a0109`; ended 2026-09-15 02:12:38 EDT |
+| Receipt | [Validated probe](../../results/corpus_v4/strict_e3_fem_v2/probes/job_7315639/task_00/probe.json) |
+| Receipt SHA-256 | `42f720fe8dbfa20f6b5f5aa279f12ce63aa50d4eb93c26913eeb9612f2feafcb` |
 | Probe array | `7315639`, singleton task `0%5` |
 | Source commit | `efeb123c9975ae481d10cd7c0af899406c46e787` |
 | Protocol SHA-256 | `9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc` |
@@ -27,6 +30,12 @@ operational or pending archival is not publication evidence.
 The full 25-task array is not authorized by submission alone. Terminal
 `COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
 task-private probe receipt must all be checked first.
+
+All required checks passed in the 02:23 EDT review: 26 source hashes and 58
+input hashes match; the receipt records no fitting or held-out access; stderr
+is empty. Allocation was 13 CPUs for the eight-CPU request, consistent with
+site memory policy, while scientific threads remained eight. The earlier
+dry-run estimate was superseded by actual completion on 2026-09-15.
 
 At 2026-09-15 00:14 EDT, the SLURM primary controller and scheduling cycles
 were active. The probe remained eligible but unevaluated, with

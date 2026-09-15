@@ -7,6 +7,29 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Status check at 2026-09-15 02:23 EDT: probe `7315639_0` completed successfully
+on node `a0109`, from 02:11:48 to 02:12:38 EDT, with exit `0:0`, 50 s elapsed
+and zero restarts. Independent review verified all 26 source hashes and 58
+input hashes against the frozen lock. The sole probe receipt confirms no
+fitting or held-out access and a passing filesystem boundary; stderr is empty.
+The preflight gate is VALIDATED. Its receipt is now copied into the evidence
+worktree and indexed in `E-C4-E3-FEMV2-PREFLIGHT-01`. The next transition is to
+publish this evidence and submit the frozen 25-task training array, producing
+75 arm checkpoints. That array has not yet been submitted. These receipt and
+wiki updates are local; the latest verified remote publication remains
+`e943d58`.
+
+Status check at 2026-09-15 02:06 EDT: probe `7315639_0` remains `PENDING`
+after approximately 1 h 56 min in the queue. It has no allocation, start time,
+log, or probe receipt, and zero restarts. The pending accounting field `0:0`
+does not indicate successful execution. The primary controller is `UP`;
+`sdiag` reports 2,947 pending jobs, 474 running jobs and 12 scheduling cycles
+per minute. Repeated queue-depth limits and the unchanged last scheduling
+evaluation support queue congestion as the explanation, although SLURM still
+reports `Reason=None`. The full training array remains gated on successful
+probe completion. The latest remotely verified publication is `e943d58`;
+this dated observation is a local wiki update.
+
 No-fit probe submission on 2026-09-15: scheduler dry-run accepted the frozen
 request, and actual singleton array `7315639` was submitted as task `0%5` with
 `PCB_GNN_E3_PROBE_ONLY=true`. Its initial state was `PENDING`; no start time or
