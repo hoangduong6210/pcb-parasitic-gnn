@@ -1496,6 +1496,140 @@ logs without changing the frozen attempt. The draft predictive design keeps
 Its arm-specific sandbox, checkpoints, admission, finalizer and archive
 verification must be implemented before any corpus training is authorized.
 
+## 16D. Run the FEM-v2 coordinate-update predictive ablation
+
+This stage is additive to the admitted GNN and fixed-baseline studies. It does
+not run an electromagnetic solver. It trains three arms for each of the frozen
+25 split--initialization cells, then withholds test access until all 75 numeric
+checkpoints pass terminal and numerical admission. The primary contrasts test
+coordinate updates against fixed-coordinate distance networks; they do not
+compare equivariant with non-equivariant scalar predictors.
+
+Start from the reviewed source commit in a dedicated clean worktree. Build the
+execution lock once, commit that lock, and use the resulting commit as the
+execution source. The lock is intentionally absent from the source hashes it
+contains, so committing the generated lock does not invalidate those hashes.
+
+```bash
+E3_ROOT=/absolute/path/to/clean-coordinate-ablation-checkout
+cd "$E3_ROOT"
+test -z "$(git status --short)"
+E3_PROTOCOL_SHA256=$(sha256sum protocols/corpus_v4_strict_e3_fem_v2_v1.json | awk '{print $1}')
+/usr/bin/python3 code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py build-lock \
+  --protocol protocols/corpus_v4_strict_e3_fem_v2_v1.json \
+  --expected-protocol-sha256 "$E3_PROTOCOL_SHA256" \
+  --execution-lock protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json
+git add protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json
+git commit -m "protocol: lock FEM-v2 coordinate ablation execution"
+E3_SOURCE_COMMIT=$(git rev-parse HEAD)
+E3_LOCK_SHA256=$(sha256sum protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json | awk '{print $1}')
+/usr/bin/python3 code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py validate \
+  --protocol protocols/corpus_v4_strict_e3_fem_v2_v1.json \
+  --expected-protocol-sha256 "$E3_PROTOCOL_SHA256" \
+  --execution-lock protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json \
+  --expected-execution-lock-sha256 "$E3_LOCK_SHA256" \
+  --expected-source-git-head "$E3_SOURCE_COMMIT"
+```
+
+The `build-lock` and `validate` commands only authenticate hashes, schemas and
+the pinned runtime; they do not fit a model or perform held-out inference. Push
+and remotely verify the lock commit before submission. Then export the four
+immutable bindings and submit task zero as a no-fit sandbox probe. Keep `%5` on
+the command-line override because scheduler admission validates the frozen
+array throttle as well as its singleton membership.
+
+```bash
+export PCB_GNN_E3_ROOT="$E3_ROOT"
+export PCB_GNN_E3_PROTOCOL_SHA256="$E3_PROTOCOL_SHA256"
+export PCB_GNN_E3_LOCK_SHA256="$E3_LOCK_SHA256"
+export PCB_GNN_E3_SOURCE_COMMIT="$E3_SOURCE_COMMIT"
+export PCB_GNN_E3_PROBE_ONLY=true
+sbatch --test-only -A pgs0407 --array=0%5 --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh"
+E3_PROBE_ID=$(sbatch --parsable -A pgs0407 --array=0%5 --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh")
+E3_PROBE_ID=${E3_PROBE_ID%%;*}
+[[ "$E3_PROBE_ID" =~ ^[0-9]+$ ]]
+```
+
+Require `COMPLETED/0:0`, zero restarts, and exactly one `probe.json` under
+`results/corpus_v4/strict_e3_fem_v2/probes/job_${E3_PROBE_ID}/task_00/`.
+That receipt must state `training_started=false`,
+`model_fitting_started=false`, and `heldout_bytes_opened=false`. Commit and
+push the probe receipt and its wiki evidence before authorizing training.
+
+```bash
+sacct -X -n -P -j "$E3_PROBE_ID" \
+  --format=JobID,JobIDRaw,State,ExitCode,ElapsedRaw,ReqTRES,AllocTRES,MaxRSS,Restarts,Partition,Timelimit,NodeList
+export PCB_GNN_E3_PROBE_ONLY=false
+sbatch --test-only -A pgs0407 --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh"
+E3_ARRAY_ID=$(sbatch --parsable -A pgs0407 --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh")
+E3_ARRAY_ID=${E3_ARRAY_ID%%;*}
+[[ "$E3_ARRAY_ID" =~ ^[0-9]+$ ]]
+```
+
+Do not rerun a failed element or submit a sparse replacement under this
+protocol. Preserve every failure. Any training retry requires a new protocol
+identity. After the complete array is terminal, submit admission with
+`afterok`; admission independently checks one no-requeue array, 25 unique task
+jobs, 75 safe NPZ bundles, 75 trained-symmetry receipts, validation metrics,
+and scheduler terminal records before it permits held-out access.
+
+```bash
+E3_ATTEMPT_ROOT="$E3_ROOT/results/corpus_v4/strict_e3_fem_v2/jobs/job_${E3_ARRAY_ID}"
+E3_ACCEPTED="$E3_ROOT/results/corpus_v4/strict_e3_fem_v2/resume/round_00/accepted_artifact_set.json"
+E3_ADMIT_ID=$(sbatch --parsable -A pgs0407 --dependency="afterok:${E3_ARRAY_ID}" \
+  --kill-on-invalid-dep=yes --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_finalize_corpus_v4_strict_e3_fem_v2_v1.sh" admit \
+  --attempt-root "$E3_ATTEMPT_ROOT" --accepted-set "$E3_ACCEPTED")
+E3_ADMIT_ID=${E3_ADMIT_ID%%;*}
+```
+
+Only after admission completes successfully, compute the accepted-set hash and
+submit held-out finalization. Finalization must emit exactly 22,050 prediction
+rows, 300 arm--target metric rows and 200 paired contrast rows.
+
+```bash
+E3_ACCEPTED_SHA256=$(sha256sum "$E3_ACCEPTED" | awk '{print $1}')
+E3_FINAL_ROOT="$E3_ROOT/results/corpus_v4/strict_e3_fem_v2/final"
+E3_FINAL_ID=$(sbatch --parsable -A pgs0407 --dependency="afterok:${E3_ADMIT_ID}" \
+  --kill-on-invalid-dep=yes --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_finalize_corpus_v4_strict_e3_fem_v2_v1.sh" finalize \
+  --accepted-set "$E3_ACCEPTED" \
+  --expected-accepted-set-sha256 "$E3_ACCEPTED_SHA256" \
+  --output-root "$E3_FINAL_ROOT")
+E3_FINAL_ID=${E3_FINAL_ID%%;*}
+```
+
+After terminal success, hash the analysis manifest and submit numerical
+archive reconstruction. Commit the accepted set, task bundles, analysis and
+archive receipt. Finally repeat `verify` with `--check --require-git-tracked`
+on SLURM from a clean evidence checkout. The execution-source binding remains
+`E3_SOURCE_COMMIT`; the later checkout may add data and documentation but must
+leave every locked source byte unchanged.
+
+```bash
+E3_ANALYSIS="$E3_FINAL_ROOT/job_${E3_FINAL_ID}/ANALYSIS_MANIFEST.json"
+E3_ANALYSIS_SHA256=$(sha256sum "$E3_ANALYSIS" | awk '{print $1}')
+E3_ARCHIVE="$E3_ROOT/results/corpus_v4/strict_e3_fem_v2/ARCHIVE_MANIFEST.json"
+E3_VERIFY_ID=$(sbatch --parsable -A pgs0407 --chdir="$E3_ROOT" --export=ALL \
+  "$E3_ROOT/code/jobs/submit_finalize_corpus_v4_strict_e3_fem_v2_v1.sh" verify \
+  --accepted-set "$E3_ACCEPTED" \
+  --expected-accepted-set-sha256 "$E3_ACCEPTED_SHA256" \
+  --analysis-manifest "$E3_ANALYSIS" \
+  --expected-analysis-manifest-sha256 "$E3_ANALYSIS_SHA256" \
+  --out "$E3_ARCHIVE")
+E3_VERIFY_ID=${E3_VERIFY_ID%%;*}
+```
+
+The clean-tracked replay uses the same arguments plus `--check` and
+`--require-git-tracked`. Update Live Execution and the Evidence Ledger after
+every transition. A successful archive still leaves the machine field
+`claim_eligible=false`; scientific wording requires independent result review
+and a separate project-owner admission decision.
+
 ## 17. Submit the FEM mesh-repeatability diagnostic
 
 This diagnostic must be submitted only from the reviewed clean detached

@@ -1,11 +1,37 @@
 ---
 title: SLURM Resource Plan
 status: frozen execution specification
-last_updated: 2026-09-12
+last_updated: 2026-09-14
 paper_source: false
 ---
 
 # SLURM Resource Plan
+
+## FEM-v2 coordinate-update predictive ablation
+
+The proposed ablation has 25 split/initialization tasks. Each task trains three
+arms sequentially and must produce three independently validated numeric
+checkpoints. This yields 75 arm checkpoints without increasing the scheduler
+array size. No FEM or FastHenry solve is part of the study.
+
+| Stage | Requested allocation | Concurrency | Gate |
+|---|---|---:|---|
+| Task-private no-fit preflight | 8 CPUs, 48 GiB, 4 h limit; singleton task 0 | 1 | No optimizer; verify selected split and filesystem boundary |
+| Three-arm training grid | 8 CPUs, 48 GiB, 4 h limit per task; 25 tasks | 5 | Three sequential 200-epoch arms; fixed eight scientific threads |
+| Admission, held-out finalizer and archive replay | 2 CPUs, 16 GiB, 30 min limit per stage | 1 | Admit exactly 75 bundles before held-out access; replay exact predictions and metrics |
+
+The requested simultaneous ceiling is 40 CPUs and 240 GiB. Earlier 200-epoch
+model runs suggest roughly 23 to 38 minutes of active compute for three
+sequential arms, but this is a planning range rather than a completion promise.
+The four-hour cap accommodates node and filesystem variation. Every task will
+archive its measured total and per-arm training wall time; those values do not
+constitute an inference-speed comparison. Site policy may allocate more CPUs
+than requested to satisfy 48 GiB, while numerical libraries remain capped at
+eight scientific threads.
+
+The initialized synthetic qualification is already complete and used two
+CPUs, 16 GiB and a ten-minute cap. It ran for 21 seconds. That job did not read
+the corpus and does not substitute for the task-private training preflight.
 
 ## FEM-v2 fixed baseline extension
 

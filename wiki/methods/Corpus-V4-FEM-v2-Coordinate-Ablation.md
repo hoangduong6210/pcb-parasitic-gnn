@@ -1,7 +1,7 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: proposed predictive study; initialized model qualified
-last_updated: 2026-09-13
+status: predictive pipeline reviewed; source freeze pending
+last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
 claim_ids: C-E3-FEMV2-001
@@ -82,14 +82,39 @@ Omitting it changes the architecture and will be recorded as a new version,
 not a correction to old evidence. Matching parameter counts is only a capacity
 control and does not make different function classes identical.
 
-Training remains disabled until the source and execution lock, task-private
-sandbox, safe arm-specific checkpoints, complete admission, held-out finalizer
-and archive reconstruction are implemented and reviewed. Synthetic model
-checks can qualify implementation behavior but cannot establish predictive
-benefit. All corpus training and scientific qualification jobs use SLURM.
+The reviewed additive predictive pipeline implements the task-private sandbox, three
+safe numeric checkpoints per cell, terminal admission, held-out finalization,
+and numerical archive reconstruction. Training remains disabled until these
+bytes are reviewed, committed, bound by a new execution lock, and exercised by
+a singleton no-fit SLURM probe. Synthetic model checks can qualify
+implementation behavior but cannot establish predictive benefit. All corpus
+training and scientific qualification jobs use SLURM.
+
+The execution protocol fixes 25 split--initialization tasks, three sequential
+arms per task, 200 epochs per arm, eight scientific CPU threads, 48 GiB per
+task, a four-hour task limit, and at most five simultaneous tasks. The
+parameter-matched fixed arm has 301,997 parameters versus 301,354 for the
+coordinate-update arm, a difference of 643 parameters, or about 0.213% of the
+coordinate-update count. This is a close capacity control rather than exact
+parameter equality.
+
+Every trained checkpoint must pass 40 frozen orthogonal-transform,
+translation, and node-permutation checks on one layout from each validation
+family before admission. The finalizer is permitted to materialize the held-out
+table only after all 75 checkpoints and their trained-symmetry receipts have
+passed admission. Expected analysis coverage is 22,050 prediction rows, 300
+arm--target metric rows, and 200 paired contrast rows. The descriptive
+interval uses 10,000 shared crossed-axis split/initialization draws.
 
 The [live status](../status/Live-Execution.md) owns job progress. No predictive
 result or new symmetry residual is admitted by this design page.
+
+The final pre-freeze review passed 324 relevant regression tests and 83 focused
+E3 tests. The only warning is the existing PyTorch `index_reduce` beta notice.
+Python compilation, shell syntax, diff hygiene and the deterministic research-
+prose audit also passed. These are implementation checks, not predictive
+results. The exact execution sequence is maintained in section 16D of the
+[SLURM Submission Playbook](../operations/SLURM-Submission-Playbook.md).
 
 The initialized synthetic-model qualification passed its frozen checks and
 is indexed by `E-C4-E3-FEMV2-QUAL-01` in the

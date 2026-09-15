@@ -1,6 +1,7 @@
 # FEM-v2 coordinate-update ablation
 
-Status: design and model implementation; predictive training is disabled.
+Status: predictive pipeline implemented; source freeze and no-fit sandbox probe
+are pending, so predictive training remains disabled.
 
 Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
 `9a1733ca4e64762f92578f4d158f71c9a8b41f13`. Its protocol SHA-256 is
@@ -28,3 +29,20 @@ requires its own source lock, isolated namespace, checkpoint admission,
 held-out finalizer and independent archive replay. Historical results remain
 unchanged. The canonical [live status](../../../wiki/status/Live-Execution.md)
 records submission identities and terminal outcomes.
+
+The additive predictive protocol is
+`protocols/corpus_v4_strict_e3_fem_v2_v1.json`. Its pipeline reuses the five
+frozen family splits crossed with five initialization seeds. Each task trains
+the `strict96`, `fixed96`, and `fixed_matched` arms sequentially and writes
+three numeric, non-executable NPZ checkpoints. The sandbox exposes one
+split-scoped train/validation table and the task's initially empty output
+directory; test, R4, previous-model, other-split, and other-task artifacts are
+absent.
+
+Training cannot begin from this working tree. The execution lock must be built
+after the final source commit is chosen, followed by static validation and a
+singleton no-fit SLURM probe. A complete run then requires 25 task receipts,
+75 trained-checkpoint symmetry receipts, terminal admission, held-out
+finalization, numerical reconstruction, and a clean Git-tracked replay. The
+machine summary keeps the previous GNN result contextual and does not turn
+training wall times into an inference-runtime claim.
