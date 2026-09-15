@@ -20,6 +20,17 @@ constructing an optimizer or opening held-out bytes. Full training remains
 blocked until its terminal accounting and receipt pass independent review.
 This transition is indexed by `E-C4-E3-FEMV2-PREFLIGHT-01`.
 
+Scheduler diagnosis at 2026-09-15 00:14 EDT found the primary controller `UP`
+and active scheduling/backfill cycles. Partition `nextgen` was available, with
+mixed and allocated nodes, so the submission path was not down. The probe was
+approximately row 647 of 727 displayed pending rows when sorted by priority;
+`Reason=None`, `StartTime=Unknown`, and its original `LastSchedEval` indicated
+that it had not yet received a scheduling decision. The preceding dry-run gave
+2026-09-24 13:26 EDT as a provisional start estimate. Queue rank and start
+estimates are volatile operational observations, not failures or scientific
+evidence. No duplicate or lower-fidelity probe will be submitted to bypass the
+frozen resource contract.
+
 Execution-lock transition on 2026-09-15: the reviewed coordinate-ablation
 source set at `d700f1c41b5e6317a4197d2af5b69e9ddce7c1d8` was published and remotely
 verified. The hash-only lock builder then closed 26 source files and 58 inputs

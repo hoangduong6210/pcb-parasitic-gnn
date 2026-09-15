@@ -28,6 +28,12 @@ The full 25-task array is not authorized by submission alone. Terminal
 `COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
 task-private probe receipt must all be checked first.
 
+At 2026-09-15 00:14 EDT, the SLURM primary controller and scheduling cycles
+were active. The probe remained eligible but unevaluated, with
+`Reason=None`, `StartTime=Unknown`, and no output file. A dry-run start estimate
+of 2026-09-24 13:26 EDT is retained only for operations planning and is not a
+guaranteed start time.
+
 ## E-C4-E3-FEMV2-QUAL-01 — Initialized coordinate-model qualification
 
 | Field | Value |
