@@ -7,6 +7,25 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Recovery admission passed on 2026-09-15: job `7326163` completed `0:0` in
+186 seconds on `a0126`, with zero restarts. All 25 tasks and 75 checkpoints
+passed the original validation, trained-symmetry and terminal gates at eight
+threads, without relaxing tolerances. The accepted-set SHA-256 is
+`483169c013b19149f40cea118803b3700dd4c9d6799e84af769161459a6c7634`.
+Held-out finalization `7326179` was submitted only after this terminal check,
+using the same published recovery source and pinned accepted set. Predictive
+results remain unavailable pending finalization and archive reconstruction.
+
+Recovery admission submitted on 2026-09-15: job `7326163` is RUNNING on
+`a0126` from remotely verified source
+`d0dce38890935766ba121441501a9673424818e1`. It requests eight CPUs, 48 GiB
+and 30 minutes; the scheduler allocated 13 CPUs, while numerical replay uses
+eight threads. Requeue is disabled. The recovery protocol SHA-256 is
+`37ca9f8ffcb8032eaafd137e98a1a2e8a3ede50ff8f36df35b9b0ba2bfbfbf3d`.
+Source checks passed 42 recovery tests and 50 wiki tests, plus prose and shell
+syntax checks. No held-out finalization has been submitted. A read-only
+watcher follows terminal accounting and per-task validation progress.
+
 Recovery source review on 2026-09-15: the additive worker now implements
 admission, finalization, archive reconstruction and tracked replay. Independent
 review found no remaining admission blocker. The operational sequence is

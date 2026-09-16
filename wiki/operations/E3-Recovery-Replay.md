@@ -1,6 +1,6 @@
 ---
 title: Coordinate Ablation Recovery Replay
-status: PROPOSED
+status: RUNNING
 last_updated: 2026-09-15
 paper_source: false
 ---

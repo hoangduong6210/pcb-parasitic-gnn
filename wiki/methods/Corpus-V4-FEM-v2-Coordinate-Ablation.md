@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: predictive source and inputs locked; no-fit probe pending
+status: checkpoint admission passed; held-out finalization submitted
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
@@ -84,9 +84,11 @@ control and does not make different function classes identical.
 
 The reviewed additive predictive pipeline implements the task-private sandbox, three
 safe numeric checkpoints per cell, terminal admission, held-out finalization,
-and numerical archive reconstruction. Training remains disabled until these
-bytes are reviewed, committed, bound by a new execution lock, and exercised by
-a singleton no-fit SLURM probe. Synthetic model checks can qualify
+and numerical archive reconstruction. Training was gated on source review,
+commit, a new execution lock, and a singleton no-fit SLURM probe. Those gates
+passed and all 75 checkpoints were produced. Admission now follows the
+separately versioned [eight-thread recovery](../operations/E3-Recovery-Replay.md).
+Synthetic model checks can qualify
 implementation behavior but cannot establish predictive benefit. All corpus
 training and scientific qualification jobs use SLURM.
 
@@ -120,7 +122,7 @@ The production execution lock was generated after the reviewed source commit
 and authenticates 26 source files plus 58 immutable inputs. Its SHA-256 is
 `f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20`.
 This hash is operational provenance, not predictive evidence. Static validation
-and the singleton no-fit SLURM probe remain mandatory before training.
+and the singleton no-fit SLURM probe passed before training.
 
 The initialized synthetic-model qualification passed its frozen checks and
 is indexed by `E-C4-E3-FEMV2-QUAL-01` in the

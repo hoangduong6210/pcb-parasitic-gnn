@@ -33,6 +33,11 @@ operational or pending archival is not publication evidence.
 | Diagnostic receipt | [Task-zero thread comparison](../../results/corpus_v4/strict_e3_fem_v2/diagnostics/job_7326041/result.json) |
 | Diagnostic SHA-256 | `1c674b31020e55dcce74ca9b17c97fa55accd1907cc1e3cbbb26baedb218d859` |
 | Diagnostic finding | Eight threads reproduce every stored metric exactly in both repeats; two threads fail 48 metric leaves per repeat across three arms; within-setting predictions byte-identical |
+| Recovery admission | `7326163`, COMPLETED/0:0, 186 s, zero restarts on `a0126`; all 75 checkpoints pass eight-thread replay with original tolerances |
+| Recovery accepted set | [Receipt](../../results/corpus_v4/strict_e3_fem_v2/recovery/v1/admission/job_7326163/accepted_artifact_set.json), SHA-256 `483169c013b19149f40cea118803b3700dd4c9d6799e84af769161459a6c7634` |
+| Recovery finalizer | `7326179`, submitted after terminal admission |
+| Recovery source | `d0dce38890935766ba121441501a9673424818e1`, remotely verified; includes all 25 original task directories |
+| Recovery protocol SHA-256 | `37ca9f8ffcb8032eaafd137e98a1a2e8a3ede50ff8f36df35b9b0ba2bfbfbf3d` |
 
 The full 25-task array is not authorized by submission alone. Terminal
 `COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
