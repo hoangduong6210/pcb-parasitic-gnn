@@ -7,6 +7,21 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Diagnostic completed on 2026-09-15: job `7326041` finished `COMPLETED/0:0`
+in 44 seconds on `a0102`, with zero restarts. Both eight-thread runs reproduced
+every stored validation metric exactly for all three task-zero arms. Both
+two-thread runs failed the original comparison on 48 numeric leaves: 14 for
+`strict96`, 13 for `fixed96`, and 21 for `fixed_matched`. Repeats at the same
+thread count produced byte-identical predictions. Across thread counts, the
+maximum relative prediction difference was `3.3208691873413494e-7`.
+This establishes thread-dependent numerical replay on the tested task; it
+does not yet validate the remaining checkpoints. The next recovery step is
+an eight-thread validation replay over all 75 checkpoints with the original
+tolerance, preserved training source, and separately versioned execution
+profile. No retraining, tolerance relaxation, or held-out evaluation occurred.
+The diagnostic receipt SHA-256 is
+`1c674b31020e55dcce74ca9b17c97fa55accd1907cc1e3cbbb26baedb218d859`.
+
 Diagnostic submitted on 2026-09-15: job `7326041` runs the task-zero validation
 replay at two and eight threads, twice each, from published source
 `efba7312277b30e7de4c5c1566c5ad5f0133b4cb`. The source passed 18 diagnostic
