@@ -58,6 +58,7 @@ instead of calling one column ground truth.
 | FEM-v2 coordinate-update ablation | `ADMITTED; VERSION-SCOPED` | All 75 checkpoints, held-out analysis and tracked replay passed; `C-E3-FEMV2-001` states that the fixed study did not establish a consistent coordinate-update accuracy gain |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 | IEEE Journal Snapshot 1.1 | `PUBLISHED; TAG AND CI VERIFIED` | Expanded eleven-page export of the twelve admitted claims; no research execution was reopened |
+| IEEE Journal Snapshot 1.1.1 | `PUBLISHED; TAG AND CI VERIFIED` | Figure-only correction to Figs. 1, 2, 5, 7, and 9; claims, data, and citations unchanged |
 
 The dated [Live Execution](Live-Execution.md) page preserves prior task counts
 and scheduler transitions. The [handoff page](Research-Pause-Handoff.md) owns

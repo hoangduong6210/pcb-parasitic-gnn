@@ -1,6 +1,6 @@
 ---
 title: Journal Snapshot 1.1.1 Figure Correction
-status: RELEASE CANDIDATE
+status: PUBLISHED; IMMUTABLE TAG AND CI VERIFIED
 last_updated: 2026-09-16
 paper_source: false
 ---
@@ -30,6 +30,10 @@ five corrected figures were also inspected on the rendered IEEE pages 2, 3, 5,
 7, and 8. A new manifest freezes the corrected
 generator, graphic files, and PDF after verification.
 
-Publication requires a clean package verifier, deterministic prose and wiki
-audits, repository tests, remote `main` and tag hash checks, and a successful CI
-run. Until those checks finish, this page describes a release candidate.
+Publication was verified on 2026-09-16. Tag `journal-snapshot-1.1.1` peels to
+`d96dbb02664b3e0aab09b60a67c67872a3fa8762`, which was also the remote
+`main` commit at release. Both GitHub CI runs passed
+([branch run](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/35089274604),
+[tag run](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/35089274641)).
+The package verifier, deterministic prose and wiki audits, manifest check,
+and local repository tests passed. The original 1 and 1.1 tags remain unchanged.
