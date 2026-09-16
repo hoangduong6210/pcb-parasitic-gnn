@@ -1,0 +1,2124 @@
+{
+  "all_75_checkpoint_admission_pending": true,
+  "arms": {
+    "fixed96": {
+      "batch_order_sha256": "bb96a61772f43ebb3783045a02a422f0bb66ae54e9c5314a5e5a6510348fd07c",
+      "bundle_specs": {
+        "norm.coordinate_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": true
+        },
+        "norm.edge_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "norm.edge_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": true
+        },
+        "norm.node_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": false
+        },
+        "norm.node_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": true
+        },
+        "norm.target_log1p_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "norm.target_log1p_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": true
+        },
+        "state.edge_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            288
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            6
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        }
+      },
+      "epochs_completed": 200,
+      "files": {
+        "arm_fixed96/metadata.json": "9c93fe5945b513c2a8988c01bd77849817d8c120face390fa2890182498d7a3c",
+        "arm_fixed96/weights_and_norm.npz": "6438e5cf45a6d90c136040572a26e4d2c38497b9748fb8e9b5433583858277ec",
+        "learning_curve_fixed96.jsonl": "b243c013e49b9946bfff89b57974b358bbff89e4f73889800bd900e1b259e05a"
+      },
+      "trained_symmetry": {
+        "arm": "fixed96",
+        "coordinate_mode": "unchanged_input_coordinates",
+        "fixture_family_ids": [
+          "turns-04-04",
+          "turns-04-05",
+          "turns-04-07",
+          "turns-04-10",
+          "turns-04-11",
+          "turns-06-09",
+          "turns-08-13"
+        ],
+        "fixture_layout_ids": [
+          127,
+          61,
+          18,
+          1,
+          80,
+          20,
+          97
+        ],
+        "includes_permutation": true,
+        "max_relative_residual": {
+          "coordinate_equivariance": 0.0,
+          "coordinate_unchanged": 0.0,
+          "scalar_invariance": 2.1377836390001903e-07
+        },
+        "passed": true,
+        "relative_tolerance": 2e-05,
+        "schema": "pcb-gnn.corpus-v4-strict-e3-trained-symmetry.v1",
+        "transform_count": 40
+      },
+      "training_wall_s": 643.4031192432158,
+      "validation_diagnostic_only": {
+        "Cps_pF": {
+          "family_macro_mape_pct": 22.69478807126759,
+          "mae_physical_units": 5.0178980161652555,
+          "mean_ape_pct": 19.818440514768046,
+          "median_ape_pct": 13.470136937946348,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 65.35700402109362,
+          "r2": 0.9341490462922891,
+          "signed_bias_physical_units": 2.0312874086369526
+        },
+        "L_mut_nH": {
+          "family_macro_mape_pct": 7.586634402807129,
+          "mae_physical_units": 22.81971792007826,
+          "mean_ape_pct": 6.578527855167356,
+          "median_ape_pct": 4.621507602312947,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 18.629386771688853,
+          "r2": 0.9892675352467173,
+          "signed_bias_physical_units": 7.882094773908914
+        },
+        "L_pri_nH": {
+          "family_macro_mape_pct": 6.879768228891925,
+          "mae_physical_units": 35.82143746587448,
+          "mean_ape_pct": 6.716961907546667,
+          "median_ape_pct": 5.147673163649005,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 19.028532670071062,
+          "r2": 0.9897864642740191,
+          "signed_bias_physical_units": 9.175283437987053
+        },
+        "L_sec_nH": {
+          "family_macro_mape_pct": 7.542932753890909,
+          "mae_physical_units": 40.345248264662224,
+          "mean_ape_pct": 7.0369579355052805,
+          "median_ape_pct": 4.995507326601379,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 19.347614738884506,
+          "r2": 0.9888012327269765,
+          "signed_bias_physical_units": -3.562963799784554
+        }
+      }
+    },
+    "fixed_matched": {
+      "batch_order_sha256": "bb96a61772f43ebb3783045a02a422f0bb66ae54e9c5314a5e5a6510348fd07c",
+      "bundle_specs": {
+        "norm.coordinate_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": true
+        },
+        "norm.edge_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "norm.edge_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": true
+        },
+        "norm.node_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": false
+        },
+        "norm.node_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": true
+        },
+        "norm.target_log1p_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "norm.target_log1p_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": true
+        },
+        "state.edge_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            303
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            206
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            202
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            206
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            202
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            206
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            202
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            206
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            202
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            6
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            101,
+            101
+          ],
+          "strictly_positive": false
+        }
+      },
+      "epochs_completed": 200,
+      "files": {
+        "arm_fixed_matched/metadata.json": "6ac345e79ced68f022dce466e5411b26b4b5f3a4c4ba8e37638d843a2501e6ba",
+        "arm_fixed_matched/weights_and_norm.npz": "afcbdf95ea997e509fa3d93b889550d88b7ae72bb52fe84b6da095ca8a1fc321",
+        "learning_curve_fixed_matched.jsonl": "067879180ffcb75013d0237f44222aa89d400c0bf3abddf87e04b43e9c01bde3"
+      },
+      "trained_symmetry": {
+        "arm": "fixed_matched",
+        "coordinate_mode": "unchanged_input_coordinates",
+        "fixture_family_ids": [
+          "turns-04-04",
+          "turns-04-05",
+          "turns-04-07",
+          "turns-04-10",
+          "turns-04-11",
+          "turns-06-09",
+          "turns-08-13"
+        ],
+        "fixture_layout_ids": [
+          127,
+          61,
+          18,
+          1,
+          80,
+          20,
+          97
+        ],
+        "includes_permutation": true,
+        "max_relative_residual": {
+          "coordinate_equivariance": 0.0,
+          "coordinate_unchanged": 0.0,
+          "scalar_invariance": 2.881121758946392e-07
+        },
+        "passed": true,
+        "relative_tolerance": 2e-05,
+        "schema": "pcb-gnn.corpus-v4-strict-e3-trained-symmetry.v1",
+        "transform_count": 40
+      },
+      "training_wall_s": 849.8401540773921,
+      "validation_diagnostic_only": {
+        "Cps_pF": {
+          "family_macro_mape_pct": 22.629679040671146,
+          "mae_physical_units": 4.546598890015192,
+          "mean_ape_pct": 18.299533885892505,
+          "median_ape_pct": 10.133332598145195,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 66.22610456076852,
+          "r2": 0.9439717557681006,
+          "signed_bias_physical_units": 1.8764878225363646
+        },
+        "L_mut_nH": {
+          "family_macro_mape_pct": 8.261518711620683,
+          "mae_physical_units": 23.030974784095918,
+          "mean_ape_pct": 6.914176216703052,
+          "median_ape_pct": 4.702780662226842,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 19.78670072426054,
+          "r2": 0.9879506449485392,
+          "signed_bias_physical_units": 7.291938336304014
+        },
+        "L_pri_nH": {
+          "family_macro_mape_pct": 5.6429382790276446,
+          "mae_physical_units": 29.301898695177243,
+          "mean_ape_pct": 5.61644294172756,
+          "median_ape_pct": 4.274336010022974,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 16.428734214817506,
+          "r2": 0.9933855625622136,
+          "signed_bias_physical_units": 1.7535623095692314
+        },
+        "L_sec_nH": {
+          "family_macro_mape_pct": 6.641990108664922,
+          "mae_physical_units": 29.464970597760324,
+          "mean_ape_pct": 6.021243847895536,
+          "median_ape_pct": 4.601265136286026,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 15.781362857443657,
+          "r2": 0.9952471751493724,
+          "signed_bias_physical_units": 2.7299178078529076
+        }
+      }
+    },
+    "strict96": {
+      "batch_order_sha256": "bb96a61772f43ebb3783045a02a422f0bb66ae54e9c5314a5e5a6510348fd07c",
+      "bundle_specs": {
+        "norm.coordinate_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": true
+        },
+        "norm.edge_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "norm.edge_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": true
+        },
+        "norm.node_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": false
+        },
+        "norm.node_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            6
+          ],
+          "strictly_positive": true
+        },
+        "norm.target_log1p_mean": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "norm.target_log1p_scale": {
+          "dtype": "<f8",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": true
+        },
+        "state.edge_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3
+          ],
+          "strictly_positive": false
+        },
+        "state.edge_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            3,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            288
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4
+          ],
+          "strictly_positive": false
+        },
+        "state.head.4.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            4,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.coord.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.coord.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.coord.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.coord.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.0.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.coord.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.coord.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.coord.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.coord.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.1.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.coord.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.coord.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.coord.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.coord.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            1,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.2.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            196
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.msg.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.norm.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            192
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.layers.3.upd.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.0.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            6
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.bias": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96
+          ],
+          "strictly_positive": false
+        },
+        "state.node_enc.2.weight": {
+          "dtype": "<f4",
+          "finite": true,
+          "shape": [
+            96,
+            96
+          ],
+          "strictly_positive": false
+        }
+      },
+      "epochs_completed": 200,
+      "files": {
+        "arm_strict96/metadata.json": "48bc350fa3a3bbd32689ffdacd0da002837960707cec573d2d4e4f466e583f65",
+        "arm_strict96/weights_and_norm.npz": "0f6d5080be12114d9119abfd3788ac8f78093cabac13086491a36ce2c7eab629",
+        "learning_curve_strict96.jsonl": "af8fb439e7527baad5ecd1abf7238a802aa56c88de5478e36703dfce98549a4d"
+      },
+      "trained_symmetry": {
+        "arm": "strict96",
+        "coordinate_mode": "equivariant_update",
+        "fixture_family_ids": [
+          "turns-04-04",
+          "turns-04-05",
+          "turns-04-07",
+          "turns-04-10",
+          "turns-04-11",
+          "turns-06-09",
+          "turns-08-13"
+        ],
+        "fixture_layout_ids": [
+          127,
+          61,
+          18,
+          1,
+          80,
+          20,
+          97
+        ],
+        "includes_permutation": true,
+        "max_relative_residual": {
+          "coordinate_equivariance": 2.1355794591367504e-07,
+          "coordinate_unchanged": 0.05897027626633644,
+          "scalar_invariance": 2.0635860664697248e-07
+        },
+        "passed": true,
+        "relative_tolerance": 2e-05,
+        "schema": "pcb-gnn.corpus-v4-strict-e3-trained-symmetry.v1",
+        "transform_count": 40
+      },
+      "training_wall_s": 811.6084129232913,
+      "validation_diagnostic_only": {
+        "Cps_pF": {
+          "family_macro_mape_pct": 20.14933431440039,
+          "mae_physical_units": 4.725492882983714,
+          "mean_ape_pct": 17.891687784095637,
+          "median_ape_pct": 11.440155750066378,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 52.81087307654276,
+          "r2": 0.9417692917268888,
+          "signed_bias_physical_units": 1.0087424358659935
+        },
+        "L_mut_nH": {
+          "family_macro_mape_pct": 8.421376087060555,
+          "mae_physical_units": 23.541432950258773,
+          "mean_ape_pct": 7.148905936523743,
+          "median_ape_pct": 4.540579393841509,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 21.740667202271176,
+          "r2": 0.9883060515356127,
+          "signed_bias_physical_units": 9.67822856965465
+        },
+        "L_pri_nH": {
+          "family_macro_mape_pct": 7.188378745780119,
+          "mae_physical_units": 35.260042757814155,
+          "mean_ape_pct": 6.778138979627766,
+          "median_ape_pct": 5.036984755584932,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 18.493751473170615,
+          "r2": 0.98942418873384,
+          "signed_bias_physical_units": 15.669898074405948
+        },
+        "L_sec_nH": {
+          "family_macro_mape_pct": 6.863237487870768,
+          "mae_physical_units": 34.50714363031585,
+          "mean_ape_pct": 6.148221670770852,
+          "median_ape_pct": 4.307451534543532,
+          "n_families": 7,
+          "n_nonfinite_predictions": 0,
+          "n_nonpositive_predictions": 0,
+          "n_samples": 152,
+          "nonpositive_prediction_rate_pct": 0.0,
+          "p95_ape_pct": 17.376563324993747,
+          "r2": 0.9921055634882578,
+          "signed_bias_physical_units": 0.07794311444384573
+        }
+      }
+    }
+  },
+  "bindings": {
+    "execution_lock_sha256": "f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20",
+    "protocol_sha256": "9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc",
+    "source_git_head": "efeb123c9975ae481d10cd7c0af899406c46e787"
+  },
+  "common_batch_order_sha256": "bb96a61772f43ebb3783045a02a422f0bb66ae54e9c5314a5e5a6510348fd07c",
+  "heldout_bytes_opened": false,
+  "initialization": {
+    "actual_parameter_count": {
+      "fixed96": 273127,
+      "fixed_matched": 301997,
+      "strict96": 301354
+    },
+    "arms": {
+      "fixed96": {
+        "hidden": 96,
+        "parameters": 273127
+      },
+      "fixed_matched": {
+        "hidden": 101,
+        "parameters": 301997
+      },
+      "strict96": {
+        "hidden": 96,
+        "parameters": 301354
+      }
+    },
+    "paired_arms": [
+      "strict96",
+      "fixed96"
+    ],
+    "seed": 44,
+    "shared_tensor_count": 54,
+    "shared_tensor_equality_verified": true,
+    "shared_tensor_sha256": {
+      "edge_enc.0.bias": "37372985ff54e8cf785b8903485d2dce84847cec3e3526debf8312a79bdae8ee",
+      "edge_enc.0.weight": "12dbdda4a08a4bb35970bcc29aa86c74a89b6870f5a40100f51966ea9abbcb4d",
+      "edge_enc.2.bias": "8800fa98a6a1b490cb5d74316d0613a9a4b6e93e4ed92ed493d5f30532fbca51",
+      "edge_enc.2.weight": "37018655df971ba75676a62b90dc4d758e802f9769298da79103c375e9751948",
+      "head.0.bias": "22f8ed96a1486195cd9b7a7c03877c21339f5387822a330add1ed3f0756a0be9",
+      "head.0.weight": "9095ec1813efe32cbc2dfa050783f8256c32cfd219b74c9a45222b23adeefe03",
+      "head.2.bias": "fb7a8cc97467ed1893775a9c326c2a58eaf5ba476a132fb0778405b27e8b94e7",
+      "head.2.weight": "fd12a8beb8ff2cd6b06adeb160193103821fb4f13009cd7ceb6b167ba45de126",
+      "head.4.bias": "c9d41b16ecd9626c00e97dc5f0f57ffb861316adb066ef3a62e41815eb675d4e",
+      "head.4.weight": "fb754094dbb0cafce5b57138e1309482d44d80184df6b5bc45bc6c544dc3fefa",
+      "layers.0.msg.0.bias": "d0d04b076d1af903b1bfa4e4e4a9a0d272110a30e0d6ddf2b41ebcc3515e7ac3",
+      "layers.0.msg.0.weight": "d0a453a572b0c26b0aa2016fcc378ac31c9abaf69ad2b950d70d5020434b61af",
+      "layers.0.msg.2.bias": "e2d7d23b7fd17f7f32d2699e1601056e9d3b5852d95b994937ec9114425f5454",
+      "layers.0.msg.2.weight": "589943a1267294d500db118a476f995052d00fb6602b26aae0fe80fe28c8c4da",
+      "layers.0.norm.bias": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "layers.0.norm.weight": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f",
+      "layers.0.upd.0.bias": "cc30fca852358ca2fe3e7f57277aaddde33a6f218c63f4bf52f2409885c45bb4",
+      "layers.0.upd.0.weight": "ece0d901439b516a65a4ce76a05b4b185dc17cb782d494e6deab7eb921e7c3ce",
+      "layers.0.upd.2.bias": "76d1e433c828117b5cd7705a4bf185a60269b918ccc811475f3ade18b80ecc4b",
+      "layers.0.upd.2.weight": "df80d3b8b171c644f6eaeeeec24d1957a3da0558b45f706158e34c26871174b2",
+      "layers.1.msg.0.bias": "528d3c5b0877fb31055d4aeda08e70f98550c1c6b8a9006438f394d623e568a0",
+      "layers.1.msg.0.weight": "8666184e9bf71056b0d25dc27115ddc56b71bae493bca89e9e68bbc6ac813027",
+      "layers.1.msg.2.bias": "c2bfa7c4801145051f35039c5050d9dcf8b279f2c8b300904f1bedc961983259",
+      "layers.1.msg.2.weight": "f3e512e52813f3efc63611bdba590111d1dda05f65ac5d24a56ac4dd21898948",
+      "layers.1.norm.bias": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "layers.1.norm.weight": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f",
+      "layers.1.upd.0.bias": "7f5e16376a80f8ad320b62b8a632cc53f4f7cda838cba6a48f5e6d1180cdf1a7",
+      "layers.1.upd.0.weight": "812d864efaa801471096dec304aad885da3c4f2a2303f5181858a611bb5e2dc1",
+      "layers.1.upd.2.bias": "77a707f36ce5b0f15c38efc465a9ffee2c4098e883f7ab7ad9c1b255f37119c7",
+      "layers.1.upd.2.weight": "e67565eabcbfc286d6c3c0dd97af8a14dfa5474a0ec2b66baff97bc40078cb67",
+      "layers.2.msg.0.bias": "1c40f807c2e593a14a78db8da537dad54a538a54899a1325ad33fe58c9c7032d",
+      "layers.2.msg.0.weight": "ae7f9c83aeebf747754648caaab9ce91e9353d3e7f365022e4d85eed9247580e",
+      "layers.2.msg.2.bias": "df0f423871c244d24daafc13cfe3ca7455315d0f7de46f7b0a82672551003389",
+      "layers.2.msg.2.weight": "8b7613a8649fe217e4082cec342559d0d827725de057c24b8aef07050ad7d1df",
+      "layers.2.norm.bias": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "layers.2.norm.weight": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f",
+      "layers.2.upd.0.bias": "a783070a652867b27d7f2f085d7652e900a960c7d835a06b520e416b11943e17",
+      "layers.2.upd.0.weight": "e39084933f57de748585d56617c1b6089b0e36b04de2a0d3fbdb4f8b0e0d0ff5",
+      "layers.2.upd.2.bias": "2f33a9522e145b67451c759798952cf1273162d04c28e635085cc358a9b0ad55",
+      "layers.2.upd.2.weight": "589a8eceb5a62808cce67c024e480526c5a5c141c66b8c6c4191fec5a60f2e2b",
+      "layers.3.msg.0.bias": "834bddfc3bdeb6aa833a58641c2fe80e3c897e7d312c2da5c71dfdb187c88312",
+      "layers.3.msg.0.weight": "b1ca1d7e33ce548a35b0994fddbf0e8aa3e79a2be7681b47c576af976addf8c9",
+      "layers.3.msg.2.bias": "16b392fa1f392c6e100464d5f98490919b0fd66fb3214447fdacdac59f7b7d37",
+      "layers.3.msg.2.weight": "ddc7342f9fda6aee89118d2095283c940397e927f3c793c5f36cec8d597a5e4f",
+      "layers.3.norm.bias": "a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca",
+      "layers.3.norm.weight": "23a90de3949c5b5e42f5a28198b6126ce4153737353b42d4af5fe4f5cf13021f",
+      "layers.3.upd.0.bias": "9b26bfc42fb2842326c926f5fda92d484a35f9601cddd023085c54645328dc44",
+      "layers.3.upd.0.weight": "517d16ee7cd8a10bcdc83758bfe7b2dc10ea564e589b868b201333d6c51a95a7",
+      "layers.3.upd.2.bias": "dfe85a0c7f01e7b637b4c2ac7592d94bacb5c1a52ff9788cf611ef74346f9300",
+      "layers.3.upd.2.weight": "f6fa8501796b313ede2cc2aaa73fa6ac8e7f7220d7bd194b59dbf2af3609dac7",
+      "node_enc.0.bias": "d38f1a597a9f05592922698538f212ed06c4df7730f6559a79a3504045d5d4b4",
+      "node_enc.0.weight": "e9c170547266ca0d97f015734360ad8e3f4fbbdede3b63d42144540b5a27e685",
+      "node_enc.2.bias": "c2702c32314439c71d87d483a1d45337501d01150d1dbc161f7256b8d79f9c0d",
+      "node_enc.2.weight": "6923b97804320704b6ff0a2296cf3e826667cf542b93e27615c1c5e401d18b76"
+    }
+  },
+  "runtime": {
+    "numpy": "2.0.2",
+    "python": "3.9.21",
+    "scikit-learn": "1.6.1",
+    "scipy": "1.13.1",
+    "torch": "2.8.0"
+  },
+  "sandbox": {
+    "backend": "bubblewrap",
+    "executable_sha256": "9dba99a1fa3be3b0d3e5cb7d6d297742b56a3b1749465f520503c651b38d99aa",
+    "filesystem_boundary_passed": true,
+    "forbidden_roots_absent": true,
+    "heldout_artifacts_visible": false,
+    "hidden_training_artifact_count": 4,
+    "other_task_checkpoints_visible": false,
+    "prior_model_artifacts_visible": false,
+    "sandbox_root": "/workspace",
+    "selected_training_artifact": "training_split_41.jsonl",
+    "task_private_output_only": true
+  },
+  "scheduler": {
+    "allocated_cpus_per_task": 13,
+    "array_job_id": "7318063",
+    "array_task_id": 9,
+    "environment_cpus_per_task": 13,
+    "job_id": "7318260",
+    "requested_cpus_per_task": 8,
+    "requested_memory_gib": 48,
+    "scheduler_record": {
+      "AllocTRES": "cpu=13,mem=48G,node=1,billing=13",
+      "ArrayJobId": "7318063",
+      "ArrayTaskId": "9",
+      "ArrayTaskThrottle": "5",
+      "CPUs/Task": "13",
+      "JobId": "7318260",
+      "JobState": "RUNNING",
+      "MinMemoryNode": "48G",
+      "NumCPUs": "13",
+      "NumTasks": "1",
+      "Partition": "nextgen",
+      "ReqTRES": "cpu=8,mem=48G,node=1,billing=8",
+      "TimeLimit": "04:00:00",
+      "TresPerTask": "cpu=8"
+    },
+    "scientific_threads": 8
+  },
+  "schema": "pcb-gnn.corpus-v4-strict-e3-task.v1",
+  "source_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+    "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+    "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v3.py": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1",
+    "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99",
+    "code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py": "c43fb082ec065588f4a19459128d584179beb94241d97a8da7004180eb8c9a56",
+    "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py": "1f9bd64055d39a37d0cf1191d680c896590494459f365c0fc2728acf218de58d",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py": "1d5206c8fd52729a62f21e873ffe930a3e601850276d1a57f32fa7686afa8112",
+    "code/experiments/proofs/plan_corpus_v4_accuracy_v3.py": "dffb3a43cc1ebdb21e106515648fb300fef6fb06b93026bb710ff3eaa94f1a2b",
+    "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+    "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_corpus_v4_accuracy_v3.sh": "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af",
+    "code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh": "ae9e53fce39c414de44a923cb6eb104f562b0fcaa75f60a5e40c9ffa5fec9a6a",
+    "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh": "dd96d9db98497c58153288e87f4b037f6bdc474ee3051aa356db591e2e85bbcb",
+    "code/jobs/submit_finalize_corpus_v4_strict_e3_fem_v2_v1.sh": "b42ba54f7b8ff1c66be7ba96d8ce02074fcc3d36f1d8ae5c3042eb9f54e0a51a",
+    "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+    "code/models/gnn/strict_e3_ablation_v1.py": "76b4c862d729c08f7b6b8fce7302789057f78caff584a2d2b5091f70251d667c",
+    "code/quality/verify_corpus_v4_accuracy_archive_v3.py": "7d328a48177a14bb33f48707fc9d7653e5a05ef815afbd73adb2b86200a7f3ef",
+    "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+    "protocols/corpus_v4_strict_e3_fem_v2_v1.json": "9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc",
+    "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+  },
+  "task": {
+    "designated_downstream_checkpoint": false,
+    "init_seed": 44,
+    "split_seed": 41,
+    "task_id": 9
+  },
+  "training_dataset": {
+    "path": "results/corpus_v4/accuracy_v3/plan/v1/training_split_41.jsonl",
+    "sha256": "f439b182c055ad917ed07af2d08d26f656ed42e447eec0ec5c55a9d74e2a5648"
+  },
+  "training_started": true,
+  "training_wall_s": 2304.881254118867
+}

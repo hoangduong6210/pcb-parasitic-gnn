@@ -1,0 +1,50 @@
+{
+  "schema": "pcb-gnn.strict-e3-recovery-protocol.v1",
+  "frozen_commit": "efeb123c9975ae481d10cd7c0af899406c46e787",
+  "frozen_protocol_sha256": "9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc",
+  "frozen_lock_sha256": "f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20",
+  "training_array": "7318063",
+  "task_receipt_sha256": {
+    "0": "dec5549bb7453824110c7acfefd5dd51e5d202f2840aa76ed27b7f460cbc747e",
+    "1": "91308bcdfb7cebfc0b952270e539a41919e878be7b84930f5dae3f8508997b91",
+    "2": "3b41b105bb359281c29056e72e85e33b1828655652e969c1207c534cb75b379c",
+    "3": "928b72fc6792af634dd9d4c6914e88abace0c7c65d428d44a4afb5dfed671ca4",
+    "4": "84cdb356c9be0be0f407dda25be6623c3842d55cd41052649aa2e78bb1b45f1d",
+    "5": "80d4d7735ace23ef2ee9e88bd226b7cc15753bb37d41f0fcbaf93ae0a57e8e83",
+    "6": "ec880e39ca668df785b412c799410f33acf1a3200eef82d258b7699c4d6a2d5a",
+    "7": "01f75e41f6719086e558ba31e463f3dd42b2f9d0da71c488fa1ab001123783cf",
+    "8": "665774104737632385341903d63449e83ecc112ac9be49d8b8c26ad628eecfa8",
+    "9": "3405390d3b961d23e2e8ec6d3b8e627a75a7b31b5c41f5bc555a8ce76f02ffd9",
+    "10": "222987bb9260d6d635ca9e88928200ed275393332d940080a1255c1d37289e4a",
+    "11": "d456a699b3c7c8bb8c01f912b76f0ebbba896001e0a8174b7387a54693399afd",
+    "12": "ff0f12a34919f0e36c1cb9f0885d87f9c6d43b756dd9ec83868d63859c5f823d",
+    "13": "0017f62a1a1dfa17dfc3445423d08963fb9ba8134e315e99bc4047a0061ce684",
+    "14": "296b5d2bacea9e05a87b23463cb26b85297f029847995d0a2822f812139699b7",
+    "15": "b6c3a7b648ad0e4f171415b0948f2818ef8b8c3a87df5a8c15e5dfb5a7924e68",
+    "16": "426c3132054185d6165a727020640ecd5fa6d3014ada630e8fe5948b09e43a27",
+    "17": "55b73aa1a047ddb4bd904706437f20668ce648233db00e98dcbcfbdf2fd4165e",
+    "18": "71602034197d3f096224179a4976b495707d2237470cd5966ddfef9f119e512a",
+    "19": "2b463743a7a1adaaec033e79f2807b5c304eff81d9612b43e99669a88875eb34",
+    "20": "6f3f0159d6d5caeac2c237086e8ca890c270004ba9cbed32d31757a98750bc3e",
+    "21": "0ad8d268e45a284e78b1cda93cfbae56998de163a65e5c4d1ba9f83eb75b53fa",
+    "22": "d7efbe344cfeeb70d7ae89d1c721d5801893b2177ae38f01f322abafe1002c9e",
+    "23": "b85e4f06da304df7d6c41efc44e749f2ba2c282577c2511f5d22c56cc76279d6",
+    "24": "3544dbed59ef257ac920fb66c8e0aedb368af0ac6677ad0e67099d4056f4bffb"
+  },
+  "scientific_threads": 8,
+  "resources": {
+    "cpus_per_task": 8,
+    "mem": "48G",
+    "time": "00:30:00",
+    "account": "pgs0407",
+    "partition": "nextgen",
+    "requeue": false
+  },
+  "diagnostic": {
+    "path": "results/corpus_v4/strict_e3_fem_v2/diagnostics/job_7326041/result.json",
+    "sha256": "1c674b31020e55dcce74ca9b17c97fa55accd1907cc1e3cbbb26baedb218d859"
+  },
+  "change": "Recovery executes immutable admission, inference and summary functions with the training numerical thread count. Original tolerances and checkpoint bindings remain unchanged.",
+  "model_fitting_permitted": false,
+  "claim_eligible": false
+}

@@ -7,6 +7,22 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Recovery source review on 2026-09-15: the additive worker now implements
+admission, finalization, archive reconstruction and tracked replay. Independent
+review found no remaining admission blocker. The operational sequence is
+indexed in [Recovery Replay](../operations/E3-Recovery-Replay.md). All original
+training source and task bytes remain unchanged. The next action is to freeze
+and publish the recovery source, then submit its eight-thread admission.
+Latest verified remote publication before this recovery is `dada009`.
+
+Recovery implementation on 2026-09-15: the owner authorized continuation with
+eight-thread replay over all 75 checkpoints. Original training artifacts are
+copied byte-for-byte into the evidence worktree; admission remains pending.
+Decision [0004](../decisions/0004-e3-validation-replay-threads.md) preserves
+the scientific contract and defines a separate recovery execution identity.
+The recovery will reuse the frozen task validator and metrics, with explicit
+source and checkpoint pins, before any held-out finalization.
+
 Diagnostic completed on 2026-09-15: job `7326041` finished `COMPLETED/0:0`
 in 44 seconds on `a0102`, with zero restarts. Both eight-thread runs reproduced
 every stored validation metric exactly for all three task-zero arms. Both

@@ -79,6 +79,7 @@ paper_source: false
 | [FEM V2 Production Pipeline](operations/FEM-V2-Production-Pipeline.md) | Qualification, bulk generation, wave admission, and training boundary |
 | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) | Frozen allocations and wall-time estimates |
 | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | Exact cluster submission, monitoring, and recovery steps |
+| [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots
 
@@ -137,4 +138,5 @@ paper_source: false
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |
 | Decision `0002` | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) |
 | Decision `0003` | [Accuracy Protocol Revision Boundary](decisions/0003-accuracy-protocol-revision-boundary.md) |
+| Decision `0004` | [Coordinate Ablation Replay Threads](decisions/0004-e3-validation-replay-threads.md) |
 | Paper snapshots | Package identity and hashes live in each paper directory README; future exports also carry a snapshot manifest. |

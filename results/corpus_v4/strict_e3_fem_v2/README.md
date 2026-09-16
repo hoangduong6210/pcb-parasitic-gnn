@@ -1,8 +1,8 @@
 # FEM-v2 coordinate-update ablation
 
-Status: predictive source and execution inputs are hash-locked; static
-validation and the no-fit sandbox probe are pending, so predictive training
-remains disabled.
+Status: all 25 training tasks completed and 75 checkpoints are preserved in
+`jobs/job_7318063/`. Checkpoint admission is pending recovery of numerical
+validation replay. No held-out predictive result is admitted.
 
 Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
 `9a1733ca4e64762f92578f4d158f71c9a8b41f13`. Its protocol SHA-256 is
@@ -10,7 +10,7 @@ Initialized-model qualification job `7275182` completed `0:0` in 21 s from sourc
 All 15 seed/arm records passed the initialized-model checks. The
 [qualification receipt](qualification/job_7275182/result.json) has SHA-256
 `07cd5b4ba54b688c5aac25bb8d07a05b14a7a0d4f57ea1e6b9f1427881c005b3`.
-Predictive training remains disabled; this result is not an accuracy claim.
+This initialized-model qualification does not establish predictive accuracy.
 
 The [design page](../../../wiki/methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
 defines three arms and distinguishes coordinate-update benefit from the
@@ -43,10 +43,19 @@ absent.
 The generated execution lock is
 `protocols/corpus_v4_strict_e3_fem_v2_execution_lock_v1.json`, with SHA-256
 `f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20`.
-It closes 26 source files and 58 input files. Training remains blocked until
-that lock is committed, pushed, validated from its clean checkout, and followed
-by a successful singleton no-fit SLURM probe. A complete run then requires 25 task receipts,
+It closes 26 source files and 58 input files. The lock was published and static
+validation passed. Probe `7315639` passed before training array `7318063`
+completed all 25 tasks. A complete run requires 25 task receipts,
 75 trained-checkpoint symmetry receipts, terminal admission, held-out
 finalization, numerical reconstruction, and a clean Git-tracked replay. The
 machine summary keeps the previous GNN result contextual and does not turn
 training wall times into an inference-runtime claim.
+
+Admission `7318065` failed validation-metric replay at two scientific threads.
+The preserved [diagnostic](diagnostics/job_7326041/result.json) reproduces
+every stored task-zero metric exactly with eight threads, twice. Both
+two-thread repeats fail 48 metric leaves under the original tolerance.
+Recovery must check all 75 checkpoints at eight threads before permitting
+held-out evaluation. The checkpoint archive retains the original source,
+normalization, targets and task identities. Archiving these bytes does not
+constitute their admission.
