@@ -1,6 +1,6 @@
 ---
 title: Coordinate Ablation Recovery Replay
-status: RUNNING
+status: VALIDATED execution procedure
 last_updated: 2026-09-15
 paper_source: false
 ---
@@ -63,3 +63,13 @@ Record job identifiers, terminal accounting, receipt hashes, local commits
 and remotely verified publication in [Live Execution](../status/Live-Execution.md).
 If a gate fails, preserve its logs and stop the next stage. Do not loosen
 tolerances or overwrite failed evidence to obtain a passing result.
+
+## Shared-filesystem visibility
+
+During the first archive replay, accounting reported successful completion
+before the login node could see the newly written receipt directory. A later
+read exposed both files and independent hashes agreed. If this occurs, wait
+briefly and repeat read-only checks of the exact logged output path. Do not
+resubmit a successful computation merely because one immediate file lookup
+fails. Completion is accepted only after both terminal accounting and the
+expected validated artifact are available.

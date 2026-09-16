@@ -1,6 +1,6 @@
 ---
 title: Coordinate Ablation Validation Replay Threads
-status: recovery execution approved; validation pending
+status: recovery execution approved and VALIDATED
 last_updated: 2026-09-15
 paper_source: false
 ---

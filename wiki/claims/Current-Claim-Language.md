@@ -41,9 +41,15 @@ it becomes paper eligible.
 ## Proposed coordinate-update study
 
 The separate `C-E3-FEMV2-001` claim remains PROPOSED, with no admitted result.
-The study has completed held-out finalization; numerical and tracked archive
-replay remain required. Its [result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+The study has completed held-out finalization and both numerical and tracked
+archive replay. Its artifacts are VALIDATED; scientific claim admission is
+still pending. The [result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
 records the finite seed-grid findings without granting publication eligibility.
+Proposed wording: the fixed-budget study did not establish a consistent
+accuracy gain from coordinate updates relative to same-width and approximately
+parameter-matched fixed-coordinate controls. All eight descriptive crossed-axis
+95% intervals included zero. This is not an equivalence test or a universal
+statement about coordinate updates.
 Its [design](../methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) compares
 coordinate updates with two fixed-coordinate controls. Both model classes
 retain encoded-graph E(3) invariance; a result must not be relabelled as a

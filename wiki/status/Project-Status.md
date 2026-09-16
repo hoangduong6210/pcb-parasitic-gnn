@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: active scientific status
-last_updated: 2026-09-13
+last_updated: 2026-09-15
 paper_source: false
 ---
 
@@ -48,6 +48,8 @@ instead of calling one column ground truth.
 | FEM-v2 accuracy protocol v3 | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | The 5 by 5 family-split and initialization grid is complete; all 25 checkpoints were accepted before held-out inference; the tracked archive supports `C-ACC-FEMV2-001` |
 | FEM-v2 paired four-target latency | `FINALIZED; ARCHIVE VALIDATED; CLAIM ADMITTED` | All 306 observations accepted; recovery finalizer and clean-tracked archive replay passed. `C-LAT-FEMV2-001` supports the specified warm-loaded GNN versus sequential FastHenry-plus-one-thread-FEM-R3P16 all-four-target comparison |
 | Vendor commercial-geometry track | `PROPOSED` | Requires licensing, segmentation, and matching validation quantities |
+| FEM-v2 fixed pooled-feature baselines | `ADMITTED; VERSION-SCOPED` | Fixed-budget post-hoc comparison supports `C-BASE-FEMV2-001`; no causal graph advantage or tuned-baseline claim |
+| FEM-v2 coordinate-update ablation | `VALIDATED; CLAIM ADMISSION PENDING` | All 75 checkpoints, held-out analysis and tracked replay passed; no consistent coordinate-update accuracy gain established on the fixed seed grid |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
 Operational progress changes more frequently than scientific status. The dated
@@ -65,8 +67,10 @@ transition.
 3. Preserve the admitted [paired latency result](../results/Corpus-V4-FEM-v2-Latency.md)
    under `C-LAT-FEMV2-001`, including its timing boundary, fixed fidelity,
    designated checkpoint, and descriptive sensitivity interval.
-4. Repeat baseline, strict E(3), and ranking studies only under their own
-   FEM-v2 frozen protocols.
+4. Review the scoped [coordinate-update result](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+   for scientific admission. Preserve the separately admitted
+   [fixed-baseline comparison](../results/Corpus-V4-FEM-v2-Baselines.md).
+   Any ranking study requires its own FEM-v2 frozen protocol.
 5. Admit claims in the wiki before generating a new paper snapshot.
 
 There are separate admitted family-crossed results for the archived 25-thread

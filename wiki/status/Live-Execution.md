@@ -7,6 +7,28 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Recovery chain completed on 2026-09-15: tracked replay `7326296` finished
+`COMPLETED/0:0` in 229 seconds on `a0126`, with zero restarts. Its receipt
+reports `numerical_reconstruction_passed=true` and
+`git_tracked_closure_passed=true`; SHA-256 is
+`3d578a6411a06ee28bc9a15e962619439e307be0116f80cd2645d01445a282fd`.
+All checkpoint, held-out reconstruction and tracked-evidence gates are now
+VALIDATED. No training was repeated and no tolerance was relaxed. Independent
+review supports the wording on the [result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md):
+this fixed study did not establish a consistent coordinate-update accuracy
+gain. The next decision is owner admission of that scoped claim, not another
+training run. Paper export remains disabled pending admission and a snapshot
+request. Latest verified publication before this closing receipt is `3157021`.
+
+Tracked replay submitted on 2026-09-15: job `7326296` runs from a clean
+evidence checkout at remotely verified commit
+`3157021d35b06a9e9bc20777dcb50d047b85d606`. Both scientific and recovery
+roots point to that checkout; original training bindings and locked scientific
+source bytes remain unchanged. This final gate requires exact numerical
+reconstruction plus Git tracking of the complete archive closure and prior
+verification receipt. The source, wiki and result-binding suite passed 97
+tests; prose and diff checks passed. No scientific claim is admitted yet.
+
 Numerical reconstruction passed on 2026-09-15: job `7326203` completed
 `0:0` in 218 seconds on `a0126`, with zero restarts. Predictions, metrics,
 paired contrasts and symmetry summaries reconstruct exactly. The archive

@@ -14,7 +14,7 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | Numerical reconstruction passed; tracked replay pending; not scientifically admitted |
+| Status | VALIDATED numerical and tracked reconstruction; scientific claim admission pending |
 | Claim | `C-E3-FEMV2-001` |
 | Training | `7318063`, 25 completed tasks and 75 original checkpoint bundles |
 | Recovery source | `d0dce38890935766ba121441501a9673424818e1` |
@@ -24,6 +24,8 @@ operational or pending archival is not publication evidence.
 | Analysis manifest SHA-256 | `5837a9d672d3aa3f1182e0fb05adbeeb18b7e16abc27107392a8fd7b0025893a` |
 | Numerical archive replay | `7326203`, COMPLETED/0:0, zero restarts, 218 s on `a0126` |
 | Archive manifest | [Manifest](../../results/corpus_v4/strict_e3_fem_v2/recovery/v1/verify/job_7326203/ARCHIVE_MANIFEST.json), SHA-256 `0091f4583700bd682578af65ea2291770cca57cca322b01a21661f4b2aef480d` |
+| Tracked replay | `7326296`, COMPLETED/0:0, zero restarts, 229 s on `a0126`; clean source `3157021d35b06a9e9bc20777dcb50d047b85d606` |
+| Tracked receipt | [Receipt](../../results/corpus_v4/strict_e3_fem_v2/recovery/v1/verify/job_7326296/result.json), SHA-256 `3d578a6411a06ee28bc9a15e962619439e307be0116f80cd2645d01445a282fd` |
 | Results owner | [Coordinate-update result](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) |
 | Exact fields | `summary.json`: `results.arms`, `results.paired_contrasts`, `results.trained_symmetry`, `results.counts` |
 

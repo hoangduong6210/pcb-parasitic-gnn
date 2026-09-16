@@ -3,8 +3,8 @@
 Status: all 25 training tasks completed and 75 checkpoints are preserved in
 `jobs/job_7318063/`. Recovery admission passed all 75 checkpoints at eight
 threads under the original tolerance. Held-out finalization completed in
-`recovery/v1/final/job_7326179/`; archive replay remains pending and no
-predictive result is admitted. The [result page](../../../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+`recovery/v1/final/job_7326179/`; numerical and clean tracked archive replay
+both passed. Scientific claim admission remains pending. The [result page](../../../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
 owns the scoped interpretation and links each table to machine evidence.
 
 Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
@@ -63,4 +63,8 @@ permitting held-out evaluation. Its [accepted set](recovery/v1/admission/job_732
 has SHA-256 `483169c013b19149f40cea118803b3700dd4c9d6799e84af769161459a6c7634`.
 The checkpoint archive retains the original source, normalization, targets
 and task identities. Checkpoint admission is separate from scientific claim
-admission; finalization and two archive replay stages remain required.
+admission. Finalizer `7326179`, numerical replay `7326203`, and clean tracked
+replay `7326296` all completed successfully. The
+[tracked receipt](recovery/v1/verify/job_7326296/result.json) closes numerical
+reconstruction and Git-tracked evidence checks without granting scientific
+claim eligibility.

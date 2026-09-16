@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Coordinate-Update Ablation
-status: finalization complete; archive validation pending
+status: VALIDATED; scientific claim admission pending
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
