@@ -38,16 +38,20 @@ tests/test_author_identity.py`. Immediately after this correction was pushed,
 the remote commit API still linked 29 of 156 mainline commits to `Binben14`
 and 127 to `hoangduong6210`; the Contributors API still reported `Binben14`
 for 155 commits. These remote results must not be described as fully fixed.
-Inspect the Contributors API again after GitHub recalculates its statistics;
-GitHub documents that contributor data can take about 24 hours to refresh
-after repository changes. A refreshed graph would not by itself correct
-historical individual-commit links.
+Inspect the Contributors API again after GitHub recalculates its statistics,
+but do not assume `.mailmap` alone will change GitHub's individual-commit
+account links. GitHub documents that after a historical author email is moved
+to another account, the contribution graph may take up to 24 hours to refresh.
+See [GitHub's email-association guidance](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/troubleshooting-adding-an-email)
+and [contribution troubleshooting](https://docs.github.com/en/account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions).
 
 If an individual old commit still links to `Binben14`, changing `.mailmap`
 cannot edit its stored author email. A complete account-attribution change
-would require the owner to transfer the historical Gmail address from the
-`Binben14` GitHub account to `hoangduong6210`, or explicitly approve a full
-history rewrite. A rewrite changes every descendant SHA and invalidates
-immutable tags, wiki receipts, and evidence references; it is not authorized
-by this mailmap correction. Do not force-push or move released tags as a
-routine attribution fix.
+would require the owner to remove the historical Gmail address from the
+`Binben14` GitHub account, add and verify it on `hoangduong6210`, then wait for
+GitHub to rebuild attribution. GitHub permits an email address on only one
+account at a time. This account-setting route preserves every repository SHA
+and published tag. The alternative requires explicit approval for a full
+history rewrite: it changes every descendant SHA and invalidates immutable
+tags, wiki receipts, and evidence references. Do not force-push or move
+released tags as a routine attribution fix.
