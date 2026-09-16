@@ -99,8 +99,9 @@ def main() -> None:
             "prose_review_date": date.today().isoformat(),
             "visual_review_date": date.today().isoformat(),
             "visual_scope": (
-                f"all {data['document']['pages']} PDF pages and all "
-                f"{data['document']['figures']} monochrome figures"
+                "all nine figures at source resolution; corrected PDF Figs. "
+                "1, 2, 5, 7, and 9 on rendered IEEE pages 2, 3, 5, 7, and 8; "
+                "unchanged assets covered by hashes"
             ),
         }
     )

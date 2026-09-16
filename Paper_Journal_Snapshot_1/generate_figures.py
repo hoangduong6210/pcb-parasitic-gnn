@@ -62,17 +62,21 @@ def pipeline() -> None:
         (0.015, 0.29, 0.135, "Validated\ngeometry", "1,500 layouts"),
         (0.182, 0.29, 0.135, "Shared\ntopology", "graph + solvers"),
         (0.349, 0.29, 0.135, "Qualified\nreferences", "four targets"),
-        (0.516, 0.29, 0.135, "Family-held-out\ntraining", "5 x 5 grid"),
+        (0.516, 0.29, 0.135, "Family-held\nout training", "5 x 5 grid"),
         (0.683, 0.29, 0.135, "Four-output\nsurrogate", "fixed checkpoint"),
         (0.850, 0.29, 0.135, "Scoped\ndecision", "screening only"),
     ]
     shades = [0.93, 0.86, 0.78, 0.70, 0.60, 0.48]
+    fit_checks = []
     for (x, y, w, title, subtitle), shade in zip(boxes, shades):
         patch = FancyBboxPatch((x, y), w, 0.42, boxstyle="round,pad=0.009",
                                facecolor=str(shade), edgecolor="black", linewidth=0.8)
         ax.add_patch(patch)
-        ax.text(x + w / 2, y + 0.265, title, ha="center", va="center", weight="bold", fontsize=7.7)
-        ax.text(x + w / 2, y + 0.085, subtitle, ha="center", va="center", fontsize=6.9)
+        heading = ax.text(x + w / 2, y + 0.265, title, ha="center", va="center",
+                          weight="bold", fontsize=7.7)
+        body = ax.text(x + w / 2, y + 0.085, subtitle, ha="center", va="center",
+                       fontsize=6.9)
+        fit_checks.append((patch, heading, body))
     for i in range(len(boxes) - 1):
         x1 = boxes[i][0] + boxes[i][2]
         x2 = boxes[i + 1][0]
@@ -81,6 +85,14 @@ def pipeline() -> None:
     ax.text(0.50, 0.91, "Evidence path and claim boundary", ha="center", weight="bold", fontsize=8.8)
     ax.text(0.50, 0.10, "Numerical-reference screening only: no fabricated-board or arbitrary-layout claim",
             ha="center", va="center", style="italic", fontsize=7.3)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for box, *labels in fit_checks:
+        boundary = box.get_window_extent(renderer)
+        for label in labels:
+            extent = label.get_window_extent(renderer)
+            assert boundary.contains(extent.x0, extent.y0)
+            assert boundary.contains(extent.x1, extent.y1)
     save(fig, "hoang1_pipeline")
 
 
@@ -97,13 +109,13 @@ def geometry_scope() -> None:
         ax.add_patch(Rectangle((1.05 + 0.32 * (i % 2), y), 7.15, 0.34,
                                facecolor=shade, edgecolor="black", hatch=hatch, linewidth=0.8))
         ax.text(0.76, y + 0.17, label, va="center", ha="center", weight="bold", fontsize=7.3)
-    ax.add_patch(Rectangle((0.45, 0.42), 8.35, 4.8, fill=False, edgecolor="black", linewidth=0.9))
+    ax.add_patch(Rectangle((0.45, 0.12), 8.35, 5.1, fill=False, edgecolor="black", linewidth=0.9))
     ax.annotate("lateral registration", xy=(1.38, 3.72), xytext=(3.55, 3.02),
                 arrowprops={"arrowstyle": "->", "lw": 0.8}, ha="center", fontsize=7.2)
     ax.annotate("layer spacing", xy=(7.42, 2.23), xytext=(7.42, 3.10),
                 arrowprops={"arrowstyle": "<->", "lw": 0.8}, ha="center", fontsize=7.2)
-    ax.text(1.10, 0.18, "P  primary net", fontsize=6.9)
-    ax.text(4.45, 0.18, "S  secondary net", fontsize=6.9)
+    ax.text(1.10, 0.28, "P  primary net", fontsize=6.9)
+    ax.text(4.45, 0.28, "S  secondary net", fontsize=6.9)
     ax.set_title("(a) Co-directed active-leg abstraction", pad=2)
     ax = axes[1]
     ax.axis("off")
@@ -266,11 +278,16 @@ def latency() -> None:
     ax.set_xlabel("Median elapsed time per design (s, log scale)")
     ax.grid(axis="x", color="0.88", linewidth=0.6)
     ax.set_xlim(4e-3, 2e3)
+    long_solver_labels = []
     for yi, value in zip(y, values):
         label = f"{value * 1e3:.2f} ms" if value < 1 else f"{value:.2f} s"
         if value > 100:
-            ax.annotate(label, (value, yi), xytext=(-6, 0), textcoords="offset points",
-                        ha="right", va="center", fontsize=6.7)
+            # Put the long-solver labels above their bars. Centering them on
+            # the bars made the gray stroke run through the glyphs in print.
+            annotation = ax.annotate(label, (value, yi), xytext=(-6, 10),
+                                     textcoords="offset points", ha="right",
+                                     va="bottom", fontsize=6.7)
+            long_solver_labels.append((yi, value, annotation))
         else:
             ax.annotate(label, (value, yi), xytext=(5, 0), textcoords="offset points",
                         ha="left", va="center", fontsize=6.7)
@@ -280,6 +297,11 @@ def latency() -> None:
             f"family-cluster interval  {data['interval_low']:,.0f}-{data['interval_high']:,.0f}x",
             transform=ax.transAxes, ha="right", va="top", fontsize=6.6,
             bbox={"facecolor": "white", "edgecolor": "0.35", "pad": 2.2})
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for yi, value, annotation in long_solver_labels:
+        bar_y = ax.transData.transform((value, yi))[1]
+        assert annotation.get_window_extent(renderer).y0 > bar_y + 2
     save(fig, "hoang7_latency")
 
 
@@ -291,20 +313,24 @@ def graph_contract() -> None:
     ax.axis("off")
 
     stages = [
-        (0.015, 0.22, 0.18, "Trace records", "net, layer, dimensions,\nposition, materials"),
-        (0.245, 0.22, 0.17, "Graph encoding", "trace nodes + pair edges\nrelative geometry"),
-        (0.465, 0.22, 0.21, f"Message passing (x{data['message_layers']})",
-         f"scalar messages\ncoordinate updates\nin {data['coordinate_update_layers']} layers"),
-        (0.725, 0.22, 0.12, "Pooling", "mean + max +\nlog-sum"),
-        (0.895, 0.22, 0.09, "Outputs", "$C_{ps}$\n$L_p, L_s, M$"),
+        (0.010, 0.22, 0.18, "Trace records", "net, layer\ndimensions, position\nmaterials"),
+        (0.220, 0.22, 0.18, "Graph encoding", "trace nodes\npair edges\nrelative geometry"),
+        (0.430, 0.22, 0.22, f"Message passing\n({data['message_layers']} layers)",
+         f"scalar messages\ncoordinate updates\n(first {data['coordinate_update_layers']} layers)"),
+        (0.680, 0.22, 0.14, "Pooling", "mean + max\nlog-sum"),
+        (0.850, 0.22, 0.14, "Outputs", "$C_{ps}$\n$L_p, L_s, M$"),
     ]
     shades = [0.94, 0.86, 0.76, 0.66, 0.52]
+    fit_checks = []
     for (x, y0, width, title, subtitle), shade in zip(stages, shades):
-        ax.add_patch(FancyBboxPatch((x, y0), width, 0.47, boxstyle="round,pad=0.009",
-                                    facecolor=str(shade), edgecolor="black", linewidth=0.8))
-        ax.text(x + width / 2, y0 + 0.36, title, ha="center", va="center",
-                weight="bold", fontsize=7.0)
-        ax.text(x + width / 2, y0 + 0.16, subtitle, ha="center", va="center", fontsize=6.4)
+        box = FancyBboxPatch((x, y0), width, 0.47, boxstyle="round,pad=0.009",
+                             facecolor=str(shade), edgecolor="black", linewidth=0.8)
+        ax.add_patch(box)
+        heading = ax.text(x + width / 2, y0 + 0.36, title, ha="center", va="center",
+                          weight="bold", fontsize=6.8)
+        body = ax.text(x + width / 2, y0 + 0.15, subtitle, ha="center", va="center",
+                       fontsize=6.0)
+        fit_checks.append((box, heading, body))
     for left, right in zip(stages[:-1], stages[1:]):
         ax.add_patch(FancyArrowPatch((left[0] + left[2] + 0.005, 0.455),
                                      (right[0] - 0.005, 0.455), arrowstyle="-|>",
@@ -312,15 +338,23 @@ def graph_contract() -> None:
 
     ax.text(0.50, 0.92, "Graph-surrogate and encoded-symmetry contract",
             ha="center", va="center", weight="bold", fontsize=8.8)
-    ax.plot([0.455, 0.685], [0.14, 0.14], color="black", linewidth=0.8)
-    ax.plot([0.455, 0.455], [0.14, 0.18], color="black", linewidth=0.8)
-    ax.plot([0.685, 0.685], [0.14, 0.18], color="black", linewidth=0.8)
-    ax.text(0.57, 0.065,
+    ax.plot([0.430, 0.650], [0.14, 0.14], color="black", linewidth=0.8)
+    ax.plot([0.430, 0.430], [0.14, 0.18], color="black", linewidth=0.8)
+    ax.plot([0.650, 0.650], [0.14, 0.18], color="black", linewidth=0.8)
+    ax.text(0.50, 0.065,
             "relative vectors rotate/reflect; scalar messages and pooled outputs remain invariant",
             ha="center", va="center", fontsize=6.7)
     ax.text(0.50, 0.79,
             "The checked symmetry begins after encoding; axis-aligned raw-layout metadata remains outside this guarantee.",
             ha="center", va="center", style="italic", fontsize=6.8)
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for box, *labels in fit_checks:
+        boundary = box.get_window_extent(renderer)
+        for label in labels:
+            extent = label.get_window_extent(renderer)
+            assert boundary.contains(extent.x0, extent.y0)
+            assert boundary.contains(extent.x1, extent.y1)
     save(fig, "hoang8_graph_contract")
 
 
@@ -333,19 +367,19 @@ def research_evolution() -> None:
     x_positions = np.linspace(0.015, 0.815, len(stages))
     width = 0.17
     shades = [0.95, 0.86, 0.76, 0.65, 0.52]
-    for index, (x, stage, shade) in enumerate(zip(x_positions, stages, shades), start=1):
-        ax.add_patch(FancyBboxPatch((x, 0.26), width, 0.48,
-                                    boxstyle="round,pad=0.009",
-                                    facecolor=str(shade), edgecolor="black", linewidth=0.8))
-        ax.text(x + 0.015, 0.69, f"{index}", ha="left", va="center",
-                fontsize=7.0, weight="bold",
-                bbox={"boxstyle": "circle,pad=0.18", "facecolor": "white", "edgecolor": "black", "linewidth": 0.6})
-        ax.text(x + width / 2, 0.61, stage["name"], ha="center", va="center",
-                fontsize=6.8, weight="bold")
-        ax.text(x + width / 2, 0.46, stage["scope"], ha="center", va="center",
-                fontsize=6.1)
-        ax.text(x + width / 2, 0.31, stage["status"], ha="center", va="center",
-                fontsize=5.9, style="italic")
+    fit_checks = []
+    for x, stage, shade in zip(x_positions, stages, shades):
+        box = FancyBboxPatch((x, 0.24), width, 0.52,
+                             boxstyle="round,pad=0.009",
+                             facecolor=str(shade), edgecolor="black", linewidth=0.8)
+        ax.add_patch(box)
+        heading = ax.text(x + width / 2, 0.65, stage["name"], ha="center", va="center",
+                          fontsize=6.8, weight="bold")
+        scope = ax.text(x + width / 2, 0.49, stage["scope"], ha="center", va="center",
+                        fontsize=6.1)
+        status = ax.text(x + width / 2, 0.33, stage["status"], ha="center", va="center",
+                         fontsize=5.9, style="italic")
+        fit_checks.append((box, heading, scope, status))
     for left, right in zip(x_positions[:-1], x_positions[1:]):
         ax.add_patch(FancyArrowPatch((left + width + 0.004, 0.50), (right - 0.004, 0.50),
                                      arrowstyle="-|>", mutation_scale=8.5,
@@ -355,6 +389,14 @@ def research_evolution() -> None:
     ax.text(0.50, 0.09,
             "Each stage retains its own evidence boundary; later stages extend rather than relabel earlier results.",
             ha="center", va="center", fontsize=7.0, style="italic")
+    fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
+    for box, *labels in fit_checks:
+        boundary = box.get_window_extent(renderer)
+        for label in labels:
+            extent = label.get_window_extent(renderer)
+            assert boundary.contains(extent.x0, extent.y0)
+            assert boundary.contains(extent.x1, extent.y1)
     save(fig, "hoang9_research_evolution")
 
 

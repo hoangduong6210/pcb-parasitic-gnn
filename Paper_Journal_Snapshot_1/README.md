@@ -1,9 +1,10 @@
-# IEEE journal snapshot 1.1
+# IEEE journal snapshot 1.1.1
 
 This is the expanded revision of the first journal-format snapshot exported
-from the admitted research wiki. Immutable tag `journal-snapshot-1` preserves
-the original seven-page export; this revision has the separate release tag
-`journal-snapshot-1.1`. It is an independent package; `Paper_Summary/` remains
+from the admitted research wiki. Immutable tags `journal-snapshot-1` and
+`journal-snapshot-1.1` preserve the earlier exports; this figure-layout
+correction has the separate release tag `journal-snapshot-1.1.1`. It is an
+independent package; `Paper_Summary/` remains
 the immutable conference submission and `Paper_Full/` remains a superseded
 historical draft.
 The journal manuscript retains the conference title lineage and author
@@ -12,6 +13,14 @@ geometry contracts, numerical-reference fidelity, graph and symmetry theory,
 explicit statistical and runtime estimands, experiments, and limitations. It
 does not pool measurements across target-package versions or imply fabricated
 hardware validation.
+
+This patch release redraws PDF Fig. 5 (graph/symmetry contract) so every label
+fits inside its box, and moves the two long-solver annotations in Fig. 7
+(paired latency) clear of their data bars. A full figure review also corrected
+text placement in Fig. 1 (pipeline), Fig. 2 (geometry key), and Fig. 9
+(research evolution). The generator now checks the box and bar-label layout
+conditions before writing figures. No numerical result, claim, or citation was
+changed.
 
 The manuscript uses the IEEEtran journal class in two-column mode. The format
 choice follows the IEEE Author Center article-template, article-structure and

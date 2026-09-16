@@ -1,11 +1,15 @@
 ---
 title: Journal Snapshot 1.1
-status: PUBLISHED; IMMUTABLE TAG VERIFIED
+status: PUBLISHED; FIGURE LAYOUT SUPERSEDED BY 1.1.1
 last_updated: 2026-09-16
 paper_source: false
 ---
 
 # Journal Snapshot 1.1
+
+The immutable 1.1 artifact retains two figure-layout defects in rendered PDF
+Figs. 5 and 7. Use [Journal Snapshot 1.1.1](Journal-Snapshot-1.1.1.md) for the
+corrected visual package; scientific claims and citations are unchanged.
 
 ## Purpose and lineage
 

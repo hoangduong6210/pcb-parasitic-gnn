@@ -91,6 +91,7 @@ paper_source: false
 | [Paper Outline](manuscript/Paper-Outline.md) | IEEE section map to canonical wiki sources |
 | [FEM Cps Sections](manuscript/FEM-Cps-Sections.md) | Existing admitted FEM prose pending consolidation |
 | [Journal Snapshot 1.1](manuscript/Journal-Snapshot-1.1.md) | Expanded journal export, visual and citation gates, and release boundary |
+| [Journal Snapshot 1.1.1](manuscript/Journal-Snapshot-1.1.1.md) | Five figure-layout corrections and patch release boundary |
 
 ## Identifier index
 

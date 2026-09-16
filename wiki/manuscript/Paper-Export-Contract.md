@@ -17,6 +17,8 @@ package.
 The original seven-page export remains immutable at `journal-snapshot-1`.
 [Journal Snapshot 1.1](Journal-Snapshot-1.1.md) is a new expanded revision with
 its own version and tag; it does not move or overwrite the earlier release.
+The [1.1.1 figure correction](Journal-Snapshot-1.1.1.md) supersedes only the
+visual layout of Figs. 5 and 7, again under a distinct immutable tag.
 
 ## Eligibility gate
 

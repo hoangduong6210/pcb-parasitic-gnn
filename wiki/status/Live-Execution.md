@@ -7,6 +7,17 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Figure correction on 2026-09-16
+
+The owner reported visual defects in journal PDF Figs. 5 and 7. Source and PDF
+inspection confirmed text outside two graph-contract boxes and long-solver
+latency labels crossing their data bars. A full nine-figure review also found
+misplaced text in Figs. 1, 2, and 9. Five figures were redrawn and checked at
+source resolution and on their rendered PDF pages. Generator assertions now
+enforce box-text containment and bar-label clearance. No research execution,
+numerical result, claim, or citation changed. Snapshot 1.1.1 remains local
+until its separate release tag, remote commit, and CI are verified.
+
 ## Publication work on 2026-09-16
 
 Research execution remains paused and no solver, training, or scheduler task

@@ -1,8 +1,8 @@
 {
   "schema": "pcb-gnn.journal-snapshot-manifest.v1",
   "snapshot_id": "journal-snapshot-1",
-  "version": "1.1.0-snapshot.1",
-  "release_tag": "journal-snapshot-1.1",
+  "version": "1.1.1-snapshot.1",
+  "release_tag": "journal-snapshot-1.1.1",
   "source_wiki_commit": "f4d36aa90ac7a92061fecab06ca2ec3a2e9f2cb5",
   "source_scope": "Last published admitted-claim state before this export; the complete export tree is frozen by release_tag",
   "format_provenance": {
@@ -75,7 +75,7 @@
     "technical_review_date": "2026-09-16",
     "prose_review_date": "2026-09-16",
     "visual_review_date": "2026-09-16",
-    "visual_scope": "all 11 PDF pages and all 9 monochrome figures",
+    "visual_scope": "all nine figures at source resolution; corrected PDF Figs. 1, 2, 5, 7, and 9 on rendered IEEE pages 2, 3, 5, 7, and 8; unchanged assets covered by hashes",
     "authorship_detector_claim": "none; deterministic prose audit is a style and disclosure check"
   },
   "files": {
@@ -88,40 +88,40 @@
       "sha256": "54bdc004046f86f6462fbd48cf3353613b1c60e468a94d49dbae3513f1d036d0"
     },
     "README.md": {
-      "bytes": 2784,
-      "sha256": "9045a9a07e5614eb36fbd3350bec15bc0132ab3fa94fe8e73f562eb49d9e8082"
+      "bytes": 3287,
+      "sha256": "d48eb30fd00669ea523cda8b86e3144ae2a34f6919e905b43ba467b667294940"
     },
     "VERSION": {
       "bytes": 17,
-      "sha256": "4f88d94528f7435161fac8d93cf36a33990e9e71fdabe8a19f28b4083e336fc7"
+      "sha256": "bd9440bd737d650301f22ead2688fae8649e74b5a31d3a2727019a88225c69a6"
     },
     "build.sh": {
       "bytes": 544,
       "sha256": "9f91de909ff858ca3e4bf5c06a3bf6addd684888f5fa0bd7cb9c5e48734621f0"
     },
     "build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf": {
-      "bytes": 470858,
-      "sha256": "b6f4770c969229e55294996df3cbc481d33a572ed830dd2b4e7bd432ab2c313a"
+      "bytes": 469972,
+      "sha256": "2957dfd225ab7c714cf58996a037d43e7d85b729a7947b286e54cc45a4f80083"
     },
     "figure_data.json": {
       "bytes": 4044,
       "sha256": "c161ba6a38ce7f3776d738963e76d7604865acc0808a3f7766ee328cb0cee43b"
     },
     "figures/hoang1_pipeline.pdf": {
-      "bytes": 27979,
-      "sha256": "927f7cc3b9b7c1843838ffb9e53b51f3277dccf444651a5e0e6c44f5e19d8492"
+      "bytes": 27981,
+      "sha256": "d985066f87e1ef219fe646593833c415ba7ca01521c7d37a0253cfc5e26a3b83"
     },
     "figures/hoang1_pipeline.png": {
-      "bytes": 94965,
-      "sha256": "40264ca4a6b287677747da9df99c7f0cb4c4a7fd9e4a71f13594033614abeaa1"
+      "bytes": 94842,
+      "sha256": "fc9747d9a429bb1962ccae9ae8a3ff23d9356eebab3f9eb3c47fea938cf32270"
     },
     "figures/hoang2_geometry_scope.pdf": {
-      "bytes": 20598,
-      "sha256": "068d45aa04491a45740d42a489d017c7ee804a7a76169a4f21dcd81fe608cc2d"
+      "bytes": 20599,
+      "sha256": "36b7015d51a146f75ce727bf912434c17e0ac8a63277942b92d04f7d908d24bb"
     },
     "figures/hoang2_geometry_scope.png": {
-      "bytes": 107714,
-      "sha256": "171adb6198f4cc79832377f57f8c28e333715a5760644d40b1ccdd06d8a44203"
+      "bytes": 107989,
+      "sha256": "abf092da04fd3b4fcf1f94c77cf5672eabced05d9d5f5f61b24a6a9a7a144c92"
     },
     "figures/hoang3_fem_fidelity.pdf": {
       "bytes": 39306,
@@ -156,36 +156,36 @@
       "sha256": "9356949de2574720ac7f2404bb2a6b20c21d12718bbc38c2fe972192b7e77bc6"
     },
     "figures/hoang7_latency.pdf": {
-      "bytes": 15322,
-      "sha256": "e2eb86e7c63cc5ddb24206f02408524c508ee798f666fd42c7a9e8b4f3706aca"
+      "bytes": 15324,
+      "sha256": "5a1a5a6129dc3e525bad4de33f6c238ff8e26e67ecd09d0d4cf9e713c4d073c9"
     },
     "figures/hoang7_latency.png": {
-      "bytes": 78634,
-      "sha256": "9ed308e995e129669d2079a8e5d5d7607b5dc7f296d6c4d7d319982d601a3880"
+      "bytes": 78773,
+      "sha256": "53da165e0979d6e2ab288a71aec852ddda4c0ea611ec6c7ccc680417b6647135"
     },
     "figures/hoang8_graph_contract.pdf": {
-      "bytes": 29505,
-      "sha256": "8a85d679f1b96e43ab5e9c4fcd1c12fe45b0decdad73bbc9c0acc0a264555423"
+      "bytes": 29686,
+      "sha256": "49e6c934d159502a9c4dae233cc14703bd5bdbfb4e2a6f9155db950707f57df9"
     },
     "figures/hoang8_graph_contract.png": {
-      "bytes": 127734,
-      "sha256": "44f3c3b1335e4a3578062664e9dcf03d4c781e1f1eb6accc8bbb8b4d866b9815"
+      "bytes": 126922,
+      "sha256": "0dd76b709e18888b60a85d68a11e7c7949bb2096548aef219fbbb11ea800ce29"
     },
     "figures/hoang9_research_evolution.pdf": {
-      "bytes": 32382,
-      "sha256": "92eadec09aed00b44f9ddb72cceccd234b11d7dc4f0e9eb14ab645d4d1020073"
+      "bytes": 31312,
+      "sha256": "738fa2e19175c59374162a5b2e62d5533be39b0b191778a84914a49ee41fdbac"
     },
     "figures/hoang9_research_evolution.png": {
-      "bytes": 142296,
-      "sha256": "dd736462a20cf3ea43ba33aff924aad5f7de50a6baa4d48db9243eae3882d7d6"
+      "bytes": 132567,
+      "sha256": "f395c2f95b079effe22c4aba29067bfd18d36a56d3fb5955aa7aa54305158c5b"
     },
     "freeze_snapshot.py": {
-      "bytes": 4075,
-      "sha256": "56e16817a8c7c12b666e33c2b7c494bdf530f8dc3c08566e3bd39c50ad6c399d"
+      "bytes": 4147,
+      "sha256": "6ddf961c75e0b20ab7d9d5f89f541dd6f2e232b7dafeb236509d3e3c97b0cc90"
     },
     "generate_figures.py": {
-      "bytes": 17708,
-      "sha256": "c021e874e50f0f6c8aaaff6172494d675962d3851a5c362c93e575e789caad09"
+      "bytes": 19462,
+      "sha256": "4878a5bdb56f6848ccb8577f18f8d8d0b9f0877ebf069af0161deb037cdddd6a"
     },
     "main.tex": {
       "bytes": 45072,
