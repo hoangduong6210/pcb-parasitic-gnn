@@ -7,6 +7,16 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Repository author identity on 2026-09-16
+
+The remote Contributors API displayed `Binben14` for the repository's 155
+mainline commits. The Git author names were Hoang Duong or Duong Viet Hoang;
+the previous `.mailmap` had selected a Gmail address linked by GitHub to
+`Binben14`. The canonical mailmap address has been changed to the verified
+`hoangduong6210` no-reply identity, with a regression test. See
+[Repository Author Attribution](Author-Attribution.md) for remote refresh and
+the boundary against rewriting released research history.
+
 ## Figure correction on 2026-09-16
 
 The owner reported visual defects in journal PDF Figs. 5 and 7. Source and PDF

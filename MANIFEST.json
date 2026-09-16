@@ -13,8 +13,8 @@
     "protocols": 31,
     "results": 6017,
     "root": 12,
-    "tests": 60,
-    "wiki": 55
+    "tests": 61,
+    "wiki": 56
   },
   "files": [
     {
@@ -29,8 +29,8 @@
     },
     {
       "path": ".mailmap",
-      "bytes": 436,
-      "sha256": "dacf3c0e0b29a8ad0684cc9edb9064e594a30076a5e8b2272cb4a88c933822f4"
+      "bytes": 590,
+      "sha256": "b624a7b29031eb9635e913d9739131a0c9f40bf7eac96ab7f7c9814dc458bd63"
     },
     {
       "path": "AGENTS.md",
@@ -32993,6 +32993,11 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "tests/test_author_identity.py",
+      "bytes": 890,
+      "sha256": "ad63ab0ee936eca0062c9632f88cad23a1cab2eb74e8b410cafcc1fad5580f6e"
+    },
+    {
       "path": "tests/test_ci_reporting.py",
       "bytes": 1371,
       "sha256": "a0338f2dd423161253dd84092f6539924577865ae2a89c802de6db685b17f32e"
@@ -33304,8 +33309,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 12655,
-      "sha256": "a3a1052654b02974b2246b607167f8c482794d8afc05df7b03cb8437044259c4"
+      "bytes": 12793,
+      "sha256": "1ed84126169914474b44f73f22f2c480dfa3d8b616fc80a4b09a56c2e9ebd6ee"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -33409,8 +33414,8 @@
     },
     {
       "path": "wiki/manuscript/Journal-Snapshot-1.1.md",
-      "bytes": 4623,
-      "sha256": "70ad6706bf63fc871ebc7b82ae248fe3f2e2bb7b3d05c30d24670bd86c977652"
+      "bytes": 4648,
+      "sha256": "4f7cd54da4073a05d4d599a9ad031d6c58db5e1e38af21f5cc10b2ba3c97c49a"
     },
     {
       "path": "wiki/manuscript/Paper-Export-Contract.md",
@@ -33553,9 +33558,14 @@
       "sha256": "10c232626f58969c16567efea5b2d23d05b26db017aed13c9984fc2f0a5555c8"
     },
     {
+      "path": "wiki/status/Author-Attribution.md",
+      "bytes": 2363,
+      "sha256": "5468b17f209fed90ebc8d5c7f20f304720e47e852bae52159aed805be09c2b8d"
+    },
+    {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 32879,
-      "sha256": "ce12a1836f3a0fd6031b768d6f45459864dfbbc70d762d475186e3a1d38a8a92"
+      "bytes": 33424,
+      "sha256": "1f1ae3447fec8f667f2ee58d61538972549d66f3826f10d4b05c91be410c1939"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -33568,6 +33578,6 @@
       "sha256": "ba0900f8cddbac6de37875409a1515abf509b105941afd920e89b1d2da892522"
     }
   ],
-  "n_files": 6710,
-  "total_bytes": 984267262
+  "n_files": 6712,
+  "total_bytes": 984271377
 }

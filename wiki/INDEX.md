@@ -26,6 +26,7 @@ paper_source: false
 | [Project Status](status/Project-Status.md) | Scientific lifecycle and current blockers |
 | [Live Execution](status/Live-Execution.md) | Closed dated scheduler history; historical state words are not resume instructions |
 | [Research Pause and Handoff](status/Research-Pause-Handoff.md) | Canonical paused state, read order, deferred work, and exact resume boundary |
+| [Repository Author Attribution](status/Author-Attribution.md) | GitHub identity mapping, verification, and immutable-history boundary |
 | [Limitations](LIMITATIONS.md) | Boundaries that apply across papers and claims |
 | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) | Accepted R3/R4 policy and consequences |
 | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) | Version boundary, staged one-thread gates, and stop rules |

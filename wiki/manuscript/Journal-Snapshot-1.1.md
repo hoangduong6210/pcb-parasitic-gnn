@@ -27,7 +27,7 @@ followed directly by the Department of Computer Science, Da-Yeh University,
 Taiwan, and both conference-snapshot contact addresses. The GitHub release uses
 the verified no-reply identity of account `hoangduong6210`; `.mailmap` presents
 the single canonical research identity `Hoang Duong
-<Hoangduong4316@gmail.com>` and normalizes older spelling and email variants
+<279267588+hoangduong6210@users.noreply.github.com>` and normalizes older spelling and email variants
 without rewriting scientific evidence or published history.
 
 ## Scientific scope
