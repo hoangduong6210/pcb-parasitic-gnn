@@ -33514,8 +33514,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 30908,
-      "sha256": "7007c7297a941467059c6119c32e934870bb38634509b766d604e8539f3f4319"
+      "bytes": 31313,
+      "sha256": "b0c4af0ac62c3780c4842e030cc6d121e07b78059db451d94625b7068db924e8"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -33524,10 +33524,10 @@
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
-      "bytes": 5798,
-      "sha256": "8ef2e87e91c477203de42b1fac5f496c92a43e9f620e0d1ba37ce1c5267c3459"
+      "bytes": 5962,
+      "sha256": "40c3b06742dce7ea1a178528e3b8e0e7550eb60da66fe610b6b50d742443490d"
     }
   ],
   "n_files": 6702,
-  "total_bytes": 983827888
+  "total_bytes": 983828457
 }

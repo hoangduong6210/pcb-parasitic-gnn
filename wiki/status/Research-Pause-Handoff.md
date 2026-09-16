@@ -24,7 +24,10 @@ Its package README and snapshot manifest own the final source revision, claim
 inventory, artifact hashes, build identity, and PDF identity. After release,
 the immutable Git tag `journal-snapshot-1` is the restart anchor; verify that tag
 against the published remote and the package manifest before beginning new work.
-Do not copy a commit or hash from an intermediate worktree into this page.
+Publication was remotely verified on 2026-09-15: the tag peels to
+`b47bb37288448ee08ed5746ef8b8cd6af7fbb229`, and GitHub exposes only the
+`main` branch. The tag, rather than an intermediate worktree branch, is the
+stable handoff identity.
 
 ## What is complete
 

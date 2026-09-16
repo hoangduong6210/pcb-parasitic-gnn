@@ -16,6 +16,13 @@ training, finalizer, or recovery job is waiting to be resumed. Start from
 [Research Pause and Handoff](Research-Pause-Handoff.md), not from a dated entry
 below.
 
+Final pause receipt on 2026-09-15: a fresh scheduler query returned no active
+jobs. Journal Snapshot 1 was published under immutable tag
+`journal-snapshot-1`, which was remotely verified at
+`b47bb37288448ee08ed5746ef8b8cd6af7fbb229`. The remote branch set was then
+consolidated and verified to contain only `main`. This publication receipt does
+not reopen any solver, training, or claim-admission stage.
+
 The final execution transition was claim admission on 2026-09-15: the project
 owner approved the scoped wording
 for `C-E3-FEMV2-001`. Its lifecycle is now `ADMITTED; VERSION-SCOPED`:
