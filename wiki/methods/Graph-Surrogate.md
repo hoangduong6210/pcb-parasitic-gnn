@@ -33,8 +33,10 @@ checkpoint, target fidelity, and timing boundary.
 The baseline receives absolute coordinates and signed relative vectors. It is
 permutation-invariant at graph readout, but it is not invariant to an arbitrary
 change of coordinate frame. The separate coordinate-update network provides the
-tested strict E(3) property. Whether that inductive bias improves prediction is
-an empirical question and is not implied by the algebraic property.
+tested strict E(3) property. The separate fixed-budget FEM-v2 ablation did not
+establish a consistent accuracy gain from coordinate updates. This does not
+imply equivalence or absence of benefit in other settings, and the algebraic
+property alone does not imply a predictive advantage.
 
 Current evaluation status and planned experiments are maintained in
 [Project Status](../status/Project-Status.md), which is not paper-source prose.

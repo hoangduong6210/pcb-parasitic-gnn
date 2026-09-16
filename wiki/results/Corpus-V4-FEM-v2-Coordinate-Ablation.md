@@ -1,6 +1,6 @@
 ---
 title: Corpus V4 FEM-v2 Coordinate-Update Ablation
-status: VALIDATED; scientific claim admission pending
+status: ADMITTED; VERSION-SCOPED
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
@@ -85,8 +85,10 @@ owns scheduler and archive provenance. The machine
 [summary](../../results/corpus_v4/strict_e3_fem_v2/recovery/v1/final/job_7326179/summary.json)
 owns exact values under `results.arms`, `results.paired_contrasts` and
 `results.trained_symmetry`. Coverage is 22,050 prediction rows, 300
-arm-target metric rows and 200 paired contrasts. Scientific claim admission
-remains pending; this page is not a paper export source.
+arm-target metric rows and 200 paired contrasts. The project owner admitted
+the scoped non-establishment result as `C-E3-FEMV2-001` on 2026-09-15. This operationally
+linked page is not itself a paper export source; a future requested snapshot
+must curate the admitted wording without scheduler or private-path details.
 
 The study was designed after earlier benchmark results were known. Its
 synthetic active-leg geometries are not complete routed or fabricated PCB

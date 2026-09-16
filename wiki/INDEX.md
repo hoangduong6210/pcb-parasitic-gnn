@@ -67,7 +67,7 @@ paper_source: false
 | [Corpus V4 FEM-v2 Family-Held-Out Accuracy](results/Corpus-V4-FEM-v2-Accuracy.md) | Admitted one-thread FEM-v2 5 by 5 crossed result and matched R3/R4 view |
 | [Corpus V4 FEM-v2 Paired Latency](results/Corpus-V4-FEM-v2-Latency.md) | Admitted 306-layout all-four-target workflow comparison and family-cluster sensitivity |
 | [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Admitted fixed-baseline comparison and descriptive paired differences |
-| [Corpus V4 FEM-v2 Coordinate-Update Ablation](results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Three-arm result, paired differences and trained symmetry; claim admission pending |
+| [Corpus V4 FEM-v2 Coordinate-Update Ablation](results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Admitted version-scoped three-arm result, paired differences and trained symmetry |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
@@ -108,7 +108,7 @@ paper_source: false
 | `C-LAT-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped 306-layout paired workflow runtime |
 | `C-VENDOR-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed external validation track |
 | `C-BASE-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped fixed-baseline comparison |
-| `C-E3-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Proposed coordinate-update predictive ablation; no result |
+| `C-E3-FEMV2-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted version-scoped absence of an established consistent coordinate-update gain |
 
 ### Historical claims
 
@@ -141,4 +141,5 @@ paper_source: false
 | Decision `0002` | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) |
 | Decision `0003` | [Accuracy Protocol Revision Boundary](decisions/0003-accuracy-protocol-revision-boundary.md) |
 | Decision `0004` | [Coordinate Ablation Replay Threads](decisions/0004-e3-validation-replay-threads.md) |
+| Decision `0005` | [Coordinate Ablation Claim Admission](decisions/0005-e3-coordinate-ablation-claim-admission.md) |
 | Paper snapshots | Package identity and hashes live in each paper directory README; future exports also carry a snapshot manifest. |

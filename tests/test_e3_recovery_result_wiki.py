@@ -12,6 +12,10 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md"
 SUMMARY = ROOT / "results/corpus_v4/strict_e3_fem_v2/recovery/v1/final/job_7326179/summary.json"
+CLAIMS = ROOT / "wiki/claims/Current-Claim-Language.md"
+PROJECT_STATUS = ROOT / "wiki/status/Project-Status.md"
+EVIDENCE = ROOT / "wiki/evidence/Evidence-Ledger.md"
+INDEX = ROOT / "wiki/INDEX.md"
 TARGETS = (("Cps", "Cps_pF"), ("Lp", "L_pri_nH"), ("Ls", "L_sec_nH"), ("M", "L_mut_nH"))
 
 
@@ -112,3 +116,31 @@ def test_wiki_capacity_coverage_and_evidence_link_match_summary() -> None:
     assert f"{counts['arm_target_metric_rows']}\narm-target metric rows" in text
     assert f"{counts['paired_contrast_rows']} paired contrasts" in text
     assert results["inference_runtime_claim"] is False
+
+
+def test_coordinate_ablation_claim_is_admitted_with_exact_evidence_mapping() -> None:
+    claims = CLAIMS.read_text()
+    admitted, remainder = claims.split("## Validated or finalized artifacts", 1)
+    assert "`C-E3-FEMV2-001`" in admitted
+    assert "did not establish a consistent accuracy gain from coordinate updates" in admitted
+    assert "same-width and approximately parameter-matched fixed-coordinate controls" in admitted
+    assert "all eight descriptive crossed-axis 95% intervals included zero" in admitted
+    assert "`E-C4-E3-FEMV2-ANALYSIS-01`" in admitted
+    assert "remains PROPOSED" not in remainder
+
+
+def test_admitted_claim_retains_non_equivalence_and_non_universal_boundaries() -> None:
+    claims = CLAIMS.read_text()
+    assert "not population confidence or equivalence" in claims
+    assert "not an equivariance-versus-non-equivariance comparison" in claims
+    assert "a universal statement about EGNNs" in claims
+    assert "Only the scoped absence of an established\nconsistent gain" in claims
+
+
+def test_admission_status_is_synchronized_without_exporting_a_paper_source() -> None:
+    page = PAGE.read_text()
+    assert "status: ADMITTED; VERSION-SCOPED" in page
+    assert "paper_source: false" in page
+    assert "`ADMITTED; VERSION-SCOPED`" in PROJECT_STATUS.read_text()
+    assert "`C-E3-FEMV2-001` ADMITTED on 2026-09-15" in EVIDENCE.read_text()
+    assert "Admitted version-scoped absence of an established consistent coordinate-update gain" in INDEX.read_text()

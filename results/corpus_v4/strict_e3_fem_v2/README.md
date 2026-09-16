@@ -4,7 +4,7 @@ Status: all 25 training tasks completed and 75 checkpoints are preserved in
 `jobs/job_7318063/`. Recovery admission passed all 75 checkpoints at eight
 threads under the original tolerance. Held-out finalization completed in
 `recovery/v1/final/job_7326179/`; numerical and clean tracked archive replay
-both passed. Scientific claim admission remains pending. The [result page](../../../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+both passed. The scoped result is admitted as `C-E3-FEMV2-001`; the [result page](../../../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
 owns the scoped interpretation and links each table to machine evidence.
 
 Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
@@ -66,5 +66,6 @@ and task identities. Checkpoint admission is separate from scientific claim
 admission. Finalizer `7326179`, numerical replay `7326203`, and clean tracked
 replay `7326296` all completed successfully. The
 [tracked receipt](recovery/v1/verify/job_7326296/result.json) closes numerical
-reconstruction and Git-tracked evidence checks without granting scientific
-claim eligibility.
+reconstruction and Git-tracked evidence checks. That receipt alone did not
+grant scientific admission; the separate owner decision on 2026-09-15 admitted
+only the scoped wording registered as `C-E3-FEMV2-001`.

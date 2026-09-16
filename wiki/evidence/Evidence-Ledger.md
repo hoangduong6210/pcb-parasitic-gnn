@@ -14,7 +14,7 @@ operational or pending archival is not publication evidence.
 
 | Field | Value |
 |---|---|
-| Status | VALIDATED numerical and tracked reconstruction; scientific claim admission pending |
+| Status | VALIDATED numerical and tracked reconstruction; `C-E3-FEMV2-001` ADMITTED on 2026-09-15 |
 | Claim | `C-E3-FEMV2-001` |
 | Training | `7318063`, 25 completed tasks and 75 original checkpoint bundles |
 | Recovery source | `d0dce38890935766ba121441501a9673424818e1` |
@@ -44,7 +44,7 @@ operational or pending archival is not publication evidence.
 | Requested resources | One task, eight CPUs, 48 GiB, four-hour scheduler cap; no requeue |
 | Initial scheduler observation | `PENDING`; start time and reason not yet assigned |
 | Required receipt | `training_started=false`, `model_fitting_started=false`, `heldout_bytes_opened=false` |
-| Claim boundary | Filesystem and source-binding preflight only; `C-E3-FEMV2-001` remains proposed |
+| Claim boundary | Filesystem and source-binding preflight only; this receipt did not itself admit `C-E3-FEMV2-001` |
 | Evidence publication | `24d51a33f385dfb0c08d6e708e50d809df6d5aee`, remotely verified before training submission |
 | Subsequent training array | `7318063`, all 25 tasks COMPLETED/0:0, zero restarts; 75 checkpoint files present |
 | Dependent admission | `7318065`, FAILED/1:0 after 27 s; validation-metric numeric replay mismatch; no accepted set or held-out finalizer |
@@ -85,7 +85,7 @@ guaranteed start time.
 | Planned scope | Two synthetic graphs; five initialized seeds; three arms; 40 transforms per seed |
 | Requested resources | One node, one task, two scientific threads, 16 GiB, 10 minutes; requeue disabled |
 | Exclusions | No fitting, corpus access, trained-checkpoint gate, sandbox qualification or predictive result |
-| Claim boundary | Operational implementation qualification only; `C-E3-FEMV2-001` remains proposed |
+| Claim boundary | Operational implementation qualification only; this receipt did not itself admit `C-E3-FEMV2-001` |
 | Receipt | [Initialized-model qualification](../../results/corpus_v4/strict_e3_fem_v2/qualification/job_7275182/result.json) |
 | Receipt SHA-256 | `07cd5b4ba54b688c5aac25bb8d07a05b14a7a0d4f57ea1e6b9f1427881c005b3` |
 | Observed maximum scalar residual | `5.960464477539063e-08` |

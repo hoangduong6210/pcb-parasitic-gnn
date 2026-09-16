@@ -19,7 +19,7 @@ content. It is not a draft response to reviewers.
 | Capacitance reference | FEM Cps Reference, FEM R3/R4 Convergence, and Cps R3/R4 Production Discrepancy | Negative mesh result and selected-registry discrepancy retained |
 | Dataset and splits | Dataset Registry and Geometry Family Splits | Multi-fidelity finalizer complete |
 | GNN and strict E(3) model | Graph Surrogate and Strict E3 and EGNN | Separate property from accuracy effect |
-| Accuracy experiments | Corpus V4 Family-Held-Out Accuracy; Corpus V4 FEM-v2 Accuracy | Keep the pre-FEM-v2 `C-ACC-001` and FEM-v2 `C-ACC-FEMV2-001` results version-scoped; use only the result page and claim ID matching the stated target package |
+| Accuracy experiments | Corpus V4 Family-Held-Out Accuracy; Corpus V4 FEM-v2 Accuracy; Corpus V4 FEM-v2 Coordinate-Update Ablation | Keep `C-ACC-001`, `C-ACC-FEMV2-001`, and `C-E3-FEMV2-001` version-scoped; the coordinate-update result is an admitted absence of an established consistent gain, not equivalence or a universal EGNN conclusion |
 | Runtime experiments | Runtime Benchmark and future result page | Same model, target scope, and paired boundary |
 | Commercial geometry | Vendor Geometry Track | Only after its own admission gates pass |
 | Limitations and conclusion | Limitations and Claim Registry | No extension beyond admitted scope |

@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: execution and archive VALIDATED; claim admission pending
+status: execution VALIDATED; result claim ADMITTED and version-scoped
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true
