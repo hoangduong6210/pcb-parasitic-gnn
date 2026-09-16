@@ -1630,6 +1630,29 @@ every transition. A successful archive still leaves the machine field
 `claim_eligible=false`; scientific wording requires independent result review
 and a separate project-owner admission decision.
 
+### Validation replay diagnostic after admission failure
+
+Admission `7318065` stopped on validation metric reconstruction after array
+`7318063` completed. Preserve the failure and use the separate
+`submit_diagnose_strict_e3_validation_replay_v1.sh` wrapper for diagnosis.
+It requests eight CPUs, 48 GiB and 30 minutes, with requeue disabled. Bind
+`PCB_GNN_DIAG_ROOT` and `PCB_GNN_DIAG_COMMIT` to a clean diagnostic checkout;
+bind `PCB_GNN_E3_ROOT` to the unchanged training execution checkout at
+`efeb123c9975ae481d10cd7c0af899406c46e787`. Also export the existing
+`PCB_GNN_E3_PROTOCOL_SHA256`, `PCB_GNN_E3_LOCK_SHA256`, and
+`PCB_GNN_E3_TASK_RECEIPT_SHA256` for the fixed task-zero receipt. Its hash is
+`dec5549bb7453824110c7acfefd5dd51e5d202f2840aa76ed27b7f460cbc747e`.
+
+Submit with `sbatch -A pgs0407 --test-only`, then `sbatch -A pgs0407 --parsable`,
+using account `pgs0407`, the diagnostic checkout as `--chdir`, and `--export=ALL`.
+The diagnostic launches four fresh processes: two repeats each at two and
+eight numerical threads. Each process reads only the frozen split table and
+task-zero checkpoints for validation inference. Results belong under
+`results/corpus_v4/strict_e3_fem_v2/diagnostics/job_JOB/`. Numerical mismatches
+are reported as observations under the original tolerance. A successful
+diagnostic does not grant admission or authorize held-out inference. Any
+recovery must preserve the original checkpoint and failed-admission identities.
+
 ## 17. Submit the FEM mesh-repeatability diagnostic
 
 This diagnostic must be submitted only from the reviewed clean detached

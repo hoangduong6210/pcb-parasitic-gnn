@@ -7,6 +7,40 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Recovery preparation on 2026-09-15: a separate validation replay diagnostic is
+being prepared for task zero, all three saved arms, two versus eight numerical
+threads, and two fresh processes per setting. It records every stored and
+recomputed metric under the unchanged admission comparison plus prediction
+differences between runs. Task zero trained on `a0115`; admission failed on
+`a0210`, so both node and thread count changed. Comparing thread settings on
+one allocated node can test the thread hypothesis while retaining CPU details
+for any remaining node effect. Diagnostic results cannot admit checkpoints or
+authorize test inference. Failed admission logs are preserved under
+`results/corpus_v4/strict_e3_fem_v2/diagnostics/admission_job_7318065/`.
+
+Status check at 2026-09-15 20:34 EDT: training array `7318063` completed all
+25 tasks with exit `0:0` and zero restarts. The execution checkout contains
+25 task receipts and 75 checkpoint files. Per-task scheduler elapsed times
+range from 1,731 to 2,444 seconds. Admission `7318065` failed with exit `1:0`
+after 27 seconds at 05:40:18 EDT. Its traceback identifies validation-metric
+reconstruction in `check_task`, where `assert_json_close` rejected a numeric
+difference under `rtol=1e-8`, `atol=1e-10`. No accepted set or held-out finalizer
+output exists. The exact differing metric and magnitude are not logged, so
+the cause remains unresolved. Training uses eight scientific threads and
+admission uses two; numerical sensitivity to that difference is a hypothesis
+requiring a SLURM diagnostic. Preserve the frozen checkpoints and failed
+admission; do not relax the gate or rerun training based on this traceback.
+Next: measure validation replay differences before deciding on recovery.
+This status update is local; latest verified remote publication is `890daa3`.
+
+Post-publication scheduler observation on 2026-09-15: tasks 0 through 4 of
+array `7318063` are RUNNING on `a0115`, `a0119` and `a0124`. Tasks 5 through
+24 are PENDING with `JobArrayTaskLimit`, consistent with the concurrency cap
+of five. Admission `7318065` remains PENDING with `Dependency`. Submission
+and probe evidence were remotely verified at `890daa39420b3625b99b7f9899d6556a691ea4a8`.
+This running-state observation is a local wiki update; no completed checkpoint
+or accuracy result has yet been validated.
+
 Training submission on 2026-09-15: validated probe evidence was pushed and
 remotely verified at `24d51a33f385dfb0c08d6e708e50d809df6d5aee`. The frozen
 training array `7318063` was then submitted with all 25 tasks and a concurrency

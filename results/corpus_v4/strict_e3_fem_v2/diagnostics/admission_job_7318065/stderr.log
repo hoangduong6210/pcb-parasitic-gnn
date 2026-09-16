@@ -1,0 +1,18 @@
+/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/models/gnn/gnn_baseline.py:109: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at /pytorch/aten/src/ATen/native/TensorAdvancedIndexing.cpp:1517.)
+  out = init.index_reduce(0, index, src, reduce="amax", include_self=True)
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 1228, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 1223, in main
+    {"build-lock": build_lock, "train": train, "admit": admit,
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 878, in admit
+    result = check_task(args, path, task_id, protocol, lock, rows)
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 861, in check_task
+    assert_json_close(result["arms"][arm]["validation_diagnostic_only"], expected_diagnostic)
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 751, in assert_json_close
+    assert_json_close(actual[key], expected[key])
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 751, in assert_json_close
+    assert_json_close(actual[key], expected[key])
+  File "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/strict-e3-fem-v2-execution/code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py", line 741, in assert_json_close
+    raise ValueError("JSON replay numeric value differs")
+ValueError: JSON replay numeric value differs
