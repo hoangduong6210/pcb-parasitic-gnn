@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: PAUSED; HANDOFF READY
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 paper_source: false
 ---
 
@@ -57,6 +57,7 @@ instead of calling one column ground truth.
 | FEM-v2 fixed pooled-feature baselines | `ADMITTED; VERSION-SCOPED` | Fixed-budget post-hoc comparison supports `C-BASE-FEMV2-001`; no causal graph advantage or tuned-baseline claim |
 | FEM-v2 coordinate-update ablation | `ADMITTED; VERSION-SCOPED` | All 75 checkpoints, held-out analysis and tracked replay passed; `C-E3-FEMV2-001` states that the fixed study did not establish a consistent coordinate-update accuracy gain |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
+| IEEE Journal Snapshot 1.1 | `PUBLISHED; TAG AND CI VERIFIED` | Expanded eleven-page export of the twelve admitted claims; no research execution was reopened |
 
 The dated [Live Execution](Live-Execution.md) page preserves prior task counts
 and scheduler transitions. The [handoff page](Research-Pause-Handoff.md) owns

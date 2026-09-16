@@ -1,6 +1,6 @@
 ---
 title: Journal Snapshot 1.1
-status: RELEASE CANDIDATE
+status: PUBLISHED; IMMUTABLE TAG VERIFIED
 last_updated: 2026-09-16
 paper_source: false
 ---
@@ -45,7 +45,7 @@ mesh convergence and fabricated-board accuracy.
 
 ## Publication package
 
-The release candidate contains:
+The published package contains:
 
 - an eleven-page IEEEtran journal manuscript with a 201-word abstract;
 - nine deterministic monochrome figures, all included in the PDF;
@@ -76,10 +76,18 @@ extraction, FEM discretization, graph learning, equivariance, machine learning
 for electronic design automation, statistical comparison, and reproducible
 computational research.
 
-## Release boundary
+## Publication receipt
 
-The intended immutable tag is `journal-snapshot-1.1`. The old
-`journal-snapshot-1` tag must not move. Publication is complete only after the
-new tag and `main` resolve to their expected remote commits and the GitHub CI
-run passes. Until that verification is recorded, this page remains a release
-candidate rather than a publication receipt.
+Immutable tag `journal-snapshot-1.1` and remote `main` were verified on
+2026-09-16 at commit
+`1ba75c3d539a67dcecf60013388b138417a2338e`. GitHub identifies both author and
+committer as account `hoangduong6210`. Branch and tag CI runs
+[`35064045532`](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/35064045532)
+and
+[`35064045774`](https://github.com/hoangduong6210/pcb-parasitic-gnn/actions/runs/35064045774)
+completed successfully. The remote branch set contains only `main`.
+
+The original `journal-snapshot-1` tag remains unchanged and peels to
+`b47bb37288448ee08ed5746ef8b8cd6af7fbb229`. The expanded release therefore
+adds a versioned publication boundary without rewriting the first snapshot or
+the conference submission.

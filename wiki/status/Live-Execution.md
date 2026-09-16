@@ -10,12 +10,15 @@ paper_source: false
 ## Publication work on 2026-09-16
 
 Research execution remains paused and no solver, training, or scheduler task
-was started. Journal Snapshot 1.1 is being prepared as an expanded publication
-export. Its current release candidate has eleven pages, nine deterministic
-monochrome figures, sixty cited and source-validated references, a visible
-conference-lineage affiliation block, and the unchanged twelve-claim
-inventory. The package, CI dependency fix, canonical Git identity mapping, and
-wiki are local until remote publication and CI verification are recorded.
+was started. Journal Snapshot 1.1 was published as an expanded publication
+export under immutable tag `journal-snapshot-1.1`, which peels to remotely
+verified commit `1ba75c3d539a67dcecf60013388b138417a2338e`. The package has
+eleven pages, nine deterministic monochrome figures, sixty cited and
+source-validated references, a visible conference-lineage affiliation block,
+and the unchanged twelve-claim inventory. GitHub identifies both author and
+committer as `hoangduong6210`; branch and tag CI runs `35064045532` and
+`35064045774` completed successfully. The remote exposes only `main`. The
+original `journal-snapshot-1` tag remains unchanged.
 
 ## Current paused state
 

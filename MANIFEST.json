@@ -33404,8 +33404,8 @@
     },
     {
       "path": "wiki/manuscript/Journal-Snapshot-1.1.md",
-      "bytes": 3961,
-      "sha256": "3eb0d515d36ff75d33c53cde6a4dc7ce8a0725efc1acc85ff4224d7da739f74f"
+      "bytes": 4382,
+      "sha256": "2c74247ae51dc8117c1d8ec707fa5943c39773c418d55d2f27cf8d23a5ffac8d"
     },
     {
       "path": "wiki/manuscript/Paper-Export-Contract.md",
@@ -33549,20 +33549,20 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 31877,
-      "sha256": "e638b3845028f280292aaad3526ae9d78a1f5f640c693b783f9f3dbc8d5089f4"
+      "bytes": 32073,
+      "sha256": "0419cc5d8fff0dfd7056e28ae88534be1668b10b2d6b8ab19ab9092faa677212"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 6776,
-      "sha256": "057318d6f96bb5dedbd9305400f04f461518f68467450bd49ff5dc350ffff390"
+      "bytes": 6937,
+      "sha256": "6269d4535214a9ef8f5827a5f6fa46f6deb7fd56311216c425f1fc92f59c655d"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
-      "bytes": 5962,
-      "sha256": "40c3b06742dce7ea1a178528e3b8e0e7550eb60da66fe610b6b50d742443490d"
+      "bytes": 6070,
+      "sha256": "a9e3ceee50c613d2494dfc180d20f958ac67bfd9aa1eae6e3c8ec893b04a0289"
     }
   ],
   "n_files": 6709,
-  "total_bytes": 984272114
+  "total_bytes": 984273000
 }

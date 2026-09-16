@@ -1,7 +1,7 @@
 ---
 title: Research Pause and Handoff
 status: PAUSED; HANDOFF READY
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 paper_source: false
 ---
 
@@ -21,13 +21,14 @@ The canonical scientific state is the admitted claim set in the
 [Current Claim Registry](../claims/Current-Claim-Language.md). The journal
 export is packaged separately in [`Paper_Journal_Snapshot_1/`](../../Paper_Journal_Snapshot_1/).
 Its package README and snapshot manifest own the final source revision, claim
-inventory, artifact hashes, build identity, and PDF identity. After release,
-the immutable Git tag `journal-snapshot-1` is the restart anchor; verify that tag
-against the published remote and the package manifest before beginning new work.
-Publication was remotely verified on 2026-09-15: the tag peels to
-`b47bb37288448ee08ed5746ef8b8cd6af7fbb229`, and GitHub exposes only the
-`main` branch. The tag, rather than an intermediate worktree branch, is the
-stable handoff identity.
+inventory, artifact hashes, build identity, and PDF identity. The latest
+restart anchor is immutable tag `journal-snapshot-1.1`; verify it against the
+published remote and package manifest before beginning new work. Publication
+was remotely verified on 2026-09-16: the tag peels to
+`1ba75c3d539a67dcecf60013388b138417a2338e`, both release CI runs passed, and
+GitHub exposes only the `main` branch. The original `journal-snapshot-1` tag is
+preserved at `b47bb37288448ee08ed5746ef8b8cd6af7fbb229`. Tags, rather than an
+intermediate worktree branch, define the stable handoff identities.
 
 ## What is complete
 
@@ -94,7 +95,7 @@ These are new studies, not incomplete stages of the closed pipelines:
 
 ## Resume procedure
 
-1. Start from immutable tag `journal-snapshot-1`, verify it against the published
+1. Start from immutable tag `journal-snapshot-1.1`, verify it against the published
    remote, then verify the journal snapshot and repository manifests recorded by
    that release. Do not resume from an old detached execution worktree.
 2. Choose exactly one deferred question and give it a new protocol identity.
