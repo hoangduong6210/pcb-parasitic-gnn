@@ -1,7 +1,7 @@
 ---
 title: Paper Export Contract
 status: canonical publication policy
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 paper_source: false
 ---
 
@@ -13,6 +13,10 @@ paper_source: false
 pause boundary. Its own manifest records the final identity after the package is
 built and reviewed. Routine research edits belong in the wiki, not in any paper
 package.
+
+The original seven-page export remains immutable at `journal-snapshot-1`.
+[Journal Snapshot 1.1](Journal-Snapshot-1.1.md) is a new expanded revision with
+its own version and tag; it does not move or overwrite the earlier release.
 
 ## Eligibility gate
 

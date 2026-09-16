@@ -119,6 +119,16 @@ def test_all_slurm_jobs_are_single_task_portable_and_executable() -> None:
         subprocess.run(["bash", "-n", str(job)], check=True)
 
 
+def test_ci_installs_the_baseline_test_dependency_and_current_actions() -> None:
+    requirements = (ROOT / "requirements-ci.txt").read_text(encoding="utf-8")
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+
+    assert "scikit-learn==1.6.1" in requirements
+    assert "scikit-learn==1.6.1" in workflow
+    assert "actions/checkout@v7" in workflow
+    assert "actions/setup-python@v7" in workflow
+
+
 def test_coremfem_dependency_and_path_are_explicit() -> None:
     for name in ("submit_coremfem.sh", "submit_pfc.sh"):
         text = (CODE / "jobs" / name).read_text()

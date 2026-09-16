@@ -1,8 +1,17 @@
-# IEEE journal snapshot 1
+# IEEE journal snapshot 1.1
 
-This is the first journal-format snapshot exported from the admitted research
-wiki. It is an independent package; `Paper_Summary/` remains the immutable
-conference submission and `Paper_Full/` remains a superseded historical draft.
+This is the expanded revision of the first journal-format snapshot exported
+from the admitted research wiki. Immutable tag `journal-snapshot-1` preserves
+the original seven-page export; this revision has the separate release tag
+`journal-snapshot-1.1`. It is an independent package; `Paper_Summary/` remains
+the immutable conference submission and `Paper_Full/` remains a superseded
+historical draft.
+The journal manuscript retains the conference title lineage and author
+affiliation while expanding the study into motivation, parasitic-field theory,
+geometry contracts, numerical-reference fidelity, graph and symmetry theory,
+explicit statistical and runtime estimands, experiments, and limitations. It
+does not pool measurements across target-package versions or imply fabricated
+hardware validation.
 
 The manuscript uses the IEEEtran journal class in two-column mode. The format
 choice follows the IEEE Author Center article-template, article-structure and
@@ -10,7 +19,7 @@ graphics guidance. The bundled IEEEtran 1.8b class and bibliography style are
 LPPL-licensed copies from the CTAN distribution; provenance is recorded in
 `vendor/README.md`.
 
-Format sources checked on 2026-09-15:
+Format sources checked on 2026-09-16:
 
 - [IEEE article templates](https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/authoring-tools-and-templates/tools-for-ieee-authors/ieee-article-templates/)
 - [IEEE article structure](https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-the-text-of-your-article/structure-your-article/)

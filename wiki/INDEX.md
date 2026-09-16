@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-09-15
+last_updated: 2026-09-16
 paper_source: false
 ---
 
@@ -90,6 +90,7 @@ paper_source: false
 | [Paper Export Contract](manuscript/Paper-Export-Contract.md) | Eligibility gates and immutable snapshot manifest |
 | [Paper Outline](manuscript/Paper-Outline.md) | IEEE section map to canonical wiki sources |
 | [FEM Cps Sections](manuscript/FEM-Cps-Sections.md) | Existing admitted FEM prose pending consolidation |
+| [Journal Snapshot 1.1](manuscript/Journal-Snapshot-1.1.md) | Expanded journal export, visual and citation gates, and release boundary |
 
 ## Identifier index
 

@@ -10,6 +10,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from freeze_snapshot import publishable_files
+
 
 ROOT = Path(__file__).resolve().parent
 MANIFEST = ROOT / "SNAPSHOT_MANIFEST.json"
@@ -87,6 +89,13 @@ def verify(regenerate: bool) -> None:
     assert data["schema"] == "pcb-gnn.journal-snapshot-manifest.v1"
     assert set(data["claims"]) == EXPECTED_CLAIMS
 
+    manifested = set(data["files"])
+    publishable = publishable_files()
+    assert manifested == publishable, (
+        f"manifest coverage mismatch: missing={sorted(publishable - manifested)}, "
+        f"extra={sorted(manifested - publishable)}"
+    )
+
     if regenerate:
         run_checked([sys.executable, "generate_figures.py"])
         run_checked(["bash", "build.sh"])
@@ -105,6 +114,8 @@ def verify(regenerate: bool) -> None:
     assert "confidence interval" not in tex.lower()
     assert "/users/" not in tex and "SLURM" not in tex
     assert not re.search(r"\bjob[_ -]?\d+\b", tex, re.I)
+    assert "Department of Computer Science, Da-Yeh University, Taiwan" in tex
+    assert "Auditable" not in re.search(r"\\title\{([^}]+)\}", tex).group(1)
 
     bib = (ROOT / "references.bib").read_text(encoding="utf-8")
     available = set(re.findall(r"^@\w+\{([^,]+),", bib, re.M))
@@ -114,6 +125,14 @@ def verify(regenerate: bool) -> None:
     unused = available - cited
     assert not unused, f"unused bibliography entries: {sorted(unused)}"
     assert len(cited) == data["document"]["rendered_references"]
+    assert len(cited) >= 50, "journal snapshot requires at least 50 cited references"
+
+    included_figures = set(
+        re.findall(r"\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}", tex)
+    )
+    generated_figures = {path.name for path in (ROOT / "figures").glob("*.pdf")}
+    assert included_figures == generated_figures
+    assert len(included_figures) == data["document"]["figures"]
 
     pdf = ROOT / data["document"]["pdf"]
     pdf_info = run_checked(["pdfinfo", str(pdf)])

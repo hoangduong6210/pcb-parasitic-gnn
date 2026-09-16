@@ -1,7 +1,7 @@
 ---
 title: SLURM Submission Playbook
 status: active operational runbook
-last_updated: 2026-08-31
+last_updated: 2026-09-16
 paper_source: false
 ---
 
@@ -1184,8 +1184,8 @@ Use a clean checkout at the reviewed commit. The FastHenry executable is
 external, but its SHA-256 must equal the digest frozen in the protocol.
 
 ```bash
-LAT_ROOT=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/latency-fem-v2-run
-FASTHENRY_BIN=/users/PGS0407/binben14/VietHuy/Hoang/ADE/Research/13_PCB_Parasitic_GNN/04_code/tools/fasthenry
+LAT_ROOT="${PCB_GNN_LATENCY_WORKTREE:?set the clean latency worktree path}"
+FASTHENRY_BIN="${PCB_GNN_FASTHENRY_BIN:?set the reviewed FastHenry executable path}"
 cd "$LAT_ROOT"
 
 LAT_SOURCE_COMMIT=186ba2cbaf6a24bf62641eb2f2eba8ee3530dad6

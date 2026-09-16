@@ -69,13 +69,31 @@ def test_snapshot_package_contains_rebuildable_monochrome_figures_and_pdf() -> N
     for relative in required:
         assert (PACKAGE / relative).is_file(), relative
 
-    for number in range(1, 8):
+    for number in range(1, 10):
         matches = list((PACKAGE / "figures").glob(f"hoang{number}_*.pdf"))
         assert len(matches) == 1, number
         assert matches[0].read_bytes().startswith(b"%PDF")
 
     final_pdf = PACKAGE / "build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf"
     assert final_pdf.read_bytes().startswith(b"%PDF")
+
+
+def test_snapshot_has_visible_affiliation_and_at_least_fifty_cited_sources() -> None:
+    manuscript = (PACKAGE / "main.tex").read_text(encoding="utf-8")
+    bibliography = (PACKAGE / "references.bib").read_text(encoding="utf-8")
+    title = re.search(r"\\title\{([^}]+)\}", manuscript).group(1)
+    cited = {
+        key.strip()
+        for group in re.findall(r"\\cite\{([^}]+)\}", manuscript)
+        for key in group.split(",")
+    }
+    available = set(re.findall(r"^@\w+\{([^,]+),", bibliography, re.MULTILINE))
+
+    assert "A License-Clean Graph Neural Network for Fast Parasitic Extraction" in title
+    assert "Auditable" not in title
+    assert "Department of Computer Science, Da-Yeh University, Taiwan" in manuscript
+    assert len(cited) >= 50
+    assert cited == available
 
 
 def test_snapshot_excludes_operational_provenance_and_legacy_speed_claims() -> None:

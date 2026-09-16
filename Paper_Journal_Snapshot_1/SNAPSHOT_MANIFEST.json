@@ -1,76 +1,219 @@
 {
   "schema": "pcb-gnn.journal-snapshot-manifest.v1",
   "snapshot_id": "journal-snapshot-1",
-  "version": "1.0.0-snapshot.1",
-  "release_tag": "journal-snapshot-1",
+  "version": "1.1.0-snapshot.1",
+  "release_tag": "journal-snapshot-1.1",
   "source_wiki_commit": "f4d36aa90ac7a92061fecab06ca2ec3a2e9f2cb5",
   "source_scope": "Last published admitted-claim state before this export; the complete export tree is frozen by release_tag",
   "format_provenance": {
-    "checked_on": "2026-09-15",
+    "checked_on": "2026-09-16",
     "article_templates": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/authoring-tools-and-templates/tools-for-ieee-authors/ieee-article-templates/",
     "article_structure": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-the-text-of-your-article/structure-your-article/",
     "graphics_guidance": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/",
     "graphics_file_formatting": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/"
   },
   "claims": {
-    "C-GEOM-001": {"evidence_id": "E-C3-GEOM-01", "artifact_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"},
-    "C-FEM-001": {"evidence_id": "E-C4-FEM-01", "artifact_sha256": "f0b5510cf76325f5aefd8ad599f393cacacfc745d5413b351a5fe4c553513b89"},
-    "C-FEM-002": {"evidence_id": "E-C4-CONV-01", "artifact_sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"},
-    "C-FEM-003": {"evidence_id": "E-C4-CONV-01", "artifact_sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"},
-    "C-FEM-004": {"evidence_id": "E-C4-FEM-REPEAT-RUN-02", "artifact_sha256": "776adb39aaa41dea09972089413977d7762457f453e57dc429d65bd5d0a209fc"},
-    "C-CPS-DISC-001": {"evidence_id": "E-C4-DISC-01", "artifact_sha256": "ae3859cc6004f5edf01053813f8237ca0b98e68d6cb634a8f200aeed74e03d40"},
-    "C-E3-001": {"evidence_id": "E-V2-E3-01", "artifact_sha256": "d4a80929e39b8135ba64e40a415a1b72f7a9ec5171a4753ffa54bb589be416a1"},
-    "C-ACC-001": {"evidence_id": "E-C4-ACC-01", "artifact_sha256": "a2764cac891b3630eaf927aaf024badbacba7ac3b65e82a544f329b341b1570f"},
-    "C-ACC-FEMV2-001": {"evidence_id": "E-C4-FEM-V2-ACC-V3-01", "artifact_sha256": "4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc"},
-    "C-LAT-FEMV2-001": {"evidence_id": "E-C4-LAT-FEMV2-RUN-01", "artifact_sha256": "5baabeaab51555df5855c89ba9f70bd6828f9f6971542c969b929beb2e87a9a4"},
-    "C-BASE-FEMV2-001": {"evidence_id": "E-C4-BASE-FEMV2-PLAN-01", "artifact_sha256": "f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28"},
-    "C-E3-FEMV2-001": {"evidence_id": "E-C4-E3-FEMV2-ANALYSIS-01", "artifact_sha256": "5837a9d672d3aa3f1182e0fb05adbeeb18b7e16abc27107392a8fd7b0025893a"}
+    "C-GEOM-001": {
+      "evidence_id": "E-C3-GEOM-01",
+      "artifact_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b"
+    },
+    "C-FEM-001": {
+      "evidence_id": "E-C4-FEM-01",
+      "artifact_sha256": "f0b5510cf76325f5aefd8ad599f393cacacfc745d5413b351a5fe4c553513b89"
+    },
+    "C-FEM-002": {
+      "evidence_id": "E-C4-CONV-01",
+      "artifact_sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"
+    },
+    "C-FEM-003": {
+      "evidence_id": "E-C4-CONV-01",
+      "artifact_sha256": "78ee69aac46fbce3f914617b6d9cbc4ac51cc56b82f7944f34d2bd9c4172daa1"
+    },
+    "C-FEM-004": {
+      "evidence_id": "E-C4-FEM-REPEAT-RUN-02",
+      "artifact_sha256": "776adb39aaa41dea09972089413977d7762457f453e57dc429d65bd5d0a209fc"
+    },
+    "C-CPS-DISC-001": {
+      "evidence_id": "E-C4-DISC-01",
+      "artifact_sha256": "ae3859cc6004f5edf01053813f8237ca0b98e68d6cb634a8f200aeed74e03d40"
+    },
+    "C-E3-001": {
+      "evidence_id": "E-V2-E3-01",
+      "artifact_sha256": "d4a80929e39b8135ba64e40a415a1b72f7a9ec5171a4753ffa54bb589be416a1"
+    },
+    "C-ACC-001": {
+      "evidence_id": "E-C4-ACC-01",
+      "artifact_sha256": "a2764cac891b3630eaf927aaf024badbacba7ac3b65e82a544f329b341b1570f"
+    },
+    "C-ACC-FEMV2-001": {
+      "evidence_id": "E-C4-FEM-V2-ACC-V3-01",
+      "artifact_sha256": "4af78d1b2fe65f249bd3d136fd8f53e3d88fdc577f414eaf74c1a463d3f28afc"
+    },
+    "C-LAT-FEMV2-001": {
+      "evidence_id": "E-C4-LAT-FEMV2-RUN-01",
+      "artifact_sha256": "5baabeaab51555df5855c89ba9f70bd6828f9f6971542c969b929beb2e87a9a4"
+    },
+    "C-BASE-FEMV2-001": {
+      "evidence_id": "E-C4-BASE-FEMV2-PLAN-01",
+      "artifact_sha256": "f750b4257160b623eb5554f380601ce5a7a20e9342d90bec7e2ddbdd592edd28"
+    },
+    "C-E3-FEMV2-001": {
+      "evidence_id": "E-C4-E3-FEMV2-ANALYSIS-01",
+      "artifact_sha256": "5837a9d672d3aa3f1182e0fb05adbeeb18b7e16abc27107392a8fd7b0025893a"
+    }
   },
   "document": {
     "pdf": "build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf",
-    "pages": 7,
-    "abstract_words": 202,
-    "rendered_references": 27,
-    "figures": 7,
+    "pages": 11,
+    "abstract_words": 201,
+    "rendered_references": 60,
+    "figures": 9,
     "source_date_epoch": 1789430400,
     "format": "IEEEtran journal, letter paper, two columns"
   },
   "review": {
-    "technical_review_date": "2026-09-15",
-    "prose_review_date": "2026-09-15",
-    "visual_review_date": "2026-09-15",
-    "visual_scope": "all seven PDF pages and all seven monochrome figures",
+    "technical_review_date": "2026-09-16",
+    "prose_review_date": "2026-09-16",
+    "visual_review_date": "2026-09-16",
+    "visual_scope": "all 11 PDF pages and all 9 monochrome figures",
     "authorship_detector_claim": "none; deterministic prose audit is a style and disclosure check"
   },
   "files": {
-    ".gitattributes": {"bytes": 159, "sha256": "9ad1bf9697a8ae6ba91259f19e7b664095184df756a40b3a99bc7d99072f2b6e"},
-    ".gitignore": {"bytes": 75, "sha256": "54bdc004046f86f6462fbd48cf3353613b1c60e468a94d49dbae3513f1d036d0"},
-    "README.md": {"bytes": 2210, "sha256": "966489e691a004f61352309f7217604b894ede3976f84049d2c5ee784f94fa60"},
-    "VERSION": {"bytes": 17, "sha256": "c119b3fe8ca0d1f3c61c8ececaba2f4f2d7996b92091e518ec863f787eed5328"},
-    "build.sh": {"bytes": 544, "sha256": "9f91de909ff858ca3e4bf5c06a3bf6addd684888f5fa0bd7cb9c5e48734621f0"},
-    "figure_data.json": {"bytes": 2993, "sha256": "eb6f2dc4dfa39ac30c66db08d3d8190df00d1a193ffb7bae77a26ea2d5086450"},
-    "generate_figures.py": {"bytes": 11264, "sha256": "180d177a0e383d147a8d97e1ee3f8b3ad0b5564459d89d69da1765f8bfda696c"},
-    "main.tex": {"bytes": 29136, "sha256": "5e12babe04dab429c7d45ef3853ea73eeeeb05e777529d58b81a734320e740b7"},
-    "references.bib": {"bytes": 5787, "sha256": "477c723826f60294f35f5ef7560d02bf99c6a13485d134b1846ebb880d8bdf06"},
-    "verify_snapshot.py": {"bytes": 5042, "sha256": "43ab5315467126e7712683631ffb5b523769fc9768a7e348fc4158d62a24919c"},
-    "vendor/IEEEtran.bst": {"bytes": 57748, "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"},
-    "vendor/IEEEtran.cls": {"bytes": 281957, "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"},
-    "vendor/README.md": {"bytes": 681, "sha256": "bdcc283f2fcbd92ea95ff6b29c2196acd17edd6b0986566e3a6d8255daf58965"},
-    "vendor/UPSTREAM_README": {"bytes": 5465, "sha256": "cc2de809d6e86ab95cd4e88d97b41cb81dd96cf224e6445474aeb7419f4a0462"},
-    "figures/hoang1_pipeline.pdf": {"bytes": 28186, "sha256": "0c05bb24673618873f1b12c6b1ca58f495fd0cf698eab6d4786115c0521c7079"},
-    "figures/hoang2_geometry_scope.pdf": {"bytes": 19298, "sha256": "a55f088ac97d86bf346d7af78b7fcc4294cb96285842b884ba81b68b36895f0b"},
-    "figures/hoang3_fem_fidelity.pdf": {"bytes": 39397, "sha256": "5f1a930437e3cb8478746db03900a6e847ad338bd4a1aaf1e7022283b8487191"},
-    "figures/hoang4_accuracy.pdf": {"bytes": 13882, "sha256": "24399880b6f6d188f352ad3454144865609f38d259f1dce0e3905363c8692054"},
-    "figures/hoang5_baselines.pdf": {"bytes": 27583, "sha256": "067395290224e13a91a9f53b428536d49a824466e601591a1386224a366a1b9d"},
-    "figures/hoang6_coordinate_symmetry.pdf": {"bytes": 16265, "sha256": "bafe24aedf2d3490501cb0d6fcb7d0fa5764ebf73858a67b2493b434d272f5a0"},
-    "figures/hoang7_latency.pdf": {"bytes": 27789, "sha256": "cc9ffc7c18b316742dc15a19bdfd9a875b9a85b2f86d71f44d892115441fa8d8"},
-    "figures/hoang1_pipeline.png": {"bytes": 110928, "sha256": "edeba1e03ee5b480a72ea4ddf98efdca6ebc1ded64bff3a4e1da2b0044412623"},
-    "figures/hoang2_geometry_scope.png": {"bytes": 126513, "sha256": "8382faa4fede5f064e203b39c32c425549c77bcd05b19aa62254bb267dc0f4e2"},
-    "figures/hoang3_fem_fidelity.png": {"bytes": 146323, "sha256": "f3709bff57b9224fa9fc11e6fb90417208b4fac5005f5ebf97dac98ed067f523"},
-    "figures/hoang4_accuracy.png": {"bytes": 57673, "sha256": "2ba3dcddef65eadd8a6a5b738160d6734e6715bdd316f658e4f5efcf55d39548"},
-    "figures/hoang5_baselines.png": {"bytes": 95413, "sha256": "4738880e48f5e84bde0c89574d5409a8c26af6622d0d19748da837865cbd4569"},
-    "figures/hoang6_coordinate_symmetry.png": {"bytes": 118084, "sha256": "b0c33f0e1d6571cd3985964093760aa0a9c778e4aa1a9f6922b602c5bb79cb8e"},
-    "figures/hoang7_latency.png": {"bytes": 81645, "sha256": "0727d040563b404fd098467f87c09b335246aca2e6935dbadd82b14d402c52dd"},
-    "build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf": {"bytes": 351056, "sha256": "fb17319c13b2366010e4428f8b662d6cb7adc30b007f5d1a933c896fdeac94d3"}
+    ".gitattributes": {
+      "bytes": 159,
+      "sha256": "9ad1bf9697a8ae6ba91259f19e7b664095184df756a40b3a99bc7d99072f2b6e"
+    },
+    ".gitignore": {
+      "bytes": 75,
+      "sha256": "54bdc004046f86f6462fbd48cf3353613b1c60e468a94d49dbae3513f1d036d0"
+    },
+    "README.md": {
+      "bytes": 2784,
+      "sha256": "9045a9a07e5614eb36fbd3350bec15bc0132ab3fa94fe8e73f562eb49d9e8082"
+    },
+    "VERSION": {
+      "bytes": 17,
+      "sha256": "4f88d94528f7435161fac8d93cf36a33990e9e71fdabe8a19f28b4083e336fc7"
+    },
+    "build.sh": {
+      "bytes": 544,
+      "sha256": "9f91de909ff858ca3e4bf5c06a3bf6addd684888f5fa0bd7cb9c5e48734621f0"
+    },
+    "build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf": {
+      "bytes": 470858,
+      "sha256": "b6f4770c969229e55294996df3cbc481d33a572ed830dd2b4e7bd432ab2c313a"
+    },
+    "figure_data.json": {
+      "bytes": 4044,
+      "sha256": "c161ba6a38ce7f3776d738963e76d7604865acc0808a3f7766ee328cb0cee43b"
+    },
+    "figures/hoang1_pipeline.pdf": {
+      "bytes": 27979,
+      "sha256": "927f7cc3b9b7c1843838ffb9e53b51f3277dccf444651a5e0e6c44f5e19d8492"
+    },
+    "figures/hoang1_pipeline.png": {
+      "bytes": 94965,
+      "sha256": "40264ca4a6b287677747da9df99c7f0cb4c4a7fd9e4a71f13594033614abeaa1"
+    },
+    "figures/hoang2_geometry_scope.pdf": {
+      "bytes": 20598,
+      "sha256": "068d45aa04491a45740d42a489d017c7ee804a7a76169a4f21dcd81fe608cc2d"
+    },
+    "figures/hoang2_geometry_scope.png": {
+      "bytes": 107714,
+      "sha256": "171adb6198f4cc79832377f57f8c28e333715a5760644d40b1ccdd06d8a44203"
+    },
+    "figures/hoang3_fem_fidelity.pdf": {
+      "bytes": 39306,
+      "sha256": "cf83cb5642e2cb255c0a6623434368118b878c12b54edbf7b0c7f676825cd066"
+    },
+    "figures/hoang3_fem_fidelity.png": {
+      "bytes": 145096,
+      "sha256": "dd7761d2aafe70c61199d5408f357381bcca54f87a1570011d88859aa01c5600"
+    },
+    "figures/hoang4_accuracy.pdf": {
+      "bytes": 13019,
+      "sha256": "551b8942bbdbe928f1f325913e3a9c09d635e608579fd0dd5cb889b5a117be0b"
+    },
+    "figures/hoang4_accuracy.png": {
+      "bytes": 52119,
+      "sha256": "6cb6e3eebd21d94eeee7b9a58379087a131b32fd4d4ae334708fe9ab371f1f4a"
+    },
+    "figures/hoang5_baselines.pdf": {
+      "bytes": 28368,
+      "sha256": "ab07da065ea50250d585917a1fb771d58af1c426208124a7fc31915ccae31784"
+    },
+    "figures/hoang5_baselines.png": {
+      "bytes": 98296,
+      "sha256": "974f482bb19c27db101302a76ba1705c1b51248acb9a5cee6e0da484821987d9"
+    },
+    "figures/hoang6_coordinate_symmetry.pdf": {
+      "bytes": 16492,
+      "sha256": "e2bf57d35b2c2571bef7ff87d0d8b7fbe6b9863467cd4ba40a98ab6124511289"
+    },
+    "figures/hoang6_coordinate_symmetry.png": {
+      "bytes": 113415,
+      "sha256": "9356949de2574720ac7f2404bb2a6b20c21d12718bbc38c2fe972192b7e77bc6"
+    },
+    "figures/hoang7_latency.pdf": {
+      "bytes": 15322,
+      "sha256": "e2eb86e7c63cc5ddb24206f02408524c508ee798f666fd42c7a9e8b4f3706aca"
+    },
+    "figures/hoang7_latency.png": {
+      "bytes": 78634,
+      "sha256": "9ed308e995e129669d2079a8e5d5d7607b5dc7f296d6c4d7d319982d601a3880"
+    },
+    "figures/hoang8_graph_contract.pdf": {
+      "bytes": 29505,
+      "sha256": "8a85d679f1b96e43ab5e9c4fcd1c12fe45b0decdad73bbc9c0acc0a264555423"
+    },
+    "figures/hoang8_graph_contract.png": {
+      "bytes": 127734,
+      "sha256": "44f3c3b1335e4a3578062664e9dcf03d4c781e1f1eb6accc8bbb8b4d866b9815"
+    },
+    "figures/hoang9_research_evolution.pdf": {
+      "bytes": 32382,
+      "sha256": "92eadec09aed00b44f9ddb72cceccd234b11d7dc4f0e9eb14ab645d4d1020073"
+    },
+    "figures/hoang9_research_evolution.png": {
+      "bytes": 142296,
+      "sha256": "dd736462a20cf3ea43ba33aff924aad5f7de50a6baa4d48db9243eae3882d7d6"
+    },
+    "freeze_snapshot.py": {
+      "bytes": 4075,
+      "sha256": "56e16817a8c7c12b666e33c2b7c494bdf530f8dc3c08566e3bd39c50ad6c399d"
+    },
+    "generate_figures.py": {
+      "bytes": 17708,
+      "sha256": "c021e874e50f0f6c8aaaff6172494d675962d3851a5c362c93e575e789caad09"
+    },
+    "main.tex": {
+      "bytes": 45072,
+      "sha256": "ba71efbc08d6f0e2d286cd219dad860117d75f30cd7f3aae92a33507d69e2925"
+    },
+    "references.bib": {
+      "bytes": 18251,
+      "sha256": "a418802f26d7fd77b16d73fb2e38fb8d77fba6d0268388d3bc1dea741885be4b"
+    },
+    "vendor/IEEEtran.bst": {
+      "bytes": 57748,
+      "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"
+    },
+    "vendor/IEEEtran.cls": {
+      "bytes": 281957,
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+    },
+    "vendor/README.md": {
+      "bytes": 681,
+      "sha256": "bdcc283f2fcbd92ea95ff6b29c2196acd17edd6b0986566e3a6d8255daf58965"
+    },
+    "vendor/UPSTREAM_README": {
+      "bytes": 5465,
+      "sha256": "cc2de809d6e86ab95cd4e88d97b41cb81dd96cf224e6445474aeb7419f4a0462"
+    },
+    "verify_snapshot.py": {
+      "bytes": 5887,
+      "sha256": "bee02ce39453726998ab384a889e7f7eda6c131089420c9fdeab1ebbb8d89e03"
+    }
   }
 }

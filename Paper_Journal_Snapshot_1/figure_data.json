@@ -2,6 +2,24 @@
   "schema": "pcb-gnn.journal-snapshot-1.figure-data.v1",
   "claims": {
     "geometry": {"layouts": 1500, "families": 66},
+    "model_contract": {
+      "node_features": ["net/layer", "dimensions", "position", "materials"],
+      "edge_features": ["relative displacement", "distance/overlap", "layer relation"],
+      "message_layers": 4,
+      "pooling": ["mean", "maximum", "log-compressed sum"],
+      "outputs": ["Cps", "Lp", "Ls", "M"],
+      "coordinate_update_layers": 3,
+      "encoded_graph_scope": true
+    },
+    "research_evolution": {
+      "stages": [
+        {"name": "Conference\nfeasibility", "scope": "simplified\nsynthetic workflow", "status": "archival\nboundary"},
+        {"name": "Corpus V4", "scope": "1,500 layouts\n66 families", "status": "geometry-valid\ncontract"},
+        {"name": "Deterministic\nFEM-v2", "scope": "one-thread R3P16\ncapacitance", "status": "domain pass\nmesh gate failed"},
+        {"name": "Controlled\nevaluation", "scope": "5 x 5 accuracy\ncontrols and timing", "status": "version-scoped\nadmissions"},
+        {"name": "Journal\nSnapshot 1", "scope": "12 admitted\nclaims", "status": "screening\nboundary"}
+      ]
+    },
     "fem_gates": {
       "domain_median_pct": 0.189658,
       "domain_max_pct": 2.491566,
