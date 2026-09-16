@@ -13,8 +13,10 @@ the fixed-budget FEM-v2 study did not establish a consistent accuracy gain
 from coordinate updates, and all eight descriptive crossed-axis intervals
 included zero. This is not equivalence, a universal EGNN conclusion, or an
 equivariance-versus-non-equivariance result. No paper package was changed;
-paper-source curation waits for an explicit snapshot request. The next action
-is to publish this wiki admission and verify the remote commit.
+paper-source curation waits for an explicit snapshot request. The admission
+was published and remotely verified at
+`0577cff8fb87133b84f3fd177c3569e77debd2a3`. No further execution is required
+for this version-scoped claim.
 
 Recovery chain completed on 2026-09-15: tracked replay `7326296` finished
 `COMPLETED/0:0` in 229 seconds on `a0126`, with zero restarts. Its receipt
