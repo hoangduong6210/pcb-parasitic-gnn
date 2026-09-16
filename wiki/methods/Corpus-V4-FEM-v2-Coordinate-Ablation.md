@@ -1,6 +1,6 @@
 ---
 title: FEM-v2 Coordinate-Update Ablation Design
-status: checkpoint admission passed; held-out finalization submitted
+status: finalization complete; archive validation pending
 last_updated: 2026-09-15
 paper_source: false
 prose_reviewed: true

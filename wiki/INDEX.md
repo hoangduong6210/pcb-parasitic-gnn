@@ -67,6 +67,7 @@ paper_source: false
 | [Corpus V4 FEM-v2 Family-Held-Out Accuracy](results/Corpus-V4-FEM-v2-Accuracy.md) | Admitted one-thread FEM-v2 5 by 5 crossed result and matched R3/R4 view |
 | [Corpus V4 FEM-v2 Paired Latency](results/Corpus-V4-FEM-v2-Latency.md) | Admitted 306-layout all-four-target workflow comparison and family-cluster sensitivity |
 | [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Admitted fixed-baseline comparison and descriptive paired differences |
+| [Corpus V4 FEM-v2 Coordinate-Update Ablation](results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Three-arm result, paired differences and trained symmetry; claim admission pending |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
@@ -133,6 +134,7 @@ paper_source: false
 | `E-C4-LAT-FEMV2-PLAN-01`, `E-C4-LAT-FEMV2-RUN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-BASE-FEMV2-PLAN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-E3-FEMV2-QUAL-01`, `E-C4-E3-FEMV2-PREFLIGHT-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-E3-FEMV2-ANALYSIS-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-V2-PROOF-01`, `E-V2-E3-01`, `E-V2-LAT-01`, `E-V2-GEOM-PENDING` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `D-V0`, `D-V1`, `D-V2`, `D-C3`, `D-C4`, `D-C4-FEM-D1-v2`, `D-VENDOR-750341134` | [Dataset Registry](datasets/Dataset-Registry.md) |
 | Decision `0001` | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) |

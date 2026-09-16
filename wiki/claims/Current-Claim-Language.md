@@ -40,7 +40,10 @@ it becomes paper eligible.
 
 ## Proposed coordinate-update study
 
-The separate `C-E3-FEMV2-001` study is PROPOSED, with no admitted result.
+The separate `C-E3-FEMV2-001` claim remains PROPOSED, with no admitted result.
+The study has completed held-out finalization; numerical and tracked archive
+replay remain required. Its [result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+records the finite seed-grid findings without granting publication eligibility.
 Its [design](../methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) compares
 coordinate updates with two fixed-coordinate controls. Both model classes
 retain encoded-graph E(3) invariance; a result must not be relabelled as a

@@ -1,8 +1,11 @@
 # FEM-v2 coordinate-update ablation
 
 Status: all 25 training tasks completed and 75 checkpoints are preserved in
-`jobs/job_7318063/`. Checkpoint admission is pending recovery of numerical
-validation replay. No held-out predictive result is admitted.
+`jobs/job_7318063/`. Recovery admission passed all 75 checkpoints at eight
+threads under the original tolerance. Held-out finalization completed in
+`recovery/v1/final/job_7326179/`; archive replay remains pending and no
+predictive result is admitted. The [result page](../../../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+owns the scoped interpretation and links each table to machine evidence.
 
 Initialized-model qualification job `7275182` completed `0:0` in 21 s from source
 `9a1733ca4e64762f92578f4d158f71c9a8b41f13`. Its protocol SHA-256 is
@@ -55,7 +58,9 @@ Admission `7318065` failed validation-metric replay at two scientific threads.
 The preserved [diagnostic](diagnostics/job_7326041/result.json) reproduces
 every stored task-zero metric exactly with eight threads, twice. Both
 two-thread repeats fail 48 metric leaves under the original tolerance.
-Recovery must check all 75 checkpoints at eight threads before permitting
-held-out evaluation. The checkpoint archive retains the original source,
-normalization, targets and task identities. Archiving these bytes does not
-constitute their admission.
+Recovery job `7326163` checked all 75 checkpoints at eight threads before
+permitting held-out evaluation. Its [accepted set](recovery/v1/admission/job_7326163/accepted_artifact_set.json)
+has SHA-256 `483169c013b19149f40cea118803b3700dd4c9d6799e84af769161459a6c7634`.
+The checkpoint archive retains the original source, normalization, targets
+and task identities. Checkpoint admission is separate from scientific claim
+admission; finalization and two archive replay stages remain required.

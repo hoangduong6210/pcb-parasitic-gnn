@@ -7,6 +7,25 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Numerical reconstruction passed on 2026-09-15: job `7326203` completed
+`0:0` in 218 seconds on `a0126`, with zero restarts. Predictions, metrics,
+paired contrasts and symmetry summaries reconstruct exactly. The archive
+manifest SHA-256 is
+`0091f4583700bd682578af65ea2291770cca57cca322b01a21661f4b2aef480d`.
+Analysis and archive evidence are being committed for a clean tracked replay.
+Five lightweight tests bind the wiki result tables and diagnostics to the
+machine summary. Independent scientific reading confirms the scoped wording;
+claim admission remains a separate owner decision after tracked verification.
+
+Held-out finalization completed on 2026-09-15: job `7326179` finished
+`COMPLETED/0:0`, zero restarts, in 218 seconds on `a0126`. It produced the
+expected 22,050 prediction rows, 300 metrics and 200 contrasts. All eight
+descriptive crossed-axis intervals contain zero; the
+[result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) gives scoped
+interpretation and exact evidence links. Numerical archive replay `7326203`
+has been submitted. Tracked replay and scientific admission remain pending.
+The admission evidence and wiki were remotely verified at `0856b56`.
+
 Recovery admission passed on 2026-09-15: job `7326163` completed `0:0` in
 186 seconds on `a0126`, with zero restarts. All 25 tasks and 75 checkpoints
 passed the original validation, trained-symmetry and terminal gates at eight

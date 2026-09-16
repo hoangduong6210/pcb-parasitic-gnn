@@ -1,0 +1,389 @@
+{
+  "accepted_set_sha256": "483169c013b19149f40cea118803b3700dd4c9d6799e84af769161459a6c7634",
+  "claim_eligible": false,
+  "provenance": {
+    "cpu_model_lines": [
+      "flags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca sev sev_es",
+      "model name\t: AMD EPYC 7H12 64-Core Processor",
+      "vendor_id\t: AuthenticAMD"
+    ],
+    "hostname": "a0126.ten.osc.edu",
+    "recovery_commit": "d0dce38890935766ba121441501a9673424818e1",
+    "recovery_protocol_sha256": "37ca9f8ffcb8032eaafd137e98a1a2e8a3ede50ff8f36df35b9b0ba2bfbfbf3d",
+    "recovery_source_sha256": {
+      "code/experiments/proofs/recover_strict_e3_fem_v2_v1.py": "604be231d2a6f24f3b0b9008309c103346eb9448c08dce31464542074e1f2dde",
+      "code/jobs/submit_recover_strict_e3_fem_v2_v1.sh": "744705f256753bd03cd66706501c7b2dadcf59bf9e37a2076950dcfba20e61b6",
+      "protocols/corpus_v4_strict_e3_fem_v2_recovery_v1.json": "37ca9f8ffcb8032eaafd137e98a1a2e8a3ede50ff8f36df35b9b0ba2bfbfbf3d"
+    },
+    "runtime": {
+      "numpy": "2.0.2",
+      "python": "3.9.21",
+      "scikit-learn": "1.6.1",
+      "scipy": "1.13.1",
+      "torch": "2.8.0"
+    },
+    "scientific_checkout_commit": "efeb123c9975ae481d10cd7c0af899406c46e787",
+    "scientific_source_sha256": {
+      "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+      "code/core/pcb_graph.py": "3d67f533a86eed78802a5fa1f930a1be6bcc03a8a616270b841195c5ec105bb5",
+      "code/core/planar_to_graph.py": "99b5b52a2b433e5d44c02d56a23ef2efebba17d4a9361f63a9b43d49c53111c9",
+      "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+      "code/core/trace_peec.py": "38d7379ecdafb37986fba7f82b4ffa59befabc6da97a878a3748eeef6b8713a1",
+      "code/data/corpus_v4_accuracy_dataset_v3.py": "28841b0062be0fa0090de80a000fca013ac61bdc27fbe7509770baaccb2ed7ef",
+      "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+      "code/experiments/proofs/build_corpus_v4_accuracy_execution_lock_v3.py": "be826704ab3d53df8995f15a989dc0643714456754357cc3361a50ab46d92be1",
+      "code/experiments/proofs/corpus_v4_accuracy_contract_v3.py": "b87d9a19241ee1398f09dbdaa73509c79699a4b2d1e97b2f42a80e1cdfe1ba99",
+      "code/experiments/proofs/corpus_v4_strict_e3_fem_v2_v1.py": "c43fb082ec065588f4a19459128d584179beb94241d97a8da7004180eb8c9a56",
+      "code/experiments/proofs/finalize_corpus_v4_accuracy_v3.py": "1f9bd64055d39a37d0cf1191d680c896590494459f365c0fc2728acf218de58d",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_resume_v3.py": "1d5206c8fd52729a62f21e873ffe930a3e601850276d1a57f32fa7686afa8112",
+      "code/experiments/proofs/plan_corpus_v4_accuracy_v3.py": "dffb3a43cc1ebdb21e106515648fb300fef6fb06b93026bb710ff3eaa94f1a2b",
+      "code/experiments/proofs/run_corpus_v4_accuracy_task_v3.py": "43f7caed6f81050ddaf2b24436b209b8234ba673c8ac5fe9e2d178b5136ef23c",
+      "code/inference/safe_npz_bundle.py": "59ceac22655090b6df047c851c40bcb9183af606957e8813e3a6098999b83fe9",
+      "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+      "code/jobs/submit_corpus_v4_accuracy_v3.sh": "c6f9f39794ed381450a00f4c6f74ce1de9876584b42da565c040ac8e7b71a5af",
+      "code/jobs/submit_corpus_v4_strict_e3_fem_v2_v1.sh": "ae9e53fce39c414de44a923cb6eb104f562b0fcaa75f60a5e40c9ffa5fec9a6a",
+      "code/jobs/submit_finalize_corpus_v4_accuracy_v3.sh": "dd96d9db98497c58153288e87f4b037f6bdc474ee3051aa356db591e2e85bbcb",
+      "code/jobs/submit_finalize_corpus_v4_strict_e3_fem_v2_v1.sh": "b42ba54f7b8ff1c66be7ba96d8ce02074fcc3d36f1d8ae5c3042eb9f54e0a51a",
+      "code/models/gnn/gnn_baseline.py": "2e646a6b3247766386b557a86d7ab016c9c5786e0b85d92049a43d091bd20c23",
+      "code/models/gnn/strict_e3_ablation_v1.py": "76b4c862d729c08f7b6b8fce7302789057f78caff584a2d2b5091f70251d667c",
+      "code/quality/verify_corpus_v4_accuracy_archive_v3.py": "7d328a48177a14bb33f48707fc9d7653e5a05ef815afbd73adb2b86200a7f3ef",
+      "code/quality/verify_corpus_v4_fem_v2_production_archive.py": "5c5325db26b99f8a5c2607a4859080fefc13572f5b1c4bec9f8243c26d5baca5",
+      "protocols/corpus_v4_strict_e3_fem_v2_v1.json": "9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc",
+      "requirements-proof.txt": "c3e430c99910c239744ac5dbba4e6cbafd47695efc4d596da9d37ba16d3792ba"
+    },
+    "scientific_threads": 8,
+    "torch_build_configuration": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CUDA_VERSION=12.8, CUDNN_VERSION=9.8.0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+    "torch_cpu_capability": "AVX2",
+    "training_bindings": {
+      "execution_lock_sha256": "f8c776604220cc013243eeca9dc6fe16c0ec5455d86fcbb105f9eb19df839c20",
+      "protocol_sha256": "9e6f76f2d2549e660ac7980b7e2a84418489a88598312ec3e735a757490c00fc",
+      "source_git_head": "efeb123c9975ae481d10cd7c0af899406c46e787"
+    }
+  },
+  "results": {
+    "arms": {
+      "fixed96": {
+        "Cps_pF": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 13.295955477275227,
+          "mean_family_macro_mape_pct": 11.762531896147324,
+          "minimum_cell_family_macro_mape_pct": 9.948242973414027,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_mut_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 4.775500306404488,
+          "mean_family_macro_mape_pct": 3.883456117556582,
+          "minimum_cell_family_macro_mape_pct": 3.3454761916214055,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_pri_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 6.366468195831867,
+          "mean_family_macro_mape_pct": 4.448826192215688,
+          "minimum_cell_family_macro_mape_pct": 3.1135695111620865,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_sec_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 5.936303955880594,
+          "mean_family_macro_mape_pct": 4.232661786161312,
+          "minimum_cell_family_macro_mape_pct": 2.9718411543462393,
+          "nonpositive_predictions_across_cells": 0
+        }
+      },
+      "fixed_matched": {
+        "Cps_pF": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 14.177381216708321,
+          "mean_family_macro_mape_pct": 10.895489803878247,
+          "minimum_cell_family_macro_mape_pct": 9.533988711108925,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_mut_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 4.582488319892443,
+          "mean_family_macro_mape_pct": 3.809685487962388,
+          "minimum_cell_family_macro_mape_pct": 3.005835351338884,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_pri_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 5.952421250190829,
+          "mean_family_macro_mape_pct": 4.268593138737354,
+          "minimum_cell_family_macro_mape_pct": 3.149775000821809,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_sec_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 5.811917515183897,
+          "mean_family_macro_mape_pct": 4.089681314184338,
+          "minimum_cell_family_macro_mape_pct": 3.1016961347885115,
+          "nonpositive_predictions_across_cells": 0
+        }
+      },
+      "strict96": {
+        "Cps_pF": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 14.900324477344324,
+          "mean_family_macro_mape_pct": 11.62312155735033,
+          "minimum_cell_family_macro_mape_pct": 10.002922362608466,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_mut_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 4.671817572284903,
+          "mean_family_macro_mape_pct": 3.904235180780608,
+          "minimum_cell_family_macro_mape_pct": 3.227269564868986,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_pri_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 6.234380629727536,
+          "mean_family_macro_mape_pct": 4.328438145386341,
+          "minimum_cell_family_macro_mape_pct": 3.085711107371166,
+          "nonpositive_predictions_across_cells": 0
+        },
+        "L_sec_nH": {
+          "inductance_psd_violations_across_cells": 0,
+          "maximum_cell_family_macro_mape_pct": 5.905849569233179,
+          "mean_family_macro_mape_pct": 4.1725595460200084,
+          "minimum_cell_family_macro_mape_pct": 3.016724393202905,
+          "nonpositive_predictions_across_cells": 0
+        }
+      }
+    },
+    "contextual_original_gnn": {
+      "Cps_pF": {
+        "mean_family_macro_mape_pct": 12.550241351327491,
+        "role": "previously admitted GNN result shown as context only; not a controlled ablation contrast"
+      },
+      "L_mut_nH": {
+        "mean_family_macro_mape_pct": 3.413068960339471,
+        "role": "previously admitted GNN result shown as context only; not a controlled ablation contrast"
+      },
+      "L_pri_nH": {
+        "mean_family_macro_mape_pct": 4.172838539510596,
+        "role": "previously admitted GNN result shown as context only; not a controlled ablation contrast"
+      },
+      "L_sec_nH": {
+        "mean_family_macro_mape_pct": 3.9639880194998613,
+        "role": "previously admitted GNN result shown as context only; not a controlled ablation contrast"
+      }
+    },
+    "counts": {
+      "arm_target_metric_rows": 300,
+      "checkpoints": 75,
+      "paired_contrast_rows": 200,
+      "prediction_rows": 22050,
+      "tasks": 25
+    },
+    "difference_sign": "strict96 minus fixed-coordinate control; positive means lower error for the fixed control",
+    "inference_runtime_claim": false,
+    "interpretation_boundary": "does not establish raw-layout equivariance, blind generalization, equivalence, or universal coordinate-update benefit",
+    "mechanism_tested": "both moving- and fixed-coordinate arms have encoded-graph E(3)-invariant scalar outputs; the paired contrasts test coordinate updates, not the presence or benefit of equivariance",
+    "paired_contrasts": {
+      "fixed96": {
+        "Cps_pF": {
+          "cells_control_lower_error": 8,
+          "cells_strict96_lower_error": 17,
+          "crossed_axis_95pct_interval_pp": [
+            -0.8562141837872757,
+            0.7489295160978467
+          ],
+          "maximum_cell_difference_pp": 4.773158969309204,
+          "mean_strict96_minus_control_pp": -0.1394103387969934,
+          "minimum_cell_difference_pp": -1.9941614086812507
+        },
+        "L_mut_nH": {
+          "cells_control_lower_error": 15,
+          "cells_strict96_lower_error": 10,
+          "crossed_axis_95pct_interval_pp": [
+            -0.17764482221740402,
+            0.24206087851888525
+          ],
+          "maximum_cell_difference_pp": 0.8860811611583848,
+          "mean_strict96_minus_control_pp": 0.02077906322402578,
+          "minimum_cell_difference_pp": -0.6873422914903697
+        },
+        "L_pri_nH": {
+          "cells_control_lower_error": 11,
+          "cells_strict96_lower_error": 14,
+          "crossed_axis_95pct_interval_pp": [
+            -0.6378881134564719,
+            0.25423672653043033
+          ],
+          "maximum_cell_difference_pp": 1.039089430373643,
+          "mean_strict96_minus_control_pp": -0.12038804682934678,
+          "minimum_cell_difference_pp": -2.010031528631713
+        },
+        "L_sec_nH": {
+          "cells_control_lower_error": 12,
+          "cells_strict96_lower_error": 13,
+          "crossed_axis_95pct_interval_pp": [
+            -0.4056074191336374,
+            0.26618533335116135
+          ],
+          "maximum_cell_difference_pp": 0.9656521951813479,
+          "mean_strict96_minus_control_pp": -0.060102240141303526,
+          "minimum_cell_difference_pp": -1.5409901277727798
+        }
+      },
+      "fixed_matched": {
+        "Cps_pF": {
+          "cells_control_lower_error": 18,
+          "cells_strict96_lower_error": 7,
+          "crossed_axis_95pct_interval_pp": [
+            -0.018574879001007644,
+            1.4666635538759256
+          ],
+          "maximum_cell_difference_pp": 4.952329406332977,
+          "mean_strict96_minus_control_pp": 0.7276317534720854,
+          "minimum_cell_difference_pp": -1.7012208290040967
+        },
+        "L_mut_nH": {
+          "cells_control_lower_error": 15,
+          "cells_strict96_lower_error": 10,
+          "crossed_axis_95pct_interval_pp": [
+            -0.04259415525252019,
+            0.28723698687574273
+          ],
+          "maximum_cell_difference_pp": 1.0231501732257375,
+          "mean_strict96_minus_control_pp": 0.09454969281822051,
+          "minimum_cell_difference_pp": -0.4985671730383565
+        },
+        "L_pri_nH": {
+          "cells_control_lower_error": 14,
+          "cells_strict96_lower_error": 11,
+          "crossed_axis_95pct_interval_pp": [
+            -0.2979299408999885,
+            0.5225622131686126
+          ],
+          "maximum_cell_difference_pp": 1.9398244778985285,
+          "mean_strict96_minus_control_pp": 0.05984500664898764,
+          "minimum_cell_difference_pp": -1.9266176382428086
+        },
+        "L_sec_nH": {
+          "cells_control_lower_error": 14,
+          "cells_strict96_lower_error": 11,
+          "crossed_axis_95pct_interval_pp": [
+            -0.1597021943894536,
+            0.32674717033241507
+          ],
+          "maximum_cell_difference_pp": 1.1966695714305562,
+          "mean_strict96_minus_control_pp": 0.08287823183567009,
+          "minimum_cell_difference_pp": -0.8538024099395027
+        }
+      }
+    },
+    "parameter_match": {
+      "absolute_difference_relative_to_strict96_pct": 0.2133703219469461,
+      "fixed_matched": 301997,
+      "fixed_matched_minus_strict96": 643,
+      "strict96": 301354
+    },
+    "resampling": {
+      "axes": [
+        "split",
+        "initialization"
+      ],
+      "pairing": "shared crossed-axis draws for both controls and all targets",
+      "resamples": 10000,
+      "seed": 20260913,
+      "semantics": "descriptive crossed-axis seed-grid sensitivity interval, not a population confidence interval"
+    },
+    "scope": "post-hoc fixed-protocol coordinate-update ablation on the previously evaluated FEM-v2 benchmark",
+    "trained_symmetry": {
+      "all_passed": true,
+      "arm_transform_batches": 3000,
+      "checkpoint_receipts": 75,
+      "graph_transform_evaluations": 21000,
+      "includes_permutation": true,
+      "maximum_fixed_coordinate_unchanged_residual": {
+        "fixed96": 0.0,
+        "fixed_matched": 0.0
+      },
+      "maximum_scalar_invariance_residual_by_arm": {
+        "fixed96": 4.042803141146578e-07,
+        "fixed_matched": 3.282664806647517e-07,
+        "strict96": 3.5812865917250747e-07
+      },
+      "maximum_strict96_coordinate_equivariance_residual": 2.7392999140559705e-07,
+      "relative_tolerance": 2e-05,
+      "scope": "trained checkpoints on frozen validation-family encoded-graph fixtures; not raw-layout regeneration",
+      "transforms_per_checkpoint": 40,
+      "validation_family_fixtures_per_checkpoint": 7
+    }
+  },
+  "scheduler": {
+    "job_id": "7326179",
+    "raw_scontrol": "JobId=7326179 JobName=pcb-e3-recovery UserId=binben14(51204) GroupId=PGS0407(9475) MCS_label=N/A Priority=300000547 Nice=0 Account=pgs0407 QOS=ascend-default JobState=RUNNING Reason=None Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:03 TimeLimit=00:30:00 TimeMin=N/A SubmitTime=2026-09-16T01:18:05 EligibleTime=2026-09-16T01:18:05 AccrueTime=2026-09-16T01:18:05 StartTime=2026-09-16T01:18:46 EndTime=2026-09-16T01:48:46 Deadline=N/A PreemptEligibleTime=2026-09-16T01:18:46 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-16T01:18:46 Scheduler=Backfill Partition=nextgen AllocNode:Sid=ascend-login01:3621065 ReqNodeList=(null) ExcNodeList=(null) NodeList=a0126 BatchHost=a0126 NumNodes=1 NumCPUs=13 NumTasks=1 CPUs/Task=13 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=8,mem=48G,node=1,billing=8 AllocTRES=cpu=13,mem=48G,node=1,billing=13 Socks/Node=* NtasksPerN:B:S:C=0:0:*:1 CoreSpec=* MinCPUsNode=13 MinMemoryNode=48G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/code/jobs/submit_recover_strict_e3_fem_v2_v1.sh WorkDir=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution StdErr=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/logs/pcb-e3-recovery-7326179.err StdIn=/dev/null StdOut=/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/logs/pcb-e3-recovery-7326179.out TresPerTask=cpu=8",
+    "scontrol": {
+      "Account": "pgs0407",
+      "AccrueTime": "2026-09-16T01:18:05",
+      "AllocNode:Sid": "ascend-login01:3621065",
+      "AllocTRES": "cpu=13,mem=48G,node=1,billing=13",
+      "BatchFlag": "1",
+      "BatchHost": "a0126",
+      "CPUs/Task": "13",
+      "Command": "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/code/jobs/submit_recover_strict_e3_fem_v2_v1.sh",
+      "Contiguous": "0",
+      "CoreSpec": "*",
+      "Deadline": "N/A",
+      "DelayBoot": "00:00:00",
+      "Dependency": "(null)",
+      "EligibleTime": "2026-09-16T01:18:05",
+      "EndTime": "2026-09-16T01:48:46",
+      "ExcNodeList": "(null)",
+      "ExitCode": "0:0",
+      "Features": "(null)",
+      "GroupId": "PGS0407(9475)",
+      "JobId": "7326179",
+      "JobName": "pcb-e3-recovery",
+      "JobState": "RUNNING",
+      "LastSchedEval": "2026-09-16T01:18:46",
+      "Licenses": "(null)",
+      "LicensesAlloc": "(null)",
+      "MCS_label": "N/A",
+      "MinCPUsNode": "13",
+      "MinMemoryNode": "48G",
+      "MinTmpDiskNode": "0",
+      "Network": "(null)",
+      "Nice": "0",
+      "NodeList": "a0126",
+      "NtasksPerN:B:S:C": "0:0:*:1",
+      "NumCPUs": "13",
+      "NumNodes": "1",
+      "NumTasks": "1",
+      "OverSubscribe": "OK",
+      "Partition": "nextgen",
+      "PreemptEligibleTime": "2026-09-16T01:18:46",
+      "PreemptTime": "None",
+      "Priority": "300000547",
+      "QOS": "ascend-default",
+      "Reason": "None",
+      "Reboot": "0",
+      "ReqB:S:C:T": "0:0:*:*",
+      "ReqNodeList": "(null)",
+      "ReqTRES": "cpu=8,mem=48G,node=1,billing=8",
+      "Requeue": "0",
+      "Restarts": "0",
+      "RunTime": "00:00:03",
+      "Scheduler": "Backfill",
+      "SecsPreSuspend": "0",
+      "Socks/Node": "*",
+      "StartTime": "2026-09-16T01:18:46",
+      "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/logs/pcb-e3-recovery-7326179.err",
+      "StdIn": "/dev/null",
+      "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution/logs/pcb-e3-recovery-7326179.out",
+      "SubmitTime": "2026-09-16T01:18:05",
+      "SuspendTime": "None",
+      "TimeLimit": "00:30:00",
+      "TimeMin": "N/A",
+      "TresPerTask": "cpu=8",
+      "UserId": "binben14(51204)",
+      "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/pcb-parasitic-gnn/.worktrees/e3-recovery-execution"
+    }
+  },
+  "schema": "pcb-gnn.strict-e3-recovery-analysis.v1"
+}
