@@ -7,6 +7,17 @@ paper_source: false
 
 # Live Execution Snapshot
 
+Diagnostic submitted on 2026-09-15: job `7326041` runs the task-zero validation
+replay at two and eight threads, twice each, from published source
+`efba7312277b30e7de4c5c1566c5ad5f0133b4cb`. The source passed 18 diagnostic
+unit tests and 50 wiki checks, plus shell syntax and prose checks. Requested
+resources are eight CPUs, 48 GiB and 30 minutes on `nextgen`, with requeue
+disabled. The original task receipt is externally pinned at SHA-256
+`dec5549bb7453824110c7acfefd5dd51e5d202f2840aa76ed27b7f460cbc747e`.
+The frozen training checkout remains at `efeb123`; diagnostic output belongs
+to its separate checkout under `diagnostics/job_7326041/result.json`.
+Admission remains unresolved pending this job. No tolerance has changed.
+
 Recovery preparation on 2026-09-15: a separate validation replay diagnostic is
 being prepared for task zero, all three saved arms, two versus eight numerical
 threads, and two fresh processes per setting. It records every stored and

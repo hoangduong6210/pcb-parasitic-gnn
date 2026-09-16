@@ -29,6 +29,7 @@ operational or pending archival is not publication evidence.
 | Evidence publication | `24d51a33f385dfb0c08d6e708e50d809df6d5aee`, remotely verified before training submission |
 | Subsequent training array | `7318063`, all 25 tasks COMPLETED/0:0, zero restarts; 75 checkpoint files present |
 | Dependent admission | `7318065`, FAILED/1:0 after 27 s; validation-metric numeric replay mismatch; no accepted set or held-out finalizer |
+| Validation replay diagnostic | `7326041`, submitted from `efba7312277b30e7de4c5c1566c5ad5f0133b4cb`; task zero, all three arms, two repeats at two and eight threads |
 
 The full 25-task array is not authorized by submission alone. Terminal
 `COMPLETED/0:0`, zero restarts, exact scheduler resources, and a valid
