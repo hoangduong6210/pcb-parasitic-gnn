@@ -108,8 +108,11 @@ passed admission. Expected analysis coverage is 22,050 prediction rows, 300
 arm--target metric rows, and 200 paired contrast rows. The descriptive
 interval uses 10,000 shared crossed-axis split/initialization draws.
 
-The [live status](../status/Live-Execution.md) owns job progress. No predictive
-result or new symmetry residual is admitted by this design page.
+The [closed execution history](../status/Live-Execution.md) owns job progress.
+All 75 checkpoints passed admission, held-out finalization and tracked replay.
+The owner admitted only the version-scoped interpretation in
+`C-E3-FEMV2-001`; the [result page](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+owns its values and limitations.
 
 The final pre-freeze review passed 324 relevant regression tests and 83 focused
 E3 tests. The only warning is the existing PyTorch `index_reduce` beta notice.
@@ -126,5 +129,6 @@ and the singleton no-fit SLURM probe passed before training.
 
 The initialized synthetic-model qualification passed its frozen checks and
 is indexed by `E-C4-E3-FEMV2-QUAL-01` in the
-[Evidence Ledger](../evidence/Evidence-Ledger.md). This closes only the initial
-model check, not the predictive study's execution or trained-model gates.
+[Evidence Ledger](../evidence/Evidence-Ledger.md). That receipt closes only the
+initial model check; the later predictive execution and trained-model gates have
+their separate evidence closure under `E-C4-E3-FEMV2-ANALYSIS-01`.

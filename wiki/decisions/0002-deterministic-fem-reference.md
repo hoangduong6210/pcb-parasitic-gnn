@@ -192,9 +192,11 @@ strictly or its mesh must be frozen as an input artifact. If a valid Gate B
 comparison exceeds its thresholds, P16 is rejected. If Gates A and B pass, a
 new R3-only fixed numerical target may be generated. Gate C has now closed with
 positive repeatability and a negative adjacent-mesh observation. A complete
-one-thread regeneration of the fixed 198-layout registry is still required
-before a new multi-fidelity dataset exists. The negative mesh result remains a
-scoped result rather than a reason to merge the two fidelities.
+one-thread regeneration of the fixed 198-layout registry was therefore required
+before a new multi-fidelity dataset could exist. That regeneration and its joint
+dataset admission subsequently completed under the separate FEM-v2 production
+closure. The negative mesh result remains a scoped result rather than a reason
+to merge the two fidelities.
 
 New capacitance observations require new training, accuracy, and latency
 protocols. Accuracy and speed values attached to the archived package do not

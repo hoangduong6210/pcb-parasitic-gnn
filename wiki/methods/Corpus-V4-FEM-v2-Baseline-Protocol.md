@@ -98,7 +98,8 @@ limitations remain unchanged.
 
 ## Admission
 
-The baseline claim remains pending until the frozen protocol, execution lock,
-complete accepted checkpoint set, held-out evaluation, archive replay and
-scientific review are complete. Results must be retained regardless of which
-model performs better. No baseline outcome is claimed by this protocol page.
+The frozen protocol, execution lock, complete accepted checkpoint set, held-out
+evaluation, archive replay, and scientific review are complete. The owner
+admitted only the version-scoped wording in `C-BASE-FEMV2-001`. The
+[result page](../results/Corpus-V4-FEM-v2-Baselines.md) owns the numerical
+comparison and its limitations; this protocol does not broaden that claim.

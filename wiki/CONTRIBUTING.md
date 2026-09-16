@@ -1,7 +1,7 @@
 ---
 title: Contributing to the Research Wiki
 status: canonical governance
-last_updated: 2026-09-13
+last_updated: 2026-09-15
 paper_source: false
 ---
 
@@ -72,8 +72,10 @@ the scientific result without recording a new decision and new claim identity.
 ## Status vocabulary
 
 Use `PROPOSED`, `RUNNING`, `VALIDATED`, `ADMITTED`, `REJECTED`, `QUARANTINED`,
-`SUPERSEDED`, or `BLOCKED`. `VALIDATED` means the artifact passed its declared
-gates. `ADMITTED` is a separate human decision about scientific wording.
+`SUPERSEDED`, `BLOCKED`, or `PAUSED`. `VALIDATED` means the artifact passed its
+declared gates. `ADMITTED` is a separate human decision about scientific
+wording. `PAUSED` means no execution is active and future work must begin from
+the indexed handoff state; it does not reopen or invalidate a closed result.
 
 ## Review checklist
 

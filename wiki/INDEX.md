@@ -24,7 +24,8 @@ paper_source: false
 | Page | Owns |
 |---|---|
 | [Project Status](status/Project-Status.md) | Scientific lifecycle and current blockers |
-| [Live Execution](status/Live-Execution.md) | Dated scheduler progress and next operational transition |
+| [Live Execution](status/Live-Execution.md) | Closed dated scheduler history; historical state words are not resume instructions |
+| [Research Pause and Handoff](status/Research-Pause-Handoff.md) | Canonical paused state, read order, deferred work, and exact resume boundary |
 | [Limitations](LIMITATIONS.md) | Boundaries that apply across papers and claims |
 | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) | Accepted R3/R4 policy and consequences |
 | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) | Version boundary, staged one-thread gates, and stop rules |
@@ -97,7 +98,7 @@ paper_source: false
 | IDs | Registry | State class |
 |---|---|---|
 | `C-GEOM-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted with synthetic active-leg scope |
-| `C-FEM-001`, `C-FEM-002`, `C-FEM-003` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted method, positive domain result, and negative mesh result |
+| `C-FEM-001`, `C-FEM-002`, `C-FEM-003`, `C-FEM-004` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted method, positive domain result, negative mesh result, and finite-panel repeatability result |
 | `C-CPS-DISC-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted deterministic selected-registry fidelity discrepancy |
 | `C-E3-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Admitted encoded-graph implementation property |
 | `C-CPS-R3-001`, `C-CPS-R4-001`, `C-CPS-FINAL-001` | [Current Claim Registry](claims/Current-Claim-Language.md) | Finalized archived 25-thread explicit-fidelity artifact lifecycle |
@@ -129,6 +130,8 @@ paper_source: false
 | `E-C4-SUBMIT-00`, `E-C4-SUBMIT-01`, `E-C4-RUN-01`, `E-C4-FINAL-01`, `E-C4-OPS-02`, `E-C4-OPS-03`, `E-C4-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-DISC-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-ACC-01`, `E-C4-LAT-SUBMIT-00`, `E-C4-LAT-PREFLIGHT-01`, `E-C4-LAT-PREFLIGHT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-ACC-PREFLIGHT-01`, `E-C4-ACC-SUBMIT-00`, `E-C4-ACC-SUBMIT-01`, `E-C4-ACC-SUBMIT-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
+| `E-C4-FEM-REPEAT-PLAN-02`, `E-C4-FEM-REPEAT-RUN-01`, `E-C4-FEM-REPEAT-RUN-02` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-FEM-V2-GATE-A-01`, `E-C4-FEM-V2-GATE-B-01`, `E-C4-FEM-V2-GATE-C-01`, `E-C4-FEM-V2-PROD-SUBMIT-01`, `E-C4-FEM-V2-PROD-RUN-01`, `E-C4-FEM-V2-FINAL-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-FEM-V2-ACC-PREFLIGHT-01`, `E-C4-FEM-V2-ACC-V2-DIAG-01`, `E-C4-FEM-V2-ACC-V3-PREFLIGHT-01`, `E-C4-FEM-V2-ACC-V3-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |
 | `E-C4-LAT-FEMV2-PLAN-01`, `E-C4-LAT-FEMV2-RUN-01` | [Evidence Ledger](evidence/Evidence-Ledger.md) |

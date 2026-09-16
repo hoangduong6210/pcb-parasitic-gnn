@@ -1,11 +1,11 @@
 ---
 title: Strict E3 Property and EGNN Ablation
-status: admitted implementation property; predictive result historical
-last_updated: 2026-08-17
+status: admitted implementation property and version-scoped predictive ablation
+last_updated: 2026-09-15
 paper_source: true
 prose_reviewed: true
 evidence_id: E-V2-E3-01
-claim_ids: C-E3-001
+claim_ids: C-E3-001, C-E3-FEMV2-001
 citation_keys: egnn
 ---
 
@@ -37,6 +37,18 @@ was \(3.919\times10^{-7}\) and the maximum coordinate residual was
 This establishes an implementation property within floating-point tolerance.
 It does not establish predictive superiority or physical accuracy.
 
-The predictive comparison is not part of this admitted implementation claim.
-Its historical result and inconclusive interpretation are recorded as
-`H-E3-001` in the [Historical Claim Ledger](../claims/Historical-Claim-Ledger.md).
+The historical predictive comparison is separate from this implementation
+property and remains recorded as `H-E3-001` in the
+[Historical Claim Ledger](../claims/Historical-Claim-Ledger.md).
+
+The later controlled FEM-v2 experiment compared learned coordinate updates with
+same-width and approximately parameter-matched fixed-coordinate controls. All
+three arms retained E(3)-invariant scalar outputs on encoded graphs. Across five
+family-split seeds crossed with five initialization seeds, all eight descriptive
+crossed-axis intervals for the paired target differences included zero. The
+study therefore did not establish a consistent accuracy gain from coordinate
+updates under its fixed protocol. This is not equivalence, an
+equivariance-versus-non-equivariance comparison, or a universal conclusion about
+EGNNs. The admitted values and interpretation are recorded in the
+[coordinate-update result](../results/Corpus-V4-FEM-v2-Coordinate-Ablation.md)
+under `C-E3-FEMV2-001`.

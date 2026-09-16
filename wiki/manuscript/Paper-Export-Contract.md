@@ -1,15 +1,18 @@
 ---
 title: Paper Export Contract
 status: canonical publication policy
-last_updated: 2026-08-17
+last_updated: 2026-09-15
 paper_source: false
 ---
 
 # Paper Export Contract
 
 `Paper_Summary/` is the immutable submitted conference snapshot.
-`Paper_Full/` remains superseded until a new snapshot is exported from the wiki.
-Routine research edits belong in the wiki, not in either paper package.
+`Paper_Full/` is a superseded extended-manuscript archive and is not rewritten.
+`Paper_Journal_Snapshot_1/` is the journal-format export requested at the research
+pause boundary. Its own manifest records the final identity after the package is
+built and reviewed. Routine research edits belong in the wiki, not in any paper
+package.
 
 ## Eligibility gate
 

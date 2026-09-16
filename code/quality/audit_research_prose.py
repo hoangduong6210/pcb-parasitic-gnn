@@ -135,7 +135,11 @@ def main() -> int:
         for error in audit_page(path):
             failures.append(f"{path.relative_to(ROOT)}: {error}")
 
-    for relative in ("Paper_Full/main.tex", "Paper_Summary/main.tex"):
+    for relative in (
+        "Paper_Full/main.tex",
+        "Paper_Summary/main.tex",
+        "Paper_Journal_Snapshot_1/main.tex",
+    ):
         path = ROOT / relative
         for error in audit_latex(path):
             failures.append(f"{relative}: {error}")

@@ -1,0 +1,83 @@
+{
+  "schema": "pcb-gnn.journal-snapshot-1.figure-data.v1",
+  "claims": {
+    "geometry": {"layouts": 1500, "families": 66},
+    "fem_gates": {
+      "domain_median_pct": 0.189658,
+      "domain_max_pct": 2.491566,
+      "mesh_median_pct": 8.273879,
+      "mesh_max_pct": 13.886399,
+      "domain_median_gate_pct": 2.0,
+      "domain_max_gate_pct": 5.0,
+      "mesh_median_gate_pct": 2.0,
+      "mesh_max_gate_pct": 5.0
+    },
+    "fidelity_discrepancy": {
+      "layouts": 198,
+      "families": 66,
+      "median_pct": 8.479,
+      "mean_pct": 8.849,
+      "p90_pct": 11.568,
+      "p95_pct": 12.533,
+      "min_pct": 2.754,
+      "max_pct": 17.517
+    },
+    "accuracy": {
+      "targets": ["Cps", "Lp", "Ls", "M"],
+      "mean_mape_pct": [12.550, 4.173, 3.964, 3.413],
+      "interval_low_pct": [11.796, 3.414, 3.263, 3.052],
+      "interval_high_pct": [13.366, 5.015, 4.729, 3.734],
+      "archived_mean_mape_pct": [12.890, 4.272, 4.076, 3.554]
+    },
+    "baselines": {
+      "models": ["GNN", "Constant", "Ridge", "Random Forest", "Extra Trees"],
+      "targets": ["Cps", "Lp", "Ls", "M"],
+      "mean_mape_pct": [
+        [12.550, 4.173, 3.964, 3.413],
+        [62.421, 71.129, 68.898, 57.026],
+        [44.480, 48.666, 39.522, 35.826],
+        [42.528, 36.977, 39.929, 33.397],
+        [42.130, 30.325, 39.763, 29.428]
+      ]
+    },
+    "coordinate_ablation": {
+      "targets": ["Cps", "Lp", "Ls", "M"],
+      "arms": ["Coordinate update", "Fixed, width 96", "Fixed, matched"],
+      "mean_mape_pct": [
+        [11.623, 4.328, 4.173, 3.904],
+        [11.763, 4.449, 4.233, 3.883],
+        [10.895, 4.269, 4.090, 3.810]
+      ],
+      "controls": ["Fixed, width 96", "Fixed, matched"],
+      "difference_pp": [
+        [-0.1394103388, -0.1203880468, -0.0601022401, 0.0207790632],
+        [0.7276317535, 0.0598450066, 0.0828782318, 0.0945496928]
+      ],
+      "interval_low_pp": [
+        [-0.8562141838, -0.6378881135, -0.4056074191, -0.1776448222],
+        [-0.0185748790, -0.2979299409, -0.1597021944, -0.0425941553]
+      ],
+      "interval_high_pp": [
+        [0.7489295161, 0.2542367265, 0.2661853334, 0.2420608785],
+        [1.4666635539, 0.5225622132, 0.3267471703, 0.2872369869]
+      ]
+    },
+    "symmetry": {
+      "labels": ["Initialized output", "Initialized coordinate", "Trained coordinate", "Trained fixed-96", "Trained fixed-matched"],
+      "residuals": [3.919e-7, 1.407e-7, 3.5812865917e-7, 4.0428031411e-7, 3.2826648066e-7],
+      "tolerance": 2.0e-5
+    },
+    "latency": {
+      "components": ["Loaded GNN", "FastHenry", "FEM-R3P16", "Full solver workflow"],
+      "seconds": [0.00741936, 0.08096604, 522.90512, 522.98245],
+      "primary_ratio": 70099.076,
+      "interval_low": 58104.638,
+      "interval_high": 93493.252
+    }
+  },
+  "source_claim_ids": [
+    "C-GEOM-001", "C-FEM-001", "C-FEM-002", "C-FEM-003", "C-FEM-004",
+    "C-CPS-DISC-001", "C-E3-001", "C-ACC-001", "C-ACC-FEMV2-001",
+    "C-LAT-FEMV2-001", "C-BASE-FEMV2-001", "C-E3-FEMV2-001"
+  ]
+}

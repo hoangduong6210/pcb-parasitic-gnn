@@ -1,7 +1,7 @@
 ---
 title: Start Here
 status: canonical onboarding
-last_updated: 2026-08-17
+last_updated: 2026-09-15
 paper_source: false
 ---
 
@@ -22,6 +22,10 @@ layouts and inductance observations. Corpus v4 adds explicit capacitance
 fidelities and a family-aware evaluation protocol.
 
 ## Read these five pages first
+
+The project is currently paused and handoff-ready. A returning owner or new
+maintainer should first read [Research Pause and Handoff](status/Research-Pause-Handoff.md),
+which distinguishes closed execution from genuinely deferred research.
 
 1. [Project Status](status/Project-Status.md) states what is complete and what is
    blocked.
@@ -46,7 +50,8 @@ fidelities and a family-aware evaluation protocol.
 | `results/` | Job-scoped evidence and finalized summaries |
 | `wiki/` | Canonical scientific knowledge and publication source |
 | `Paper_Summary/` | Immutable submitted conference snapshot |
-| `Paper_Full/` | Superseded paper snapshot until regenerated from the wiki |
+| `Paper_Full/` | Superseded extended-paper archive retained for provenance |
+| `Paper_Journal_Snapshot_1/` | Current journal-format snapshot exported from admitted wiki claims |
 
 ## Safe first checks
 

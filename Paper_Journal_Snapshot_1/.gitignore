@@ -1,0 +1,4 @@
+build/*
+!build/PCB_Parasitic_GNN_Journal_Snapshot_1.pdf
+__pycache__/
+*.pyc

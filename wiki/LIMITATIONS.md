@@ -1,10 +1,10 @@
 ---
 title: Limitations
 status: canonical
-last_updated: 2026-09-13
+last_updated: 2026-09-15
 paper_source: true
 prose_reviewed: true
-claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001, C-LAT-FEMV2-001
+claim_ids: C-GEOM-001, C-FEM-003, C-FEM-004, C-CPS-DISC-001, C-E3-001, C-ACC-001, C-ACC-FEMV2-001, C-LAT-001, C-LAT-FEMV2-001, C-BASE-FEMV2-001, C-E3-FEMV2-001
 ---
 
 # Limitations
@@ -41,3 +41,10 @@ claim_ids: C-GEOM-001, C-FEM-003, C-CPS-DISC-001, C-ACC-001, C-ACC-FEMV2-001, C-
    for the evaluated 306-layout panel and execution environment. It does not
    cover machine variation, system load across repeat runs, retraining seeds,
    alternative solvers, or a population of manufactured boards.
+10. The fixed pooled-feature comparison is post-hoc and fixed-budget. It does
+    not isolate a causal effect of graph connectivity or establish superiority
+    over tuned alternative models.
+11. The coordinate-update ablation uses a finite split–initialization grid and
+    fixed numerical references. Intervals containing zero do not establish
+    equivalence, and the result does not show that coordinate updates cannot
+    help on another architecture, dataset, or optimization budget.

@@ -27,7 +27,9 @@ results, not physical-board accuracy or a latency claim.
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
 
-**Research status:** Current admitted numerical evidence is solver-based, not
+**Research status:** The research program is paused and handoff-ready; restart
+from [`wiki/status/Research-Pause-Handoff.md`](wiki/status/Research-Pause-Handoff.md).
+Current admitted numerical evidence is solver-based, not
 measurements from a fabricated board. The tracked closure includes authenticated
 checkpoints and held-out predictions for verification. It is not a general
 raw-layout inference package for arbitrary routed boards.
@@ -39,29 +41,32 @@ The repository keeps manuscript packages separate from experiment evidence:
 | Package | Purpose | Contents |
 |---|---|---|
 | [`Paper_Summary/`](Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
-| [`Paper_Full/`](Paper_Full/) | Extended manuscript package | LaTeX, bibliography, publication figures, build script, version metadata, and final PDF |
+| [`Paper_Full/`](Paper_Full/) | **Superseded archival** extended manuscript | Historical LaTeX, bibliography, figures, build script, version metadata, and PDF |
+| [`Paper_Journal_Snapshot_1/`](Paper_Journal_Snapshot_1/) | Current journal-format snapshot | Independent IEEE-format LaTeX package, reviewed figures, bibliography, manifest, and PDF |
 
 The version-controlled [`wiki/`](wiki/) is authoritative for current project
 status, protocols, admitted claims, and manuscript-ready source text. New
 contributors should begin with [`wiki/START-HERE.md`](wiki/START-HERE.md), and
-all maintained pages are listed in [`wiki/INDEX.md`](wiki/INDEX.md). Future
-`Paper_Full/` revisions will be rendered from admitted wiki content; the
-currently checked-in Full Paper predates the active mesh-convergence decision
-and is superseded until regenerated and audited. `Paper_Summary/` is retained as
-an immutable archival snapshot; its timing and equivariance wording is
-superseded by the wiki claim registry.
+all maintained pages are listed in [`wiki/INDEX.md`](wiki/INDEX.md). The current
+journal export is kept in `Paper_Journal_Snapshot_1/`; its package manifest owns
+the exact wiki revision, claim set and build identities. `Paper_Full/` and
+`Paper_Summary/` remain immutable archival snapshots; wording in either archive
+that conflicts with the wiki claim registry is superseded.
 
-Build either package from the repository root:
+Build a manuscript package from the repository root:
 
 ```bash
 bash Paper_Summary/build.sh
 bash Paper_Full/build.sh
+bash Paper_Journal_Snapshot_1/build.sh
 ```
 
-The current extended build still regenerates its figures from
+The superseded extended build still regenerates its figures from
 [`results/proof_updates/results.json`](results/proof_updates/results.json).
 That aggregate contains historical material and must not be interpreted as a
-current-result admission. New paper content is admitted through the wiki first.
+current-result admission. The journal snapshot uses only its declared admitted
+claim and figure closure. New scientific content is admitted through the wiki
+before a later snapshot.
 
 ![Pipeline from PCB layout through graph construction and message passing to parasitic estimates](figures/fig1_pipeline.png)
 

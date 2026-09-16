@@ -82,9 +82,11 @@ This receipt admits dataset generation and sets
 `speed_claim_eligible=false`. The archived accuracy result above is not a model
 evaluation of these one-thread observations. Accuracy protocol v2 completed a
 diagnostic checkpoint workload but is ineligible for held-out evaluation.
-Protocol v3 now freezes split-scoped training artifacts, a separate held-out
-commitment, and a filesystem sandbox. Its compute-node preflight must pass
-before a new checkpoint array begins.
+Protocol v3 froze split-scoped training artifacts, a separate held-out
+commitment, and a filesystem sandbox. Its compute-node preflight, 25-task
+checkpoint array, accepted-set gate, held-out finalizer, and archive replay all
+completed. The admitted result remains separate from the dataset-generation
+receipt and does not change that receipt's original gate values.
 
 The scope remains deliberately narrow: co-directed, series-connected active
 legs of planar windings. Return conductors, vias, terminals, core windows, and

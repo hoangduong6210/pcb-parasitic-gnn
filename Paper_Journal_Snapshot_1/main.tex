@@ -1,0 +1,289 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+
+\newcommand{\Cps}{C_{\mathrm{ps}}}
+\newcommand{\Lp}{L_{\mathrm{p}}}
+\newcommand{\Ls}{L_{\mathrm{s}}}
+\newcommand{\Mut}{M}
+\newcommand{\Rthree}{\mathrm{R3P16}}
+\newcommand{\Rfour}{\mathrm{R4P16}}
+
+\title{Auditable Solver-Supervised Graph Surrogates for PCB Planar-Magnetics Parasitics: Fidelity, Symmetry, and Runtime Boundaries}
+
+\author{Duong Viet Hoang and Lun-Min Shih%
+\thanks{Duong Viet Hoang and Lun-Min Shih are with the Department of Computer Science, Da-Yeh University, Changhua, Taiwan (e-mail: Hoangduong4316@icloud.com; Lmshih@mail.dyu.edu.tw).}%
+\thanks{This manuscript is Journal Snapshot 1 of the PCB Parasitic GNN research artifact. It extends an earlier conference-length snapshot while retaining version boundaries between numerical-reference packages.}}
+
+\markboth{Journal Snapshot 1, September 2026}{Hoang and Shih: Auditable Solver-Supervised Graph Surrogates for PCB Parasitics}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+PCB planar magnetics require rapid evaluation of winding capacitance and inductance, but a surrogate is useful only when its geometry, numerical references, evaluation split, and timing boundary are explicit. This work presents an auditable graph-surrogate workflow for four quantities: primary-to-secondary capacitance, primary and secondary free-space self-inductance, and mutual inductance. A shared geometry contract feeds graph construction, FastHenry, and a deterministic electrostatic finite-element implementation. The active corpus contains 1,500 synthetic active-leg layouts grouped into 66 swap-closed turn-count families. Across five family-held-out splits crossed with five initialization seeds, mean family-macro errors against the current numerical-reference package are 12.550, 4.173, 3.964, and 3.413 percent. The graph model has lower error than four frozen pooled-feature procedures in every matched cell and target, but this post-hoc comparison does not isolate graph connectivity. A controlled three-arm experiment does not establish a consistent gain from learned coordinate updates: all eight crossed-axis descriptive sensitivity intervals include zero. Encoded-graph symmetry checks pass within a tolerance of two times ten to the minus five. On a frozen 306-layout panel, the median paired ratio between the sequential FastHenry-plus-finite-element workflow and warm-loaded raw-record-to-four-output inference is 70,099-fold. These results measure agreement with fixed synthetic numerical references, not mesh-converged or fabricated-board accuracy.
+\end{abstract}
+
+\begin{IEEEkeywords}
+finite-element method, graph neural network, parasitic extraction, planar magnetics, reproducibility, surrogate model.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{P}{lanar} transformers and inductors replace wound wire with patterned copper conductors. Their compact geometry is useful in high-density converters, but broad conductor overlap and small inter-layer spacing make parasitic capacitance and inductive coupling sensitive to layer assignment, registration, and stackup~\cite{ouyang,hurley,mclyman,erickson}. These quantities influence common-mode current, leakage, ringing, and energy transfer~\cite{ott,paul}. Numerical extraction can resolve more geometry than compact formulas, yet repeated three-dimensional computation is expensive inside a design search.
+
+A learned surrogate can reduce that cost, but three separable questions must be answered. First, do graph construction and the numerical solvers consume the same physical topology? Second, what numerical fidelity do the labels represent? Third, does an apparent speed or accuracy advantage survive a precisely stated split, uncertainty summary, and timing boundary? Treating a solver observation as physical truth, or comparing an in-memory neural forward pass with a vaguely defined solver time, obscures these questions.
+
+This work therefore organizes the contribution as an evidence chain rather than a single headline model. A geometry contract rejects inconsistent layer heights, overlapping conductor volumes, out-of-board traces, duplicates, and passive-inductance violations before numerical labeling. FastHenry supplies the three free-space inductance targets~\cite{fasthenry}; a deterministic electrostatic volume finite-element method (FEM) supplies inter-winding capacitance. A message-passing graph neural network (GNN) predicts all four quantities. Family-held-out evaluation, fixed checkpoints, solver qualification, symmetry tests, and paired timing each have independent acceptance boundaries.
+
+The principal contributions are:
+\begin{itemize}
+\item a 1,500-layout synthetic active-leg corpus with one shared geometry topology for graph, inductance, and capacitance computation;
+\item explicit FEM domain, mesh-sensitivity, repeatability, and multi-fidelity results that prevent the bulk capacitance column from being called mesh-converged truth;
+\item a complete five-by-five family-split and initialization grid for the current deterministic numerical-reference package;
+\item fixed pooled-feature and coordinate-update controls that separate graph-level performance, coordinate updating, and encoded-graph symmetry; and
+\item a paired all-four-target latency comparison from resident raw JSON through materialized outputs, together with its hardware and workflow limitations.
+\end{itemize}
+
+Fig.~\ref{fig:pipeline} summarizes the evidence path. Each reported number belongs to a versioned target package; older results are retained only when labeled with their original reference version.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{hoang1_pipeline.pdf}
+\caption{Evidence path from geometry to a scope-qualified screening decision. The graph and both numerical solvers consume the same canonical conductor topology. Numerical-reference agreement is distinct from fabricated-board validation.}
+\label{fig:pipeline}
+\end{figure*}
+
+\section{Related Work}
+The partial-element equivalent-circuit method expresses electromagnetic interactions as circuit quantities~\cite{ruehli}. Grover-type expressions remain useful for rapid inductance estimates~\cite{grover}, whereas FastHenry assembles a three-dimensional partial-inductance solution~\cite{fasthenry}. Capacitance extraction can use boundary-element tools such as FastCap~\cite{fastcap} or volume FEM implementations constructed with packages such as Gmsh and scikit-fem~\cite{gmsh,skfem}. These methods provide numerical observations whose convergence and implementation stability must be assessed separately from surrogate error.
+
+Message-passing networks model entities and their interactions~\cite{gilmer,battaglia}. Graph models have been applied to learned physical simulation~\cite{sanchez,pfaff}, placement and circuit optimization~\cite{mirhoseini,gcnrl}, and layout-dependent quantities~\cite{net2,huang_survey,paragraph,circuitgnn}. Equivariant graph neural networks constrain coordinate updates using invariant scalar messages and relative vectors~\cite{egnn}. Such algebraic structure does not by itself establish predictive benefit; the inputs to each message and the executed implementation must respect the claimed group action.
+
+The present work does not propose a new field solver or claim hardware calibration. Its novelty is an integrated and auditable study of geometry validity, solver fidelity, graph prediction, symmetry, controlled architectural comparisons, and paired runtime on one versioned synthetic benchmark.
+
+\section{Physical and Dataset Scope}
+\subsection{Active-Leg Geometry}
+Each layout contains rectangular copper traces with net, layer, center coordinate, width, length, thickness, conductivity, and dielectric metadata. The current corpus comprises 1,500 unique layouts in 66 swap-closed turn-count families. Graph construction, FastHenry, and FEM receive the same conductor boxes, centers, and identities. Fig.~\ref{fig:geometry} shows the abstraction and its exclusions.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{hoang2_geometry_scope.pdf}
+\caption{Synthetic geometry scope. The corpus varies active-leg conductor placement and stackup quantities but does not contain complete routed windings, returns, vias, terminals, planes, the ferrite window, or manufacturing variability.}
+\label{fig:geometry}
+\end{figure*}
+
+The geometry is intentionally narrower than a manufactured transformer. Co-directed active legs expose conductor count, inter-layer distance, overlap, and registration while avoiding an unverified reconstruction of returns and terminals. Consequently, the corpus supports numerical-reference screening experiments, not arbitrary-PCB or fabricated-device accuracy.
+
+\subsection{Targets and Inductance Composition}
+The predicted vector is
+\begin{equation}
+\mathbf{y}=[\Cps,\Lp,\Ls,\Mut],
+\end{equation}
+where $\Cps$ is primary-to-secondary capacitance, $\Lp$ and $\Ls$ are the two free-space winding self-inductances, and $\Mut$ is mutual inductance. If $\mathcal{P}$ indexes primary conductors, the winding quantity is composed from the partial-inductance matrix as
+\begin{equation}
+\Lp=\sum_{i\in\mathcal{P}}L_{ii}+2\sum_{\substack{i,j\in\mathcal{P}\\i<j}}L_{ij},
+\end{equation}
+with analogous expressions for $\Ls$ and $\Mut$. The model does not predict nonlinear core magnetization, frequency-dependent permeability, copper loss, or a broadband RLGC matrix.
+
+\section{Numerical Reference Construction}
+\subsection{Inductance}
+FastHenry evaluates the conductor system at 100~kHz and returns a partial-inductance matrix. Finite and passive winding compositions are required. An independent Neumann-integral route is retained as an implementation cross-check rather than a claim of identical discretization. Solver agreement establishes numerical consistency, not fabricated-board truth.
+
+\subsection{Electrostatic FEM}
+The capacitance reference solves
+\begin{equation}
+\nabla\cdot(\epsilon\nabla\phi)=0
+\end{equation}
+on a padded three-dimensional domain, with opposite winding conductor groups assigned fixed potentials. The field energy yields the two-terminal capacitance. A direct solve and an algebraic-multigrid-preconditioned conjugate-gradient solve reproduce the same diagnostic linear system within the declared residual tolerance. This qualifies the backend implementation but is not independent physical validation.
+
+Two named fidelities are retained. FEM-$\Rthree$ is the deterministic bulk target, with refinement level 3 and 16~mm domain padding. FEM-$\Rfour$ is a higher-resolution comparator on a selected registry. Neither is called continuum truth.
+
+\subsection{Domain, Mesh, and Repeatability Gates}
+Nine layouts were selected by crossing trace-count strata with low, median, and high capacitance order statistics. At refinement 3, expanding the domain from 12 to 16~mm changes capacitance by a median 0.189658\% and a maximum 2.491566\%, passing the predeclared 2\% median and 5\% maximum gates. At 16~mm padding, refinement 3 versus 4 differs by a median 8.273879\% and a maximum 13.886399\%, failing those gates. Thus the bulk target is domain-qualified on the tested panel but not mesh-converged.
+
+A separate three-layout, five-repeat panel exposed a thread-sensitive meshing path. The earlier 25-thread configuration failed mesh identity and a $10^{-4}$ capacitance-repeatability gate on all three layouts, with relative spreads from $5.59\times10^{-4}$ to $7.42\times10^{-3}$. The deterministic one-thread path passed both gates on all three, with maximum spread $8.45\times10^{-15}$. The deterministic path defines the current FEM-v2 target package; this result does not retroactively validate the older labels.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{hoang3_fem_fidelity.pdf}
+\caption{Capacitance fidelity evidence. (a) Domain expansion passes while the adjacent-mesh comparison fails. (b) On the deterministic 198-layout registry, every R3 observation exceeds its paired R4 observation; the summaries describe this selected panel rather than a population.}
+\label{fig:fidelity}
+\end{figure*}
+
+On a deterministic registry of 198 layouts, with three from each of 66 families, every FEM-$\Rthree$ value exceeds its paired FEM-$\Rfour$ value. The median relative discrepancy is 8.479\%, with an observed range of 2.754\% to 17.517\%. Nine entries inherit the label-informed convergence selection; the other 189 are geometry-only selections. No inferential interval, global correction, or continuum-error interpretation is attached.
+
+\section{Graph Surrogate}
+\subsection{Representation and Prediction}
+Each trace becomes a node. Node attributes encode net and layer identity, dimensions, position, conductivity, and dielectric descriptors. Edges represent trace interactions and carry relative displacement, distance, overlap, layer separation, and relationship type. Message passing alternates edge-message computation, aggregation, and node updates; graph pooling feeds a four-output regression head~\cite{gilmer}. Training applies a fixed logarithmic target transform and train-only normalization. AdamW optimization uses a fixed 200-epoch budget~\cite{adamw}; validation loss is diagnostic and does not choose the checkpoint.
+
+The baseline graph surrogate uses absolute and relative geometric features. A separate distance-message coordinate-update network computes scalar messages from invariant inputs and updates coordinates with scalar-weighted relative vectors. Under
+\begin{equation}
+\mathbf{x}'_i=\mathbf{Q}\mathbf{x}_i+\mathbf{t},\qquad \mathbf{Q}^{T}\mathbf{Q}=\mathbf{I},
+\end{equation}
+squared distances and scalar messages remain unchanged, coordinate updates transform by $\mathbf{Q}$, and the pooled scalar output is invariant. This statement applies after graph encoding; fixed axis-aligned overlap metadata prevents extending it automatically to arbitrary rotations of raw layout files.
+
+\subsection{Implementation Symmetry Checks}
+The initialized coordinate-update implementation was evaluated on 200 transformed encoded graphs. Maximum scalar-output and coordinate residuals are $3.919\times10^{-7}$ and $1.407\times10^{-7}$, below the $2\times10^{-5}$ tolerance. In the trained three-arm study, all 75 checkpoints pass 40 transforms on seven validation-family fixtures, including translations, proper and improper orthogonal transforms, and node permutations. Across 21,000 graph-transform evaluations, the largest scalar residual among the three arms is $4.043\times10^{-7}$ and the moving-coordinate equivariance residual is $2.739\times10^{-7}$. These finite floating-point checks establish an implementation property on encoded graphs; they are not a formal proof for every possible raw layout.
+
+\section{Evaluation Protocol}
+\subsection{Family-Held-Out Grid}
+The 66 turn-count families are partitioned into five deterministic held-out panels. Each split holds out 13 complete swap-closed families and contains 282 to 306 layouts. Five initialization seeds are crossed with the five split seeds, yielding 25 cells. Each checkpoint is the fixed epoch-200 state. Held-out inference occurs only after every checkpoint bundle passes its immutable admission checks.
+
+The primary accuracy statistic is family-macro mean absolute percentage error (MAPE). Absolute percentage error is averaged within each held-out family and then across the 13 families, preventing larger families from receiving additional weight. The central value is the mean over the complete five-by-five grid.
+
+Crossed-axis descriptive sensitivity intervals resample the five split rows and five initialization columns with replacement, use the Cartesian five-by-five mean for each draw, and report the 2.5th and 97.5th percentiles of 10,000 draws. They describe sensitivity of the evaluated seed grid; they do not estimate population coverage.
+
+\subsection{Frozen Controls}
+Four pooled-feature procedures use a fixed 48-dimensional summary: Constant, Ridge~\cite{ridge}, Random Forest~\cite{randomforest}, and Extra Trees~\cite{extratrees}. Their settings were frozen without hyperparameter search after the graph result was known. This is a post-hoc fixed-budget comparison, not superiority to tuned alternatives and not an isolation of graph connectivity.
+
+The coordinate-update study contains three arms: a width-96 coordinate-update network, a width-96 fixed-coordinate network, and a width-101 fixed-coordinate control selected analytically to approximate parameter count. The moving arm has 301,354 parameters and the matched control has 301,997. All arms receive the same train-only inputs, partitions, fixed epoch budget, and symmetry gates. Both model classes have invariant scalar outputs, so the intervention is coordinate updating rather than the presence of equivariance.
+
+\section{Results}
+\subsection{Family-Held-Out Accuracy}
+Table~\ref{tab:accuracy} reports the current FEM-v2 result. Capacitance uses deterministic one-thread FEM-$\Rthree$; the inductance targets use FastHenry. All predictions are finite and positive. Across 7,350 layout-model rows per target, no predicted inductance matrix violates $|\Mut|\leq\sqrt{\Lp\Ls}(1+10^{-9})$.
+
+\begin{table}[t]
+\caption{Current FEM-v2 Family-Held-Out Accuracy}
+\label{tab:accuracy}
+\centering
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Target & Mean MAPE & 95\% descriptive interval & $R^2$ \\
+\midrule
+$\Cps$ & 12.550\% & 11.796 to 13.366\% & 0.9244 \\
+$\Lp$  & 4.173\%  & 3.414 to 5.015\%   & 0.9941 \\
+$\Ls$  & 3.964\%  & 3.263 to 4.729\%   & 0.9936 \\
+$\Mut$ & 3.413\%  & 3.052 to 3.734\%   & 0.9931 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{hoang4_accuracy.pdf}
+\caption{Current and archived target-package results. The marker comparison documents version sensitivity; the two packages are not pooled. Error bars are crossed-axis descriptive sensitivity intervals for the current package.}
+\label{fig:accuracy}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{hoang7_latency.pdf}
+\caption{Median times under the paired all-four-target boundary. The logarithmic axis reveals the FastHenry and FEM components. The paired-ratio statistic is computed per design, not as a ratio of component medians.}
+\label{fig:latency}
+\end{figure}
+
+The archived 25-thread target package produced mean family-macro errors of 12.890\%, 4.272\%, 4.076\%, and 3.554\%. These values remain an admitted version-scoped result, but the thread-sensitive capacitance generation path means they cannot be relabeled as FEM-v2 evidence. Fig.~\ref{fig:accuracy} retains the earlier central values only as a target-version comparison.
+
+On fixed 39-layout panels per split, the same current-model predictions yield capacitance errors of 12.917\% against FEM-$\Rthree$ and 14.838\% against FEM-$\Rfour$. The five panels contain 195 memberships but only 135 unique layouts from 45 families. This matched view isolates reference fidelity; it does not make R4 truth or the panels independent.
+
+\subsection{Frozen Pooled-Feature Procedures}
+Table~\ref{tab:baselines} and Fig.~\ref{fig:baselines} compare the graph model with the four fixed pooled-feature procedures. The GNN has lower family-macro MAPE for all four targets in every matched split/initialization cell against each procedure. All 16 paired descriptive interval endpoints are positive. Because representation and function class change together, the result does not establish a causal advantage of connectivity or superiority over tuned alternatives.
+
+\begin{table*}[t]
+\caption{Mean Family-Macro MAPE for the GNN and Frozen Pooled Procedures}
+\label{tab:baselines}
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Model & $\Cps$ & $\Lp$ & $\Ls$ & $\Mut$ \\
+\midrule
+GNN & 12.550 & 4.173 & 3.964 & 3.413 \\
+Constant & 62.421 & 71.129 & 68.898 & 57.026 \\
+Ridge & 44.480 & 48.666 & 39.522 & 35.826 \\
+Random Forest & 42.528 & 36.977 & 39.929 & 33.397 \\
+Extra Trees & 42.130 & 30.325 & 39.763 & 29.428 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{hoang5_baselines.pdf}
+\caption{Mean family-macro MAPE for the GNN and four frozen pooled-feature procedures. Lower is better. The comparison is post-hoc and fixed-budget.}
+\label{fig:baselines}
+\end{figure*}
+
+\subsection{Coordinate Updates and Symmetry}
+The three arms have similar central errors (Table~\ref{tab:coordinate}). Against the same-width control, the coordinate-update arm has lower mean error for $\Cps$, $\Lp$, and $\Ls$ but higher mean error for $\Mut$. Against the approximately parameter-matched control, it has higher mean error for all four targets. The eight moving-minus-fixed descriptive intervals all include zero (Fig.~\ref{fig:coordinate}). The fixed-budget study therefore does not establish a consistent accuracy gain from coordinate updates. It does not establish equivalence, absence of benefit elsewhere, or a universal conclusion about equivariant networks.
+
+\begin{table}[t]
+\caption{Coordinate-Update Ablation: Mean Family-Macro MAPE}
+\label{tab:coordinate}
+\centering
+\footnotesize
+\begin{tabular}{lrrrr}
+\toprule
+Arm & $\Cps$ & $\Lp$ & $\Ls$ & $\Mut$ \\
+\midrule
+Coordinate, width 96 & 11.623 & 4.328 & 4.173 & 3.904 \\
+Fixed, width 96 & 11.763 & 4.449 & 4.233 & 3.883 \\
+Fixed, matched & 10.895 & 4.269 & 4.090 & 3.810 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{hoang6_coordinate_symmetry.pdf}
+\caption{Coordinate-update study. (a) Moving-minus-fixed paired differences; positive favors the fixed control. All eight descriptive intervals contain zero. (b) Maximum encoded-graph residuals remain below the declared tolerance.}
+\label{fig:coordinate}
+\end{figure*}
+
+\subsection{Paired Four-Target Runtime}
+The timing comparison covers all 306 layouts in split 42, which contains 13 held-out families. One checkpoint, trained with split seed 42 and initialization seed 42, was designated before timing. The GNN timer starts from canonical JSON bytes already resident in memory and includes parsing, geometry validation, graph construction, normalization, batch-one collation, forward computation, inverse target transformation, and materialization of four physical values. The model is already loaded. Each layout receives 50 warm-up calls and 200 measured calls.
+
+The solver timer includes one sequential FastHenry execution for the three inductance targets and one deterministic one-thread FEM-$\Rthree$ execution for capacitance, including input construction, temporary-file handling, solver execution, parsing, numerical checks, and output materialization. It excludes neither solver-internal file operations nor subprocess cost.
+
+For layout $i$, let $g_i$ be its median measured GNN time and $s_i$ its solver-workflow observation. The primary statistic is $\mathrm{median}_i(s_i/g_i)$. Its value is 70,099.076, with a 58,104.638 to 93,493.252 family-cluster descriptive sensitivity interval. Median component times are 7.41936~ms for loaded raw-record-to-four-output GNN inference, 80.96604~ms for FastHenry, 522.90512~s for FEM, and 522.98245~s for the sequential workflow. Capacitance dominates the observed workflow (Fig.~\ref{fig:latency}).
+
+This is not a universal speedup over three-dimensional solvers. It applies to one loaded checkpoint, one CPU class, a resident-input boundary, a fixed one-thread FEM implementation, and one solver observation per design. The descriptive interval does not cover different machines, system load across repeated solver runs, retraining, alternative solvers, or manufactured boards.
+
+\section{Discussion}
+The evidence supports three distinct conclusions. First, the GNN approximates the current fixed numerical targets with low single-digit inductance error and a 12.550\% family-macro capacitance error. Second, relational graph prediction is more accurate than the selected frozen pooled-feature procedures on this benchmark, but the comparison does not identify which architectural element causes the difference. Third, imposing coordinate updates supplies a verified symmetry mechanism without an established incremental accuracy benefit under the tested fixed budget.
+
+The capacitance results also show why surrogate error must be interpreted together with reference fidelity. The bulk FEM target passes the tested domain-expansion gate and deterministic repeatability check, yet fails the adjacent-mesh gate. The 198-layout multi-fidelity registry has a same-signed R3-to-R4 discrepancy. A model can reproduce R3 closely while remaining separated from R4, and neither value is fabricated-board truth. Consequently, the paper reports model agreement, numerical-reference discrepancy, and physical-validation status as different quantities.
+
+The current benchmark tests interpolation and family-held-out transfer within one generated geometry system. Holding out complete turn-count families reduces direct template leakage, but materials, board envelope, trace orientation, topology, and active-leg abstraction remain narrow. Commercial component geometry and fabricated-device measurements are separate future validation tracks.
+
+\section{Limitations and Reproducibility}
+The corpus excludes routed returns, vias, terminals, planes, ferrite geometry, solder, copper roughness, dielectric anisotropy, and manufacturing variability. FastHenry supplies free-space winding inductance rather than core-inclusive magnetizing behavior. The capacitance references come from one volume-FEM implementation and are not mesh-converged. Higher resolution is a comparator, not ground truth.
+
+The five held-out panels overlap, and the five initialization columns reuse the same split data. Crossed-axis intervals summarize the finite seed grid rather than population coverage. The fixed baseline and coordinate-update studies were designed after earlier GNN results were known. The baseline study is not a tuned-model competition; the coordinate study is not an equivalence test. The runtime study does not quantify cross-machine or solver-run variability.
+
+Reproducibility is provided as an auditable regeneration package rather than a download-and-run physical validation product. The repository freezes geometry contracts, split registries, numerical observations, checkpoints, predictions, summaries, protocol files, and archive manifests. The journal package freezes its claim set, source wiki revision, figure data, generated graphics, bibliography, LaTeX source, and built PDF. External solver builds and substantial compute remain necessary to regenerate the numerical corpus from first principles.
+
+\section{Conclusion}
+An auditable surrogate requires more than a fast network. This study joins a shared geometry contract, qualified numerical references, family-held-out evaluation, fixed controls, implementation-level symmetry checks, and a paired end-to-end timing boundary. On the current 1,500-layout synthetic benchmark, the graph surrogate achieves 12.550\% capacitance and 3.413 to 4.173\% inductance family-macro error, has lower error than four frozen pooled-feature procedures, and provides four outputs in 7.41936~ms under the measured loaded boundary. A 70,099-fold median paired ratio is observed against the specified sequential numerical workflow. Learned coordinate updates do not show a consistent additional accuracy gain, although their encoded-graph symmetry behavior is verified. The results support numerical-reference screening within the frozen geometry family; extending them to production extraction requires broader routed geometry, stronger mesh evidence, commercial-component transfer, and fabricated-board measurements.
+
+\appendices
+\section{Snapshot Claim Coverage}
+This snapshot includes all twelve admitted scientific claims. Geometry claim
+C-GEOM-001 fixes the 1,500-layout synthetic scope. Claims C-FEM-001 through
+C-FEM-004 cover backend agreement, domain sensitivity, the failed mesh gate,
+and the finite repeatability comparison. C-CPS-DISC-001 covers the selected
+198-layout fidelity discrepancy. C-E3-001 covers encoded-graph symmetry.
+C-ACC-001 retains only the archived target-version comparison, while
+C-ACC-FEMV2-001 owns the current accuracy result. C-LAT-FEMV2-001 owns the
+declared four-target timing comparison. C-BASE-FEMV2-001 owns the fixed pooled
+baseline comparison, and C-E3-FEMV2-001 owns the absence of an established
+consistent coordinate-update gain. Blocked historical latency and the proposed
+vendor track are excluded from current results and appear only as limitations
+or future work.
+
+\section*{Acknowledgment}
+The authors thank the open-source developers of FastHenry, Gmsh, scikit-fem, PyTorch, and the scientific Python ecosystem used in the reproducible workflow.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

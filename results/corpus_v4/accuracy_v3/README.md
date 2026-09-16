@@ -28,8 +28,9 @@ records `COMPLETED/0:0`. This admission opens checkpoint training only.
 The frozen checkpoint grid ran as array `7087054` from source commit
 `c0ffca0d0637e8fbba81c126c3f56f8316003a9a`. All 25 logical components
 completed with exit code `0:0`. Postterminal round 01 admitted every immutable
-candidate and left zero pending tasks. Held-out inference has not started, and
-the archive is now closed under `E-C4-FEM-V2-ACC-V3-01`.
+candidate and left zero pending tasks. Held-out inference subsequently ran only
+in finalizer `7102842`, after that admission, and the resulting archive is closed
+under `E-C4-FEM-V2-ACC-V3-01`.
 
 ## Frozen roots
 

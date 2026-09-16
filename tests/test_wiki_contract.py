@@ -432,3 +432,28 @@ def test_slurm_playbook_bash_blocks_are_syntactically_valid() -> None:
         text=True,
     )
     assert checked.returncode == 0, checked.stderr
+
+
+def test_paused_handoff_is_canonical_and_reachable() -> None:
+    handoff = _read("wiki/status/Research-Pause-Handoff.md")
+    project_status = _read("wiki/status/Project-Status.md")
+    live_status = _read("wiki/status/Live-Execution.md")
+    claim_registry = _read("wiki/claims/Current-Claim-Language.md")
+
+    assert "status: PAUSED; HANDOFF READY" in handoff
+    assert "`journal-snapshot-1`" in handoff
+    assert "status: PAUSED; HANDOFF READY" in project_status
+    assert "status: PAUSED; historical execution log" in live_status
+    assert "## Closed execution history" in live_status
+    assert "No; eligible after" not in claim_registry
+
+    for owner in ("wiki/README.md", "wiki/START-HERE.md", "wiki/INDEX.md"):
+        assert "Research-Pause-Handoff.md" in _read(owner)
+
+
+def test_exhaustive_index_contains_every_evidence_heading() -> None:
+    ledger = _read("wiki/evidence/Evidence-Ledger.md")
+    index = _read("wiki/INDEX.md")
+    evidence_ids = set(re.findall(r"^## (E-[A-Z0-9-]+)", ledger, flags=re.MULTILINE))
+    assert evidence_ids
+    assert evidence_ids.issubset(set(re.findall(r"E-[A-Z0-9-]+", index)))

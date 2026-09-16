@@ -1,12 +1,14 @@
 # Extended manuscript package status
 
-> **SUPERSEDED UNTIL REGENERATED.** The checked-in manuscript and PDF predate
-> the active FEM mesh-convergence decision. Their historical accuracy and
-> speed values are not current geometry-valid evidence.
+> **SUPERSEDED ARCHIVE.** The checked-in manuscript and PDF predate the active
+> FEM mesh-convergence decision. Their historical accuracy and speed values are
+> not current geometry-valid evidence and this directory is not regenerated in
+> place.
 
 The canonical scientific status, permitted claims, and manuscript-ready source
-text live in [`wiki/`](../wiki/). A future Full Paper revision will be rendered
-from admitted wiki content, rebuilt in IEEE format, and audited before release.
+text live in [`wiki/`](../wiki/). The current independent journal-format export
+is [`Paper_Journal_Snapshot_1/`](../Paper_Journal_Snapshot_1/), rendered from
+admitted wiki content and audited as a separate immutable package.
 The required gates and snapshot manifest are defined by the
 [`Paper Export Contract`](../wiki/manuscript/Paper-Export-Contract.md).
 

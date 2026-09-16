@@ -1,22 +1,39 @@
 ---
 title: Live Execution Snapshot
-status: active operational snapshot
+status: PAUSED; historical execution log
 last_updated: 2026-09-15
 paper_source: false
 ---
 
 # Live Execution Snapshot
 
-Claim admission on 2026-09-15: the project owner approved the scoped wording
+## Current paused state
+
+Research execution is intentionally paused. A scheduler check during the pause
+audit found no active jobs for the project user. Every current production,
+accuracy, latency, baseline, and coordinate-update chain is closed; no solver,
+training, finalizer, or recovery job is waiting to be resumed. Start from
+[Research Pause and Handoff](Research-Pause-Handoff.md), not from a dated entry
+below.
+
+The final execution transition was claim admission on 2026-09-15: the project
+owner approved the scoped wording
 for `C-E3-FEMV2-001`. Its lifecycle is now `ADMITTED; VERSION-SCOPED`:
 the fixed-budget FEM-v2 study did not establish a consistent accuracy gain
 from coordinate updates, and all eight descriptive crossed-axis intervals
 included zero. This is not equivalence, a universal EGNN conclusion, or an
-equivariance-versus-non-equivariance result. No paper package was changed;
-paper-source curation waits for an explicit snapshot request. The admission
-was published and remotely verified at
+equivariance-versus-non-equivariance result. At the time of admission, no paper
+package was changed; the later journal snapshot request is handled as a
+separate publication export. The admission was published and remotely verified at
 `0577cff8fb87133b84f3fd177c3569e77debd2a3`. No further execution is required
-for this version-scoped claim.
+for this version-scoped claim. The later journal snapshot is a publication
+export and does not reopen scientific execution.
+
+## Closed execution history
+
+Everything below is an as-observed chronological record, newest first. Words
+such as `RUNNING`, `PENDING`, "next action", or "remains blocked" describe only
+the state at the date of that paragraph. They are not current instructions.
 
 Recovery chain completed on 2026-09-15: tracked replay `7326296` finished
 `COMPLETED/0:0` in 229 seconds on `a0126`, with zero restarts. Its receipt
@@ -338,7 +355,7 @@ The source artifacts are indexed under `E-C4-RUN-02`; complete execution and
 finalization closure are indexed under `E-C4-RUN-01` and `E-C4-FINAL-01` in the
 [Evidence Ledger](../evidence/Evidence-Ledger.md).
 
-## Next transition
+## Historical transition plan at that time
 
 Status review at 2026-09-13 07:01 UTC: the recorded accuracy and latency
 admissions are unchanged. Remote verification confirmed governance commit

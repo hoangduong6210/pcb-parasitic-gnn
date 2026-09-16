@@ -1,0 +1,4 @@
+# Preserve upstream IEEEtran distribution bytes without whitespace rewriting.
+vendor/IEEEtran.cls -diff
+vendor/IEEEtran.bst -diff
+vendor/UPSTREAM_README -diff

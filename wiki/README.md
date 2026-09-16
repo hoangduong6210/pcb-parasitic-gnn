@@ -1,7 +1,7 @@
 ---
 title: PCB Parasitic GNN Research Wiki
 status: canonical home
-last_updated: 2026-09-12
+last_updated: 2026-09-15
 paper_source: false
 ---
 
@@ -22,6 +22,7 @@ where they apply, and whether a statement is eligible for publication.
 | Reader | Begin here | Then read |
 |---|---|---|
 | New contributor | [Start Here](START-HERE.md) | [Research System Map](architecture/Research-System-Map.md) and [Research Workflow](operations/Research-Workflow.md) |
+| Returning owner or handoff recipient | [Research Pause and Handoff](status/Research-Pause-Handoff.md) | [Project Status](status/Project-Status.md), claims, evidence, and reproducibility |
 | Research reader | [Claim Registry](claims/Current-Claim-Language.md) | [Dataset Registry](datasets/Dataset-Registry.md), methods, results, and [Limitations](LIMITATIONS.md) |
 | HPC operator | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | [FEM V2 Production Pipeline](operations/FEM-V2-Production-Pipeline.md), [Resource Plan](operations/SLURM-Resource-Plan.md), and [Live Execution](status/Live-Execution.md) |
 | Paper editor | [Paper Export Contract](manuscript/Paper-Export-Contract.md) | [Paper Outline](manuscript/Paper-Outline.md) and admitted claims |

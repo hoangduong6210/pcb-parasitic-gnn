@@ -28,9 +28,13 @@ Current evidence is admitted only in this order:
     finalization, and a verified archive — complete and admitted;
 11. a separately frozen FEM-v2 paired-latency study on 306 layouts from the
     designated held-out split, with all measurements accepted and finalizer
-    and archive replay complete; baseline, ranking, and symmetry studies
-    require their own version-scoped admission;
-12. figures and manuscript tables generated only from accepted wiki content.
+    and archive replay complete;
+12. a fixed pooled-feature baseline study with complete accepted-set, held-out,
+    replay, and version-scoped claim admission;
+13. a three-arm coordinate-update study with all 75 checkpoints admitted before
+    held-out evaluation, exact archive replay, and a scoped non-establishment
+    claim; a future ranking study still requires its own protocol and admission;
+14. figures and manuscript tables generated only from accepted wiki content.
 
 Each current number must resolve to a job-scoped result, raw record, immutable
 input hash, source commit, source-file hash map, executable hash, arguments, and
@@ -60,6 +64,9 @@ The version-scoped numerical results are maintained in
 and [`Corpus V4 FEM-v2 Family-Held-Out Accuracy`](../wiki/results/Corpus-V4-FEM-v2-Accuracy.md),
 with timing boundaries and sensitivity intervals in
 [`Corpus V4 FEM-v2 Paired Latency`](../wiki/results/Corpus-V4-FEM-v2-Latency.md).
+The admitted fixed-baseline and coordinate-update comparisons are maintained in
+[`Corpus V4 FEM-v2 Fixed Baselines`](../wiki/results/Corpus-V4-FEM-v2-Baselines.md)
+and [`Corpus V4 FEM-v2 Coordinate-Update Ablation`](../wiki/results/Corpus-V4-FEM-v2-Coordinate-Ablation.md).
 Canonical lifecycle status and scientific interpretation live in
 [`wiki/`](../wiki/README.md); raw jobs, commits, artifact paths, and SHA-256
 values live in the [evidence ledger](../wiki/evidence/Evidence-Ledger.md).

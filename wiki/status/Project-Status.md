@@ -1,11 +1,17 @@
 ---
 title: Project Status
-status: active scientific status
+status: PAUSED; HANDOFF READY
 last_updated: 2026-09-15
 paper_source: false
 ---
 
 # Project Status
+
+The research program is intentionally paused with no active scientific
+execution. The canonical restart instructions and deferred questions are in
+[Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
+remain closed; resuming research means defining a new versioned study, not
+continuing a historical `PENDING` entry.
 
 ## Scientific state
 
@@ -52,11 +58,11 @@ instead of calling one column ground truth.
 | FEM-v2 coordinate-update ablation | `ADMITTED; VERSION-SCOPED` | All 75 checkpoints, held-out analysis and tracked replay passed; `C-E3-FEMV2-001` states that the fixed study did not establish a consistent coordinate-update accuracy gain |
 | Fabricated-board validation | `NOT STARTED` | Required for hardware-accuracy claims |
 
-Operational progress changes more frequently than scientific status. The dated
-[Live Execution](Live-Execution.md) page owns task counts and the next scheduler
-transition.
+The dated [Live Execution](Live-Execution.md) page preserves prior task counts
+and scheduler transitions. The [handoff page](Research-Pause-Handoff.md) owns
+the current paused state and future restart boundary.
 
-## Next scientific stages
+## Preserved results and deferred stages
 
 1. Retain the admitted archived-target
    [family-held-out accuracy result](../results/Corpus-V4-Accuracy.md) under
@@ -71,7 +77,9 @@ transition.
    without converting it into an equivalence or universal EGNN claim. Preserve the separately admitted
    [fixed-baseline comparison](../results/Corpus-V4-FEM-v2-Baselines.md).
    Any ranking study requires its own FEM-v2 frozen protocol.
-5. Admit claims in the wiki before generating a new paper snapshot.
+5. For any future study, admit claims in the wiki before generating another
+   paper snapshot. The current journal export is
+   [`Paper_Journal_Snapshot_1/`](../../Paper_Journal_Snapshot_1/).
 
 There are separate admitted family-crossed results for the archived 25-thread
 target package and the deterministic one-thread FEM-v2 package. There is no
