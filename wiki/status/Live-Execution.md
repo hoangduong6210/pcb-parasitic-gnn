@@ -15,7 +15,9 @@ the previous `.mailmap` had selected a Gmail address linked by GitHub to
 `Binben14`. The canonical mailmap address has been changed to the verified
 `hoangduong6210` no-reply identity, with a regression test. See
 [Repository Author Attribution](Author-Attribution.md) for remote refresh and
-the boundary against rewriting released research history.
+the boundary against rewriting released research history. Immediately after
+the push, the remote commit API still attributed 29 historical commits to
+`Binben14`; complete remote removal is not yet established.
 
 ## Figure correction on 2026-09-16
 

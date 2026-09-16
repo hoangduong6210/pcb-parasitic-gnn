@@ -1,6 +1,6 @@
 ---
 title: Repository Author Attribution
-status: MAILMAP CORRECTED; GITHUB REFRESH PENDING
+status: MAILMAP CORRECTED; HISTORICAL GITHUB LINKS UNRESOLVED
 last_updated: 2026-09-16
 paper_source: false
 ---
@@ -34,9 +34,14 @@ be checked on each new machine.
 ## Verification and remaining boundary
 
 Locally, run `git shortlog -sne HEAD` and `pytest -q
-tests/test_author_identity.py`. Remotely, inspect the Contributors API and
-several old commit pages after GitHub recalculates repository statistics.
-GitHub documents that contributor data can take about 24 hours to refresh.
+tests/test_author_identity.py`. Immediately after this correction was pushed,
+the remote commit API still linked 29 of 156 mainline commits to `Binben14`
+and 127 to `hoangduong6210`; the Contributors API still reported `Binben14`
+for 155 commits. These remote results must not be described as fully fixed.
+Inspect the Contributors API again after GitHub recalculates its statistics;
+GitHub documents that contributor data can take about 24 hours to refresh
+after repository changes. A refreshed graph would not by itself correct
+historical individual-commit links.
 
 If an individual old commit still links to `Binben14`, changing `.mailmap`
 cannot edit its stored author email. A complete account-attribution change
