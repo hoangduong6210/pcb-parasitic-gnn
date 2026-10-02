@@ -1,0 +1,7 @@
+STAGE={"stage": "geometry_validated", "elapsed_s": 1.4662615810520947, "peak_rss_gib": 0.068359375, "n_traces": 2}
+STAGE={"stage": "occ_fragmented", "elapsed_s": 2.323760899947956, "peak_rss_gib": 0.0791015625, "n_volumes": 3}
+STAGE={"stage": "mesh_generate_started", "elapsed_s": 2.324388792971149, "peak_rss_gib": 0.0791015625, "h_min": 0.05600000000000001, "h_max": 2.0, "tcad_mesh_policy": {"options": {"Mesh.Algorithm": 5.0, "Mesh.Algorithm3D": 1.0, "Mesh.MeshSizeFromPoints": 0.0, "Mesh.MeshSizeFromCurvature": 0.0, "Mesh.MeshSizeExtendFromBoundary": 0.0, "Mesh.RandomSeed": 1.0, "Mesh.MeshSizeMin": 0.12, "Mesh.MeshSizeMax": 1.0, "General.NumThreads": 1.0, "Mesh.MaxNumThreads1D": 1.0, "Mesh.MaxNumThreads2D": 1.0, "Mesh.MaxNumThreads3D": 1.0}, "boxes": [{"XMin": 1.89, "XMax": 4.11, "YMin": 1.89, "YMax": 3.11, "ZMin": -0.045, "ZMax": 0.245, "VIn": 0.12, "VOut": 1.0, "Thickness": 1.5}, {"XMin": 1.89, "XMax": 4.11, "YMin": 1.89, "YMax": 3.11, "ZMin": 0.135, "ZMax": 0.42500000000000004, "VIn": 0.12, "VOut": 1.0, "Thickness": 1.5}], "near_size_mm": 0.12, "far_size_mm": 1.0, "pad_mm": 2.0}, "inherited_h_min_h_max_overridden": true}
+STAGE={"stage": "mesh_generated", "elapsed_s": 2.641938414890319, "peak_rss_gib": 0.087890625, "n_nodes": 2159}
+STAGE={"stage": "mesh_extracted", "elapsed_s": 2.6446338610257953, "peak_rss_gib": 0.087890625, "n_tetrahedra": 12336}
+STAGE={"stage": "gmsh_finalized", "elapsed_s": 2.68394233006984, "peak_rss_gib": 0.087890625}
+STAGE={"stage": "skfem_mesh_created", "elapsed_s": 2.6842840029858053, "peak_rss_gib": 0.087890625}

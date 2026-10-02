@@ -106,6 +106,18 @@ def test_mesh_policy_uses_expanded_boxes_and_disables_other_size_sources():
     fields.setAsBackgroundMesh.assert_called_once_with(3)
 
 
+def test_numpy_scalar_telemetry_remains_finite_json():
+    # Scalar conversion only: no mesh, linear algebra or solver execution.
+    import numpy as np
+    encoded = json.dumps({"n_dofs": np.int32(2159), "nnz": np.int64(12336),
+                          "value": np.float32(.25)}, allow_nan=False, default=worker.numeric_json)
+    assert json.loads(encoded) == {"n_dofs": 2159, "nnz": 12336, "value": .25}
+    with pytest.raises(ValueError):
+        json.dumps({"value": np.float32("nan")}, allow_nan=False, default=worker.numeric_json)
+    with pytest.raises(TypeError):
+        json.dumps({"bad": object()}, default=worker.numeric_json)
+
+
 def result():
     return {"cps_pf": 10., "relative_residual": 1e-11, "system_sha256": "a" * 64,
             "mesh_nodes": 1000, "mesh_tetrahedra": 2000, "operator_complexity": 1.1, "peak_rss_gib": .1}

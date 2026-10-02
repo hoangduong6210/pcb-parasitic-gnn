@@ -7,6 +7,30 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD smoke rejected; software recovery on 2026-10-02
+
+Smoke `7640925` failed closed on compute node `a0102` after nine seconds, with
+zero restarts. Meshing succeeded, but stage logging could not serialize a NumPy
+integer before matrix assembly. No capacitance value was produced and no pilot
+was submitted. All failed artifacts are retained in the
+[pilot evidence record](../evidence/TCAD-Cps-Reference-Pilot.md). The additive
+serialization fix and regression test pass the 102-test focused suite. Physics,
+panel, protocol, resource limits and tolerances are unchanged. Next: publish
+the new source lock and submit a separately identified recovery smoke from a
+new clean worktree. The original source and attempt are immutable.
+
+## TCAD smoke submission on 2026-10-02
+
+Published and remotely verified pilot source:
+`19523eb7d860cd3264cde56e4a6a3b39eaac4d8f`. The detached execution worktree
+passed its source lock and tracked-file manifest checks. SLURM smoke job
+`7640925` was submitted and initially observed `PENDING`, zero restarts. The
+[pilot evidence page](../evidence/TCAD-Cps-Reference-Pilot.md) owns subsequent
+observations. No pilot or finalizer has yet been submitted at this checkpoint;
+the next gate is a terminal successful smoke result. No solve ran on a login
+node. The published source removes internal agent guidance from tracking but
+retains the main checkout's local copy and does not rewrite history.
+
 ## TCAD reference pilot implementation on 2026-10-02
 
 The owner approved Stage 1 and reaffirmed wiki-first scientific records and

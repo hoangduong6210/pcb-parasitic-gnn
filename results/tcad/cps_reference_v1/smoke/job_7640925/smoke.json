@@ -1,0 +1,17 @@
+{
+  "arm": {
+    "far_size_mm": 1.0,
+    "level": 0,
+    "name": "smoke",
+    "pad_mm": 2.0
+  },
+  "elapsed_s": 5.5105972411111,
+  "failure": "worker exited 1; retain stderr",
+  "files_sha256": {
+    "smoke.stderr": "4fe1ecbab6c33eb944788d8c77331b87ef5efff7e18013a61c15dfebd08eefaa",
+    "smoke.stdout": "e927a25fa4d2eba702c19cc536bf9df15b4002132801062ecbc47ff15561b31d"
+  },
+  "observed_peak_rss_gib": 0.087890625,
+  "passed": false,
+  "returncode": 1
+}

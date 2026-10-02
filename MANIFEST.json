@@ -9,7 +9,7 @@
     "figures": 12,
     "logs": 172,
     "protocols": 33,
-    "results": 6018,
+    "results": 6025,
     "root": 11,
     "tests": 62,
     "wiki": 62
@@ -1952,8 +1952,8 @@
     },
     {
       "path": "code/solvers/tcad_cps_reference_worker.py",
-      "bytes": 5722,
-      "sha256": "e0182bd8784b9b09e6970b53f03dfbc7869a8789bc1856daab1eb01bc885f013"
+      "bytes": 6103,
+      "sha256": "cc067a32991de44f55682c5331aaa241ab1cd3c62fc68fd4f17d3b9efb850f52"
     },
     {
       "path": "code/solvers/tools/README.md",
@@ -3103,7 +3103,7 @@
     {
       "path": "protocols/tcad_cps_reference_v1.lock.json",
       "bytes": 2222,
-      "sha256": "e3cf45b5de6f89c7d79e6d65ae34756f898e5e60fa5e1c5891f46c297de52d9f"
+      "sha256": "31f1aeb3dad2384f0f982b105722406f914f2a1b027230c074b5860b077fc510"
     },
     {
       "path": "requirements-ci.txt",
@@ -33211,6 +33211,41 @@
       "sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd"
     },
     {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/attempt.json",
+      "bytes": 3378,
+      "sha256": "56f2644f73c276e5be453c5f61999e0ac654cd8f950d3aa9d7a54932a64018d3"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/smoke.json",
+      "bytes": 455,
+      "sha256": "1d4532998558ab7f06709dfc525c12c1d3cf620c41fc6a6efcbc0fd1d6531457"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/smoke.stderr",
+      "bytes": 1606,
+      "sha256": "4fe1ecbab6c33eb944788d8c77331b87ef5efff7e18013a61c15dfebd08eefaa"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/smoke.stdout",
+      "bytes": 1567,
+      "sha256": "e927a25fa4d2eba702c19cc536bf9df15b4002132801062ecbc47ff15561b31d"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/tcad_cps_smoke_7640925.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/tcad_cps_smoke_7640925.out",
+      "bytes": 80,
+      "sha256": "dfd9d490ba904c043fd2f85be067bee31082f13e4e6aa56b93cc39f6a4ebae31"
+    },
+    {
+      "path": "results/tcad/cps_reference_v1/smoke/job_7640925/terminal.json",
+      "bytes": 550,
+      "sha256": "f19afa469a5de22bfc38dd511f182b5788f145d9e55c6c99bba4724ab2a3c070"
+    },
+    {
       "path": "tests/test_author_identity.py",
       "bytes": 890,
       "sha256": "ad63ab0ee936eca0062c9632f88cad23a1cab2eb74e8b410cafcc1fad5580f6e"
@@ -33502,8 +33537,8 @@
     },
     {
       "path": "tests/test_tcad_cps_reference.py",
-      "bytes": 9931,
-      "sha256": "c163954b2b88a84e8e876c7468ef0ae15b424baecaeca000c90683b6648ae2aa"
+      "bytes": 10573,
+      "sha256": "1637ce41bbf6a69187fcb169fc1a07dd236501cdb093805624fbfc373c0958ac"
     },
     {
       "path": "tests/test_v3_dataset.py",
@@ -33622,8 +33657,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Cps-Reference-Pilot.md",
-      "bytes": 2524,
-      "sha256": "2a1d9da587dc24410d241ed7eebffc9cbf675a7e18e1323f60ca18b040a0d1b7"
+      "bytes": 5153,
+      "sha256": "5af1365ab47f3ae691e243e77598d0ca79f36bc6af555d6b525f4bbea31ff287"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -33817,8 +33852,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 38404,
-      "sha256": "d4bbffd1504bb7dce0410cb7b1d002d68576d4730b1b81a29b98b80578add565"
+      "bytes": 39830,
+      "sha256": "a485841e5191929291da8a603333888d32335e2384740c31c4c84156373390a6"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -33831,6 +33866,6 @@
       "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6763,
-  "total_bytes": 986546548
+  "n_files": 6770,
+  "total_bytes": 986559262
 }

@@ -1,0 +1,16 @@
+{
+  "schema": "pcb-gnn.tcad-cps-terminal-observation.v1",
+  "observation_date": "2026-10-02",
+  "job_id": "7640925",
+  "state": "FAILED",
+  "exit_code": "2:0",
+  "restarts": 0,
+  "elapsed_s": 9,
+  "allocated_cpus": 3,
+  "requested_memory": "8G",
+  "node": "a0102",
+  "source_commit": "19523eb7d860cd3264cde56e4a6a3b39eaac4d8f",
+  "attempt_sha256": "56f2644f73c276e5be453c5f61999e0ac654cd8f950d3aa9d7a54932a64018d3",
+  "failure_class": "implementation: NumPy int32 stage telemetry was not JSON serializable",
+  "capacitance_result_available": false
+}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import numbers
 import os
 import resource
 import sys
@@ -16,6 +17,15 @@ from tcad_cps_reference import (PANEL, PROTOCOL, assess_result, check_allocation
                                 check_runtime, check_source, identity, read_json)
 from geometry_contract import geometry_sha256, trace_box
 from scientific_artifact import sha256_json
+
+
+def numeric_json(value):
+    """Serialize numerical scalar telemetry without importing NumPy pre-guard."""
+    if isinstance(value, numbers.Integral):
+        return int(value)
+    if isinstance(value, numbers.Real):
+        return float(value)
+    raise TypeError(f"unsupported telemetry type: {type(value).__name__}")
 
 
 def apply_mesh_policy(gmsh, layout: dict, arm: dict, protocol: dict) -> dict:
@@ -87,7 +97,7 @@ def main() -> None:
         record = {"stage": stage, "elapsed_s": time.monotonic() - started,
                   "peak_rss_gib": peak, **payload}
         stages.append(stage)
-        print("STAGE=" + json.dumps(record, allow_nan=False), flush=True)
+        print("STAGE=" + json.dumps(record, allow_nan=False, default=numeric_json), flush=True)
         if peak > limits["rss_gib_max"]:
             raise MemoryError("frozen RSS cap exceeded")
         for key, cap in (("n_nodes", "mesh_nodes_max"), ("n_tetrahedra", "mesh_tetrahedra_max"),
@@ -110,7 +120,7 @@ def main() -> None:
     check_source()
     if not assess_result(result, protocol, args.phase):
         raise ValueError("numerical or resource result gate failed")
-    print("RESULT=" + json.dumps(result, allow_nan=False), flush=True)
+    print("RESULT=" + json.dumps(result, allow_nan=False, default=numeric_json), flush=True)
 
 
 if __name__ == "__main__":

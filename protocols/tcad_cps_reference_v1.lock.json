@@ -13,12 +13,12 @@
     "code/jobs/submit_tcad_cps_reference_smoke.sh": "711c3f92972521629a6f2f78ffa61738e9f90980b2c0901e74718cdf9b91bac9",
     "code/jobs/tcad_cps_reference_env.sh": "e997f14c35a32c28dc85a559e093b61204a260afe834b0219225457aa7f62026",
     "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
-    "code/solvers/tcad_cps_reference_worker.py": "e0182bd8784b9b09e6970b53f03dfbc7869a8789bc1856daab1eb01bc885f013",
+    "code/solvers/tcad_cps_reference_worker.py": "cc067a32991de44f55682c5331aaa241ab1cd3c62fc68fd4f17d3b9efb850f52",
     "datasets/corpus_v3/layouts.jsonl": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
     "datasets/corpus_v3/summary.json": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
     "protocols/tcad_cps_reference_v1.json": "28319620b514d90776b4b3706c85c508c8b166e25be3ad9e05040dde7d5e307e",
     "results/tcad/cps_reference_v1/plan/panel.json": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
-    "tests/test_tcad_cps_reference.py": "c163954b2b88a84e8e876c7468ef0ae15b424baecaeca000c90683b6648ae2aa"
+    "tests/test_tcad_cps_reference.py": "1637ce41bbf6a69187fcb169fc1a07dd236501cdb093805624fbfc373c0958ac"
   },
   "schema": "pcb-gnn.tcad-cps-reference-lock.v1"
 }
