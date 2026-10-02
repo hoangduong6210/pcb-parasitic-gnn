@@ -442,8 +442,10 @@ def test_tcad_resume_preserves_handoff_and_closed_execution() -> None:
 
     assert "status: historical pause; TCAD planning resumed" in handoff
     assert "`journal-snapshot-1`" in handoff
-    assert "status: PROPOSED; TCAD planning resumed; no new jobs" in project_status
-    assert "status: PROPOSED; TCAD planning resumed; no new jobs" in live_status
+    assert "status: RUNNING; TCAD reference qualification" in project_status
+    assert "status: RUNNING; TCAD reference qualification" in live_status
+    assert "TCAD-Cps-Reference-Pilot.md" in project_status
+    assert "TCAD-Cps-Reference-Pilot.md" in live_status
     for page in (handoff, project_status, live_status):
         assert "TCAD-Research-Plan.md" in page
     assert "## Closed execution history" in live_status

@@ -1,6 +1,6 @@
 ---
 title: TCAD Research Continuation Plan
-status: PROPOSED; planning resumed; no new experiment submitted
+status: RUNNING; Stage 1 implementation approved; later stages conditional
 last_updated: 2026-10-02
 paper_source: false
 ---
@@ -42,8 +42,12 @@ no reason by itself to run a larger EGNN training grid.
 
 ## First study: capacitance reference qualification
 
-Proposed protocol identity: `tcad-cps-reference-qualification-v1`. It is not yet
-a frozen machine-readable protocol or execution lock.
+Protocol identity: `tcad-cps-reference-qualification-v1`. The owner approved
+Stage 1 implementation on 2026-10-02. The
+[method specification](../methods/TCAD-Cps-Reference-Qualification.md) now owns
+the exact machine protocol, panel and gates; the
+[evidence record](../evidence/TCAD-Cps-Reference-Pilot.md) owns freeze and
+submission status. The recommendations below explain the original design.
 
 Use the existing one-thread FEM-v2 artifacts as development evidence. The
 [negative mesh result](../results/FEM-R3-R4-Convergence.md) and
@@ -153,5 +157,5 @@ admission; a dependency completing is not scientific acceptance.
 
 The [working manuscript](../../Paper/Paper_TCAD/) currently adds only the
 [Codex writing disclosure](AI-Disclosure.md). Proposed experiments and outcomes
-are not inserted as scientific results. Planning resumed at the owner's request
-on 2026-10-02; no new computational job has been submitted.
+are not inserted as scientific results. Stage 1 implementation was approved
+on 2026-10-02. No later learning or paper-claim stage is automatically enabled.

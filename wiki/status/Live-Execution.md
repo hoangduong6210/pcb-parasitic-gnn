@@ -1,11 +1,31 @@
 ---
 title: Live Execution Snapshot
-status: PROPOSED; TCAD planning resumed; no new jobs
+status: RUNNING; TCAD reference qualification
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Live Execution Snapshot
+
+## TCAD reference pilot implementation on 2026-10-02
+
+The owner approved Stage 1 and reaffirmed wiki-first scientific records and
+SLURM-only meshing, solver smoke, solving and training. The new
+[reference protocol](../methods/TCAD-Cps-Reference-Qualification.md) fixes a
+geometry-only twelve-layout panel and three pilot sentinels. Additive workers
+preserve the historical solver and enforce actual compute-node allocation,
+source identity, runtime pins, per-arm resource limits and retained failures.
+The [pilot evidence page](../evidence/TCAD-Cps-Reference-Pilot.md) owns current
+validation, publication and job receipts. At this implementation checkpoint no
+new computational job has been submitted. Next: freeze and publish the source,
+then submit the SLURM smoke gate before the pilot. Later learning stages and
+paper claims remain closed.
+
+The owner also designated local agent guidance as internal: keep the local
+file, stop tracking it, and exclude it from future commits without rewriting
+history. Public wiki governance remains in force. All earlier dated entries
+below retain their as-observed meaning; the previous planning-only state is
+superseded by this approved implementation.
 
 ## TCAD continuation and disclosure on 2026-10-02
 

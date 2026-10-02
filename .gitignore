@@ -4,6 +4,11 @@ __pycache__/
 .DS_Store
 .internal/
 
+# Local agent instructions are internal, not publication artifacts.
+/AGENTS.md
+/AGENT.md
+/Agent.md
+
 # regenerated corpora (see README "Data") — hundreds of MB, rebuilt from seed 42
 datasets/*/layouts.jsonl
 !datasets/corpus_v3/layouts.jsonl

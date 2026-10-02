@@ -48,6 +48,7 @@ paper_source: false
 | [FEM-v2 Coordinate-Update Ablation Design](methods/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Three-arm predictive question, initialization controls and execution gates |
 | [FastHenry Inductance](methods/FastHenry-Inductance.md) | Inductance reference and winding aggregation |
 | [FEM Cps Reference](methods/FEM-Cps-Reference.md) | Electrostatic formulation and numerical gates |
+| [TCAD Reference Qualification](methods/TCAD-Cps-Reference-Qualification.md) | Geometry-only panel, local mesh policy, finite sensitivity and stop gates |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
@@ -71,6 +72,7 @@ paper_source: false
 | [Corpus V4 FEM-v2 Fixed Baseline Comparison](results/Corpus-V4-FEM-v2-Baselines.md) | Admitted fixed-baseline comparison and descriptive paired differences |
 | [Corpus V4 FEM-v2 Coordinate-Update Ablation](results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Admitted version-scoped three-arm result, paired differences and trained symmetry |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
+| [TCAD Reference Pilot Evidence](evidence/TCAD-Cps-Reference-Pilot.md) | New pilot source, attempt receipts and explicit non-claim boundary |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
 ## Reproduction and operation
@@ -82,6 +84,7 @@ paper_source: false
 | [FEM V2 Production Pipeline](operations/FEM-V2-Production-Pipeline.md) | Qualification, bulk generation, wave admission, and training boundary |
 | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) | Frozen allocations and wall-time estimates |
 | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | Exact cluster submission, monitoring, and recovery steps |
+| [TCAD Reference Pilot Runbook](operations/TCAD-Cps-Reference-Pilot.md) | Frozen three-sentinel SLURM chain, resource caps and evidence retention |
 | [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots

@@ -1,11 +1,20 @@
 ---
 title: Contributing to the Research Wiki
 status: canonical governance
-last_updated: 2026-09-15
+last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Contributing to the Research Wiki
+
+## Owner's standing rules
+
+Reaffirmed on 2026-10-02: `wiki/` is the project's knowledge foundation. Record
+scientific information here first; all paper content is derived from an
+identified wiki snapshot. New experiment outputs do not enter a manuscript
+directly. Submit meshing, solver smoke tests, solving, training and substantial
+numerical replay through SLURM, never on a login node. Local agent instructions
+are internal and are not publication artifacts or future Git-tracked content.
 
 ## Mandatory wiki synchronization
 

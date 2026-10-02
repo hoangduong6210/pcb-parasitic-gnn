@@ -1,0 +1,24 @@
+{
+  "files_sha256": {
+    "code/core/geometry_contract.py": "d3a6c6a334e45b191a663b06322767f16d82e0359cff399637027c6db1dadd88",
+    "code/core/scientific_artifact.py": "cac5bae64591f2743c04fc2faf9289dc135847169be19e168649fadf59ffa7df",
+    "code/data/verified_geometry_corpus.py": "fb4c9ad2938ac4ae37b32879642ac952a32501e0762db0bd04160eee53056302",
+    "code/env.sh": "f756d51ecc3355763d0e868fff69c8078ad4e4a3a0d501b8158729ef2aa28ca2",
+    "code/experiments/proofs/plan_tcad_cps_reference.py": "834693ad2dc6b4d7195f15b301afdd95c6f52eb853cbedb3ccd5f1b7509b9d53",
+    "code/experiments/proofs/run_tcad_cps_reference.py": "7b6750e88ba6cf5d2029e0fa3af8f9b48734f2964d76e538e8b8f60dca9ae65b",
+    "code/experiments/proofs/tcad_cps_reference.py": "e0ab6be67d2d932bfcbd5fde4a4c005a1ab71f35eb636b53de0092f5c1eccbe0",
+    "code/jobs/slurm_job_env.sh": "06941c027803220e2399cc705c4a4b5a3b68a9211742bef43bbb6db4bd3f077d",
+    "code/jobs/submit_finalize_tcad_cps_reference.sh": "13c96ca8093dd87a5e7627908ab15963be1d7cd58108158a3cac2afe1bbe05d1",
+    "code/jobs/submit_tcad_cps_reference_pilot.sh": "0f06179d5117a2498466822a8d0a0b53bb52fc3cfa8286960dfd3bf659fc2441",
+    "code/jobs/submit_tcad_cps_reference_smoke.sh": "711c3f92972521629a6f2f78ffa61738e9f90980b2c0901e74718cdf9b91bac9",
+    "code/jobs/tcad_cps_reference_env.sh": "e997f14c35a32c28dc85a559e093b61204a260afe834b0219225457aa7f62026",
+    "code/solvers/fem_capacitance_3d.py": "08029bf8d191015f08a18b49331ceb12474e98b7a0c38c549a140c7a7a5e0665",
+    "code/solvers/tcad_cps_reference_worker.py": "e0182bd8784b9b09e6970b53f03dfbc7869a8789bc1856daab1eb01bc885f013",
+    "datasets/corpus_v3/layouts.jsonl": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "datasets/corpus_v3/summary.json": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+    "protocols/tcad_cps_reference_v1.json": "28319620b514d90776b4b3706c85c508c8b166e25be3ad9e05040dde7d5e307e",
+    "results/tcad/cps_reference_v1/plan/panel.json": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+    "tests/test_tcad_cps_reference.py": "c163954b2b88a84e8e876c7468ef0ae15b424baecaeca000c90683b6648ae2aa"
+  },
+  "schema": "pcb-gnn.tcad-cps-reference-lock.v1"
+}

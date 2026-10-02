@@ -1,16 +1,18 @@
 ---
 title: Project Status
-status: PROPOSED; TCAD planning resumed; no new jobs
+status: RUNNING; TCAD reference qualification
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Project Status
 
-The owner resumed project planning on 2026-10-02 with TCAD as the target.
-The [TCAD research plan](../manuscript/TCAD-Research-Plan.md) recommends
-capacitance-reference qualification as the first new study. No new experiment
-has been submitted. The canonical preservation boundaries remain in
+The owner approved implementation on 2026-10-02 with TCAD as the target.
+Stage 1 of the [TCAD research plan](../manuscript/TCAD-Research-Plan.md) now has
+a geometry-selected panel and bounded local-refinement pilot implementation.
+The [pilot evidence record](../evidence/TCAD-Cps-Reference-Pilot.md) owns the
+current validation, publication and scheduler state; no new result is admitted.
+The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
 
@@ -37,7 +39,7 @@ instead of calling one column ground truth.
 
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
-| TCAD reference-qualification continuation | `PROPOSED; NOT SUBMITTED` | First new study; protocol and execution lock must be frozen before any SLURM solve |
+| TCAD reference-qualification continuation | `RUNNING; IMPLEMENTATION` | Owner-approved bounded pilot; source publication and SLURM gates precede solving; no claim or training authorization |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

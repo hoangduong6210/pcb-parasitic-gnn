@@ -1,11 +1,22 @@
 ---
 title: SLURM Resource Plan
-status: completed execution specifications
-last_updated: 2026-09-15
+status: active TCAD pilot and preserved completed specifications
+last_updated: 2026-10-02
 paper_source: false
 ---
 
 # SLURM Resource Plan
+
+## TCAD reference pilot
+
+The approved new [pilot runbook](TCAD-Cps-Reference-Pilot.md) fixes the resource
+contract before any solve: one requested scientific CPU, 8 GiB/15 min for the
+smoke and finalizer; 160 GiB/3 h per pilot task, array 0–2%1. Each pilot worker
+is capped at 1,200 seconds and 120 GiB RSS. At most eighteen worker solves run
+over three sentinels. Requested scheduler wall-time capacity is nine task-hours,
+not measured runtime; no full-panel or corpus expansion is automatic. The
+machine protocol owns exact mesh and AMG caps. Numerical threads remain one
+even when site memory policy grants additional allocated CPUs.
 
 ## FEM-v2 coordinate-update predictive ablation
 

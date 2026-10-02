@@ -1,0 +1,108 @@
+{
+  "schema": "pcb-gnn.tcad-cps-reference-protocol.v1",
+  "protocol_name": "tcad-cps-reference-qualification-v1",
+  "scope": "geometry-selected development pilot; no model training or paper claim",
+  "geometry": {
+    "directory": "datasets/corpus_v3",
+    "summary_sha256": "05f83c708bc287bcc51b04f74bb1ec72332b57bbe18107d491caa242af03d12b",
+    "layouts_sha256": "17ed51025830e5be125412e922269179fce55c4662786fb34ed82db13c39511b",
+    "n_layouts": 1500,
+    "n_unique_geometry": 1500,
+    "required_gate": "geometry_valid",
+    "summary_schema": "pcb-gnn.corpus-v3-final.v1"
+  },
+  "selection": {
+    "conductor_count_upper_bounds": [14, 21, 28],
+    "gap_descriptor": "minimum same-layer xy box clearance; board diagonal if no same-layer pair",
+    "overlap_descriptor": "sum of xy overlap areas over unordered opposite-net pairs",
+    "bins": "count strata, then equal-rank clearance halves, then equal-rank overlap halves",
+    "tie_break": "sha256(tcad-cps-reference-v1:geometry_sha256)",
+    "representative": "lowest salted geometry hash within each of twelve cells",
+    "empty_cell": "fail; no substitution or label-based fallback",
+    "sentinels": "one per count stratum: most conductors, then largest overlap, then smallest clearance, then salted hash",
+    "panel_size": 12,
+    "pilot_size": 3,
+    "target_values_used": false
+  },
+  "physics": {
+    "eps_r": 4.2,
+    "primary_potential_v": 1.0,
+    "secondary_potential_v": 0.0,
+    "outer_boundary": "natural homogeneous Neumann, inherited from the frozen FEM implementation",
+    "capacitance": "2 times stored field energy at unit terminal voltage, in pF",
+    "geometry": "unchanged canonical conductor volumes; returns, vias and cores absent"
+  },
+  "mesh": {
+    "policy": "minimum of per-conductor expanded Box fields with smooth outer transitions",
+    "near_sizes_mm": [0.12, 0.08, 0.05333333333333334],
+    "box_expansion_mm": 0.11,
+    "transition_thickness_mm": 1.5,
+    "far_size_mm": 4.0,
+    "far_check_size_mm": 2.0,
+    "pad_mm": 16.0,
+    "pad_check_mm": 20.0,
+    "gmsh_options": {
+      "Mesh.Algorithm": 5,
+      "Mesh.Algorithm3D": 1,
+      "Mesh.MeshSizeFromPoints": 0,
+      "Mesh.MeshSizeFromCurvature": 0,
+      "Mesh.MeshSizeExtendFromBoundary": 0,
+      "Mesh.RandomSeed": 1
+    }
+  },
+  "pilot_arms": [
+    {"name": "local0", "level": 0, "pad_mm": 16.0, "far_size_mm": 4.0},
+    {"name": "local1", "level": 1, "pad_mm": 16.0, "far_size_mm": 4.0},
+    {"name": "local2", "level": 2, "pad_mm": 16.0, "far_size_mm": 4.0},
+    {"name": "repeat2", "level": 2, "pad_mm": 16.0, "far_size_mm": 4.0},
+    {"name": "pad20", "level": 2, "pad_mm": 20.0, "far_size_mm": 4.0},
+    {"name": "far2", "level": 2, "pad_mm": 16.0, "far_size_mm": 2.0}
+  ],
+  "linear_solver": {"name": "amg_cg", "rtol": 1e-10, "maxiter": 500},
+  "smoke": {
+    "arm": {"name": "smoke", "level": 0, "pad_mm": 2.0, "far_size_mm": 1.0},
+    "layout": {
+      "geometry_schema": "pcb-planar-active-legs.v3", "n_layers": 2,
+      "board_w_mm": 6.0, "board_h_mm": 5.0,
+      "stackup": {"layer_pitch_mm": 0.18, "layer_z0_mm": 0.10},
+      "design_rules": {"same_layer_clearance_mm": 0.20, "board_edge_margin_mm": 0.0},
+      "traces": [
+        {"trace_id": "pri-0", "x0": 2.0, "y0": 2.0, "length_mm": 2.0, "width_mm": 1.0, "thick_mm": 0.07, "layer": 0, "net": "pri", "current_sign": 1},
+        {"trace_id": "sec-0", "x0": 2.0, "y0": 2.0, "length_mm": 2.0, "width_mm": 1.0, "thick_mm": 0.07, "layer": 1, "net": "sec", "current_sign": 1}
+      ]
+    },
+    "purpose": "mesh-policy and same-matrix AMG/direct backend check; not physical validation"
+  },
+  "gates": {
+    "relative_residual_max": 1e-9,
+    "sensitivity_formula": "100*abs(candidate-reference)/abs(reference)",
+    "sensitivity_median_pct_max": 2.0,
+    "sensitivity_max_pct_max": 5.0,
+    "repeatability_relative_max": 0.0001,
+    "repeatability_requires_identical_system_and_mesh_counts": true,
+    "smoke_backend_relative_max": 0.000001,
+    "passive_energy_required": true
+  },
+  "resources": {
+    "smoke": {"account": "pgs0407", "partition": "nextgen", "cpus_per_task": 1, "mem_gib": 8, "time_limit": "00:15:00", "worker_timeout_s": 600, "rss_gib_max": 6, "mesh_nodes_max": 300000, "mesh_tetrahedra_max": 1500000, "operator_complexity_max": 1.25},
+    "pilot": {"account": "pgs0407", "partition": "nextgen", "cpus_per_task": 1, "mem_gib": 160, "time_limit": "03:00:00", "array_count": 3, "array_throttle": 1, "worker_timeout_s": 1200, "rss_gib_max": 120, "mesh_nodes_max": 3000000, "mesh_tetrahedra_max": 20000000, "operator_complexity_max": 1.25},
+    "finalize": {"account": "pgs0407", "partition": "nextgen", "cpus_per_task": 1, "mem_gib": 8, "time_limit": "00:15:00"}
+  },
+  "runtime": {
+    "python": "3.9.21",
+    "packages": {"gmsh": "4.15.2", "numpy": "2.0.2", "pyamg": "5.3.0", "scikit-fem": "11.0.0", "scipy": "1.13.1"},
+    "thread_environment": {"BLIS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "NUMEXPR_NUM_THREADS": "1", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "PCB_GNN_GMSH_THREADS": "1", "OMP_DYNAMIC": "FALSE"}
+  },
+  "execution": {
+    "slurm_only": true,
+    "no_requeue": true,
+    "automatic_retries": 0,
+    "stop_geometry_after_failed_arm": true,
+    "all_attempts_retained": true,
+    "full_panel_automatically_authorized": false,
+    "training_may_start": false,
+    "claim_eligible": false,
+    "pilot_pass_is_continuum_convergence": false,
+    "independent_extractor_status": "separate follow-up after pilot feasibility"
+  }
+}
