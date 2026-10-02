@@ -24,12 +24,15 @@ identity tests; the deterministic prose audit; frozen journal-package checks;
 and shell syntax checks for all three build wrappers. A separate temporary
 journal build reproduced the released PDF and passed all 34 manifest-file
 hashes. This verification used a copy; the released package was not rebuilt in
-place. Publication is pending for this local reorganization. The last verified
-remote `main` before this task is
-`f32bb69ce76a857f0a22759a6a99c6f8b8b9fae2`. New commits use the owner-requested
-identity `Hoangduong6210 <Hoangduong4316@icloud.com>`; existing history and
-release tags are retained. Next: publish the reviewed directory migration and
-verify the remote branch hash.
+place. The regenerated repository manifest passed for all 6,714 tracked files
+other than itself. The directory migration was published as
+`1767599bd47711af5796f706a0716f0430a0acbb`; `git ls-remote` confirmed that exact
+hash on remote `main` after the push. The checkout is ready for local journal
+work. New commits use the owner-requested identity
+`Hoangduong6210 <Hoangduong4316@icloud.com>`; existing history and release tags
+are retained. This receipt records the verified migration publication; it is a
+subsequent documentation update. Next scientific action: choose the TCAD
+contribution and evaluation scope before freezing any new research protocol.
 
 ## Repository author identity on 2026-09-16
 
