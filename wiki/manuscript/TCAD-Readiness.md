@@ -61,8 +61,9 @@ version-scoped evidence for claims `C-ACC-FEMV2-001`, `C-BASE-FEMV2-001`, and
    and training cost when making a broader deployment claim.
 
 The [limitations page](../LIMITATIONS.md) owns the existing scope boundaries.
-These suggestions do not admit new results or authorize computation; research
-execution remains paused under the existing handoff contract.
+These suggestions do not admit new results. The owner resumed TCAD planning
+on 2026-10-02; the [continuation plan](TCAD-Research-Plan.md) recommends the
+first new study and defines the gates before computational execution.
 
 ## Submission-format checks
 
@@ -73,11 +74,12 @@ to eight keywords. Space for author biographies must fit within that page limit.
 The current eleven-page IEEE journal snapshot is within the page limit; its
 frozen package verifier checks abstract length and document metadata.
 
-The current Acknowledgment thanks software developers but has no generative-AI
-disclosure. TCAD requires a statement there, before References, describing
-whether and how AI-generated content was used and identifying the tool when
-applicable. The authors should supply an accurate statement for the submission
-version. This review does not invent that usage history or alter the snapshot.
+The released snapshot has no generative-AI disclosure. The author supplied the
+writing-assistance scope on 2026-10-02, and the
+[TCAD working draft](../../Paper/Paper_TCAD/) now includes the
+[Codex statement](AI-Disclosure.md) in Acknowledgment before References.
+The released snapshot is unchanged. Authors must keep the submission disclosure
+consistent with the actual assistance used during preparation.
 
 If an earlier conference version was accepted or published, identify and cite
 it, explain the substantive extension in the manuscript and cover letter, and
@@ -89,9 +91,9 @@ when preparing the submission.
 
 ## Working location and next step
 
-The checkout is named `GNN parasitic`; all three manuscript packages are under
-`Paper/`. The current journal source is
-[`Paper/Paper_Journal_Snapshot_1/main.tex`](../../Paper/Paper_Journal_Snapshot_1/main.tex).
-Prepare a new version only after choosing the scientific contribution and
-freezing the corresponding evaluation protocol through the wiki. Existing
-release tags and evidence identities remain the restart anchors.
+The checkout is named `GNN parasitic`; manuscript packages are under `Paper/`.
+The editable submission source is
+[`Paper/Paper_TCAD/main.tex`](../../Paper/Paper_TCAD/main.tex). It inherits the
+released scientific content and adds the requested disclosure. New research
+requires a frozen evaluation protocol and claim admission through the wiki.
+Existing release tags and evidence identities remain the restart anchors.

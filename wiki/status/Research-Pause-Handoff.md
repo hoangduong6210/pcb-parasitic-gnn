@@ -1,6 +1,6 @@
 ---
 title: Research Pause and Handoff
-status: PAUSED; HANDOFF READY
+status: historical pause; TCAD planning resumed
 last_updated: 2026-10-02
 paper_source: false
 ---
@@ -9,13 +9,15 @@ paper_source: false
 
 ## Current state
 
-The active research program is intentionally paused. All dataset-generation,
-accuracy, latency, fixed-baseline, and coordinate-update execution chains listed
-in [Project Status](Project-Status.md) are closed. A scheduler check at the pause
-audit found no active jobs for the project user. No solver run, model training,
-recovery, admission, or finalizer should be resumed merely because an older
-status entry says `RUNNING`, `PENDING`, or "next". Those entries are dated
-historical observations.
+The owner resumed TCAD planning on 2026-10-02. The
+[continuation plan](../manuscript/TCAD-Research-Plan.md) proposes a new
+capacitance-reference qualification study; no new experiment has been submitted.
+All prior dataset-generation, accuracy, latency, fixed-baseline and
+coordinate-update chains in [Project Status](Project-Status.md) remain closed.
+The scheduler query during this planning task returned no jobs for the project
+user. No solver run, model training, recovery, admission or finalizer should be
+resumed merely because an older entry says `RUNNING`, `PENDING`, or "next".
+Those entries are dated historical observations.
 
 The canonical scientific state is the admitted claim set in the
 [Current Claim Registry](../claims/Current-Claim-Language.md). The journal
@@ -97,6 +99,10 @@ These are new studies, not incomplete stages of the closed pipelines:
    the fixed-baseline and coordinate-update experiments.
 
 ## Resume procedure
+
+Planning has resumed; the remaining protocol and execution gates below apply
+before the first new computational job. The editable TCAD manuscript is in
+[`Paper/Paper_TCAD/`](../../Paper/Paper_TCAD/); it is not a new research release.
 
 1. Start from immutable tag `journal-snapshot-1.1.1`, verify it against the published
    remote, then verify the journal snapshot and repository manifests recorded by

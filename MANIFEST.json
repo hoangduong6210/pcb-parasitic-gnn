@@ -3,7 +3,7 @@
   "scope": "All Git-tracked files except MANIFEST.json itself",
   "sections": {
     ".github": 1,
-    "Paper": 61,
+    "Paper": 94,
     "code": 278,
     "datasets": 12,
     "figures": 12,
@@ -12,7 +12,7 @@
     "results": 6017,
     "root": 12,
     "tests": 61,
-    "wiki": 57
+    "wiki": 59
   },
   "files": [
     {
@@ -351,14 +351,179 @@
       "sha256": "5caa894fb44b7370085497906a3f09cb60a90daa8d398cbb3e5e8432286a25ae"
     },
     {
+      "path": "Paper/Paper_TCAD/.gitattributes",
+      "bytes": 159,
+      "sha256": "9ad1bf9697a8ae6ba91259f19e7b664095184df756a40b3a99bc7d99072f2b6e"
+    },
+    {
+      "path": "Paper/Paper_TCAD/.gitignore",
+      "bytes": 67,
+      "sha256": "58b618848ff53cdd24356a2a3a864291284c0c2a68ff9d83bb6182d40ca37930"
+    },
+    {
+      "path": "Paper/Paper_TCAD/DRAFT_PROVENANCE.json",
+      "bytes": 1084,
+      "sha256": "6a50ec2881b47ec1bd8f6eb750f4894ebbb3d1fabbf475eefbea70fbf003ca41"
+    },
+    {
+      "path": "Paper/Paper_TCAD/README.md",
+      "bytes": 1418,
+      "sha256": "1dc97d70c97c22514420cd95d417b196e881143004e3f30242f595a3eea7f0ff"
+    },
+    {
+      "path": "Paper/Paper_TCAD/VERSION",
+      "bytes": 17,
+      "sha256": "f42090b9cd8fb487cff968df7f603543fca87251aded10223bdaa2be749aa027"
+    },
+    {
+      "path": "Paper/Paper_TCAD/build/PCB_Parasitic_GNN_TCAD_Draft.pdf",
+      "bytes": 470192,
+      "sha256": "0ebb55a71398df325932c17669339e38d9c17879b7a8e8f670e75563119fc67c"
+    },
+    {
+      "path": "Paper/Paper_TCAD/build.sh",
+      "bytes": 536,
+      "sha256": "d8e1ce469b21e68ed742c1eea6ec5c21effdf515da1c0b799f1f491cda48dd6b"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figure_data.json",
+      "bytes": 4044,
+      "sha256": "c161ba6a38ce7f3776d738963e76d7604865acc0808a3f7766ee328cb0cee43b"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang1_pipeline.pdf",
+      "bytes": 27981,
+      "sha256": "d985066f87e1ef219fe646593833c415ba7ca01521c7d37a0253cfc5e26a3b83"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang1_pipeline.png",
+      "bytes": 94842,
+      "sha256": "fc9747d9a429bb1962ccae9ae8a3ff23d9356eebab3f9eb3c47fea938cf32270"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang2_geometry_scope.pdf",
+      "bytes": 20599,
+      "sha256": "36b7015d51a146f75ce727bf912434c17e0ac8a63277942b92d04f7d908d24bb"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang2_geometry_scope.png",
+      "bytes": 107989,
+      "sha256": "abf092da04fd3b4fcf1f94c77cf5672eabced05d9d5f5f61b24a6a9a7a144c92"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang3_fem_fidelity.pdf",
+      "bytes": 39306,
+      "sha256": "cf83cb5642e2cb255c0a6623434368118b878c12b54edbf7b0c7f676825cd066"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang3_fem_fidelity.png",
+      "bytes": 145096,
+      "sha256": "dd7761d2aafe70c61199d5408f357381bcca54f87a1570011d88859aa01c5600"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang4_accuracy.pdf",
+      "bytes": 13019,
+      "sha256": "551b8942bbdbe928f1f325913e3a9c09d635e608579fd0dd5cb889b5a117be0b"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang4_accuracy.png",
+      "bytes": 52119,
+      "sha256": "6cb6e3eebd21d94eeee7b9a58379087a131b32fd4d4ae334708fe9ab371f1f4a"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang5_baselines.pdf",
+      "bytes": 28368,
+      "sha256": "ab07da065ea50250d585917a1fb771d58af1c426208124a7fc31915ccae31784"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang5_baselines.png",
+      "bytes": 98296,
+      "sha256": "974f482bb19c27db101302a76ba1705c1b51248acb9a5cee6e0da484821987d9"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang6_coordinate_symmetry.pdf",
+      "bytes": 16492,
+      "sha256": "e2bf57d35b2c2571bef7ff87d0d8b7fbe6b9863467cd4ba40a98ab6124511289"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang6_coordinate_symmetry.png",
+      "bytes": 113415,
+      "sha256": "9356949de2574720ac7f2404bb2a6b20c21d12718bbc38c2fe972192b7e77bc6"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang7_latency.pdf",
+      "bytes": 15324,
+      "sha256": "5a1a5a6129dc3e525bad4de33f6c238ff8e26e67ecd09d0d4cf9e713c4d073c9"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang7_latency.png",
+      "bytes": 78773,
+      "sha256": "53da165e0979d6e2ab288a71aec852ddda4c0ea611ec6c7ccc680417b6647135"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang8_graph_contract.pdf",
+      "bytes": 29686,
+      "sha256": "49e6c934d159502a9c4dae233cc14703bd5bdbfb4e2a6f9155db950707f57df9"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang8_graph_contract.png",
+      "bytes": 126922,
+      "sha256": "0dd76b709e18888b60a85d68a11e7c7949bb2096548aef219fbbb11ea800ce29"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang9_research_evolution.pdf",
+      "bytes": 31312,
+      "sha256": "738fa2e19175c59374162a5b2e62d5533be39b0b191778a84914a49ee41fdbac"
+    },
+    {
+      "path": "Paper/Paper_TCAD/figures/hoang9_research_evolution.png",
+      "bytes": 132567,
+      "sha256": "f395c2f95b079effe22c4aba29067bfd18d36a56d3fb5955aa7aa54305158c5b"
+    },
+    {
+      "path": "Paper/Paper_TCAD/generate_figures.py",
+      "bytes": 19462,
+      "sha256": "4878a5bdb56f6848ccb8577f18f8d8d0b9f0877ebf069af0161deb037cdddd6a"
+    },
+    {
+      "path": "Paper/Paper_TCAD/main.tex",
+      "bytes": 45262,
+      "sha256": "d8ea73ec7fdf79c3ee8c9e0e6f0fa19876213abe63c1d4abe17660a9aca9d417"
+    },
+    {
+      "path": "Paper/Paper_TCAD/references.bib",
+      "bytes": 18251,
+      "sha256": "a418802f26d7fd77b16d73fb2e38fb8d77fba6d0268388d3bc1dea741885be4b"
+    },
+    {
+      "path": "Paper/Paper_TCAD/vendor/IEEEtran.bst",
+      "bytes": 57748,
+      "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"
+    },
+    {
+      "path": "Paper/Paper_TCAD/vendor/IEEEtran.cls",
+      "bytes": 281957,
+      "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+    },
+    {
+      "path": "Paper/Paper_TCAD/vendor/README.md",
+      "bytes": 681,
+      "sha256": "bdcc283f2fcbd92ea95ff6b29c2196acd17edd6b0986566e3a6d8255daf58965"
+    },
+    {
+      "path": "Paper/Paper_TCAD/vendor/UPSTREAM_README",
+      "bytes": 5465,
+      "sha256": "cc2de809d6e86ab95cd4e88d97b41cb81dd96cf224e6445474aeb7419f4a0462"
+    },
+    {
       "path": "Paper/README.md",
-      "bytes": 1547,
-      "sha256": "5cc85d060d597fa24fd7ef7f3ee69918ce09ce3a01888501373fd753f5d10527"
+      "bytes": 1687,
+      "sha256": "643e3a296c6293cf3e75937313bf245ca3320d1a213bf4b8cc7a574239fe42d4"
     },
     {
       "path": "README.md",
-      "bytes": 18933,
-      "sha256": "198829297e22aa67220cf66397ee232f16a947c747767e10f29740817432db5d"
+      "bytes": 19353,
+      "sha256": "731605171e2ad145d8dc0fd4b2103a58b9595a386231b1c4bc927d6388a2405f"
     },
     {
       "path": "SECURITY.md",
@@ -1617,8 +1782,8 @@
     },
     {
       "path": "code/quality/audit_research_prose.py",
-      "bytes": 5363,
-      "sha256": "12e321b14791f44b8047fbd1751af56ad5f2605cd36bcb3bc9e6c12bcbabb442"
+      "bytes": 5400,
+      "sha256": "e76f2cf3e5b8720f7e4580aaeaa9f42b0a49f14a453d05d02c6bf1e5dcf0e493"
     },
     {
       "path": "code/quality/build_manifest.py",
@@ -33297,8 +33462,8 @@
     },
     {
       "path": "tests/test_wiki_contract.py",
-      "bytes": 17804,
-      "sha256": "7de0b3f8daf3bd93e56e76da96ceb75b1696e4d100235e89c20c310921a9d374"
+      "bytes": 17969,
+      "sha256": "6c37ce4616e4383374cc883cd0817476cbc3c8720316f78f23910ef63b9b54ad"
     },
     {
       "path": "wiki/CONTRIBUTING.md",
@@ -33312,8 +33477,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 12919,
-      "sha256": "ebab6d69137e40ce9d5da98295d30e409161a6d828391492542e20b133096dca"
+      "bytes": 13197,
+      "sha256": "98f4acc3563c74388462d0238522ce141b48592560e349a4d8c883e9fe37fde7"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -33332,8 +33497,8 @@
     },
     {
       "path": "wiki/START-HERE.md",
-      "bytes": 3612,
-      "sha256": "273ba1b789b39815bf5f5c84a9d9292100905aae680ef3280d772c6db0c62fb3"
+      "bytes": 3745,
+      "sha256": "eac2850a49dfcc0c2b5cb469572efe0bca99ef490acab65cab96b7217b848c3a"
     },
     {
       "path": "wiki/architecture/Research-System-Map.md",
@@ -33406,6 +33571,11 @@
       "sha256": "791c43ea745c9bc574b1b8bcdf5a98a5c15c87cb39e25575f1d1751d57212501"
     },
     {
+      "path": "wiki/manuscript/AI-Disclosure.md",
+      "bytes": 1200,
+      "sha256": "f12e1286f656ceac6d55cdd60fbb3abff18d390559fc80453ec7897e43a189d1"
+    },
+    {
       "path": "wiki/manuscript/FEM-Cps-Sections.md",
       "bytes": 3328,
       "sha256": "76b85b7aabe704a41b1dde569996e80727f99488d418974de0c717c8f8ea5d4d"
@@ -33422,8 +33592,8 @@
     },
     {
       "path": "wiki/manuscript/Paper-Export-Contract.md",
-      "bytes": 3465,
-      "sha256": "a948c7e49ad34950877de2468a9d512f783aab0a720ec3765732ae7071a33da6"
+      "bytes": 4034,
+      "sha256": "8dd2b2a3c696f6e746c317f09e76ea86475ef86cdacc28710f9ad8ba18d25bda"
     },
     {
       "path": "wiki/manuscript/Paper-Outline.md",
@@ -33432,8 +33602,13 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Readiness.md",
-      "bytes": 5572,
-      "sha256": "5b6f42523e7aa29dc502c5b8fbde43426cd3ed716c2943e0f8d6f78c3923b321"
+      "bytes": 5668,
+      "sha256": "ef8935bbbe641577882c01e42d9b3757e035c7248634247bb0622a96e155c238"
+    },
+    {
+      "path": "wiki/manuscript/TCAD-Research-Plan.md",
+      "bytes": 9715,
+      "sha256": "c79350fc6f7395ceb101d829a33d8ee8481aff4726d6d47678d7ac85a8f859bc"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -33572,20 +33747,20 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 35378,
-      "sha256": "3b1d86c251da85d794b42ac56a9e7585212722bf8a31cdd671dffce2e8a4f7c8"
+      "bytes": 36985,
+      "sha256": "a9924b98b4b9b76310941228dde0b046ee14c4648ad86c1e4c6a223261ba597b"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 7107,
-      "sha256": "66ce1569996333666697ff35bc4e39ec242c6d6b269ab9d22f68fbb6a741edfe"
+      "bytes": 7510,
+      "sha256": "bbd15c7260075682d82fe590520785eac2a3f417b4f96b7bc1abaac1d93f24e7"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
-      "bytes": 6255,
-      "sha256": "5664e6af54de7f27a20c0e593bf145f28eefe24c8ff5cbececeda257d290bb82"
+      "bytes": 6647,
+      "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6714,
-  "total_bytes": 984282571
+  "n_files": 6749,
+  "total_bytes": 986376175
 }

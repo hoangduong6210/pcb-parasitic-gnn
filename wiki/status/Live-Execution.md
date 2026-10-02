@@ -1,11 +1,38 @@
 ---
 title: Live Execution Snapshot
-status: PAUSED; historical execution log
+status: PROPOSED; TCAD planning resumed; no new jobs
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Live Execution Snapshot
+
+## TCAD continuation and disclosure on 2026-10-02
+
+The owner requested project continuation toward TCAD, a next-study proposal,
+and disclosure of Codex assistance with manuscript outlining and wording.
+Planning is resumed. The [TCAD research plan](../manuscript/TCAD-Research-Plan.md)
+prioritizes a separately versioned capacitance-reference qualification pilot
+before multi-fidelity learning and design-screening studies. No machine-readable
+protocol or execution lock for that study has been frozen and no job was
+submitted. A read-only `squeue` query returned no jobs for the project user.
+Heavy work, including meshing, solving, fitting and numerical replay, remains
+SLURM-only.
+
+An editable draft in `Paper/Paper_TCAD/` adds the
+[author-reported disclosure](../manuscript/AI-Disclosure.md) before References.
+The released Journal Snapshot 1.1.1 and its scientific evidence remain
+unchanged. The remote release tag was rechecked and still peels to
+`d96dbb02664b3e0aab09b60a67c67872a3fa8762`.
+
+Validation passed: the TCAD draft builds to eleven pages without the checked
+LaTeX warnings; the rendered disclosure on page ten was inspected; all 25
+inherited bibliography, figure and vendor assets match the snapshot bytes.
+The 61 focused wiki, prose and journal tests passed, as did the deterministic
+prose audit and the original snapshot verifier. Publication is pending. The last
+verified remote `main` is `ca00f5c73875093ecd33114a11b8bd8cca0da25c`.
+Next: publish the draft and proposal, then turn the first reference study into
+a frozen protocol and bounded SLURM pilot.
 
 ## Paper organization and TCAD review on 2026-10-02
 
@@ -73,9 +100,9 @@ committer as `hoangduong6210`; branch and tag CI runs `35064045532` and
 `35064045774` completed successfully. The remote exposes only `main`. The
 original `journal-snapshot-1` tag remains unchanged.
 
-## Current paused state
+## Paused state recorded in September 2026
 
-Research execution is intentionally paused. A scheduler check during the pause
+Research execution was intentionally paused. A scheduler check during the pause
 audit found no active jobs for the project user. Every current production,
 accuracy, latency, baseline, and coordinate-update chain is closed; no solver,
 training, finalizer, or recovery job is waiting to be resumed. Start from

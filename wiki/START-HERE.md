@@ -23,9 +23,10 @@ fidelities and a family-aware evaluation protocol.
 
 ## Read these five pages first
 
-The project is currently paused and handoff-ready. A returning owner or new
-maintainer should first read [Research Pause and Handoff](status/Research-Pause-Handoff.md),
-which distinguishes closed execution from genuinely deferred research.
+TCAD planning resumed on 2026-10-02; no new experiment has been submitted.
+Read the [TCAD research plan](manuscript/TCAD-Research-Plan.md) and
+[Research Pause and Handoff](status/Research-Pause-Handoff.md), which distinguish
+the proposed continuation from closed historical execution.
 
 1. [Project Status](status/Project-Status.md) states what is complete and what is
    blocked.
@@ -52,6 +53,7 @@ which distinguishes closed execution from genuinely deferred research.
 | `Paper/Paper_Summary/` | Immutable submitted conference snapshot |
 | `Paper/Paper_Full/` | Superseded extended-paper archive retained for provenance |
 | `Paper/Paper_Journal_Snapshot_1/` | Current journal-format snapshot exported from admitted wiki claims |
+| `Paper/Paper_TCAD/` | Editable TCAD draft with the author-reported Codex disclosure |
 
 ## Safe first checks
 

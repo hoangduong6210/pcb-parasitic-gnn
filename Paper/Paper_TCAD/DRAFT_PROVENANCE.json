@@ -1,0 +1,19 @@
+{
+  "schema": "pcb-gnn.tcad-working-draft.v1",
+  "version": "0.1.0-tcad-draft",
+  "status": "working draft; not submitted or released",
+  "created_on": "2026-10-02",
+  "base_release_tag": "journal-snapshot-1.1.1",
+  "base_release_commit": "d96dbb02664b3e0aab09b60a67c67872a3fa8762",
+  "base_snapshot_manifest_sha256": "837e2f957bf3075922a1fa3c04efd669b9fef2cf9d2a0f80870b7df176f11745",
+  "base_manuscript_sha256": "ba71efbc08d6f0e2d286cd219dad860117d75f30cd7f3aae92a33507d69e2925",
+  "initial_changes": [
+    "Working-draft identification in the author note and running header",
+    "Author-reported Codex manuscript-preparation disclosure in Acknowledgment",
+    "Draft-specific PDF filename and reproducible build timestamp"
+  ],
+  "scientific_changes": "none",
+  "assets": "Bibliography, figure data, generator, figures and IEEEtran vendor files copied unchanged from the base snapshot",
+  "pdf": "build/PCB_Parasitic_GNN_TCAD_Draft.pdf",
+  "integrity": "The repository MANIFEST.json records current tracked-file hashes; this provenance record is not a frozen snapshot manifest"
+}

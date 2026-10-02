@@ -139,6 +139,7 @@ def main() -> int:
         "Paper/Paper_Full/main.tex",
         "Paper/Paper_Summary/main.tex",
         "Paper/Paper_Journal_Snapshot_1/main.tex",
+        "Paper/Paper_TCAD/main.tex",
     ):
         path = ROOT / relative
         for error in audit_latex(path):

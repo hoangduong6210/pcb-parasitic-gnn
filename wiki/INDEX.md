@@ -25,7 +25,7 @@ paper_source: false
 |---|---|
 | [Project Status](status/Project-Status.md) | Scientific lifecycle and current blockers |
 | [Live Execution](status/Live-Execution.md) | Closed dated scheduler history; historical state words are not resume instructions |
-| [Research Pause and Handoff](status/Research-Pause-Handoff.md) | Canonical paused state, read order, deferred work, and exact resume boundary |
+| [Research Pause and Handoff](status/Research-Pause-Handoff.md) | Historical pause, preserved release anchors and current resume boundary |
 | [Repository Author Attribution](status/Author-Attribution.md) | GitHub identity mapping, verification, and immutable-history boundary |
 | [Limitations](LIMITATIONS.md) | Boundaries that apply across papers and claims |
 | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) | Accepted R3/R4 policy and consequences |
@@ -90,6 +90,8 @@ paper_source: false
 |---|---|
 | [Paper Export Contract](manuscript/Paper-Export-Contract.md) | Eligibility gates and immutable snapshot manifest |
 | [TCAD Submission Readiness](manuscript/TCAD-Readiness.md) | Venue fit, current evidence gaps and submission-format checks |
+| [TCAD Research Continuation Plan](manuscript/TCAD-Research-Plan.md) | Reference-first study proposal, conditional research stages and SLURM execution gates |
+| [Manuscript AI Disclosure](manuscript/AI-Disclosure.md) | Author-reported Codex writing assistance and disclosure text |
 | [Paper Outline](manuscript/Paper-Outline.md) | IEEE section map to canonical wiki sources |
 | [FEM Cps Sections](manuscript/FEM-Cps-Sections.md) | Existing admitted FEM prose pending consolidation |
 | [Journal Snapshot 1.1](manuscript/Journal-Snapshot-1.1.md) | Expanded journal export, visual and citation gates, and release boundary |

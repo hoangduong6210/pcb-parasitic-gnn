@@ -1,0 +1,4 @@
+build/*
+!build/PCB_Parasitic_GNN_TCAD_Draft.pdf
+__pycache__/
+*.pyc

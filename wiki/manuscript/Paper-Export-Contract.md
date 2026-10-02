@@ -31,6 +31,16 @@ This directory migration is not a new scientific snapshot. The
 [TCAD readiness review](TCAD-Readiness.md) records the requested venue assessment
 and the remaining scientific and submission-format work.
 
+## TCAD working draft
+
+The owner requested a writing-assistance disclosure on 2026-10-02.
+[`Paper/Paper_TCAD/`](../../Paper/Paper_TCAD/) is the editable derivative for that
+request and subsequent TCAD preparation. Its provenance record identifies the
+unchanged release base; it is neither a frozen snapshot nor a submission.
+The [disclosure page](AI-Disclosure.md) owns the author-reported text. Proposed
+studies remain in the [research plan](TCAD-Research-Plan.md), outside the paper's
+scientific result sections. New scientific content must satisfy the gates below.
+
 ## Eligibility gate
 
 A paper may use a scientific statement only when:

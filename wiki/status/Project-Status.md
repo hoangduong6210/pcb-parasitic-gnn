@@ -1,17 +1,18 @@
 ---
 title: Project Status
-status: PAUSED; HANDOFF READY
+status: PROPOSED; TCAD planning resumed; no new jobs
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Project Status
 
-The research program is intentionally paused with no active scientific
-execution. The canonical restart instructions and deferred questions are in
+The owner resumed project planning on 2026-10-02 with TCAD as the target.
+The [TCAD research plan](../manuscript/TCAD-Research-Plan.md) recommends
+capacitance-reference qualification as the first new study. No new experiment
+has been submitted. The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
-remain closed; resuming research means defining a new versioned study, not
-continuing a historical `PENDING` entry.
+remain closed; a new protocol does not continue a historical `PENDING` entry.
 
 ## Scientific state
 
@@ -36,6 +37,8 @@ instead of calling one column ground truth.
 
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
+| TCAD reference-qualification continuation | `PROPOSED; NOT SUBMITTED` | First new study; protocol and execution lock must be frozen before any SLURM solve |
+| TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |
 | FEM backend equivalence and residual checks | `ADMITTED` | Solver implementation evidence |
@@ -62,7 +65,7 @@ instead of calling one column ground truth.
 
 The dated [Live Execution](Live-Execution.md) page preserves prior task counts
 and scheduler transitions. The [handoff page](Research-Pause-Handoff.md) owns
-the current paused state and future restart boundary.
+the historical pause and current restart boundary.
 
 ## Preserved results and deferred stages
 

@@ -434,16 +434,18 @@ def test_slurm_playbook_bash_blocks_are_syntactically_valid() -> None:
     assert checked.returncode == 0, checked.stderr
 
 
-def test_paused_handoff_is_canonical_and_reachable() -> None:
+def test_tcad_resume_preserves_handoff_and_closed_execution() -> None:
     handoff = _read("wiki/status/Research-Pause-Handoff.md")
     project_status = _read("wiki/status/Project-Status.md")
     live_status = _read("wiki/status/Live-Execution.md")
     claim_registry = _read("wiki/claims/Current-Claim-Language.md")
 
-    assert "status: PAUSED; HANDOFF READY" in handoff
+    assert "status: historical pause; TCAD planning resumed" in handoff
     assert "`journal-snapshot-1`" in handoff
-    assert "status: PAUSED; HANDOFF READY" in project_status
-    assert "status: PAUSED; historical execution log" in live_status
+    assert "status: PROPOSED; TCAD planning resumed; no new jobs" in project_status
+    assert "status: PROPOSED; TCAD planning resumed; no new jobs" in live_status
+    for page in (handoff, project_status, live_status):
+        assert "TCAD-Research-Plan.md" in page
     assert "## Closed execution history" in live_status
     assert "No; eligible after" not in claim_registry
 

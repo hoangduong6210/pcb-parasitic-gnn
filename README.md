@@ -27,8 +27,11 @@ results, not physical-board accuracy or a latency claim.
 The implementation uses PyTorch without PyG or DGL. Source code is BSD-3-Clause;
 external reference solvers are not redistributed.
 
-**Research status:** The research program is paused and handoff-ready; restart
-from [`wiki/status/Research-Pause-Handoff.md`](wiki/status/Research-Pause-Handoff.md).
+**Research status:** TCAD planning resumed on 2026-10-02. The
+[continuation plan](wiki/manuscript/TCAD-Research-Plan.md) prioritizes numerical
+reference qualification; no new experiment has been submitted. Preserve the
+closed-study boundaries in
+[`wiki/status/Research-Pause-Handoff.md`](wiki/status/Research-Pause-Handoff.md).
 Current admitted numerical evidence is solver-based, not
 measurements from a fabricated board. The tracked closure includes authenticated
 checkpoints and held-out predictions for verification. It is not a general
@@ -40,6 +43,7 @@ The repository keeps manuscript packages separate from experiment evidence:
 
 | Package | Purpose | Contents |
 |---|---|---|
+| [`Paper/Paper_TCAD/`](Paper/Paper_TCAD/) | Editable TCAD working draft | Inherited admitted results, author-reported Codex disclosure, draft provenance and PDF |
 | [`Paper/Paper_Summary/`](Paper/Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper/Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper/Paper_Summary/README.md) |
 | [`Paper/Paper_Full/`](Paper/Paper_Full/) | **Superseded archival** extended manuscript | Historical LaTeX, bibliography, figures, build script, version metadata, and PDF |
 | [`Paper/Paper_Journal_Snapshot_1/`](Paper/Paper_Journal_Snapshot_1/) | Current expanded journal snapshot 1.1.1 | Independent IEEE-format LaTeX package, nine reviewed figures, sixty validated references, manifest, and PDF |
@@ -62,6 +66,7 @@ Build a manuscript package from the repository root:
 bash Paper/Paper_Summary/build.sh
 bash Paper/Paper_Full/build.sh
 bash Paper/Paper_Journal_Snapshot_1/build.sh
+bash Paper/Paper_TCAD/build.sh
 ```
 
 The superseded extended build still regenerates its figures from
@@ -157,6 +162,7 @@ results/       run outputs plus the proof-update aggregate used by paper figures
 figures/       paper figures (PDF + PNG)
 wiki/          canonical status, methods, claim language, and evidence ledgers
 Paper/         manuscript packages (see Paper/README.md)
+├── Paper_TCAD/              editable TCAD working draft
 ├── Paper_Journal_Snapshot_1/ current journal snapshot 1.1.1
 ├── Paper_Full/              superseded extended manuscript
 └── Paper_Summary/           historical conference submission
