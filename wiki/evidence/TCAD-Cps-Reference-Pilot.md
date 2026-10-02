@@ -132,3 +132,8 @@ retaining its local copy. Historical commits and release tags remain intact.
 This receipt is a subsequent documentation change, separate from the immutable
 execution commit. The smoke implementation check is validated; no qualified
 reference, learning result or new claim is available.
+
+The validated smoke archive, submission receipt and wiki status were published
+as `48baf0b380a7fc70974e0e984b4be08c09bc8b13`; `git ls-remote` confirmed that
+exact remote `main` hash. This publication receipt is a later documentation
+update. Active jobs remain pinned to `d00426684f93155cc20924630facc63a94e72d32`.

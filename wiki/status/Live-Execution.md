@@ -30,6 +30,10 @@ pilot request; numerical libraries and meshing remain at one scientific thread.
 Completed smoke evidence is archived; ongoing pilot artifacts stay in the
 frozen execution worktree until terminal collection.
 
+The smoke archive and submission/wiki receipts were published at remotely
+verified commit `48baf0b380a7fc70974e0e984b4be08c09bc8b13`. This later
+publication receipt does not modify the active execution source.
+
 ## TCAD recovery smoke submission on 2026-10-02
 
 Recovery source `d00426684f93155cc20924630facc63a94e72d32` is published and
