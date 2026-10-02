@@ -7,6 +7,39 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD smoke validated; pilot submitted on 2026-10-02
+
+Recovery smoke `7641193` completed `0:0`, zero restarts, on `a0102` in six
+seconds. Same-matrix AMG/direct agreement, residual, passive output, source,
+log and resource gates passed. The retained
+[evidence](../evidence/TCAD-Cps-Reference-Pilot.md) is an implementation check,
+not physical validation or a mesh-convergence claim.
+
+Pilot array `7641200` now has three submitted tasks at concurrency one, with
+finalizer `7641201` dependent on `afterany:7641200`. Initial states were
+`PENDING (Priority)` and `PENDING (Dependency)`. Execution remains pinned to
+published commit `d00426684f93155cc20924630facc63a94e72d32`; wiki receipts in
+the main checkout do not change that worktree. Next: terminal accounting,
+failure retention and finalizer review. No panel expansion, training, claim
+admission or paper export has been opened.
+
+Latest read-only observation at this handoff: task `7641200_0` RUNNING on
+`a0147`; tasks 1–2 PENDING under the array throttle; finalizer `7641201`
+PENDING on its dependency. The scheduler allocated 41 CPUs for the 160 GiB
+pilot request; numerical libraries and meshing remain at one scientific thread.
+Completed smoke evidence is archived; ongoing pilot artifacts stay in the
+frozen execution worktree until terminal collection.
+
+## TCAD recovery smoke submission on 2026-10-02
+
+Recovery source `d00426684f93155cc20924630facc63a94e72d32` is published and
+remote-hash verified. Its clean detached worktree passed source-lock and
+repository-manifest checks before submitting SLURM smoke `7641193`.
+The [pilot evidence record](../evidence/TCAD-Cps-Reference-Pilot.md) retains
+the previous rejected attempt and the unchanged protocol/resource boundary.
+No pilot or finalizer has been submitted at this checkpoint. Next: verify the
+recovery smoke's numerical checks and terminal accounting before proceeding.
+
 ## TCAD smoke rejected; software recovery on 2026-10-02
 
 Smoke `7640925` failed closed on compute node `a0102` after nine seconds, with

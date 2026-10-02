@@ -1,0 +1,22 @@
+{
+  "schema": "pcb-gnn.tcad-cps-submission-receipt.v1",
+  "observation_date": "2026-10-02",
+  "source_commit": "d00426684f93155cc20924630facc63a94e72d32",
+  "lock_sha256": "31f1aeb3dad2384f0f982b105722406f914f2a1b027230c074b5860b077fc510",
+  "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+  "smoke_job_id": "7641193",
+  "smoke_attempt_sha256": "79814e9f1a771f9fc4887422cb4f90809373f25d87ed31556c08837235408fc6",
+  "pilot_array_id": "7641200",
+  "pilot_tasks": [0, 1, 2],
+  "pilot_layout_ids": [874, 1369, 597],
+  "pilot_array_throttle": 1,
+  "pilot_initial_state": "PENDING",
+  "pilot_initial_reason": "Priority",
+  "finalizer_job_id": "7641201",
+  "finalizer_dependency": "afterany:7641200",
+  "finalizer_initial_state": "PENDING",
+  "finalizer_initial_reason": "Dependency",
+  "training_authorized": false,
+  "full_panel_expansion_authorized": false,
+  "claim_eligible": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "pcb-gnn.tcad-cps-terminal-observation.v1",
+  "observation_date": "2026-10-02",
+  "job_id": "7641193",
+  "state": "COMPLETED",
+  "exit_code": "0:0",
+  "restarts": 0,
+  "elapsed_s": 6,
+  "allocated_cpus": 3,
+  "requested_memory": "8G",
+  "node": "a0102",
+  "source_commit": "d00426684f93155cc20924630facc63a94e72d32",
+  "attempt_sha256": "79814e9f1a771f9fc4887422cb4f90809373f25d87ed31556c08837235408fc6",
+  "backend_check_passed": true,
+  "physical_validation": false,
+  "mesh_convergence_established": false
+}

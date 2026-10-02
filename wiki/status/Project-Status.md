@@ -39,7 +39,7 @@ instead of calling one column ground truth.
 
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
-| TCAD reference-qualification continuation | `RUNNING; IMPLEMENTATION` | Owner-approved bounded pilot; source publication and SLURM gates precede solving; no claim or training authorization |
+| TCAD reference-qualification continuation | `RUNNING; PILOT SUBMITTED` | Smoke validated; three-task SLURM pilot and finalizer submitted; no reference-qualification claim or training authorization |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

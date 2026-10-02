@@ -1,6 +1,6 @@
 ---
 title: TCAD Capacitance Reference Qualification
-status: PROPOSED; owner-approved bounded pilot; not a qualified reference
+status: RUNNING; frozen bounded pilot; not a qualified reference
 last_updated: 2026-10-02
 paper_source: false
 ---

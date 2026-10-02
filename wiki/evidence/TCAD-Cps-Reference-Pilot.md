@@ -1,6 +1,6 @@
 ---
 title: TCAD Capacitance Reference Pilot Evidence
-status: RUNNING; smoke failed closed; serialization recovery validated locally
+status: RUNNING; smoke validated; pilot and finalizer submitted
 last_updated: 2026-10-02
 paper_source: false
 ---
@@ -72,8 +72,49 @@ within the execution closure: protocol, geometry panel, physics, mesh sizes,
 tolerances and resource caps are unchanged. The new source lock SHA-256 is
 `31f1aeb3dad2384f0f982b105722406f914f2a1b027230c074b5860b077fc510`.
 This is a separately published software-recovery attempt, not requeue or an
-automatic retry with wider limits. Its source publication and smoke submission
-are the next actions; the pilot remains gated.
+automatic retry with wider limits. Recovery source
+`d00426684f93155cc20924630facc63a94e72d32` was pushed and verified against the
+remote `main` hash. A new detached worktree passed the lock and repository
+manifest checks for 6,770 tracked files other than the manifest. Recovery smoke
+`7641193` was submitted from that clean source. The pilot remains gated on
+terminal smoke success and the backend-equivalence receipt.
+
+## Validated smoke and pilot submission on 2026-10-02
+
+Recovery smoke `7641193` completed `0:0`, zero restarts, in six seconds on
+`a0102`, with three allocated CPUs and one scientific thread. Its
+[attempt receipt](../../results/tcad/cps_reference_v1/smoke/job_7641193/attempt.json)
+has SHA-256
+`79814e9f1a771f9fc4887422cb4f90809373f25d87ed31556c08837235408fc6`.
+Raw logs and terminal accounting are preserved beside it. The toy mesh had
+2,159 nodes and 12,336 tetrahedra. AMG capacitance was 1.0304787645351507 pF;
+direct capacitance was 1.0304787645351505 pF on the identical system. AMG
+relative residual was 8.292661101095258e-11. All frozen smoke gates passed.
+These values check implementation consistency only; they are neither physical
+validation nor mesh-convergence evidence.
+
+The read-only admission check reconstructed the saved result from its raw log,
+verified source/lock bindings and terminal `COMPLETED/0:0` with zero restarts.
+Only then was pilot array `7641200` submitted, tasks 0–2 at throttle one for
+layouts `874`, `1369`, `597`. Finalizer `7641201` was submitted with dependency
+`afterany:7641200`. Both use the unchanged published recovery source and lock.
+The initial pilot observation was `PENDING (Priority)` and the finalizer was
+`PENDING (Dependency)`. The
+[submission receipt](../../results/tcad/cps_reference_v1/submissions/pilot_7641200.json)
+pins the chain. No pilot sensitivity result is available at submission.
+
+A subsequent read-only observation found task `7641200_0` RUNNING on `a0147`,
+with 41 allocated CPUs for the 160 GiB request and one scientific thread.
+Tasks 1–2 were `PENDING (JobArrayTaskLimit)` as required by throttle one;
+finalizer `7641201` remained `PENDING (Dependency)`. The ongoing attempt is
+not copied into the archive while mutable. The post-smoke receipt update passed
+80 focused pilot/wiki/prose tests, the deterministic prose audit, and the
+repository-manifest check for 6,778 tracked files other than itself.
+
+Next: observe all three terminal task outcomes, retain every arm and failure,
+inspect the finalizer's exact-coverage and sensitivity gates, and index the
+result before considering panel expansion. No full-panel solve, GNN training,
+new claim or paper export is authorized by smoke success or scheduler completion.
 
 ## Publication and internal-file boundary
 
@@ -89,5 +130,5 @@ changing global credentials or writing a credential into the repository.
 The published commit removes the internal guidance file from tracking while
 retaining its local copy. Historical commits and release tags remain intact.
 This receipt is a subsequent documentation change, separate from the immutable
-execution commit. No numerical outcome, qualified reference, learning result
-or new claim is available.
+execution commit. The smoke implementation check is validated; no qualified
+reference, learning result or new claim is available.
