@@ -29,10 +29,13 @@ Validation passed: the TCAD draft builds to eleven pages without the checked
 LaTeX warnings; the rendered disclosure on page ten was inspected; all 25
 inherited bibliography, figure and vendor assets match the snapshot bytes.
 The 61 focused wiki, prose and journal tests passed, as did the deterministic
-prose audit and the original snapshot verifier. Publication is pending. The last
-verified remote `main` is `ca00f5c73875093ecd33114a11b8bd8cca0da25c`.
-Next: publish the draft and proposal, then turn the first reference study into
-a frozen protocol and bounded SLURM pilot.
+prose audit and the original snapshot verifier. The regenerated repository
+manifest passed for 6,749 tracked files other than itself. The draft and plan
+were published as `b1fb8571168e97496ee82797c287daaef2d8a315`; `git ls-remote`
+confirmed that exact remote `main` hash after the push. This paragraph records
+that verified publication in a subsequent documentation update.
+Next: turn the first reference study into a frozen protocol and bounded SLURM
+pilot. No new computational job has been submitted.
 
 ## Paper organization and TCAD review on 2026-10-02
 
