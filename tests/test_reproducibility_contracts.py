@@ -138,7 +138,7 @@ def test_coremfem_dependency_and_path_are_explicit() -> None:
 
 
 def test_summary_snapshot_identity_and_ledger_links() -> None:
-    summary = ROOT / "Paper_Summary"
+    summary = ROOT / "Paper" / "Paper_Summary"
     ledger = summary / "README.md"
     text = ledger.read_text()
     expected = {

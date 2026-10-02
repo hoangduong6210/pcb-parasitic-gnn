@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-PAPER = REPO / "Paper_Full"
+PAPER = REPO / "Paper" / "Paper_Full"
 os.environ.setdefault("MPLCONFIGDIR", str(PAPER / ".mplconfig"))
 
 import matplotlib.pyplot as plt

@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "Paper_Journal_Snapshot_1"
+PACKAGE = ROOT / "Paper" / "Paper_Journal_Snapshot_1"
 
 EXPECTED_CLAIMS = {
     "C-GEOM-001",

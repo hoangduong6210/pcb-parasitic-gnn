@@ -1,7 +1,7 @@
 ---
 title: Start Here
 status: canonical onboarding
-last_updated: 2026-09-15
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -49,9 +49,9 @@ which distinguishes closed execution from genuinely deferred research.
 | `datasets/` | Tracked historical datasets and dataset-facing documentation |
 | `results/` | Job-scoped evidence and finalized summaries |
 | `wiki/` | Canonical scientific knowledge and publication source |
-| `Paper_Summary/` | Immutable submitted conference snapshot |
-| `Paper_Full/` | Superseded extended-paper archive retained for provenance |
-| `Paper_Journal_Snapshot_1/` | Current journal-format snapshot exported from admitted wiki claims |
+| `Paper/Paper_Summary/` | Immutable submitted conference snapshot |
+| `Paper/Paper_Full/` | Superseded extended-paper archive retained for provenance |
+| `Paper/Paper_Journal_Snapshot_1/` | Current journal-format snapshot exported from admitted wiki claims |
 
 ## Safe first checks
 

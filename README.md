@@ -40,28 +40,28 @@ The repository keeps manuscript packages separate from experiment evidence:
 
 | Package | Purpose | Contents |
 |---|---|---|
-| [`Paper_Summary/`](Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper_Summary/README.md) |
-| [`Paper_Full/`](Paper_Full/) | **Superseded archival** extended manuscript | Historical LaTeX, bibliography, figures, build script, version metadata, and PDF |
-| [`Paper_Journal_Snapshot_1/`](Paper_Journal_Snapshot_1/) | Current expanded journal snapshot 1.1.1 | Independent IEEE-format LaTeX package, nine reviewed figures, sixty validated references, manifest, and PDF |
+| [`Paper/Paper_Summary/`](Paper/Paper_Summary/) | **Superseded archival** conference snapshot | Immutable source, [`Conference_Submission_ARCHIVE.pdf`](Paper/Paper_Summary/Conference_Submission_ARCHIVE.pdf), compatibility build wrapper, and a version-specific [`claim ledger`](Paper/Paper_Summary/README.md) |
+| [`Paper/Paper_Full/`](Paper/Paper_Full/) | **Superseded archival** extended manuscript | Historical LaTeX, bibliography, figures, build script, version metadata, and PDF |
+| [`Paper/Paper_Journal_Snapshot_1/`](Paper/Paper_Journal_Snapshot_1/) | Current expanded journal snapshot 1.1.1 | Independent IEEE-format LaTeX package, nine reviewed figures, sixty validated references, manifest, and PDF |
 
 The version-controlled [`wiki/`](wiki/) is authoritative for current project
 status, protocols, admitted claims, and manuscript-ready source text. New
 contributors should begin with [`wiki/START-HERE.md`](wiki/START-HERE.md), and
 all maintained pages are listed in [`wiki/INDEX.md`](wiki/INDEX.md). The current
-journal export is kept in `Paper_Journal_Snapshot_1/`; its package manifest owns
+journal export is kept in `Paper/Paper_Journal_Snapshot_1/`; its package manifest owns
 the exact wiki revision, claim set and build identities. Its release boundary
 and review gates are indexed in the
 [Journal Snapshot 1.1.1 wiki page](wiki/manuscript/Journal-Snapshot-1.1.1.md).
-`Paper_Full/` and
-`Paper_Summary/` remain immutable archival snapshots; wording in either archive
+`Paper/Paper_Full/` and
+`Paper/Paper_Summary/` remain immutable archival snapshots; wording in either archive
 that conflicts with the wiki claim registry is superseded.
 
 Build a manuscript package from the repository root:
 
 ```bash
-bash Paper_Summary/build.sh
-bash Paper_Full/build.sh
-bash Paper_Journal_Snapshot_1/build.sh
+bash Paper/Paper_Summary/build.sh
+bash Paper/Paper_Full/build.sh
+bash Paper/Paper_Journal_Snapshot_1/build.sh
 ```
 
 The superseded extended build still regenerates its figures from
@@ -156,8 +156,10 @@ code/          source, grouped by role see code/README.md for the file index
 results/       run outputs plus the proof-update aggregate used by paper figures
 figures/       paper figures (PDF + PNG)
 wiki/          canonical status, methods, claim language, and evidence ledgers
-Paper_Full/    extended manuscript package only
-Paper_Summary/ historical summary manuscript package only
+Paper/         manuscript packages (see Paper/README.md)
+├── Paper_Journal_Snapshot_1/ current journal snapshot 1.1.1
+├── Paper_Full/              superseded extended manuscript
+└── Paper_Summary/           historical conference submission
 datasets/      per-corpus meta.json + labels.json (see "Data" below)
 logs/          available SLURM stderr and selected stdout records
 MANIFEST.json  deterministic SHA-256 inventory of the current tracked tree

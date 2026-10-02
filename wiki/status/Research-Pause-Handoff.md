@@ -1,7 +1,7 @@
 ---
 title: Research Pause and Handoff
 status: PAUSED; HANDOFF READY
-last_updated: 2026-09-16
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -19,7 +19,7 @@ historical observations.
 
 The canonical scientific state is the admitted claim set in the
 [Current Claim Registry](../claims/Current-Claim-Language.md). The journal
-export is packaged separately in [`Paper_Journal_Snapshot_1/`](../../Paper_Journal_Snapshot_1/).
+export is packaged separately in [`Paper/Paper_Journal_Snapshot_1/`](../../Paper/Paper_Journal_Snapshot_1/).
 Its package README and snapshot manifest own the final source revision, claim
 inventory, artifact hashes, build identity, and PDF identity. The latest
 restart anchor is immutable tag `journal-snapshot-1.1.1`; verify it against the

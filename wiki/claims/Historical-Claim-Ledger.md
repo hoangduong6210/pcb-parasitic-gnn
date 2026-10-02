@@ -1,7 +1,7 @@
 ---
 title: Historical Claim Ledger
 status: canonical archival registry
-last_updated: 2026-08-17
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -76,5 +76,5 @@ or restored raw record in the released evidence. They remain snapshot text and
 are not independently reproducible claims.
 
 The four-page snapshot retains a more detailed field-by-field ledger in
-`Paper_Summary/README.md`. That ledger identifies the submitted text. This page
+`Paper/Paper_Summary/README.md`. That ledger identifies the submitted text. This page
 owns the current interpretation and supersession status.

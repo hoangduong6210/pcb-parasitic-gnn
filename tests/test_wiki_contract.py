@@ -352,7 +352,7 @@ def test_wiki_accuracy_rows_are_rendered_from_the_tracked_matrices() -> None:
     ("readme_path", "target_pattern"),
     (
         ("README.md", r"wiki/(?:README\.md)?"),
-        ("Paper_Summary/README.md", r"\.\./wiki/(?:README\.md)?"),
+        ("Paper/Paper_Summary/README.md", r"\.\./\.\./wiki/(?:README\.md)?"),
     ),
 )
 def test_readmes_link_to_the_canonical_wiki(

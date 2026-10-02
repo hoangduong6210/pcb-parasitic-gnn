@@ -1,7 +1,7 @@
 ---
 title: Technical Source Map
 status: canonical citation map
-last_updated: 2026-08-17
+last_updated: 2026-10-02
 paper_source: true
 prose_reviewed: true
 claim_ids: none
@@ -9,7 +9,7 @@ claim_ids: none
 
 # Technical Source Map
 
-The bibliography database remains `Paper_Full/references.bib`. This page records
+The bibliography database remains `Paper/Paper_Full/references.bib`. This page records
 which source families support each method discussion so a paper editor does not
 copy citations from an older manuscript without checking them.
 

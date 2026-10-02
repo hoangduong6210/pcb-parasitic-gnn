@@ -1,15 +1,15 @@
 ---
 title: Paper Export Contract
 status: canonical publication policy
-last_updated: 2026-09-16
+last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Paper Export Contract
 
-`Paper_Summary/` is the immutable submitted conference snapshot.
-`Paper_Full/` is a superseded extended-manuscript archive and is not rewritten.
-`Paper_Journal_Snapshot_1/` is the journal-format export requested at the research
+`Paper/Paper_Summary/` is the immutable submitted conference snapshot.
+`Paper/Paper_Full/` is a superseded extended-manuscript archive and is not rewritten.
+`Paper/Paper_Journal_Snapshot_1/` is the journal-format export requested at the research
 pause boundary. Its own manifest records the final identity after the package is
 built and reviewed. Routine research edits belong in the wiki, not in any paper
 package.
@@ -19,6 +19,17 @@ The original seven-page export remains immutable at `journal-snapshot-1`.
 its own version and tag; it does not move or overwrite the earlier release.
 The [1.1.1 figure correction](Journal-Snapshot-1.1.1.md) supersedes only the
 visual layout of Figs. 5 and 7, again under a distinct immutable tag.
+
+## Package organization on 2026-10-02
+
+All manuscript packages now live under [`Paper/`](../../Paper/). The journal
+snapshot was moved byte-for-byte, including its manifest, source and PDF.
+Historical manuscript sources, figures and PDFs retain their original bytes;
+only archive build wrappers and navigation links were adapted to the extra
+directory level. Published tags keep their original paths and commit identities.
+This directory migration is not a new scientific snapshot. The
+[TCAD readiness review](TCAD-Readiness.md) records the requested venue assessment
+and the remaining scientific and submission-format work.
 
 ## Eligibility gate
 

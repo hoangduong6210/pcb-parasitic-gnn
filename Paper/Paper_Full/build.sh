@@ -2,7 +2,7 @@
 set -euo pipefail
 
 HERE=$(cd "$(dirname "$0")" && pwd)
-REPO=$(cd "$HERE/.." && pwd)
+REPO=$(cd "$HERE/../.." && pwd)
 cd "$HERE"
 export MPLCONFIGDIR="$HERE/.mplconfig"
 export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-1786492800}"

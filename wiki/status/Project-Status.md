@@ -1,7 +1,7 @@
 ---
 title: Project Status
 status: PAUSED; HANDOFF READY
-last_updated: 2026-09-16
+last_updated: 2026-10-02
 paper_source: false
 ---
 
@@ -81,7 +81,7 @@ the current paused state and future restart boundary.
    Any ranking study requires its own FEM-v2 frozen protocol.
 5. For any future study, admit claims in the wiki before generating another
    paper snapshot. The current journal export is
-   [`Paper_Journal_Snapshot_1/`](../../Paper_Journal_Snapshot_1/).
+   [`Paper/Paper_Journal_Snapshot_1/`](../../Paper/Paper_Journal_Snapshot_1/).
 
 There are separate admitted family-crossed results for the archived 25-thread
 target package and the deterministic one-thread FEM-v2 package. There is no

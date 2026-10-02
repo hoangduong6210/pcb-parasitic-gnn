@@ -12,7 +12,7 @@ mkdir -p "$BUILD"
 
 # Keep the packaged source unchanged. The TeX retains its development-tree
 # ../08_figures/ path, so patch only the generated build copy.
-sed 's|{../08_figures/}|{../../figures/}|' "$SOURCE" > "$BUILD/main.tex"
+sed 's|{../08_figures/}|{../../../figures/}|' "$SOURCE" > "$BUILD/main.tex"
 cd "$BUILD"
 pdflatex -interaction=nonstopmode -halt-on-error main.tex
 pdflatex -interaction=nonstopmode -halt-on-error main.tex

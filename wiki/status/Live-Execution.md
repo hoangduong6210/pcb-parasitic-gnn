@@ -1,11 +1,35 @@
 ---
 title: Live Execution Snapshot
 status: PAUSED; historical execution log
-last_updated: 2026-09-16
+last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Live Execution Snapshot
+
+## Paper organization and TCAD review on 2026-10-02
+
+The owner requested a shared `Paper/` directory, a local journal checkout named
+`GNN parasitic`, and an assessment of TCAD suitability. All three manuscript
+packages have been relocated under `Paper/`; archive build paths, navigation,
+and package checks have been adjusted. The journal package remains byte-for-byte
+identical to snapshot 1.1.1. Research execution remains paused; no solver or
+training job was started. The [TCAD review](../manuscript/TCAD-Readiness.md)
+recommends strengthening methodological novelty, comparisons, reference-fidelity
+evidence and realistic design evaluation before submission. Its format review
+also identifies the missing generative-AI disclosure in the current manuscript.
+
+Validation passed: 82 focused wiki, prose, manuscript, reproducibility and
+identity tests; the deterministic prose audit; frozen journal-package checks;
+and shell syntax checks for all three build wrappers. A separate temporary
+journal build reproduced the released PDF and passed all 34 manifest-file
+hashes. This verification used a copy; the released package was not rebuilt in
+place. Publication is pending for this local reorganization. The last verified
+remote `main` before this task is
+`f32bb69ce76a857f0a22759a6a99c6f8b8b9fae2`. New commits use the owner-requested
+identity `Hoangduong6210 <Hoangduong4316@icloud.com>`; existing history and
+release tags are retained. Next: publish the reviewed directory migration and
+verify the remote branch hash.
 
 ## Repository author identity on 2026-09-16
 
