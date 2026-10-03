@@ -7,6 +7,31 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column source frozen on 2026-10-03
+
+The guarded 2D/column integration passed **556 frozen regression tests, zero
+skips**. The new 384-dependency source/input lock is fixed; earlier source and
+archives are unchanged. Bindings are on the
+[evidence page](../evidence/TCAD-Column-Feasibility.md). Publish the source,
+verify a sparse checkout and submit the bounded SLURM study. No native work
+or new job has run yet. The full TCAD goal remains active and incomplete.
+Fourteen inspected completed test-fixture roots were removed; all scientific
+artifacts and execution worktrees remain. These records are local pending push.
+
+## Column native integration preparation on 2026-10-03
+
+This continuation reverified remote main at
+`c95e76ff58d0ce43cb5b1046f49c952494a4b09a`; no scientific job is active.
+The [column evidence owner](../evidence/TCAD-Column-Feasibility.md) records new
+CAD/mesh readers, topology/ownership audit, raw byte bundles, packet-to-column
+certificates and guarded native integration. Initial synthetic suites passed;
+the fake-native/bundle integration regression is running. A new draft protocol
+fixes a bounded 2D-only study, but its source lock is not frozen or published.
+No real-layout/native work has run. Next: finish negative/integration tests,
+freeze/publish source and submit the single bounded SLURM study. Keep all
+volume/field/reference/training/claim gates closed. The full goal remains
+active and incomplete; current preparation records are local.
+
 ## Column arithmetic checkpoint published on 2026-10-03
 
 At 12:32:35 UTC GitHub main and local HEAD were verified as

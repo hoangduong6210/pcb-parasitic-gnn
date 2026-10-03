@@ -42,9 +42,11 @@ separately specify a conforming planar-footprint/column feasibility probe that
 avoids the full x/y coordinate product. This is a design hypothesis, not a
 validated mesh. Geometry, original caps and prior failed gates remain preserved.
 The [exact column contract](../evidence/TCAD-Column-Feasibility.md) is now
-implemented with synthetic checks of ownership, counts, shared facets and a
-new element-map condition certificate. Native 2D integration and its frozen
-feasibility protocol remain next; no actual column mesh has been tested.
+implemented with ownership, count, shared-facet and element-map condition
+checks, native 2D provenance/mesh audit and guarded integration. Its separate
+feasibility source/protocol is frozen and synthetic regression has passed.
+Publish and verify source before one bounded SLURM study; no actual column
+mesh has been tested yet.
 The sequence below records the earlier CAD, mesh and arithmetic observations.
 
 ## Preserved decision after explicit-optimizer timeout: 2026-10-03

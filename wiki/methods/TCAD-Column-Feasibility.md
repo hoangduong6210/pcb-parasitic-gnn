@@ -1,6 +1,6 @@
 ---
 title: TCAD Planar Footprint and Column Feasibility Contract
-status: PROPOSED candidate; exact synthetic contract implemented
+status: PROPOSED candidate; guarded source frozen and synthetic contracts validated
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -15,12 +15,13 @@ propagates a planar mesh through layers; it is not fully local 3D adaptation
 and may fail capacity or quality. Canonical conductor boxes, finite Neumann
 outer boundary, primary/secondary potentials and dielectric physics stay fixed.
 
-The current implementation is an exact-arithmetic library and tiny synthetic
-tests only. It does not call a native kernel, generate a planar mesh, create
-a 3D connectivity array or solve a field. Native integration, guarded execution,
-prospective protocol/source freeze and real-input feasibility remain to be done.
-Its command-line entry refuses execution. Real inputs must only be passed by
-a later allocation/source/runtime-guarded SLURM worker, never on login.
+The implementation now includes arithmetic, native CAD/mesh readers, a guarded
+2D builder, raw-array bundles and a prospective column planner. Validation so
+far uses tiny synthetic fixtures and a fake native API only. The real native
+kernel has not been called for this candidate. Protocol/source are now frozen;
+publication and real-input feasibility remain pending. Library entries refuse
+execution; the worker and builder verify allocation, source and runtime before
+native imports or real geometry processing. Real work is SLURM-only.
 
 ## Complete footprint ownership
 
@@ -99,22 +100,76 @@ capacitance accuracy. Positive determinant alone does not pass it. Reports
 explicitly deny native-quality provenance and keep all field/reference/training/
 claim gates closed.
 
-## Integration prerequisites and next action
+## Planar CAD and mesh audit
 
-Implement one bounded 2D-only/column-capacity probe, not a full 3D mesh just to
-count its size. Capture the ordered native rectangle inputs, fragment map,
-complete planar incidence and measures, and unchanged canonical geometry.
-Validate ownership/area closure and actual triangle-to-region and edge-to-curve
-coverage before counting columns. Bind the original archived 3D CAD identity;
-2D projection must not change the physical problem. Preserve failed native
-outputs as well as accepted ones, and define deterministic repeat scope.
-Track planar mesh generation/validation separately from volume-mesh generation;
-a future 2D meshing run must not inherit a misleading blanket no-mesh flag from
-the earlier coordinate-only planners.
+Capture native input rectangles before fragmenting, then the full output map,
+point coordinates, line lengths, surface areas and upward/downward incidence.
+Every projection keeps its original conductor index, including coincident
+projections. Require independent native incidence agreement, canonical input
+corners/extents, complete owner masks and per-mask native area closure. Each
+curve lies on a finite canonical rectangle edge; internal curves have two
+parents and the four outer sides conserve length. Reject unresolved short
+edges rather than snapping or repairing them. These readers use documented
+Gmsh fragment maps, entity adjacency and point-value queries; field settings
+are read back after assignment. See the [Gmsh reference](https://gmsh.info/doc/texinfo/).
 
-Then freeze resources, nominal sizing, caps, provenance, quality checks and
-fresh toy/sentinel/repeat workers with actual-allocation/source/runtime guards.
-Only after that source is published may native 2D work run through SLURM. A
+Preserve first-order node, triangle and line arrays, including native entity
+classification and raw connectivity. Global and entity-local observations must
+agree. Canonicalization sorts records by global tags only. A separate CCW view
+supports directed edge checks without modifying the raw packet. Require one
+connected triangulated disk, one outer cycle, Euler closure, connected patches
+on each CAD face, and a cycle/path vertex link at every interior/boundary vertex.
+Native line elements must be complete nonoverlapping endpoint chains on their
+CAD curves, with matching triangle/curve/face incidence and node classification.
+
+Triangle centroids must match complete ownership, but centroid checks alone are
+insufficient. Exact rational triangle/rectangle clipping checks the full area.
+For each original conductor, sum nonnegative ownership discrepancies, rounding
+each discrepancy **upward** to a multiple of `2^-80 mm2`. This conservative
+error bound avoids denominator growth; it never rounds geometry or understates
+leakage. Compare the aggregate once against the unchanged absolute/relative
+CAD area tolerance, not a per-triangle tolerance multiplied by triangle count.
+Also compare exact triangle areas with native surfaces and canonical masks.
+
+## Packet-to-column integration and provenance
+
+Only a packet passing the planar audit reaches column planning. Certify every
+triangle with sorted global node IDs and the exact retained-height extrema of
+its complete owner group. Record coverage, worst witness, failed-triangle count,
+minimum positive determinant and a deterministic hash of the complete ordered
+certificate sequence. Capacity or condition failure remains a retained report,
+not a worker failure that silently skips the prescribed repeat.
+
+The canonical partition volume remains distinct from the prospective volume
+computed from actual planar triangle areas and retained heights. Report both,
+their exact difference and the unchanged CAD relative/absolute volume gate.
+This distinction prevents a within-tolerance native coordinate discrepancy from
+being called exact canonical volume equality. Neither is a generated 3D mesh.
+
+Native arrays use deterministic little-endian chunks and shape/dtype/hash
+manifests. Byte-only terminal checks can verify file closure and reconstruct the
+packet digest without importing a numerical library or replaying real arrays.
+Save completed raw packets before numerical audit, including when audit fails;
+all produced partial files remain after interruption. Failure before extraction
+may leave only earlier CAD/metadata and logs, not a complete array packet.
+
+## Prospective execution and next action
+
+The frozen protocol is `protocols/tcad_cps_column_feasibility_v1.json`.
+It binds the rejected dyadic archive and the original archived 3D
+CAD identity. It prescribes fresh toy/sentinel/repeat processes, one 2D Delaunay
+generation per process, first-order triangles, fixed seed/threads, no explicit
+optimizer, and projected inherited Box sizing fields with read-back settings.
+No auxiliary full x/y CAD grid is inserted. The frozen resource envelope is
+600 seconds and 6 GiB per worker, inside one 35-minute, 8-GiB SLURM allocation.
+Planar capture caps are 200,000 nodes, 400,000 triangles and 100,000 lines;
+the earlier 3D prospective node/tetrahedron limits remain unchanged. Per-mode
+binary data is capped at 64 MiB. The complete report and packet must repeat
+byte-identically, excluding resource telemetry. No retries or automatic tuning.
+Track `planar_mesh_generated` separately from `volume_mesh_generated`.
+
+Synthetic integration/negative regression has passed on the source lock.
+Publish source before the bounded SLURM study. Only then may native work run. A
 later full 3D facet/terminal/volume audit, analytic field, same-mesh restriction
 and sensitivity study remain separate prerequisites. These are reference
 engineering steps, not a novel GNN contribution or an admitted paper claim.

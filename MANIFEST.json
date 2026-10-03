@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 357,
+    "code": 366,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 55,
+    "protocols": 57,
     "results": 6280,
     "root": 11,
-    "tests": 87,
+    "tests": 92,
     "wiki": 100
   },
   "files": [
@@ -1211,6 +1211,11 @@
       "sha256": "f88ad441215e55a4c9ae43f39f6f683aaccb57d011cd1652406b900540303d60"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_column_feasibility.py",
+      "bytes": 18454,
+      "sha256": "d2d96e1fdf6626debecbc3ae71af58773b4c9cf81c43143ddfe6cdf42c437007"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_dielectric_cad.py",
       "bytes": 7645,
       "sha256": "51e7d37c9e326ffc2b35b6df6699e81966c4998bf53b4efbe98cbe574c427817"
@@ -1269,6 +1274,11 @@
       "path": "code/experiments/proofs/tcad_cps_amg_feasibility.py",
       "bytes": 7885,
       "sha256": "586604c256116c5a5b1ca5aefca5f8654df43a9957c798332176074253e5e1df"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_column_feasibility.py",
+      "bytes": 6282,
+      "sha256": "1b8c587fddba5a0765729a2cb9f46aa9ccb80470e8c7fb591587114cc781ca3f"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_dielectric_cad.py",
@@ -1931,6 +1941,11 @@
       "sha256": "8f49573fd79dc607e7d5db750ac343afdb9553abd6032400e7011da5604b5e94"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_column_feasibility.sh",
+      "bytes": 742,
+      "sha256": "ba4d77638c65c30e8e46a1a6d58596901a3a5938ca1168674af2cace5ca9057e"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_dielectric_cad.sh",
       "bytes": 697,
       "sha256": "c3789524c69a0f489b593b98d9ea020bac3c22d980580ed2d9184c03ace5d44c"
@@ -2206,9 +2221,39 @@
       "sha256": "f11b64a5c3d08e3a8a2d81f8cb5986f782260a980646871a0484a83505bcfa04"
     },
     {
+      "path": "code/solvers/tcad_cps_column_builder.py",
+      "bytes": 8560,
+      "sha256": "6cc2d2667ffddd10a14ab1912715dccd3cb641e188b77b5a24f04616faa81107"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_bundle.py",
+      "bytes": 7637,
+      "sha256": "72a4ce29558f19db163cb2b65a8ccc5f5b1a4bf5089b5bca550f678df58f510d"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_cad.py",
+      "bytes": 10818,
+      "sha256": "9f362665dfa7ae6160c4627d1db0a77c4814cbfba1b752ad3b9dcb852a45bcdb"
+    },
+    {
       "path": "code/solvers/tcad_cps_column_contract.py",
       "bytes": 12543,
       "sha256": "682d58fa7421947570e12580882c787f352b45b523f9616db42d81ba53f7095e"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_mesh.py",
+      "bytes": 19039,
+      "sha256": "59cbfab467393a66226e1dc28faed7b126a6fc92696be9aad57561e6d0192647"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_planning.py",
+      "bytes": 4779,
+      "sha256": "1eab545e2886b0801d4ee7e430d4ac9be20236ee9a5c716f695109c250d85b86"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_worker.py",
+      "bytes": 2065,
+      "sha256": "c484914bda430977d659193909f2585aec7e26ee7044de1a1c98b279ded6d62e"
     },
     {
       "path": "code/solvers/tcad_cps_dielectric_cad_builder.py",
@@ -3469,6 +3514,16 @@
       "path": "protocols/tcad_cps_amg_feasibility_v1.lock.json",
       "bytes": 17628,
       "sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906"
+    },
+    {
+      "path": "protocols/tcad_cps_column_feasibility_v1.json",
+      "bytes": 2955,
+      "sha256": "0e6451fb9ab44151c46090ef06ef4796bbe4c786a44d264fd545dcce18bd1149"
+    },
+    {
+      "path": "protocols/tcad_cps_column_feasibility_v1.lock.json",
+      "bytes": 52512,
+      "sha256": "72900550aba333843037e28239fcedae83f8109e35470bba48815494dc3effb0"
     },
     {
       "path": "protocols/tcad_cps_dielectric_cad_v1.json",
@@ -35291,9 +35346,34 @@
       "sha256": "469e7fba80771da5a24e2488b1dc8af5e30afe2b4d7e85989189230b1c30d3ff"
     },
     {
+      "path": "tests/test_tcad_cps_column_bundle.py",
+      "bytes": 4513,
+      "sha256": "b7f846996549e8a4be5dc57d7c77c03c1bcc82159d43b48334ed71bd4c0ec8af"
+    },
+    {
+      "path": "tests/test_tcad_cps_column_cad.py",
+      "bytes": 6913,
+      "sha256": "ae60e73ffa4d3a9663df1ed3a407395340c72bfe24a3b1af5b7a5c605fe142a1"
+    },
+    {
       "path": "tests/test_tcad_cps_column_contract.py",
       "bytes": 12217,
       "sha256": "83920e2ea0f2832e0ce514a3693526f664ce376435f4554cb50656f667774195"
+    },
+    {
+      "path": "tests/test_tcad_cps_column_feasibility.py",
+      "bytes": 16021,
+      "sha256": "3e965cfba97a05b1439037b54a97f404a769963a6875fc478b74d09a759d35ae"
+    },
+    {
+      "path": "tests/test_tcad_cps_column_mesh.py",
+      "bytes": 10197,
+      "sha256": "5963416ae815f291cce6b0c1bbbb6e5f668dcef60f23acaf39ea72482e1f8775"
+    },
+    {
+      "path": "tests/test_tcad_cps_column_planning.py",
+      "bytes": 5299,
+      "sha256": "a4e09ba0180eda4df0a388907adabebe526c6c199cfe95992800403bfa08badb"
     },
     {
       "path": "tests/test_tcad_cps_dielectric_cad.py",
@@ -35527,8 +35607,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Column-Feasibility.md",
-      "bytes": 3755,
-      "sha256": "0380403eda2e54901ab48c1ca48eba502badf5c96a98b2da7e551ada82644fab"
+      "bytes": 6412,
+      "sha256": "d76e38a570f2440f633b591d40ec021e4d9c6beae3136177a6619a239154e25d"
     },
     {
       "path": "wiki/evidence/TCAD-Cps-AMG-Diagnostic.md",
@@ -35632,8 +35712,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 32046,
-      "sha256": "c2e7cac7d734e60cfe504976f09fad51ebad38cb80a2dce184ecdf48abdcbd3a"
+      "bytes": 32149,
+      "sha256": "5187893d5820b69b6034b5c14d0fb906e0ec5e744701025a321c1e95976a8c0f"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35702,8 +35782,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Column-Feasibility.md",
-      "bytes": 7360,
-      "sha256": "97f78832396ca4eb0add586eb0f32373289f82485208a3a66e43bc20d6266f83"
+      "bytes": 10976,
+      "sha256": "47b8ed60949953a6bbf9ba9aaa52b97ae59886478dd83bcc221a6115fcc0fa29"
     },
     {
       "path": "wiki/methods/TCAD-Cps-AMG-Diagnostic.md",
@@ -35782,8 +35862,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 3064,
-      "sha256": "05e2290d4d8a8237d09d78042ec20c3b8d50ebe399846d95ee1b9c7582520064"
+      "bytes": 4156,
+      "sha256": "c7ff279a11065997f46300b0b1f7f301ead8b50c0597d91a79d4b829990fc4a9"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -35902,18 +35982,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 100754,
-      "sha256": "c1ba9dbf18502e29d9b93c8d4425c4e5d5dbd218c153ccc65912c93051800788"
+      "bytes": 102234,
+      "sha256": "f179f20a550055b7b96309595fd770fbfc7800635c5bb094ec0163b931d73b52"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 14608,
-      "sha256": "3bfec41d54298611794aae6a243c88edd0838cf9ff887766b54ce614a2a3cdeb"
+      "bytes": 14686,
+      "sha256": "c93d2bbbd6ac22cc0843f33ce7edb5e488f20aec5c9f816100ff7d4c15987f05"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5739,
-      "sha256": "0011aa5d4bd4191451c517ea73101f66efe2bee6c80815675474694a200040b6"
+      "bytes": 5798,
+      "sha256": "bbb5ee95ec8edba25476597ed3023cc0e784a6033fff4f9df646e1036a25f8c3"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35921,6 +36001,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7181,
-  "total_bytes": 1007610855
+  "n_files": 7197,
+  "total_bytes": 1007796726
 }

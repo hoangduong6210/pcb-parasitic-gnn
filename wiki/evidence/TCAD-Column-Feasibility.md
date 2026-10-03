@@ -1,11 +1,56 @@
 ---
 title: TCAD Column Feasibility Implementation Evidence
-status: PROPOSED candidate; synthetic arithmetic contract validated
+status: PROPOSED candidate; guarded native integration under synthetic validation
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Column Feasibility Implementation Evidence
+
+## Native integration preparation on 2026-10-03
+
+The continuation reverified GitHub main at
+`c95e76ff58d0ce43cb5b1046f49c952494a4b09a`. The queue was empty.
+New source implements planar CAD provenance/metadata review, raw mesh
+capture and independent topology/ownership audit, deterministic binary bundles,
+packet-to-column capacity/conditioning, and guarded fresh native orchestration.
+No earlier frozen source, protocol or archive was changed. The new protocol
+is `protocols/tcad_cps_column_feasibility_v1.json`; it is now source-locked.
+
+Initial CAD tests passed 30 cases. The combined CAD/mesh suite passed all
+82 cases; packet-to-column integration passed 11 more. These use hand-built
+rectangles and a 16-node/18-triangle fixture, never actual layouts or Gmsh.
+Coverage includes overlapping projection owners, independent incidence,
+aggregate conservative clipping-error bounds, edge and vertex manifold checks,
+raw-orientation preservation, exact height differences and retained negative
+capacity/condition reports. The expanded fake-native orchestration suite passed
+44 cases with one pre-freeze lock skip. An initial test-helper name collided
+with pytest's legacy setup hook; renaming it corrected the harness before
+freeze. No scientific execution occurred during these tests.
+
+The combined pre-freeze regression passed **555 tests, one expected lock
+skip**, in 37.16 seconds; the prose audit passed. After creating the new lock,
+the frozen regression passed **556 tests, zero skips**, in 64.54 seconds.
+This includes inherited source/input locks and planar, arithmetic, byte-bundle,
+guard, resource-stop, retained-partial-output and wiki/prose coverage.
+
+Frozen bindings:
+
+- Protocol SHA-256: `0e6451fb9ab44151c46090ef06ef4796bbe4c786a44d264fd545dcce18bd1149`.
+- Source/input lock SHA-256: `72900550aba333843037e28239fcedae83f8109e35470bba48815494dc3effb0`.
+- Exact locked dependency count: 384.
+
+Publication and sparse-checkout verification are next. No native candidate
+has run, and current implementation records remain local until publication
+is verified. Fourteen inspected completed test roots were removed as recorded
+by the [storage owner](../operations/Repository-Storage.md); all scientific
+evidence and execution worktrees remain preserved.
+
+The [method owner](../methods/TCAD-Column-Feasibility.md) specifies the guards,
+audit scope and prospective resource/capture limits. No new native mesh,
+volume mesh, field, reference or learning result exists. Publish and verify
+the frozen source, then run one bounded SLURM study and retain every
+outcome. This engineering checkpoint is not a TCAD contribution or paper claim.
 
 ## Source-only checkpoint on 2026-10-03
 

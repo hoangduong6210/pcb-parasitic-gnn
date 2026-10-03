@@ -72,9 +72,10 @@ A separately versioned [midpoint/face-band candidate](../evidence/TCAD-Layer-Gri
 has now completed its SLURM diagnosis with an exact repeat and checked archive.
 It passes the condition screen but still fails sentinel capacity. No new mesh
 is qualified. The [planar-footprint/column contract](../evidence/TCAD-Column-Feasibility.md)
-now has exact arithmetic and synthetic shared-facet tests. Next: native 2D
-provenance/mesh audit and a separately frozen guarded capacity probe; preserve
-geometry and existing gates. No native column candidate has run yet.
+now has exact arithmetic, native 2D provenance/mesh audit, raw bundles and
+guarded integration with synthetic tests. Its new protocol/source lock is
+frozen; complete regression/publication before one bounded SLURM study,
+preserving geometry and existing gates. No native column candidate has run yet.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
