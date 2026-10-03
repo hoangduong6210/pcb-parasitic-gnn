@@ -7,6 +7,20 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local v2 terminal checkpoint published on 2026-10-03
+
+At 16:35:06 UTC GitHub main and local HEAD matched
+`a1939fcd8b38124d18d4d87cf2dd2ffe49c0e26e`. The 101-member archive,
+collector/tests and scoped native planar/prospective-column result are
+published. Final checks passed the 7,462-file manifest, prose audit and
+55 wiki/prose tests; agent guidance remains untracked. No scientific job is
+active. The [evidence owner](../evidence/TCAD-Edge-Feasibility-v2.md) records
+the passed gates, exact repeat and remaining 3D/field limits. This turn made
+implementation, successful native validation and publication progress. The
+full TCAD goal remains active and incomplete. Next: separately specify/freeze
+bounded 3D column-connectivity and complete terminal/outer boundary
+qualification using the preserved planar packets and canonical planes.
+
 ## Edge-local v2 terminal checkpoint on 2026-10-03
 
 At 16:27:32 UTC job **7655921** was confirmed `COMPLETED/0:0`, zero

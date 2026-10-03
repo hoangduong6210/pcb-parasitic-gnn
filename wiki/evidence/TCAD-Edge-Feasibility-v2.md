@@ -140,3 +140,16 @@ more completed test roots were inspected and removed; all regular files were
 reproducible prose fixtures or synthetic log/watchdog receipts matching their
 test source. Scientific artifacts, source worktrees and recovery archives are
 unchanged. Final manifest/member checks and publication are next.
+
+## Terminal publication
+
+At 16:35:06 UTC GitHub main and local HEAD matched
+`a1939fcd8b38124d18d4d87cf2dd2ffe49c0e26e`. The 101-member archive,
+collector/tests and scoped native result are published. Final checks passed
+the 7,462-file manifest, prose audit and 55 wiki/prose tests. All 102 archive
+paths including its manifest are tracked; agent guidance remains untracked.
+The execution worktree retains unchanged tracked source and its generated
+evidence. No scientific job is active. This turn made concrete implementation,
+native validation and publication progress; the full TCAD goal is incomplete.
+Next is separately frozen 3D column/boundary qualification, without opening
+field, learning or claim-admission gates.
