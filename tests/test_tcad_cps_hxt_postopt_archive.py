@@ -25,9 +25,13 @@ def fixture(root, outcome="pass"):
               "modes": {}, "failure": None}
     directory = root / archive.DIRECTORY
     directory.mkdir(parents=True)
-    for mode in P["hxt_postopt"]["modes"][:1 if outcome == "incomplete" else 3]:
-        passed = not (outcome == "incomplete" and mode == "toy")
-        arm = {"passed": passed, "failure": None if passed else "worker exited 1; retain stderr"}
+    incomplete = outcome in ("incomplete", "sentinel_timeout")
+    length = 1 if outcome == "incomplete" else 2 if outcome == "sentinel_timeout" else 3
+    modes = P["hxt_postopt"]["modes"][:length]
+    for mode in modes:
+        passed = not (incomplete and mode == modes[-1])
+        failure = "worker wall-time cap exceeded" if outcome == "sentinel_timeout" else "worker exited 1; retain stderr"
+        arm = {"passed": passed, "failure": None if passed else failure}
         if passed:
             arm["result"] = result(mode)
             if outcome == "negative" and mode == "repeat1":
@@ -41,8 +45,8 @@ def fixture(root, outcome="pass"):
     for src, _ in archive.log_pairs():
         (root / src).parent.mkdir(exist_ok=True)
         (root / src).write_text("synthetic scheduler log\n")
-    row = dict(zip(archive.COLUMNS, [archive.JOB, "FAILED" if outcome == "incomplete" else "COMPLETED",
-                   "2:0" if outcome == "incomplete" else "0:0", "0", "100", "41", "160G", "test-node"]))
+    row = dict(zip(archive.COLUMNS, [archive.JOB, "FAILED" if incomplete else "COMPLETED",
+                   "2:0" if incomplete else "0:0", "0", "100", "41", "160G", "test-node"]))
     raw = "|".join(row[k] for k in archive.COLUMNS)
     return record, raw, [row]
 
@@ -66,15 +70,15 @@ def prepare_fixture(monkeypatch, tmp_path, outcome="pass"):
     return source, record, raw, rows
 
 
-@pytest.mark.parametrize("outcome", ["pass", "negative", "incomplete"])
+@pytest.mark.parametrize("outcome", ["pass", "negative", "incomplete", "sentinel_timeout"])
 def test_collect_and_check_all_outcomes(monkeypatch, tmp_path, outcome):
     source, record, _, _ = prepare_fixture(monkeypatch, tmp_path, outcome)
     manifest = archive.collect(source)
     assert archive.check_archive() == manifest
-    assert manifest["diagnosis"]["complete"] == (outcome != "incomplete")
+    assert manifest["diagnosis"]["complete"] == (outcome in ("pass", "negative"))
     assert manifest["diagnosis"]["diagnostic_passed"] == (outcome == "pass")
     assert manifest["diagnosis"]["mesh_feasible"] is False
-    assert len(manifest["files_sha256"]) == (8 if outcome == "incomplete" else 14)
+    assert len(manifest["files_sha256"]) == (8 if outcome == "incomplete" else 11 if outcome == "sentinel_timeout" else 14)
     for key in ("field_solver_executed", "reference_qualified", "training_may_start", "claim_eligible", "automatic_expansion"):
         assert manifest["diagnosis"][key] is False
     before = {p: sha256_file(tmp_path / p) for p in manifest["files_sha256"]}
@@ -160,3 +164,43 @@ def test_source_scope_and_raw_accounting(monkeypatch, tmp_path):
     monkeypatch.setattr(archive.subprocess, "run", lambda *a, **kw: SimpleNamespace(stdout="other\n"))
     with pytest.raises(ValueError, match="commit"):
         archive.collect(source)
+
+
+def test_preserved_terminal_archive():
+    manifest = archive.check_archive()
+    assert sha256_file(REPO / archive.MANIFEST) == "e76884fc13e7b721eb671b995598080031318f1bfc77016ce9039b26196527be"
+    assert manifest["attempt_sha256"] == "2edf43c06bfb4a5980866408cda107d1adaae1001bcbdee75d27e0b584d20dcd"
+    assert len(manifest["files_sha256"]) == 11
+    assert manifest["accounting"] == [dict(zip(archive.COLUMNS,
+        ["7651765", "FAILED", "2:0", "0", "1226", "41", "160G", "a0157"]))]
+    state = manifest["diagnosis"]
+    assert state["observed_modes"] == {
+        "toy": {"passed": True, "failure": None},
+        "local1": {"passed": False, "failure": "worker wall-time cap exceeded"}}
+    for key in ("complete", "diagnostic_passed", "repeatability_passed", "mesh_feasible",
+                "numerical_quality_qualified", "field_solver_executed", "reference_qualified",
+                "training_may_start", "claim_eligible", "automatic_expansion"):
+        assert state[key] is False
+
+
+def test_terminal_raw_observations_are_not_final_mesh():
+    directory = REPO / archive.DIRECTORY
+    local = json.loads((directory / "local1.json").read_text())
+    assert local["returncode"] == -9 and local["passed"] is False
+    assert local["elapsed_s"] == 1200.5339847570285
+    assert local["observed_peak_rss_gib"] == 3.473194122314453
+    log = (directory / "local1.stdout").read_text()
+    stages = [json.loads(line[6:]) for line in log.splitlines() if line.startswith("STAGE=")]
+    assert stages[-1]["stage"] == "mesh_optimize_started"
+    assert "mesh_optimize_finished" not in log and "RESULT=" not in log
+    raw = next(s for s in stages if s["stage"] == "raw_mesh_generated")
+    assert raw["strict_quality_passed"] is False and raw["n_nodes"] == 724661
+    assert raw["mesh_quality"]["element_count"] == 4147907
+    regions = raw["mesh_quality"]["regions"]
+    assert {k: r["count"] for k, r in regions.items()} == {
+        "dielectric": 1986363, "primary": 1064316, "secondary": 1097228}
+    assert {k: r["minSICN"]["nonpositive_count"] for k, r in regions.items()} == {
+        "dielectric": 0, "primary": 111, "secondary": 129}
+    toy = json.loads((directory / "toy.json").read_text())
+    assert toy["passed"] is True and toy["result"]["field_solver_executed"] is False
+    assert "ill-shaped" in (directory / "toy.stderr").read_text()

@@ -12,17 +12,17 @@ paper_source: false
 The [optimization-isolation runbook](TCAD-HXT-Optimization-Isolation.md) is now
 closed at the toy quality gate. Its linked evidence page owns terminal
 accounting and the checked archive. No job in this chain remains active.
-The [next explicit-optimizer diagnostic](../manuscript/TCAD-Research-Plan.md)
-retains the same per-worker and allocation ceilings, charging generation,
+The [explicit-optimizer diagnostic](TCAD-HXT-Explicit-Optimization.md) has also
+closed at the sentinel's unchanged time cap. Its evidence page owns measured
+use and the checked terminal archive. The allocation charged generation,
 optimization and both quality observations to each worker's existing budget.
-It requires separate source, protocol, tests and publication before submission.
-The [new runbook](TCAD-HXT-Explicit-Optimization.md) now specifies that separate
-implementation and its guards; source validation is not a scheduler receipt.
+No new allocation is requested for the source-only dielectric formulation
+review; a later experiment requires a separate frozen resource contract.
 
 The first HXT probe is now terminal and incomplete at local1's worker time
 cap. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns accounting and
-the archive. The specifications below preserve the two completed diagnostic
-allocations; they are not instructions to retry either failed protocol.
+the archive. The specifications below preserve completed diagnostic
+allocations; they are not instructions to retry a failed protocol.
 
 The [original bounded work package](../manuscript/TCAD-Research-Plan.md) tested a
 single HXT mesher candidate with native stage logs, not another field solve.

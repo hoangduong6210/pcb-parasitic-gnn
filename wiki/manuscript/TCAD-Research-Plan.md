@@ -30,7 +30,22 @@ Prior graph methods already compare matched data-generation cost, so that
 evaluation practice is not itself the new contribution. These requirements
 inform a later frozen learning protocol; they do not bypass reference gates.
 
-## Next implementation after the toy quality rejection: 2026-10-03
+## Current decision after explicit-optimizer timeout: 2026-10-03
+
+The [explicit-optimizer study](../evidence/TCAD-HXT-Explicit-Optimization.md)
+is now terminal and archived: toy diagnostic passed, sentinel timed out and
+repeat was unrun. Keep the failed source, all-region gates and original caps.
+No final sentinel mesh or reference was obtained. The native tail does not
+independently map its volume tag to a material, so conductor removal is not a
+proven solution to the observed timeout.
+
+Proceed with the separate [dielectric-only formulation contract](../methods/TCAD-Dielectric-Only-Formulation.md)
+and metadata-only topology checks. Preserve canonical geometry, terminal and outer-boundary
+physics. Real geometry/mesh work remains gated on new guarded source, tests,
+frozen protocol and SLURM execution. This is a reference-engineering step,
+not a new GNN contribution. The prior optimizer design below is historical.
+
+## Preserved implementation after the toy quality rejection: 2026-10-03
 
 The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)
 is terminal at its toy quality gate. It does not establish sentinel feasibility
@@ -87,7 +102,7 @@ new manuscript claims stay closed. A later field qualification is a separate
 decision. The [separate implementation](../methods/TCAD-HXT-Explicit-Optimization.md)
 now includes a guarded fresh-extraction builder and fake-native integration
 tests. Its [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns
-source freeze and scheduler receipts. The new job is submitted; this does not
+source freeze and scheduler receipts. Its later terminal failure does not
 admit numerical quality, reference accuracy or a mesh-sensitivity conclusion.
 
 ### Source-only follow-up question while the fixed diagnostic runs
@@ -117,7 +132,8 @@ qualify algebraic accuracy, charge/energy consistency and mesh/domain sensitivit
 Regenerated meshes need not have equal matrix hashes, so the comparison must
 state its discretization boundary rather than claim same-system equivalence.
 Do not implement or submit this alternative as an adaptive fallback inside
-the current job; its terminal outcome remains the next operational decision.
+the optimizer job. Its now-archived terminal outcome permits a separate
+source-only formulation investigation, not an automatic field solve.
 
 ## Preserved decisions after the meshing timeout: 2026-10-03
 

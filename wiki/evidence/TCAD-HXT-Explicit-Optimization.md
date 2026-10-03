@@ -1,11 +1,61 @@
 ---
 title: TCAD HXT Explicit-Optimization Evidence
-status: RUNNING; toy passed diagnostic gate; sentinel pending
+status: REJECTED; terminal archive checked; sentinel optimizer timeout
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Explicit-Optimization Evidence
+
+## Terminal outcome and archive on 2026-10-03
+
+At 07:30:25 UTC, accounting reported job `7651765` terminal `FAILED/2:0`,
+zero restarts, 1,226 elapsed seconds, 41 allocated CPUs and 160 GiB on `a0157`;
+the queue no longer contained it. Toy passed its diagnostic gate. Local1 hit
+the unchanged worker wall-time cap and the parent killed it with return code
+`-9` after 1,200.5339847570285 seconds, observing 3.473194122314453 GiB peak RSS.
+The repeat was not run. No job in this diagnostic chain remains active.
+
+The last structured local1 stage is `mesh_optimize_started` at
+56.61669809999876 worker seconds. There is no optimization-finished stage,
+post-quality record, final sentinel mesh or result. The raw counts below are
+pre-optimization observations only. The native tail names volume 28, but its
+region identity is not independently established by that log. Removing
+conductor interiors is therefore a formulation hypothesis, not a demonstrated
+remedy for this optimizer bottleneck.
+
+The metadata-only collector checked frozen source, exact mode receipts,
+terminal accounting and byte-preserving copies. The
+[archive manifest](../../results/tcad/cps_hxt_postopt_v1/archive/job_7651765/manifest.json)
+closes 11 members, including raw scheduler logs, accounting and submission:
+
+- Archive SHA-256: `e76884fc13e7b721eb671b995598080031318f1bfc77016ce9039b26196527be`.
+- Attempt SHA-256: `2edf43c06bfb4a5980866408cda107d1adaae1001bcbdee75d27e0b584d20dcd`.
+
+Completion, repeatability, diagnostic success, mesh feasibility, numerical
+quality, field execution, reference, training and claim flags are all false.
+Preserve this negative result without changing caps, tolerances or source.
+Archive publication is pending at this local checkpoint; last verified main
+is `fabb9599d3eefdfa001460725404065963bb4bec`. Earlier RUNNING entries below
+are historical. Next: the separate dielectric-only formulation contract, not
+another submission of this failed protocol.
+
+The expanded archive regression passed all 27 tests, including the exact
+terminal archive, failed-worker timing, incomplete stage sequence and raw-only
+sentinel counts. It performs metadata/hash checks, not a numerical replay.
+The subsequent combined source/archive/topology/wiki regression passed 369
+tests with no skips, preserving all predecessor source and archive checks.
+
+## Follow-up checks on 2026-10-03
+
+The submission checkpoint is remotely verified at
+`fabb9599d3eefdfa001460725404065963bb4bec`. Scheduler queries at 07:22:11 UTC
+and 07:24:47 UTC reported RUNNING, zero restarts; accounting at 07:27:30 UTC
+still reported RUNNING with 1,079 elapsed seconds. Local1 remained in explicit
+optimization; no post-quality observation, final mesh or repeat existed.
+The unchanged native tail identifies volume 28 optimization; it is not proof
+of a stopped process. The additive collector now has 25 passing synthetic
+tests, including late-sentinel timeout preservation. No job was restarted.
 
 ## Submission and initial observation: 2026-10-03
 

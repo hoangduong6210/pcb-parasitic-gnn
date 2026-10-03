@@ -59,6 +59,7 @@ paper_source: false
 | [TCAD Mesh-Only HXT Probe](methods/TCAD-Cps-Mesh-Probe.md) | Single mesher candidate, bounded fresh-repeat fingerprints and no field solving |
 | [TCAD HXT Optimization Isolation](methods/TCAD-HXT-Optimization-Isolation.md) | One disabled optimization stage, signed element quality and non-field diagnostic boundary |
 | [TCAD HXT Explicit Optimization](methods/TCAD-HXT-Explicit-Optimization.md) | One explicit optimizer, before/after quality and fresh coordinate extraction |
+| [TCAD Dielectric-Only Formulation](methods/TCAD-Dielectric-Only-Formulation.md) | Proposed electrical equivalence boundary, abstract topology checks and separate CAD/field gates |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

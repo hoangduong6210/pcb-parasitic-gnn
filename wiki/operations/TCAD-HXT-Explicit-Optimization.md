@@ -1,14 +1,15 @@
 ---
 title: TCAD HXT Explicit-Optimization Runbook
-status: RUNNING; source published; bounded job submitted
+status: REJECTED; terminal archive checked; no retry
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Explicit-Optimization Runbook
 
-The source is published and the bounded job is submitted; the evidence page
-owns current scheduler state. The additive metadata-only collector
+The bounded job is terminal and its archive is checked; the evidence page
+owns exact outcome and hashes. The sequence below preserves the completed
+execution, not permission to retry. The additive metadata-only collector
 `code/experiments/proofs/archive_tcad_cps_hxt_postopt_v1.py` supports
 `--source-root` for terminal collection and `--check` for subsequent verification.
 It refuses overwrite, symlinks, changed bytes, incomplete member closure,

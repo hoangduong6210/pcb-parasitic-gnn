@@ -7,6 +7,50 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Explicit optimizer terminal and archived on 2026-10-03
+
+At 07:30:25 UTC job `7651765` was terminal `FAILED/2:0`, zero restarts;
+the queue was empty for this job. Toy passed its diagnostic, but local1 hit
+the fixed wall-time cap during explicit optimization. Repeat was unrun.
+The [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns exact
+timings and the checked 11-member archive. No diagnostic job remains active;
+all field/reference/training/claim gates remain closed. Earlier RUNNING
+observations below are historical.
+
+The previous and current goal turns made concrete progress; the goal remains
+active. The separate [dielectric-only contract](../methods/TCAD-Dielectric-Only-Formulation.md)
+and abstract topology classifier now exist, with 79 passing synthetic tests.
+The archive suite passed 27 tests, including exact terminal/log regressions;
+topology/wiki/prose passed 134 together. No native geometry ran. Next: guarded
+CAD adapter, fake-native integration and a new frozen diagnostic before any
+SLURM geometry/mesh execution. The rejected source remains unchanged and no
+retry is launched. Main's terminal/research updates are local; last verified
+publication remains `fabb9599d3eefdfa001460725404065963bb4bec`.
+
+The combined old/new source, terminal archive, topology, wiki and prose
+regression subsequently passed all 369 tests with no skips. Frozen source
+closures and earlier rejected archives passed unchanged. These are metadata
+and synthetic checks, not reference qualification or numerical replay.
+
+## Continuing live allocation and original-method review on 2026-10-03
+
+Publication checkpoint `fabb9599d3eefdfa001460725404065963bb4bec` is remotely
+verified. The previous goal turn made concrete progress: frozen implementation,
+SLURM submission, diagnostic toy observation and an additive terminal collector.
+Fresh accounting at 07:27:30 UTC still reports job `7651765` RUNNING, zero
+restarts, 1,079 elapsed seconds. Toy remains the only completed mode and the
+sentinel remains in explicit optimization. No terminal result is inferred.
+Collector tests now cover late sentinel timeouts as well as toy failures;
+all 25 synthetic archive tests passed without numerical work on login.
+
+The [original-method review](../references/TCAD-Multi-Fidelity-Method-Review.md)
+now includes CapBench and Flash-CNNCap from their full method/evaluation text.
+They add raster controls, output-scope timing and split-scope requirements;
+no code/data/model was imported and no new novelty claim is admitted. Pinned
+Gmsh API text was also read for later topology-based boundary tagging, without
+running geometry or changing the active source. Next: terminal preservation
+of this same job, then an outcome-led formulation decision.
+
 ## Submission checkpoint published and allocation rechecked on 2026-10-03
 
 Submission/collector checkpoint `e8b3da2bf4925f79945384216e5b60283d65645d` is

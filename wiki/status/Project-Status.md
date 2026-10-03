@@ -43,11 +43,14 @@ was not run. Its 11-file terminal closure is archived. The separate bounded
 also closed incomplete: the unoptimized toy failed its strict signed-quality
 gate, so sentinel modes were not run. Its eight-file terminal closure is
 checked. The [explicit-optimizer follow-up](../methods/TCAD-HXT-Explicit-Optimization.md)
-is now submitted from its verified frozen source. Toy passed its diagnostic
-gate with ill-shaped-element warnings; local1 reached explicit optimization.
-Terminal coverage is pending. No sensitivity
+is now terminal and archived. Toy passed its diagnostic gate with ill-shaped
+elements; local1 timed out during explicit optimization and the repeat was
+not run. No diagnostic job in this chain remains active. No sensitivity
 conclusion is available from these incomplete studies.
 Backend agreement does not qualify a reference or authorize training.
+The [dielectric-only formulation](../methods/TCAD-Dielectric-Only-Formulation.md)
+now has a source-only electrical/topology contract and synthetic classifier
+tests. Native CAD integration and numerical qualification remain unperformed.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -81,7 +84,8 @@ instead of calling one column ground truth.
 | TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
 | TCAD mesh-only HXT probe | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy passed; local1 timed out in native 3D improvement; repeat unrun; no field solving or cap increase |
 | TCAD HXT optimization isolation | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy failed strict signed quality; sentinel and repeat unrun; no field use or cap/quality relaxation |
-| TCAD HXT explicit optimization | `RUNNING; TOY DIAGNOSTIC PASSED` | Sentinel pending; positive toy metrics coexist with ill-shaped elements; no field or reference qualification |
+| TCAD HXT explicit optimization | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy diagnostic passed with ill-shaped elements; sentinel optimizer timeout, repeat unrun; no field or reference qualification |
+| TCAD dielectric-only formulation | `PROPOSED; METADATA TESTED` | Electrical equivalence boundary and abstract interface checks; no native CAD, mesh or field qualification |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

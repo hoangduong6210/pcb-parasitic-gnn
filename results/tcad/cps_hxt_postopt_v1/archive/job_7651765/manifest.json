@@ -1,0 +1,55 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "1226",
+      "ExitCode": "2:0",
+      "JobID": "7651765",
+      "NodeList": "a0157",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "attempt_sha256": "2edf43c06bfb4a5980866408cda107d1adaae1001bcbdee75d27e0b584d20dcd",
+  "diagnosis": {
+    "automatic_expansion": false,
+    "claim_eligible": false,
+    "complete": false,
+    "diagnostic_passed": false,
+    "field_solver_executed": false,
+    "mesh_feasible": false,
+    "numerical_quality_qualified": false,
+    "observed_modes": {
+      "local1": {
+        "failure": "worker wall-time cap exceeded",
+        "passed": false
+      },
+      "toy": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "reference_qualified": false,
+    "repeatability_passed": false,
+    "terminal_admission_pending": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_hxt_postopt_v1/archive/job_7651765/logs/tcad_hxt_postopt_7651765.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_hxt_postopt_v1/archive/job_7651765/logs/tcad_hxt_postopt_7651765.out": "e5a8d4239a251bed9371bec06370a4475e35c0c7da1cb0eecde0b4e5035675a6",
+    "results/tcad/cps_hxt_postopt_v1/archive/job_7651765/sacct.txt": "c26763e8d491808ba0fc078b9cea738763e969a6789979992c6eab3f277dcac3",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/attempt.json": "2edf43c06bfb4a5980866408cda107d1adaae1001bcbdee75d27e0b584d20dcd",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/local1.json": "b65809f937a38a272285ed6083055d98be059a22e4fc00076573c92da5fc954c",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/local1.stderr": "d928cef548b8c6820f532d9762a39ee1b41ec71d99e3fb22da96544d8bcc5d1a",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/local1.stdout": "412b6545fce5ee08ee563d8e85fc44029f3360c5ae8ca33b2c014740c6e4ea2a",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/toy.json": "39b4e6b6921af5b449e19ee6dbbcc5c0ab32667a1bd7e87b2e5b7b310fd3a226",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/toy.stderr": "a32f9e1987d3edf3b5b694c4426b996df1675182e8a4d0afb01fc9910bd24641",
+    "results/tcad/cps_hxt_postopt_v1/job_7651765/toy.stdout": "69ab8b325e769091f0462f7fcdd03c79b645d2ee996db3ace79ffbad3b8efed5",
+    "results/tcad/cps_hxt_postopt_v1/submission.json": "9944fcfae71ab14cc9bbf369cef5e400ea92d7dd5338dc7c1d6cd5f0c2ce5cff"
+  },
+  "lock_sha256": "e83ca24c6adb98e20657ef5ae24d7b1d64078282b596eaa9f248f3ee33869c14",
+  "schema": "pcb-gnn.tcad-cps-hxt-postopt-archive.v1",
+  "scope": "explicitly optimized mesh and before/after signed-quality diagnostic only; no field or reference claim",
+  "source_commit": "9e6bdf817004436a938fe8bdb99c34b7ccef5d75"
+}

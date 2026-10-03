@@ -1,0 +1,571 @@
+{
+  "automatic_expansion": false,
+  "claim_eligible": false,
+  "complete": false,
+  "diagnostic_passed": false,
+  "failure": null,
+  "field_solver_executed": false,
+  "lock_sha256": "e83ca24c6adb98e20657ef5ae24d7b1d64078282b596eaa9f248f3ee33869c14",
+  "mesh_feasible": false,
+  "modes": {
+    "local1": {
+      "elapsed_s": 1200.5339847570285,
+      "failure": "worker wall-time cap exceeded",
+      "files_sha256": {
+        "local1.stderr": "d928cef548b8c6820f532d9762a39ee1b41ec71d99e3fb22da96544d8bcc5d1a",
+        "local1.stdout": "412b6545fce5ee08ee563d8e85fc44029f3360c5ae8ca33b2c014740c6e4ea2a"
+      },
+      "mode": "local1",
+      "observed_peak_rss_gib": 3.473194122314453,
+      "passed": false,
+      "returncode": -9
+    },
+    "toy": {
+      "elapsed_s": 12.016543281031772,
+      "failure": null,
+      "files_sha256": {
+        "toy.stderr": "a32f9e1987d3edf3b5b694c4426b996df1675182e8a4d0afb01fc9910bd24641",
+        "toy.stdout": "69ab8b325e769091f0462f7fcdd03c79b645d2ee996db3ace79ffbad3b8efed5"
+      },
+      "mode": "toy",
+      "observed_peak_rss_gib": 0.08782958984375,
+      "passed": true,
+      "result": {
+        "arm": {
+          "far_size_mm": 1.0,
+          "level": 0,
+          "name": "smoke",
+          "pad_mm": 2.0,
+          "support": "compact"
+        },
+        "elapsed_s": 7.668135181069374,
+        "field_solver_executed": false,
+        "geometry_sha256": "26130e1fc8563dcae261f56a43a36459ffefcdd06c7c4145fb3ad0a6bb6fb452",
+        "gmsh_build_options": "64Bit ALGLIB[contrib] ANN[contrib] Bamg Blas[petsc] Blossom Cgns DIntegration Dlopen DomHex Eigen[contrib] Fltk Gmm[contrib] Hxt Jpeg Kbipack Lapack[petsc] LinuxJoystick MathEx[contrib] Med Mesh Metis[contrib] Mmg Mpeg Netgen Nii2mesh ONELAB ONELABMetamodel OpenCASCADE OpenCASCADE-CAF OpenGL OpenMP OptHom PETSc Parser Plugins Png Post QuadMeshingTools QuadTri Solver TetGen/BR TinyXML2[contrib] Untangle Voro++[contrib] WinslowUntangler Zlib tinyobjloader",
+        "layout_id": "smoke",
+        "lock_sha256": "e83ca24c6adb98e20657ef5ae24d7b1d64078282b596eaa9f248f3ee33869c14",
+        "mesh_fingerprint_schema": "pcb-gnn.ordered-tet-mesh.v1",
+        "mesh_nodes": 1253,
+        "mesh_policy": {
+          "boxes": [
+            {
+              "Thickness": 0.5,
+              "VIn": 0.12,
+              "VOut": 1.0,
+              "XMax": 4.055,
+              "XMin": 1.945,
+              "YMax": 3.055,
+              "YMin": 1.945,
+              "ZMax": 0.19,
+              "ZMin": 0.010000000000000002
+            },
+            {
+              "Thickness": 0.5,
+              "VIn": 0.12,
+              "VOut": 1.0,
+              "XMax": 4.055,
+              "XMin": 1.945,
+              "YMax": 3.055,
+              "YMin": 1.945,
+              "ZMax": 0.37000000000000005,
+              "ZMin": 0.19000000000000003
+            }
+          ],
+          "far_size_mm": 1.0,
+          "near_size_mm": 0.12,
+          "options": {
+            "General.NumThreads": 1.0,
+            "Mesh.Algorithm": 5.0,
+            "Mesh.Algorithm3D": 10.0,
+            "Mesh.MaxNumThreads1D": 1.0,
+            "Mesh.MaxNumThreads2D": 1.0,
+            "Mesh.MaxNumThreads3D": 1.0,
+            "Mesh.MeshSizeExtendFromBoundary": 0.0,
+            "Mesh.MeshSizeFromCurvature": 0.0,
+            "Mesh.MeshSizeFromPoints": 0.0,
+            "Mesh.MeshSizeMax": 1.0,
+            "Mesh.MeshSizeMin": 0.12,
+            "Mesh.Optimize": 0.0,
+            "Mesh.OptimizeNetgen": 0.0,
+            "Mesh.OptimizeThreshold": 0.3,
+            "Mesh.RandomSeed": 1.0
+          },
+          "pad_mm": 2.0
+        },
+        "mesh_policy_sha256": "0a0121b4f189fce4e17320c4421f3deddc7d9a2f6ddfe69717f1f8a259bc4600",
+        "mesh_quality": {
+          "arrays_sha256": "227d8ad1fd344e9b78e3ed0eb88fc1d8b56afde9c14c85a86bd8ef15104c4e8c",
+          "element_count": 6249,
+          "metric_units": {
+            "minDetJac": "mm^3 in the native Gmsh coordinate system",
+            "minSICN": "dimensionless"
+          },
+          "metrics": [
+            "minSICN",
+            "minDetJac"
+          ],
+          "quantile_method": "linear",
+          "quantile_probabilities": [
+            0.0,
+            0.01,
+            0.05,
+            0.5,
+            0.95,
+            0.99,
+            1.0
+          ],
+          "regions": {
+            "dielectric": {
+              "count": 3541,
+              "minDetJac": {
+                "finite_count": 3541,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  4.445228907190568e-18,
+                  0.0007436812556055723,
+                  0.0009000955828735685,
+                  0.0067525632978896796,
+                  1.2455508842854885,
+                  1.8692209306721133,
+                  3.0497078731119927
+                ]
+              },
+              "minSICN": {
+                "finite_count": 3541,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  6.398856084358075e-15,
+                  0.08403432146846922,
+                  0.10412006846166397,
+                  0.6490482866621848,
+                  0.8864372156895444,
+                  0.9437785791000479,
+                  0.9903452929365898
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 4,
+                "0.05": 6,
+                "0.1": 153
+              }
+            },
+            "primary": {
+              "count": 1353,
+              "minDetJac": {
+                "finite_count": 1353,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  3.63207727782644e-18,
+                  0.00026958267839184995,
+                  0.0003005066454696948,
+                  0.000649213328304119,
+                  0.0009493568526065189,
+                  0.0011292433373310193,
+                  0.0012840175845460914
+                ]
+              },
+              "minSICN": {
+                "finite_count": 1353,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  4.558342568424305e-15,
+                  0.4803401331846283,
+                  0.6205178702696518,
+                  0.7637710588658172,
+                  0.8554988583486246,
+                  0.9383647068949083,
+                  0.9898670764747433
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 3,
+                "0.05": 3,
+                "0.1": 5
+              }
+            },
+            "secondary": {
+              "count": 1355,
+              "minDetJac": {
+                "finite_count": 1355,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  5.623425342384559e-05,
+                  0.0002695826783918501,
+                  0.0003005066454696949,
+                  0.0006441281381540472,
+                  0.0009514188671061,
+                  0.0011028263683951136,
+                  0.0014341240775521146
+                ]
+              },
+              "minSICN": {
+                "finite_count": 1355,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  0.10592568320677821,
+                  0.5264252204210421,
+                  0.6247743041501798,
+                  0.7679215052563518,
+                  0.8559113294164666,
+                  0.9299045732680807,
+                  0.9791780089318722
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 0,
+                "0.05": 0,
+                "0.1": 0
+              }
+            }
+          },
+          "schema": "pcb-gnn.tet-quality-diagnostic.v1"
+        },
+        "mesh_sha256": "7b42ddc71d75b3db9c329e00bd050739955970ccd411f7b0f029631e2ba2a3ee",
+        "mesh_tetrahedra": 6249,
+        "mode": "toy",
+        "native_log_options": {
+          "General.Terminal": 1.0,
+          "General.Verbosity": 5.0
+        },
+        "nodes_before": 1253,
+        "numerical_quality_qualified": false,
+        "optimizer": {
+          "dimTags": [],
+          "force": false,
+          "method": "",
+          "niter": 1
+        },
+        "optimizer_calls": 1,
+        "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+        "peak_rss_gib": 0.08782958984375,
+        "protocol_sha256": "723bb110b8d7c67d0274883583c527827a3326aab88b300d34bf555fa006ecae",
+        "quality_before": {
+          "arrays_sha256": "65cdd3392570b76513d994cf86a1ffe3924894155b7cc30c13347ed2c031f21c",
+          "element_count": 6457,
+          "metric_units": {
+            "minDetJac": "mm^3 in the native Gmsh coordinate system",
+            "minSICN": "dimensionless"
+          },
+          "metrics": [
+            "minSICN",
+            "minDetJac"
+          ],
+          "quantile_method": "linear",
+          "quantile_probabilities": [
+            0.0,
+            0.01,
+            0.05,
+            0.5,
+            0.95,
+            0.99,
+            1.0
+          ],
+          "regions": {
+            "dielectric": {
+              "count": 3643,
+              "minDetJac": {
+                "finite_count": 3643,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  1.0842021724855044e-18,
+                  4.969536336498441e-05,
+                  0.0008630261748108239,
+                  0.006342555336998121,
+                  1.23835897538313,
+                  1.8709805503384944,
+                  3.0497078731119927
+                ]
+              },
+              "minSICN": {
+                "finite_count": 3643,
+                "nonpositive_count": 1,
+                "quantiles": [
+                  -2.295723906874384e-16,
+                  0.02475300781429712,
+                  0.09887260006924195,
+                  0.6124749981146033,
+                  0.8851789305946369,
+                  0.9470958974506207,
+                  0.9929374807552891
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 31,
+                "0.05": 50,
+                "0.1": 190
+              }
+            },
+            "primary": {
+              "count": 1396,
+              "minDetJac": {
+                "finite_count": 1396,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  6.505213034913027e-19,
+                  1.1166691644408095e-07,
+                  0.00026958267839185385,
+                  0.0006391845608050425,
+                  0.0009462679895507935,
+                  0.0011292433373310195,
+                  0.0014700960548885544
+                ]
+              },
+              "minSICN": {
+                "finite_count": 1396,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  2.7760338185554328e-15,
+                  0.00019596909991041094,
+                  0.5876953811744565,
+                  0.7576288222659733,
+                  0.8557276639708572,
+                  0.9347470956220317,
+                  0.9898670764747433
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 20,
+                "0.05": 27,
+                "0.1": 33
+              }
+            },
+            "secondary": {
+              "count": 1418,
+              "minDetJac": {
+                "finite_count": 1418,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  2.9680034471790684e-18,
+                  7.357176735145197e-06,
+                  0.00023425994764982863,
+                  0.0006351164940085008,
+                  0.0009369512952635713,
+                  0.0011015540039805115,
+                  0.0014341240775521146
+                ]
+              },
+              "minSICN": {
+                "finite_count": 1418,
+                "nonpositive_count": 0,
+                "quantiles": [
+                  5.5824246747249775e-15,
+                  0.010728166945014318,
+                  0.38273315393590157,
+                  0.7635310805814111,
+                  0.8550437888044995,
+                  0.9277818657921256,
+                  0.9791780089318722
+                ]
+              },
+              "sicn_below_threshold": {
+                "0.01": 14,
+                "0.05": 39,
+                "0.1": 45
+              }
+            }
+          },
+          "schema": "pcb-gnn.tet-quality-diagnostic.v1"
+        },
+        "quality_before_passed": false,
+        "region_tetrahedra": {
+          "dielectric": 3541,
+          "primary": 1353,
+          "secondary": 1355
+        },
+        "runtime": {
+          "packages": {
+            "gmsh": "4.15.2",
+            "numpy": "2.0.2",
+            "pyamg": "5.3.0",
+            "scikit-fem": "11.0.0",
+            "scipy": "1.13.1"
+          },
+          "python": "3.9.21",
+          "threads": {
+            "BLIS_NUM_THREADS": "1",
+            "MKL_NUM_THREADS": "1",
+            "NUMEXPR_NUM_THREADS": "1",
+            "OMP_DYNAMIC": "FALSE",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "PCB_GNN_GMSH_THREADS": "1"
+          }
+        },
+        "scheduler": {
+          "Account": "pgs0407",
+          "AccrueTime": "2026-10-03T07:09:00",
+          "AllocNode:Sid": "ascend-login02:1563419",
+          "AllocTRES": "cpu=41,mem=160G,node=1,billing=41",
+          "BatchFlag": "1",
+          "BatchHost": "a0157",
+          "CPUs/Task": "41",
+          "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+          "Contiguous": "0",
+          "CoreSpec": "*",
+          "Deadline": "N/A",
+          "DelayBoot": "00:00:00",
+          "Dependency": "(null)",
+          "EligibleTime": "2026-10-03T07:09:00",
+          "EndTime": "2026-10-03T08:04:31",
+          "ExcNodeList": "(null)",
+          "ExitCode": "0:0",
+          "Features": "(null)",
+          "GroupId": "PGS0407(9475)",
+          "JobId": "7651765",
+          "JobName": "tcad-hxt-postopt",
+          "JobState": "RUNNING",
+          "LastSchedEval": "2026-10-03T07:09:31",
+          "Licenses": "(null)",
+          "LicensesAlloc": "(null)",
+          "MCS_label": "N/A",
+          "MinCPUsNode": "41",
+          "MinMemoryNode": "160G",
+          "MinTmpDiskNode": "0",
+          "Network": "(null)",
+          "Nice": "0",
+          "NodeList": "a0157",
+          "NtasksPerN:B:S:C": "0:0:*:1",
+          "NumCPUs": "41",
+          "NumNodes": "1",
+          "NumTasks": "1",
+          "OverSubscribe": "OK",
+          "Partition": "nextgen",
+          "PreemptEligibleTime": "2026-10-03T07:09:31",
+          "PreemptTime": "None",
+          "Priority": "300000534",
+          "QOS": "ascend-default",
+          "Reason": "None",
+          "Reboot": "0",
+          "ReqB:S:C:T": "0:0:*:*",
+          "ReqNodeList": "(null)",
+          "ReqTRES": "cpu=1,mem=160G,node=1,billing=1",
+          "Requeue": "0",
+          "Restarts": "0",
+          "RunTime": "00:00:07",
+          "Scheduler": "Backfill",
+          "SecsPreSuspend": "0",
+          "Socks/Node": "*",
+          "StartTime": "2026-10-03T07:09:31",
+          "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+          "StdIn": "/dev/null",
+          "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+          "SubmitTime": "2026-10-03T07:09:00",
+          "SuspendTime": "None",
+          "TimeLimit": "00:55:00",
+          "TimeMin": "N/A",
+          "TresPerTask": "cpu=1",
+          "UserId": "binben14(51204)",
+          "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN"
+        },
+        "source_commit": "9e6bdf817004436a938fe8bdb99c34b7ccef5d75",
+        "stages": [
+          "geometry_validated",
+          "occ_fragmented",
+          "mesh_generate_started",
+          "raw_mesh_generated",
+          "mesh_optimize_started",
+          "mesh_optimize_finished",
+          "mesh_generated",
+          "mesh_extracted",
+          "gmsh_finalized",
+          "skfem_mesh_created",
+          "mesh_fingerprinted"
+        ]
+      },
+      "returncode": 0
+    }
+  },
+  "numerical_quality_qualified": false,
+  "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+  "protocol_sha256": "723bb110b8d7c67d0274883583c527827a3326aab88b300d34bf555fa006ecae",
+  "reference_qualified": false,
+  "repeatability_passed": false,
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1"
+    },
+    "python": "3.9.21",
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "1"
+    }
+  },
+  "scheduler": {
+    "Account": "pgs0407",
+    "AccrueTime": "2026-10-03T07:09:00",
+    "AllocNode:Sid": "ascend-login02:1563419",
+    "AllocTRES": "cpu=41,mem=160G,node=1,billing=41",
+    "BatchFlag": "1",
+    "BatchHost": "a0157",
+    "CPUs/Task": "41",
+    "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "Contiguous": "0",
+    "CoreSpec": "*",
+    "Deadline": "N/A",
+    "DelayBoot": "00:00:00",
+    "Dependency": "(null)",
+    "EligibleTime": "2026-10-03T07:09:00",
+    "EndTime": "2026-10-03T08:04:31",
+    "ExcNodeList": "(null)",
+    "ExitCode": "0:0",
+    "Features": "(null)",
+    "GroupId": "PGS0407(9475)",
+    "JobId": "7651765",
+    "JobName": "tcad-hxt-postopt",
+    "JobState": "RUNNING",
+    "LastSchedEval": "2026-10-03T07:09:31",
+    "Licenses": "(null)",
+    "LicensesAlloc": "(null)",
+    "MCS_label": "N/A",
+    "MinCPUsNode": "41",
+    "MinMemoryNode": "160G",
+    "MinTmpDiskNode": "0",
+    "Network": "(null)",
+    "Nice": "0",
+    "NodeList": "a0157",
+    "NtasksPerN:B:S:C": "0:0:*:1",
+    "NumCPUs": "41",
+    "NumNodes": "1",
+    "NumTasks": "1",
+    "OverSubscribe": "OK",
+    "Partition": "nextgen",
+    "PreemptEligibleTime": "2026-10-03T07:09:31",
+    "PreemptTime": "None",
+    "Priority": "300000534",
+    "QOS": "ascend-default",
+    "Reason": "None",
+    "Reboot": "0",
+    "ReqB:S:C:T": "0:0:*:*",
+    "ReqNodeList": "(null)",
+    "ReqTRES": "cpu=1,mem=160G,node=1,billing=1",
+    "Requeue": "0",
+    "Restarts": "0",
+    "RunTime": "00:00:01",
+    "Scheduler": "Backfill",
+    "SecsPreSuspend": "0",
+    "Socks/Node": "*",
+    "StartTime": "2026-10-03T07:09:31",
+    "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "StdIn": "/dev/null",
+    "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "SubmitTime": "2026-10-03T07:09:00",
+    "SuspendTime": "None",
+    "TimeLimit": "00:55:00",
+    "TimeMin": "N/A",
+    "TresPerTask": "cpu=1",
+    "UserId": "binben14(51204)",
+    "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN"
+  },
+  "source_commit": "9e6bdf817004436a938fe8bdb99c34b7ccef5d75",
+  "terminal_admission_pending": true,
+  "training_may_start": false
+}

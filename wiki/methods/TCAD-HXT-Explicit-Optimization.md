@@ -1,11 +1,15 @@
 ---
 title: TCAD HXT Explicit-Optimization Diagnostic
-status: RUNNING; source frozen; diagnostic observations only
+status: REJECTED; source preserved; terminal diagnostic archived
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Explicit-Optimization Diagnostic
+
+The study is terminal and incomplete at the sentinel optimizer time cap.
+The [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns the
+checked archive. This specification remains immutable; it is not a retry plan.
 
 This follows the [rejected unoptimized toy](../evidence/TCAD-HXT-Optimization-Isolation.md)
 and the [source-based research decision](../manuscript/TCAD-Research-Plan.md).
