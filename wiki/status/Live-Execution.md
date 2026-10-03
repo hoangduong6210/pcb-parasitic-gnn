@@ -7,6 +7,40 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Native field-probe qualification completed on 2026-10-03
+
+At 15:59:03 UTC job **7655811** was terminal `COMPLETED/0:0`, zero restarts,
+63 seconds, and absent from the queue. Both fresh workers passed with identical
+report/payload hashes and unchanged observed main-state snapshots. The
+[evidence owner](../evidence/TCAD-Native-Field-Probe.md) records the tiny synthetic
+scope: this is native API qualification, not a real-layout mesh or field result.
+The additive collector passed 24 synthetic tests with one pre-collection skip
+and preserved all 43 terminal members. Terminal regression/publication is next,
+then a separately frozen real-layout integration using this adapter while
+retaining every original sizing/geometry/count/quality gate and actual-layout
+probe requirement. No scientific job is active. The full TCAD goal remains
+active/incomplete; terminal records are local pending publication.
+
+Terminal regression passed **215 tests, zero skips**, including actual archive
+review. The prose audit passed; accounting reconfirmed the completed attempt
+and the owner's queue was empty at 16:02:58 UTC. Six more inspected completed
+fixture roots were removed without touching scientific data, source worktrees
+or recovery archives. Final manifest/member checks and publication are next.
+This goal turn made implementation, successful native qualification and
+evidence-preservation progress, without qualifying any real-layout mesh.
+
+## Native field-probe source published and submitted on 2026-10-03
+
+At 15:56:50 UTC GitHub main and local HEAD matched
+`aae46d310a92c0da6dff02ca6cf9e82e1586adb6`. Final checks passed the
+7,301-file manifest, prose audit and 55 wiki/prose tests; agent guidance remains
+untracked. The 479-file sparse checkout passed source/wrapper/runtime preflight.
+One submission at 15:57:40 UTC returned **job 7655811**. Monitor the same
+bounded synthetic API qualification; no real-layout mesh retry is included.
+The [evidence owner](../evidence/TCAD-Native-Field-Probe.md) records identities.
+Source is published; current receipts remain local. The full TCAD goal is
+active and incomplete.
+
 ## Native field-probe source frozen on 2026-10-03
 
 The [new synthetic API study](../evidence/TCAD-Native-Field-Probe.md) has a

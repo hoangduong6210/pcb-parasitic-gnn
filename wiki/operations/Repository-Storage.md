@@ -219,3 +219,13 @@ Four completed fixture roots were inspected and removed:
 only four directories and 19 pytest links, with no regular files or scientific
 output. The separate active source-freeze process was untouched. No source
 worktree, native evidence, Git object or recovery archive was deleted.
+
+Six additional completed fixture roots were inspected and removed after native
+qualification: `edge-terminal-wiki.CYYWer`, `edge-receipt-wiki.xgZe2W`,
+`field-probe-api-frozen.jpk3Fa`, `field-probe-api-prefreeze.lsZMnf`,
+`field-probe-api-publication-wiki.ZU4oEP`, and
+`field-probe-api-archive-tests.edGw2P`. Their 21 directories, 101 pytest links
+and 15 regular files contained only reproducible fixtures; every regular-file
+hash matched one of the three inspected prose-audit forms. The still-running
+terminal regression used a separate untouched root. All scientific data,
+execution worktrees, Git objects and private recovery archives remain intact.

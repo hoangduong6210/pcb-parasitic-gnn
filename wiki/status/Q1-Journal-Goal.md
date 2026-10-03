@@ -76,8 +76,10 @@ attempt is archived and published. A separate
 exact repeat and a checked archive. The separately specified
 [edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md) reached
 native SLURM execution, but its probe adapter failed before toy meshing. The
-preserved failure requires a separate tiny native API qualification, then new
-frozen integration; the sizing hypothesis remains untested. This is not a
+preserved failure led to a separate
+[tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md), which
+now passes with exact fresh repeat. Next is newly frozen real-layout integration
+with mandatory native probes; the sizing hypothesis remains untested. This is not a
 capture-cap increase or an accuracy claim; native log
 totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only

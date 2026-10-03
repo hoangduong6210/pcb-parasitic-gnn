@@ -17,9 +17,10 @@ than the planar capture cap; it provides neither a qualified sentinel mesh nor
 an electrical result. The separate
 [edge-local study](../evidence/TCAD-Edge-Feasibility.md) now has a preserved
 native integration failure: its list-based field-probe view lacked required
-model-entity support, stopping before toy meshing. Next: a separately specified
-tiny native API qualification through SLURM, then a newly frozen integration
-only if that prerequisite passes. Do not bypass probes, tune sizing, raise caps
+model-entity support, stopping before toy meshing. The separate
+[tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md) has now
+passed through SLURM with exact fresh repeat. Next: newly frozen real-layout
+integration retaining its own native probes before meshing. Do not bypass probes, tune sizing, raise caps
 or retry the failed source. Full mesh/field/sensitivity checks remain required.
 This remains reference engineering, not the paper's learning-method novelty.
 

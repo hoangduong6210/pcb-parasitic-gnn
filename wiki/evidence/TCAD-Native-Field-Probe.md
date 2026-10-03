@@ -1,6 +1,6 @@
 ---
 title: TCAD Native Field Probe Evidence
-status: PROPOSED
+status: VALIDATED; synthetic native API only
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -46,3 +46,58 @@ data and execution worktrees remain preserved.
   `50a8967f63cce31cd0ba1d20e45ed4a3ccaba06d6ac8fff3f8ce83553e193541`.
 - Source/input dependencies: 476, including the unchanged parent source and
   complete rejected terminal archive.
+
+## Source publication and submission
+
+Source `aae46d310a92c0da6dff02ca6cf9e82e1586adb6` was verified against
+GitHub main at 15:56:50 UTC. Final checks passed the 7,301-file manifest, prose
+audit and 55 wiki/prose tests. The fresh 479-file sparse checkout passed source,
+wrapper and runtime metadata preflight. One submission at 15:57:40 UTC returned
+**job 7655811**. The receipt is
+`results/tcad/cps_field_probe_api_v1/submission.json`. Monitor this attempt;
+do not retry. Source is published; submission/monitoring receipts remain local.
+
+## Terminal native API result
+
+At 15:59:03 UTC job **7655811** was terminal `COMPLETED/0:0`, zero restarts,
+63 seconds on `a0113`, and absent from the queue. Both fresh workers passed.
+Each checked **73 points**, evaluating the minimum distance over **12 original
+finite segments** and the linear size field separately. The threshold used
+DistMin 0.055 mm, DistMax 0.555 mm, SizeMin 0.12 mm and SizeMax 1 mm; these
+were fixed before execution. Relative and absolute probe tolerances were
+1e-12 and 1e-12 mm. This is API/value agreement on a tiny synthetic fixture,
+not mesh resolution, physical accuracy or a real-layout result.
+
+The two complete report files are byte-identical, SHA-256
+`e3df67aab34d890a7beddefb213858b7d8425fe1ac67dd3c1bbc375d4c00d562`.
+Each binds 15 payload members. The main-state before/after files have identical
+bytes, SHA-256
+`a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be`:
+observed CAD, field definitions, options, model/view identities and empty mesh
+are unchanged. Only explicit temporary 0D probe elements were inserted and
+removed; no native planar/volume generation or PDE solve ran. The result does
+not certify hidden native caches or behavior on arbitrary geometries.
+
+The additive collector passed 24 synthetic tests with one pre-collection skip.
+All **43 terminal members** are preserved in
+`results/tcad/cps_field_probe_api_v1/archive/job_7655811/manifest.json`, SHA-256
+`b4d339befd6993abfd9a36316fb155cfe11afd90b5d4142230aab8e645eb17bd`.
+Review checks bytes, scalar closures and the same fixed tiny synthetic fixture;
+it imports no native library and replays no actual layout/mesh. All earlier
+failed source and evidence remain intact. Terminal regression passed **215
+tests, zero skips**, in 92.39 seconds, including actual archive validation.
+The prose audit passed. Final manifest/member checks and publication are next;
+no scientific job remains active.
+
+## Next scientific action
+
+Integrate the qualified model-backed adapter into a **newly versioned/frozen
+edge-local feasibility study**, preserving the original failed source and
+archive. Keep the same distance/size definition, inherited near/far/transition,
+geometry, 2D capture limits, prospective column counts, conditioning and volume
+gates. Preserve each actual-layout native probe and main-state before/after
+snapshot, and require those gates before meshing every mode. This synthetic pass
+does not waive actual-layout probes. Then submit the toy/sentinel/fresh repeat
+once through SLURM. No automatic retry, cap increase or accuracy claim follows.
+Full 3D boundary/terminal/volume and field/sensitivity qualification still
+precede references, learning and paper claims. The full TCAD goal is incomplete.

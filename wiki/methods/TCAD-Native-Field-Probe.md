@@ -1,6 +1,6 @@
 ---
 title: TCAD Native Field Probe API Qualification
-status: PROPOSED
+status: VALIDATED; synthetic native API only
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -54,3 +54,11 @@ before one bounded SLURM submission. Stop on failure with no automatic retry.
 Even a pass opens only the prerequisite for a newly frozen real-layout probe/
 mesh integration; no mesh, reference, field-accuracy or publication gate opens.
 The [evidence owner](../evidence/TCAD-Native-Field-Probe.md) records progress.
+
+## Qualification outcome
+
+The separately frozen native study passed its fixed synthetic checks and fresh
+repeat. This qualifies the model-backed adapter only within that scope. A new
+real-layout integration must preserve its own native probes and main-state
+checks before meshing; the initial failed edge-local source remains immutable.
+The evidence owner records exact coverage, archive identity and limitations.

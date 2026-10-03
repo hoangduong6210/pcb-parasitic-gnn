@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.field-probe-api-submission.v1",
+  "job_id": "7655811",
+  "source_commit": "aae46d310a92c0da6dff02ca6cf9e82e1586adb6",
+  "lock_sha256": "50a8967f63cce31cd0ba1d20e45ed4a3ccaba06d6ac8fff3f8ce83553e193541",
+  "protocol_sha256": "cfb3f73f451e71babdb15c1cb4d97ca61a583a8b0a3ba8b775912a2a7bf69aa5",
+  "submitted_at_utc": "2026-10-03 15:57:40 UTC",
+  "execution_worktree": ".internal/tcad-cps-field-probe-api-v1",
+  "source_remotely_verified_at_utc": "2026-10-03 15:56:50 UTC",
+  "modes": ["probe", "repeat"],
+  "scope": "Tiny synthetic model-backed native field sampling and observed original-state restoration; only temporary explicit 0D probe elements, no planar/volume generation or PDE solve",
+  "automatic_retries": 0
+}

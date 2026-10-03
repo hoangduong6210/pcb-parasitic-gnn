@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 385,
+    "code": 386,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 63,
-    "results": 6344,
+    "results": 6388,
     "root": 11,
-    "tests": 101,
+    "tests": 102,
     "wiki": 106
   },
   "files": [
@@ -749,6 +749,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_edge_feasibility_v1.py",
       "bytes": 8885,
       "sha256": "4b32d321eb23eece056fc2ed52114a411cccbadc94ae6a1dfe9d8babe9aa139f"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_field_probe_api_v1.py",
+      "bytes": 8883,
+      "sha256": "f89ce7590e593875c1d4ba9f1b38e390aa18dac8d53da04fe4cbbdce696878ba"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py",
@@ -34486,6 +34491,226 @@
       "sha256": "2b81c22b7ad634d9c69490a20c1a46cf643d1a4befe7f8f1bae3aeaf02cc00ab"
     },
     {
+      "path": "results/tcad/cps_field_probe_api_v1/archive/job_7655811/logs/tcad_field_probe_api_7655811.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/archive/job_7655811/logs/tcad_field_probe_api_7655811.out",
+      "bytes": 432,
+      "sha256": "cd075a300725bccd4a359610cc2e3f8c713dce150fb07c45c514612019800eaa"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/archive/job_7655811/manifest.json",
+      "bytes": 7825,
+      "sha256": "b4d339befd6993abfd9a36316fb155cfe11afd90b5d4142230aab8e645eb17bd"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/archive/job_7655811/sacct.txt",
+      "bytes": 38,
+      "sha256": "7779ff6ebcd3c1fdece07522f49772df750a9c90573b85b8deab712a3b6e63bb"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/attempt.json",
+      "bytes": 15178,
+      "sha256": "19b1094ceab0c41bbe625bc8be93126af6f1fd37d8ba1b7d2c90945051c25130"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.json",
+      "bytes": 5490,
+      "sha256": "e6b8d124741095b2e22094b7c191b99b3c1ed8b6f436079270a7ee8583697bc3"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/after.json",
+      "bytes": 8045,
+      "sha256": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/before.json",
+      "bytes": 8045,
+      "sha256": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/comparison.json",
+      "bytes": 21187,
+      "sha256": "c2adb7dff9f70fe9ffad192dc8d2718db0ab66f6ce18f8eeb75725b61dd6ea20"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.cleanup.json",
+      "bytes": 97,
+      "sha256": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.request.json",
+      "bytes": 1854,
+      "sha256": "2025ad9d48f0e8fac64779fd5fc68493d422cb7b8f980c08e9424417c877fd5f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.scaffold.json",
+      "bytes": 2232,
+      "sha256": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.view_after.json",
+      "bytes": 4045,
+      "sha256": "184bc661c24c2b8ef59412172bab9d790c74938f6e34237dfc5c7d725b20bfab"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.view_before.json",
+      "bytes": 1089,
+      "sha256": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/fixture.json",
+      "bytes": 146,
+      "sha256": "9226916620606363d8f26fec45f59f8c089f24386d2a547ff35ce10a021a0bee"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/report.json",
+      "bytes": 2428,
+      "sha256": "e3df67aab34d890a7beddefb213858b7d8425fe1ac67dd3c1bbc375d4c00d562"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.cleanup.json",
+      "bytes": 97,
+      "sha256": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.request.json",
+      "bytes": 1854,
+      "sha256": "85771b173c8adf8eb8c4dcd35af4bb241c38c06bbe0e435300a0f2b2e732a229"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.scaffold.json",
+      "bytes": 2232,
+      "sha256": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.view_after.json",
+      "bytes": 3494,
+      "sha256": "6a73b40e7f55a206e95d14a12b0cc20d74d161ef71d268e5d361f6ed2c1a3f45"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.view_before.json",
+      "bytes": 1089,
+      "sha256": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/sizing.json",
+      "bytes": 3184,
+      "sha256": "4ce9a3e3d9a583002b6b6af401e0ba1e53d5c24951b62f561386eea56459232f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/probe.stdout",
+      "bytes": 2992,
+      "sha256": "03149991fe98bf319086922878fece309e24afc30268024cd783274a62fa224c"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.json",
+      "bytes": 5505,
+      "sha256": "ad4b405335e37841228885e3dba6cbad9f21f464995a98c37dbcc92d77d024e4"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/after.json",
+      "bytes": 8045,
+      "sha256": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/before.json",
+      "bytes": 8045,
+      "sha256": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/comparison.json",
+      "bytes": 21187,
+      "sha256": "c2adb7dff9f70fe9ffad192dc8d2718db0ab66f6ce18f8eeb75725b61dd6ea20"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.cleanup.json",
+      "bytes": 97,
+      "sha256": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.request.json",
+      "bytes": 1854,
+      "sha256": "2025ad9d48f0e8fac64779fd5fc68493d422cb7b8f980c08e9424417c877fd5f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.scaffold.json",
+      "bytes": 2232,
+      "sha256": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.view_after.json",
+      "bytes": 4045,
+      "sha256": "184bc661c24c2b8ef59412172bab9d790c74938f6e34237dfc5c7d725b20bfab"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.view_before.json",
+      "bytes": 1089,
+      "sha256": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/fixture.json",
+      "bytes": 146,
+      "sha256": "9226916620606363d8f26fec45f59f8c089f24386d2a547ff35ce10a021a0bee"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/report.json",
+      "bytes": 2428,
+      "sha256": "e3df67aab34d890a7beddefb213858b7d8425fe1ac67dd3c1bbc375d4c00d562"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.cleanup.json",
+      "bytes": 97,
+      "sha256": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.request.json",
+      "bytes": 1854,
+      "sha256": "85771b173c8adf8eb8c4dcd35af4bb241c38c06bbe0e435300a0f2b2e732a229"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.scaffold.json",
+      "bytes": 2232,
+      "sha256": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.view_after.json",
+      "bytes": 3494,
+      "sha256": "6a73b40e7f55a206e95d14a12b0cc20d74d161ef71d268e5d361f6ed2c1a3f45"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.view_before.json",
+      "bytes": 1089,
+      "sha256": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/sizing.json",
+      "bytes": 3184,
+      "sha256": "4ce9a3e3d9a583002b6b6af401e0ba1e53d5c24951b62f561386eea56459232f"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.stdout",
+      "bytes": 2989,
+      "sha256": "d3bc27939674f2a4a948a94430c98a945201c6d95e6cecce83cdfcb2a2686611"
+    },
+    {
+      "path": "results/tcad/cps_field_probe_api_v1/submission.json",
+      "bytes": 741,
+      "sha256": "51bfae976787d0b2c4351bff44e345fa852f9bb5299fd278ccbf1ad29421bb72"
+    },
+    {
       "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -35881,6 +36106,11 @@
       "sha256": "6a06af63e8498c06ef4b155156f0124364d2e8f05f95b287a0a890903f32864d"
     },
     {
+      "path": "tests/test_tcad_cps_field_probe_api_archive.py",
+      "bytes": 7392,
+      "sha256": "6f0d2f78aae19302c54ab41cf20463104a5d1a4eb116856d0e727d72ceef4a73"
+    },
+    {
       "path": "tests/test_tcad_cps_hxt_isolation.py",
       "bytes": 17850,
       "sha256": "81fab26786f7dab89c083d1d66983c47be0c62ba7051baaab48c4e90893521c3"
@@ -36002,8 +36232,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 20691,
-      "sha256": "d984896ebd102372c7956a7cc69a1ba5140590c02beaf7e398ed935aaee08f77"
+      "bytes": 20702,
+      "sha256": "8a21ecedd1ad3fbdc26e3448dd07c472e73646f0b86aaf6e50fd155131e120a2"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -36167,8 +36397,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Native-Field-Probe.md",
-      "bytes": 2307,
-      "sha256": "b463157eed4eb42261dc57e7ab660f5c4d10017845a021ae017fdd81f1c00d0b"
+      "bytes": 5602,
+      "sha256": "e4ed6466e728d48a406ff36569743485615892057bb357dd7d00ae2d24f01a2e"
     },
     {
       "path": "wiki/evidence/TCAD-Sizing-Budget.md",
@@ -36217,8 +36447,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 33268,
-      "sha256": "fdd573e3d4aab85efb915db941cefc0030515b149abbb0fcb2bae53a0fc53a28"
+      "bytes": 33358,
+      "sha256": "d629fed6dd4c408b3c43b30a31c4c2dfaaa408fb0add83a30254eb3dbfca5e07"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -36362,8 +36592,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Native-Field-Probe.md",
-      "bytes": 3190,
-      "sha256": "39e482b29e51c731c67261bd702e48fcda71d8499b3dda50dfbaa2baca988849"
+      "bytes": 3633,
+      "sha256": "cdecb826ed21850d29d36113c57af6ce04d803496d26cb8a3bd986136069a31b"
     },
     {
       "path": "wiki/methods/TCAD-Sizing-Budget.md",
@@ -36382,8 +36612,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 13497,
-      "sha256": "7463f998a40855f7fe9634865cd12de174bd4f67e436ad583e1556d4e741b31d"
+      "bytes": 14150,
+      "sha256": "5f9c4ec57bd03a784986060517dbe0beb1a8682fff286b1c3cb261617c3a2c18"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -36502,18 +36732,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 117780,
-      "sha256": "91f4c39123957ebe36672bb2a490933e76e0ae1e2a2158d193bdfff914dd88fc"
+      "bytes": 119900,
+      "sha256": "2d21626487e346f338d04632671eced48dbc1e6555a2cafeb87585675b81a844"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 15342,
-      "sha256": "748b2de370d1bf15de72007b895b030baebd54c82ca5053f61bf16284f72cf7f"
+      "bytes": 15494,
+      "sha256": "f3e127b9ac3fbc09d26156be7ff678574bd5fa25adbfcbfb8ad189d6076f6082"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 6272,
-      "sha256": "e60cc09a4d2217b9dcaf7db7c0f9dc3a32022b3724623386441fd1b69f86579c"
+      "bytes": 6400,
+      "sha256": "6ee8072a138d29356b44b4fef34745b5ca831ee4874ab27a8242fcb1f8fb4fa5"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -36521,6 +36751,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7301,
-  "total_bytes": 1008815750
+  "n_files": 7347,
+  "total_bytes": 1009002343
 }

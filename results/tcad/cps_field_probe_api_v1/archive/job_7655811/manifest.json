@@ -1,0 +1,88 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "63",
+      "ExitCode": "0:0",
+      "JobID": "7655811",
+      "NodeList": "a0113",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    }
+  ],
+  "attempt_sha256": "19b1094ceab0c41bbe625bc8be93126af6f1fd37d8ba1b7d2c90945051c25130",
+  "diagnosis": {
+    "boundary_contract_passed": false,
+    "claim_eligible": false,
+    "complete": true,
+    "diagnostic_passed": true,
+    "field_solver_executed": false,
+    "native_mesh_generation_called": false,
+    "observed_modes": {
+      "probe": {
+        "failure": null,
+        "passed": true
+      },
+      "repeat": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "planar_mesh_generated": false,
+    "reference_qualified": false,
+    "repeatability_passed": true,
+    "synthetic_probe_elements_only": true,
+    "training_may_start": false,
+    "volume_mesh_generated": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_field_probe_api_v1/archive/job_7655811/logs/tcad_field_probe_api_7655811.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_field_probe_api_v1/archive/job_7655811/logs/tcad_field_probe_api_7655811.out": "cd075a300725bccd4a359610cc2e3f8c713dce150fb07c45c514612019800eaa",
+    "results/tcad/cps_field_probe_api_v1/archive/job_7655811/sacct.txt": "7779ff6ebcd3c1fdece07522f49772df750a9c90573b85b8deab712a3b6e63bb",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/attempt.json": "19b1094ceab0c41bbe625bc8be93126af6f1fd37d8ba1b7d2c90945051c25130",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.json": "e6b8d124741095b2e22094b7c191b99b3c1ed8b6f436079270a7ee8583697bc3",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/after.json": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/before.json": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/comparison.json": "c2adb7dff9f70fe9ffad192dc8d2718db0ab66f6ce18f8eeb75725b61dd6ea20",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.cleanup.json": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.request.json": "2025ad9d48f0e8fac64779fd5fc68493d422cb7b8f980c08e9424417c877fd5f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.scaffold.json": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.view_after.json": "184bc661c24c2b8ef59412172bab9d790c74938f6e34237dfc5c7d725b20bfab",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/distance.view_before.json": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/fixture.json": "9226916620606363d8f26fec45f59f8c089f24386d2a547ff35ce10a021a0bee",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/report.json": "e3df67aab34d890a7beddefb213858b7d8425fe1ac67dd3c1bbc375d4c00d562",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.cleanup.json": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.request.json": "85771b173c8adf8eb8c4dcd35af4bb241c38c06bbe0e435300a0f2b2e732a229",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.scaffold.json": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.view_after.json": "6a73b40e7f55a206e95d14a12b0cc20d74d161ef71d268e5d361f6ed2c1a3f45",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/size.view_before.json": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.payload/sizing.json": "4ce9a3e3d9a583002b6b6af401e0ba1e53d5c24951b62f561386eea56459232f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/probe.stdout": "03149991fe98bf319086922878fece309e24afc30268024cd783274a62fa224c",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.json": "ad4b405335e37841228885e3dba6cbad9f21f464995a98c37dbcc92d77d024e4",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/after.json": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/before.json": "a0efcc6e854f09ba7c72adda8c3a0c07ac483e3154e387a78a4ef93334f5a3be",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/comparison.json": "c2adb7dff9f70fe9ffad192dc8d2718db0ab66f6ce18f8eeb75725b61dd6ea20",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.cleanup.json": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.request.json": "2025ad9d48f0e8fac64779fd5fc68493d422cb7b8f980c08e9424417c877fd5f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.scaffold.json": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.view_after.json": "184bc661c24c2b8ef59412172bab9d790c74938f6e34237dfc5c7d725b20bfab",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/distance.view_before.json": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/fixture.json": "9226916620606363d8f26fec45f59f8c089f24386d2a547ff35ce10a021a0bee",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/report.json": "e3df67aab34d890a7beddefb213858b7d8425fe1ac67dd3c1bbc375d4c00d562",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.cleanup.json": "02f2071c064ecb22aae6d05ea46633d3a3392f55d90fc11b57b9e8d4e9bc098f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.request.json": "85771b173c8adf8eb8c4dcd35af4bb241c38c06bbe0e435300a0f2b2e732a229",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.scaffold.json": "713e7d7e212830554bbbc309d8eb59d8fc0f2cc0f5966db4497bff72da16c72b",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.view_after.json": "6a73b40e7f55a206e95d14a12b0cc20d74d161ef71d268e5d361f6ed2c1a3f45",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/size.view_before.json": "d00aa3e37fb433a7ddd6e1022d89aab401774d08484faa48d7fd950f90a46bdb",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.payload/sizing.json": "4ce9a3e3d9a583002b6b6af401e0ba1e53d5c24951b62f561386eea56459232f",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_field_probe_api_v1/job_7655811/repeat.stdout": "d3bc27939674f2a4a948a94430c98a945201c6d95e6cecce83cdfcb2a2686611",
+    "results/tcad/cps_field_probe_api_v1/submission.json": "51bfae976787d0b2c4351bff44e345fa852f9bb5299fd278ccbf1ad29421bb72"
+  },
+  "lock_sha256": "50a8967f63cce31cd0ba1d20e45ed4a3ccaba06d6ac8fff3f8ce83553e193541",
+  "schema": "pcb-gnn.field-probe-api-archive.v1",
+  "scope": "byte-preserved synthetic native API attempt; no planar/volume generation, PDE or reference qualification",
+  "source_commit": "aae46d310a92c0da6dff02ca6cf9e82e1586adb6"
+}

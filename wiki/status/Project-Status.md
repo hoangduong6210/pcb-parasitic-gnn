@@ -80,8 +80,10 @@ repeat. Its unchanged full-column budget is tighter than the capture cap.
 The separate [edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md)
 completed its first guarded SLURM attempt, but the native probe adapter failed
 on toy before meshing. Its list view lacked required model-entity access; this
-is not a sizing/capacity result. The failure is preserved. Next is a separately
-specified tiny native API qualification before any new real-layout attempt;
+is not a sizing/capacity result. The failure is preserved. The separate
+[tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md) now
+passes with exact fresh repeat and unchanged observed main state. Next is a
+newly frozen real-layout integration that retains per-layout probes before meshing;
 count/quality gates and later field-sensitivity checks remain required.
 Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.
