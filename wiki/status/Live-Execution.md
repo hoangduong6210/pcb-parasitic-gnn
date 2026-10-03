@@ -7,6 +7,27 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Saved-packet arithmetic preparation on 2026-10-03
+
+GitHub main was reverified at `f5a74612b0741b3066170375502ab341cf61368b`;
+the worktree was clean and the owner's queue empty. The current turn implements
+the [exact-arithmetic diagnostic](../methods/TCAD-Jacobian-Arithmetic.md) of the
+unchanged archived toy packets. Tests use tiny synthetic arrays. No real-packet
+arithmetic ran on login, and no new job is submitted. Next: synthetic regression,
+source freeze/publication, then the bounded SLURM-only diagnosis. All existing
+mesh/field/reference/training/claim gates remain unchanged. The TCAD goal is
+active and incomplete; these new changes are local.
+
+The arithmetic source is now frozen with 293 dependencies. Its expanded
+pre-freeze suite passed 129 tests with one expected lock skip; the corrected
+post-freeze regression is running. Two completed synthetic-fixture directories
+were removed after inspecting their contents; no scientific files were removed.
+
+The frozen regression subsequently passed all 443 tests with zero skips.
+Source publication and one bounded SLURM submission are next. The completed
+regression fixtures and empty collection-failure directory were removed; all
+scientific worktrees and evidence remain preserved. No job is active yet.
+
 ## Boundary-mesh terminal checkpoint published on 2026-10-03
 
 At 10:01:36 UTC GitHub main and local HEAD were verified as

@@ -63,6 +63,8 @@ paper_source: false
 | [TCAD Dielectric Boundary-Mesh Audit](methods/TCAD-Dielectric-Boundary-Mesh.md) | Native packet extraction, exact tetrahedron/surface ownership, signed geometry and synthetic validation; real mesh pending |
 | [TCAD Dielectric Boundary-Mesh Evidence](evidence/TCAD-Dielectric-Boundary-Mesh.md) | Guarded integration validation, source/terminal identities and raw/final packet preservation |
 | [TCAD Dielectric Boundary-Mesh Runbook](operations/TCAD-Dielectric-Boundary-Mesh.md) | Separate bounded SLURM execution, sparse source and chunked-array preservation procedure |
+| [TCAD Saved-Packet Jacobian Arithmetic](methods/TCAD-Jacobian-Arithmetic.md) | Exact stored-coordinate diagnosis without changing the rejected mesh or tolerance |
+| [TCAD Jacobian Arithmetic Evidence](evidence/TCAD-Jacobian-Arithmetic.md) | Source-bound raw/final arithmetic study, repeat and terminal evidence |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

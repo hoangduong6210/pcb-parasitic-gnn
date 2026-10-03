@@ -1,0 +1,28 @@
+{
+  "schema": "pcb-gnn.tcad-cps-jacobian-arithmetic.v1",
+  "scope": "Exact arithmetic diagnosis of unchanged rejected toy packets; no new mesh or field solve",
+  "parent_protocol_sha256": "1b415ce95aee2d4cf0766b5e8de4d7f1befe39651f409c68c2f58cd8fa4a5648",
+  "terminal_archive_sha256": "787aafe6f1d37cdde5abbe4fecc5836f0f4d4aa1abcaeb473a0b3a55eecc0369",
+  "modes": ["raw", "final", "repeat_final"],
+  "inputs": {
+    "raw": {"packet_sha256": "7338595872a287e39b1ad7f978fcaab13c20cc4a30021ed5e768b1f05cb64807", "tetrahedra": 3643},
+    "final": {"packet_sha256": "7a2b4c8a768bd2feb369e3be2c39531cf3a7c90ee7508cf6155bfc6a49e9b4f1", "tetrahedra": 3541}
+  },
+  "jacobian_rtol": 1e-8,
+  "jacobian_atol": 0,
+  "resources": {"account": "pgs0407", "partition": "nextgen", "cpus_per_task": 1, "mem_gib": 8, "time_limit": "00:15:00"},
+  "worker_limits": {"worker_timeout_s": 180, "rss_gib_max": 6, "mesh_nodes_max": 2048, "mesh_tetrahedra_max": 4096, "mesh_triangles_max": 4096},
+  "report_bytes_max": 16777216,
+  "exact_methods": ["rational scalar triple product", "independent rational 4x4 homogeneous elimination"],
+  "exact_input": "Fraction.from_float on each stored coordinate before subtracting; no decimal conversion or limit_denominator",
+  "coverage": "all tetrahedra in both packets; preserve every per-element result, native IDs and original gate flags",
+  "repeat_rule": "final and repeat_final fresh workers produce byte-identical complete report",
+  "success_meaning": "complete consistent diagnosis only, never admission of a rejected mesh",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "boundary_contract_passed": false,
+  "field_solver_executed": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

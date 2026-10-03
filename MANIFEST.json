@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 338,
+    "code": 343,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 49,
+    "protocols": 51,
     "results": 6225,
     "root": 11,
-    "tests": 80,
-    "wiki": 91
+    "tests": 81,
+    "wiki": 93
   },
   "files": [
     {
@@ -1216,6 +1216,11 @@
       "sha256": "f01782cb502a4bdd7dd0f3fffc3b778b8a283d07f6b4b1998db7ad65ff77b9b9"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_jacobian_arithmetic.py",
+      "bytes": 9751,
+      "sha256": "ffd0f68864f216bdae492857ce426aa2c370cc4120f4b811bb96219521adb654"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_mesh_probe.py",
       "bytes": 8078,
       "sha256": "b0edf72116a0aa0e3583deef30abbcdd8cb14dcee7811c167d91c9b83315ecda"
@@ -1259,6 +1264,11 @@
       "path": "code/experiments/proofs/tcad_cps_hxt_postopt.py",
       "bytes": 9311,
       "sha256": "588a5bd94fb69552d72b7e764e7e9e69697ebe58fd0fa3dbad0553e951789dca"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_jacobian_arithmetic.py",
+      "bytes": 5179,
+      "sha256": "285c23e611e3be86de5a23a05cd81e04bb4b2686753be95805d5e5733f146cbe"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_mesh_probe.py",
@@ -1906,6 +1916,11 @@
       "sha256": "b0dfe4f48bf075775e41da494992999b5f76a1a1d6627dccb58dddaab90968d5"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_jacobian_arithmetic.sh",
+      "bytes": 751,
+      "sha256": "e613f8e28b8ead1778e12c876b649879a3c84e06446473b34e335c6b726ba61c"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_mesh_probe.sh",
       "bytes": 673,
       "sha256": "2483cf9deb5faae8b82e8ae91e84f8adb258bee19dd4b9447e9a5279e2336544"
@@ -2199,6 +2214,16 @@
       "path": "code/solvers/tcad_cps_hxt_postopt_worker.py",
       "bytes": 6991,
       "sha256": "5b94dbbe3e8d8607930b5b03da57095674bda8426afbb31d10a864bb37cce0df"
+    },
+    {
+      "path": "code/solvers/tcad_cps_jacobian_arithmetic_worker.py",
+      "bytes": 2432,
+      "sha256": "cf08b044db93a9fdf925b6ba25fb3dfce94f199b1ac163c5dc50f6a8f93f7295"
+    },
+    {
+      "path": "code/solvers/tcad_cps_jacobian_exact.py",
+      "bytes": 5205,
+      "sha256": "f5e8f1adbe1337586cd4c2eb82184cdfe04d77805c282bca4b5d1e078f90e1a6"
     },
     {
       "path": "code/solvers/tcad_cps_mesh_probe_worker.py",
@@ -3414,6 +3439,16 @@
       "path": "protocols/tcad_cps_hxt_postopt_v1.lock.json",
       "bytes": 27094,
       "sha256": "e83ca24c6adb98e20657ef5ae24d7b1d64078282b596eaa9f248f3ee33869c14"
+    },
+    {
+      "path": "protocols/tcad_cps_jacobian_arithmetic_v1.json",
+      "bytes": 1767,
+      "sha256": "dc271f0eb498ae78ac63078f821aa9dca811f347f304ada8a4c89ea9306dda01"
+    },
+    {
+      "path": "protocols/tcad_cps_jacobian_arithmetic_v1.lock.json",
+      "bytes": 40287,
+      "sha256": "1bce5b7db75abf05ae4a954044e43880ba173a76791727f80c4a8914aae18278"
     },
     {
       "path": "protocols/tcad_cps_mesh_probe_v1.json",
@@ -34946,6 +34981,11 @@
       "sha256": "a0b1f23fa4723132ad52daecfac079898faa4038d60ed6d958debd76f5da2c9b"
     },
     {
+      "path": "tests/test_tcad_cps_jacobian_arithmetic.py",
+      "bytes": 14634,
+      "sha256": "6d8a5b5549dc5d3938462c9fcdddb269ffa4a6154eccbb5b5b6c2a12139a5a78"
+    },
+    {
       "path": "tests/test_tcad_cps_mesh_probe.py",
       "bytes": 18231,
       "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
@@ -34997,8 +35037,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 18339,
-      "sha256": "58a5d147655d6200cae11d9c7fcc2c11c6d935323577401603aef5ff12134720"
+      "bytes": 18654,
+      "sha256": "caefdcb455ca92fb637c574f63ad390e79c85b5a1ef8f48dd84db3875c7d9028"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35134,6 +35174,11 @@
       "path": "wiki/evidence/TCAD-HXT-Optimization-Isolation.md",
       "bytes": 6846,
       "sha256": "e8206919a1d4b93b1bf07b442b2180924deecc6a0f8d5158830f5585acf3d69b"
+    },
+    {
+      "path": "wiki/evidence/TCAD-Jacobian-Arithmetic.md",
+      "bytes": 2611,
+      "sha256": "f1fbdb025d95f704f446ff60cc12bf465f24f1eb96b70cc29a2197817733b952"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -35296,6 +35341,11 @@
       "sha256": "d2f15f919daae896c736c453474a75bdc6d27140862cfea4480b5b4149a36638"
     },
     {
+      "path": "wiki/methods/TCAD-Jacobian-Arithmetic.md",
+      "bytes": 3272,
+      "sha256": "8dba8991ab8120209b58e3b6c0b44756af04f4d16b007612ec4493282ba00c03"
+    },
+    {
       "path": "wiki/operations/E3-Recovery-Replay.md",
       "bytes": 4060,
       "sha256": "03a46ffdff4b7291466ca4326bd0449165c45841996aecac08e3915b391bb38e"
@@ -35422,8 +35472,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 83757,
-      "sha256": "c6fb0362d241e5f2c4c0e63c76a849111a9e4fc472e22500e5dbb048c659225e"
+      "bytes": 85027,
+      "sha256": "3eaf828f0fc49988fc3e3da9c5e146330c399c22a1a596d5c50593a57c2dc4d4"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -35441,6 +35491,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7085,
-  "total_bytes": 993333216
+  "n_files": 7095,
+  "total_bytes": 993420690
 }
