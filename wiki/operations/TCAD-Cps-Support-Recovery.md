@@ -1,6 +1,6 @@
 ---
 title: TCAD Compact-Support Recovery Runbook
-status: PROPOSED; source validation before SLURM submission
+status: RUNNING; smoke passed; feasibility and finalizer submitted
 last_updated: 2026-10-02
 paper_source: false
 ---

@@ -1,6 +1,6 @@
 ---
 title: TCAD Compact-Support Recovery Evidence
-status: PROPOSED; implementation and archive prepared; no recovery job submitted
+status: RUNNING; smoke backend check passed; single-sentinel feasibility submitted
 last_updated: 2026-10-02
 paper_source: false
 ---
@@ -51,6 +51,59 @@ lock SHA-256 is
 It includes the original closure and terminal archive; no old execution source
 file was edited. Publication and scheduler receipts follow below; no new
 numerical result is available at this preparation checkpoint.
+
+## Verified source publication
+
+The archive, additive implementation, frozen protocol/lock and wiki were
+published as `546fb480a451e143178c49b1fa3e4b3ecd39f774`. A remote branch query
+confirmed that exact `main` hash after the push. The repository manifest passed
+for 6,852 tracked files other than itself; precommit wiki, prose and recovery
+validation passed 75 tests and the deterministic prose audit. A clean detached
+worktree at that commit passed source-lock and manifest checks before the new
+SLURM smoke. This receipt
+is a subsequent documentation update and does not change execution source.
+
+## Smoke admission and single-sentinel submission
+
+Smoke `7647608` completed `0:0`, zero restarts, in eight seconds on `a0202`,
+with three allocated CPUs for the 8 GiB request and one scientific thread.
+Its [attempt receipt](../../results/tcad/cps_support_recovery_v1/smoke/job_7647608/attempt.json)
+has SHA-256
+`8b0723383c6c840901f60d148a048d1e64eb990d437fdff3a21854cdba66980c`.
+Raw worker logs, scheduler logs and terminal accounting are retained beside it.
+The compact-support toy mesh has 1,481 nodes and 7,917 tetrahedra. AMG and
+direct capacitance are both 1.1590918982639618 pF on the same system; AMG
+relative residual is 2.687811032051541e-11. All inherited smoke gates passed.
+
+The earlier wider-support toy mesh yielded 1.0304787645351507 pF, as retained
+in the [original evidence](TCAD-Cps-Reference-Pilot.md). The changed value
+demonstrates mesh-policy sensitivity on this coarse toy problem. The smoke
+only tests agreement between backends on the same matrix; it does not prove
+agreement between mesh policies, reference accuracy or convergence. The new
+support-sensitivity control remains mandatory, and its result is still pending.
+
+After raw-log reconstruction, source/geometry binding and successful terminal
+accounting were verified, feasibility job `7647612` was submitted for layout
+597 only. Finalizer `7647619` was submitted with `afterany:7647612`. Both use
+the published source and lock above. The
+[submission receipt](../../results/tcad/cps_support_recovery_v1/submissions/job_7647612.json)
+pins the chain. A scheduler check observed `7647612` RUNNING on `a0102`.
+Ongoing artifacts remain in `.internal/tcad-cps-support-recovery-v1/`; do not
+copy mutable arm receipts into the terminal archive.
+
+A follow-up check observed the feasibility job still RUNNING with 41 allocated
+CPUs for the unchanged 160 GiB request; scientific threads remain one.
+The first arm was in mesh generation and no arm had a terminal result at that
+observation. Finalizer `7647619` was `PENDING (Dependency)`. The receipt/archive
+update passed 75 recovery/wiki/prose tests and the prose audit; the repository
+manifest passed for 6,860 tracked files other than itself.
+
+Next: terminal accounting and finalizer review, including the wider-support
+check, before considering any separately authorized full-pilot extension.
+The numerical gates and all resource caps remain unchanged from their frozen
+definitions. No training, full-panel solve, claim admission or paper export
+was started. These execution receipts are being synchronized to the wiki and
+are not a completed scientific feasibility result.
 
 An unrelated scheduler job was present during inspection and was left
 untouched. No prior worktree, original protocol, original lock, baseline FEM

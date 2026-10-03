@@ -9,7 +9,7 @@
     "figures": 12,
     "logs": 172,
     "protocols": 35,
-    "results": 6093,
+    "results": 6101,
     "root": 11,
     "tests": 63,
     "wiki": 66
@@ -33631,6 +33631,46 @@
       "sha256": "5f26b4504faed214ce5d4c8a0dd499683634614d1118b46fa489418c08077e0a"
     },
     {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/attempt.json",
+      "bytes": 10233,
+      "sha256": "8b0723383c6c840901f60d148a048d1e64eb990d437fdff3a21854cdba66980c"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/smoke.json",
+      "bytes": 6522,
+      "sha256": "ff2b633d7db0778c01ebee0de4729a537fd99b3bb555d06718bad46b33b09faf"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/smoke.stderr",
+      "bytes": 98,
+      "sha256": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/smoke.stdout",
+      "bytes": 8896,
+      "sha256": "42fd9110746ad8bbeee1dac9cdc3e43a70e9dbabe940f2bd02677e489aeb170b"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/tcad_support_smoke_7647608.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/tcad_support_smoke_7647608.out",
+      "bytes": 86,
+      "sha256": "30e89c3a24f90ae397eee154f2f3f3a643e46e85bfd0d687b30bc715b2606359"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/smoke/job_7647608/terminal.json",
+      "bytes": 590,
+      "sha256": "5146f08f899fa824ca7697942ce93caf59d84b8ea93b85299781d5521db98b36"
+    },
+    {
+      "path": "results/tcad/cps_support_recovery_v1/submissions/job_7647612.json",
+      "bytes": 860,
+      "sha256": "68886dbd0ffff5d34fc2ca3ecc392843e305904229d58518d3a704fa682300d2"
+    },
+    {
       "path": "tests/test_author_identity.py",
       "bytes": 890,
       "sha256": "ad63ab0ee936eca0062c9632f88cad23a1cab2eb74e8b410cafcc1fad5580f6e"
@@ -34037,8 +34077,8 @@
     },
     {
       "path": "wiki/decisions/0005-tcad-compact-mesh-support.md",
-      "bytes": 2206,
-      "sha256": "e83eb358f11d9a06d1844414e9e4822bdb7671d32c203ec4bba3aa46eff9f693"
+      "bytes": 2207,
+      "sha256": "459038fa87ed020e270589102bfcbfce33a4ade47bf886be9666785885d8f804"
     },
     {
       "path": "wiki/evidence/Evidence-Ledger.md",
@@ -34057,8 +34097,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Cps-Support-Recovery.md",
-      "bytes": 3194,
-      "sha256": "5ba9ce8cfaefb05a4f917ed38fa3d53c6e297b91ef22471c6cfc2778bb93fa07"
+      "bytes": 6399,
+      "sha256": "701354c47538e206584817db13b6e8d97672a23098a5a73db1050e31053e8f2e"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -34172,8 +34212,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Cps-Compact-Support-Recovery.md",
-      "bytes": 3880,
-      "sha256": "1d80e316d2b2b59c9bb74548d9bd0f0b11e8f073d39b28111faffd6577b398da"
+      "bytes": 3879,
+      "sha256": "c4e59a34e0cd5c7f43249cef1ac28eaf7af1467088f391578a301d41a8092829"
     },
     {
       "path": "wiki/methods/TCAD-Cps-Reference-Qualification.md",
@@ -34212,8 +34252,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Cps-Support-Recovery.md",
-      "bytes": 3692,
-      "sha256": "e42e110d6e2aed79965a017d6e34355eab8873ef226a12b31ede2e44fd6eeecf"
+      "bytes": 3699,
+      "sha256": "f35dd9e9bcd81dae316585622653a99d5ae45b54827a41fa6ff0fb79e74f8016"
     },
     {
       "path": "wiki/references/Technical-Source-Map.md",
@@ -34262,13 +34302,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 43767,
-      "sha256": "975443f2aab21f67286b95667f2fa924e6828ad956ba380cb1bdedd644b91d38"
+      "bytes": 45512,
+      "sha256": "3deb604e6b962e5af9e4fb9e5e27933d9ccea39cf08be9749facf2ab11044235"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 8326,
-      "sha256": "acf05c7beda6cf64d2671d7598161c2c46373cdc96328069b1a0d2bf1426c3cf"
+      "bytes": 8366,
+      "sha256": "f2718ab7016f73050c84e5782e85e4c542cbe56a2b04e1a368385346f9c6d6bc"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -34276,6 +34316,6 @@
       "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6852,
-  "total_bytes": 987205818
+  "n_files": 6860,
+  "total_bytes": 987238100
 }

@@ -7,6 +7,35 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD single-sentinel support recovery submitted on 2026-10-02
+
+Compact-support smoke `7647608` passed its same-matrix backend checks and
+completed `0:0`, zero restarts, on `a0202`. Its coarse toy capacitance differs
+from the wider-support toy, so backend agreement must not be confused with
+mesh-policy accuracy. The [recovery evidence](../evidence/TCAD-Cps-Support-Recovery.md)
+records both values and the remaining sensitivity checks.
+
+Feasibility job `7647612` now runs seven fresh arms for layout 597 only;
+it was observed RUNNING on `a0102`. Finalizer `7647619` is submitted with
+`afterany:7647612`. Source remains pinned to published, remote-hash verified
+commit `546fb480a451e143178c49b1fa3e4b3ecd39f774`; updating this wiki does not
+change that worktree. Limits remain three million nodes and 1,200 seconds per
+worker, with the original memory, solver and thread settings. Next: terminal
+coverage and sensitivity review. No full-pilot expansion, training or new paper
+claim is enabled; old rejected evidence remains unchanged and archived.
+
+## TCAD support-recovery source published on 2026-10-02
+
+Published and remote-hash verified source:
+`546fb480a451e143178c49b1fa3e4b3ecd39f774`. The original rejected pilot is
+archived with all 59 closure files checked. The new source passed 122 focused
+tests, prose/shell checks and a 6,852-file manifest check. A clean detached
+worktree will run the separately versioned compact-support smoke and, only
+after smoke admission, the single-sentinel feasibility job. The
+[recovery evidence page](../evidence/TCAD-Cps-Support-Recovery.md) owns the
+current source and scheduler receipts. No cap, original source or paper was
+changed; no automatic expansion to a full pilot or training is enabled.
+
 ## TCAD compact-support implementation on 2026-10-02
 
 The owner requested the next step. The rejected pilot's 59-file terminal

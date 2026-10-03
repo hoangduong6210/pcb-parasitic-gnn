@@ -1,6 +1,6 @@
 ---
 title: Bounded Compact-Support Feasibility After the TCAD Pilot
-status: PROPOSED; owner authorized next-step implementation
+status: RUNNING; owner-authorized bounded recovery submitted
 last_updated: 2026-10-02
 paper_source: false
 ---

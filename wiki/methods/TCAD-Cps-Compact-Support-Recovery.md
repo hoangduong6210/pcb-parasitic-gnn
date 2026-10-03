@@ -1,6 +1,6 @@
 ---
 title: TCAD Compact-Support Recovery Method
-status: PROPOSED; frozen single-sentinel feasibility protocol
+status: RUNNING; frozen single-sentinel feasibility protocol
 last_updated: 2026-10-02
 paper_source: false
 ---
