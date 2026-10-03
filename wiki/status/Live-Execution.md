@@ -7,6 +7,20 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local terminal checkpoint published on 2026-10-03
+
+At 15:35:09 UTC GitHub main and local HEAD matched
+`820c77f9c71cd715c4b0adfe3ee13fe344da5cfa`. The 11-member archive,
+collector/tests and source-backed probe diagnosis are published. The 7,290-file
+manifest, prose audit and final 55-test wiki/prose check passed. Internal agent
+guidance remains untracked; scientific worktrees and prior evidence are intact.
+No job is active. This turn made guarded implementation, native failure
+isolation and evidence-publication progress; the full TCAD goal is still active
+and incomplete. Next: separately specify/freeze a tiny native API qualification
+on SLURM before any new real-layout mesh study. Do not rerun this failed source
+or bypass its independent probe. See the
+[evidence owner](../evidence/TCAD-Edge-Feasibility.md) for exact scope and limits.
+
 ## Edge-local probe integration failure on 2026-10-03
 
 At 15:27:37 UTC job **7655656** was terminal `FAILED/2:0`, zero restarts,

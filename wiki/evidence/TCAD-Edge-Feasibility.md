@@ -95,3 +95,12 @@ source/protocol identities; do not edit its lock, bypass probes, tune sizing,
 raise caps or automatically resubmit this attempt.
 
 No accuracy, feasibility, reference qualification or paper claim is admitted.
+
+## Terminal publication receipt
+
+At 15:35:09 UTC on 2026-10-03, local HEAD and GitHub main were verified as
+`820c77f9c71cd715c4b0adfe3ee13fe344da5cfa`. The terminal archive,
+collector/tests and source-backed diagnosis are published. Final verification
+passed the 7,290-file manifest, prose audit and 55 wiki/prose tests. No job is
+active. The next step remains the separately frozen native API qualification;
+no execution retry, reference admission or paper export was performed.
