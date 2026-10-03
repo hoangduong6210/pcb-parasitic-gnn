@@ -1,0 +1,38 @@
+{
+  "schema": "pcb-gnn.tcad-cps-hxt-postopt.v1",
+  "protocol_name": "tcad-cps-hxt-explicit-postoptimization-v1",
+  "scope": "mesh-only before/after quality diagnostic; no field solving or numerical-quality qualification",
+  "parent_protocol_sha256": "3ae43c358d362e9aeeb1485f15cb1144eeb114854e544e8d918090b509936dc6",
+  "terminal_archive_sha256": "20722df38fb6af937236d942a8b7a4fb89fc4bb1f1bac9d0f3c4b074c375f10a",
+  "candidate_mesh_options": {
+    "Mesh.Optimize": 0,
+    "Mesh.OptimizeNetgen": 0,
+    "Mesh.OptimizeThreshold": 0.3
+  },
+  "optimizer": {
+    "method": "",
+    "force": false,
+    "niter": 1,
+    "dimTags": []
+  },
+  "optimizer_calls": 1,
+  "modes": [
+    "toy",
+    "local1",
+    "repeat1"
+  ],
+  "scheduler_time_limit": "00:55:00",
+  "worker_budget_s": 3000,
+  "quality": "unchanged signed-condition/Jacobian schema and post-optimization strict-positive gate from parent; pre-optimization invalid metrics are observations only",
+  "repeatability_rule": "exact pre-optimization quality, post-optimization quality, final ordered mesh, effective mesh policy and explicit optimizer across fresh local1/repeat1 processes",
+  "coordinate_extraction": "re-fetch tags, coordinates and connectivity after optimization; no stale pre-optimization coordinate buffer",
+  "interpretation": "one API call is not one internal optimizer iteration; generation, optimization and quality share the frozen worker watchdog",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "field_solver_executed": false,
+  "numerical_quality_qualified": false,
+  "mesh_feasible": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

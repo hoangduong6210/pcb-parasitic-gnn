@@ -58,6 +58,7 @@ paper_source: false
 | [TCAD AMG Feasibility](methods/TCAD-Cps-AMG-Feasibility.md) | Seven fresh compact/wide-support arms with the tested preconditioner and unchanged caps |
 | [TCAD Mesh-Only HXT Probe](methods/TCAD-Cps-Mesh-Probe.md) | Single mesher candidate, bounded fresh-repeat fingerprints and no field solving |
 | [TCAD HXT Optimization Isolation](methods/TCAD-HXT-Optimization-Isolation.md) | One disabled optimization stage, signed element quality and non-field diagnostic boundary |
+| [TCAD HXT Explicit Optimization](methods/TCAD-HXT-Explicit-Optimization.md) | One explicit optimizer, before/after quality and fresh coordinate extraction |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
@@ -88,6 +89,7 @@ paper_source: false
 | [TCAD AMG Feasibility Evidence](evidence/TCAD-Cps-AMG-Feasibility.md) | Archived diagnostic and separately frozen seven-arm implementation and outcomes |
 | [TCAD Mesh-Probe Evidence](evidence/TCAD-Cps-Mesh-Probe.md) | Source validation, scheduler receipts and mesh-only outcome boundaries |
 | [TCAD HXT Isolation Evidence](evidence/TCAD-HXT-Optimization-Isolation.md) | Separate source validation and bounded optimization-isolation receipts |
+| [TCAD HXT Explicit-Optimization Evidence](evidence/TCAD-HXT-Explicit-Optimization.md) | Source validation and bounded post-optimization diagnostic receipts |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
 ## Reproduction and operation
@@ -105,6 +107,7 @@ paper_source: false
 | [TCAD AMG Feasibility Runbook](operations/TCAD-Cps-AMG-Feasibility.md) | New source-bound smoke, seven-arm feasibility and failure-retaining finalizer |
 | [TCAD Mesh-Probe Runbook](operations/TCAD-Cps-Mesh-Probe.md) | One bounded SLURM allocation, fresh mesh-only workers and exact terminal review |
 | [TCAD HXT Isolation Runbook](operations/TCAD-HXT-Optimization-Isolation.md) | Source-bound unoptimized mesh/quality diagnostic with unchanged resource caps |
+| [TCAD HXT Explicit-Optimization Runbook](operations/TCAD-HXT-Explicit-Optimization.md) | Guarded fresh-extraction diagnostic, unchanged ceilings and no field solving |
 | [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots

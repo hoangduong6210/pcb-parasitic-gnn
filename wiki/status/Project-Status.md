@@ -42,8 +42,8 @@ was not run. Its 11-file terminal closure is archived. The separate bounded
 [optimization-isolation diagnostic](../methods/TCAD-HXT-Optimization-Isolation.md)
 also closed incomplete: the unoptimized toy failed its strict signed-quality
 gate, so sentinel modes were not run. Its eight-file terminal closure is
-checked. The [research plan](../manuscript/TCAD-Research-Plan.md) specifies an
-explicit-optimizer follow-up; it is not yet submitted. No sensitivity
+checked. The [explicit-optimizer follow-up](../methods/TCAD-HXT-Explicit-Optimization.md)
+now has a separate implementation under validation; it is not yet submitted. No sensitivity
 conclusion is available from these incomplete studies.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
@@ -79,6 +79,7 @@ instead of calling one column ground truth.
 | TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
 | TCAD mesh-only HXT probe | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy passed; local1 timed out in native 3D improvement; repeat unrun; no field solving or cap increase |
 | TCAD HXT optimization isolation | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy failed strict signed quality; sentinel and repeat unrun; no field use or cap/quality relaxation |
+| TCAD HXT explicit optimization | `PROPOSED; SOURCE FROZEN` | Single explicit optimizer with fresh extraction and before/after quality; no field or reference qualification |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

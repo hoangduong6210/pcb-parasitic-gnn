@@ -84,7 +84,10 @@ ceilings. Stop on the first failure. Freeze and publish new source/lock before
 submission. Even a complete positive repeatable result remains diagnostic:
 field solving, conditioning, sensitivity, reference qualification, learning and
 new manuscript claims stay closed. A later field qualification is a separate
-decision. This candidate is specified, not yet implemented or submitted.
+decision. The [separate implementation](../methods/TCAD-HXT-Explicit-Optimization.md)
+now includes a guarded fresh-extraction builder and fake-native integration
+tests. Its [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns
+source freeze and later scheduler receipts; no new job is submitted yet.
 
 ## Preserved decisions after the meshing timeout: 2026-10-03
 

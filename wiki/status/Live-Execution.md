@@ -7,6 +7,29 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Explicit HXT post-optimization implementation on 2026-10-03
+
+Publication-receipt commit `dada417563378cd7a563462d5eb117aac3595944` is verified
+on remote main. The previous goal turn made progress by preserving the failed
+isolation diagnostic and selecting the next source-supported experiment.
+All preceding jobs remain terminal; no new job is submitted at this checkpoint.
+
+The [explicit-optimizer implementation](../methods/TCAD-HXT-Explicit-Optimization.md)
+now has separate source/protocol/wrapper files and a guarded builder that reads
+fresh coordinates after optimization. Fake-native integration changes both
+coordinates and connectivity to test that ordering. Original source and caps
+remain untouched. The [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md)
+owns validation and later submission receipts. Next: full checks, source freeze,
+verified publication and one bounded SLURM allocation. No reference, field use,
+training or new paper claim is opened.
+
+The subsequent source freeze binds 198 dependencies. All 50 new no-solver
+tests and 262 selected combined tests passed before freeze, with only the
+not-yet-created source-lock test skipped. Protocol/lock hashes belong to the
+evidence page. Post-freeze validation and verified publication precede submission.
+The completed post-freeze regression then passed all 263 tests with no skips;
+staged source/documentation diff checks and prose audit also passed.
+
 ## Terminal/research checkpoint published on 2026-10-03
 
 At 06:48:14 UTC, GitHub main and local HEAD were both verified as

@@ -16,6 +16,8 @@ The [next explicit-optimizer diagnostic](../manuscript/TCAD-Research-Plan.md)
 retains the same per-worker and allocation ceilings, charging generation,
 optimization and both quality observations to each worker's existing budget.
 It requires separate source, protocol, tests and publication before submission.
+The [new runbook](TCAD-HXT-Explicit-Optimization.md) now specifies that separate
+implementation and its guards; source validation is not a scheduler receipt.
 
 The first HXT probe is now terminal and incomplete at local1's worker time
 cap. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns accounting and
