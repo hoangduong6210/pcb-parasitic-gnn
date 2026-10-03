@@ -61,7 +61,10 @@ and repeatability do not prove usable conditioning or discretization accuracy.
 Any later algebraic, charge/energy or sensitivity study requires separate
 source-bound qualification. Do not substitute an unoptimized mesh for the
 reference, reduce quality requirements after results, or raise worker caps.
-No follow-up source is frozen and no new job is submitted at this checkpoint.
+The [separate implementation](../methods/TCAD-HXT-Optimization-Isolation.md)
+now specifies signed condition and Jacobian observations and validity gates.
+Its [evidence record](../evidence/TCAD-HXT-Optimization-Isolation.md) owns the
+source freeze and subsequent scheduler state; implementation is not execution.
 
 ### Preserved initial HXT specification
 

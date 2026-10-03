@@ -9,6 +9,11 @@ paper_source: false
 
 ## Mesh-generation diagnostic
 
+The [optimization-isolation runbook](TCAD-HXT-Optimization-Isolation.md) now
+implements the follow-up allocation and unchanged per-worker ceilings, with
+quality inspection charged inside each worker budget. Its linked evidence
+page owns freeze and scheduler receipts; no active allocation is implied here.
+
 The first HXT probe is now terminal and incomplete at local1's worker time
 cap. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns accounting and
 the archive. The proposed optimization-isolation follow-up retains the same

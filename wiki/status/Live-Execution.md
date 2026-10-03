@@ -7,6 +7,27 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## HXT optimization-isolation implementation on 2026-10-03
+
+The previous terminal/research checkpoint is published and remote-hash verified
+at `02e1b3b12599feb2f31858c929e6460ee2475554`. The optimized HXT attempt remains
+terminal and archived; earlier pending-publication observations are historical.
+
+The separately versioned [isolation diagnostic](../methods/TCAD-HXT-Optimization-Isolation.md)
+now has code and a bounded SLURM wrapper. It changes only the HXT optimization
+switch and adds signed quality/Jacobian observations. Initial corrected
+no-solver tests passed 48 cases with one pre-freeze skip. The
+[evidence page](../evidence/TCAD-HXT-Optimization-Isolation.md) owns validation
+and later source/scheduler receipts. Next: full checks, freeze and verified
+publication before submission from a new sparse checkout. No new job, field
+solve, reference, training or claim is opened at this checkpoint.
+
+The subsequent freeze binds 179 dependencies and passed all 52 new no-solver
+tests, including fake-builder integration. Protocol/lock hashes are on the
+evidence page. Publication remains a prerequisite to SLURM submission.
+The combined post-freeze suite subsequently passed 186 tests with no skips;
+prose and wrapper syntax checks also passed.
+
 ## HXT mesh probe closed at improvement time cap on 2026-10-03
 
 Job `7651463` is terminal `FAILED/2:0`, zero restarts. Toy passed; local1 hit
