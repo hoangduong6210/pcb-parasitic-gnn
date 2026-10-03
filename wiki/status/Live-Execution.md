@@ -7,6 +7,23 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Boundary-audit checkpoint published on 2026-10-03
+
+At 09:13:15 UTC GitHub main and local HEAD were verified as
+`6dbd18d64ab21b79d9a0f6470119f9a65fac1f01`. This publishes the new mesh-array
+audit, fake-native tests and owning method page, not a native mesh result.
+The 7,039-file manifest passed. Combined regression passed 570 tests; the
+102-test audit and 55-test wiki/prose suites also passed their final rechecks.
+Internal agent instructions remain ignored and untracked.
+
+Seven exact temporary fixture directories created in this turn were removed
+after their test processes completed. They held only recreatable synthetic
+test files and pytest links; no scientific artifact or execution checkout was
+removed. No new job was submitted. Next is guarded live-session integration,
+array preservation and a frozen mesh-only protocol before SLURM execution.
+The full journal goal remains active and incomplete. Earlier local/pending
+publication statements below are historical.
+
 ## Boundary-mesh audit implementation on 2026-10-03
 
 The previous goal turn made progress by publishing its CAD terminal receipt.
