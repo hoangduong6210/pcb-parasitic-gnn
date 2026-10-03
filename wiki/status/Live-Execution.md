@@ -7,6 +7,22 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Terminal/formulation checkpoint published on 2026-10-03
+
+At 07:49:55 UTC, local HEAD and GitHub main were both verified as
+`920b8fda435fd0b18e6627b5ae1d48aeead29d0b`. The commit publishes the complete
+explicit-optimizer terminal archive, regression tests, dielectric-only
+electrical/topology contract and updated extraction-comparator review. All
+11 archive members are tracked; the 7,008-file manifest passed; internal agent
+instructions remain ignored and untracked. The 369-test combined regression
+and subsequent 55-test wiki/prose recheck passed. No native CAD, solve or new
+SLURM submission occurred in this terminal/formulation step.
+
+The TCAD goal remains active. Next: implement the separately guarded CAD
+adapter and fake-native integration tests, then freeze a new bounded diagnostic
+before any native geometry/mesh execution. Earlier pending-publication notes
+below are historical; no reference/training/claim gate is opened.
+
 ## Explicit optimizer terminal and archived on 2026-10-03
 
 At 07:30:25 UTC job `7651765` was terminal `FAILED/2:0`, zero restarts;

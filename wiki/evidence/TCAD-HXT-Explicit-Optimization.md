@@ -35,9 +35,10 @@ closes 11 members, including raw scheduler logs, accounting and submission:
 Completion, repeatability, diagnostic success, mesh feasibility, numerical
 quality, field execution, reference, training and claim flags are all false.
 Preserve this negative result without changing caps, tolerances or source.
-Archive publication is pending at this local checkpoint; last verified main
-is `fabb9599d3eefdfa001460725404065963bb4bec`. Earlier RUNNING entries below
-are historical. Next: the separate dielectric-only formulation contract, not
+At 07:49:55 UTC, publication was remotely verified at
+`920b8fda435fd0b18e6627b5ae1d48aeead29d0b`, including all 11 archive members
+and the 7,008-file repository manifest. Earlier RUNNING entries below are
+historical. Next: the separate dielectric-only formulation investigation, not
 another submission of this failed protocol.
 
 The expanded archive regression passed all 27 tests, including the exact

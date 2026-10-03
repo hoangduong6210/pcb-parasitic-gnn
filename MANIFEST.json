@@ -34757,8 +34757,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
-      "bytes": 9810,
-      "sha256": "2dc1735506647d39ae836eb80913b9386466d6a910c4cf50c1c44d1a427528ed"
+      "bytes": 9863,
+      "sha256": "b7bdb0a85c06015c61a3bb9c4dfae5ab8412a0216a51aded6cf2af284d562127"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Optimization-Isolation.md",
@@ -35037,8 +35037,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 70203,
-      "sha256": "2b22afe5dc99ad3da9645c5aec10211bcb0f13109d5e6f15589a5a8de3345963"
+      "bytes": 71145,
+      "sha256": "77e910d64dec91aeb7d4e6d8763c9b2afe741cb13263e00e218f991fdce06c08"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -35057,5 +35057,5 @@
     }
   ],
   "n_files": 7008,
-  "total_bytes": 988238242
+  "total_bytes": 988239237
 }
