@@ -1,21 +1,35 @@
 ---
 title: SLURM Resource Plan
-status: active TCAD pilot and preserved completed specifications
-last_updated: 2026-10-02
+status: TCAD reference review and preserved completed specifications
+last_updated: 2026-10-03
 paper_source: false
 ---
 
 # SLURM Resource Plan
 
+## TCAD seven-arm AMG feasibility
+
+The owner-approved [new study](TCAD-Cps-AMG-Feasibility.md) preserves the
+single-sentinel support study's resource contract: 8 GiB/15-minute smoke and
+finalizer, and one 160 GiB/three-hour feasibility job. Seven fresh sequential
+workers have an aggregate ceiling of 8,400 worker seconds, with each capped
+at 1,200 seconds and 120 GiB RSS. Mesh ceilings and the 1.25 AMG complexity
+cap are unchanged. Each job requests one CPU; numerical threads remain one
+if the scheduler allocates additional CPUs for memory. No array or automatic
+retry is enabled. Source validation and publication precede submission.
+
 ## TCAD same-matrix AMG diagnostic
 
-Both prior TCAD reference chains are closed and incomplete. The
-[AMG diagnostic](TCAD-Cps-AMG-Diagnostic.md) requests one 160 GiB, 45-minute
-job with one scientific thread. It runs a toy worker capped at 600 seconds and
+Both prior TCAD reference chains are closed and incomplete. The completed
+[AMG diagnostic](TCAD-Cps-AMG-Diagnostic.md) used one 160 GiB, 45-minute
+allocation with one scientific thread. Its toy worker was capped at 600 seconds and
 6 GiB RSS, then local0 capped at 1,200 seconds and 120 GiB RSS. Original mesh
 and operator-complexity caps are unchanged. Direct comparison shares each
 worker's budget and is additionally limited to 25,000 free unknowns. No array,
 automatic retry, full-pilot extension or training is authorized.
+Both diagnostic modes passed and the chain has no active job. Terminal
+accounting and observed usage belong to the
+[evidence record](../evidence/TCAD-Cps-AMG-Diagnostic.md).
 
 ## TCAD reference pilot
 

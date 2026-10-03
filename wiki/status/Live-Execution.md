@@ -1,11 +1,72 @@
 ---
 title: Live Execution Snapshot
 status: RUNNING; TCAD reference qualification
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
 # Live Execution Snapshot
+
+## TCAD AMG seven-arm feasibility implementation on 2026-10-03
+
+The owner approved the immediate work package from the
+[continuation plan](../manuscript/TCAD-Research-Plan.md). The successful AMG
+diagnostic's nine-file terminal closure is now preserved and checked. A
+separate [feasibility implementation](../methods/TCAD-Cps-AMG-Feasibility.md)
+uses the tested candidate for seven fresh arms on layout 597, preceded by a
+new source-bound smoke. Physics, mesh policies, tolerances, caps and sensitivity
+denominators are unchanged. No older source or result is overwritten.
+
+At this checkpoint implementation and no-solver validation are in progress;
+no new job is submitted. Next: freeze, publish and verify source before the
+bounded smoke–feasibility–afterany-finalizer SLURM chain. The
+[new evidence page](../evidence/TCAD-Cps-AMG-Feasibility.md) owns the archive,
+lock and scheduler receipts. Three-sentinel expansion, training and paper
+claims remain closed. Earlier local planning/status observations are retained
+for publication with this implementation; last verified remote `main` remains
+`6a393612588a2c70e513a6f027e596ba7e5adc39`.
+
+The subsequent freeze passed all 191 focused no-solver tests, the prose audit,
+three wrapper syntax checks and terminal-archive reconstruction. The
+[evidence page](../evidence/TCAD-Cps-AMG-Feasibility.md) records the new lock.
+Source publication and smoke execution remain pending at this checkpoint;
+passing software tests is not a scientific feasibility result.
+
+## TCAD next-direction review on 2026-10-02
+
+The owner requested a research recommendation. The
+[continuation plan](../manuscript/TCAD-Research-Plan.md) now records the next
+decision after the successful AMG diagnostic: collect terminal evidence, then
+propose a new seven-arm largest-sentinel feasibility protocol before any
+three-sentinel or panel expansion. Worker caps, failed evidence and the
+distinction between backend agreement and mesh accuracy remain unchanged.
+
+The conditional paper direction is multi-fidelity graph learning evaluated
+at matched solver cost and by reference-verified design-selection outcomes.
+Later learning, acquisition and routed-transfer studies remain closed pending
+their prerequisites and separate protocols. TCAD's official scope/contribution
+requirements were checked during this review; methodological novelty is not
+asserted. This turn only updates local planning/wiki records. It submits no
+job, changes no solver or paper, and makes no commit or push. Earlier local
+terminal-review edits remain intact. Last verified remote `main` remains
+`6a393612588a2c70e513a6f027e596ba7e5adc39`.
+
+## TCAD AMG diagnostic terminal inspection on 2026-10-02
+
+Job `7647850` completed `0:0`, zero restarts, with toy and local0 both passing.
+The [evidence record](../evidence/TCAD-Cps-AMG-Diagnostic.md) owns terminal
+accounting, exact-system comparison, resource measurements and receipt hashes.
+Raw-log reconstruction confirmed the saved results without numerical replay
+on login. The candidate stayed below the original AMG cap and agreed with
+direct solving on the same local0 matrix. No job in this chain remains active;
+research review continues.
+
+This is a backend check, not mesh convergence or reference qualification.
+Tracked collection and a separately frozen seven-arm feasibility study are
+proposed next steps. This status review changed no source, cap or paper and
+submitted no job. Wiki updates are local and uncommitted; no push was made.
+Remote `main` remains verified at `6a393612588a2c70e513a6f027e596ba7e5adc39`.
+Earlier RUNNING observations below retain their historical meaning.
 
 ## TCAD same-matrix AMG diagnostic submitted on 2026-10-02
 

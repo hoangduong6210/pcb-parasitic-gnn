@@ -1,7 +1,7 @@
 ---
 title: TCAD Research Continuation Plan
 status: RUNNING; Stage 1 implementation approved; later stages conditional
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -27,7 +27,78 @@ the proposed contribution. A broader literature comparison remains necessary
 before claiming a new method; IC netlist tasks and PCB conductor-geometry tasks
 also need their different assumptions stated explicitly.
 
-## Ordered work packages
+## Next decision after the AMG diagnostic: 2026-10-02
+
+Implementation was subsequently approved. The
+[separately versioned seven-arm method](../methods/TCAD-Cps-AMG-Feasibility.md)
+and its [evidence record](../evidence/TCAD-Cps-AMG-Feasibility.md) now own that
+bounded execution. Later stages remain conditional. The dated recommendation
+below records the decision before implementation; it is not authorization for
+automatic panel expansion or training.
+
+The owner requested the next research direction, not a new job submission.
+The [AMG evidence](../evidence/TCAD-Cps-AMG-Diagnostic.md) establishes successful
+toy and local0 same-matrix backend checks within the existing caps. It does
+not establish compact-support accuracy or finer-level feasibility. The
+recommended immediate work package remains reference qualification.
+
+1. Collect the completed diagnostic's terminal artifacts without overwrite.
+   Freeze a separately versioned single-sentinel protocol using the tested
+   AMG candidate. Keep physical geometry, compact/wide mesh policies, tolerances
+   and all per-worker caps unchanged; do not edit either rejected protocol.
+   Run a new source-bound smoke before seven fresh arms on layout 597:
+   local0, local1, local2, repeat2, pad20, far2 and support1. Do not substitute
+   the earlier local0 result for an arm in this new study. The new implementation
+   needs its own source lock, tests, verified publication and SLURM runbook.
+2. Require complete successful coverage, residual/resource checks and the
+   existing single-layout sensitivity gates: at most 5% separately for adjacent
+   fine-mesh, padding, far-mesh and intermediate support comparisons; identical
+   repeat mesh/system hashes and relative repeat difference at most 1e-4.
+   Retain the original comparison denominators. A single layout cannot satisfy
+   a three-layout median gate. Stop on a failed worker; retain numerical gate
+   failures and do not widen caps or drop the failed geometry.
+3. If the largest sentinel passes, consider a separately frozen three-sentinel
+   study, then the twelve-layout development panel. Require fresh, comparable
+   observations under the new policy, not the two completed old-policy tasks.
+   Keep the original 2% median and 5% maximum mesh/domain criteria. The level-1
+   support check is not a finest-level error bound; broader reference
+   qualification must address this limitation and a matched independent
+   extractor on a small subset. Finite-panel stability is not physical truth.
+4. If a resource or sensitivity gate fails, separate mesh-generation cost,
+   algebraic error and discretization sensitivity before proposing another
+   version. Preserve the fixed-fidelity interpretation and do not start a new
+   label corpus or training grid on a purported qualified reference.
+
+## Contribution and evaluation priorities
+
+The recommended paper hypothesis is cost-aware multi-fidelity graph learning
+for PCB design screening: at matched measured solver cost, does learning
+between explicitly named fidelities improve both prediction and design
+selection? The AMG change is an implementation prerequisite, not the proposed
+paper novelty. Start with low-only, high-only and residual multi-fidelity
+controls, plus tuned pooled and graph baselines. Introduce adaptive query
+selection only after a controlled fidelity-learning benefit is established;
+compare it against random and geometry-diversity selection under the same
+candidate pool and budget. Include failed queries in the cost accounting.
+
+Freeze a new evaluation geometry set and family-grouped splits before producing
+its labels. The inspected development panel is not a blind test. Keep reference
+discrepancy separate from model uncertainty. For the CAD outcome, evaluate a
+locked capacitance-screening task with inductance/coupling constraints and
+reference-verified finalists, reporting selection regret, constraint violations
+and end-to-end cost. A routed geometry/stackup transfer study remains separate
+from the present active-leg abstraction.
+
+The [official TCAD instructions](https://ieee-ceda.org/publications/tcad/tcad-paper-submissions),
+rechecked on 2026-10-02, require original contributions and identify inadequate
+related work or state-of-the-art comparison as desk-rejection grounds. The
+literature comparison above must therefore be expanded before asserting
+novelty; this roadmap is a proposed testable contribution, not an acceptance
+prediction. No manuscript claim, execution protocol or new submission was
+created by this planning review. All heavy work remains SLURM-only and paper
+content remains an export of an identified, admitted wiki snapshot.
+
+## Ordered work packages (conditional roadmap)
 
 | Stage | Question | Deliverable and decision gate |
 |---|---|---|

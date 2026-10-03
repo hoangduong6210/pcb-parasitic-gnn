@@ -1,7 +1,7 @@
 ---
 title: Exhaustive Wiki Index
 status: canonical index
-last_updated: 2026-10-02
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -52,6 +52,7 @@ paper_source: false
 | [TCAD Reference Qualification](methods/TCAD-Cps-Reference-Qualification.md) | Geometry-only panel, local mesh policy, finite sensitivity and stop gates |
 | [TCAD Compact-Support Recovery](methods/TCAD-Cps-Compact-Support-Recovery.md) | New single-sentinel mesh-support diagnostic and non-qualification boundary |
 | [TCAD Same-Matrix AMG Diagnostic](methods/TCAD-Cps-AMG-Diagnostic.md) | One fixed preconditioner candidate with unchanged worker caps and direct comparison |
+| [TCAD AMG Feasibility](methods/TCAD-Cps-AMG-Feasibility.md) | Seven fresh compact/wide-support arms with the tested preconditioner and unchanged caps |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
@@ -78,6 +79,7 @@ paper_source: false
 | [TCAD Reference Pilot Evidence](evidence/TCAD-Cps-Reference-Pilot.md) | New pilot source, attempt receipts and explicit non-claim boundary |
 | [TCAD Compact-Support Evidence](evidence/TCAD-Cps-Support-Recovery.md) | Rejected-pilot archive, recovery source and scheduler receipts |
 | [TCAD AMG Diagnostic Evidence](evidence/TCAD-Cps-AMG-Diagnostic.md) | Support-failure follow-up, source validation and bounded execution receipts |
+| [TCAD AMG Feasibility Evidence](evidence/TCAD-Cps-AMG-Feasibility.md) | Archived diagnostic and separately frozen seven-arm implementation and outcomes |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
 ## Reproduction and operation
@@ -92,6 +94,7 @@ paper_source: false
 | [TCAD Reference Pilot Runbook](operations/TCAD-Cps-Reference-Pilot.md) | Frozen three-sentinel SLURM chain, resource caps and evidence retention |
 | [TCAD Support Recovery Runbook](operations/TCAD-Cps-Support-Recovery.md) | Separate source freeze and smoke–single-sentinel–finalizer SLURM chain |
 | [TCAD AMG Diagnostic Runbook](operations/TCAD-Cps-AMG-Diagnostic.md) | Toy-then-local0 job with source, allocation, resource and terminal checks |
+| [TCAD AMG Feasibility Runbook](operations/TCAD-Cps-AMG-Feasibility.md) | New source-bound smoke, seven-arm feasibility and failure-retaining finalizer |
 | [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots

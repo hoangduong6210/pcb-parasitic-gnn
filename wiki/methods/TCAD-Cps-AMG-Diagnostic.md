@@ -1,11 +1,16 @@
 ---
 title: TCAD Same-Matrix AMG Diagnostic
-status: RUNNING; frozen diagnostic contract; terminal outcome pending
+status: VALIDATED; toy and local0 same-matrix checks; no reference qualification
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # TCAD Same-Matrix AMG Diagnostic
+
+Both modes completed successfully under the frozen contract below. The
+[terminal evidence](../evidence/TCAD-Cps-AMG-Diagnostic.md) records the result
+and its limits. This backend check does not establish mesh accuracy or
+feasibility of the finer levels.
 
 ## Decision and question
 

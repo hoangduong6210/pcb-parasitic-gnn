@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 298,
+    "code": 305,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 37,
-    "results": 6113,
+    "protocols": 39,
+    "results": 6123,
     "root": 11,
-    "tests": 64,
-    "wiki": 69
+    "tests": 65,
+    "wiki": 72
   },
   "files": [
     {
@@ -721,6 +721,11 @@
       "sha256": "125a0212613f3514b8bb2d4dae5c6fecbabf45dec6c05771e296be57857d8ed7"
     },
     {
+      "path": "code/experiments/proofs/archive_tcad_cps_amg_diagnostic_v1.py",
+      "bytes": 7640,
+      "sha256": "b8eb7a08441659b7f54ec8390736d60e1c38cbd085f0c0e95c64d5c4100db817"
+    },
+    {
       "path": "code/experiments/proofs/archive_tcad_cps_pilot_v1.py",
       "bytes": 7699,
       "sha256": "cbfa65c67a66a85bdd444bb0c8109bba9009dd6140c0e43f7950d576175f27c1"
@@ -1156,6 +1161,11 @@
       "sha256": "7bf18bec08cd673a9ed96b29dbadf0278d4e853a305aa7bd0ccbb1f925a5d74f"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_amg_feasibility.py",
+      "bytes": 10348,
+      "sha256": "f88ad441215e55a4c9ae43f39f6f683aaccb57d011cd1652406b900540303d60"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_reference.py",
       "bytes": 10244,
       "sha256": "7b6750e88ba6cf5d2029e0fa3af8f9b48734f2964d76e538e8b8f60dca9ae65b"
@@ -1169,6 +1179,11 @@
       "path": "code/experiments/proofs/tcad_cps_amg_diagnostic.py",
       "bytes": 6937,
       "sha256": "0c735cc1dab9bd1ee5575253c76dbf96693445e65a1ed3f2c682b3c9bcb495dd"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_amg_feasibility.py",
+      "bytes": 7885,
+      "sha256": "586604c256116c5a5b1ca5aefca5f8654df43a9957c798332176074253e5e1df"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_reference.py",
@@ -1776,6 +1791,21 @@
       "sha256": "981732aa9c93e9a5900d7cdf36fbd5d7f51880b0fe4fd8adaa5bc1b7cf622226"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_amg_feasibility.sh",
+      "bytes": 785,
+      "sha256": "8fa8736e894830841400d06566a574987533b2d334f64f800b249592c1862f5d"
+    },
+    {
+      "path": "code/jobs/submit_tcad_cps_amg_finalize.sh",
+      "bytes": 842,
+      "sha256": "d264b5db2c649bdada10a1c3671f6612ad50775bab8624081e3bfa9ae905df8d"
+    },
+    {
+      "path": "code/jobs/submit_tcad_cps_amg_smoke.sh",
+      "bytes": 689,
+      "sha256": "8f49573fd79dc607e7d5db750ac343afdb9553abd6032400e7011da5604b5e94"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_reference_pilot.sh",
       "bytes": 767,
       "sha256": "0f06179d5117a2498466822a8d0a0b53bb52fc3cfa8286960dfd3bf659fc2441"
@@ -1999,6 +2029,11 @@
       "path": "code/solvers/fem_inductance_ref.py",
       "bytes": 6408,
       "sha256": "edbc1adaf8f6ede7af371372f8ce0bc7d46567dcf73e7989e04ce952f9fc1020"
+    },
+    {
+      "path": "code/solvers/tcad_cps_amg_feasibility_worker.py",
+      "bytes": 4667,
+      "sha256": "e7dd59d4acfb37fdd1e650ed41b98191d1e164299ca6f6de56b467eea2b7f20c"
     },
     {
       "path": "code/solvers/tcad_cps_amg_worker.py",
@@ -3164,6 +3199,16 @@
       "path": "protocols/tcad_cps_amg_diagnostic_v1.lock.json",
       "bytes": 14988,
       "sha256": "7ff24ed07bc4233318a5ec9ebef8a3b552c75b37f13ca607966ec2690ecfbec3"
+    },
+    {
+      "path": "protocols/tcad_cps_amg_feasibility_v1.json",
+      "bytes": 1261,
+      "sha256": "81a391e89b89bf6cd8a271997b8103430e9b52a70a72fbbef67fd822e4a2c63e"
+    },
+    {
+      "path": "protocols/tcad_cps_amg_feasibility_v1.lock.json",
+      "bytes": 17628,
+      "sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906"
     },
     {
       "path": "protocols/tcad_cps_reference_v1.json",
@@ -33286,6 +33331,56 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "results/tcad/cps_amg_diagnostic_v1/archive/job_7647850/logs/tcad_amg_diagnostic_7647850.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/archive/job_7647850/logs/tcad_amg_diagnostic_7647850.out",
+      "bytes": 114,
+      "sha256": "1b199fe268ed5a5546acfafb7bd2d45ae2932222e0a724d2708206075b5cc131"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/archive/job_7647850/manifest.json",
+      "bytes": 1911,
+      "sha256": "0b6df0554a8ca2f76110af66518175209cf978630622408f29928970ff055a4e"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/attempt.json",
+      "bytes": 24070,
+      "sha256": "09c711ed345a51b7b54a3d5cd48e1fc0bfc746c6662d2dde00cb785da3141275"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.json",
+      "bytes": 12765,
+      "sha256": "d7147ab647908e9a0a7d4ec9b4e3342a0764e12c9435d6b538d6bc41b89f8a01"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.stderr",
+      "bytes": 98,
+      "sha256": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.stdout",
+      "bytes": 16564,
+      "sha256": "466fcba877c6f70590d9df69cb48b84c4b70ad28ed84ab9983ffa1f5cafc5102"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.json",
+      "bytes": 5796,
+      "sha256": "7e3bb8d3136a942304ca5f509f9fbbbe7017ae171e51ac0e91f85f4ba51185c0"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.stderr",
+      "bytes": 98,
+      "sha256": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399"
+    },
+    {
+      "path": "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.stdout",
+      "bytes": 7820,
+      "sha256": "43900c14664817588a4e0190c3ea75b507ee571d18f9a74cff46fd0898a99861"
+    },
+    {
       "path": "results/tcad/cps_amg_diagnostic_v1/submissions/job_7647850.json",
       "bytes": 880,
       "sha256": "a4c2cb99ce8db2cd7e9e8717b8d92ef373ea1d9c23a4916a4f9f6323154608d9"
@@ -34061,6 +34156,11 @@
       "sha256": "25d01376d061c46ee12d285780813f0972f84d02ee607bb5f5d2e70ad83058f3"
     },
     {
+      "path": "tests/test_tcad_cps_amg_feasibility.py",
+      "bytes": 16095,
+      "sha256": "95e599583783680c353396f36ec4bd72bf2c5a8c51a0629e3f38e36f74e4b031"
+    },
+    {
       "path": "tests/test_tcad_cps_reference.py",
       "bytes": 10573,
       "sha256": "1637ce41bbf6a69187fcb169fc1a07dd236501cdb093805624fbfc373c0958ac"
@@ -34097,8 +34197,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 14709,
-      "sha256": "047a33bbe34f45c8a2ef73e6299f418a3afc568d4d92f9da46f9c7f8ef3fa4cb"
+      "bytes": 15174,
+      "sha256": "d217a507819c5f0b09e859d91a669add50d1a4455ce848dc86dd2432c6204bd6"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -34192,8 +34292,13 @@
     },
     {
       "path": "wiki/evidence/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 4508,
-      "sha256": "dd3305501bc56de8e6557fe22903169133049f84ed528eb1c1d4ac360452d371"
+      "bytes": 7985,
+      "sha256": "76fa442c107be55fe3fa7b0f2b90cdff5aafcf2480a103e17a4cbe001d652ce0"
+    },
+    {
+      "path": "wiki/evidence/TCAD-Cps-AMG-Feasibility.md",
+      "bytes": 2842,
+      "sha256": "3167bfb61a7b3e7c8f58e003131d54a7b4c55e6c8922f7325e662ccd1175b9a2"
     },
     {
       "path": "wiki/evidence/TCAD-Cps-Reference-Pilot.md",
@@ -34247,8 +34352,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 10004,
-      "sha256": "bd210779c4bb9010ce48a1a19c818779ce0821ce78f7952949793365cda2e17e"
+      "bytes": 14684,
+      "sha256": "5206547dfa4782a1ef203ced739f200863e70d0b26ae4b99edcc55ceb3e12ab4"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -34317,8 +34422,13 @@
     },
     {
       "path": "wiki/methods/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 3338,
-      "sha256": "8927d2cfafcb2a0d87988e20c69cadab5371ea20923f39735af456add5428cd0"
+      "bytes": 3604,
+      "sha256": "1a00746bd4bdd881f344b0194e5bcdc5c7a4039371237b1b181ed825ef8f38ba"
+    },
+    {
+      "path": "wiki/methods/TCAD-Cps-AMG-Feasibility.md",
+      "bytes": 3472,
+      "sha256": "eb249d70b5953c806fa7731d31cb664ca2eaaff7bfdf565e8863e77709b367b6"
     },
     {
       "path": "wiki/methods/TCAD-Cps-Compact-Support-Recovery.md",
@@ -34347,8 +34457,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 10249,
-      "sha256": "9aa2e00f81848a6dbb22fe53a399ad013c7ad60947f788079da551274eb725db"
+      "bytes": 11079,
+      "sha256": "7971082c984e9114c3d160ff1eb13a866e65885c391996a8fee96c4f50f316ca"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -34357,8 +34467,13 @@
     },
     {
       "path": "wiki/operations/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 2137,
-      "sha256": "b1d5fa15c09d2ecd421349d38d82e2664900f3ecf2a032f2821af7b67bf412ed"
+      "bytes": 2463,
+      "sha256": "9b300ab6b8677d0bbc5c40bed7296798f2ea9232cb915ff9921fc5e8cfcdd5e3"
+    },
+    {
+      "path": "wiki/operations/TCAD-Cps-AMG-Feasibility.md",
+      "bytes": 2840,
+      "sha256": "d16cb644cd39761d8fb9650d06a7062ef728639ed22c7ef173abb51cd75d7229"
     },
     {
       "path": "wiki/operations/TCAD-Cps-Reference-Pilot.md",
@@ -34417,13 +34532,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 47834,
-      "sha256": "c4aa54ccd135e72b0ad0fcb09b9f50699570a151080025eba29709290ac53e19"
+      "bytes": 51469,
+      "sha256": "30c6946068b5f0375651316d794f2ac20b5b2c3c9698ce25e6c3cf3bae28a212"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 8821,
-      "sha256": "0a0fe358f291b6539f45cf0aab3c026fcfc4ebfcd7480f62c369600b0a20601c"
+      "bytes": 9398,
+      "sha256": "575d4da09d742c1ba48ba2219d2e96ee2488dca94b3c4d5e70664b3837f38cb6"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -34431,6 +34546,6 @@
       "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6883,
-  "total_bytes": 987330413
+  "n_files": 6906,
+  "total_bytes": 987490899
 }

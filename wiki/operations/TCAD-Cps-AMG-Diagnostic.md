@@ -1,11 +1,16 @@
 ---
 title: TCAD AMG Diagnostic Runbook
-status: RUNNING; published source; single diagnostic job submitted
-last_updated: 2026-10-02
+status: VALIDATED; execution closed; terminal collection complete
+last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD AMG Diagnostic Runbook
+
+The job completed successfully and its raw logs and terminal accounting were
+reviewed. The [evidence record](../evidence/TCAD-Cps-AMG-Diagnostic.md) owns the
+result. Terminal collection is complete; do not resubmit this diagnostic.
+The owner separately approved the [seven-arm feasibility study](TCAD-Cps-AMG-Feasibility.md).
 
 Follow the [method](../methods/TCAD-Cps-AMG-Diagnostic.md); record every outcome
 in [evidence](../evidence/TCAD-Cps-AMG-Diagnostic.md). Do not modify earlier

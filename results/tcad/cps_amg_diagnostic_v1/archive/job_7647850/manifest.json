@@ -1,0 +1,30 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "406",
+      "ExitCode": "0:0",
+      "JobID": "7647850",
+      "NodeList": "a0102",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    }
+  ],
+  "attempt_sha256": "09c711ed345a51b7b54a3d5cd48e1fc0bfc746c6662d2dde00cb785da3141275",
+  "files_sha256": {
+    "results/tcad/cps_amg_diagnostic_v1/archive/job_7647850/logs/tcad_amg_diagnostic_7647850.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_amg_diagnostic_v1/archive/job_7647850/logs/tcad_amg_diagnostic_7647850.out": "1b199fe268ed5a5546acfafb7bd2d45ae2932222e0a724d2708206075b5cc131",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/attempt.json": "09c711ed345a51b7b54a3d5cd48e1fc0bfc746c6662d2dde00cb785da3141275",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.json": "d7147ab647908e9a0a7d4ec9b4e3342a0764e12c9435d6b538d6bc41b89f8a01",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.stderr": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/local0.stdout": "466fcba877c6f70590d9df69cb48b84c4b70ad28ed84ab9983ffa1f5cafc5102",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.json": "7e3bb8d3136a942304ca5f509f9fbbbe7017ae171e51ac0e91f85f4ba51185c0",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.stderr": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399",
+    "results/tcad/cps_amg_diagnostic_v1/job_7647850/toy.stdout": "43900c14664817588a4e0190c3ea75b507ee571d18f9a74cff46fd0898a99861"
+  },
+  "lock_sha256": "7ff24ed07bc4233318a5ec9ebef8a3b552c75b37f13ca607966ec2690ecfbec3",
+  "schema": "pcb-gnn.tcad-amg-diagnostic-archive.v1",
+  "scope": "terminal same-matrix backend checks only; no reference qualification",
+  "source_commit": "396e51f879ae8007de35d3301be284a519aabf48"
+}

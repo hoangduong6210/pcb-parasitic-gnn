@@ -1,0 +1,21 @@
+{
+  "schema": "pcb-gnn.tcad-cps-amg-feasibility.v1",
+  "protocol_name": "tcad-cps-compact-support-unsmoothed-amg-feasibility-v1",
+  "scope": "seven fresh largest-sentinel arms after new source-bound smoke; not reference qualification",
+  "parent_support_protocol_sha256": "15460aa39a19d1edf8981d0c54768d4970e88ec5782c1118c5537c2bbde3b3c9",
+  "amg_diagnostic_protocol_sha256": "6bcad4b7e0c205624e5e13834a237f6815cbd3da3271e5006cfd4153a3a8620a",
+  "diagnostic_archive_sha256": "0b6df0554a8ca2f76110af66518175209cf978630622408f29928970ff055a4e",
+  "inheritance": "support protocol geometry, physics, seven ordered arms, all scheduler/worker caps and sensitivity/repeat gates unchanged; only the diagnostic AMG candidate replaces default prolongation smoothing",
+  "candidate_from_diagnostic": true,
+  "require_recorded_anchor_systems": true,
+  "direct_comparison": "new smoke only; inherit diagnostic direct-dimension and vector-agreement gates",
+  "reuse_diagnostic_result_as_feasibility_arm": false,
+  "reuse_old_support_results": false,
+  "automatic_retries": 0,
+  "stop_after_failed_worker": true,
+  "resource_caps_may_increase": false,
+  "automatic_expansion": false,
+  "training_may_start": false,
+  "claim_eligible": false,
+  "reference_qualified": false
+}
