@@ -76,6 +76,8 @@ paper_source: false
 | [TCAD Sizing Budget Evidence](evidence/TCAD-Sizing-Budget.md) | Separately frozen archived-input diagnosis; no native retry or candidate selection |
 | [TCAD Edge-Local Feasibility](methods/TCAD-Edge-Feasibility.md) | Finite perimeter-distance sizing, independent native probes and unchanged column gates |
 | [TCAD Edge-Local Evidence](evidence/TCAD-Edge-Feasibility.md) | Preserved native probe API failure before meshing; sizing hypothesis remains untested |
+| [TCAD Native Field Probe](methods/TCAD-Native-Field-Probe.md) | Model-backed field evaluation and isolated probe cleanup contract |
+| [TCAD Native Field Probe Evidence](evidence/TCAD-Native-Field-Probe.md) | Separate tiny native API qualification before another real-layout mesh study |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

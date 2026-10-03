@@ -104,3 +104,7 @@ collector/tests and source-backed diagnosis are published. Final verification
 passed the 7,290-file manifest, prose audit and 55 wiki/prose tests. No job is
 active. The next step remains the separately frozen native API qualification;
 no execution retry, reference admission or paper export was performed.
+
+The separate [native API qualification](TCAD-Native-Field-Probe.md) now has an
+isolated-model adapter, negative tests and a newly frozen synthetic protocol.
+Its execution/result remains separate from this immutable failed attempt.

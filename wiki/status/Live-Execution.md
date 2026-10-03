@@ -7,6 +7,32 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Native field-probe source frozen on 2026-10-03
+
+The [new synthetic API study](../evidence/TCAD-Native-Field-Probe.md) has a
+fixed 476-dependency lock and passed **242 frozen tests, zero skips**, following
+241 pre-freeze tests with one expected lock skip. The prose audit passed.
+Publish the source, verify a fresh sparse worktree and submit one bounded
+SLURM attempt with two fresh workers. No corrected native adapter has run;
+no scientific job is active. Prior source and rejection evidence are unchanged.
+The full TCAD goal remains active/incomplete; preparation records remain local.
+
+## Native field-probe preparation on 2026-10-03
+
+At 15:36:53 UTC local HEAD and GitHub main were reverified as
+`3feb1b683358bd6336e6eed2ec36e75482fe1839`, with a clean worktree and
+empty owner queue. The preceding turn made guarded native failure-isolation
+and evidence-publication progress; the full TCAD goal remains active/incomplete.
+The [new API qualification](../methods/TCAD-Native-Field-Probe.md) will test a
+model-backed isolated point view with unchanged analytic sizing/oracle and
+explicit CAD/field/mesh cleanup checks. Implementation, negative tests, source
+freeze/publication and one bounded SLURM submission are next. No corrected
+native adapter or real-layout retry has run. These preparation records are local.
+
+The adapter and guarded synthetic integration now pass 53 initial tests with
+one pre-lock skip. Expanded negative tests and frozen regression are next.
+No native job is active; no actual dataset geometry is processed by this study.
+
 ## Edge-local terminal checkpoint published on 2026-10-03
 
 At 15:35:09 UTC GitHub main and local HEAD matched

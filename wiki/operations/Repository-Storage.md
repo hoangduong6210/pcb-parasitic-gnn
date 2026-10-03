@@ -209,3 +209,13 @@ directories, 101 pytest links and nine tiny regular files contained only
 reproducible fixtures; the regular-file contents/hashes matched the three
 prose-audit forms. No test process was active. All scientific data, archives
 and source worktrees remain preserved.
+
+## Native field-probe preparation cleanup on 2026-10-03
+
+Four completed fixture roots were inspected and removed:
+`model-field-probe-first.nf0nDi`, `model-field-probe-integration.Lkk7xG`,
+`model-field-probe-integration-fixed.U7boKe`, and
+`model-field-probe-integration-clean.kt0y9K`, under `.internal/`. They contained
+only four directories and 19 pytest links, with no regular files or scientific
+output. The separate active source-freeze process was untouched. No source
+worktree, native evidence, Git object or recovery archive was deleted.

@@ -1,0 +1,31 @@
+{
+  "schema": "pcb-gnn.field-probe-api.v1",
+  "scope": "Tiny synthetic model-backed field probe API qualification; isolated 0D scaffold only, no native mesh generation or PDE solve",
+  "parent_protocol_sha256": "16472fe0dc5f6ca880df1e7766330b3a884276ae5c4d1fdce5ba61b4e5027cea",
+  "terminal_archive_sha256": "07a609427373a633f0ef765c3afe53ad88816da0e2383d9d66a89686eb0c0ad8",
+  "modes": ["probe", "repeat"],
+  "resources": {"account":"pgs0407","partition":"nextgen","cpus_per_task":1,"mem_gib":8,"time_limit":"00:10:00"},
+  "worker_timeout_s": 180,
+  "rss_gib_max": 2,
+  "report_bytes_max": 2097152,
+  "fixture_points_max": 512,
+  "fixture": {
+    "boxes_mm": [[1.0,2.0,1.0,2.0,1.0,2.0],[1.0,2.0,1.0,2.0,3.0,4.0],[1.0000000000000002,2.0,1.0,2.0,4.5,5.0]],
+    "domain_mm": [0.0,3.0,0.0,3.0,0.0,6.0]
+  },
+  "policy": {"near_size_mm":0.12,"far_size_mm":1.0,"face_band_half_width_mm":0.055,"pad_mm":2.0},
+  "sizing_policy": "Reuse frozen edge MathEval/Min/Threshold, inherited effective transition thickness, exact projection oracle and probe tolerances",
+  "adapter_policy": "Isolated named model with explicit discrete point entity, nodes and type-15 elements; NodeData view; select original model for field lookup; preserve before gates; owned view/model removal and exact original state restoration",
+  "repeat_rule": "Byte-identical complete report and all payload hashes across two fresh workers, excluding logs/resource telemetry",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "synthetic_probe_elements_only": true,
+  "planar_mesh_generated": false,
+  "volume_mesh_generated": false,
+  "native_mesh_generation_called": false,
+  "boundary_contract_passed": false,
+  "field_solver_executed": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}
