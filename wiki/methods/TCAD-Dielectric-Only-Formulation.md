@@ -129,6 +129,13 @@ performed. Next is a separate boundary-aware mesh diagnostic, binding these
 CAD identities and preserving every original rejected result. Numerical
 qualification and a learning contribution remain future work.
 
+The [boundary-mesh audit](TCAD-Dielectric-Boundary-Mesh.md) now implements
+native packet reading and exact triangle/tetrahedron ownership checks, with
+independent signed determinants, geometric measure sums and connected-component
+terminal checks. Its synthetic/fake-native tests do not generate a real mesh.
+The guarded live-session builder, frozen protocol and native SLURM execution
+remain to be implemented before field qualification.
+
 ## Validation checkpoint on 2026-10-03
 
 All 79 topology tests passed, covering input types/coverage, independent

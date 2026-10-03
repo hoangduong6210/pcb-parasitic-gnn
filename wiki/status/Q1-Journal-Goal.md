@@ -56,12 +56,14 @@ source identities, scheduler state and preservation receipts.
 
 ## Immediate continuation
 
-The seven-arm study is now archived and incomplete: local1 timed out before
-mesh completion. A [separately identified mesh-only HXT diagnostic](../methods/TCAD-Cps-Mesh-Probe.md)
-also closed incomplete during 3D mesh improvement. The source-checked
-[next diagnostic](../manuscript/TCAD-Research-Plan.md) isolates that optimization
-stage, retaining caps and adding mesh-quality observations without field
-solving. Only a later complete sensitivity pass can open a new
+The earlier seven-arm and all-volume HXT studies are terminal and preserved.
+The separate [CAD prerequisite](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
+passed its declared native checks. Continue the
+[boundary-mesh implementation](../methods/TCAD-Dielectric-Boundary-Mesh.md):
+array/fake-native checks exist, while guarded native integration, source/protocol
+freeze and SLURM mesh execution remain. Then qualify the dielectric-only field
+formulation, without treating CAD or positive element quality as accurate
+capacitance. Only a later complete sensitivity pass can open a new
 three-sentinel protocol and then the development panel, without substituting
 old-policy results. Continue the
 [primary-source audit](../references/TCAD-Related-Work-Audit.md) alongside this

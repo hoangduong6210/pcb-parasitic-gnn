@@ -54,6 +54,13 @@ CAD reports, verifies surface-to-tetrahedron boundary coverage and disjoint net
 nodes, and retains strict signed-quality gates. Field equivalence and later
 sensitivity studies still require separate protocols; no learning gate opens.
 
+The [boundary-mesh audit implementation](../methods/TCAD-Dielectric-Boundary-Mesh.md)
+now covers native packet reading, complete surface/facet correspondence,
+signed determinants and terminal-anchored components using synthetic fixtures.
+Next: integrate it into a separately guarded live-session builder and bounded
+mesh-only worker, freeze array preservation and protocol, then run through
+SLURM. No real dielectric-only mesh has yet been generated or qualified.
+
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 
 The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)

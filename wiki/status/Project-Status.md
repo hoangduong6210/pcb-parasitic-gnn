@@ -53,6 +53,9 @@ now has a source-only electrical/topology contract and synthetic classifier
 tests. Its bounded native CAD diagnostic now passed toy, selected sentinel and
 fresh-repeat gates, with a checked terminal archive. Boundary-aware meshing and
 numerical qualification remain unperformed for this new formulation.
+Its [boundary-mesh audit](../methods/TCAD-Dielectric-Boundary-Mesh.md) now has
+synthetic/fake-native extraction and topology tests; guarded native integration
+and a new frozen mesh protocol remain before any real mesh run.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.

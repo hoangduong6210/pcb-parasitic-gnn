@@ -60,6 +60,7 @@ paper_source: false
 | [TCAD HXT Optimization Isolation](methods/TCAD-HXT-Optimization-Isolation.md) | One disabled optimization stage, signed element quality and non-field diagnostic boundary |
 | [TCAD HXT Explicit Optimization](methods/TCAD-HXT-Explicit-Optimization.md) | One explicit optimizer, before/after quality and fresh coordinate extraction |
 | [TCAD Dielectric-Only Formulation](methods/TCAD-Dielectric-Only-Formulation.md) | Proposed electrical equivalence boundary, abstract topology checks and separate CAD/field gates |
+| [TCAD Dielectric Boundary-Mesh Audit](methods/TCAD-Dielectric-Boundary-Mesh.md) | Native packet extraction, exact tetrahedron/surface ownership, signed geometry and synthetic validation; real mesh pending |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

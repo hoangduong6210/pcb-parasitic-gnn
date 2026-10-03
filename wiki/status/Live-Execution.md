@@ -7,6 +7,34 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Boundary-mesh audit implementation on 2026-10-03
+
+The previous goal turn made progress by publishing its CAD terminal receipt.
+This turn reverified GitHub main at
+`1e3eda3ae0928815b326f8f2f4055557a5c5dfa5`; the worktree was clean and the
+owner's queue was empty. No job is submitted by this step. The goal stays
+active and incomplete.
+
+The new [boundary-mesh audit](../methods/TCAD-Dielectric-Boundary-Mesh.md)
+implements per-entity/global native extraction closure, supported affine
+element checks, independent signed determinants, exact surface/facet ownership,
+geometric measure sums, terminal-node separation and anchored mesh components.
+All 102 initial tests passed with tiny explicit arrays and a fake native API.
+No CAD, meshing, field solving or real-array replay occurred. Existing source
+locks and evidence remain untouched. Broader regression and publication follow.
+
+The subsequent combined regression passed 570 tests with no skips; the
+102-test audit suite passed again after a naming cleanup. Prose and diff checks
+passed. Native meshing and numerical qualification are still unperformed.
+
+Next: guarded live-session CAD-to-mesh integration, fixed optimizer and worker
+caps, deterministic array preservation, protocol/source freeze and SLURM-only
+toy/sentinel/repeat execution. The quota observation is approximately
+999,000 of 1,000,000 file slots used; retain sparse execution checkouts and
+per-test synthetic-fixture cleanup. No scientific evidence/worktree was removed.
+This implementation is local at this checkpoint, not yet a published native
+mesh result or a reference/training/claim admission.
+
 ## CAD terminal checkpoint published on 2026-10-03
 
 At 08:42:31 UTC GitHub main and local HEAD were verified as
