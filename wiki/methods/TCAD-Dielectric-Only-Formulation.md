@@ -139,6 +139,13 @@ both packets are archived on the linked evidence page. Same-packet arithmetic
 diagnosis is next; neither a full boundary audit nor field qualification has
 passed for this new formulation.
 
+The [exact-arithmetic diagnosis](../evidence/TCAD-Jacobian-Arithmetic.md) has
+since completed on those identical packets. Exact signs are positive, but
+near-coplanar elements retain material floating-evaluation errors; agreeing
+native/vector determinants do not ensure accuracy. A geometry-conforming
+layer-aligned alternative is the next candidate to assess under a new protocol,
+not a change to the rejected gate or permission to solve on its mesh.
+
 ## Validation checkpoint on 2026-10-03
 
 All 79 topology tests passed, covering input types/coverage, independent

@@ -7,6 +7,44 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Exact-arithmetic diagnosis terminal and archived on 2026-10-03
+
+At 10:29:33 UTC job `7652241` was terminal `COMPLETED/0:0`, zero restarts,
+48 elapsed seconds and absent from the queue. Raw/final/repeat workers completed;
+both exact algorithms agreed on all elements, and final/repeat reports match
+byte-for-byte. The [evidence owner](../evidence/TCAD-Jacobian-Arithmetic.md)
+records localized floating-evaluation errors on near-coplanar elements. No
+exact zero/negative determinants were found, but the old mesh stays rejected.
+No field/reference/training/claim gate opens. The checked archive preserves
+17 members; its collector passed 24 synthetic tests before collection.
+
+The current turn made concrete progress through implementation, 443-test frozen
+regression, publication, SLURM diagnosis and preservation. Terminal regression
+and publication follow. No job is active; no real numerical replay ran on login.
+Next: assess a geometry-conforming layer-aligned mesh candidate, including
+coordinate-plane separation and prospective cell count, then separately freeze
+its conditioning/boundary gates before execution. Do not relax the rejected
+gate, silently snap geometry or retry the old source. The full TCAD goal stays
+active and incomplete. Terminal records are local at this checkpoint.
+
+The terminal regression then passed all 182 tests with no skips, including
+the actual new archive and byte-only old mesh closure. Two completed synthetic
+collector/wiki fixture directories were removed; no scientific artifact was
+removed. The account has little remaining file quota, so check it before any
+new execution checkout and retain sparse materialization. Publication follows.
+
+## Arithmetic source published and job submitted on 2026-10-03
+
+Published source `8168208a1248befcaf72a56ed139bf17d230ca56` passed all 443
+frozen tests, source/runtime checks and the final 55-test wiki/prose recheck.
+GitHub identity was verified at 10:27:42 UTC. The clean sparse execution
+checkout materialized 296 files. At 10:28:33 UTC one submission returned job
+`7652241`; no result is inferred from acceptance. Monitor this job and preserve
+all terminal output, without resubmission or a new mesh. The
+[evidence owner](../evidence/TCAD-Jacobian-Arithmetic.md) records exact bindings.
+The TCAD goal remains active and incomplete. Submission records are local;
+the frozen execution source is already published.
+
 ## Saved-packet arithmetic preparation on 2026-10-03
 
 GitHub main was reverified at `f5a74612b0741b3066170375502ab341cf61368b`;

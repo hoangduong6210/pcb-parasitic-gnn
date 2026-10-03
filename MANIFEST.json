@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 343,
+    "code": 344,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 51,
-    "results": 6225,
+    "results": 6243,
     "root": 11,
-    "tests": 81,
+    "tests": 82,
     "wiki": 93
   },
   "files": [
@@ -749,6 +749,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_hxt_postopt_v1.py",
       "bytes": 8430,
       "sha256": "6a26aea5145d73498d3e6c2022dad40786182053c413e2327bf82d1cf4b7957a"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_jacobian_arithmetic_v1.py",
+      "bytes": 8767,
+      "sha256": "cd1c2a9943e524d12f81e686a93e22788b50ef99604e00f3654fbb8149726a84"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_mesh_probe_v1.py",
@@ -34086,6 +34091,96 @@
       "sha256": "9944fcfae71ab14cc9bbf369cef5e400ea92d7dd5338dc7c1d6cd5f0c2ce5cff"
     },
     {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/logs/tcad_jacobian_arithmetic_7652241.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/logs/tcad_jacobian_arithmetic_7652241.out",
+      "bytes": 293,
+      "sha256": "06c2c36680d800dd11b50949d7152cb5440ce7e8b45156e19b2312400a342449"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/manifest.json",
+      "bytes": 3687,
+      "sha256": "9cad8aa54f37f7f356a08c890878bab4a449d31a75842a119facec1eee5bef31"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/sacct.txt",
+      "bytes": 38,
+      "sha256": "a0d6423b4df7014a885aa150b56666affabc2f9e5a39202bb5b0a57e0099c744"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/attempt.json",
+      "bytes": 18893,
+      "sha256": "5f9ec83c09f9d8952d08a48d822554f035f367accd2478cc1768ff2013f6e38f"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.json",
+      "bytes": 4612,
+      "sha256": "74d073b0a10fd8acc5740f32f6e0e467857061d215acbadbede1f8f2401d3ae9"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.report.json",
+      "bytes": 4330298,
+      "sha256": "6cebb86dc2c60d7c3696bef71357b4a6f40820bb2e1fcb82ce1d5e1f20f1683c"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.stdout",
+      "bytes": 3234,
+      "sha256": "e68461ff0090ce2b3642538301e7dea2fb739ab553542680ecbb9e7d7ef9842b"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.json",
+      "bytes": 4760,
+      "sha256": "869f9023c7cd06f8d578a764a2abd8118ac3c2ac20552216862adb9f3e4fcdf6"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.report.json",
+      "bytes": 4443554,
+      "sha256": "550700a66b188bdf47d120bd70a0589d188c73ae07fd95bcfa388808ea4d3a1a"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.stdout",
+      "bytes": 3302,
+      "sha256": "1a942c9265930dc9072a881fc4551a66faf86472f2490ca086d9845595124aa5"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.json",
+      "bytes": 4647,
+      "sha256": "a2879f3e7a883a02f835b18066d9b73ae41121db7f56f813d98006722d177bdc"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.report.json",
+      "bytes": 4330298,
+      "sha256": "6cebb86dc2c60d7c3696bef71357b4a6f40820bb2e1fcb82ce1d5e1f20f1683c"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.stdout",
+      "bytes": 3241,
+      "sha256": "d230a34317a1f893e5698ae165e280aae4a911ac6b595a62856aafeaebb0279a"
+    },
+    {
+      "path": "results/tcad/cps_jacobian_arithmetic_v1/submission.json",
+      "bytes": 1028,
+      "sha256": "8e32ccab0ed88ea14122622d0aadb16f551885d4ae75c86a40000dc121ebb74c"
+    },
+    {
       "path": "results/tcad/cps_mesh_probe_v1/archive/job_7651463/logs/tcad_mesh_probe_7651463.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -34986,6 +35081,11 @@
       "sha256": "6d8a5b5549dc5d3938462c9fcdddb269ffa4a6154eccbb5b5b6c2a12139a5a78"
     },
     {
+      "path": "tests/test_tcad_cps_jacobian_arithmetic_archive.py",
+      "bytes": 7407,
+      "sha256": "7d972308878c6b4b03c4a934392dd4c8634497b7460b4d97294dbf3a955b5b53"
+    },
+    {
       "path": "tests/test_tcad_cps_mesh_probe.py",
       "bytes": 18231,
       "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
@@ -35037,8 +35137,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 18654,
-      "sha256": "caefdcb455ca92fb637c574f63ad390e79c85b5a1ef8f48dd84db3875c7d9028"
+      "bytes": 18631,
+      "sha256": "8b5c4db70fda1c3448c486754f0fd92cb2adfae485a27a85d5e4eb963c4693a1"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35157,8 +35257,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 10273,
-      "sha256": "b34a32ba5534e4b853c3bcf31964956017a82885da245e6dcb4d2308716d42ac"
+      "bytes": 10733,
+      "sha256": "6a6bb413e10005d5eb55cc87e527656ab6c0491a0c81aabae8c394ce11767cba"
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
@@ -35177,8 +35277,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Jacobian-Arithmetic.md",
-      "bytes": 2611,
-      "sha256": "f1fbdb025d95f704f446ff60cc12bf465f24f1eb96b70cc29a2197817733b952"
+      "bytes": 9046,
+      "sha256": "5dc9bd7a9f34b731c7121eb4ae031efba29e133df475e7fc448e914053385e75"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -35222,8 +35322,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 29593,
-      "sha256": "9c7aac6e9e4b9b8d349d4b7c2a03d56545b68d32d5abeec6dc6e47601d1ffbe9"
+      "bytes": 30279,
+      "sha256": "3aba6d0e8719b39293b469d810d59d3973198666c542d397e1544acd1b5cbf2e"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35322,8 +35422,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 8989,
-      "sha256": "c179bc92041c779c748a7610f2af3a7b4e4761855bd5c0d3c2f8e96194b29728"
+      "bytes": 9441,
+      "sha256": "95c014b5457db1873160fa0bed3ecfc9014813c4b972254b35d9ea09da32fe48"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -35342,8 +35442,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Jacobian-Arithmetic.md",
-      "bytes": 3272,
-      "sha256": "8dba8991ab8120209b58e3b6c0b44756af04f4d16b007612ec4493282ba00c03"
+      "bytes": 3522,
+      "sha256": "677149a6e9d8e00e974fc458b5506c9ce2a884a0f164ba5620f54b4db570df3a"
     },
     {
       "path": "wiki/operations/E3-Recovery-Replay.md",
@@ -35397,8 +35497,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 4486,
-      "sha256": "1103a2d7642551c38b6b2218f3ce9f133db07e26ff0672ea7eae1aac5f85caa5"
+      "bytes": 4633,
+      "sha256": "0d373b0056a227967383eb549114bf6bc4fa390807dc1213112febe68a084e2d"
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-CAD-Diagnostic.md",
@@ -35472,18 +35572,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 85027,
-      "sha256": "3eaf828f0fc49988fc3e3da9c5e146330c399c22a1a596d5c50593a57c2dc4d4"
+      "bytes": 87429,
+      "sha256": "98ec5d1022291f485631df554e3d296ba35192faad0cbd3dd7122609b97d6c1f"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 13023,
-      "sha256": "9411b736e9a63ce4c74f374ce9d0edff79f2c069c1c53a045051389e48ec7037"
+      "bytes": 13607,
+      "sha256": "80d0664fc28c988036429804265ec42a0d2292d6bd6672e406bb6db04ebb3d80"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5092,
-      "sha256": "70bf08843a50e5037a7fbc59dfde7d4d3ab753f19247e1131eb85039dc38737f"
+      "bytes": 5322,
+      "sha256": "c960f36dfc3cbd87dab4d35619f3caa011b7587806d734ddd922654b061f5421"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35491,6 +35591,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7095,
-  "total_bytes": 993420690
+  "n_files": 7115,
+  "total_bytes": 1006600372
 }

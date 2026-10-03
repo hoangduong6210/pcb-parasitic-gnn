@@ -1,6 +1,6 @@
 ---
 title: TCAD Saved-Packet Jacobian Arithmetic
-status: PROPOSED
+status: VALIDATED; saved-packet arithmetic diagnostic only
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -55,6 +55,9 @@ mesh remains rejected. It cannot authorize field solving, reference labels,
 training or a paper claim. Any new mesh policy or numerical admission criterion
 requires a separately justified prospective protocol; this failure is retained.
 
-The current implementation is tested with tiny synthetic inputs only. Source
-freeze, publication and native-input execution are pending; outcomes belong to
-the [evidence owner](../evidence/TCAD-Jacobian-Arithmetic.md).
+Implementation was first tested with tiny synthetic inputs, then frozen and
+published before SLURM execution. The same-packet diagnosis has now completed
+with exact fresh-repeat reports and a checked terminal archive; outcomes and
+per-element interpretation belong to the
+[evidence owner](../evidence/TCAD-Jacobian-Arithmetic.md). Positive exact signs
+did not remove the sliver/conditioning concern or admit the rejected mesh.

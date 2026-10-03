@@ -1,0 +1,62 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "48",
+      "ExitCode": "0:0",
+      "JobID": "7652241",
+      "NodeList": "a0113",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    }
+  ],
+  "attempt_sha256": "5f9ec83c09f9d8952d08a48d822554f035f367accd2478cc1768ff2013f6e38f",
+  "diagnosis": {
+    "boundary_contract_passed": false,
+    "claim_eligible": false,
+    "complete": true,
+    "diagnostic_passed": true,
+    "field_solver_executed": false,
+    "observed_modes": {
+      "final": {
+        "failure": null,
+        "passed": true
+      },
+      "raw": {
+        "failure": null,
+        "passed": true
+      },
+      "repeat_final": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "reference_qualified": false,
+    "repeatability_passed": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/logs/tcad_jacobian_arithmetic_7652241.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/logs/tcad_jacobian_arithmetic_7652241.out": "06c2c36680d800dd11b50949d7152cb5440ce7e8b45156e19b2312400a342449",
+    "results/tcad/cps_jacobian_arithmetic_v1/archive/job_7652241/sacct.txt": "a0d6423b4df7014a885aa150b56666affabc2f9e5a39202bb5b0a57e0099c744",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/attempt.json": "5f9ec83c09f9d8952d08a48d822554f035f367accd2478cc1768ff2013f6e38f",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.json": "74d073b0a10fd8acc5740f32f6e0e467857061d215acbadbede1f8f2401d3ae9",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.report.json": "6cebb86dc2c60d7c3696bef71357b4a6f40820bb2e1fcb82ce1d5e1f20f1683c",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/final.stdout": "e68461ff0090ce2b3642538301e7dea2fb739ab553542680ecbb9e7d7ef9842b",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.json": "869f9023c7cd06f8d578a764a2abd8118ac3c2ac20552216862adb9f3e4fcdf6",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.report.json": "550700a66b188bdf47d120bd70a0589d188c73ae07fd95bcfa388808ea4d3a1a",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/raw.stdout": "1a942c9265930dc9072a881fc4551a66faf86472f2490ca086d9845595124aa5",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.json": "a2879f3e7a883a02f835b18066d9b73ae41121db7f56f813d98006722d177bdc",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.report.json": "6cebb86dc2c60d7c3696bef71357b4a6f40820bb2e1fcb82ce1d5e1f20f1683c",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_jacobian_arithmetic_v1/job_7652241/repeat_final.stdout": "d230a34317a1f893e5698ae165e280aae4a911ac6b595a62856aafeaebb0279a",
+    "results/tcad/cps_jacobian_arithmetic_v1/submission.json": "8e32ccab0ed88ea14122622d0aadb16f551885d4ae75c86a40000dc121ebb74c"
+  },
+  "lock_sha256": "1bce5b7db75abf05ae4a954044e43880ba173a76791727f80c4a8914aae18278",
+  "schema": "pcb-gnn.tcad-cps-jacobian-arithmetic-archive.v1",
+  "scope": "byte-preserved saved-packet diagnosis; no new numerical replay, field or reference qualification",
+  "source_commit": "8168208a1248befcaf72a56ed139bf17d230ca56"
+}

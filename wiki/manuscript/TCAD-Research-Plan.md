@@ -70,6 +70,16 @@ mismatches and testing arithmetic on identical stored coordinates, without
 relaxing the gate, regenerating a mesh or opening field/training stages. Native
 positive signed metrics alone have not qualified this mesh or its capacitance.
 
+The [exact-arithmetic replay](../evidence/TCAD-Jacobian-Arithmetic.md) has now
+completed and is archived. It localized errors on near-coplanar elements and
+showed that native/vector agreement can miss errors against exact stored
+coordinates. No inversion was found, but positive signs do not establish usable
+conditioning. Next: assess a canonical-box-conforming layer-aligned mesh
+candidate, checking plane separation and prospective cell count before a new
+frozen quality/boundary protocol. No coordinate snapping or selective element
+removal is implicitly authorized. Do not retry the rejected HXT source or
+relax its gate. This remains reference engineering, not learning novelty.
+
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 
 The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)

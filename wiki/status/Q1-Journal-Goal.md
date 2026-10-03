@@ -41,7 +41,7 @@ commitments require the owner's confirmation.
 
 | Milestone | Completion evidence | Current state |
 |---|---|---|
-| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | Dielectric CAD prerequisite passed; toy boundary-mesh diagnostic failed Jacobian agreement with both packets archived; same-packet diagnosis, mesh/field qualification and independent-adapter scope alignment remain |
+| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | CAD prerequisite passed; rejected toy mesh and exact-arithmetic diagnosis archived; near-coplanar conditioning, mesh/field qualification and independent-adapter scope alignment remain |
 | Contribution and prior art | Source-checked comparison defining what is new, what is inherited and which published methods are comparable | Original graph U-Net/transfer and CapBench/Flash-CNNCap review strengthens comparator requirements; GNN-Cap/co-kriging method gaps and novelty validation remain |
 | Controlled learning | Frozen new evaluation geometries and grouped splits; low-only, high-only and multi-fidelity controls at matched costs; tuned pooled/graph baselines | Conditional on reference and protocol gates |
 | CAD design outcome | Locked screening task, independently evaluated finalists, regret/constraint/cost accounting including failed queries | Conditional on reference and model acceptance |
@@ -61,8 +61,11 @@ The separate [CAD prerequisite](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
 passed its declared native checks. The
 [boundary-mesh diagnostic](../evidence/TCAD-Dielectric-Boundary-Mesh.md) then
 failed toy's Jacobian-agreement gate; raw/final packets and terminal evidence
-are retained. Next: bounded SLURM-only same-packet arithmetic diagnosis, not
-another mesh trial or tolerance relaxation. Mesh and dielectric-only field
+are retained. The [same-packet arithmetic diagnosis](../evidence/TCAD-Jacobian-Arithmetic.md)
+has completed, locating floating errors without changing the arrays. Next:
+assess a geometry-conforming layer-aligned candidate with prospective cell-count
+and conditioning checks before a separately frozen mesh-only study. Do not
+relax the rejected tolerance or silently snap geometry. Mesh and dielectric-only field
 qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new
 three-sentinel protocol and then the development panel, without substituting

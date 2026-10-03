@@ -13,7 +13,9 @@ are archived. The numbered sequence preserves that execution, not permission
 to submit a duplicate. The additive collector
 `code/experiments/proofs/archive_tcad_cps_dielectric_mesh_v1.py` provides
 `--check` for metadata/byte-only verification and refuses overwrite. The owning
-evidence page records exact accounting, archive identity and remaining diagnosis.
+evidence page records exact accounting and archive identity. The separate
+[exact-arithmetic diagnosis](../evidence/TCAD-Jacobian-Arithmetic.md) has since
+completed; it does not authorize retrying or admitting this rejected mesh.
 
 This is a separate mesh-only protocol, following the validated native CAD
 prerequisite and the [boundary-audit implementation](../methods/TCAD-Dielectric-Boundary-Mesh.md).

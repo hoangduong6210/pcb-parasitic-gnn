@@ -77,6 +77,13 @@ coordinates. Preserve packet identities and original failed thresholds; do not
 regenerate a different mesh, retry the rejected candidate or silently relax the
 gate. Field/reference/training/claim flags remain false.
 
+The subsequent [same-packet exact-arithmetic study](TCAD-Jacobian-Arithmetic.md)
+has now completed through SLURM and localized floating-evaluation errors on
+near-coplanar elements. It found positive exact stored-coordinate determinants
+but did not admit this mesh. Its evidence page owns the complete diagnosis and
+next prospective mesh-policy decision; the rejection and archive above remain
+unchanged. The earlier diagnosis-pending statement is historical.
+
 ## Published source and submission on 2026-10-03
 
 Source `3187f810557957aa6c2188db2174c295d5a6c21a` was published and

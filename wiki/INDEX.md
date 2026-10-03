@@ -60,7 +60,7 @@ paper_source: false
 | [TCAD HXT Optimization Isolation](methods/TCAD-HXT-Optimization-Isolation.md) | One disabled optimization stage, signed element quality and non-field diagnostic boundary |
 | [TCAD HXT Explicit Optimization](methods/TCAD-HXT-Explicit-Optimization.md) | One explicit optimizer, before/after quality and fresh coordinate extraction |
 | [TCAD Dielectric-Only Formulation](methods/TCAD-Dielectric-Only-Formulation.md) | Proposed electrical equivalence boundary, abstract topology checks and separate CAD/field gates |
-| [TCAD Dielectric Boundary-Mesh Audit](methods/TCAD-Dielectric-Boundary-Mesh.md) | Native packet extraction, exact tetrahedron/surface ownership, signed geometry and synthetic validation; real mesh pending |
+| [TCAD Dielectric Boundary-Mesh Audit](methods/TCAD-Dielectric-Boundary-Mesh.md) | Native packet extraction, signed geometry and facet/terminal checks; toy rejected before full audit |
 | [TCAD Dielectric Boundary-Mesh Evidence](evidence/TCAD-Dielectric-Boundary-Mesh.md) | Guarded integration validation, source/terminal identities and raw/final packet preservation |
 | [TCAD Dielectric Boundary-Mesh Runbook](operations/TCAD-Dielectric-Boundary-Mesh.md) | Separate bounded SLURM execution, sparse source and chunked-array preservation procedure |
 | [TCAD Saved-Packet Jacobian Arithmetic](methods/TCAD-Jacobian-Arithmetic.md) | Exact stored-coordinate diagnosis without changing the rejected mesh or tolerance |
