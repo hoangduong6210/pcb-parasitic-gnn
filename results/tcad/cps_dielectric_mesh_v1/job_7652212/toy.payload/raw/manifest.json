@@ -1,0 +1,160 @@
+{
+  "arrays": {
+    "coordinates_mm": {
+      "bytes": 30072,
+      "chunks": [
+        {
+          "bytes": 30072,
+          "name": "coordinates_mm.0000.bin",
+          "offset": 0,
+          "sha256": "f47ddc385bf0fd579a33e25409aee4fb7a5062ee2b3254c04d0e8a0ec8cb991a"
+        }
+      ],
+      "dtype": "<f8",
+      "shape": [
+        1253,
+        3
+      ]
+    },
+    "min_det_jac_mm3": {
+      "bytes": 29144,
+      "chunks": [
+        {
+          "bytes": 29144,
+          "name": "min_det_jac_mm3.0000.bin",
+          "offset": 0,
+          "sha256": "58dfb009c4b82c5679be5d23f25de3f9416f37a3d9d38e916a5df1792ed491bb"
+        }
+      ],
+      "dtype": "<f8",
+      "shape": [
+        3643
+      ]
+    },
+    "min_sicn": {
+      "bytes": 29144,
+      "chunks": [
+        {
+          "bytes": 29144,
+          "name": "min_sicn.0000.bin",
+          "offset": 0,
+          "sha256": "a269e3e4131f0ca65788186ccfb0f79b4d517e6c86fe51b280d70f469a6dcb0f"
+        }
+      ],
+      "dtype": "<f8",
+      "shape": [
+        3643
+      ]
+    },
+    "node_tags": {
+      "bytes": 10024,
+      "chunks": [
+        {
+          "bytes": 10024,
+          "name": "node_tags.0000.bin",
+          "offset": 0,
+          "sha256": "1d3701342a3da11767927a84215866b721ec56ddcaed6c4cbba0cbfe00262a5e"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        1253
+      ]
+    },
+    "tetrahedron_nodes": {
+      "bytes": 116576,
+      "chunks": [
+        {
+          "bytes": 116576,
+          "name": "tetrahedron_nodes.0000.bin",
+          "offset": 0,
+          "sha256": "f28108292df182c6c0b875d44df2d6e64151589f3b940a4c10b77f73ea137089"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        3643,
+        4
+      ]
+    },
+    "tetrahedron_tags": {
+      "bytes": 29144,
+      "chunks": [
+        {
+          "bytes": 29144,
+          "name": "tetrahedron_tags.0000.bin",
+          "offset": 0,
+          "sha256": "df119ca2a8632723d3ebe5d6528eb6293464b2de3f2ad949cf2bbc9cb53a4141"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        3643
+      ]
+    },
+    "tetrahedron_volumes": {
+      "bytes": 29144,
+      "chunks": [
+        {
+          "bytes": 29144,
+          "name": "tetrahedron_volumes.0000.bin",
+          "offset": 0,
+          "sha256": "31b54a404b054bb6aea343ef6c65193646e7d7f7be55408df07c6e400c08ed0a"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        3643
+      ]
+    },
+    "triangle_faces": {
+      "bytes": 19440,
+      "chunks": [
+        {
+          "bytes": 19440,
+          "name": "triangle_faces.0000.bin",
+          "offset": 0,
+          "sha256": "62acdab92de3f80b65f603bdb81eac1978b9441eec24c4b0c2ff014191a83a81"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        2430
+      ]
+    },
+    "triangle_nodes": {
+      "bytes": 58320,
+      "chunks": [
+        {
+          "bytes": 58320,
+          "name": "triangle_nodes.0000.bin",
+          "offset": 0,
+          "sha256": "290e30938e9239b0574ebdcdd0e4bf67aec1718a00da7f8103a51e9eab6d55ac"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        2430,
+        3
+      ]
+    },
+    "triangle_tags": {
+      "bytes": 19440,
+      "chunks": [
+        {
+          "bytes": 19440,
+          "name": "triangle_tags.0000.bin",
+          "offset": 0,
+          "sha256": "79509b3e2769fe494bd5b8340b4b878c0f0e68dba6a2c1701303291237ac5e30"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        2430
+      ]
+    }
+  },
+  "packet_sha256": "7338595872a287e39b1ad7f978fcaab13c20cc4a30021ed5e768b1f05cb64807",
+  "payload_bytes": 370448,
+  "schema": "pcb-gnn.dielectric-mesh-bundle.v1"
+}

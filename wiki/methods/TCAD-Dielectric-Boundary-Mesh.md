@@ -1,6 +1,6 @@
 ---
 title: TCAD Dielectric Boundary-Mesh Audit
-status: PROPOSED; array and fake-native audit implemented; native mesh unperformed
+status: REJECTED native diagnostic; array contract retained; arithmetic investigation pending
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -146,3 +146,14 @@ Only a later successful mesh diagnostic permits separately specified field
 qualification: same-mesh restriction, analytic opposing-face box, residual,
 charge/energy consistency and mesh/domain sensitivity. Reference qualification,
 controlled learning and a verified TCAD contribution remain incomplete.
+
+## Native diagnostic outcome
+
+The frozen mesh-only job subsequently stopped at toy's native-versus-independent
+Jacobian comparison; sentinel modes were unrun. Both raw and post-optimizer
+packets are preserved in the [terminal evidence](../evidence/TCAD-Dielectric-Boundary-Mesh.md).
+Native signed metrics became positive after the optimizer, but the agreement
+gate and later full boundary audit did not pass. The preceding design is now
+historical; do not resubmit it or change its tolerance. Next is a separate
+bounded same-packet arithmetic diagnostic through SLURM, not a field solve or
+new mesh trial. No numerical replay of these actual arrays is allowed on login.

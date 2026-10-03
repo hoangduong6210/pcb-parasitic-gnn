@@ -7,6 +7,56 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Boundary-mesh attempt terminal and archived on 2026-10-03
+
+At 09:46:48 UTC, job `7652212` was terminal `FAILED/2:0`, zero restarts and
+23 elapsed seconds; it was absent from the queue. Toy alone ran and stopped at
+the native/independently reconstructed Jacobian-agreement gate after its one
+optimizer call. Both complete packets are retained. Sentinel and repeat were
+unrun; no job in this chain remains active. The
+[evidence page](../evidence/TCAD-Dielectric-Boundary-Mesh.md) owns exact native
+observations and the checked 31-member archive.
+
+The current goal turn made progress through guarded implementation, source
+freeze/publication, native execution and terminal preservation. All 630 source
+tests passed; the additive collector passed 24 synthetic tests before collection.
+The expanded actual-archive regression is running. No native or real-array
+numerical replay ran on login. Archive/publication updates are local at this
+checkpoint; frozen source `3187f810557957aa6c2188db2174c295d5a6c21a` is already
+published. The full TCAD goal remains active and incomplete.
+
+Next: publish terminal evidence, then freeze a bounded SLURM-only same-packet
+Jacobian diagnostic using exact arithmetic on stored coordinates. Do not infer
+root cause from tiny positive native metrics, regenerate a different mesh,
+relax tolerance or retry this rejected source. All field/reference/training/
+claim gates stay closed. Earlier active-allocation statements below are historical.
+
+The full terminal regression subsequently passed all 655 tests with no skips,
+including the actual raw/final bundle byte checks and old frozen-source/archive
+checks. The subsequent 55-test wiki/prose run and prose audit passed. At
+09:57:41 UTC accounting reconfirmed the same terminal outcome; the queue's
+expired job record is not a new execution or a reason to resubmit.
+
+## Boundary-mesh job submitted on 2026-10-03
+
+Published source `3187f810557957aa6c2188db2174c295d5a6c21a` passed source,
+runtime and clean sparse-checkout checks before the single submission at
+09:44:45 UTC. At 09:45:25 UTC job `7652212` was RUNNING on `a0116`, zero
+restarts, with the frozen 160-GiB allocation and one scientific thread.
+The [evidence page](../evidence/TCAD-Dielectric-Boundary-Mesh.md) owns exact
+source/submission/allocation receipts. No terminal mesh result is inferred.
+
+The current turn made progress through integration, 630-test frozen-source
+regression, verified publication and native SLURM submission. The full journal
+goal remains active and incomplete. Next: monitor this same job and preserve
+its terminal/partial packet closure before deciding any new study. Do not
+resubmit because a stage is slow or observation times out. No field solving,
+reference qualification, training or new claim is authorized by a mesh attempt.
+Submission and observation records are local at this checkpoint; the execution
+source above is already published. Earlier preparation statements below are
+historical. The completed full-regression fixture directory was also removed;
+all scientific artifacts and execution worktrees remain preserved.
+
 ## Guarded boundary-mesh integration on 2026-10-03
 
 The previous turn made concrete progress and published the boundary-audit

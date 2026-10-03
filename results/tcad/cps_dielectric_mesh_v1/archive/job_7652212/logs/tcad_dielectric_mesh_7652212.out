@@ -1,0 +1,1 @@
+{"attempt": "results/tcad/cps_dielectric_mesh_v1/job_7652212", "complete": false, "repeatability_passed": false, "diagnostic_passed": false, "mesh_feasible": false, "field_solver_executed": false, "reference_qualified": false, "training_may_start": false, "claim_eligible": false, "automatic_expansion": false, "terminal_admission_pending": true}

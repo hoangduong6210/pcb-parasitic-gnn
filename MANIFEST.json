@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 337,
+    "code": 338,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 49,
-    "results": 6193,
+    "results": 6225,
     "root": 11,
-    "tests": 79,
+    "tests": 80,
     "wiki": 91
   },
   "files": [
@@ -734,6 +734,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_dielectric_cad_v1.py",
       "bytes": 8261,
       "sha256": "247cf638ac968e57c277af7e91d347db58376da17f27508fe06d3fa43f023398"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_dielectric_mesh_v1.py",
+      "bytes": 8632,
+      "sha256": "2eb163adb43e82688bd5955587c9c8c90c5b2c54715e191c873574985ea82dee"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py",
@@ -33781,6 +33786,166 @@
       "sha256": "06eb173691bf8715d16f14cd313815a0255851dc6a7eabfac53c5b019f44057c"
     },
     {
+      "path": "results/tcad/cps_dielectric_mesh_v1/archive/job_7652212/logs/tcad_dielectric_mesh_7652212.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/archive/job_7652212/logs/tcad_dielectric_mesh_7652212.out",
+      "bytes": 347,
+      "sha256": "e6c1add39a5733ee3a8e4a2ab8b2156fc3bea665d48194ac71cf4d501074d03b"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/archive/job_7652212/manifest.json",
+      "bytes": 6041,
+      "sha256": "787aafe6f1d37cdde5abbe4fecc5836f0f4d4aa1abcaeb473a0b3a55eecc0369"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/archive/job_7652212/sacct.txt",
+      "bytes": 38,
+      "sha256": "a6f14f019dd5f8569fa17cd06e562d3c1deb4c1813308c6695ab6bb2eb3dd581"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/attempt.json",
+      "bytes": 6298,
+      "sha256": "d5c047d81db5fd77a07af0666d143ba977294fb3ca03807e3d2db9fd2d27877e"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.json",
+      "bytes": 3036,
+      "sha256": "e16a384adc3be463fc616b10e0447a95513367fce790967efb01fe762153e57e"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/cad_report.json",
+      "bytes": 59755,
+      "sha256": "f2b6f0e4359dd988a52c3998f7785e1802ed2635bc8d76ab63389d8707eb230e"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/coordinates_mm.0000.bin",
+      "bytes": 30072,
+      "sha256": "b036b4f5abf49c75bf2686946f8bc8f2571a6dbd832b26c9aeab7cfaf8634036"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/manifest.json",
+      "bytes": 3627,
+      "sha256": "ab1ff19aef202515039ad1304506a4dd52a84757266f13534097f6844c7a4af5"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/min_det_jac_mm3.0000.bin",
+      "bytes": 28328,
+      "sha256": "0c451f82fbc4e4454514de93b0bdbcd191efd57299eb48dc557f94048ca1864a"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/min_sicn.0000.bin",
+      "bytes": 28328,
+      "sha256": "4b3507378d568b43d1f32258e64cf5f53d7642604637a01b0e1bf9f2e1185240"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/node_tags.0000.bin",
+      "bytes": 10024,
+      "sha256": "1d3701342a3da11767927a84215866b721ec56ddcaed6c4cbba0cbfe00262a5e"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/tetrahedron_nodes.0000.bin",
+      "bytes": 113312,
+      "sha256": "86ca205ecd34701326f586f8121726893702ae6976ca71624b1416676f624a91"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/tetrahedron_tags.0000.bin",
+      "bytes": 28328,
+      "sha256": "27de4efc605ba87915f9ca57b3cdd0b74591738c151a9fca315fef3d6c8fe819"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/tetrahedron_volumes.0000.bin",
+      "bytes": 28328,
+      "sha256": "b97a5585bc6da4db68ca8514407335f2431e2c6bbddaa330bbb26e1a669bad5a"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/triangle_faces.0000.bin",
+      "bytes": 19440,
+      "sha256": "62acdab92de3f80b65f603bdb81eac1978b9441eec24c4b0c2ff014191a83a81"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/triangle_nodes.0000.bin",
+      "bytes": 58320,
+      "sha256": "290e30938e9239b0574ebdcdd0e4bf67aec1718a00da7f8103a51e9eab6d55ac"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/final/triangle_tags.0000.bin",
+      "bytes": 19440,
+      "sha256": "79509b3e2769fe494bd5b8340b4b878c0f0e68dba6a2c1701303291237ac5e30"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/coordinates_mm.0000.bin",
+      "bytes": 30072,
+      "sha256": "f47ddc385bf0fd579a33e25409aee4fb7a5062ee2b3254c04d0e8a0ec8cb991a"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/manifest.json",
+      "bytes": 3627,
+      "sha256": "27352abbc4c64326f57f920227230b281dc1cea4473616ea408d5d1d76a8d7ab"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/min_det_jac_mm3.0000.bin",
+      "bytes": 29144,
+      "sha256": "58dfb009c4b82c5679be5d23f25de3f9416f37a3d9d38e916a5df1792ed491bb"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/min_sicn.0000.bin",
+      "bytes": 29144,
+      "sha256": "a269e3e4131f0ca65788186ccfb0f79b4d517e6c86fe51b280d70f469a6dcb0f"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/node_tags.0000.bin",
+      "bytes": 10024,
+      "sha256": "1d3701342a3da11767927a84215866b721ec56ddcaed6c4cbba0cbfe00262a5e"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/tetrahedron_nodes.0000.bin",
+      "bytes": 116576,
+      "sha256": "f28108292df182c6c0b875d44df2d6e64151589f3b940a4c10b77f73ea137089"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/tetrahedron_tags.0000.bin",
+      "bytes": 29144,
+      "sha256": "df119ca2a8632723d3ebe5d6528eb6293464b2de3f2ad949cf2bbc9cb53a4141"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/tetrahedron_volumes.0000.bin",
+      "bytes": 29144,
+      "sha256": "31b54a404b054bb6aea343ef6c65193646e7d7f7be55408df07c6e400c08ed0a"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/triangle_faces.0000.bin",
+      "bytes": 19440,
+      "sha256": "62acdab92de3f80b65f603bdb81eac1978b9441eec24c4b0c2ff014191a83a81"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/triangle_nodes.0000.bin",
+      "bytes": 58320,
+      "sha256": "290e30938e9239b0574ebdcdd0e4bf67aec1718a00da7f8103a51e9eab6d55ac"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.payload/raw/triangle_tags.0000.bin",
+      "bytes": 19440,
+      "sha256": "79509b3e2769fe494bd5b8340b4b878c0f0e68dba6a2c1701303291237ac5e30"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.stderr",
+      "bytes": 1361,
+      "sha256": "b010a70f265581175a0a61a3eeb570a2450096c880de9f81a7cb2f05be9440b6"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/job_7652212/toy.stdout",
+      "bytes": 10308,
+      "sha256": "bb4fe3d976a34933e739366ffdecb5f1e21ca021019dfdba2adb8acc300119cf"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_mesh_v1/submission.json",
+      "bytes": 990,
+      "sha256": "1396b352b201dc4d787aec4f9e7a3f16f5a4d8551692d54a91650d687ba96511"
+    },
+    {
       "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -34741,6 +34906,11 @@
       "sha256": "a37b0d8ec44973e7c5c0be0bd9087452661a1379e723fb775585ce0068695ca1"
     },
     {
+      "path": "tests/test_tcad_cps_dielectric_mesh_archive.py",
+      "bytes": 7096,
+      "sha256": "af333e822650f590a25b00b866ee3c9eb73d717184c2acca08bfdbdc051c88a4"
+    },
+    {
       "path": "tests/test_tcad_cps_dielectric_mesh_audit.py",
       "bytes": 21651,
       "sha256": "3f1aeed8375a1a825c4acde55669779ba7ac3f2408d14eaa9958a0dca06a571a"
@@ -34947,8 +35117,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 4814,
-      "sha256": "00f5382d7d2b932c9a366ec7078219fb13636d921367bd69adb534fee8300436"
+      "bytes": 9881,
+      "sha256": "174bb33daf6143c2bf1482339db807342683e32208f23b1719f146fed16dd757"
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
@@ -35007,8 +35177,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 29111,
-      "sha256": "7be6d002cf6b200cd2607d25c922767c6637c4dbae7fcf2c4913600e1c19e5f2"
+      "bytes": 29593,
+      "sha256": "9c7aac6e9e4b9b8d349d4b7c2a03d56545b68d32d5abeec6dc6e47601d1ffbe9"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35102,13 +35272,13 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 9071,
-      "sha256": "3c6220aea588c50af6ac736bde0c87a3ab930f0b598b9204766d3aac7ae0ae17"
+      "bytes": 9753,
+      "sha256": "60c081f8c5c4f3d2fef0eca2fdd6e88b6d15c1987e19a3533099ff398d7aa78a"
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 8773,
-      "sha256": "f8d9ce017d6dad7b6a0be3224da14e56ae5731ae1c27dce7895e2d62f096e404"
+      "bytes": 8989,
+      "sha256": "c179bc92041c779c748a7610f2af3a7b4e4761855bd5c0d3c2f8e96194b29728"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -35177,8 +35347,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 3998,
-      "sha256": "61ec6ad2321e6cd5f52a6f2706daa5a9dc677ed9d03572aa15347ddffbe050b9"
+      "bytes": 4486,
+      "sha256": "1103a2d7642551c38b6b2218f3ce9f133db07e26ff0672ea7eae1aac5f85caa5"
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-CAD-Diagnostic.md",
@@ -35252,18 +35422,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 79699,
-      "sha256": "cbd3ee8f25d6d50e589d6ccb81cab356f7487ef39f9d7629978b6dd3e207bbdb"
+      "bytes": 82801,
+      "sha256": "6d1e2e61f06dc16384bb0751ec4c57f30af63e988f2f130e229a9ba624910d86"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 12573,
-      "sha256": "498909c9c9db4a2630c4733bdcb50bb3fc47b4515dae5b3f4a051a87a3656760"
+      "bytes": 13023,
+      "sha256": "9411b736e9a63ce4c74f374ce9d0edff79f2c069c1c53a045051389e48ec7037"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 4999,
-      "sha256": "db6dfe1b9859c1858cdc3b71bb43cf718017e6320ac8ad36d0502f5a825002f6"
+      "bytes": 5092,
+      "sha256": "70bf08843a50e5037a7fbc59dfde7d4d3ab753f19247e1131eb85039dc38737f"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35271,6 +35441,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7051,
-  "total_bytes": 992475764
+  "n_files": 7085,
+  "total_bytes": 993331868
 }

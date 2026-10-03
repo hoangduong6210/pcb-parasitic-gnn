@@ -1,11 +1,94 @@
 ---
 title: TCAD Dielectric Boundary-Mesh Diagnostic Evidence
-status: PROPOSED; guarded implementation under validation; no native execution
+status: REJECTED; toy Jacobian-agreement gate failed; terminal archive checked
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Dielectric Boundary-Mesh Diagnostic Evidence
+
+## Terminal observation and archive on 2026-10-03
+
+At 09:46:48 UTC, exact accounting reported job `7652212` terminal
+`FAILED/2:0`, zero restarts, 23 elapsed seconds, 41 allocated CPUs and 160 GiB
+on `a0116`. It was absent from the queue. Toy was the only attempted mode;
+local1 and its repeat were correctly unrun. No job in this chain remains active.
+
+Toy reproduced the frozen CAD report identity before generation. HXT produced
+a raw dielectric mesh and the single explicit optimizer returned. Both complete
+packets were preserved. The subsequent independent audit stopped with
+`native and independently reconstructed Jacobians disagree`. Its comparison
+uses the frozen relative tolerance `1e-8` and zero absolute tolerance; no
+threshold was changed after observing the result. Later volume-sum/facet/terminal
+checks and the final post-mesh CAD snapshot were not reached. This is not a
+passed boundary audit, usable reference or field observation.
+
+| Observation | Raw packet | Post-optimizer packet |
+|---|---:|---:|
+| Nodes | 1,253 | 1,253 |
+| Dielectric tetrahedra | 3,643 | 3,541 |
+| Native surface triangles | 2,430 | 2,430 |
+| Minimum native signed condition | -2.295723906874384e-16 | 6.398856084358075e-15 |
+| Nonpositive native signed-condition count | 1 | 0 |
+| Minimum native Jacobian (mm cubed) | 1.0842021724855044e-18 | 4.445228907190568e-18 |
+| Nonpositive native Jacobian count | 0 | 0 |
+| Canonical array bytes | 370,448 | 363,920 |
+
+Parent-observed worker time was 9.515884320950136 seconds and peak RSS was
+0.06568145751953125 GiB. Worker stages recorded raw preservation at
+4.706128001911566 seconds, optimizer start at 4.706176914041862, optimizer
+finish at 5.132067027967423 and final preservation at 5.158548515988514.
+These timing boundaries are not field-extraction latency or a speedup claim.
+
+- Raw canonical packet SHA-256: `7338595872a287e39b1ad7f978fcaab13c20cc4a30021ed5e768b1f05cb64807`.
+- Final canonical packet SHA-256: `7a2b4c8a768bd2feb369e3be2c39531cf3a7c90ee7508cf6155bfc6a49e9b4f1`.
+- Attempt SHA-256: `d5c047d81db5fd77a07af0666d143ba977294fb3ca03807e3d2db9fd2d27877e`.
+- [Terminal archive manifest](../../results/tcad/cps_dielectric_mesh_v1/archive/job_7652212/manifest.json)
+  SHA-256: `787aafe6f1d37cdde5abbe4fecc5836f0f4d4aa1abcaeb473a0b3a55eecc0369`.
+
+The additive collector passed 24 synthetic tests before collecting all
+31 terminal members: attempt/mode receipts, native stdout/stderr, CAD report,
+both array manifests and every chunk, scheduler logs, accounting and submission.
+Byte/hash/source/receipt checks passed without native work or numerical array
+replay on login. Archive regression now also checks the actual packets by
+streaming byte hashes; no numerical loading is performed. Publication and the
+final combined regression are pending at this checkpoint. Execution source
+remains the separately frozen commit below.
+
+The final combined regression subsequently passed all 655 tests with no skips,
+including 25 collector/actual-archive cases, the frozen mesh source and all
+selected predecessors. Wiki/prose recheck passed 55 tests; the deterministic
+prose audit passed. At 09:57:41 UTC, accounting still reported the same terminal
+state; the short-lived queue record had expired, not restarted. Publication
+of this terminal checkpoint follows these checks.
+
+The raw/post signed minima alone do not identify the mismatching tetrahedra
+or prove whether the discrepancy is rounding, conditioning, an API convention
+or an implementation defect. Native positivity is not independent accuracy.
+Next: freeze a bounded SLURM-only replay of these same packets, locate every
+Jacobian mismatch and compare against exact arithmetic on the stored binary64
+coordinates. Preserve packet identities and original failed thresholds; do not
+regenerate a different mesh, retry the rejected candidate or silently relax the
+gate. Field/reference/training/claim flags remain false.
+
+## Published source and submission on 2026-10-03
+
+Source `3187f810557957aa6c2188db2174c295d5a6c21a` was published and
+remote-hash verified. The 7,051-file manifest and final wiki/prose checks passed.
+The sparse detached execution checkout materializes 255 tracked files,
+including all 252 locked dependencies; 6,797 tracked paths are excluded.
+Clean execution-root/commit/wrapper/lock checks and the pinned runtime passed
+before [submission](../../results/tcad/cps_dielectric_mesh_v1/submission.json).
+No native operation was used for login-node preflight.
+
+The single sbatch invocation was accepted at 09:44:45 UTC as job `7652212`.
+At 09:45:25 UTC, both queue and accounting reported RUNNING on `a0116`,
+zero restarts and 18 elapsed seconds. Memory policy allocated 41 CPUs for
+160 GiB; one CPU was requested and scientific thread settings remain one.
+This is an observation of an active allocation, not terminal mesh success.
+Next: follow this same job, retain attempted raw/final/partial packets, and
+archive exact terminal accounting. Field/reference/training/claim gates stay
+closed. Earlier no-submission statements below are historical.
 
 ## Implementation checkpoint on 2026-10-03
 

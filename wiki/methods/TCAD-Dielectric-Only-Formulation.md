@@ -133,8 +133,11 @@ The [boundary-mesh audit](TCAD-Dielectric-Boundary-Mesh.md) now implements
 native packet reading and exact triangle/tetrahedron ownership checks, with
 independent signed determinants, geometric measure sums and connected-component
 terminal checks. Its synthetic/fake-native tests do not generate a real mesh.
-The guarded live-session builder, frozen protocol and native SLURM execution
-remain to be implemented before field qualification.
+The guarded live-session builder and frozen protocol subsequently ran through
+SLURM. Toy stopped at native/independent Jacobian agreement after optimization;
+both packets are archived on the linked evidence page. Same-packet arithmetic
+diagnosis is next; neither a full boundary audit nor field qualification has
+passed for this new formulation.
 
 ## Validation checkpoint on 2026-10-03
 

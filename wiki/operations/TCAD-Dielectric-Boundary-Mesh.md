@@ -1,11 +1,19 @@
 ---
 title: TCAD Dielectric Boundary-Mesh Runbook
-status: PROPOSED; frozen source regression passed; publication and execution pending
+status: REJECTED; terminal archive checked; no retry
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Dielectric Boundary-Mesh Runbook
+
+The source passed regression and was published; its single job is now terminal
+at the toy Jacobian-agreement gate. Both raw/final packets and terminal evidence
+are archived. The numbered sequence preserves that execution, not permission
+to submit a duplicate. The additive collector
+`code/experiments/proofs/archive_tcad_cps_dielectric_mesh_v1.py` provides
+`--check` for metadata/byte-only verification and refuses overwrite. The owning
+evidence page records exact accounting, archive identity and remaining diagnosis.
 
 This is a separate mesh-only protocol, following the validated native CAD
 prerequisite and the [boundary-audit implementation](../methods/TCAD-Dielectric-Boundary-Mesh.md).

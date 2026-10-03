@@ -63,6 +63,13 @@ preservation, with a new source/protocol freeze. Complete post-freeze validation
 and publish before running through SLURM. No real dielectric-only mesh has yet
 been generated or qualified at this implementation checkpoint.
 
+The subsequent [native mesh diagnostic](../evidence/TCAD-Dielectric-Boundary-Mesh.md)
+is now terminal at toy's Jacobian-agreement gate. Raw/final packets are archived;
+sentinel modes were unrun. Next: a separately frozen SLURM replay locating the
+mismatches and testing arithmetic on identical stored coordinates, without
+relaxing the gate, regenerating a mesh or opening field/training stages. Native
+positive signed metrics alone have not qualified this mesh or its capacitance.
+
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 
 The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)

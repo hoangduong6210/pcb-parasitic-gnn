@@ -1,0 +1,135 @@
+STAGE={"stage": "geometry_validated", "elapsed_s": 3.643657014006749, "peak_rss_gib": 0.0230560302734375, "n_traces": 2}
+STAGE={"stage": "occ_fragmented", "elapsed_s": 4.546797341899946, "peak_rss_gib": 0.05689239501953125, "n_volumes": 3, "input_count": 3}
+STAGE={"stage": "cad_before_verified", "elapsed_s": 4.554778292076662, "peak_rss_gib": 0.05786895751953125, "entity_counts": {"0": 24, "1": 36, "2": 18, "3": 3}}
+STAGE={"stage": "metal_volumes_removed", "elapsed_s": 4.555263706017286, "peak_rss_gib": 0.05786895751953125, "removed_volumes": [2, 3]}
+STAGE={"stage": "orphan_entities_removed", "elapsed_s": 4.555367551045492, "peak_rss_gib": 0.05786895751953125, "removed_entities": {"0": [], "1": [], "2": [], "3": [2, 3]}}
+STAGE={"stage": "cad_after_verified", "elapsed_s": 4.562366774072871, "peak_rss_gib": 0.05786895751953125, "cad_contract_passed": true, "retained_volumes": 1, "primary_faces": [7, 8, 9, 10, 11, 12], "secondary_faces": [13, 14, 15, 16, 17, 18], "outer_faces": [19, 20, 21, 22, 23, 24], "internal_dielectric_faces": [], "before_entity_counts": {"0": 24, "1": 36, "2": 18, "3": 3}, "after_entity_counts": {"0": 24, "1": 36, "2": 18, "3": 1}}
+STAGE={"stage": "cad_identity_verified", "elapsed_s": 4.568291503936052, "peak_rss_gib": 0.05884552001953125, "cad_report_sha256": "ffbf35380c0d76c808a49d79309b8830e34091e887b7f59c33c56045ce7e33ad"}
+STAGE={"stage": "mesh_generate_started", "elapsed_s": 4.56948286597617, "peak_rss_gib": 0.05884552001953125, "mesh_policy": {"options": {"Mesh.Algorithm": 5.0, "Mesh.Algorithm3D": 10.0, "Mesh.MeshSizeFromPoints": 0.0, "Mesh.MeshSizeFromCurvature": 0.0, "Mesh.MeshSizeExtendFromBoundary": 0.0, "Mesh.RandomSeed": 1.0, "Mesh.Optimize": 0.0, "Mesh.OptimizeNetgen": 0.0, "Mesh.OptimizeThreshold": 0.3, "Mesh.MeshSizeMin": 0.12, "Mesh.MeshSizeMax": 1.0, "General.NumThreads": 1.0, "Mesh.MaxNumThreads1D": 1.0, "Mesh.MaxNumThreads2D": 1.0, "Mesh.MaxNumThreads3D": 1.0}, "boxes": [{"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.010000000000000002, "ZMax": 0.19, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}, {"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.19000000000000003, "ZMax": 0.37000000000000005, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}], "near_size_mm": 0.12, "far_size_mm": 1.0, "pad_mm": 2.0}, "gmsh_build_options": "64Bit ALGLIB[contrib] ANN[contrib] Bamg Blas[petsc] Blossom Cgns DIntegration Dlopen DomHex Eigen[contrib] Fltk Gmm[contrib] Hxt Jpeg Kbipack Lapack[petsc] LinuxJoystick MathEx[contrib] Med Mesh Metis[contrib] Mmg Mpeg Netgen Nii2mesh ONELAB ONELABMetamodel OpenCASCADE OpenCASCADE-CAF OpenGL OpenMP OptHom PETSc Parser Plugins Png Post QuadMeshingTools QuadTri Solver TetGen/BR TinyXML2[contrib] Untangle Voro++[contrib] WinslowUntangler Zlib tinyobjloader"}
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 13 (Line)
+Info    : [ 10%] Meshing curve 14 (Line)
+Info    : [ 10%] Meshing curve 15 (Line)
+Info    : [ 10%] Meshing curve 16 (Line)
+Info    : [ 20%] Meshing curve 17 (Line)
+Info    : [ 20%] Meshing curve 18 (Line)
+Info    : [ 20%] Meshing curve 19 (Line)
+Info    : [ 20%] Meshing curve 20 (Line)
+Info    : [ 30%] Meshing curve 21 (Line)
+Info    : [ 30%] Meshing curve 22 (Line)
+Info    : [ 30%] Meshing curve 23 (Line)
+Info    : [ 40%] Meshing curve 24 (Line)
+Info    : [ 40%] Meshing curve 25 (Line)
+Info    : [ 40%] Meshing curve 26 (Line)
+Info    : [ 40%] Meshing curve 27 (Line)
+Info    : [ 50%] Meshing curve 28 (Line)
+Info    : [ 50%] Meshing curve 29 (Line)
+Info    : [ 50%] Meshing curve 30 (Line)
+Info    : [ 60%] Meshing curve 31 (Line)
+Info    : [ 60%] Meshing curve 32 (Line)
+Info    : [ 60%] Meshing curve 33 (Line)
+Info    : [ 60%] Meshing curve 34 (Line)
+Info    : [ 70%] Meshing curve 35 (Line)
+Info    : [ 70%] Meshing curve 36 (Line)
+Info    : [ 70%] Meshing curve 37 (Line)
+Info    : [ 70%] Meshing curve 38 (Line)
+Info    : [ 80%] Meshing curve 39 (Line)
+Info    : [ 80%] Meshing curve 40 (Line)
+Info    : [ 80%] Meshing curve 41 (Line)
+Info    : [ 90%] Meshing curve 42 (Line)
+Info    : [ 90%] Meshing curve 43 (Line)
+Info    : [ 90%] Meshing curve 44 (Line)
+Info    : [ 90%] Meshing curve 45 (Line)
+Info    : [100%] Meshing curve 46 (Line)
+Info    : [100%] Meshing curve 47 (Line)
+Info    : [100%] Meshing curve 48 (Line)
+Info    : Done meshing 1D (Wall 0.0073028s, CPU 0.002804s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 7 (Plane, Delaunay)
+Info    : [ 10%] Meshing surface 8 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 9 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 10 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 11 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 12 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 13 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 14 (Plane, Delaunay)
+Info    : [ 50%] Meshing surface 15 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 16 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 17 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 18 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 19 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 20 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 21 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 22 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 23 (Plane, Delaunay)
+Info    : [100%] Meshing surface 24 (Plane, Delaunay)
+Info    : Done meshing 2D (Wall 0.038904s, CPU 0.030241s)
+Info    : Meshing 3D...
+Info    : 3D Meshing 1 volume with 1 connected component
+Info    : Input mesh hash 7e728acfb750ee27
+Info    : Creating an empty mesh with 1221 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of       1217 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 8 missing facet(s)
+Info    : Recover Delaunay
+Info    : 1 out of 3 volumes will be refined
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of       1469 points on   1 threads - mesh.nvert: 1221      
+Info    :           -       1445 points filtered
+Info    :           =         24 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of        107 points on   1 threads - mesh.nvert: 1245      
+Info    :           -        100 points filtered
+Info    :           =          7 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of         10 points on   1 threads - mesh.nvert: 1252      
+Info    :           -          9 points filtered
+Info    :           =          1 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    :  	Final tet. mesh contains 6893 tetrahedra
+Info    :  	Final tet. mesh contains 1253 vertices
+Info    : tEmptyMesh  	 = 	    0.015
+Info    : tVerifyBnd  	 = 	    0.001
+Info    : tBndRecovery	 = 	    0.013
+Info    : tConvertMesh	 = 	    0.001
+Info    : tRefine     	 = 	    0.003
+Info    : tOptimize   	 = 	    0.000 (mesh optimization disabled)
+Info    : Done meshing 3D (Wall 0.0423646s, CPU 0.026525s)
+Info    : 1253 nodes 6377 elements
+STAGE={"stage": "raw_mesh_preserved", "elapsed_s": 4.706128001911566, "peak_rss_gib": 0.06568145751953125, "quality": {"nodes": 1253, "tetrahedra": 3643, "triangles": 2430, "metrics": {"min_sicn": {"minimum": -2.295723906874384e-16, "maximum": 0.9929374807552891, "nonpositive_count": 1}, "min_det_jac_mm3": {"minimum": 1.0842021724855044e-18, "maximum": 3.0497078731119927, "nonpositive_count": 0}}}, "packet_sha256": "7338595872a287e39b1ad7f978fcaab13c20cc4a30021ed5e768b1f05cb64807", "payload_bytes": 370448}
+STAGE={"stage": "mesh_optimize_started", "elapsed_s": 4.706176914041862, "peak_rss_gib": 0.06568145751953125, "optimizer": {"method": "", "force": false, "niter": 1, "dimTags": []}}
+Info    : Optimizing mesh...
+Info    : Optimizing volume 4
+Info    : Optimization starts (volume = 127.22) with worst = 0 / average = 0.466949:
+Info    : 0.00 < quality < 0.10 :       308 elements
+Info    : 0.10 < quality < 0.20 :      1136 elements
+Info    : 0.20 < quality < 0.30 :       209 elements
+Info    : 0.30 < quality < 0.40 :        49 elements
+Info    : 0.40 < quality < 0.50 :        45 elements
+Info    : 0.50 < quality < 0.60 :       115 elements
+Info    : 0.60 < quality < 0.70 :       373 elements
+Info    : 0.70 < quality < 0.80 :       918 elements
+Info    : 0.80 < quality < 0.90 :       405 elements
+Info    : 0.90 < quality < 1.00 :        85 elements
+Info    : 158 edge swaps, 21 node relocations (volume = 127.22): worst = 0 / average = 0.478055 (Wall 0.0997242s, CPU 0.099114s)
+Info    : 186 edge swaps, 25 node relocations (volume = 127.22): worst = 0 / average = 0.479008 (Wall 0.198566s, CPU 0.197307s)
+Info    : 191 edge swaps, 25 node relocations (volume = 127.22): worst = 0 / average = 0.479151 (Wall 0.297761s, CPU 0.29605s)
+Info    : 192 edge swaps, 25 node relocations (volume = 127.22): worst = 0 / average = 0.479158 (Wall 0.397226s, CPU 0.395004s)
+Info    : 0.00 < quality < 0.10 :       243 elements
+Info    : 0.10 < quality < 0.20 :      1121 elements
+Info    : 0.20 < quality < 0.30 :       183 elements
+Info    : 0.30 < quality < 0.40 :        47 elements
+Info    : 0.40 < quality < 0.50 :        41 elements
+Info    : 0.50 < quality < 0.60 :       112 elements
+Info    : 0.60 < quality < 0.70 :       368 elements
+Info    : 0.70 < quality < 0.80 :       937 elements
+Info    : 0.80 < quality < 0.90 :       402 elements
+Info    : 0.90 < quality < 1.00 :        87 elements
+Info    : Done optimizing mesh (Wall 0.425764s, CPU 0.423375s)
+STAGE={"stage": "mesh_optimize_finished", "elapsed_s": 5.132067027967423, "peak_rss_gib": 0.06568145751953125, "optimizer": {"method": "", "force": false, "niter": 1, "dimTags": []}}
+STAGE={"stage": "final_mesh_preserved", "elapsed_s": 5.158548515988514, "peak_rss_gib": 0.06568145751953125, "quality": {"nodes": 1253, "tetrahedra": 3541, "triangles": 2430, "metrics": {"min_sicn": {"minimum": 6.398856084358075e-15, "maximum": 0.9903452929365898, "nonpositive_count": 0}, "min_det_jac_mm3": {"minimum": 4.445228907190568e-18, "maximum": 3.0497078731119927, "nonpositive_count": 0}}}, "packet_sha256": "7a2b4c8a768bd2feb369e3be2c39531cf3a7c90ee7508cf6155bfc6a49e9b4f1", "payload_bytes": 363920}

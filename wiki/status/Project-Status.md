@@ -56,8 +56,11 @@ numerical qualification remain unperformed for this new formulation.
 Its [boundary-mesh audit](../methods/TCAD-Dielectric-Boundary-Mesh.md) now has
 synthetic/fake-native extraction and topology tests. A separate
 [guarded integration](../evidence/TCAD-Dielectric-Boundary-Mesh.md) and new
-frozen mesh protocol now exist; post-freeze validation and publication remain
-before any real mesh run at this checkpoint.
+frozen mesh protocol were validated and published. Its native toy run stopped
+at the independent/native Jacobian-agreement gate after optimization. Both
+packets are preserved and the terminal archive is checked; sentinel modes were
+unrun. A bounded same-packet arithmetic diagnostic is next, before any new mesh
+candidate or field qualification.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -94,6 +97,7 @@ instead of calling one column ground truth.
 | TCAD HXT explicit optimization | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy diagnostic passed with ill-shaped elements; sentinel optimizer timeout, repeat unrun; no field or reference qualification |
 | TCAD dielectric-only formulation | `PROPOSED; CAD PREREQUISITE VALIDATED` | Electrical equivalence boundary and retained CAD domain; mesh and field qualification pending |
 | TCAD dielectric-domain CAD diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy, selected sentinel and exact fresh-repeat CAD contract passed; no meshing, solving or reference qualification |
+| TCAD dielectric boundary-mesh diagnostic | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy native Jacobian agreement failed after optimization; raw/final packets preserved, sentinel modes unrun; no field/reference qualification |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |
