@@ -47,9 +47,12 @@ not a new GNN contribution. The prior optimizer design below is historical.
 
 The [guarded CAD-only implementation](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
 now captures/replays native provenance and complete pre/post entity topology.
-Its geometry prerequisite is separate from a mesh feasibility result. Validate,
-freeze and publish this source before its one bounded SLURM diagnostic; later
-boundary-aware meshing and field equivalence still require separate protocols.
+Its bounded native job has since passed the declared CAD gates and exact fresh
+repeat, with a checked terminal archive. This geometry prerequisite is separate
+from mesh feasibility. Next: boundary-aware meshing that binds the validated
+CAD reports, verifies surface-to-tetrahedron boundary coverage and disjoint net
+nodes, and retains strict signed-quality gates. Field equivalence and later
+sensitivity studies still require separate protocols; no learning gate opens.
 
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 

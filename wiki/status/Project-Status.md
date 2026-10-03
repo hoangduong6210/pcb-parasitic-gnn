@@ -50,8 +50,9 @@ conclusion is available from these incomplete studies.
 Backend agreement does not qualify a reference or authorize training.
 The [dielectric-only formulation](../methods/TCAD-Dielectric-Only-Formulation.md)
 now has a source-only electrical/topology contract and synthetic classifier
-tests. Its guarded CAD adapter and fake-native integration tests are implemented;
-native execution and numerical qualification remain unperformed at this checkpoint.
+tests. Its bounded native CAD diagnostic now passed toy, selected sentinel and
+fresh-repeat gates, with a checked terminal archive. Boundary-aware meshing and
+numerical qualification remain unperformed for this new formulation.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -86,8 +87,8 @@ instead of calling one column ground truth.
 | TCAD mesh-only HXT probe | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy passed; local1 timed out in native 3D improvement; repeat unrun; no field solving or cap increase |
 | TCAD HXT optimization isolation | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy failed strict signed quality; sentinel and repeat unrun; no field use or cap/quality relaxation |
 | TCAD HXT explicit optimization | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy diagnostic passed with ill-shaped elements; sentinel optimizer timeout, repeat unrun; no field or reference qualification |
-| TCAD dielectric-only formulation | `PROPOSED; METADATA TESTED` | Electrical equivalence boundary and abstract interface checks; no native CAD, mesh or field qualification |
-| TCAD dielectric-domain CAD diagnostic | `PROPOSED; IMPLEMENTED` | Source-bound domain construction/removal with fake-native tests; native submission and terminal evidence pending |
+| TCAD dielectric-only formulation | `PROPOSED; CAD PREREQUISITE VALIDATED` | Electrical equivalence boundary and retained CAD domain; mesh and field qualification pending |
+| TCAD dielectric-domain CAD diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy, selected sentinel and exact fresh-repeat CAD contract passed; no meshing, solving or reference qualification |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

@@ -41,7 +41,7 @@ commitments require the owner's confirmation.
 
 | Milestone | Completion evidence | Current state |
 |---|---|---|
-| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | Explicit HXT optimizer also timed out; terminal archives checked; dielectric-only metadata contract started; independent-adapter scope mismatch remains; no qualified reference |
+| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | Explicit HXT optimizer timed out; archives checked; separate dielectric-domain CAD prerequisite passed; boundary-aware mesh/field qualification and independent-adapter scope alignment remain |
 | Contribution and prior art | Source-checked comparison defining what is new, what is inherited and which published methods are comparable | Original graph U-Net/transfer and CapBench/Flash-CNNCap review strengthens comparator requirements; GNN-Cap/co-kriging method gaps and novelty validation remain |
 | Controlled learning | Frozen new evaluation geometries and grouped splits; low-only, high-only and multi-fidelity controls at matched costs; tuned pooled/graph baselines | Conditional on reference and protocol gates |
 | CAD design outcome | Locked screening task, independently evaluated finalists, regret/constraint/cost accounting including failed queries | Conditional on reference and model acceptance |

@@ -16,6 +16,9 @@ first failure; aggregate worker ceiling is 540 seconds. No array, requeue or
 automatic retry. CAD construction remains prohibited on login. Source freeze
 and verified publication precede submission; the evidence page owns scheduler
 receipts. This specification does not imply native execution or a usable mesh.
+The job has since completed; its evidence page owns measured use and the
+checked terminal archive. No CAD job remains active, and no mesh job is
+authorized by this completed CAD-only resource specification.
 
 ## Mesh-generation diagnostic
 

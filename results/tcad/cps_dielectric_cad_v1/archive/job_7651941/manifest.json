@@ -1,0 +1,62 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "51",
+      "ExitCode": "0:0",
+      "JobID": "7651941",
+      "NodeList": "a0102",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    }
+  ],
+  "attempt_sha256": "f4cd0660eee269ad5f0732804a8490649ce26b2c1dec84d51ba0955db337e86b",
+  "diagnosis": {
+    "automatic_expansion": false,
+    "claim_eligible": false,
+    "complete": true,
+    "diagnostic_passed": true,
+    "field_solver_executed": false,
+    "mesh_feasible": false,
+    "mesh_generated": false,
+    "observed_modes": {
+      "local1": {
+        "failure": null,
+        "passed": true
+      },
+      "repeat1": {
+        "failure": null,
+        "passed": true
+      },
+      "toy": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "reference_qualified": false,
+    "repeatability_passed": true,
+    "terminal_admission_pending": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/logs/tcad_dielectric_cad_7651941.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/logs/tcad_dielectric_cad_7651941.out": "aba297ee82286e627270cc0e6f2c2f1faadde85626a4aa454e6841008fdf6b33",
+    "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/sacct.txt": "29bd989da6e981b3ca6948bb4a8165fae0c6e5407a584565f85010463d9f3682",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/attempt.json": "f4cd0660eee269ad5f0732804a8490649ce26b2c1dec84d51ba0955db337e86b",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.json": "bfb7de388b68ec16e3c6fec5f7b69404f304d4042f0163ef34dd8a912bfdf9cb",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.stdout": "0a095dbc3e57969be8a29e388e3fef118a36ef1405ac32afcd95e3e5f3b5b18a",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.json": "b6f3f728df91fe9302ed1aa75b39ae09b07d92fa716c052f86b14be134d9d47d",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.stdout": "09691b3b9dcc06a830bdd933bbd594c3bcda42ee0d27e1a3455ca0d9306d0ceb",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.json": "3b4bb9488e9b78c60b969a516b287b99bab30369b3c08b237fa93281d63164ad",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.stdout": "c14705dfa85b611e8806777378ec86ca36d400840205d8b15eaa17cad51f2deb",
+    "results/tcad/cps_dielectric_cad_v1/submission.json": "06eb173691bf8715d16f14cd313815a0255851dc6a7eabfac53c5b019f44057c"
+  },
+  "lock_sha256": "29484923fc973e1a670aac598a4826ad0e48f51fe89eb72e07f67a766c058792",
+  "schema": "pcb-gnn.tcad-cps-dielectric-cad-archive.v1",
+  "scope": "native CAD contract only; no mesh, field, reference or training claim",
+  "source_commit": "c741fd7b813356b369c0b955705b4740f5805b71"
+}

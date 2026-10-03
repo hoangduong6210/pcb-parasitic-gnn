@@ -1,6 +1,6 @@
 ---
 title: TCAD Dielectric-Only Formulation Contract
-status: PROPOSED; guarded CAD adapter implemented; native execution pending
+status: PROPOSED; bounded CAD diagnostic validated; mesh and field pending
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -122,11 +122,12 @@ must detect net shorts even when no whole face is shared.
    targets, reopen training or export a paper claim without separate evidence
    review and admission.
 
-No native geometry, meshing, solving or fitting was performed for this contract.
-The guarded adapter and fake-native integration now exist. Next are source
-freeze, verified publication and the bounded CAD-only SLURM diagnostic under
-its [runbook](../operations/TCAD-Dielectric-CAD-Diagnostic.md). Boundary-aware
-meshing, numerical qualification and a learning contribution remain future work.
+The bounded native CAD diagnostic has now completed through SLURM; its
+[evidence page](../evidence/TCAD-Dielectric-CAD-Diagnostic.md) owns the checked
+terminal archive and exact-repeat reports. No meshing, solving or fitting was
+performed. Next is a separate boundary-aware mesh diagnostic, binding these
+CAD identities and preserving every original rejected result. Numerical
+qualification and a learning contribution remain future work.
 
 ## Validation checkpoint on 2026-10-03
 

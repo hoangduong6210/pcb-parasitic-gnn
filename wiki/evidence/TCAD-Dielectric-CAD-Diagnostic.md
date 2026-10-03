@@ -1,11 +1,68 @@
 ---
 title: TCAD Dielectric-Domain CAD Diagnostic Evidence
-status: PROPOSED; implementation tested with fake native API; no native execution
+status: VALIDATED; terminal CAD diagnostic archive checked; no mesh or field
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Dielectric-Domain CAD Diagnostic Evidence
+
+## Native execution and terminal archive on 2026-10-03
+
+The clean sparse execution checkout passed all 223 source dependencies and the
+pinned runtime check before [submission](../../results/tcad/cps_dielectric_cad_v1/submission.json)
+at 08:27:20 UTC. Job `7651941` was observed RUNNING on `a0102`, zero restarts,
+with 3 allocated CPUs for 8 GiB and one scientific thread. At 08:30:25 UTC,
+accounting confirmed terminal `COMPLETED/0:0`, zero restarts and 51 elapsed
+seconds; it was absent from the queue. All three modes passed. No job in this
+diagnostic chain remains active.
+
+| Mode | Parent worker time (s) | Worker-reported time (s) | Parent peak RSS (GiB) |
+|---|---:|---:|---:|
+| Toy | 11.015648934058845 | 7.338474743999541 | 0.05782318115234375 |
+| Local1 | 10.515120377996936 | 6.91840859898366 | 0.06476974487304688 |
+| Fresh local1 repeat | 10.514962820103392 | 6.777764320839196 | 0.06476974487304688 |
+
+These times include guarding, metadata and validation work; they are not pure
+CAD-kernel latency, mesh latency or field-extraction speedups. Mode and scheduler
+stderr are empty. Native execution occurred only in the verified allocation.
+
+Toy retains one dielectric volume with 18 faces, 36 curves and 24 points after
+removing two conductor volumes. Local1 and its fresh repeat each retain one
+dielectric volume with 162 faces, 324 curves and 216 points after removing
+26 conductor volumes. The local1 boundary classification contains 72 primary,
+84 secondary and six outer faces; no internal dielectric face is present.
+Native bounding boxes, measures, types, incidence and ordered input
+correspondence are retained. This is complete metadata for the declared CAD
+checks, not an exported BREP or independent geometric-kernel proof. Later
+meshing must reconstruct the canonical inputs with source-bound code and
+recheck the CAD report before generating tetrahedra.
+
+- Toy CAD-report SHA-256: `ffbf35380c0d76c808a49d79309b8830e34091e887b7f59c33c56045ce7e33ad`.
+- Both local1 CAD-report SHA-256: `185994c79376c221d5d4dfc3cbc893988669eafe8cad9f2223f3f89c78d76dc7`.
+- Attempt SHA-256: `f4cd0660eee269ad5f0732804a8490649ce26b2c1dec84d51ba0955db337e86b`.
+- [Archive manifest](../../results/tcad/cps_dielectric_cad_v1/archive/job_7651941/manifest.json)
+  SHA-256: `31704965e6b2b725ae5f8abc40dd4c30481f79874024aa1873bbd68c327122e0`.
+
+The additive collector passed 25 synthetic tests before collecting this exact
+14-member terminal closure. It reused the frozen receipt/source validator,
+matched raw accounting and verified byte-exact copies; no native operation was
+replayed on login. Completion, CAD diagnostic and repeatability flags are true;
+mesh generation, mesh feasibility, field execution, reference, training and
+claim flags remain false. Archive publication is pending at this local
+checkpoint; source publication is verified at the commit recorded below.
+
+The subsequent regression passed all 468 tests with no skips, including
+26 collector/archive cases and exact native report/accounting assertions.
+The predecessor source locks and rejected archives passed unchanged. Prose
+audit and staged diff checks also passed; raw native logs were not reformatted.
+
+This validates the declared CAD contract only for the toy and selected sentinel,
+not arbitrary layouts, a tetrahedral discretization or physical accuracy. Next:
+separate boundary-aware mesh implementation and a frozen mesh-only protocol.
+It must bind the validated CAD reports, preserve terminal tags and verify every
+tetrahedral boundary triangle. The old dielectric sliver observation remains
+relevant; no quality threshold or old failed source is relaxed.
 
 ## Implementation checkpoint on 2026-10-03
 
@@ -84,3 +141,11 @@ The full post-freeze regression subsequently passed all 442 tests with no skips,
 including the 73 CAD cases, unchanged source/archive checks and wiki/prose
 contracts. Prose audit, wrapper syntax and documentation diff checks passed.
 No real CAD operation was used to obtain these test results.
+
+Source commit `c741fd7b813356b369c0b955705b4740f5805b71` was published and
+remote-hash verified. The 7,019-file main manifest and subsequent 55-test
+wiki/prose recheck passed. A fresh sparse worktree initially had only its index
+populated, so the first metadata validator could not open its script. Inspection
+confirmed exactly 226 non-skip entries and 6,794 excluded entries. The selected
+files were then materialized with non-overwriting `checkout-index --all`;
+no source, evidence or user file was deleted, and no job had been submitted.

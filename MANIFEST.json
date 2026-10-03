@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 329,
+    "code": 330,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 47,
-    "results": 6178,
+    "results": 6193,
     "root": 11,
-    "tests": 75,
+    "tests": 76,
     "wiki": 88
   },
   "files": [
@@ -729,6 +729,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_amg_feasibility_v1.py",
       "bytes": 13332,
       "sha256": "9c94c4be833d3b94d3297a05d7a98d745794519db1cdc9db3ac1f9805bb2b52c"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_dielectric_cad_v1.py",
+      "bytes": 8261,
+      "sha256": "247cf638ac968e57c277af7e91d347db58376da17f27508fe06d3fa43f023398"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py",
@@ -33656,6 +33661,81 @@
       "sha256": "6187049ca91bd1342626739ac2616d5e51574fb900cad3097c9a7d175d0f1d35"
     },
     {
+      "path": "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/logs/tcad_dielectric_cad_7651941.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/logs/tcad_dielectric_cad_7651941.out",
+      "bytes": 368,
+      "sha256": "aba297ee82286e627270cc0e6f2c2f1faadde85626a4aa454e6841008fdf6b33"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/manifest.json",
+      "bytes": 3211,
+      "sha256": "31704965e6b2b725ae5f8abc40dd4c30481f79874024aa1873bbd68c327122e0"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/archive/job_7651941/sacct.txt",
+      "bytes": 38,
+      "sha256": "29bd989da6e981b3ca6948bb4a8165fae0c6e5407a584565f85010463d9f3682"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/attempt.json",
+      "bytes": 1769442,
+      "sha256": "f4cd0660eee269ad5f0732804a8490649ce26b2c1dec84d51ba0955db337e86b"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.json",
+      "bytes": 713621,
+      "sha256": "bfb7de388b68ec16e3c6fec5f7b69404f304d4042f0163ef34dd8a912bfdf9cb"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/local1.stdout",
+      "bytes": 314411,
+      "sha256": "0a095dbc3e57969be8a29e388e3fef118a36ef1405ac32afcd95e3e5f3b5b18a"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.json",
+      "bytes": 713626,
+      "sha256": "b6f3f728df91fe9302ed1aa75b39ae09b07d92fa716c052f86b14be134d9d47d"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/repeat1.stdout",
+      "bytes": 314410,
+      "sha256": "09691b3b9dcc06a830bdd933bbd594c3bcda42ee0d27e1a3455ca0d9306d0ceb"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.json",
+      "bytes": 78254,
+      "sha256": "3b4bb9488e9b78c60b969a516b287b99bab30369b3c08b237fa93281d63164ad"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/job_7651941/toy.stdout",
+      "bytes": 33504,
+      "sha256": "c14705dfa85b611e8806777378ec86ca36d400840205d8b15eaa17cad51f2deb"
+    },
+    {
+      "path": "results/tcad/cps_dielectric_cad_v1/submission.json",
+      "bytes": 1012,
+      "sha256": "06eb173691bf8715d16f14cd313815a0255851dc6a7eabfac53c5b019f44057c"
+    },
+    {
       "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -34606,6 +34686,11 @@
       "sha256": "084d71b27e520f171050e22abf82a1c4b582320a3bfa5f753a6db1953b1e4dcc"
     },
     {
+      "path": "tests/test_tcad_cps_dielectric_cad_archive.py",
+      "bytes": 9295,
+      "sha256": "3698f7404a461da80af6cebe869717cc3b7c70236c653f0007c8b65588c22d07"
+    },
+    {
       "path": "tests/test_tcad_cps_dielectric_topology.py",
       "bytes": 5991,
       "sha256": "f824a7436577fa3ee804c1daeeb323f849463d32887aae58f09c8e943db0d5e3"
@@ -34802,8 +34887,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
-      "bytes": 4799,
-      "sha256": "c4802c6694710cef23d2adf25f97220c2f97b1ba513d7fee01d7ecd95d71e63d"
+      "bytes": 8971,
+      "sha256": "b9d26a5b5f7f30c2492da868196e54dd2cb0c72d54f95abab2178b8fe4f2a898"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
@@ -34857,8 +34942,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 28261,
-      "sha256": "c477eecf8c159d456719be16216ce66d43913d13078f3199113c152eef49ae06"
+      "bytes": 28494,
+      "sha256": "95e1935f85a9eaeecc37c42b389748b1b6472e67fe6cf25560487515647aa13c"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -34952,8 +35037,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 8288,
-      "sha256": "970def220107e466fc7bc213d7440816d2b1501befb8685e159851703970d36c"
+      "bytes": 8333,
+      "sha256": "3f9973d36d409a49e3aa58d78a88b3cad58ce51b146090b1249abd01efbcd13d"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -34987,8 +35072,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 13593,
-      "sha256": "efd328e2f88ab4e1f92480a4e17df992e9f43f3b8a812689ac3125ceea6f762a"
+      "bytes": 13800,
+      "sha256": "5c19dae28a707be45a30d89cdb9b85ee350e462fd4e19a33ecfd2864c9db6467"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -35022,8 +35107,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-CAD-Diagnostic.md",
-      "bytes": 3147,
-      "sha256": "fd91e8a826f492101c8dbf819576b78a2808085b954f533c5c76ac43d6fb155c"
+      "bytes": 4119,
+      "sha256": "d6195ae98f88a775c4533bd358ec0cf7b2f9ab2b2661c037ebffe02ee8e983ac"
     },
     {
       "path": "wiki/operations/TCAD-HXT-Explicit-Optimization.md",
@@ -35092,18 +35177,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 73133,
-      "sha256": "0770aba2c80c6772d3df33932660268227d7a4fbab126bd4f29d9fe11778ca4f"
+      "bytes": 74651,
+      "sha256": "eb529aae6d162dfc879294ddb6999ed78e4b73ab71df3a8d3a7006b7e3482708"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 12155,
-      "sha256": "b89500bd0577f398a73e849b3387ad1247ccb193c03aabc87d42dc3a2884d45e"
+      "bytes": 12231,
+      "sha256": "4ac35409fb3cab7a7fe8528c10255a43d28cf3d004eb3a3a14b1c6bf60defe68"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 4868,
-      "sha256": "381df8ef5fb0ded7684f2d79de33361db1aa7017d3d57be1b4134c06d3fa279e"
+      "bytes": 4883,
+      "sha256": "38144cf5dd7551381ecfdf2192f5a244847c05b9a4fc6a8150ff230b585d3b84"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35111,6 +35196,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7019,
-  "total_bytes": 988345560
+  "n_files": 7036,
+  "total_bytes": 992312251
 }

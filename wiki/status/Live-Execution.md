@@ -7,6 +7,30 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Native CAD prerequisite completed and archived on 2026-10-03
+
+Published source `c741fd7b813356b369c0b955705b4740f5805b71` passed clean sparse
+source/runtime checks before job `7651941` was submitted at 08:27:20 UTC.
+At 08:30:25 UTC accounting confirmed `COMPLETED/0:0`, zero restarts and
+51 elapsed seconds. Toy, selected sentinel and fresh repeat all passed their
+declared CAD gates. The sentinel reports match exactly. The
+[evidence page](../evidence/TCAD-Dielectric-CAD-Diagnostic.md) owns native
+observations and the checked 14-member terminal archive. No job remains active.
+
+The current goal turn made concrete progress: guarded CAD implementation,
+442-test source regression, verified publication, native execution and terminal
+preservation. The additive collector passed 25 synthetic tests; actual archive
+regression has been added. These results do not generate a mesh, solve a field,
+qualify a reference or open training/claims. Next: publish terminal evidence,
+then implement a separately frozen boundary-aware mesh diagnostic bound to
+the CAD identities. All older failures and resource gates remain preserved.
+Archive/receipt updates are local at this checkpoint; source main was verified
+at the commit above. Earlier preparation/submission entries below are historical.
+
+The full terminal regression subsequently passed 468 tests with no skips,
+including the actual CAD archive and unchanged predecessor locks. Prose audit
+and staged diff checks passed, and every terminal archive member is tracked.
+
 ## Guarded dielectric-domain CAD implementation on 2026-10-03
 
 The previous goal turn made concrete progress and published its terminal/
