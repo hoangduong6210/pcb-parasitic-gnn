@@ -41,6 +41,10 @@ capacity still fails. Do not instantiate or tune either rejected grid. Next:
 separately specify a conforming planar-footprint/column feasibility probe that
 avoids the full x/y coordinate product. This is a design hypothesis, not a
 validated mesh. Geometry, original caps and prior failed gates remain preserved.
+The [exact column contract](../evidence/TCAD-Column-Feasibility.md) is now
+implemented with synthetic checks of ownership, counts, shared facets and a
+new element-map condition certificate. Native 2D integration and its frozen
+feasibility protocol remain next; no actual column mesh has been tested.
 The sequence below records the earlier CAD, mesh and arithmetic observations.
 
 ## Preserved decision after explicit-optimizer timeout: 2026-10-03

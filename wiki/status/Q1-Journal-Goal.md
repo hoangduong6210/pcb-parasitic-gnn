@@ -68,8 +68,10 @@ failed its declared gates and is archived without generating a 3D mesh.
 
 The separate [midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
 also completed and is archived: condition gates pass, but sentinel capacity
-still fails. Next: specify and test a planar-footprint/column feasibility probe
-under a new protocol, avoiding the full x/y tensor product. Do not relax the
+still fails. The [column contract](../evidence/TCAD-Column-Feasibility.md) now
+has exact arithmetic and synthetic checks. Next: integrate native 2D provenance
+and mesh audit, then freeze a guarded feasibility probe avoiding the full x/y
+tensor product. No native column candidate has run. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new

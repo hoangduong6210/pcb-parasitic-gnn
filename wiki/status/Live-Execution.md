@@ -7,6 +7,34 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column candidate preparation on 2026-10-03
+
+The preceding goal turn made concrete progress: the dyadic diagnostic completed,
+its rejected candidate was archived, and terminal evidence was published.
+This continuation reverified GitHub main at
+`9fe5ea0192b5be4125650787c39660d8be60e464`; the worktree was clean and the
+owner's queue empty. The full TCAD goal remains active and incomplete.
+
+Near-exhausted file quota was addressed by inspecting/removing ten completed
+synthetic-fixture roots, as recorded by the
+[storage owner](../operations/Repository-Storage.md). No scientific evidence or
+execution worktree was removed. Next: implement and test a separate planar
+footprint/column contract, then freeze a bounded native 2D feasibility protocol
+before any real-layout work through SLURM. This preparation is local.
+
+The [new exact-arithmetic contract](../evidence/TCAD-Column-Feasibility.md)
+now implements independent footprint ownership/area bookkeeping, z-only
+refinement, prospective counts, a conforming prism template and its own
+condition bound. Initial/expanded synthetic tests passed. Native integration
+and its frozen SLURM protocol remain unimplemented; no new job or actual
+coordinate/mesh calculation has run. Complete regression and publication are
+next, followed by native 2D provenance/mesh-audit integration.
+
+The combined regression passed all 376 cases with zero skips, including both
+unchanged inherited planners and source/input locks. The prose audit passed.
+Three completed initial fixture directories were removed after inspection;
+all scientific data and worktrees remain preserved. Source publication follows.
+
 ## Dyadic terminal checkpoint published on 2026-10-03
 
 At 12:06:07 UTC GitHub main and local HEAD were verified as

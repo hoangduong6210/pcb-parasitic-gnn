@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 356,
+    "code": 357,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 55,
     "results": 6280,
     "root": 11,
-    "tests": 86,
-    "wiki": 98
+    "tests": 87,
+    "wiki": 100
   },
   "files": [
     {
@@ -2204,6 +2204,11 @@
       "path": "code/solvers/tcad_cps_amg_worker.py",
       "bytes": 7498,
       "sha256": "f11b64a5c3d08e3a8a2d81f8cb5986f782260a980646871a0484a83505bcfa04"
+    },
+    {
+      "path": "code/solvers/tcad_cps_column_contract.py",
+      "bytes": 12543,
+      "sha256": "682d58fa7421947570e12580882c787f352b45b523f9616db42d81ba53f7095e"
     },
     {
       "path": "code/solvers/tcad_cps_dielectric_cad_builder.py",
@@ -35286,6 +35291,11 @@
       "sha256": "469e7fba80771da5a24e2488b1dc8af5e30afe2b4d7e85989189230b1c30d3ff"
     },
     {
+      "path": "tests/test_tcad_cps_column_contract.py",
+      "bytes": 12217,
+      "sha256": "83920e2ea0f2832e0ce514a3693526f664ce376435f4554cb50656f667774195"
+    },
+    {
       "path": "tests/test_tcad_cps_dielectric_cad.py",
       "bytes": 24274,
       "sha256": "084d71b27e520f171050e22abf82a1c4b582320a3bfa5f753a6db1953b1e4dcc"
@@ -35422,8 +35432,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 19450,
-      "sha256": "bb69d0b3b9681f3749cb3b5b6f633917e04b82932d370921357d747d28c3207d"
+      "bytes": 19778,
+      "sha256": "c8c30872624d0ca560b7120f74e2e7643efc440fc0f078da490deb57349d405d"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35514,6 +35524,11 @@
       "path": "wiki/evidence/FEM-Convergence-Ledger.md",
       "bytes": 839,
       "sha256": "7b395f662ee814c76243f7bbb3d7705965106b306140b428003267146bf2e6f4"
+    },
+    {
+      "path": "wiki/evidence/TCAD-Column-Feasibility.md",
+      "bytes": 3001,
+      "sha256": "f4bcb23ce1fc718b452b2257339745c1462dc810e24e3db0d72116dc9b65bfc3"
     },
     {
       "path": "wiki/evidence/TCAD-Cps-AMG-Diagnostic.md",
@@ -35617,8 +35632,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 31746,
-      "sha256": "f52f676b4f55593beb75050f3e78213629649365028435c0f363fb5816760f35"
+      "bytes": 32046,
+      "sha256": "c2e7cac7d734e60cfe504976f09fad51ebad38cb80a2dce184ecdf48abdcbd3a"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35686,6 +35701,11 @@
       "sha256": "6205d4f402433906e89fba233f23880878e12e27f4c093690eafc663fcd8f78d"
     },
     {
+      "path": "wiki/methods/TCAD-Column-Feasibility.md",
+      "bytes": 7360,
+      "sha256": "97f78832396ca4eb0add586eb0f32373289f82485208a3a66e43bc20d6266f83"
+    },
+    {
       "path": "wiki/methods/TCAD-Cps-AMG-Diagnostic.md",
       "bytes": 3604,
       "sha256": "1a00746bd4bdd881f344b0194e5bcdc5c7a4039371237b1b181ed825ef8f38ba"
@@ -35742,8 +35762,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Dyadic.md",
-      "bytes": 6389,
-      "sha256": "a010a87ba9085c597f04031f2738cc55eccfe0e85c145fdeaaceec1c64d01021"
+      "bytes": 6688,
+      "sha256": "2dc58b7aa10d44636f37b9128528e3066e3aac18b79d0260fc9cb5129ffc8cf7"
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Planning.md",
@@ -35762,8 +35782,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 1900,
-      "sha256": "757bd32a512566670dddcb709c2b3a731ddd1898fc0f75a83fc99a125854d592"
+      "bytes": 3064,
+      "sha256": "05e2290d4d8a8237d09d78042ec20c3b8d50ebe399846d95ee1b9c7582520064"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -35882,18 +35902,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 98072,
-      "sha256": "112a461d6c8e98be5ef0625cbf63b89d85b8d4d7656453bf4a38daf3c889db26"
+      "bytes": 99713,
+      "sha256": "9ab8584afd730ccc0968e23c6689f5737e9451dd9ca9a83e0b12e2e4337601f1"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 14451,
-      "sha256": "3047bc3ac8e4d07cadc973bf8eba4c30a17123095ca810c38d341fd50cf8a6ba"
+      "bytes": 14608,
+      "sha256": "3bfec41d54298611794aae6a243c88edd0838cf9ff887766b54ce614a2a3cdeb"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5590,
-      "sha256": "46655961d5d3c440a1465c3d6d8bdbb5c253fcdcf1ebd23232ace212912222dc"
+      "bytes": 5739,
+      "sha256": "0011aa5d4bd4191451c517ea73101f66efe2bee6c80815675474694a200040b6"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35901,6 +35921,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7177,
-  "total_bytes": 1007569901
+  "n_files": 7181,
+  "total_bytes": 1007609060
 }

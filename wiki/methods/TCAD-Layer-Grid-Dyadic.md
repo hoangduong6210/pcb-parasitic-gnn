@@ -106,3 +106,8 @@ formula. The tensor-specific bound above must not be reused for a different
 element map without proof, and native quality values must not be fabricated.
 Full 3D facet/terminal/volume audit, analytic field and sensitivity checks remain
 separate prerequisites. This engineering proposal is not a new TCAD claim.
+
+The subsequent [column contract](TCAD-Column-Feasibility.md) now implements
+exact ownership/count bookkeeping and a distinct prism-map conditioning
+certificate with synthetic shared-facet tests. Its native integration and
+real-input protocol remain pending; it does not change this rejected study.
