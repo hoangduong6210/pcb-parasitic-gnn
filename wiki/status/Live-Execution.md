@@ -7,6 +7,21 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Mesh-only HXT probe submitted on 2026-10-03
+
+Source `3a680844d06a46fcf0c8c3698a2a169a86990c00` is published and remote-hash
+verified. A new sparse execution checkout passed the 158-file source lock and
+clean-source check, then submitted job `7651463`. It was observed RUNNING on
+`a0157`, zero restarts, with 41 allocated CPUs for 160 GiB and one scientific
+thread. Toy mesh generation passed; local1 reached native 3D meshing. The
+[evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns exact measurements and
+submission receipts.
+
+Next: terminal accounting, exact three-mode coverage and fresh-repeat review.
+No field solve, training or new paper claim is enabled; no cap or old source
+changed. Main's receipt update does not change the frozen execution worktree.
+Earlier preparation and pending-publication entries below are historical.
+
 ## Mesh-only HXT implementation checkpoint on 2026-10-03
 
 The owner reaffirmed TCAD as the research priority. The continuing goal remains

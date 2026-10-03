@@ -1,6 +1,6 @@
 ---
 title: TCAD Mesh-Only HXT Probe Runbook
-status: PROPOSED; source publication precedes submission
+status: RUNNING; published source submitted; terminal review pending
 last_updated: 2026-10-03
 paper_source: false
 ---

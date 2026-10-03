@@ -1,11 +1,35 @@
 ---
 title: TCAD Mesh-Only HXT Probe Evidence
-status: PROPOSED; source frozen and validated; publication pending
+status: RUNNING; published frozen source; terminal coverage pending
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Mesh-Only HXT Probe Evidence
+
+## Source publication and submission
+
+Source commit `3a680844d06a46fcf0c8c3698a2a169a86990c00` was published and
+verified against remote main before submission. The full main manifest passed
+with 6,942 files excluding itself. The separate sparse checkout passed clean
+source and all 158 locked dependencies; no historical data were removed.
+
+Job `7651463` was submitted at 2026-10-03 05:35:11 UTC and observed RUNNING
+on `a0157` at 05:35:29 UTC, zero restarts. Memory policy allocated 41 CPUs for
+160 GiB despite the one-CPU request; all scientific threads remain one. The
+[submission receipt](../../results/tcad/cps_mesh_probe_v1/submission.json)
+binds source, protocol, lock, wrapper and resource limits.
+
+The toy mode passed. Its ordered mesh has 1,253 nodes and 6,199 tetrahedra,
+SHA-256 `d812442abf9c9756cbbbfa2900e789e84b483eec4282a1b9d458b452c80b53df`.
+Worker elapsed time was 3.416435627033934 seconds and peak RSS
+0.0904083251953125 GiB; the parent measured 5.510262751020491 seconds including
+process startup and checks. Local1 subsequently completed 2D meshing and
+entered 3D meshing. These are interim observations, not complete coverage or
+repeatability. No field solver ran and no reference, training or claim gate
+opened. Next: terminal accounting, exact closure and fresh-repeat review.
+
+The preparation entries below retain their historical meaning.
 
 ## Implementation checkpoint: 2026-10-03
 
