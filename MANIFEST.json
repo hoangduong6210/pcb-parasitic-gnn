@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 331,
+    "code": 337,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 47,
+    "protocols": 49,
     "results": 6193,
     "root": 11,
-    "tests": 77,
-    "wiki": 89
+    "tests": 79,
+    "wiki": 91
   },
   "files": [
     {
@@ -1196,6 +1196,11 @@
       "sha256": "51e7d37c9e326ffc2b35b6df6699e81966c4998bf53b4efbe98cbe574c427817"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_dielectric_mesh.py",
+      "bytes": 9589,
+      "sha256": "a53e3f3c715e2f4ee9cd4f835688569ee37dddfe22a8df112342634691a4ffb5"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_hxt_isolation.py",
       "bytes": 8233,
       "sha256": "0a1ea46274c632e05d64c3cb14ef0d8160cd0265faa15d1d72fe3080190d2f45"
@@ -1234,6 +1239,11 @@
       "path": "code/experiments/proofs/tcad_cps_dielectric_cad.py",
       "bytes": 7263,
       "sha256": "c7ddad16f930e86981ae0416187ebccfa637e0dcfca81dc5ba16d75098c56920"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_dielectric_mesh.py",
+      "bytes": 11399,
+      "sha256": "e3e51bf00c3a49ba23089d1cd265b80e69f18876cf0e65b812a2858cd4e17783"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_hxt_isolation.py",
@@ -1876,6 +1886,11 @@
       "sha256": "c3789524c69a0f489b593b98d9ea020bac3c22d980580ed2d9184c03ace5d44c"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_dielectric_mesh.sh",
+      "bytes": 738,
+      "sha256": "ed00d482904140a4a40c120b805c378f11caeecb255cac0797733e7f73217c29"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_hxt_isolation.sh",
       "bytes": 691,
       "sha256": "1d9468139daab4be3ba75140e729c8b878aca924ee7ca1c0483195c950994118"
@@ -2144,6 +2159,21 @@
       "path": "code/solvers/tcad_cps_dielectric_mesh_audit.py",
       "bytes": 18032,
       "sha256": "928c32ca94e4421ffbe412e5f392fc62f07f6c0262c38233704699af98388be4"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_mesh_builder.py",
+      "bytes": 9079,
+      "sha256": "f0fef371407a9267d426e4fc38c075b98fd1d2e046bb82d1944b8e0f3a8c870b"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_mesh_bundle.py",
+      "bytes": 7646,
+      "sha256": "5608575127859f233dddeec2fea57a73b5f81e9e16bca11cb219b20fc44978ce"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_mesh_worker.py",
+      "bytes": 2136,
+      "sha256": "cb5dd288e0c2a38509c6af581fbf91c7363b1c6f3ffc4e39ed3114941799e4ae"
     },
     {
       "path": "code/solvers/tcad_cps_dielectric_topology.py",
@@ -3349,6 +3379,16 @@
       "path": "protocols/tcad_cps_dielectric_cad_v1.lock.json",
       "bytes": 30320,
       "sha256": "29484923fc973e1a670aac598a4826ad0e48f51fe89eb72e07f67a766c058792"
+    },
+    {
+      "path": "protocols/tcad_cps_dielectric_mesh_v1.json",
+      "bytes": 2000,
+      "sha256": "1b415ce95aee2d4cf0766b5e8de4d7f1befe39651f409c68c2f58cd8fa4a5648"
+    },
+    {
+      "path": "protocols/tcad_cps_dielectric_mesh_v1.lock.json",
+      "bytes": 34135,
+      "sha256": "8cf23148f56da0b36580c286c20880b23891c305abd4f43656dfd99e8c13fcc1"
     },
     {
       "path": "protocols/tcad_cps_hxt_isolation_v1.json",
@@ -34696,9 +34736,19 @@
       "sha256": "3698f7404a461da80af6cebe869717cc3b7c70236c653f0007c8b65588c22d07"
     },
     {
+      "path": "tests/test_tcad_cps_dielectric_mesh.py",
+      "bytes": 17423,
+      "sha256": "a37b0d8ec44973e7c5c0be0bd9087452661a1379e723fb775585ce0068695ca1"
+    },
+    {
       "path": "tests/test_tcad_cps_dielectric_mesh_audit.py",
       "bytes": 21651,
       "sha256": "3f1aeed8375a1a825c4acde55669779ba7ac3f2408d14eaa9958a0dca06a571a"
+    },
+    {
+      "path": "tests/test_tcad_cps_dielectric_mesh_bundle.py",
+      "bytes": 4499,
+      "sha256": "01b23af8a5c3f0e4fa3c1b1501ac16fde0c1a47d85a138a47dbba66a71243aab"
     },
     {
       "path": "tests/test_tcad_cps_dielectric_topology.py",
@@ -34777,8 +34827,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 17976,
-      "sha256": "bc2c132bab887fe346f75a1413afca07bae145dece3c3399e9dbdf8f340442fa"
+      "bytes": 18339,
+      "sha256": "58a5d147655d6200cae11d9c7fcc2c11c6d935323577401603aef5ff12134720"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -34896,6 +34946,11 @@
       "sha256": "3ecc855c56a1996a463819676a905e1a75a505b2757339e1eea06e34bbeaab6d"
     },
     {
+      "path": "wiki/evidence/TCAD-Dielectric-Boundary-Mesh.md",
+      "bytes": 4814,
+      "sha256": "00f5382d7d2b932c9a366ec7078219fb13636d921367bd69adb534fee8300436"
+    },
+    {
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
       "bytes": 9139,
       "sha256": "e7e0761f660fa63b8c2cc49c6aee56f88aa5b64e3fe346048dc3ff72dc8b6731"
@@ -34952,8 +35007,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 28959,
-      "sha256": "8d6ad27c423be7cdea863dadae9611cb136c103426b6e4088b33736900b229fd"
+      "bytes": 29111,
+      "sha256": "7be6d002cf6b200cd2607d25c922767c6637c4dbae7fcf2c4913600e1c19e5f2"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35047,8 +35102,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Boundary-Mesh.md",
-      "bytes": 8836,
-      "sha256": "f632f4f0787b785a290c2621b5dea2860d3339d0ae67981e162084401ca77237"
+      "bytes": 9071,
+      "sha256": "3c6220aea588c50af6ac736bde0c87a3ab930f0b598b9204766d3aac7ae0ae17"
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
@@ -35119,6 +35174,11 @@
       "path": "wiki/operations/TCAD-Cps-Support-Recovery.md",
       "bytes": 4015,
       "sha256": "36d370f9a5c878a6c2975ccea27e6a7d9c82e7a03ae3350aea5e9fadd83048a2"
+    },
+    {
+      "path": "wiki/operations/TCAD-Dielectric-Boundary-Mesh.md",
+      "bytes": 3998,
+      "sha256": "61ec6ad2321e6cd5f52a6f2706daa5a9dc677ed9d03572aa15347ddffbe050b9"
     },
     {
       "path": "wiki/operations/TCAD-Dielectric-CAD-Diagnostic.md",
@@ -35192,13 +35252,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 78102,
-      "sha256": "9f7a3a2f4243969cbd5a0caee7c0e27a10c43a32eb8e4b86139d6c0381366356"
+      "bytes": 79699,
+      "sha256": "cbd3ee8f25d6d50e589d6ccb81cab356f7487ef39f9d7629978b6dd3e207bbdb"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 12454,
-      "sha256": "6c0968abefb2c5738d76ad6c34d1f10754fb32e3f8291f80bf6b7e389bd3ed39"
+      "bytes": 12573,
+      "sha256": "498909c9c9db4a2630c4733bdcb50bb3fc47b4515dae5b3f4a051a87a3656760"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
@@ -35211,6 +35271,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7039,
-  "total_bytes": 992365842
+  "n_files": 7051,
+  "total_bytes": 992475764
 }

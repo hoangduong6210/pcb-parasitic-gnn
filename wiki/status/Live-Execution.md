@@ -7,6 +7,32 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Guarded boundary-mesh integration on 2026-10-03
+
+The previous turn made concrete progress and published the boundary-audit
+checkpoint. Main was reverified at `3ef9401053198e2bab1e5f11fd3013e168722372`;
+the worktree was clean and the queue empty. The full TCAD goal remains active.
+
+The new [integration evidence](../evidence/TCAD-Dielectric-Boundary-Mesh.md)
+records a live-session CAD-to-mesh builder, guarded worker/parent and immutable
+raw/final chunked-array preservation. Expanded new tests passed 158 cases with
+one pre-freeze source-lock skip. Tests use tiny synthetic arrays and a fake API;
+no native geometry/meshing, real-array replay or field solving ran. No new job
+is submitted. Next: final contract checks, source freeze/regression/publication,
+then a sparse frozen checkout and one bounded SLURM mesh-only submission.
+These implementation changes are local at this checkpoint.
+
+Source is now frozen with 252 dependencies; protocol/lock hashes are recorded
+on the owning evidence page. The pre-freeze new/wiki/prose suite passed 216
+tests with one lock skip. Full post-freeze regression is running; no native job
+has been submitted. Scientific gates and old source/evidence remain unchanged.
+
+The post-freeze regression subsequently passed all 630 selected tests with no
+skips. The new lock and unchanged predecessors passed; native generation was
+not invoked. Source publication, sparse-checkout validation and one bounded
+SLURM submission follow. Three exact synthetic test directories from completed
+pre-freeze runs were removed; no scientific result or worktree was removed.
+
 ## Boundary-audit checkpoint published on 2026-10-03
 
 At 09:13:15 UTC GitHub main and local HEAD were verified as

@@ -57,9 +57,11 @@ sensitivity studies still require separate protocols; no learning gate opens.
 The [boundary-mesh audit implementation](../methods/TCAD-Dielectric-Boundary-Mesh.md)
 now covers native packet reading, complete surface/facet correspondence,
 signed determinants and terminal-anchored components using synthetic fixtures.
-Next: integrate it into a separately guarded live-session builder and bounded
-mesh-only worker, freeze array preservation and protocol, then run through
-SLURM. No real dielectric-only mesh has yet been generated or qualified.
+The [guarded integration](../evidence/TCAD-Dielectric-Boundary-Mesh.md) now
+implements the live-session builder, bounded worker/parent and raw/final array
+preservation, with a new source/protocol freeze. Complete post-freeze validation
+and publish before running through SLURM. No real dielectric-only mesh has yet
+been generated or qualified at this implementation checkpoint.
 
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 

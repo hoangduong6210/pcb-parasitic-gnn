@@ -1,0 +1,39 @@
+{
+  "schema": "pcb-gnn.tcad-cps-dielectric-mesh.v1",
+  "protocol_name": "tcad-cps-dielectric-boundary-mesh-diagnostic-v1",
+  "scope": "CAD-bound dielectric tetrahedra and terminal facets; one explicit optimizer; no field solve",
+  "parent_protocol_sha256": "b365cc75f843b3a6461047393c4ae6e5db9fa102950b090f14267ed032e9d29e",
+  "terminal_archive_sha256": "31704965e6b2b725ae5f8abc40dd4c30481f79874024aa1873bbd68c327122e0",
+  "modes": ["toy", "local1", "repeat1"],
+  "cad_report_sha256": {
+    "toy": "ffbf35380c0d76c808a49d79309b8830e34091e887b7f59c33c56045ce7e33ad",
+    "local1": "185994c79376c221d5d4dfc3cbc893988669eafe8cad9f2223f3f89c78d76dc7",
+    "repeat1": "185994c79376c221d5d4dfc3cbc893988669eafe8cad9f2223f3f89c78d76dc7"
+  },
+  "mesh_checks": {
+    "coordinate_atol_mm": 1e-6,
+    "measure_rtol": 1e-8,
+    "measure_atol_native": 1e-9,
+    "sicn_max": 1.000000000001,
+    "jacobian_rtol": 1e-8
+  },
+  "triangle_cap_per_tetrahedron_cap": 4,
+  "payload": {
+    "schema": "pcb-gnn.dielectric-mesh-bundle.v1",
+    "chunk_bytes_max": 33554432,
+    "per_mode_bytes_max": 2147483648,
+    "encoding": "canonical C-order little-endian i8/f8 arrays, exact byte chunks; no pickle or compression"
+  },
+  "optimizer": {"method": "", "force": false, "niter": 1, "dimTags": []},
+  "optimizer_calls": 1,
+  "inheritance": "CAD options and geometry unchanged; previous explicit-HXT mesh policy, physics, runtime, one-thread allocation and 600/1200/1200-second worker ceilings unchanged",
+  "worker_budget_s": 3000,
+  "repeatability_rule": "exact CAD report, raw/final canonical packets, audit report and effective mesh-policy hashes across fresh local1/repeat1 workers",
+  "raw_policy": "retain complete raw packet and finite signed quality observations before optimization; positivity is required only for the final audit",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "field_solver_executed": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

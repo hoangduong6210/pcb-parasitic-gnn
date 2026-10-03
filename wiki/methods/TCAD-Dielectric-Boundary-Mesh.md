@@ -114,8 +114,11 @@ by this implementation commit.
 
 ## Next execution design
 
-Implement a separate live-session CAD-to-mesh builder, guarded worker, bounded
-parent, payload archive and source lock before submitting anything. Bind the
+The separate live-session builder, guarded worker, bounded parent and chunked
+payload implementation now exist. The [integration evidence](../evidence/TCAD-Dielectric-Boundary-Mesh.md)
+owns validation and the later source/submission receipts. Complete source
+freeze and validation before submitting anything, following the
+[runbook](../operations/TCAD-Dielectric-Boundary-Mesh.md). Bind the
 validated CAD report hashes and unchanged canonical geometry, permittivity,
 terminal voltages and finite outer-Neumann target from the
 [formulation contract](TCAD-Dielectric-Only-Formulation.md).
