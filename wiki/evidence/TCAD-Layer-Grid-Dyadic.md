@@ -75,6 +75,15 @@ Final wiki/prose and deterministic manifest checks precede terminal publication.
 The completed collector and terminal synthetic-fixture directories were removed
 after inspection; all scientific artifacts and execution worktrees are retained.
 
+At **12:06:07 UTC**, this complete terminal checkpoint was published and
+remote-hash verified as `dda01b810f1e6ad91a772707314285d5af2cc754`. The
+7,177-file manifest and final 55 wiki/prose tests passed; all archive members
+are tracked and internal agent files are absent. The final completed wiki
+fixture directory was removed; no scientific artifact was removed. Accounting
+at 12:06:10 UTC reconfirmed the same terminal state and the owner's queue was
+empty. Immutable execution source remains
+`5443917c74e3e56c7afd55b845d5116f1c6e90e7`.
+
 ## Next decision
 
 Do not instantiate or retry this global tensor grid, increase caps, or alter its

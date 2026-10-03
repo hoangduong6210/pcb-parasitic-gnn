@@ -7,6 +7,24 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Dyadic terminal checkpoint published on 2026-10-03
+
+At 12:06:07 UTC GitHub main and local HEAD were verified as
+`dda01b810f1e6ad91a772707314285d5af2cc754`. This publishes the 17-member
+terminal archive, additive collector, regression tests and next design decision.
+The 7,177-file manifest, 338-test frozen suite, 180-test terminal suite and final
+55-test wiki/prose recheck passed. Internal agent instructions remain untracked.
+The final completed wiki fixture directory was removed; all scientific evidence
+and execution worktrees remain preserved.
+
+At 12:06:10 UTC accounting reconfirmed the same completed job and the owner's
+queue was empty. The candidate remains rejected; publication does not admit a
+mesh or field result. Next: specify/test a planar-footprint/column feasibility
+candidate under a new frozen protocol, with every real numerical/native step
+through SLURM. Check near-exhausted file quota before a new checkout. The full
+TCAD goal remains active and incomplete. Earlier pending-publication statements
+below are historical rather than current blockers.
+
 ## Dyadic terminal result and archive on 2026-10-03
 
 At 11:55:57 UTC job `7653000` was terminal `COMPLETED/0:0`, zero restarts,
