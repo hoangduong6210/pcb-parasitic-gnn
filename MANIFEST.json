@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 349,
+    "code": 350,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 53,
-    "results": 6244,
+    "results": 6262,
     "root": 11,
-    "tests": 83,
+    "tests": 84,
     "wiki": 96
   },
   "files": [
@@ -754,6 +754,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_jacobian_arithmetic_v1.py",
       "bytes": 8767,
       "sha256": "cd1c2a9943e524d12f81e686a93e22788b50ef99604e00f3654fbb8149726a84"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_layer_grid_plan_v1.py",
+      "bytes": 8784,
+      "sha256": "4311e8259c16619066a13331ecdde615221d0fd7c94683c649eec80ef7f367b6"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_mesh_probe_v1.py",
@@ -34221,6 +34226,96 @@
       "sha256": "8e32ccab0ed88ea14122622d0aadb16f551885d4ae75c86a40000dc121ebb74c"
     },
     {
+      "path": "results/tcad/cps_layer_grid_plan_v1/archive/job_7652593/logs/tcad_layer_grid_plan_7652593.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/archive/job_7652593/logs/tcad_layer_grid_plan_7652593.out",
+      "bytes": 372,
+      "sha256": "42c7a4a628c701547c77854853164a0d9412fb2dc0f0c812e895f11255a6eb11"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/archive/job_7652593/manifest.json",
+      "bytes": 3666,
+      "sha256": "8b66fc27509b53f3f42e7da1b546926666b9da1a64b507a75384acab198b4d4c"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/archive/job_7652593/sacct.txt",
+      "bytes": 38,
+      "sha256": "2b4943804ccab1a2d6f6095693082c9799786d8c175105cb5f6b3ca73e4b7b44"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/attempt.json",
+      "bytes": 17813,
+      "sha256": "d0b86a059f1ba67cfb3626d609d442c97a5ad381fd1ae2862b2f963609c96c06"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/local1.json",
+      "bytes": 4383,
+      "sha256": "47aaacff2e9bbfd93ce30666c6b76160395cc19773632396b48805a3723afe07"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/local1.report.json",
+      "bytes": 75124,
+      "sha256": "ff1169e210776597963a067d12748f9876f6321539c16d65410b27416c977c91"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/local1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/local1.stdout",
+      "bytes": 3183,
+      "sha256": "1489d9a9647d9e653cc9c5c5e9ffc2566bee430985ee6909b9392c2d80fa7405"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/repeat1.json",
+      "bytes": 4388,
+      "sha256": "17364f50ac86e2f6c9ecace30da15da9349e9b9050d1f288bbe90c9625c716e4"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/repeat1.report.json",
+      "bytes": 75124,
+      "sha256": "ff1169e210776597963a067d12748f9876f6321539c16d65410b27416c977c91"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/repeat1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/repeat1.stdout",
+      "bytes": 3184,
+      "sha256": "b08e0fb109c2874dc5055af1362e08f2271d0700d288c7328bcd86960a89640c"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/toy.json",
+      "bytes": 4347,
+      "sha256": "a572cbb6e5a1b45d21df5f89501037922b85088b9a396005f8f53fc78968235b"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/toy.report.json",
+      "bytes": 6148,
+      "sha256": "64330ad79a9957f3b677685ae8ca4ca348e26b4de48f94ecf676c3ab17c5907f"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/toy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/job_7652593/toy.stdout",
+      "bytes": 3159,
+      "sha256": "e984a4eeaf460b2ed2c5829ce65267d1924e76828d85f22615bc25da57b4ec07"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_plan_v1/submission.json",
+      "bytes": 1075,
+      "sha256": "3c414adb6d88004a42a17d9539ccee7883266d0164e6314bd3114a283e4df8e8"
+    },
+    {
       "path": "results/tcad/cps_mesh_probe_v1/archive/job_7651463/logs/tcad_mesh_probe_7651463.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -35131,6 +35226,11 @@
       "sha256": "0b332569146c9e2fd84b6ec462a796dacbe015849265c037cf78d23335d434e2"
     },
     {
+      "path": "tests/test_tcad_cps_layer_grid_plan_archive.py",
+      "bytes": 7475,
+      "sha256": "71a4bcf5a8d12911e28fe3bd95105c5e9986649cf04b54874bc5085c6fd3d477"
+    },
+    {
       "path": "tests/test_tcad_cps_mesh_probe.py",
       "bytes": 18231,
       "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
@@ -35327,8 +35427,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Layer-Grid-Planning.md",
-      "bytes": 2361,
-      "sha256": "5c122e30fd9150f8622a7d40a6eba4da08d12bc7f14101577e6f8dbf797767d7"
+      "bytes": 8665,
+      "sha256": "f164af5b5ecb5646afe36c47f6794c37d422a51eaa05d0aae1e75ac87356ffb8"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -35372,8 +35472,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 30279,
-      "sha256": "3aba6d0e8719b39293b469d810d59d3973198666c542d397e1544acd1b5cbf2e"
+      "bytes": 31410,
+      "sha256": "4eef409cda1c06a620603100842728d430c85a61bbd8a9dee34ec7290f4e9248"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35472,8 +35572,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 9441,
-      "sha256": "95c014b5457db1873160fa0bed3ecfc9014813c4b972254b35d9ea09da32fe48"
+      "bytes": 9755,
+      "sha256": "e4fab96d360f5f4073c080ad5d591d831efb5c07ca035023bf3c79bb7a878fdb"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -35497,8 +35597,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Planning.md",
-      "bytes": 5164,
-      "sha256": "5a5c975b40b07a207774b2cc840a4b73047806798e658ac2898ba2a2dd6076d7"
+      "bytes": 5702,
+      "sha256": "17764a0a716142f906d21d010d75339808dd9cf24014f7b1e26b89d7b8db7bd1"
     },
     {
       "path": "wiki/operations/E3-Recovery-Replay.md",
@@ -35632,18 +35732,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 90324,
-      "sha256": "601da70a72e2c35e28b1d99652f00b88877971efda87dc8c22d723d7541806d0"
+      "bytes": 92384,
+      "sha256": "6d2daf8a5d8ddac03d24a1499a2f4251bdf8e8ffa838976e6f82ec89e53d8ea2"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 13607,
-      "sha256": "80d0664fc28c988036429804265ec42a0d2292d6bd6672e406bb6db04ebb3d80"
+      "bytes": 14239,
+      "sha256": "386848b99e2f38272b9de08333f8a50eb25c842018fc01b02fb399a3fddb33b4"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5322,
-      "sha256": "c960f36dfc3cbd87dab4d35619f3caa011b7587806d734ddd922654b061f5421"
+      "bytes": 5442,
+      "sha256": "efc3035bed95e9d2ce4e7bde18582e74a60d9118611eda3cf1e012642ddc1c71"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35651,6 +35751,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7127,
-  "total_bytes": 1006700231
+  "n_files": 7147,
+  "total_bytes": 1006929593
 }

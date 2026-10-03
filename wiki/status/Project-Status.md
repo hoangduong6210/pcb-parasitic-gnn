@@ -65,6 +65,12 @@ with floating-evaluation errors on near-coplanar elements; even native/vector
 agreement can miss those errors. The rejected mesh remains unqualified. Next
 is a prospective layer-aligned candidate assessment, preserving canonical
 geometry and requiring new conditioning/boundary gates before any field work.
+The first [layer-grid planning study](../evidence/TCAD-Layer-Grid-Planning.md)
+has since completed and been archived, but the proposed projected-support grid
+failed its prospective capacity/conditioning checks. No 3D mesh was generated.
+A new canonical-plane midpoint/face-band policy is next; it must avoid the
+observed auxiliary-plane and global-over-refinement defects without changing
+geometry or admitting the rejected candidate.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -103,6 +109,7 @@ instead of calling one column ground truth.
 | TCAD dielectric-domain CAD diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy, selected sentinel and exact fresh-repeat CAD contract passed; no meshing, solving or reference qualification |
 | TCAD dielectric boundary-mesh diagnostic | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy native Jacobian agreement failed after optimization; raw/final packets preserved, sentinel modes unrun; no field/reference qualification |
 | TCAD saved-packet Jacobian arithmetic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Exact all-element diagnosis and fresh-repeat reports; floating errors localized, old mesh still rejected; no field/reference qualification |
+| TCAD layer-grid capacity/conditioning planning | `REJECTED CANDIDATE; DIAGNOSIS ARCHIVED` | Exact-plane plans and repeat retained; prospective grid exceeds gates, no 3D mesh or field generated |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

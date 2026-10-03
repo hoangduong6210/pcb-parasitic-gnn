@@ -30,7 +30,16 @@ Prior graph methods already compare matched data-generation cost, so that
 evaluation practice is not itself the new contribution. These requirements
 inform a later frozen learning protocol; they do not bypass reference gates.
 
-## Current decision after explicit-optimizer timeout: 2026-10-03
+## Current checkpoint: projected-support grid rejected before generation
+
+The [latest planning evidence](../evidence/TCAD-Layer-Grid-Planning.md) rejects
+the projected-support tensor candidate on capacity/conditioning preflight.
+The diagnosis and exact repeat are archived; no mesh or field was generated.
+Next is a separately frozen canonical-plane midpoint/face-band candidate,
+with geometry and failed gates preserved. The sequence below records how this
+decision followed the earlier CAD, mesh and arithmetic observations.
+
+## Preserved decision after explicit-optimizer timeout: 2026-10-03
 
 The [explicit-optimizer study](../evidence/TCAD-HXT-Explicit-Optimization.md)
 is now terminal and archived: toy diagnostic passed, sentinel timed out and
@@ -79,6 +88,15 @@ candidate, checking plane separation and prospective cell count before a new
 frozen quality/boundary protocol. No coordinate snapping or selective element
 removal is implicitly authorized. Do not retry the rejected HXT source or
 relax its gate. This remains reference engineering, not learning novelty.
+
+The first [tensor-grid preflight](../evidence/TCAD-Layer-Grid-Planning.md) is
+now terminal and archived. Its global projected-support grid failed frozen
+capacity/conditioning checks before 3D generation. The evidence separates
+canonical geometry from near-coincident optional support planes and records
+the excessive prospective cell count. Next: separately specify and test
+canonical-interval midpoint refinement near face bands, preserving geometry,
+count caps and quality thresholds. Neither diagnosis completion nor a later
+passing plan substitutes for mesh, field and sensitivity qualification.
 
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 

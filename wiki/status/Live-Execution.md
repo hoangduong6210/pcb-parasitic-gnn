@@ -7,6 +7,40 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Layer-grid planning terminal and archived on 2026-10-03
+
+At 11:13:19 UTC job `7652593` was terminal `COMPLETED/0:0`, zero restarts,
+61 seconds, and absent from the queue. All plans were retained, and the sentinel
+fresh repeat matched exactly. The **diagnosis completed but the candidate is
+infeasible under its frozen gates**. The
+[evidence owner](../evidence/TCAD-Layer-Grid-Planning.md) records excessive
+prospective sentinel counts and near-coincident auxiliary support planes.
+No 3D mesh, field solve, reference, training or new claim was produced.
+
+All 17 terminal members are preserved in a checked archive; the additive
+collector passed 24 synthetic tests before collection. This goal turn made
+progress through safe Git storage maintenance, guarded implementation,
+263-test frozen regression, publication, SLURM planning and terminal evidence.
+Terminal regression/publication follow; these terminal records are local.
+Next: a separately specified canonical-plane midpoint/face-band candidate that
+addresses both observed failures without geometry snapping or relaxing gates.
+No job is active, and the full TCAD goal remains active and incomplete.
+
+The terminal regression then passed all 167 tests with zero skips, including
+actual archive checks. Two completed collector/wiki fixture directories were
+removed; no scientific artifact was removed. Final publication checks follow.
+
+## Layer-grid source published and job submitted on 2026-10-03
+
+Source `4454a3178ab247e81dafd9d5ae4e29ef0c2a95e7` was published and remotely
+verified at 11:10:40 UTC after 263 frozen tests and a 55-test wiki/prose recheck.
+The 323-file sparse checkout passed source/wrapper/runtime checks. At 11:11:31
+UTC one submission returned job `7652593`. The
+[evidence owner](../evidence/TCAD-Layer-Grid-Planning.md) records exact bindings.
+Monitor this same job and preserve every plan, including negative preflight
+checks. Submission is not mesh or field success. The goal remains active and
+incomplete; submission receipts are local while the execution source is published.
+
 ## Layer-aligned feasibility preparation on 2026-10-03
 
 The previous goal turn made progress by completing, archiving and publishing

@@ -146,6 +146,11 @@ native/vector determinants do not ensure accuracy. A geometry-conforming
 layer-aligned alternative is the next candidate to assess under a new protocol,
 not a change to the rejected gate or permission to solve on its mesh.
 
+The subsequent [layer-grid planning study](../evidence/TCAD-Layer-Grid-Planning.md)
+completed but rejected its projected-support candidate before 3D generation.
+Its next canonical-plane midpoint/face-band proposal keeps the same physical
+domain and requires separate capacity, conditioning and boundary evidence.
+
 ## Validation checkpoint on 2026-10-03
 
 All 79 topology tests passed, covering input types/coverage, independent

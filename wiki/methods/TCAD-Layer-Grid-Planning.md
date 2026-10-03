@@ -1,6 +1,6 @@
 ---
 title: TCAD Canonical-Plane Tensor-Grid Planning
-status: PROPOSED
+status: REJECTED projected-support candidate; planning implementation validated
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -88,3 +88,12 @@ implementation needs its own frozen boundary/quality checks, then analytic
 field, same-mesh restriction and sensitivity protocols. This is reference
 engineering, not a novel graph-learning contribution. Outcomes belong to the
 [evidence owner](../evidence/TCAD-Layer-Grid-Planning.md).
+
+## Observed outcome
+
+The bounded planning job completed with exact fresh-repeat reports and a
+checked archive. The projected-support candidate failed capacity and/or
+conditioning preflight; no mesh was generated. The linked evidence page owns
+the counts and the distinction between canonical planes and near-coincident
+auxiliary support endpoints. A new face-band/midpoint subdivision candidate
+requires its own prospective protocol; do not rerun or modify this frozen one.
