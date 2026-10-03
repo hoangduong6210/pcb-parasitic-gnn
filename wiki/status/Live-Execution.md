@@ -7,6 +7,39 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Layer-aligned feasibility preparation on 2026-10-03
+
+The previous goal turn made progress by completing, archiving and publishing
+the exact-arithmetic diagnosis. This turn reverified GitHub main at
+`e7605d5fee9ba8921fdfc979d3eabe595e5f7bb7`; the worktree was clean and queue
+empty. The full TCAD goal remains active and incomplete.
+
+Near-exhausted file quota was addressed by the
+[verified storage operation](../operations/Repository-Storage.md), job
+`7652583`, completed with all objects, refs, worktrees and tracked bytes retained.
+No scientific artifact was removed. Next: implement and freeze a bounded
+coordinate-plane/cell-count feasibility study before creating any new 3D mesh.
+Preserve every distinct canonical plane without tolerance-based snapping,
+predeclare the tensor-grid size/conditioning screen, and run real-layout work
+through SLURM. No new mesh, field solve, reference or learning result exists.
+These preparation/maintenance records are local at this checkpoint.
+
+The [axis-planning implementation](../evidence/TCAD-Layer-Grid-Planning.md)
+passed 61 initial tiny-synthetic tests with one pre-freeze lock skip. The new
+protocol fixes the projected-support rule, exact-plane preservation, unchanged
+mesh count caps and conservative conditioning screen before inspecting actual
+plans. Source freeze, regression and publication are next; no new scientific
+job has been submitted and no 3D grid has been allocated.
+
+The planning source is now frozen with 320 dependencies; the effective
+protocol/lock identities are on its evidence page. Post-freeze regression is
+running before source publication and one bounded SLURM planning job.
+
+The frozen suite subsequently passed all 263 tests with zero skips. The two
+completed initial/frozen fixture directories were removed; no scientific
+artifact was removed. Publication, sparse-source validation and one SLURM
+submission follow. The full TCAD goal remains active and incomplete.
+
 ## Arithmetic terminal checkpoint published on 2026-10-03
 
 At 10:40:37 UTC GitHub main and local HEAD were verified as

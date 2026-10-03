@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 344,
+    "code": 349,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 51,
-    "results": 6243,
+    "protocols": 53,
+    "results": 6244,
     "root": 11,
-    "tests": 82,
-    "wiki": 93
+    "tests": 83,
+    "wiki": 96
   },
   "files": [
     {
@@ -1226,6 +1226,11 @@
       "sha256": "ffd0f68864f216bdae492857ce426aa2c370cc4120f4b811bb96219521adb654"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_layer_grid_plan.py",
+      "bytes": 10909,
+      "sha256": "402d61b17864a182e8f8f0c577d8fdc1b0854eeabbaeb1f325af7f64bf08fd4c"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_mesh_probe.py",
       "bytes": 8078,
       "sha256": "b0edf72116a0aa0e3583deef30abbcdd8cb14dcee7811c167d91c9b83315ecda"
@@ -1274,6 +1279,11 @@
       "path": "code/experiments/proofs/tcad_cps_jacobian_arithmetic.py",
       "bytes": 5179,
       "sha256": "285c23e611e3be86de5a23a05cd81e04bb4b2686753be95805d5e5733f146cbe"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_layer_grid_plan.py",
+      "bytes": 5667,
+      "sha256": "4f12ecdcffaca8a183d026660c79e31cc949fa7a50ffee15b6201c0a686c88f5"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_mesh_probe.py",
@@ -1926,6 +1936,11 @@
       "sha256": "e613f8e28b8ead1778e12c876b649879a3c84e06446473b34e335c6b726ba61c"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_layer_grid_plan.sh",
+      "bytes": 734,
+      "sha256": "831566b13b55fa70486928f026cf502036b7c6ea3eb22e17e22878d7a302825c"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_mesh_probe.sh",
       "bytes": 673,
       "sha256": "2483cf9deb5faae8b82e8ae91e84f8adb258bee19dd4b9447e9a5279e2336544"
@@ -2229,6 +2244,16 @@
       "path": "code/solvers/tcad_cps_jacobian_exact.py",
       "bytes": 5205,
       "sha256": "f5e8f1adbe1337586cd4c2eb82184cdfe04d77805c282bca4b5d1e078f90e1a6"
+    },
+    {
+      "path": "code/solvers/tcad_cps_layer_grid_axes.py",
+      "bytes": 6240,
+      "sha256": "caf513b399c7444440c30ac028328698c77225f7abad0283400324e6d2ffe8f3"
+    },
+    {
+      "path": "code/solvers/tcad_cps_layer_grid_plan_worker.py",
+      "bytes": 3043,
+      "sha256": "44ac81f9d45dc12fe5f5e56e53ac1fc7d501f367e593044b02a04adeaa81e2f8"
     },
     {
       "path": "code/solvers/tcad_cps_mesh_probe_worker.py",
@@ -3454,6 +3479,16 @@
       "path": "protocols/tcad_cps_jacobian_arithmetic_v1.lock.json",
       "bytes": 40287,
       "sha256": "1bce5b7db75abf05ae4a954044e43880ba173a76791727f80c4a8914aae18278"
+    },
+    {
+      "path": "protocols/tcad_cps_layer_grid_plan_v1.json",
+      "bytes": 2052,
+      "sha256": "308d9ef2100c70410fdbaaba68734e93688a1fda46233f8026084b9678b48148"
+    },
+    {
+      "path": "protocols/tcad_cps_layer_grid_plan_v1.lock.json",
+      "bytes": 44029,
+      "sha256": "5addbbdb9f155f25f334493e719033fa845c4bba43ce58f6c575f9cb9e07f43f"
     },
     {
       "path": "protocols/tcad_cps_mesh_probe_v1.json",
@@ -33416,6 +33451,11 @@
       "sha256": "3d578a6411a06ee28bc9a15e962619439e307be0116f80cd2645d01445a282fd"
     },
     {
+      "path": "results/operations/git_pack_20261003/receipt.json",
+      "bytes": 1242,
+      "sha256": "9ff9962f804362bbbf803bd82e46738a67ff355fafe0af374e2879aa36236836"
+    },
+    {
       "path": "results/proof_updates/jobs/claim_proof/job_51174495/raw_solver_timings.jsonl",
       "bytes": 51568,
       "sha256": "af525d8b494ba89f5cdf6ff59a72600006e0dad5cca415ca81f023597c6fa33b"
@@ -35086,6 +35126,11 @@
       "sha256": "7d972308878c6b4b03c4a934392dd4c8634497b7460b4d97294dbf3a955b5b53"
     },
     {
+      "path": "tests/test_tcad_cps_layer_grid_plan.py",
+      "bytes": 12506,
+      "sha256": "0b332569146c9e2fd84b6ec462a796dacbe015849265c037cf78d23335d434e2"
+    },
+    {
       "path": "tests/test_tcad_cps_mesh_probe.py",
       "bytes": 18231,
       "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
@@ -35137,8 +35182,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 18631,
-      "sha256": "8b5c4db70fda1c3448c486754f0fd92cb2adfae485a27a85d5e4eb963c4693a1"
+      "bytes": 19148,
+      "sha256": "3f534370b7ff044a71198b3d2c5e73d8a23546a92934ed3685b78b04bc8e0263"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35279,6 +35324,11 @@
       "path": "wiki/evidence/TCAD-Jacobian-Arithmetic.md",
       "bytes": 9646,
       "sha256": "13011ba4154caa91bd88c95474f27a166f85bbfbe1cc26795a9db65fd91af58b"
+    },
+    {
+      "path": "wiki/evidence/TCAD-Layer-Grid-Planning.md",
+      "bytes": 2361,
+      "sha256": "5c122e30fd9150f8622a7d40a6eba4da08d12bc7f14101577e6f8dbf797767d7"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -35446,6 +35496,11 @@
       "sha256": "677149a6e9d8e00e974fc458b5506c9ce2a884a0f164ba5620f54b4db570df3a"
     },
     {
+      "path": "wiki/methods/TCAD-Layer-Grid-Planning.md",
+      "bytes": 5164,
+      "sha256": "5a5c975b40b07a207774b2cc840a4b73047806798e658ac2898ba2a2dd6076d7"
+    },
+    {
       "path": "wiki/operations/E3-Recovery-Replay.md",
       "bytes": 4060,
       "sha256": "03a46ffdff4b7291466ca4326bd0449165c45841996aecac08e3915b391bb38e"
@@ -35454,6 +35509,11 @@
       "path": "wiki/operations/FEM-V2-Production-Pipeline.md",
       "bytes": 8635,
       "sha256": "16fb8a1186b087021a048cb68332c286820f913ff279740973d6487c8226fda5"
+    },
+    {
+      "path": "wiki/operations/Repository-Storage.md",
+      "bytes": 1900,
+      "sha256": "757bd32a512566670dddcb709c2b3a731ddd1898fc0f75a83fc99a125854d592"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -35572,8 +35632,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 88377,
-      "sha256": "000a11b4bc964ca8f72bee280d998a983e139a77882d5f11e1f6c3384a3a07d7"
+      "bytes": 90324,
+      "sha256": "601da70a72e2c35e28b1d99652f00b88877971efda87dc8c22d723d7541806d0"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -35591,6 +35651,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7115,
-  "total_bytes": 1006601920
+  "n_files": 7127,
+  "total_bytes": 1006700231
 }

@@ -65,6 +65,9 @@ paper_source: false
 | [TCAD Dielectric Boundary-Mesh Runbook](operations/TCAD-Dielectric-Boundary-Mesh.md) | Separate bounded SLURM execution, sparse source and chunked-array preservation procedure |
 | [TCAD Saved-Packet Jacobian Arithmetic](methods/TCAD-Jacobian-Arithmetic.md) | Exact stored-coordinate diagnosis without changing the rejected mesh or tolerance |
 | [TCAD Jacobian Arithmetic Evidence](evidence/TCAD-Jacobian-Arithmetic.md) | Source-bound raw/final arithmetic study, repeat and terminal evidence |
+| [Repository Storage and Immutable Evidence](operations/Repository-Storage.md) | Verified SLURM incremental object packing without history or evidence loss |
+| [TCAD Canonical-Plane Grid Planning](methods/TCAD-Layer-Grid-Planning.md) | Exact coordinate planes, projected-support spacing and prospective tensor capacity/conditioning screen |
+| [TCAD Layer-Grid Planning Evidence](evidence/TCAD-Layer-Grid-Planning.md) | Source-bound planning study and preserved feasible/infeasible outcomes without mesh generation |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

@@ -1,0 +1,23 @@
+{
+  "schema": "pcb-gnn.git-maintenance.v1",
+  "scope": "incremental packing only; no scientific computation or history rewrite",
+  "source_commit": "e7605d5fee9ba8921fdfc979d3eabe595e5f7bb7",
+  "job_id": "7652583",
+  "submitted_utc": "2026-10-03T10:45:46Z",
+  "observed_terminal_utc": "2026-10-03T10:48:47Z",
+  "accounting": "7652583|COMPLETED|0:0|0|70|3|8G|a0113",
+  "requested_cpus": 1,
+  "packing_threads": 1,
+  "command": "git repack -d --threads=1 --window-memory=64m",
+  "script_sha256": "d41a95bf56297d198e27a78fe8ace4b21cbbfc3a6f036108cb1d9c5915e6cfb8",
+  "refs_inventory_sha256_before_and_after": "e80ab4d2e2ea6b405456e84f56bbe8256ef967e58b9fed28c90f547bd47bdfe6",
+  "worktree_inventory_sha256_before_and_after": "bf84e1a568abc6ae5ed3fc5bdfdcc3ac67fd2efa914ff9f9456645ec4bea45bd",
+  "all_object_ids_sha256_before_and_after": "1e141c34fb283336b577e8928942a9fbf09d7e9a84c48da1c0003de38c0f075e",
+  "before": {"loose_objects": 1094, "packed_objects": 11329, "packs": 1},
+  "after": {"loose_objects": 22, "packed_objects": 12401, "packs": 2},
+  "full_git_fsck_passed": true,
+  "tracked_bytes_unchanged": true,
+  "unreachable_object_pruning_requested": false,
+  "scientific_artifacts_removed": false,
+  "source_worktrees_removed": false
+}
