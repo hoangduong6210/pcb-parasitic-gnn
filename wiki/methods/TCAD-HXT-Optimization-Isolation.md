@@ -1,11 +1,17 @@
 ---
 title: TCAD HXT Optimization-Isolation Diagnostic
-status: PROPOSED; source frozen; numerical diagnostic pending
+status: REJECTED; toy quality gate failed; original specification preserved
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Optimization-Isolation Diagnostic
+
+The diagnostic is now terminal and incomplete. The
+[evidence record](../evidence/TCAD-HXT-Optimization-Isolation.md) records a
+toy signed-quality rejection and the preserved archive. The sentinel and
+fresh repeat were not run. The specification below remains unchanged; this
+negative result does not permit field use or a relaxed quality gate.
 
 The preceding [HXT probe](TCAD-Cps-Mesh-Probe.md) timed out during native 3D
 improvement. This separate diagnostic sets only `Mesh.Optimize=0`, retaining

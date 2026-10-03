@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 315,
+    "code": 316,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 43,
-    "results": 6157,
+    "results": 6166,
     "root": 11,
-    "tests": 70,
+    "tests": 71,
     "wiki": 82
   },
   "files": [
@@ -729,6 +729,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_amg_feasibility_v1.py",
       "bytes": 13332,
       "sha256": "9c94c4be833d3b94d3297a05d7a98d745794519db1cdc9db3ac1f9805bb2b52c"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py",
+      "bytes": 8420,
+      "sha256": "a8578fd3636fe05429f461e74987af417a7087c28789714238c5f1d303de939a"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_mesh_probe_v1.py",
@@ -33566,6 +33571,51 @@
       "sha256": "6187049ca91bd1342626739ac2616d5e51574fb900cad3097c9a7d175d0f1d35"
     },
     {
+      "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.out",
+      "bytes": 168,
+      "sha256": "c46c20502b15d219403ac3f486a1812498a3e764d185853a2ec2e1e726005b91"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/manifest.json",
+      "bytes": 2290,
+      "sha256": "20722df38fb6af937236d942a8b7a4fb89fc4bb1f1bac9d0f3c4b074c375f10a"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/sacct.txt",
+      "bytes": 38,
+      "sha256": "45793e1f03aa2e70867a276078718f23a1ddf5119899c0fd8ad66c5b7f7f5606"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/job_7651659/attempt.json",
+      "bytes": 3589,
+      "sha256": "a1a20170f90532ca374615d18dcf194b424ca2080e433bfc30eaa69b8fd9aafb"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.json",
+      "bytes": 383,
+      "sha256": "1cc9b4641c98b7054f5f1444c341c0c824c63394345017c084524424770439c5"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.stderr",
+      "bytes": 1248,
+      "sha256": "a68980981eaec426ca00bc0956f87e9a764d8bc83f835fb0d808532a542b5657"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.stdout",
+      "bytes": 8259,
+      "sha256": "f1f451046f326e84d173ce1df3ad12dfa2b8b2a8a4da370021685690a61a3f40"
+    },
+    {
+      "path": "results/tcad/cps_hxt_isolation_v1/submission.json",
+      "bytes": 899,
+      "sha256": "f13c665a627c27464c5c47decd31bd3e23f3c0be4508395dbf9695cfb93fdd65"
+    },
+    {
       "path": "results/tcad/cps_mesh_probe_v1/archive/job_7651463/logs/tcad_mesh_probe_7651463.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -34411,6 +34461,11 @@
       "sha256": "81fab26786f7dab89c083d1d66983c47be0c62ba7051baaab48c4e90893521c3"
     },
     {
+      "path": "tests/test_tcad_cps_hxt_isolation_archive.py",
+      "bytes": 10689,
+      "sha256": "35810da26d0541bb0a98f6961647469509085030684d784e912f60b8830b6de8"
+    },
+    {
       "path": "tests/test_tcad_cps_mesh_probe.py",
       "bytes": 18231,
       "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
@@ -34582,8 +34637,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Optimization-Isolation.md",
-      "bytes": 2444,
-      "sha256": "61b9b48f1ef5e9a87d3f60f16743f4a223de1d2934446d85ea9a4b3144b4e25f"
+      "bytes": 6537,
+      "sha256": "86f5e55e198fd852b51532e9b72507522e55cce9d2d1814fe1d2a0a0e46772d0"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -34627,8 +34682,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 21054,
-      "sha256": "4f1efd5ae1158142dfbde61191096bed903f825370dc5a94b79a783ba7de7d9f"
+      "bytes": 24636,
+      "sha256": "48d44367dd7db620d1bf3faa67ab05ed0fd210bc381817f724d8481559a9bb40"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -34722,8 +34777,8 @@
     },
     {
       "path": "wiki/methods/TCAD-HXT-Optimization-Isolation.md",
-      "bytes": 3607,
-      "sha256": "267cc0664ac809b6d97d4986aaa3e96c08e241cf98a0765b2762d6e0a3c40c60"
+      "bytes": 3966,
+      "sha256": "4262f27dccb637350d7fa77b5267042b19d6f06fae3275903d5bafbf5badcde9"
     },
     {
       "path": "wiki/methods/TCAD-Independent-Capacitance-Contract.md",
@@ -34747,8 +34802,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 12711,
-      "sha256": "6a337f5d9b518d2ef1cba9b6564672c74a9bf7f867b4cb54e64217bdde03c818"
+      "bytes": 12879,
+      "sha256": "1bd27edb6bfd4d06cb19c33acd8e5dc925db0ad32707e970dd8072a7c3d61d99"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -34782,8 +34837,8 @@
     },
     {
       "path": "wiki/operations/TCAD-HXT-Optimization-Isolation.md",
-      "bytes": 2723,
-      "sha256": "25767d2f9d3fd0c7540e4cd3153fc5346fb93f30f56195062fe528c209dd3968"
+      "bytes": 3735,
+      "sha256": "244b546af7f4cf272fd9ee2e5a898164ed3548e3e3ec7ca26eb1efa1a26659ab"
     },
     {
       "path": "wiki/references/TCAD-Multi-Fidelity-Method-Review.md",
@@ -34842,13 +34897,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 61537,
-      "sha256": "bb27b29c18358312702c5426826252f9f27933920eba00b1729b027443a153eb"
+      "bytes": 63005,
+      "sha256": "8d88cff38ed6c280f95832107c9e6bce8507d30d7d5ae3b7a1b4b9df9d13bfde"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 10873,
-      "sha256": "b98303d70372c385c850d887a5361f025a9313220882a293a9bb091736b63d09"
+      "bytes": 11106,
+      "sha256": "76285727ed9e0ce53df7ba498bcbfd81926ab69eb6945853cc969d38b842452a"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
@@ -34861,6 +34916,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 6969,
-  "total_bytes": 987899016
+  "n_files": 6980,
+  "total_bytes": 987945914
 }

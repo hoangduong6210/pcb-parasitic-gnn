@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-hxt-isolation-v1/code/solvers/tcad_cps_hxt_isolation_worker.py", line 171, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-hxt-isolation-v1/code/solvers/tcad_cps_hxt_isolation_worker.py", line 152, in main
+    mesh, regions = _build_mesh(layout, eps_r=p["physics"]["eps_r"], refine=0, pad_mm=arm["pad_mm"], progress=progress)
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-hxt-isolation-v1/code/solvers/fem_capacitance_3d.py", line 124, in _build_mesh
+    _progress(progress, "mesh_generated", n_nodes=len(node_tags))
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-hxt-isolation-v1/code/solvers/fem_capacitance_3d.py", line 30, in _progress
+    callback(stage, payload)
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-hxt-isolation-v1/code/solvers/tcad_cps_hxt_isolation_worker.py", line 150, in progress
+    raise ValueError("invalid or degenerate unoptimized mesh quality; raw diagnostic retained")
+ValueError: invalid or degenerate unoptimized mesh quality; raw diagnostic retained

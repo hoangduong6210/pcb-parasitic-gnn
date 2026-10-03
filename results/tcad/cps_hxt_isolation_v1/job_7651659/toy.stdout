@@ -1,0 +1,98 @@
+STAGE={"stage": "geometry_validated", "elapsed_s": 0.8503806982189417, "peak_rss_gib": 0.06844329833984375, "n_traces": 2}
+STAGE={"stage": "occ_fragmented", "elapsed_s": 1.0900987240020186, "peak_rss_gib": 0.08016204833984375, "n_volumes": 3}
+STAGE={"stage": "mesh_generate_started", "elapsed_s": 1.0911403100471944, "peak_rss_gib": 0.08016204833984375, "h_min": 0.05600000000000001, "h_max": 2.0, "mesh_policy": {"options": {"Mesh.Algorithm": 5.0, "Mesh.Algorithm3D": 10.0, "Mesh.MeshSizeFromPoints": 0.0, "Mesh.MeshSizeFromCurvature": 0.0, "Mesh.MeshSizeExtendFromBoundary": 0.0, "Mesh.RandomSeed": 1.0, "Mesh.Optimize": 0.0, "Mesh.MeshSizeMin": 0.12, "Mesh.MeshSizeMax": 1.0, "General.NumThreads": 1.0, "Mesh.MaxNumThreads1D": 1.0, "Mesh.MaxNumThreads2D": 1.0, "Mesh.MaxNumThreads3D": 1.0}, "boxes": [{"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.010000000000000002, "ZMax": 0.19, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}, {"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.19000000000000003, "ZMax": 0.37000000000000005, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}], "near_size_mm": 0.12, "far_size_mm": 1.0, "pad_mm": 2.0}, "native_log_options": {"General.Terminal": 1.0, "General.Verbosity": 5.0}, "gmsh_build_options": "64Bit ALGLIB[contrib] ANN[contrib] Bamg Blas[petsc] Blossom Cgns DIntegration Dlopen DomHex Eigen[contrib] Fltk Gmm[contrib] Hxt Jpeg Kbipack Lapack[petsc] LinuxJoystick MathEx[contrib] Med Mesh Metis[contrib] Mmg Mpeg Netgen Nii2mesh ONELAB ONELABMetamodel OpenCASCADE OpenCASCADE-CAF OpenGL OpenMP OptHom PETSc Parser Plugins Png Post QuadMeshingTools QuadTri Solver TetGen/BR TinyXML2[contrib] Untangle Voro++[contrib] WinslowUntangler Zlib tinyobjloader", "inherited_h_min_h_max_overridden": true}
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 13 (Line)
+Info    : [ 10%] Meshing curve 14 (Line)
+Info    : [ 10%] Meshing curve 15 (Line)
+Info    : [ 10%] Meshing curve 16 (Line)
+Info    : [ 20%] Meshing curve 17 (Line)
+Info    : [ 20%] Meshing curve 18 (Line)
+Info    : [ 20%] Meshing curve 19 (Line)
+Info    : [ 20%] Meshing curve 20 (Line)
+Info    : [ 30%] Meshing curve 21 (Line)
+Info    : [ 30%] Meshing curve 22 (Line)
+Info    : [ 30%] Meshing curve 23 (Line)
+Info    : [ 40%] Meshing curve 24 (Line)
+Info    : [ 40%] Meshing curve 25 (Line)
+Info    : [ 40%] Meshing curve 26 (Line)
+Info    : [ 40%] Meshing curve 27 (Line)
+Info    : [ 50%] Meshing curve 28 (Line)
+Info    : [ 50%] Meshing curve 29 (Line)
+Info    : [ 50%] Meshing curve 30 (Line)
+Info    : [ 60%] Meshing curve 31 (Line)
+Info    : [ 60%] Meshing curve 32 (Line)
+Info    : [ 60%] Meshing curve 33 (Line)
+Info    : [ 60%] Meshing curve 34 (Line)
+Info    : [ 70%] Meshing curve 35 (Line)
+Info    : [ 70%] Meshing curve 36 (Line)
+Info    : [ 70%] Meshing curve 37 (Line)
+Info    : [ 70%] Meshing curve 38 (Line)
+Info    : [ 80%] Meshing curve 39 (Line)
+Info    : [ 80%] Meshing curve 40 (Line)
+Info    : [ 80%] Meshing curve 41 (Line)
+Info    : [ 90%] Meshing curve 42 (Line)
+Info    : [ 90%] Meshing curve 43 (Line)
+Info    : [ 90%] Meshing curve 44 (Line)
+Info    : [ 90%] Meshing curve 45 (Line)
+Info    : [100%] Meshing curve 46 (Line)
+Info    : [100%] Meshing curve 47 (Line)
+Info    : [100%] Meshing curve 48 (Line)
+Info    : Done meshing 1D (Wall 0.0075124s, CPU 0.002143s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 7 (Plane, Delaunay)
+Info    : [ 10%] Meshing surface 8 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 9 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 10 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 11 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 12 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 13 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 14 (Plane, Delaunay)
+Info    : [ 50%] Meshing surface 15 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 16 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 17 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 18 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 19 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 20 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 21 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 22 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 23 (Plane, Delaunay)
+Info    : [100%] Meshing surface 24 (Plane, Delaunay)
+Info    : Done meshing 2D (Wall 0.0381941s, CPU 0.031031s)
+Info    : Meshing 3D...
+Info    : 3D Meshing 3 volumes with 1 connected component
+Info    : Input mesh hash 49a803b66b19a647
+Info    : Creating an empty mesh with 1221 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of       1217 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 8 missing facet(s)
+Info    : Recover Delaunay
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of       1469 points on   1 threads - mesh.nvert: 1221      
+Info    :           -       1445 points filtered
+Info    :           =         24 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of        107 points on   1 threads - mesh.nvert: 1245      
+Info    :           -        100 points filtered
+Info    :           =          7 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of         10 points on   1 threads - mesh.nvert: 1252      
+Info    :           -          9 points filtered
+Info    :           =          1 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    :  	Final tet. mesh contains 6893 tetrahedra
+Info    :  	Final tet. mesh contains 1253 vertices
+Info    : tEmptyMesh  	 = 	    0.011
+Info    : tVerifyBnd  	 = 	    0.001
+Info    : tBndRecovery	 = 	    0.013
+Info    : tConvertMesh	 = 	    0.001
+Info    : tRefine     	 = 	    0.004
+Info    : tOptimize   	 = 	    0.000 (mesh optimization disabled)
+Info    : Done meshing 3D (Wall 0.0385882s, CPU 0.027671s)
+Info    : 1253 nodes 9191 elements
+STAGE={"stage": "mesh_generated", "elapsed_s": 1.2264714671764523, "peak_rss_gib": 0.08797454833984375, "n_nodes": 1253, "mesh_quality": {"schema": "pcb-gnn.tet-quality-diagnostic.v1", "metrics": ["minSICN", "minDetJac"], "metric_units": {"minSICN": "dimensionless", "minDetJac": "mm^3 in the native Gmsh coordinate system"}, "quantile_probabilities": [0.0, 0.01, 0.05, 0.5, 0.95, 0.99, 1.0], "quantile_method": "linear", "element_count": 6457, "arrays_sha256": "65cdd3392570b76513d994cf86a1ffe3924894155b7cc30c13347ed2c031f21c", "regions": {"dielectric": {"count": 3643, "minSICN": {"finite_count": 3643, "nonpositive_count": 1, "quantiles": [-2.295723906874384e-16, 0.02475300781429712, 0.09887260006924195, 0.6124749981146033, 0.8851789305946369, 0.9470958974506207, 0.9929374807552891]}, "minDetJac": {"finite_count": 3643, "nonpositive_count": 0, "quantiles": [1.0842021724855044e-18, 4.969536336498441e-05, 0.0008630261748108239, 0.006342555336998121, 1.23835897538313, 1.8709805503384944, 3.0497078731119927]}, "sicn_below_threshold": {"0.01": 31, "0.05": 50, "0.1": 190}}, "primary": {"count": 1396, "minSICN": {"finite_count": 1396, "nonpositive_count": 0, "quantiles": [2.7760338185554328e-15, 0.00019596909991041094, 0.5876953811744565, 0.7576288222659733, 0.8557276639708572, 0.9347470956220317, 0.9898670764747433]}, "minDetJac": {"finite_count": 1396, "nonpositive_count": 0, "quantiles": [6.505213034913027e-19, 1.1166691644408095e-07, 0.00026958267839185385, 0.0006391845608050425, 0.0009462679895507935, 0.0011292433373310195, 0.0014700960548885544]}, "sicn_below_threshold": {"0.01": 20, "0.05": 27, "0.1": 33}}, "secondary": {"count": 1418, "minSICN": {"finite_count": 1418, "nonpositive_count": 0, "quantiles": [5.5824246747249775e-15, 0.010728166945014318, 0.38273315393590157, 0.7635310805814111, 0.8550437888044995, 0.9277818657921256, 0.9791780089318722]}, "minDetJac": {"finite_count": 1418, "nonpositive_count": 0, "quantiles": [2.9680034471790684e-18, 7.357176735145197e-06, 0.00023425994764982863, 0.0006351164940085008, 0.0009369512952635713, 0.0011015540039805115, 0.0014341240775521146]}, "sicn_below_threshold": {"0.01": 14, "0.05": 39, "0.1": 45}}}}}

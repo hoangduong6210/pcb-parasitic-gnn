@@ -30,7 +30,63 @@ Prior graph methods already compare matched data-generation cost, so that
 evaluation practice is not itself the new contribution. These requirements
 inform a later frozen learning protocol; they do not bypass reference gates.
 
-## Next implementation after the meshing timeout: 2026-10-03
+## Next implementation after the toy quality rejection: 2026-10-03
+
+The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)
+is terminal at its toy quality gate. It does not establish sentinel feasibility
+or usable finite elements. Keep the signed-positive gate and retain the failed
+source and archive; do not rerun it with a tolerance or absolute-value change.
+
+Inspection of the [official Gmsh 4.15.2 source](https://gmsh.info/src/gmsh-4.15.2-source.tgz),
+`src/mesh/Generator.cpp`, on 2026-10-03 found:
+
+- Lines 1522–1532 exclude HXT from automatic post-generation Gmsh/Netgen
+  optimization. Setting `Mesh.OptimizeNetgen` alone therefore does not schedule
+  that stage for the HXT path in this version.
+- Lines 873–910 dispatch the explicit default optimizer through
+  `optimizeMeshGRegion` for each region, then orient volumes positively. This
+  is separate from HXT's internal optimization branch. It does not guarantee
+  removal of small or ill-conditioned elements.
+- The default branch does not use `niter` as its internal work bound. One API
+  call is not evidence of one bounded internal iteration; the parent watchdog
+  must still enforce the full worker ceiling.
+
+The [pinned API documentation](https://gmsh.info/doc/texinfo/#gmsh_002fmodel_002fmesh_002foptimize)
+exposes this path as `gmsh.model.mesh.optimize` with an empty method name.
+This motivates one new candidate, not a mesh-quality or performance claim.
+No source was compiled, installed or numerically executed during this review.
+
+Prepare a separate mesh-only protocol: unchanged HXT generation with
+`Mesh.Optimize=0`, followed by exactly one explicit default-optimizer call,
+`method="", force=False, niter=1, dimTags=[]`. Pin and read back its effective
+quality-threshold option in the new protocol rather than rely on a mutable
+runtime default. Keep geometry, Box fields, sizes, padding, seed and threads
+unchanged. Record pre-optimization and post-optimization signed-condition and
+Jacobian summaries, region counts, array identities and stage times. Invalid
+pre-optimization metrics are retained as observations, not converted to a
+passing mesh; post-optimization finite/strict-positive gates remain mandatory.
+Check structural validity and resource caps at both stages. No fallback method,
+optimizer search, iteration escalation or automatic retry is included.
+
+Implementation needs a separate builder because the existing frozen builder
+reads node coordinates **before** its `mesh_generated` callback. Optimizing
+inside that callback could pair stale coordinates with changed connectivity.
+The new path must optimize before coordinate extraction, then fetch fresh node
+tags, coordinates and tetrahedra. Test this order with a fake optimizer that
+changes both coordinates and connectivity; never patch the old builder or use
+a global API monkeypatch in production. Bind final quality-region counts to
+the exact extracted mesh and retain the old source unchanged.
+
+Keep toy/local1/fresh-repeat order, 600/1,200/1,200-second ceilings, existing
+RSS/mesh caps and a single 160 GiB/55-minute SLURM allocation. Generation,
+optimization, both quality observations and extraction share those same
+ceilings. Stop on the first failure. Freeze and publish new source/lock before
+submission. Even a complete positive repeatable result remains diagnostic:
+field solving, conditioning, sensitivity, reference qualification, learning and
+new manuscript claims stay closed. A later field qualification is a separate
+decision. This candidate is specified, not yet implemented or submitted.
+
+## Preserved decisions after the meshing timeout: 2026-10-03
 
 The initial HXT probe has since closed incomplete; the following new decision
 supersedes its execution instruction while preserving the original design below.

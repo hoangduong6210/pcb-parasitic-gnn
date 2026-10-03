@@ -1,0 +1,12 @@
+{
+  "elapsed_s": 5.509851319948211,
+  "failure": "worker exited 1; retain stderr",
+  "files_sha256": {
+    "toy.stderr": "a68980981eaec426ca00bc0956f87e9a764d8bc83f835fb0d808532a542b5657",
+    "toy.stdout": "f1f451046f326e84d173ce1df3ad12dfa2b8b2a8a4da370021685690a61a3f40"
+  },
+  "mode": "toy",
+  "observed_peak_rss_gib": 0.08797454833984375,
+  "passed": false,
+  "returncode": 1
+}

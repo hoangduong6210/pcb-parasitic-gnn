@@ -1,0 +1,48 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "16",
+      "ExitCode": "2:0",
+      "JobID": "7651659",
+      "NodeList": "a0157",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "attempt_sha256": "a1a20170f90532ca374615d18dcf194b424ca2080e433bfc30eaa69b8fd9aafb",
+  "diagnosis": {
+    "automatic_expansion": false,
+    "claim_eligible": false,
+    "complete": false,
+    "diagnostic_passed": false,
+    "field_solver_executed": false,
+    "mesh_feasible": false,
+    "numerical_quality_qualified": false,
+    "observed_modes": {
+      "toy": {
+        "failure": "worker exited 1; retain stderr",
+        "passed": false
+      }
+    },
+    "reference_qualified": false,
+    "repeatability_passed": false,
+    "terminal_admission_pending": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.out": "c46c20502b15d219403ac3f486a1812498a3e764d185853a2ec2e1e726005b91",
+    "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/sacct.txt": "45793e1f03aa2e70867a276078718f23a1ddf5119899c0fd8ad66c5b7f7f5606",
+    "results/tcad/cps_hxt_isolation_v1/job_7651659/attempt.json": "a1a20170f90532ca374615d18dcf194b424ca2080e433bfc30eaa69b8fd9aafb",
+    "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.json": "1cc9b4641c98b7054f5f1444c341c0c824c63394345017c084524424770439c5",
+    "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.stderr": "a68980981eaec426ca00bc0956f87e9a764d8bc83f835fb0d808532a542b5657",
+    "results/tcad/cps_hxt_isolation_v1/job_7651659/toy.stdout": "f1f451046f326e84d173ce1df3ad12dfa2b8b2a8a4da370021685690a61a3f40",
+    "results/tcad/cps_hxt_isolation_v1/submission.json": "f13c665a627c27464c5c47decd31bd3e23f3c0be4508395dbf9695cfb93fdd65"
+  },
+  "lock_sha256": "28c9b79e24703ab916bee4ec81f5d04395efc1767bb7fbc97d721b7c6a594a3c",
+  "schema": "pcb-gnn.tcad-cps-hxt-isolation-archive.v1",
+  "scope": "unoptimized mesh and signed-quality diagnostic only; no field or reference claim",
+  "source_commit": "66feef9e04f3186ba76656df0b2869ad3381cd63"
+}

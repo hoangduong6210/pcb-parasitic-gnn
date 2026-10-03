@@ -1,11 +1,26 @@
 ---
 title: TCAD HXT Optimization-Isolation Runbook
-status: PROPOSED; freeze and verified publication precede submission
+status: REJECTED; terminal archive checked; do not resubmit frozen attempt
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Optimization-Isolation Runbook
+
+This attempt is closed after a toy quality-gate failure. The procedure below
+is the preserved execution specification, not an instruction to resubmit it.
+Use `code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py --check` for
+metadata-only archive verification. The collector reuses the frozen validator
+in a credential-scrubbed child process and checks exact member closure, hashes,
+source identity and zero-restart terminal accounting. It refuses overwrites.
+
+Native stdout bytes, including trailing whitespace, are preserved unchanged.
+When publishing, force-add only the exact ignored scheduler `.out` archive
+member; never broaden that exception to internal files. Exclude only the raw
+toy stdout from whitespace lint, and check all source and documentation diffs.
+Verify that every manifest member is Git-tracked before publication. The
+[evidence page](../evidence/TCAD-HXT-Optimization-Isolation.md) owns the receipt,
+hashes and interpretation; no reference or training eligibility follows.
 
 This is a new [mesh-only diagnostic](../methods/TCAD-HXT-Optimization-Isolation.md),
 not a rerun of the failed optimized mesh. No field assembly, solve or training

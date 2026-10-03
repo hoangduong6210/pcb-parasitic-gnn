@@ -38,10 +38,13 @@ file-count quota that blocked a full checkout. The
 smoke and scheduler receipts. A separately versioned
 [mesh-only HXT probe](../methods/TCAD-Cps-Mesh-Probe.md) also closed incomplete:
 toy passed, but local1 reached its time cap during 3D improvement and the repeat
-was not run. Its 11-file terminal closure is archived. A new bounded
+was not run. Its 11-file terminal closure is archived. The separate bounded
 [optimization-isolation diagnostic](../methods/TCAD-HXT-Optimization-Isolation.md)
-is now implemented for source freeze and SLURM execution; no sensitivity conclusion is
-available from either incomplete study.
+also closed incomplete: the unoptimized toy failed its strict signed-quality
+gate, so sentinel modes were not run. Its eight-file terminal closure is
+checked. The [research plan](../manuscript/TCAD-Research-Plan.md) specifies an
+explicit-optimizer follow-up; it is not yet submitted. No sensitivity
+conclusion is available from these incomplete studies.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
@@ -75,7 +78,7 @@ instead of calling one column ground truth.
 | TCAD same-matrix AMG diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy and local0 passed exact-system/direct comparison within unchanged worker caps; no mesh-converged reference or automatic expansion |
 | TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
 | TCAD mesh-only HXT probe | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy passed; local1 timed out in native 3D improvement; repeat unrun; no field solving or cap increase |
-| TCAD HXT optimization isolation | `PROPOSED; IMPLEMENTED` | Unchanged caps and fresh repeats with signed mesh-quality checks; no field use or numerical-quality qualification |
+| TCAD HXT optimization isolation | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy failed strict signed quality; sentinel and repeat unrun; no field use or cap/quality relaxation |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

@@ -7,6 +7,29 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## HXT isolation closed at toy quality gate on 2026-10-03
+
+Source `66feef9e04f3186ba76656df0b2869ad3381cd63` was published and remotely
+verified, then submitted from its clean sparse checkout as job `7651659`.
+It is now terminal `FAILED/2:0`, zero restarts. The unoptimized toy generated
+but failed the strict signed-quality gate; local1 and its repeat were not run.
+The [evidence page](../evidence/TCAD-HXT-Optimization-Isolation.md) owns exact
+observations and the checked eight-file terminal archive. No job in this
+chain remains active, and all field/reference/training/claim gates stay closed.
+
+Source inspection identifies an explicit default-optimizer route; simply
+enabling the automatic Netgen option is skipped for HXT in the pinned version.
+The [research plan](../manuscript/TCAD-Research-Plan.md) now specifies a separate
+before/after-quality diagnostic, requiring updated coordinate extraction before
+mesh fingerprinting. No new diagnostic source is frozen or job submitted yet.
+Next: publish this terminal/research checkpoint, then implement that bounded
+study. Last verified remote main is the source hash above; archive publication
+is pending. Earlier preparation and running observations below are historical.
+
+The combined terminal regression passed 212 tests with no skips, and the prose
+audit passed. These are source, metadata and tiny synthetic tests, not numerical
+reference qualification. Original protocols and raw evidence remain unchanged.
+
 ## HXT optimization-isolation implementation on 2026-10-03
 
 The previous terminal/research checkpoint is published and remote-hash verified

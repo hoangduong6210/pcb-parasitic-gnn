@@ -9,18 +9,20 @@ paper_source: false
 
 ## Mesh-generation diagnostic
 
-The [optimization-isolation runbook](TCAD-HXT-Optimization-Isolation.md) now
-implements the follow-up allocation and unchanged per-worker ceilings, with
-quality inspection charged inside each worker budget. Its linked evidence
-page owns freeze and scheduler receipts; no active allocation is implied here.
+The [optimization-isolation runbook](TCAD-HXT-Optimization-Isolation.md) is now
+closed at the toy quality gate. Its linked evidence page owns terminal
+accounting and the checked archive. No job in this chain remains active.
+The [next explicit-optimizer diagnostic](../manuscript/TCAD-Research-Plan.md)
+retains the same per-worker and allocation ceilings, charging generation,
+optimization and both quality observations to each worker's existing budget.
+It requires separate source, protocol, tests and publication before submission.
 
 The first HXT probe is now terminal and incomplete at local1's worker time
 cap. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns accounting and
-the archive. The proposed optimization-isolation follow-up retains the same
-worker ceilings and single-allocation specification below, but requires a new
-protocol, source and lock; it is not a retry of this job.
+the archive. The specifications below preserve the two completed diagnostic
+allocations; they are not instructions to retry either failed protocol.
 
-The [next bounded work package](../manuscript/TCAD-Research-Plan.md) tests a
+The [original bounded work package](../manuscript/TCAD-Research-Plan.md) tested a
 single HXT mesher candidate with native stage logs, not another field solve.
 A toy worker plus local1 and its fresh repeat have inherited 600/1,200/1,200
 second ceilings. Plan one 160 GiB, 55-minute job, one scientific thread, no
