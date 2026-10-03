@@ -52,3 +52,16 @@ pass. The deterministic prose audit also passed. Three completed initial test
 directories were removed after inspection; only reproducible test fixtures
 were removed. Publication is next; no native or real-layout result is inferred
 from these synthetic checks.
+
+## Verified publication
+
+At **12:32:35 UTC**, GitHub main and local HEAD were verified as
+`141fe2cf6b34de48a44f98f19f3602b3416ec5fc`. The 7,181-file manifest,
+376-test combined regression, final 55-test wiki/prose recheck and standalone
+prose audit passed. Internal agent instructions remain ignored/untracked.
+Two final completed regression/wiki fixture directories were removed after
+inspection; all scientific evidence and execution worktrees remain preserved.
+The queue was empty at 12:32:37 UTC. Publication confirms the source checkpoint,
+not native geometry/mesh feasibility or protocol freeze. The next required work
+remains native 2D provenance and mesh audit, then a bounded guarded integration
+with a prospectively frozen execution protocol.

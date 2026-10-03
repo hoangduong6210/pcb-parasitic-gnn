@@ -7,6 +7,23 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column arithmetic checkpoint published on 2026-10-03
+
+At 12:32:35 UTC GitHub main and local HEAD were verified as
+`141fe2cf6b34de48a44f98f19f3602b3416ec5fc`. The exact footprint/column
+library and synthetic contracts are published, with 376 combined tests and the
+final 55-test wiki/prose recheck passing. The 7,181-file manifest passed; internal
+agent instructions remain untracked. The two final completed regression/wiki
+fixture directories were removed; no scientific artifact or worktree was removed.
+
+The owner's queue was empty at 12:32:37 UTC. This is a source-only arithmetic
+checkpoint, **not a native meshing result or frozen execution protocol**.
+Next: implement native 2D input/fragment provenance and planar mesh ownership,
+edge, area and orientation audit, then integrate a bounded source/runtime/
+allocation-guarded worker and freeze its toy/sentinel/repeat protocol before
+SLURM execution. Count feasibility and template tests do not qualify the real
+mesh or its field. The full TCAD goal remains active and incomplete.
+
 ## Column candidate preparation on 2026-10-03
 
 The preceding goal turn made concrete progress: the dyadic diagnostic completed,
