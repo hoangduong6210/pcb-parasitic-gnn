@@ -1,0 +1,32 @@
+{
+  "schema": "pcb-gnn.tcad-cps-amg-feasibility-submission.v1",
+  "observation_utc": "2026-10-03T04:30:00Z",
+  "source_commit": "b8d4b891d15d4dc7c261e92c310bc3273218daa6",
+  "lock_sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906",
+  "diagnostic_archive_sha256": "0b6df0554a8ca2f76110af66518175209cf978630622408f29928970ff055a4e",
+  "checkout": {
+    "mode": "detached_sparse",
+    "locked_dependency_files": 128,
+    "materialized_tracked_files": 131,
+    "complete_manifest_verified_in_main_checkout": true,
+    "complete_manifest_verified_in_sparse_checkout": false,
+    "frozen_closure_and_clean_source_verified": true,
+    "reason": "full checkout exceeded file-count quota"
+  },
+  "smoke_job_id": "7650458",
+  "smoke_attempt_sha256": "dae0319e5a94fbaad92b92d54405089c9b999a85a2bcd2849d3c2e1e815dc2de",
+  "feasibility_job_id": "7650556",
+  "layout_id": 597,
+  "geometry_sha256": "182904bb9bb83f11637fef78a36acc99ed7b25c0b58a6c6d7ddf815c94b87c7d",
+  "feasibility_observed_state": "RUNNING",
+  "feasibility_observed_node": "a0199",
+  "feasibility_allocated_cpus": 41,
+  "scientific_threads": 1,
+  "finalizer_job_id": "7650557",
+  "finalizer_observed_state": "PENDING",
+  "finalizer_dependency": "afterany:7650556",
+  "automatic_full_pilot_expansion": false,
+  "reference_qualified": false,
+  "training_authorized": false,
+  "claim_eligible": false
+}

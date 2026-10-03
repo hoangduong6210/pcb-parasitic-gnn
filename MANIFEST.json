@@ -9,7 +9,7 @@
     "figures": 12,
     "logs": 172,
     "protocols": 39,
-    "results": 6123,
+    "results": 6131,
     "root": 11,
     "tests": 65,
     "wiki": 72
@@ -33386,6 +33386,46 @@
       "sha256": "a4c2cb99ce8db2cd7e9e8717b8d92ef373ea1d9c23a4916a4f9f6323154608d9"
     },
     {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/attempt.json",
+      "bytes": 10238,
+      "sha256": "dae0319e5a94fbaad92b92d54405089c9b999a85a2bcd2849d3c2e1e815dc2de"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.json",
+      "bytes": 6531,
+      "sha256": "e37df8168c428962daf790ccefc6f26567c4242e9b1e8cf0e826b628c7aa7a49"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.stderr",
+      "bytes": 98,
+      "sha256": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.stdout",
+      "bytes": 8339,
+      "sha256": "a9a582cd188a43769d4cd25480690f19a22a564b464d54dbc839f6309f78da7c"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/tcad_amg_smoke_7650458.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/tcad_amg_smoke_7650458.out",
+      "bytes": 85,
+      "sha256": "57426ae4d51e6f2200ad0d57e1257cba9946153fe6b7111ad3bdab99902d4fbf"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/terminal.json",
+      "bytes": 622,
+      "sha256": "f5a707e44daec2cce9b1a44754f2fcca1e07ac694a9742e746dc3eda0501ba88"
+    },
+    {
+      "path": "results/tcad/cps_amg_feasibility_v1/submissions/job_7650556.json",
+      "bytes": 1378,
+      "sha256": "6187049ca91bd1342626739ac2616d5e51574fb900cad3097c9a7d175d0f1d35"
+    },
+    {
       "path": "results/tcad/cps_reference_v1/archive/pilot_7641200/geometry_cost.json",
       "bytes": 6172,
       "sha256": "e03e733120a8ac4b2993281beb308c02da110eff9d6d6272caf52fff6dc97755"
@@ -34297,8 +34337,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Cps-AMG-Feasibility.md",
-      "bytes": 2842,
-      "sha256": "3167bfb61a7b3e7c8f58e003131d54a7b4c55e6c8922f7325e662ccd1175b9a2"
+      "bytes": 6701,
+      "sha256": "13e0c16e4d41691e4df907aa7bc284fb95f09d8f0d785d2ceae4763ed8dc22e9"
     },
     {
       "path": "wiki/evidence/TCAD-Cps-Reference-Pilot.md",
@@ -34472,8 +34512,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Cps-AMG-Feasibility.md",
-      "bytes": 2840,
-      "sha256": "d16cb644cd39761d8fb9650d06a7062ef728639ed22c7ef173abb51cd75d7229"
+      "bytes": 3434,
+      "sha256": "d627db3bfd967af9b260ce17cc34458ae1ee130339d276c59d07e821d1f67620"
     },
     {
       "path": "wiki/operations/TCAD-Cps-Reference-Pilot.md",
@@ -34532,13 +34572,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 51469,
-      "sha256": "30c6946068b5f0375651316d794f2ac20b5b2c3c9698ce25e6c3cf3bae28a212"
+      "bytes": 52755,
+      "sha256": "ddc48fd68b602b392911e08c3a991ce5ad316196521a6f948462d7c294585647"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 9398,
-      "sha256": "575d4da09d742c1ba48ba2219d2e96ee2488dca94b3c4d5e70664b3837f38cb6"
+      "bytes": 9700,
+      "sha256": "5488a656e4ee90488cd95e7e62cd5c736d2e43f58677bc37b782bd5586736836"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -34546,6 +34586,6 @@
       "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6906,
-  "total_bytes": 987490899
+  "n_files": 6914,
+  "total_bytes": 987524231
 }

@@ -1,6 +1,6 @@
 ---
 title: TCAD AMG Feasibility Evidence
-status: VALIDATED; source frozen; publication and execution pending
+status: RUNNING; smoke validated; seven-arm feasibility submitted
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -50,3 +50,67 @@ It binds the inherited source closures, terminal evidence, new protocol,
 workers, runner, wrappers and tests. No old source lock was replaced. This
 validates implementation contracts, not numerical feasibility. Publication
 and a new SLURM smoke are the next gates; no job has been submitted yet.
+
+## Verified execution-source publication
+
+Source, archive, protocol/lock and wiki were published as
+`b8d4b891d15d4dc7c261e92c310bc3273218daa6`. A remote branch query confirmed
+that exact `main` hash after the push. The repository manifest passed for
+6,906 tracked files other than itself; precommit validation passed 98
+feasibility/wiki/prose tests and the prose audit. A separate detached worktree
+at this commit will execute the new chain. This later publication receipt does
+not change the frozen execution source or establish a numerical result.
+
+## File-quota recovery and smoke submission on 2026-10-03
+
+Creating a full detached checkout stopped before execution with `Disk quota
+exceeded`. The quota report showed approximately 996,000 files against a
+1,000,000-file quota, while byte usage remained below its limit. Git rolled
+back the failed new worktree; no historical data or existing worktree was
+deleted. No numerical job was launched by that failed checkout.
+
+A new detached worktree at the same published commit uses literal sparse
+paths for the 128 locked dependencies, the lock itself, `.gitignore` and
+`MANIFEST.json`: 131 materialized tracked files. The source checker verified
+every locked byte, tracked membership, exact commit, root and wrapper identity,
+and a clean tracked diff. The complete repository manifest was checked in the
+full main checkout before publication; a full-manifest check is not claimed
+for the sparse worktree. Physics, code, protocols, source identity and caps
+are unchanged by this storage arrangement.
+
+Source-bound smoke job `7650458` was submitted from that worktree. Feasibility
+submission remains conditional on terminal smoke admission. All numerical work
+continues on SLURM compute nodes; this recovery performed metadata checks only.
+
+## Smoke admitted; feasibility submitted on 2026-10-03
+
+Smoke `7650458` completed `0:0`, zero restarts, in eight scheduler seconds on
+`a0102`, with three allocated CPUs for 8 GiB and one scientific thread. The
+[saved result](../../results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.json)
+passed source, geometry, runtime, exact matrix, raw-log reconstruction, residual,
+resource and backend-agreement checks. Its toy matrix has 1,481 mesh nodes,
+7,917 tetrahedra, 477 free unknowns and 5,595 nonzeros, with SHA-256
+`3cd4eda00692dc7dc024d9f9c971b716060e08eb826a4ce0541725c7077d48d2`.
+
+AMG complexity was 1.0536193029490617, with 15 CG iterations and relative
+residual 4.4940130640994257e-11. Candidate capacitance was
+1.1590918982639615 pF versus 1.1590918982639618 pF for the direct comparator;
+solution-relative L2 difference was 2.225369760146916e-11. Parent-observed worker
+time was 4.009516671998426 seconds and peak RSS 0.10802841186523438 GiB.
+These are toy implementation measurements, not mesh accuracy or physical
+validation. The four attempt/arm/raw-log files and two scheduler logs were
+copied byte-for-byte into the tracked result tree. The
+[terminal receipt](../../results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/terminal.json)
+binds attempt SHA-256
+`dae0319e5a94fbaad92b92d54405089c9b999a85a2bcd2849d3c2e1e815dc2de`.
+
+After terminal admission, job `7650556` was submitted for seven fresh arms on
+layout 597. At 2026-10-03 04:30 UTC it was RUNNING on `a0199`, zero restarts,
+with 41 allocated CPUs for 160 GiB and one scientific thread. Finalizer
+`7650557` was PENDING with verified dependency `afterany:7650556`. The
+[submission receipt](../../results/tcad/cps_amg_feasibility_v1/submissions/job_7650556.json)
+pins source, lock, smoke and storage scope. Source remains the published
+`b8d4b891d15d4dc7c261e92c310bc3273218daa6` while main-checkout documentation
+is updated separately. Next: terminal coverage and sensitivity review, then
+preserve every outcome. No panel expansion, reference qualification, training
+or paper claim is enabled.

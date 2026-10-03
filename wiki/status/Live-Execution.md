@@ -7,6 +7,28 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD AMG seven-arm feasibility submitted on 2026-10-03
+
+Source `b8d4b891d15d4dc7c261e92c310bc3273218daa6` is published and remote-hash
+verified. A full execution checkout hit file-count quota before any solve;
+a detached sparse checkout then passed the unchanged 128-file source lock and
+clean-source checks without deleting old evidence. The complete manifest was
+verified in main, not claimed for unmaterialized sparse paths.
+
+New source-bound smoke `7650458` completed `0:0`, zero restarts, and passed
+exact-system/direct agreement and all prerequisite checks. Its terminal
+artifacts are collected. Feasibility `7650556` is RUNNING on `a0199` at the
+latest observation, and finalizer `7650557` is PENDING on `afterany:7650556`.
+The [evidence page](../evidence/TCAD-Cps-AMG-Feasibility.md) owns timestamps,
+measurements, archive hashes and the submission receipt. Scientific threads
+remain one even where memory policy grants additional CPUs.
+
+Next: terminal accounting, exact seven-arm coverage and sensitivity review.
+No numerical work ran on login; no cap was increased and no training,
+three-sentinel expansion, reference claim or paper export was opened. Updating
+main's receipts does not alter the frozen execution worktree. Earlier
+preparation states below are historical.
+
 ## TCAD AMG seven-arm feasibility implementation on 2026-10-03
 
 The owner approved the immediate work package from the

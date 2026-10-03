@@ -1,6 +1,6 @@
 ---
 title: TCAD AMG Feasibility Runbook
-status: VALIDATED; source frozen; publication pending
+status: RUNNING; smoke validated; seven-arm feasibility submitted
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -22,6 +22,15 @@ smoke and numerical finalization must run on verified SLURM compute nodes.
    Export `PCB_TCAD_EXECUTION_ROOT`, `PCB_TCAD_SOURCE_COMMIT` and
    `PCB_TCAD_LOCK_SHA256`. Quote paths, unset authentication tokens and submit
    from this worktree with its `logs/` directory present.
+
+If file-count quota prevents a complete checkout, a new `--no-checkout`
+detached worktree may materialize only the literal paths in the frozen lock,
+the lock itself, `.gitignore` and `MANIFEST.json`. Initialize sparse paths and
+populate the index from the pinned commit before validation. Check the entire
+locked closure, tracked membership and clean diff with the unchanged source
+checker; verify the complete manifest in the full checkout separately. Record
+the quota failure and sparse scope in evidence. Do not remove historical
+worktrees or relax source checks to make space.
 
 | Phase | Wrapper under code/jobs/ | Request |
 |---|---|---|

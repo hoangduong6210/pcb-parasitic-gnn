@@ -23,8 +23,12 @@ Its terminal evidence is archived. The subsequent
 successfully on toy and local0 without widening worker caps. No job in that
 chain remains active. Terminal evidence is now archived, and the owner approved
 a new [seven-arm sensitivity implementation](../methods/TCAD-Cps-AMG-Feasibility.md).
-Source validation passed and the new lock is frozen; no job is submitted at
-this checkpoint. Verified publication is required before execution.
+The frozen source is published and remote-hash verified; its new smoke passed.
+The seven-arm job is now running, with an afterany finalizer queued. A sparse
+execution checkout preserves the locked source while avoiding the file-count
+quota that blocked a full checkout. The
+[feasibility evidence](../evidence/TCAD-Cps-AMG-Feasibility.md) owns source,
+smoke and scheduler receipts. Terminal sensitivity review remains pending.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
@@ -56,7 +60,7 @@ instead of calling one column ground truth.
 | TCAD reference-qualification continuation | `REJECTED PILOT; REVIEW PENDING` | Smoke validated; two sentinels complete, third stopped at the frozen mesh-node cap; finalizer rejects incomplete coverage; no convergence claim or training authorization |
 | TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
 | TCAD same-matrix AMG diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy and local0 passed exact-system/direct comparison within unchanged worker caps; no mesh-converged reference or automatic expansion |
-| TCAD AMG seven-arm feasibility | `VALIDATED SOURCE; EXECUTION PENDING` | New source-bound smoke and seven fresh sentinel arms; inherited caps and sensitivity gates; no training or paper claim |
+| TCAD AMG seven-arm feasibility | `RUNNING; SMOKE VALIDATED` | Published frozen source; seven fresh sentinel arms and afterany finalizer submitted; inherited caps and sensitivity gates; no training or paper claim |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |
