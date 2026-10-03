@@ -7,6 +7,33 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column-volume qualification preparation on 2026-10-03
+
+At 16:37:39 UTC local HEAD and GitHub main matched
+`40c11a12e11bdc17196438088339bacfd8cb6a18`, with a clean worktree and
+empty owner queue. The previous turn made successful native validation,
+preservation and publication progress; the full TCAD goal remains incomplete.
+The [next implementation](../methods/TCAD-Column-Volume-Mesh.md) constructs
+actual column tetrahedra and audits all slab and cross-slab facets under bounded
+memory. Begin with tiny synthetic construction/topology tests, then complete
+guarded integration, freeze/publication and SLURM qualification. No actual
+volume mesh, field solve or new submission is implied; preparation is local.
+
+The construction and streamed audit libraries passed 54 expanded synthetic
+tests, including agreement with an independent whole-volume facet enumeration.
+The broader regression then passed 534 tests with zero skips; the owner queue
+was empty at 17:18:28 UTC. The
+[evidence owner](../evidence/TCAD-Column-Volume-Mesh.md) records exact scope.
+Publish this source-only checkpoint, then implement bounded payload preservation
+and guarded integration before freezing any real-volume execution. No actual
+volume result, field result or claim is implied. The full TCAD goal remains
+active and incomplete; this turn made implementation and regression progress.
+
+The owner's requested sibling deletion was also rechecked at 17:17:57 UTC:
+`Hoang/Da-Yeh Journal/` remains absent and its private recovery archive remains
+present. The [storage owner](../operations/Repository-Storage.md) records the
+receipt and recoverability; no new deletion or scientific-data removal occurred.
+
 ## Edge-local v2 terminal checkpoint published on 2026-10-03
 
 At 16:35:06 UTC GitHub main and local HEAD matched

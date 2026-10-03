@@ -81,8 +81,11 @@ preserved failure led to a separate
 now passes with exact fresh repeat. The separately frozen
 [real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md) has also
 passed its native probe, planar audit and prospective column gates with exact
-fresh repeat and a checked archive. Next is a new bounded 3D connectivity and
-boundary qualification using the preserved planar packets and canonical planes.
+fresh repeat and a checked archive. The new bounded
+[3D connectivity and boundary qualification](../evidence/TCAD-Column-Volume-Mesh.md)
+now has a synthetically tested source-only construction and streamed audit core.
+Next implement chunked preservation and guarded integration, then freeze and
+publish a new SLURM protocol using preserved planar packets and canonical planes.
 The pass is not a capture-cap increase or an accuracy claim; native log
 totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only

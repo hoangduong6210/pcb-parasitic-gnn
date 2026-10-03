@@ -50,6 +50,12 @@ no sibling content or recovery archive is committed here. Account file quota
 also changes through other activity, so do not equate entry count with a
 measured account-wide quota reduction.
 
+At 17:17:57 UTC the exact requested sibling directory was rechecked as absent.
+The private recovery archive remained present with the recorded 159,340,677-byte
+size and mode 0600. This was an existence/metadata check, not a new archive hash
+verification or deletion. The original checked recovery receipt above remains
+the integrity evidence. No GNN artifact or execution worktree was removed.
+
 ## Post-column incremental pack on 2026-10-03
 
 The next continuation began with 999,940 of 1,000,000 account files and 326

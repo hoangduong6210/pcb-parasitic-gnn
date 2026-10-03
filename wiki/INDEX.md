@@ -80,6 +80,8 @@ paper_source: false
 | [TCAD Native Field Probe Evidence](evidence/TCAD-Native-Field-Probe.md) | Passed tiny native API checks and exact repeat; real-layout meshing remains unqualified |
 | [TCAD Edge-Local Feasibility v2](methods/TCAD-Edge-Feasibility-v2.md) | Qualified model-backed probe integration with unchanged planar/column gates |
 | [TCAD Edge-Local v2 Evidence](evidence/TCAD-Edge-Feasibility-v2.md) | Passed planar/prospective column gates and exact repeat; 3D/field qualification remains |
+| [TCAD Column Volume Mesh](methods/TCAD-Column-Volume-Mesh.md) | Proposed actual column connectivity, streamed complete facet audit and terminal anchoring |
+| [TCAD Column Volume Evidence](evidence/TCAD-Column-Volume-Mesh.md) | Synthetic construction/audit coverage; guarded payload and execution remain |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

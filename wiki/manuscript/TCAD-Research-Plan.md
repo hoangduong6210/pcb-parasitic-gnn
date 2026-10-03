@@ -22,8 +22,11 @@ model-entity support, stopping before toy meshing. The separate
 passed through SLURM with exact fresh repeat. The separately frozen
 [real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md) has now
 passed native probes, planar audit and prospective column gates with exact
-fresh repeat. Next: a new bounded 3D column-connectivity and complete boundary
-qualification from preserved planar packets and canonical planes. Do not bypass
+fresh repeat. The new
+[3D column-connectivity and complete boundary qualification](../evidence/TCAD-Column-Volume-Mesh.md)
+has a source-only construction and streamed audit core with synthetic coverage.
+Next: bounded chunked preservation, guarded integration and a separately frozen
+SLURM study from preserved planar packets and canonical planes. Do not bypass
 gates, tune sizing, raise caps or retry failed source. Full volume/field/
 sensitivity checks remain required before any new reference or learning claim.
 This remains reference engineering, not the paper's learning-method novelty.

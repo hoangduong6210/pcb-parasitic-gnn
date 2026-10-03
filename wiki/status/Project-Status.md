@@ -85,9 +85,12 @@ is not a sizing/capacity result. The failure is preserved. The separate
 passes with exact fresh repeat and unchanged observed main state. The separately
 frozen [real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md) now
 also passes toy, sentinel and fresh-repeat probe, planar audit and prospective
-column gates. Its checked terminal archive is preserved. Next is a new bounded
-3D column-connectivity and terminal/outer boundary qualification; full volume,
-field and sensitivity checks remain required.
+column gates. Its checked terminal archive is preserved. The next
+[3D column-connectivity and terminal/outer boundary qualification](../evidence/TCAD-Column-Volume-Mesh.md)
+now has a source-only construction and streamed all-facet/component audit core
+with synthetic regression coverage. Bounded payload preservation, guarded
+integration and a new frozen SLURM protocol remain before actual volume
+qualification. Full volume, field and sensitivity checks remain required.
 Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.
 The canonical preservation boundaries remain in
