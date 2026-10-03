@@ -1,0 +1,151 @@
+{
+  "elapsed_s": 9.518942645052448,
+  "failure": null,
+  "files_sha256": {
+    "repeat1.report.json": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811",
+    "repeat1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat1.stdout": "aae556d21b0709e6fb8d515c75b1806bec0191e43450f9cf64cfb3cf7fab1d14"
+  },
+  "mode": "repeat1",
+  "observed_peak_rss_gib": 0.02394866943359375,
+  "passed": true,
+  "result": {
+    "boundary_contract_passed": false,
+    "claim_eligible": false,
+    "coordinates_snapped": false,
+    "elapsed_s": 4.664523443905637,
+    "field_solver_executed": false,
+    "lock_sha256": "4e9f7d0ab7e9a3cee1ac54f2a8f1f38776914d3f60745be06735db7c271b2ea9",
+    "mesh_generated": false,
+    "mode": "repeat1",
+    "peak_rss_gib": 0.0252685546875,
+    "protocol_sha256": "508a31650285e6c45b568d0763984ad3a910e6080147f4d920e80a36e376d8f0",
+    "reference_qualified": false,
+    "report_bytes": 220269,
+    "report_sha256": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811",
+    "runtime": {
+      "packages": {
+        "gmsh": "4.15.2",
+        "numpy": "2.0.2",
+        "pyamg": "5.3.0",
+        "scikit-fem": "11.0.0",
+        "scipy": "1.13.1"
+      },
+      "python": "3.9.21",
+      "threads": {
+        "BLIS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "OMP_DYNAMIC": "FALSE",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PCB_GNN_GMSH_THREADS": "1"
+      }
+    },
+    "scheduler": {
+      "Account": "pgs0407",
+      "AccrueTime": "2026-10-03T11:54:10",
+      "AllocNode:Sid": "ascend-login02:2411130",
+      "AllocTRES": "cpu=3,mem=8G,node=1,billing=3",
+      "BatchFlag": "1",
+      "BatchHost": "a0113",
+      "CPUs/Task": "3",
+      "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+      "Contiguous": "0",
+      "CoreSpec": "*",
+      "Deadline": "N/A",
+      "DelayBoot": "00:00:00",
+      "Dependency": "(null)",
+      "EligibleTime": "2026-10-03T11:54:10",
+      "EndTime": "2026-10-03T12:09:33",
+      "ExcNodeList": "(null)",
+      "ExitCode": "0:0",
+      "Features": "(null)",
+      "GroupId": "PGS0407(9475)",
+      "JobId": "7653000",
+      "JobName": "tcad-layer-grid-dyadic",
+      "JobState": "RUNNING",
+      "LastSchedEval": "2026-10-03T11:54:33",
+      "Licenses": "(null)",
+      "LicensesAlloc": "(null)",
+      "MCS_label": "N/A",
+      "MinCPUsNode": "3",
+      "MinMemoryNode": "8G",
+      "MinTmpDiskNode": "0",
+      "Network": "(null)",
+      "Nice": "0",
+      "NodeList": "a0113",
+      "NtasksPerN:B:S:C": "0:0:*:1",
+      "NumCPUs": "3",
+      "NumNodes": "1",
+      "NumTasks": "1",
+      "OverSubscribe": "OK",
+      "Partition": "nextgen",
+      "PreemptEligibleTime": "2026-10-03T11:54:33",
+      "PreemptTime": "None",
+      "Priority": "300000534",
+      "QOS": "ascend-default",
+      "Reason": "None",
+      "Reboot": "0",
+      "ReqB:S:C:T": "0:0:*:*",
+      "ReqNodeList": "(null)",
+      "ReqTRES": "cpu=1,mem=8G,node=1,billing=1",
+      "Requeue": "0",
+      "Restarts": "0",
+      "RunTime": "00:00:44",
+      "Scheduler": "Backfill",
+      "SecsPreSuspend": "0",
+      "Socks/Node": "*",
+      "StartTime": "2026-10-03T11:54:33",
+      "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+      "StdIn": "/dev/null",
+      "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+      "SubmitTime": "2026-10-03T11:54:10",
+      "SuspendTime": "None",
+      "TimeLimit": "00:15:00",
+      "TimeMin": "N/A",
+      "TresPerTask": "cpu=1",
+      "UserId": "binben14(51204)",
+      "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN"
+    },
+    "source_commit": "5443917c74e3e56c7afd55b845d5116f1c6e90e7",
+    "summary": {
+      "axis_width_ratio": {
+        "denominator": "402305991763",
+        "numerator": "311300842536064"
+      },
+      "dielectric_cells": 14104011,
+      "jacobian_condition_upper_bound_squared": {
+        "denominator": "161850111008411023848169",
+        "numerator": "2907246436909899402574218362880"
+      },
+      "planning_checks": {
+        "jacobian_condition_bound": true,
+        "node_upper_bound": false,
+        "tetrahedron_count": false
+      },
+      "planning_feasible": false,
+      "tensor_node_upper_bound": 14406816,
+      "tetrahedra": 84624066,
+      "total_tensor_cells": 14179500,
+      "width_budget": {
+        "divisor": 12,
+        "far_spacing_reduced": true,
+        "maximum_target_width_mm": {
+          "denominator": "422212465065984",
+          "numerator": "251441244851875"
+        },
+        "minimum_canonical_gap_mm": {
+          "denominator": "562949953421312",
+          "numerator": "402305991763"
+        },
+        "planning_width_floor_mm": {
+          "denominator": "562949953421312",
+          "numerator": "402305991763"
+        }
+      }
+    },
+    "training_may_start": false
+  },
+  "returncode": 0
+}

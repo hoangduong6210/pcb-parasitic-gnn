@@ -1,0 +1,65 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "58",
+      "ExitCode": "0:0",
+      "JobID": "7653000",
+      "NodeList": "a0113",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    }
+  ],
+  "attempt_sha256": "1f8862db9d9cfabb676e66203109cbd9550b72fe97011301f4e9da22538c7b02",
+  "diagnosis": {
+    "boundary_contract_passed": false,
+    "claim_eligible": false,
+    "complete": true,
+    "coordinates_snapped": false,
+    "diagnostic_passed": true,
+    "field_solver_executed": false,
+    "mesh_generated": false,
+    "observed_modes": {
+      "local1": {
+        "failure": null,
+        "passed": true
+      },
+      "repeat1": {
+        "failure": null,
+        "passed": true
+      },
+      "toy": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "planning_feasible": false,
+    "reference_qualified": false,
+    "repeatability_passed": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/logs/tcad_layer_grid_dyadic_7653000.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/logs/tcad_layer_grid_dyadic_7653000.out": "6ba2c804615d5430c617409c6ba2b504c05102cca94df8dc8cd7f3a0ef56dd83",
+    "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/sacct.txt": "a1078049265c2280da899b2a11af2bbecd67e2a4769fb56f78dbd0f1440d0c9c",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/attempt.json": "1f8862db9d9cfabb676e66203109cbd9550b72fe97011301f4e9da22538c7b02",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.json": "1a216d3a53ac443b97faecd97769982b8f5244dc9b8c5d3ff316476cd85ef7df",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.report.json": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.stdout": "8e6cf0080aeae9c6ed8d0ae95df3ab84bb909d8b668fe5a5b17e937ccde77895",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.json": "f45b27fe0dbd312cffd641a49db45101e11af15894585bf7c19383f43adf591a",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.report.json": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.stdout": "aae556d21b0709e6fb8d515c75b1806bec0191e43450f9cf64cfb3cf7fab1d14",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.json": "aa1d0876b20a1c4c6294dd89f0660d643844b6ed008e7fca04121177d21626c5",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.report.json": "3e8a4eef881764915ff29285cce6a98dfb112cfca6a3051ba344cf34a743d5d4",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.stdout": "8cae5236d08e006639d3496ece001827868aa5d3db53412a40b1156b5089748d",
+    "results/tcad/cps_layer_grid_dyadic_v1/submission.json": "17634a6f50db0b9dc07b2af3c84de681f75199acc805cba2477a6a30deca8dcb"
+  },
+  "lock_sha256": "4e9f7d0ab7e9a3cee1ac54f2a8f1f38776914d3f60745be06735db7c271b2ea9",
+  "schema": "pcb-gnn.tcad-cps-layer-grid-dyadic-archive.v1",
+  "scope": "byte-preserved coordinate planning; no 3D mesh, field or reference qualification",
+  "source_commit": "5443917c74e3e56c7afd55b845d5116f1c6e90e7"
+}

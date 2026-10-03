@@ -1,0 +1,1 @@
+{"attempt": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000", "complete": true, "repeatability_passed": true, "diagnostic_passed": true, "planning_feasible": false, "coordinates_snapped": false, "mesh_generated": false, "boundary_contract_passed": false, "field_solver_executed": false, "reference_qualified": false, "training_may_start": false, "claim_eligible": false}

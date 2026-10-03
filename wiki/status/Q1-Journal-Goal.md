@@ -66,10 +66,11 @@ located floating errors without changing the arrays. The first
 [layer-grid planning candidate](../evidence/TCAD-Layer-Grid-Planning.md) then
 failed its declared gates and is archived without generating a 3D mesh.
 
-Next: validate and freeze the separate
-[canonical-plane midpoint/face-band implementation](../evidence/TCAD-Layer-Grid-Dyadic.md),
-then submit its bounded planning study. It targets both observed failures. Do not
-relax the rejected tolerance or silently snap geometry. Mesh and dielectric-only
+The separate [midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
+also completed and is archived: condition gates pass, but sentinel capacity
+still fails. Next: specify and test a planar-footprint/column feasibility probe
+under a new protocol, avoiding the full x/y tensor product. Do not relax the
+rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new
 three-sentinel protocol and then the development panel, without substituting

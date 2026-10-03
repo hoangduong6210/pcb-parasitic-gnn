@@ -30,15 +30,18 @@ Prior graph methods already compare matched data-generation cost, so that
 evaluation practice is not itself the new contribution. These requirements
 inform a later frozen learning protocol; they do not bypass reference gates.
 
-## Current checkpoint: projected-support grid rejected before generation
+## Current checkpoint: both global tensor-grid candidates rejected
 
 The [latest planning evidence](../evidence/TCAD-Layer-Grid-Planning.md) rejects
 the projected-support tensor candidate on capacity/conditioning preflight.
 The diagnosis and exact repeat are archived; no mesh or field was generated.
-The separate [canonical-plane midpoint/face-band implementation](../evidence/TCAD-Layer-Grid-Dyadic.md)
-is now under validation before its own freeze and bounded SLURM study. Geometry
-and failed gates remain preserved. The sequence below records how this decision
-followed the earlier CAD, mesh and arithmetic observations.
+The separate [canonical-plane midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
+has also completed and is archived: its condition screen passes, but sentinel
+capacity still fails. Do not instantiate or tune either rejected grid. Next:
+separately specify a conforming planar-footprint/column feasibility probe that
+avoids the full x/y coordinate product. This is a design hypothesis, not a
+validated mesh. Geometry, original caps and prior failed gates remain preserved.
+The sequence below records the earlier CAD, mesh and arithmetic observations.
 
 ## Preserved decision after explicit-optimizer timeout: 2026-10-03
 

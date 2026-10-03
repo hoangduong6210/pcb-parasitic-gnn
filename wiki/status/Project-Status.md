@@ -69,8 +69,10 @@ The first [layer-grid planning study](../evidence/TCAD-Layer-Grid-Planning.md)
 has since completed and been archived, but the proposed projected-support grid
 failed its prospective capacity/conditioning checks. No 3D mesh was generated.
 A separately versioned [midpoint/face-band candidate](../evidence/TCAD-Layer-Grid-Dyadic.md)
-is now implemented and under synthetic validation before freeze and SLURM
-planning. It preserves geometry and existing gates; no new mesh is qualified.
+has now completed its SLURM diagnosis with an exact repeat and checked archive.
+It passes the condition screen but still fails sentinel capacity. No new mesh
+is qualified. Next: separately specify a planar-footprint/column-capacity probe
+that avoids the full x/y tensor product; preserve geometry and existing gates.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.

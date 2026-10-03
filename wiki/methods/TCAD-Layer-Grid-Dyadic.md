@@ -1,6 +1,6 @@
 ---
 title: TCAD Canonical-Interval Dyadic Planning
-status: PROPOSED candidate; frozen implementation synthetically validated
+status: REJECTED capacity candidate; planning diagnostic validated
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -70,3 +70,39 @@ Analytic field, same-mesh restriction and sensitivity studies follow separately.
 All field/reference/training/claim flags remain false. This is reference
 engineering, not a claimed graph-learning contribution. Results belong to the
 [evidence owner](../evidence/TCAD-Layer-Grid-Dyadic.md).
+
+## Observed outcome
+
+The diagnostic and exact fresh repeat completed. Toy passed prospective gates;
+the selected sentinel passed the condition screen but failed capacity. Both
+complete plans and terminal metadata are archived. Do not generate this grid
+or reinterpret diagnosis completion as mesh feasibility. The evidence owner
+records exact counts, width-budget propagation and remaining limitations.
+
+## Next candidate boundary
+
+The next design hypothesis is a conforming planar footprint arrangement,
+locally triangulated and paired with canonical z intervals, rather than a full
+x/y coordinate product. Map every planar region to all covering conductor IDs;
+only the appropriate z ranges are metal. Preserve canonical geometry and retain
+the same finite-domain electrical problem. This would still propagate a shared
+planar mesh through layers; it is not fully local 3D adaptation and may also
+fail capacity or quality.
+
+The official Gmsh 4.15.2 manual documents conforming Boolean fragments with
+input/output maps, dimension-limited mesh generation, and layered mesh extrusion.
+These support considering the construction; they do not establish correctness
+or feasibility for this dataset. See the [Gmsh reference manual](https://gmsh.info/doc/texinfo/),
+sections 6.8 (`occ/fragment`), 6.4 (`mesh/generate`) and tutorial t3, checked
+2026-10-03. No native API was invoked on login during this review.
+
+Before a real-input probe, separately specify planar ownership/topology and
+area closure, boundary conformity, spacing, retained z coordinates, count caps,
+positive-orientation/conditioning checks and exact-repeat scope. Start with a
+bounded 2D-only/column-capacity study through SLURM; do not allocate a full 3D
+grid merely to estimate its size. A later prism-to-tetrahedron rule needs a
+consistent shared-face diagonal and its own independently checked quality
+formula. The tensor-specific bound above must not be reused for a different
+element map without proof, and native quality values must not be fabricated.
+Full 3D facet/terminal/volume audit, analytic field and sensitivity checks remain
+separate prerequisites. This engineering proposal is not a new TCAD claim.

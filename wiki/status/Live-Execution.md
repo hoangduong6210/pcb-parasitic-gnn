@@ -7,6 +7,46 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Dyadic terminal result and archive on 2026-10-03
+
+At 11:55:57 UTC job `7653000` was terminal `COMPLETED/0:0`, zero restarts,
+58 seconds, and absent from the queue. All modes completed and the fresh
+sentinel repeat matched exactly. The **candidate is rejected on capacity**,
+despite passing its conservative conditioning screen. The
+[evidence owner](../evidence/TCAD-Layer-Grid-Dyadic.md) records the exact counts,
+preserved reports and width-budget propagation. No 3D mesh or field was made.
+All 17 terminal members are in a checked archive; the additive collector passed
+24 synthetic tests before collection. Terminal regression and publication are
+next; these terminal records are still local. Frozen source remains published
+and unchanged. No scientific job is active in this chain.
+
+This goal turn made progress through guarded implementation, 338-test frozen
+regression, publication, one bounded SLURM diagnosis and terminal preservation.
+Next: a separately specified planar-footprint/column feasibility candidate,
+avoiding the full x/y plane product while preserving geometry and existing
+gates. Do not retry or tune the rejected grid. The full TCAD goal is active
+and incomplete; no claim or learning gate opens.
+
+The terminal regression passed all 180 tests with zero skips. All 17 terminal
+members are tracked, and internal agent instructions remain ignored/untracked.
+The owner's queue was empty at 12:02:00 UTC. Final wiki/prose and manifest
+checks precede publication. File quota is near its limit; recheck headroom
+before another execution checkout, without deleting scientific evidence.
+The completed collector and terminal fixture directories were removed after
+inspection; their test data are reproducible and no scientific data was removed.
+
+## Dyadic source published and submitted on 2026-10-03
+
+Source `5443917c74e3e56c7afd55b845d5116f1c6e90e7` was remotely verified at
+11:52:15 UTC after 338 frozen tests and 55 final wiki/prose tests passed. Its
+350-file sparse checkout passed source/runtime checks. One submission at
+11:54:09 UTC returned job `7653000`; it was pending at 11:54:24 UTC. Monitor
+this job and retain all outcomes, without retries or mesh/field work. The
+[evidence owner](../evidence/TCAD-Layer-Grid-Dyadic.md) owns exact bindings.
+Source is published; submission/monitoring records remain local. The full TCAD
+goal is active and incomplete. Two more inspected completed fixture directories
+were removed; scientific artifacts/worktrees were not removed.
+
 ## Dyadic layer-grid preparation on 2026-10-03
 
 The current turn implements a separate

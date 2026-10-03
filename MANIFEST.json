@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 355,
+    "code": 356,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 55,
-    "results": 6262,
+    "results": 6280,
     "root": 11,
-    "tests": 85,
+    "tests": 86,
     "wiki": 98
   },
   "files": [
@@ -754,6 +754,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_jacobian_arithmetic_v1.py",
       "bytes": 8767,
       "sha256": "cd1c2a9943e524d12f81e686a93e22788b50ef99604e00f3654fbb8149726a84"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_layer_grid_dyadic_v1.py",
+      "bytes": 8796,
+      "sha256": "c32ddfdb20a9273a5ba953db9941b9a0dcbd5652d4a8c5f0a61e388c0677110f"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_layer_grid_plan_v1.py",
@@ -34261,6 +34266,96 @@
       "sha256": "8e32ccab0ed88ea14122622d0aadb16f551885d4ae75c86a40000dc121ebb74c"
     },
     {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/logs/tcad_layer_grid_dyadic_7653000.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/logs/tcad_layer_grid_dyadic_7653000.out",
+      "bytes": 374,
+      "sha256": "6ba2c804615d5430c617409c6ba2b504c05102cca94df8dc8cd7f3a0ef56dd83"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/manifest.json",
+      "bytes": 3706,
+      "sha256": "9aea1951ed736c490dcd9b283d5b0508c8c176e3ecdc125e847dd383b1e07873"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/archive/job_7653000/sacct.txt",
+      "bytes": 38,
+      "sha256": "a1078049265c2280da899b2a11af2bbecd67e2a4769fb56f78dbd0f1440d0c9c"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/attempt.json",
+      "bytes": 19542,
+      "sha256": "1f8862db9d9cfabb676e66203109cbd9550b72fe97011301f4e9da22538c7b02"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.json",
+      "bytes": 4894,
+      "sha256": "1a216d3a53ac443b97faecd97769982b8f5244dc9b8c5d3ff316476cd85ef7df"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.report.json",
+      "bytes": 220269,
+      "sha256": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/local1.stdout",
+      "bytes": 3550,
+      "sha256": "8e6cf0080aeae9c6ed8d0ae95df3ab84bb909d8b668fe5a5b17e937ccde77895"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.json",
+      "bytes": 4896,
+      "sha256": "f45b27fe0dbd312cffd641a49db45101e11af15894585bf7c19383f43adf591a"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.report.json",
+      "bytes": 220269,
+      "sha256": "396529a86b3f8ecbefb16b293953e0a4d0e9f562cfbc5919700a43916f1ea811"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/repeat1.stdout",
+      "bytes": 3549,
+      "sha256": "aae556d21b0709e6fb8d515c75b1806bec0191e43450f9cf64cfb3cf7fab1d14"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.json",
+      "bytes": 4863,
+      "sha256": "aa1d0876b20a1c4c6294dd89f0660d643844b6ed008e7fca04121177d21626c5"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.report.json",
+      "bytes": 14288,
+      "sha256": "3e8a4eef881764915ff29285cce6a98dfb112cfca6a3051ba344cf34a743d5d4"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/job_7653000/toy.stdout",
+      "bytes": 3531,
+      "sha256": "8cae5236d08e006639d3496ece001827868aa5d3db53412a40b1156b5089748d"
+    },
+    {
+      "path": "results/tcad/cps_layer_grid_dyadic_v1/submission.json",
+      "bytes": 1081,
+      "sha256": "17634a6f50db0b9dc07b2af3c84de681f75199acc805cba2477a6a30deca8dcb"
+    },
+    {
       "path": "results/tcad/cps_layer_grid_plan_v1/archive/job_7652593/logs/tcad_layer_grid_plan_7652593.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -35261,6 +35356,11 @@
       "sha256": "629d4ec74f81c83c57285ad1fdf2e3ed143669114cdc24abd6dcc804a22e96bf"
     },
     {
+      "path": "tests/test_tcad_cps_layer_grid_dyadic_archive.py",
+      "bytes": 7528,
+      "sha256": "00ca451fbeb7d2346739a8a4e1f61a6429f70f0a3d694d4aec931253ae1137e7"
+    },
+    {
       "path": "tests/test_tcad_cps_layer_grid_plan.py",
       "bytes": 12506,
       "sha256": "0b332569146c9e2fd84b6ec462a796dacbe015849265c037cf78d23335d434e2"
@@ -35467,8 +35567,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Layer-Grid-Dyadic.md",
-      "bytes": 2699,
-      "sha256": "d264eb6148b49929d801e937f96935fe3461aafa33168715ccdca81872710a89"
+      "bytes": 8506,
+      "sha256": "9e0112489f7c405b95bca8969f667dd3acf849ebdc064c31c4f68b17c4f4a8f3"
     },
     {
       "path": "wiki/evidence/TCAD-Layer-Grid-Planning.md",
@@ -35517,8 +35617,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 31513,
-      "sha256": "b2a3fe9f89ddcf385b120413e6ce2a92c4c6007b1e8d5e0ba29f78cd9eb7868d"
+      "bytes": 31746,
+      "sha256": "f52f676b4f55593beb75050f3e78213629649365028435c0f363fb5816760f35"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35617,8 +35717,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 9755,
-      "sha256": "e4fab96d360f5f4073c080ad5d591d831efb5c07ca035023bf3c79bb7a878fdb"
+      "bytes": 9915,
+      "sha256": "ac3637f862f09a3d8dfa90cfde961426ed8a02b208b007e243c881f162f02d98"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -35642,8 +35742,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Dyadic.md",
-      "bytes": 4216,
-      "sha256": "6b0b45983b11053d3502c089a6750127cea3e183f823426fb6e46f1f6445e654"
+      "bytes": 6389,
+      "sha256": "a010a87ba9085c597f04031f2738cc55eccfe0e85c145fdeaaceec1c64d01021"
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Planning.md",
@@ -35782,18 +35882,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 94499,
-      "sha256": "7b33f579641f8d61f4648432b762810b32551f4c48dfc0303e0b1d97fba6454a"
+      "bytes": 96994,
+      "sha256": "eb22094cda54607197963eb25a91c714067971b6e9171cc34ccd08b8afaf2925"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 14286,
-      "sha256": "5b183864273595e550664c431cde853a18cfc78334b2f3e3da91f1e88d2ea9c8"
+      "bytes": 14451,
+      "sha256": "3047bc3ac8e4d07cadc973bf8eba4c30a17123095ca810c38d341fd50cf8a6ba"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5501,
-      "sha256": "c3aee6187dfba24437697ee1516c0e2909915bf1fe567280c280af0392479151"
+      "bytes": 5590,
+      "sha256": "46655961d5d3c440a1465c3d6d8bdbb5c253fcdcf1ebd23232ace212912222dc"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35801,6 +35901,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7157,
-  "total_bytes": 1007035987
+  "n_files": 7177,
+  "total_bytes": 1007568283
 }

@@ -148,8 +148,10 @@ not a change to the rejected gate or permission to solve on its mesh.
 
 The subsequent [layer-grid planning study](../evidence/TCAD-Layer-Grid-Planning.md)
 completed but rejected its projected-support candidate before 3D generation.
-Its next canonical-plane midpoint/face-band proposal keeps the same physical
-domain and requires separate capacity, conditioning and boundary evidence.
+The subsequent [midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
+kept the same physical domain and passed its condition screen, but failed
+sentinel capacity. No 3D mesh was generated. A planar-footprint/column candidate
+requires a separate feasibility protocol and later boundary/field evidence.
 
 ## Validation checkpoint on 2026-10-03
 
