@@ -7,6 +7,18 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Terminal/research checkpoint published on 2026-10-03
+
+At 06:48:14 UTC, GitHub main and local HEAD were both verified as
+`a96a1a953f79af15b8b06f7b580afb5997b15f38`. This publishes the isolation job's
+checked eight-file archive, metadata collector, 212-test regression checkpoint
+and explicit-optimizer follow-up specification. All archive members are
+Git-tracked, the 6,980-file repository manifest passed, and internal agent
+instructions remain ignored and untracked. Earlier pending-publication entries
+are historical. The continuing TCAD goal remains active; no job in this chain
+is running. Next: implement and test the separately specified optimizer path,
+then freeze/publish its source before any new SLURM submission.
+
 ## HXT isolation closed at toy quality gate on 2026-10-03
 
 Source `66feef9e04f3186ba76656df0b2869ad3381cd63` was published and remotely

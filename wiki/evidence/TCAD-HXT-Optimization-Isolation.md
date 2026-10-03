@@ -74,6 +74,11 @@ passed. Source/documentation whitespace checks exclude only the byte-preserved
 raw native stdout; no scientific output was normalized. Publication requires
 complete Git member closure and the refreshed repository manifest.
 
+Publication was subsequently verified at 06:48:14 UTC: remote main and local
+HEAD both resolved to `a96a1a953f79af15b8b06f7b580afb5997b15f38`. All eight
+archive members are tracked, and the refreshed 6,980-file repository manifest
+passed. This publishes negative diagnostic evidence, not a scientific claim.
+
 ## Preparation: 2026-10-03
 
 The [method](../methods/TCAD-HXT-Optimization-Isolation.md) and
