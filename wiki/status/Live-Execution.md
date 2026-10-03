@@ -7,6 +7,21 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## CAD terminal checkpoint published on 2026-10-03
+
+At 08:42:31 UTC GitHub main and local HEAD were verified as
+`1deeb1a8dda0a69b5e4ffc6b566750a39dfc7a9a`. This publishes the successful
+native CAD prerequisite, exact sentinel repeat, complete 14-member archive,
+collector and terminal regression. The 7,036-file manifest passed; internal
+agent instructions remain ignored/untracked. All 468 selected tests and the
+subsequent 55-test wiki/prose recheck passed. No job is active in this chain.
+
+The full TCAD goal remains active and incomplete. Next: boundary-aware mesh
+implementation bound to the validated CAD reports, with source/protocol freeze
+and SLURM-only execution. No tetrahedral mesh, field accuracy, reference,
+training or new paper claim follows from this CAD-only result. Earlier
+pending-publication statements below are historical.
+
 ## Native CAD prerequisite completed and archived on 2026-10-03
 
 Published source `c741fd7b813356b369c0b955705b4740f5805b71` passed clean sparse

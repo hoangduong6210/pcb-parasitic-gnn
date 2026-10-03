@@ -34887,8 +34887,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
-      "bytes": 8971,
-      "sha256": "b9d26a5b5f7f30c2492da868196e54dd2cb0c72d54f95abab2178b8fe4f2a898"
+      "bytes": 9139,
+      "sha256": "e7e0761f660fa63b8c2cc49c6aee56f88aa5b64e3fe346048dc3ff72dc8b6731"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
@@ -35177,8 +35177,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 74651,
-      "sha256": "eb529aae6d162dfc879294ddb6999ed78e4b73ab71df3a8d3a7006b7e3482708"
+      "bytes": 75498,
+      "sha256": "d1daaf1cfa14d348f23957478198f33d482fae76301d7c71bfa1f444c72d1f1a"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -35197,5 +35197,5 @@
     }
   ],
   "n_files": 7036,
-  "total_bytes": 992312251
+  "total_bytes": 992313266
 }

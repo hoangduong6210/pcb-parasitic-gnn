@@ -49,8 +49,11 @@ The additive collector passed 25 synthetic tests before collecting this exact
 matched raw accounting and verified byte-exact copies; no native operation was
 replayed on login. Completion, CAD diagnostic and repeatability flags are true;
 mesh generation, mesh feasibility, field execution, reference, training and
-claim flags remain false. Archive publication is pending at this local
-checkpoint; source publication is verified at the commit recorded below.
+claim flags remain false. At 08:42:31 UTC the complete archive checkpoint was
+published and remote-hash verified as
+`1deeb1a8dda0a69b5e4ffc6b566750a39dfc7a9a`. All 14 archive members are tracked
+and the 7,036-file repository manifest passed. Execution source remains the
+separately frozen commit recorded below.
 
 The subsequent regression passed all 468 tests with no skips, including
 26 collector/archive cases and exact native report/accounting assertions.
