@@ -75,8 +75,11 @@ is qualified. The [planar-footprint/column contract](../evidence/TCAD-Column-Fea
 now has guarded native integration and completed its bounded SLURM attempt.
 Toy passed, but sentinel exceeded the frozen planar capture cap; repeat did not
 run. The rejected attempt is archived and published; the separate
-[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) is being frozen
-before proposing a replacement. Do not raise caps or claim a sentinel mesh
+[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) completed with exact
+repeat. Its unchanged full-column budget is tighter than the capture cap.
+Next: separately specify edge-local sizing with coarser face interiors as a
+hypothesis, retaining count/quality gates and later field-sensitivity checks.
+Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines

@@ -52,6 +52,26 @@ Three newly completed roots were subsequently inspected and removed:
 and the three hash-matched prose fixtures. Scientific data/worktrees were
 unchanged; the frozen regression used its own separate active fixture root.
 
+After source publication, six more completed fixture roots were inspected and
+removed before the sparse checkout: `sizing-budget-frozen.ptrk30`,
+`sizing-budget-source-wiki.HQjyht`, `hxt-terminal-tests.UiuAoz`,
+`tcad-isolation-terminal.zE4Mui`, `tcad-postopt-terminal-prep.ZAPn0q`, and
+`tcad-postopt-corrected.GMjyQb`. Only pytest links/directories and nine files
+matching the same three reproducible prose-fixture hashes remained. No pytest
+process was active. No scientific artifact or execution worktree was removed.
+Observed quota was 999,328 files at 14:28:54 UTC.
+
+After diagnostic completion, four more completed roots were inspected and
+removed: `hxt-tests.oQoYXK`, `tcad-postopt-integration.gvOLKJ`,
+`tcad-postopt-preflight.D5o4gF`, and `sizing-budget-archive.jTQKkt`. They held
+only pytest links and their root directories, with no regular files. All
+scientific outputs, source checkouts and archives remain preserved.
+
+The completed `sizing-budget-terminal.K6ubNX` root was also inspected and
+removed after its 170-test pass. It held pytest links/directories and the same
+three hash-matched prose fixtures; no test process was active. No scientific
+data or execution worktree was removed.
+
 ## Earlier incremental pack on 2026-10-03
 
 Before another frozen execution checkout, file quota was 999,779 of 1,000,000.

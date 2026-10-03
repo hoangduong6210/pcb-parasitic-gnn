@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.sizing-budget-submission.v1",
+  "job_id": "7655072",
+  "source_commit": "707ccae71b035294116a37c05ef9f22c3479f27c",
+  "lock_sha256": "0302408e78ab97312303cad5cdc4174ac725ab7a86d15e0e47bfd8760d5d5db5",
+  "protocol_sha256": "34084a9ee2555c7c072152b9d178978fc0c7a321b7f6bc5fa3d45eb48cecd7b8",
+  "submitted_at_utc": "2026-10-03 14:30:25 UTC",
+  "execution_worktree": ".internal/tcad-cps-sizing-budget-v1",
+  "source_remotely_verified_at_utc": "2026-10-03 14:28:53 UTC",
+  "modes": ["toy", "local1", "repeat1"],
+  "scope": "Archived projected-sizing/vertical-budget diagnosis; no native initialization, mesh generation, field solve or candidate selection",
+  "automatic_retries": 0
+}

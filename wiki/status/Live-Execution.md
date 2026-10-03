@@ -7,6 +7,42 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Sizing-budget diagnostic completed on 2026-10-03
+
+At 14:32:24 UTC job **7655072** was terminal `COMPLETED/0:0`, zero restarts,
+78 seconds on `a0113`, and absent from the queue. All three modes passed and
+the two archived-sentinel diagnoses are byte-identical. The
+[evidence owner](../evidence/TCAD-Sizing-Budget.md) records the geometric indices,
+unchanged vertical budgets and strict distinction between native log counts
+and audited mesh observations. No native mesh, field or candidate was produced.
+
+The additive collector passed 24 synthetic tests with one pre-collection skip;
+its 17-member terminal archive is byte/metadata checked. Next: terminal
+regression and publication, then a separately specified edge-local sizing
+hypothesis under unchanged caps and full later quality/accuracy prerequisites.
+Do not raise caps or rerun the rejected Box policy. Four more inspected empty
+fixture/link roots were removed; scientific data/worktrees remain. Terminal
+records are local pending push. The full TCAD goal remains active/incomplete.
+
+Terminal regression passed **170 tests, zero skips**, in 70.88 seconds,
+including the actual archive byte/metadata check. The prose audit passed.
+No job is active. The completed terminal fixture root was inspected/removed;
+its only regular files were the three reproducible prose fixtures. Final
+manifest/tracked-member checks and publication are next. This goal turn made
+concrete implementation, SLURM diagnostic and evidence-preservation progress.
+
+## Sizing-budget source published on 2026-10-03
+
+At 14:28:53 UTC, local HEAD and GitHub main were verified as
+`707ccae71b035294116a37c05ef9f22c3479f27c`. Frozen source, 425-dependency
+lock, tests and wiki contract are published. Final checks passed the 7,242-file
+manifest, prose audit and 55 wiki/prose tests. The 428-file sparse checkout
+passed source/wrapper/runtime preflight. One submission at 14:30:25 UTC returned
+**job 7655072**. Monitor the same bounded archived-input diagnosis; do not retry.
+Six more inspected completed fixture roots were removed; all scientific
+artifacts and worktrees remain. This receipt is local pending push, and the
+full TCAD goal remains active and incomplete.
+
 ## Sizing-budget source frozen on 2026-10-03
 
 The [separate archived-input diagnostic](../evidence/TCAD-Sizing-Budget.md)

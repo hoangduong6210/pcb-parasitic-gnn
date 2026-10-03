@@ -1,6 +1,6 @@
 ---
 title: TCAD Archived Sizing and Vertical Budget Diagnostic
-status: PROPOSED; source frozen and synthetic regression passed, execution pending
+status: VALIDATED diagnostic only; no meshing candidate or reference admitted
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -13,6 +13,11 @@ separate diagnostic explains the geometric sizing burden and the remaining
 vertical capacity budget. It does not rerun Gmsh, change any cap, select a
 replacement sizing policy, generate connectivity or evaluate capacitance.
 Bindings and execution state belong to the [evidence page](../evidence/TCAD-Sizing-Budget.md).
+
+The frozen diagnostic has now completed through SLURM, including byte-identical
+sentinel reports. The observed full-column allowance is more restrictive than
+the planar capture cap. This is diagnostic completion, not approval of the
+rejected column policy or a new mesh/field qualification.
 
 ## Fixed input and geometry checks
 

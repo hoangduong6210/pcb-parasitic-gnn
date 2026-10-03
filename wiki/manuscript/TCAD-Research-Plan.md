@@ -7,6 +7,18 @@ paper_source: false
 
 # TCAD Research Continuation Plan
 
+## Current reference-engineering step on 2026-10-03
+
+The [column feasibility study](../evidence/TCAD-Column-Feasibility.md) is
+archived with a rejected sentinel. The subsequent
+[sizing-budget diagnostic](../evidence/TCAD-Sizing-Budget.md) completed through
+SLURM and repeated exactly on archived inputs. Its full-column budget is tighter
+than the planar capture cap; it provides neither a qualified sentinel mesh nor
+an electrical result. Next: separately specify an edge-local sizing hypothesis
+with coarser face interiors, unchanged count/quality gates and later independent
+field/sensitivity checks. Do not retry or raise caps on the rejected Box policy.
+This remains reference engineering, not the paper's learning-method novelty.
+
 ## Continuing goal authorized on 2026-10-03
 
 The owner requested autonomous continuation toward a Q1 journal, prioritizing

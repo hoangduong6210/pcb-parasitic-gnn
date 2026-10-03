@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 372,
+    "code": 373,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 59,
-    "results": 6312,
+    "results": 6330,
     "root": 11,
-    "tests": 95,
+    "tests": 96,
     "wiki": 102
   },
   "files": [
@@ -779,6 +779,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_pilot_v1.py",
       "bytes": 7699,
       "sha256": "cbfa65c67a66a85bdd444bb0c8109bba9009dd6140c0e43f7950d576175f27c1"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_sizing_budget_v1.py",
+      "bytes": 8860,
+      "sha256": "211fcfb2e464bbbeef67f71ba15f0a3803fb622b0c8791467347868691b9f702"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_support_v1.py",
@@ -35146,6 +35151,96 @@
       "sha256": "5f26b4504faed214ce5d4c8a0dd499683634614d1118b46fa489418c08077e0a"
     },
     {
+      "path": "results/tcad/cps_sizing_budget_v1/archive/job_7655072/logs/tcad_sizing_budget_7655072.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/archive/job_7655072/logs/tcad_sizing_budget_7655072.out",
+      "bytes": 448,
+      "sha256": "07226365e2b06a77e2628e675d52a4c096cba0494c8db8c10883cdcfb47d29c4"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/archive/job_7655072/manifest.json",
+      "bytes": 3724,
+      "sha256": "da1c2edd357cf7fa85ddbf5fc37e962391d42bd421ef5bdd44e15da723c5c790"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/archive/job_7655072/sacct.txt",
+      "bytes": 38,
+      "sha256": "950158cecb1a04af0d8cd3021e6e2988376acfeee5c1875f3ff28e83af2e97e9"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/attempt.json",
+      "bytes": 38473,
+      "sha256": "00c826f4ec2f5e293bd616e44d1e69512864eb9507a0467996c13abeee4ae59b"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/local1.json",
+      "bytes": 11530,
+      "sha256": "c48f88a3392f8b7eb159aa6b7f6cfbb090e4d96ff19834fc260708def48d7cf2"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/local1.report.json",
+      "bytes": 39808,
+      "sha256": "d02a4e400059459e4c46c6e83d8fd9f8bf5e016ea36a0e7163c8d649aa54b43a"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/local1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/local1.stdout",
+      "bytes": 7817,
+      "sha256": "41d808719110cf61992e79de1b6622d3e2a96735211d8ab7c424a01638ebe5c4"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/repeat1.json",
+      "bytes": 11537,
+      "sha256": "dab1c7e6751515d05352ff25c8f8e43630b42b5d4e2916f278c59d4d3d9702ee"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/repeat1.report.json",
+      "bytes": 39808,
+      "sha256": "d02a4e400059459e4c46c6e83d8fd9f8bf5e016ea36a0e7163c8d649aa54b43a"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/repeat1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/repeat1.stdout",
+      "bytes": 7819,
+      "sha256": "f7b63f37afb98d3d41c294bb73aad107e90fc1e9ba7059f8968a9c8c2ab4fd75"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/toy.json",
+      "bytes": 8595,
+      "sha256": "f76163b33fe7347356ed57416a5a3ce382316e382f1890eaf6a0891a405145ef"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/toy.report.json",
+      "bytes": 9548,
+      "sha256": "f6bbf261446366ea25aa6a377f1c87847fb02dc4cdf93d1a502465209ed77971"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/toy.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/job_7655072/toy.stdout",
+      "bytes": 5913,
+      "sha256": "39b860b323e40960f559f6f549e9852e07ea0425fceeda3bbe8e8304c59e7db0"
+    },
+    {
+      "path": "results/tcad/cps_sizing_budget_v1/submission.json",
+      "bytes": 702,
+      "sha256": "e481603053b0b6f62fcd382c2e2d3e191c919718f6d7f243b85ecaf8a40807bc"
+    },
+    {
       "path": "results/tcad/cps_support_recovery_v1/archive/feasibility_7647612/logs/tcad_support_feasibility_7647612.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -35686,6 +35781,11 @@
       "sha256": "a18739c87b8157178b30bf7292a5f5d0b8fba132058bbac238b0543101b34b6c"
     },
     {
+      "path": "tests/test_tcad_cps_sizing_budget_archive.py",
+      "bytes": 7851,
+      "sha256": "43922b972e0210ca171308f56931e528dfe677d042da8cb9bb241d397351862c"
+    },
+    {
       "path": "tests/test_tcad_cps_sizing_budget_math.py",
       "bytes": 6957,
       "sha256": "75b90cb9d6cfae58eb228f99f7e2b8fb12a7279ccae12f3c5990936ffacf8bf8"
@@ -35887,8 +35987,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Sizing-Budget.md",
-      "bytes": 2400,
-      "sha256": "0311f2ec38d33bd8e203d76c185114691844d619c037817aea36f376fb5296dd"
+      "bytes": 7251,
+      "sha256": "ed8b564788e62abd4c48888c4032dd4c35613d1c4e522b6fc6722eb2095b6754"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -35932,8 +36032,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 32268,
-      "sha256": "a2832fb11deb5dce618234ccd8386bbeeb9be27f4b16da51ac2725eb5a1ffa7d"
+      "bytes": 33004,
+      "sha256": "080b309f96b312d0539caa5b5f2e8866f61021d0386d1727fce0ac9e49649e64"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -36072,8 +36172,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Sizing-Budget.md",
-      "bytes": 4504,
-      "sha256": "626155a5c3825c03dbec2d430b7cbf61e2a1f068f22c3c7f5ff0d47036d6a2ef"
+      "bytes": 4791,
+      "sha256": "4d4a49532a4f4b42f5e2db6d5d54fcd07d994bdbc10364fc906f8f2c47c7ad10"
     },
     {
       "path": "wiki/operations/E3-Recovery-Replay.md",
@@ -36087,8 +36187,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 7748,
-      "sha256": "132f1702953d51b7f9d0ba5e3c89ee2a6b6a8c07c1311a46b3a46887b3823618"
+      "bytes": 8948,
+      "sha256": "414594e8a938c2e7465adb733fb8622a38a332ff55706293d9a6fca99da09869"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -36207,18 +36307,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 107730,
-      "sha256": "1245cece5a2f45799c1719a79bb30610546b27df7e5397697911af8179bfc1a6"
+      "bytes": 109924,
+      "sha256": "c15e5feeb4d8908a645c088156d9dda883da6e9d9d2ac6692a816cf029fac001"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 14827,
-      "sha256": "29024408eb67374bba7aedf6f76f3fc86a28c8b55938c99dbba7848928777888"
+      "bytes": 15028,
+      "sha256": "e5dbe24a13345f30b2f5d832404abc688d2b6406726f06a024880615f9bc9691"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5888,
-      "sha256": "d49af2619c4113d584bce95f62f093c4a75fcb6a18ed917d503bed005dbb52eb"
+      "bytes": 6008,
+      "sha256": "0732495a0a2fce675017c3966b2ce1e83046a1393f40f796150292b1e39e5102"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -36226,6 +36326,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7242,
-  "total_bytes": 1008264278
+  "n_files": 7262,
+  "total_bytes": 1008476338
 }

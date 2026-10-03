@@ -72,8 +72,10 @@ still fails. The [column contract](../evidence/TCAD-Column-Feasibility.md) now
 has completed its guarded native study: toy passed, but sentinel exceeded the
 frozen planar capture cap. Repeat was omitted after that failure. The rejected
 attempt is archived and published. A separate
-[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) is being frozen
-before a replacement policy; native log totals do not qualify a sentinel mesh. Do not relax the
+[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) has completed with
+exact repeat and a checked archive. Next is a separately specified edge-local
+sizing hypothesis, not a capture-cap increase or an accuracy claim; native log
+totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new
