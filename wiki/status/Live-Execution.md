@@ -7,6 +7,23 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD same-matrix AMG diagnostic submitted on 2026-10-02
+
+Execution source `396e51f879ae8007de35d3301be284a519aabf48` is published and
+remote-hash verified. The clean detached worktree passed source-lock and
+manifest checks, then submitted job `7647850`. It was observed RUNNING on
+`a0102`, zero restarts, with 41 allocated CPUs for 160 GiB and one scientific
+thread. The toy worker passed its exact-system and backend checks; local0
+was generating its mesh at the latest observation. The
+[diagnostic evidence](../evidence/TCAD-Cps-AMG-Diagnostic.md) owns numerical
+details, source identity and submission receipt.
+
+Next: terminal accounting and exact two-mode/raw-log review. A toy pass alone
+does not establish largest-sentinel feasibility or reference accuracy. No
+limits were widened, no old rejected evidence was changed, and no full pilot,
+training or paper claim was opened. Source remains pinned while this wiki
+receipt is updated separately. Earlier preparation states below are historical.
+
 ## TCAD support failure archived; AMG diagnostic preparation on 2026-10-02
 
 The owner requested continuation. Support job `7647612` stopped at local0 AMG

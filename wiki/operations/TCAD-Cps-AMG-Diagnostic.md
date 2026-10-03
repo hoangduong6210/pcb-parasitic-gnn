@@ -1,6 +1,6 @@
 ---
 title: TCAD AMG Diagnostic Runbook
-status: VALIDATED; frozen source; publication required before submission
+status: RUNNING; published source; single diagnostic job submitted
 last_updated: 2026-10-02
 paper_source: false
 ---

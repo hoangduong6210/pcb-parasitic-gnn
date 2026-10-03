@@ -50,7 +50,7 @@ instead of calling one column ground truth.
 |---|---|---|
 | TCAD reference-qualification continuation | `REJECTED PILOT; REVIEW PENDING` | Smoke validated; two sentinels complete, third stopped at the frozen mesh-node cap; finalizer rejects incomplete coverage; no convergence claim or training authorization |
 | TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
-| TCAD same-matrix AMG diagnostic | `VALIDATED SOURCE; EXECUTION PENDING` | One new preconditioner candidate, exact matrix identities and direct comparator; unchanged worker caps; no qualified reference or automatic expansion |
+| TCAD same-matrix AMG diagnostic | `RUNNING; TOY PASSED` | Published source and bounded single job; toy backend check passed, local0 in progress; unchanged worker caps; no qualified reference or automatic expansion |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

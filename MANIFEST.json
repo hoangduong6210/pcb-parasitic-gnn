@@ -9,7 +9,7 @@
     "figures": 12,
     "logs": 172,
     "protocols": 37,
-    "results": 6112,
+    "results": 6113,
     "root": 11,
     "tests": 64,
     "wiki": 69
@@ -33286,6 +33286,11 @@
       "sha256": "c059c40454a66e21ff4040c68b5890aa0cc65cfb3e6d2ca885c7f7b2b111490b"
     },
     {
+      "path": "results/tcad/cps_amg_diagnostic_v1/submissions/job_7647850.json",
+      "bytes": 880,
+      "sha256": "a4c2cb99ce8db2cd7e9e8717b8d92ef373ea1d9c23a4916a4f9f6323154608d9"
+    },
+    {
       "path": "results/tcad/cps_reference_v1/archive/pilot_7641200/geometry_cost.json",
       "bytes": 6172,
       "sha256": "e03e733120a8ac4b2993281beb308c02da110eff9d6d6272caf52fff6dc97755"
@@ -34187,8 +34192,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 2015,
-      "sha256": "15b304c1d37cef1075d678c876b6dc3c7554210a3aed4c82944e659e2cb2dd1c"
+      "bytes": 4508,
+      "sha256": "dd3305501bc56de8e6557fe22903169133049f84ed528eb1c1d4ac360452d371"
     },
     {
       "path": "wiki/evidence/TCAD-Cps-Reference-Pilot.md",
@@ -34312,8 +34317,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 3341,
-      "sha256": "9b112f729731bbdc5ef41025005c2c3b3cdc62966a2ea12fd1c22a007799d150"
+      "bytes": 3338,
+      "sha256": "8927d2cfafcb2a0d87988e20c69cadab5371ea20923f39735af456add5428cd0"
     },
     {
       "path": "wiki/methods/TCAD-Cps-Compact-Support-Recovery.md",
@@ -34352,8 +34357,8 @@
     },
     {
       "path": "wiki/operations/TCAD-Cps-AMG-Diagnostic.md",
-      "bytes": 2143,
-      "sha256": "02c4c2029314752dd10d16edd8c1db1cc51ea65ac93135157dc34e9f8a48b5a3"
+      "bytes": 2137,
+      "sha256": "b1d5fa15c09d2ecd421349d38d82e2664900f3ecf2a032f2821af7b67bf412ed"
     },
     {
       "path": "wiki/operations/TCAD-Cps-Reference-Pilot.md",
@@ -34412,13 +34417,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 46831,
-      "sha256": "4dbc41e6372f9d3fd597f3aa348f0454acc4f6abad14538a365acd8a6732ca23"
+      "bytes": 47834,
+      "sha256": "c4aa54ccd135e72b0ad0fcb09b9f50699570a151080025eba29709290ac53e19"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 8831,
-      "sha256": "62b7438e0958834f3916ccb4139e2ae38684a96204a97c96b65c9036f7dc5c54"
+      "bytes": 8821,
+      "sha256": "0a0fe358f291b6539f45cf0aab3c026fcfc4ebfcd7480f62c369600b0a20601c"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -34426,6 +34431,6 @@
       "sha256": "bced60370aa97f5e40c421cdd091c9adc05077de204f8d5a03f3c51cdcc3d610"
     }
   ],
-  "n_files": 6882,
-  "total_bytes": 987326056
+  "n_files": 6883,
+  "total_bytes": 987330413
 }

@@ -1,0 +1,20 @@
+{
+  "schema": "pcb-gnn.tcad-amg-diagnostic-submission.v1",
+  "job_id": "7647850",
+  "source_commit": "396e51f879ae8007de35d3301be284a519aabf48",
+  "lock_sha256": "7ff24ed07bc4233318a5ec9ebef8a3b552c75b37f13ca607966ec2690ecfbec3",
+  "protocol_sha256": "6bcad4b7e0c205624e5e13834a237f6815cbd3da3271e5006cfd4153a3a8620a",
+  "execution_worktree": ".internal/tcad-cps-amg-diagnostic-v1",
+  "wrapper": "code/jobs/submit_tcad_cps_amg_diagnostic.sh",
+  "submission_local_time": "2026-10-02T22:38:26-04:00",
+  "requested_cpus": 1,
+  "requested_memory_gib": 160,
+  "time_limit": "00:45:00",
+  "initial_observation": {"state": "RUNNING", "node": "a0102", "allocated_cpus": 41, "restarts": 0},
+  "scientific_threads": 1,
+  "modes": ["toy", "local0"],
+  "terminal_admission_pending": true,
+  "automatic_feasibility_expansion": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

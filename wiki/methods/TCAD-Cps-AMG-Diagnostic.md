@@ -1,6 +1,6 @@
 ---
 title: TCAD Same-Matrix AMG Diagnostic
-status: VALIDATED; frozen diagnostic contract; numerical outcome pending
+status: RUNNING; frozen diagnostic contract; terminal outcome pending
 last_updated: 2026-10-02
 paper_source: false
 ---
