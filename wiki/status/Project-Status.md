@@ -68,9 +68,9 @@ geometry and requiring new conditioning/boundary gates before any field work.
 The first [layer-grid planning study](../evidence/TCAD-Layer-Grid-Planning.md)
 has since completed and been archived, but the proposed projected-support grid
 failed its prospective capacity/conditioning checks. No 3D mesh was generated.
-A new canonical-plane midpoint/face-band policy is next; it must avoid the
-observed auxiliary-plane and global-over-refinement defects without changing
-geometry or admitting the rejected candidate.
+A separately versioned [midpoint/face-band candidate](../evidence/TCAD-Layer-Grid-Dyadic.md)
+is now implemented and under synthetic validation before freeze and SLURM
+planning. It preserves geometry and existing gates; no new mesh is qualified.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.

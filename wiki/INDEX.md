@@ -68,6 +68,8 @@ paper_source: false
 | [Repository Storage and Immutable Evidence](operations/Repository-Storage.md) | Verified SLURM incremental object packing without history or evidence loss |
 | [TCAD Canonical-Plane Grid Planning](methods/TCAD-Layer-Grid-Planning.md) | Exact coordinate planes, projected-support spacing and prospective tensor capacity/conditioning screen |
 | [TCAD Layer-Grid Planning Evidence](evidence/TCAD-Layer-Grid-Planning.md) | Source-bound planning study and preserved feasible/infeasible outcomes without mesh generation |
+| [TCAD Dyadic Layer-Grid Method](methods/TCAD-Layer-Grid-Dyadic.md) | Canonical-only planes, midpoint face-band refinement and prospective width budget |
+| [TCAD Dyadic Layer-Grid Evidence](evidence/TCAD-Layer-Grid-Dyadic.md) | Separately frozen follow-up with unchanged capacity/conditioning gates |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

@@ -35,9 +35,10 @@ inform a later frozen learning protocol; they do not bypass reference gates.
 The [latest planning evidence](../evidence/TCAD-Layer-Grid-Planning.md) rejects
 the projected-support tensor candidate on capacity/conditioning preflight.
 The diagnosis and exact repeat are archived; no mesh or field was generated.
-Next is a separately frozen canonical-plane midpoint/face-band candidate,
-with geometry and failed gates preserved. The sequence below records how this
-decision followed the earlier CAD, mesh and arithmetic observations.
+The separate [canonical-plane midpoint/face-band implementation](../evidence/TCAD-Layer-Grid-Dyadic.md)
+is now under validation before its own freeze and bounded SLURM study. Geometry
+and failed gates remain preserved. The sequence below records how this decision
+followed the earlier CAD, mesh and arithmetic observations.
 
 ## Preserved decision after explicit-optimizer timeout: 2026-10-03
 

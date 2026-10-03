@@ -66,8 +66,9 @@ located floating errors without changing the arrays. The first
 [layer-grid planning candidate](../evidence/TCAD-Layer-Grid-Planning.md) then
 failed its declared gates and is archived without generating a 3D mesh.
 
-Next: separately specify, test and freeze canonical-plane midpoint/face-band
-refinement addressing both the auxiliary-plane and capacity failures. Do not
+Next: validate and freeze the separate
+[canonical-plane midpoint/face-band implementation](../evidence/TCAD-Layer-Grid-Dyadic.md),
+then submit its bounded planning study. It targets both observed failures. Do not
 relax the rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new

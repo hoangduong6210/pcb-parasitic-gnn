@@ -7,6 +7,27 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Dyadic layer-grid preparation on 2026-10-03
+
+The current turn implements a separate
+[canonical-interval midpoint/face-band candidate](../evidence/TCAD-Layer-Grid-Dyadic.md).
+The initial tiny-synthetic regression identified and corrected a test's parent
+lookup before freeze; scientific source and old archives remain unchanged.
+No real-layout plan, mesh or field has run. Next: full synthetic regression,
+source freeze/publication, then one guarded SLURM planning study. This is local
+preparation; no job is active. The full TCAD goal remains active and incomplete.
+
+The corrected pre-freeze suite passed 129 tests with one expected lock skip.
+The source is being frozen before full regression and publication. No actual
+coordinate plan has been computed for this candidate.
+
+The source is now frozen with 347 dependencies, and post-freeze regression is
+running. Four inspected completed synthetic-fixture directories were removed;
+all scientific evidence and source worktrees remain preserved.
+
+The frozen regression passed all 338 tests with zero skips. Source publication,
+sparse-checkout verification and one bounded SLURM planning job are next.
+
 ## Layer-grid terminal checkpoint published on 2026-10-03
 
 At 11:27:41 UTC GitHub main and local HEAD were verified as

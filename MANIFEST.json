@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 350,
+    "code": 355,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 53,
+    "protocols": 55,
     "results": 6262,
     "root": 11,
-    "tests": 84,
-    "wiki": 96
+    "tests": 85,
+    "wiki": 98
   },
   "files": [
     {
@@ -1231,6 +1231,11 @@
       "sha256": "ffd0f68864f216bdae492857ce426aa2c370cc4120f4b811bb96219521adb654"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_layer_grid_dyadic.py",
+      "bytes": 12908,
+      "sha256": "4950ca6ff0a03c16a7473ba0fabf0d25b1b8492a842e585f11b9b007c7b1f5e2"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_layer_grid_plan.py",
       "bytes": 10909,
       "sha256": "402d61b17864a182e8f8f0c577d8fdc1b0854eeabbaeb1f325af7f64bf08fd4c"
@@ -1284,6 +1289,11 @@
       "path": "code/experiments/proofs/tcad_cps_jacobian_arithmetic.py",
       "bytes": 5179,
       "sha256": "285c23e611e3be86de5a23a05cd81e04bb4b2686753be95805d5e5733f146cbe"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_layer_grid_dyadic.py",
+      "bytes": 6059,
+      "sha256": "8e5b43e2836898347070d00432f61141373c91223a4f897662aa61730e6cb6b1"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_layer_grid_plan.py",
@@ -1941,6 +1951,11 @@
       "sha256": "e613f8e28b8ead1778e12c876b649879a3c84e06446473b34e335c6b726ba61c"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_layer_grid_dyadic.sh",
+      "bytes": 744,
+      "sha256": "fd2278d7648544a5509b07bb5ce675ae3b7f219ffe47e429ad272c44e543a638"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_layer_grid_plan.sh",
       "bytes": 734,
       "sha256": "831566b13b55fa70486928f026cf502036b7c6ea3eb22e17e22878d7a302825c"
@@ -2254,6 +2269,16 @@
       "path": "code/solvers/tcad_cps_layer_grid_axes.py",
       "bytes": 6240,
       "sha256": "caf513b399c7444440c30ac028328698c77225f7abad0283400324e6d2ffe8f3"
+    },
+    {
+      "path": "code/solvers/tcad_cps_layer_grid_dyadic_axes.py",
+      "bytes": 7760,
+      "sha256": "4f3d4ee8f502668294d8a9d7517a7f6e7798caced8fa6b1010c0d4b75561b7de"
+    },
+    {
+      "path": "code/solvers/tcad_cps_layer_grid_dyadic_worker.py",
+      "bytes": 3068,
+      "sha256": "eadd9ef05a70a367abc9839a4ef244351bb1f1830dae828ef8ab91df6f3768a0"
     },
     {
       "path": "code/solvers/tcad_cps_layer_grid_plan_worker.py",
@@ -3484,6 +3509,16 @@
       "path": "protocols/tcad_cps_jacobian_arithmetic_v1.lock.json",
       "bytes": 40287,
       "sha256": "1bce5b7db75abf05ae4a954044e43880ba173a76791727f80c4a8914aae18278"
+    },
+    {
+      "path": "protocols/tcad_cps_layer_grid_dyadic_v1.json",
+      "bytes": 2516,
+      "sha256": "508a31650285e6c45b568d0763984ad3a910e6080147f4d920e80a36e376d8f0"
+    },
+    {
+      "path": "protocols/tcad_cps_layer_grid_dyadic_v1.lock.json",
+      "bytes": 47692,
+      "sha256": "4e9f7d0ab7e9a3cee1ac54f2a8f1f38776914d3f60745be06735db7c271b2ea9"
     },
     {
       "path": "protocols/tcad_cps_layer_grid_plan_v1.json",
@@ -35221,6 +35256,11 @@
       "sha256": "7d972308878c6b4b03c4a934392dd4c8634497b7460b4d97294dbf3a955b5b53"
     },
     {
+      "path": "tests/test_tcad_cps_layer_grid_dyadic.py",
+      "bytes": 15580,
+      "sha256": "629d4ec74f81c83c57285ad1fdf2e3ed143669114cdc24abd6dcc804a22e96bf"
+    },
+    {
       "path": "tests/test_tcad_cps_layer_grid_plan.py",
       "bytes": 12506,
       "sha256": "0b332569146c9e2fd84b6ec462a796dacbe015849265c037cf78d23335d434e2"
@@ -35282,8 +35322,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 19148,
-      "sha256": "3f534370b7ff044a71198b3d2c5e73d8a23546a92934ed3685b78b04bc8e0263"
+      "bytes": 19450,
+      "sha256": "bb69d0b3b9681f3749cb3b5b6f633917e04b82932d370921357d747d28c3207d"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35426,6 +35466,11 @@
       "sha256": "13011ba4154caa91bd88c95474f27a166f85bbfbe1cc26795a9db65fd91af58b"
     },
     {
+      "path": "wiki/evidence/TCAD-Layer-Grid-Dyadic.md",
+      "bytes": 2699,
+      "sha256": "d264eb6148b49929d801e937f96935fe3461aafa33168715ccdca81872710a89"
+    },
+    {
       "path": "wiki/evidence/TCAD-Layer-Grid-Planning.md",
       "bytes": 9191,
       "sha256": "7abe8a75bc5a05993b5b06107b1a7ac370e2d683501d425e5371c4522edee1be"
@@ -35472,8 +35517,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 31410,
-      "sha256": "4eef409cda1c06a620603100842728d430c85a61bbd8a9dee34ec7290f4e9248"
+      "bytes": 31513,
+      "sha256": "b2a3fe9f89ddcf385b120413e6ce2a92c4c6007b1e8d5e0ba29f78cd9eb7868d"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -35594,6 +35639,11 @@
       "path": "wiki/methods/TCAD-Jacobian-Arithmetic.md",
       "bytes": 3522,
       "sha256": "677149a6e9d8e00e974fc458b5506c9ce2a884a0f164ba5620f54b4db570df3a"
+    },
+    {
+      "path": "wiki/methods/TCAD-Layer-Grid-Dyadic.md",
+      "bytes": 4216,
+      "sha256": "6b0b45983b11053d3502c089a6750127cea3e183f823426fb6e46f1f6445e654"
     },
     {
       "path": "wiki/methods/TCAD-Layer-Grid-Planning.md",
@@ -35732,18 +35782,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 93345,
-      "sha256": "80aaa5491ff6007fb6c80ded24933046739fde0a5dd3ed80a51d64e4863ff8ba"
+      "bytes": 94499,
+      "sha256": "7b33f579641f8d61f4648432b762810b32551f4c48dfc0303e0b1d97fba6454a"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 14239,
-      "sha256": "386848b99e2f38272b9de08333f8a50eb25c842018fc01b02fb399a3fddb33b4"
+      "bytes": 14286,
+      "sha256": "5b183864273595e550664c431cde853a18cfc78334b2f3e3da91f1e88d2ea9c8"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 5442,
-      "sha256": "efc3035bed95e9d2ce4e7bde18582e74a60d9118611eda3cf1e012642ddc1c71"
+      "bytes": 5501,
+      "sha256": "c3aee6187dfba24437697ee1516c0e2909915bf1fe567280c280af0392479151"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -35751,6 +35801,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7147,
-  "total_bytes": 1006931080
+  "n_files": 7157,
+  "total_bytes": 1007035987
 }
