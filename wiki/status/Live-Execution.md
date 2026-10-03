@@ -7,6 +7,30 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Explicit HXT optimizer submitted on 2026-10-03
+
+Source `9e6bdf817004436a938fe8bdb99c34b7ccef5d75` is published and remotely
+verified. Its separate sparse checkout passed the 198-file source closure and
+clean-source check before submitting job `7651765`. At 07:11:42 UTC, scheduler
+queries confirmed RUNNING on `a0157`, zero restarts. Toy passed the diagnostic
+gate but retained ill-shaped-element warnings; local1 reached the explicit
+optimizer, and the fresh repeat had not started. The
+[evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns exact
+observations, hashes and the submission receipt. A positive signed metric is
+not a conditioning or reference guarantee; all field/training/claim gates stay
+closed. No old cap or source changed.
+
+An additive terminal collector passed 24 synthetic archive tests in main.
+Next: monitor this same allocation and preserve its exact terminal outcome.
+Earlier pending-publication/submission observations below are historical.
+
+At 07:15:33 UTC, fresh scheduler queries still confirmed RUNNING, zero restarts;
+local1 remained in explicit optimization, without a final result. The combined
+source/archive/wiki regression passed 287 tests. A source-only review of the
+logged conductor-interior counts motivates a later dielectric-only formulation
+investigation in the research plan; it does not change the active diagnostic,
+its caps or its all-region gate. Terminal collection is still the next action.
+
 ## Explicit HXT post-optimization implementation on 2026-10-03
 
 Publication-receipt commit `dada417563378cd7a563462d5eb117aac3595944` is verified

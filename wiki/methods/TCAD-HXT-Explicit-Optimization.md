@@ -1,6 +1,6 @@
 ---
 title: TCAD HXT Explicit-Optimization Diagnostic
-status: PROPOSED; source frozen; numerical diagnostic pending
+status: RUNNING; source frozen; diagnostic observations only
 last_updated: 2026-10-03
 paper_source: false
 ---

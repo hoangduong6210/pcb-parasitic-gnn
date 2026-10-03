@@ -87,7 +87,37 @@ new manuscript claims stay closed. A later field qualification is a separate
 decision. The [separate implementation](../methods/TCAD-HXT-Explicit-Optimization.md)
 now includes a guarded fresh-extraction builder and fake-native integration
 tests. Its [evidence page](../evidence/TCAD-HXT-Explicit-Optimization.md) owns
-source freeze and later scheduler receipts; no new job is submitted yet.
+source freeze and scheduler receipts. The new job is submitted; this does not
+admit numerical quality, reference accuracy or a mesh-sensitivity conclusion.
+
+### Source-only follow-up question while the fixed diagnostic runs
+
+The [initial sentinel observation](../evidence/TCAD-HXT-Explicit-Optimization.md)
+contains more conductor-interior tetrahedra than dielectric tetrahedra. Source
+inspection of `code/solvers/fem_capacitance_3d.py` lines 353–395 confirms that
+every node touched by conductor tetrahedra is fixed to its net's constant
+potential, although all volume elements are assembled before condensation.
+In exact arithmetic, a P1 element with all nodal potentials equal has zero
+gradient/energy and no free row in the condensed field equations. Floating-point
+energy cancellation on a nearly singular element is not guaranteed by that
+mathematical statement. No new field calculation was run during this review.
+
+After the current fixed diagnostic is terminal and archived, investigate a
+separate dielectric-only formulation with explicitly tagged conductor surfaces.
+Retain the canonical conductor boxes, uniform permittivity, 1/0-V potentials
+and finite natural-Neumann outer boundary. Removing unused conductor interiors
+could reduce meshing/optimization work, but this has not been measured and is
+not an algorithmic novelty claim. It must not mean simply ignoring the failed
+conductor quality metrics in the running study.
+
+Such a change needs a new builder/target contract: prove interface coverage and
+net tags, compare full-volume and dielectric-only formulations on controlled
+geometries, preserve all-region gates for every old artifact, and separately
+qualify algebraic accuracy, charge/energy consistency and mesh/domain sensitivity.
+Regenerated meshes need not have equal matrix hashes, so the comparison must
+state its discretization boundary rather than claim same-system equivalence.
+Do not implement or submit this alternative as an adaptive fallback inside
+the current job; its terminal outcome remains the next operational decision.
 
 ## Preserved decisions after the meshing timeout: 2026-10-03
 

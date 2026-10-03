@@ -1,11 +1,69 @@
 ---
 title: TCAD HXT Explicit-Optimization Evidence
-status: PROPOSED; source frozen; no new mesh observation
+status: RUNNING; toy passed diagnostic gate; sentinel pending
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Explicit-Optimization Evidence
+
+## Submission and initial observation: 2026-10-03
+
+Source `9e6bdf817004436a938fe8bdb99c34b7ccef5d75` was published and remotely
+verified. Its sparse detached execution checkout passed the 198-dependency
+source lock, tracked closure and clean-source check. The main manifest passed
+with 6,991 files. The [submission receipt](../../results/tcad/cps_hxt_postopt_v1/submission.json)
+distinguishes the 07:08:59 UTC sbatch invocation from the scheduler's 07:09:00
+UTC acceptance of job `7651765`.
+
+At 07:11:42 UTC, `squeue` and `sacct` agreed the job was RUNNING on `a0157`,
+zero restarts, 41 allocated CPUs and 160 GiB. Scientific threads remain one.
+Toy passed the bounded diagnostic; local1 had generated its raw mesh and
+reached explicit native optimization. The repeat had not started. No final
+sentinel result or terminal accounting existed at this observation.
+
+Toy observations in the execution checkout's `job_7651765/toy.json`:
+
+- 1,253 nodes and 6,249 post-optimization tetrahedra.
+- Parent-observed time 12.016543281031772 seconds; worker-reported time
+  7.668135181069374 seconds; peak RSS 0.08782958984375 GiB. Worker timing
+  includes source checks and quality work, not pure mesher latency.
+- Final mesh SHA-256: `7b42ddc71d75b3db9c329e00bd050739955970ccd411f7b0f029631e2ba2a3ee`.
+- Raw quality SHA-256: `65cdd3392570b76513d994cf86a1ffe3924894155b7cc30c13347ed2c031f21c`;
+  it matches the rejected isolation toy's raw quality observation.
+- Post-quality SHA-256: `227d8ad1fd344e9b78e3ed0eb88fc1d8b56afde9c14c85a86bd8ef15104c4e8c`.
+
+The raw quality gate is still false; the post-optimization finite/positive
+gate passed. This is not numerical-quality qualification: native stderr still
+warns about ill-shaped tetrahedra. Four dielectric and three primary elements
+have signed condition below 0.01; the minimum dielectric signed condition is
+6.398856084358075e-15 and its minimum Jacobian is 4.445228907190568e-18 mm^3.
+No tolerance was changed to obtain the positive observation. Near-degenerate
+positive elements still prevent inferring reliable conditioning or reference
+accuracy from this mesh-only test.
+
+An additive terminal collector and 24 passing synthetic archive tests now
+exist in main, separate from the running frozen source. Collection requires
+terminal accounting and exact frozen receipt/log checks; no archive has yet
+been collected at this checkpoint. Field/reference/training/claim gates remain
+closed. Earlier preparation entries below are historical.
+
+At 07:15:33 UTC both scheduler queries still reported RUNNING, zero restarts,
+362 elapsed seconds. Local1's latest stage was `mesh_optimize_started`;
+neither its final quality/result nor the repeat was available. Its already
+logged raw stage (not a final mesh) reports 724,661 nodes and 4,147,907
+tetrahedra at 56.61642072885297 worker seconds, peak RSS 3.473194122314453 GiB:
+1,986,363 dielectric, 1,064,316 primary and 1,097,228 secondary tetrahedra.
+Raw signed conditions include 111 nonpositive primary and 129 nonpositive
+secondary observations, but none in dielectric; all raw determinants are
+positive. The raw strict-quality outcome remains false. These observations
+do not qualify any region or remove the all-region post-optimization gate.
+
+The combined submission/collector regression subsequently passed 287 tests
+with no skips. Only synthetic, source and metadata work ran on login. The
+[research plan](../manuscript/TCAD-Research-Plan.md) now records a source-only
+investigation of the cost of meshing fixed-potential conductor interiors; it
+does not alter or cancel this allocation.
 
 ## Implementation on 2026-10-03
 

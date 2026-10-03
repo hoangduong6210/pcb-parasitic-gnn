@@ -1,11 +1,21 @@
 ---
 title: TCAD HXT Explicit-Optimization Runbook
-status: PROPOSED; validation and source publication precede submission
+status: RUNNING; source published; bounded job submitted
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD HXT Explicit-Optimization Runbook
+
+The source is published and the bounded job is submitted; the evidence page
+owns current scheduler state. The additive metadata-only collector
+`code/experiments/proofs/archive_tcad_cps_hxt_postopt_v1.py` supports
+`--source-root` for terminal collection and `--check` for subsequent verification.
+It refuses overwrite, symlinks, changed bytes, incomplete member closure,
+source/submission mismatch or nonterminal/restarted accounting. Do not collect
+from a running job. Preserve raw native stdout whitespace; force-add only exact
+ignored scheduler `.out` members, never internal agent instructions. Every
+archive member must be Git-tracked before publication.
 
 This [diagnostic](../methods/TCAD-HXT-Explicit-Optimization.md) is separately
 versioned. Preserve all prior sources and rejected archives. Tiny synthetic
