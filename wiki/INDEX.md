@@ -71,7 +71,9 @@ paper_source: false
 | [TCAD Dyadic Layer-Grid Method](methods/TCAD-Layer-Grid-Dyadic.md) | Canonical-only planes, midpoint face-band refinement and prospective width budget |
 | [TCAD Dyadic Layer-Grid Evidence](evidence/TCAD-Layer-Grid-Dyadic.md) | Separately frozen follow-up with unchanged capacity/conditioning gates |
 | [TCAD Column Feasibility Contract](methods/TCAD-Column-Feasibility.md) | Exact footprint ownership, column counts, conforming prism template and new element-map bound |
-| [TCAD Column Feasibility Evidence](evidence/TCAD-Column-Feasibility.md) | Synthetic implementation coverage; native/real-input prerequisites remain open |
+| [TCAD Column Feasibility Evidence](evidence/TCAD-Column-Feasibility.md) | Native toy pass and rejected sentinel capture-cap outcome; preserved partial evidence |
+| [TCAD Sizing Budget Diagnostic](methods/TCAD-Sizing-Budget.md) | Exact projected coverage, descriptive workload indices and unchanged vertical budgets |
+| [TCAD Sizing Budget Evidence](evidence/TCAD-Sizing-Budget.md) | Separately frozen archived-input diagnosis; no native retry or candidate selection |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

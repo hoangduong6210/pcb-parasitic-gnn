@@ -7,6 +7,53 @@ paper_source: false
 
 # Repository Storage and Immutable Evidence
 
+## Post-column incremental pack on 2026-10-03
+
+The next continuation began with 999,940 of 1,000,000 account files and 326
+loose Git objects. Main was clean and matched GitHub at
+`038bc0aeed706438a441453aa9ac07a547d7ce44`. Separate maintenance job
+`7654378`, submitted at 13:56:18 UTC, completed with `COMPLETED/0:0`, zero
+restarts, 40 seconds, three allocated CPUs and 8 GiB on `a0113`.
+The same bounded incremental pack used one thread after a verified RUNNING
+allocation/compute-host check; no source editing or committing occurred during
+the operation. Full integrity checking passed. All object-ID, ref and worktree
+inventory hashes remained identical, and tracked bytes were unchanged.
+
+Loose objects decreased from 326 to 27; packed objects increased from 12,401
+to 12,700 in three packs. Only redundant loose copies were removed; their
+contents remain in Git packs. No scientific artifact, archive, source worktree,
+unreachable-object pruning or history rewrite was involved. The
+[operation receipt](../../results/operations/git_pack_column_20261003/receipt.json)
+records exact identities. The script and original logs remain in `.internal/`.
+This storage operation is not scientific validation. Check current account
+headroom before further work because other account activity also changes quota.
+
+Twenty completed synthetic fixture roots were then inspected and removed from
+`.internal/`: `q1-wiki-check.QzjN06`, `hxt-wiki-tests.xXLfEj`,
+`hxt-receipt-tests.tSdjIC`, `tcad-hxt-publication-tests.8IvJOl`,
+`column-publication-receipt.bgzMQw`, `tcad-isolation-publication.H5Sm2R`,
+`tcad-postopt-wiki.PIb6Ab`, `tcad-postopt-checkpoint.SJRU8c`,
+`tcad-postopt-review-wiki.PjeIUo`, `tcad-wiki-precommit.RWj3oh`,
+`tcad-publication-wiki.qVODnE`, `cad-freeze-wiki.IUnbWW`,
+`cad-terminal-wiki.2TUs7P`, `cad-publication-receipt.nPP1qZ`,
+`dielectric-mesh-receipt.oQo09o`, `dielectric-mesh-freeze-wiki.oZgbmM`,
+`dielectric-mesh-wiki.UsQsgK`, `dielectric-mesh-terminal-wiki.bCJJCi`,
+`dielectric-mesh-archive-wiki.yPYQG2`, and `dielectric-mesh-publication.q1mEU0`.
+Their 200 entries comprised 80 directories, 60 pytest links and 60 small files
+matching the same three reproducible prose-test hashes. No pytest process or
+job was active during inspection/removal. Only these exact roots were removed,
+without following links; tests can regenerate the text. No scientific evidence,
+execution worktree or Git content was removed. Observed file use at 14:03:58 UTC
+was 999,314 of 1,000,000; other account activity also affects this number.
+
+Three newly completed roots were subsequently inspected and removed:
+`sizing-budget-math.IZw3pI`, `sizing-budget-integration.6HvsD7`, and
+`sizing-budget-prefreeze.e8IeAM`. They held only pytest links, empty directories
+and the three hash-matched prose fixtures. Scientific data/worktrees were
+unchanged; the frozen regression used its own separate active fixture root.
+
+## Earlier incremental pack on 2026-10-03
+
 Before another frozen execution checkout, file quota was 999,779 of 1,000,000.
 The repository had 1,094 loose objects. The separate non-scientific maintenance
 job `7652583`, submitted at 10:45:46 UTC on 2026-10-03, ran

@@ -74,7 +74,8 @@ It passes the condition screen but still fails sentinel capacity. No new mesh
 is qualified. The [planar-footprint/column contract](../evidence/TCAD-Column-Feasibility.md)
 now has guarded native integration and completed its bounded SLURM attempt.
 Toy passed, but sentinel exceeded the frozen planar capture cap; repeat did not
-run. Preserve the rejected attempt and separately diagnose sizing/capacity
+run. The rejected attempt is archived and published; the separate
+[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) is being frozen
 before proposing a replacement. Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.
 The canonical preservation boundaries remain in

@@ -7,6 +7,42 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Sizing-budget source frozen on 2026-10-03
+
+The [separate archived-input diagnostic](../evidence/TCAD-Sizing-Budget.md)
+has a fixed 425-dependency lock and passed **305 frozen tests, zero skips**.
+The 304-test pre-freeze suite had one expected lock skip. The prose audit
+passed. No actual geometry diagnosis has run and no scientific job is active.
+Publish this source, verify a fresh sparse checkout, then submit one bounded
+SLURM diagnosis. No native retry, candidate selection or cap increase is included.
+Records remain local pending push; the full TCAD goal remains active/incomplete.
+Three additional inspected completed fixture roots were removed; no scientific
+data or execution worktree was deleted.
+
+## Sizing/capacity diagnosis preparation on 2026-10-03
+
+The previous goal turn made concrete progress through guarded implementation,
+one native SLURM study and publication of its rejected sentinel outcome. This
+continuation reverified GitHub main at
+`038bc0aeed706438a441453aa9ac07a547d7ce44`; the worktree was clean and
+the owner's queue empty. The full TCAD goal remains active and incomplete.
+
+Near-full file quota was addressed by the
+[verified storage operation](../operations/Repository-Storage.md), job
+`7654378`, completed with all objects, refs, tracked bytes and worktrees retained.
+No scientific artifact was removed. Next: separately specify and implement a
+bounded sizing/capacity diagnosis from the preserved planar CAD, field settings
+and native log, without regenerating a mesh or increasing any prior cap. All
+real geometry calculations remain allocation/source/runtime-guarded SLURM work.
+Current preparation and maintenance receipts remain local pending publication.
+
+The [sizing-budget contract](../methods/TCAD-Sizing-Budget.md) now has an exact
+arithmetic kernel and guarded report-only integration. Initial tests passed
+34 arithmetic cases and 85 combined cases with one pre-freeze skip; additional
+negative tests and source freeze are next. No actual layout diagnosis has run.
+Twenty inspected completed synthetic fixture roots were removed; their tiny
+text fixtures are reproducible, and no scientific data/worktree was deleted.
+
 ## Column terminal checkpoint published on 2026-10-03
 
 At 13:49:51 UTC GitHub main and local HEAD were verified as

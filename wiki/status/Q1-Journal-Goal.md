@@ -70,9 +70,10 @@ The separate [midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
 also completed and is archived: condition gates pass, but sentinel capacity
 still fails. The [column contract](../evidence/TCAD-Column-Feasibility.md) now
 has completed its guarded native study: toy passed, but sentinel exceeded the
-frozen planar capture cap. Repeat was omitted after that failure. Archive and
-publish the rejected attempt, then separately diagnose sizing/capacity before
-a replacement policy; native log totals do not qualify a sentinel mesh. Do not relax the
+frozen planar capture cap. Repeat was omitted after that failure. The rejected
+attempt is archived and published. A separate
+[sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) is being frozen
+before a replacement policy; native log totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new
