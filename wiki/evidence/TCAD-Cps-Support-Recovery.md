@@ -1,11 +1,43 @@
 ---
 title: TCAD Compact-Support Recovery Evidence
-status: RUNNING; smoke backend check passed; single-sentinel feasibility submitted
+status: REJECTED; incomplete at the frozen AMG operator-complexity cap
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # TCAD Compact-Support Recovery Evidence
+
+## Terminal inspection and archive on 2026-10-02
+
+The feasibility and finalizer jobs are terminal; submission observations below
+are historical. Job `7647612` failed `2:0`, zero restarts, after 404 seconds on
+`a0102` (41 allocated CPUs, 160 GiB request, one scientific thread). Only local0
+was attempted. Its mesh contained 349,777 nodes and 1,903,228 tetrahedra; the
+condensed system had 18,629 free unknowns and 179,089 nonzeros. Mesh generation
+and assembly completed. AMG setup reported operator complexity
+1.2752039488745819, above the frozen 1.25 cap. The worker stopped before CG;
+no layout-597 capacitance was emitted. Worker elapsed time was
+400.0775431881193 seconds and observed peak RSS was 3.264820098876953 GiB;
+neither timeout, memory nor mesh-node limits caused this failure.
+
+Finalizer `7647619` failed `2:0`, zero restarts, after two seconds on `a0196`.
+It retained the failed arm and attempt binding, with incomplete coverage,
+empty comparisons and all qualification/training/claim flags false. The
+remaining six arms, including the support control, were not run.
+
+The [terminal archive](../../results/tcad/cps_support_recovery_v1/archive/feasibility_7647612/manifest.json)
+contains ten byte-preserved artifacts and scheduler logs, plus the manifest's
+metadata-only diagnosis and terminal accounting. Manifest SHA-256:
+`87883064b9d074f6de47485bda3dc08fe00e32eaacc2032a4200ac234496bcc4`.
+Attempt SHA-256:
+`5ca56cb413484b0301dcd29e5e3cc76c1ccfdfedb4dbd90bb815b74056ed426b`.
+Final summary SHA-256:
+`5ec5ad7653d0f075efdcbd25a6234b6896c63b76d7f163a63e8b1838d26887eb`.
+The old source, lock and caps remain unchanged. The owner requested continuation;
+the next step is a separately versioned
+[AMG diagnostic](../methods/TCAD-Cps-AMG-Diagnostic.md), not an automatic rerun
+or a repair of this rejected study. Preparation and publication status belong
+to its [evidence page](TCAD-Cps-AMG-Diagnostic.md).
 
 ## Owner-authorized preparation
 

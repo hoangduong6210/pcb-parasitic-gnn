@@ -1,0 +1,23 @@
+{
+  "schema": "pcb-gnn.tcad-cps-amg-diagnostic.v1",
+  "protocol_name": "tcad-cps-unsmoothed-prolongation-diagnostic-v1",
+  "scope": "one fixed AMG candidate on toy and failed compact local0; not a feasibility rerun",
+  "parent_protocol_sha256": "15460aa39a19d1edf8981d0c54768d4970e88ec5782c1118c5537c2bbde3b3c9",
+  "terminal_archive_sha256": "87883064b9d074f6de47485bda3dc08fe00e32eaacc2032a4200ac234496bcc4",
+  "candidate": {"smooth": null, "symmetry": "symmetric", "max_coarse": 50},
+  "other_amg_options": "inherit pinned PyAMG 5.3.0 defaults and constant near-nullspace candidate",
+  "modes": ["toy", "local0"],
+  "expected_systems": {
+    "toy": {"system_sha256": "3cd4eda00692dc7dc024d9f9c971b716060e08eb826a4ce0541725c7077d48d2", "mesh_nodes": 1481, "mesh_tetrahedra": 7917},
+    "local0": {"system_sha256": "553c27ce6fdcadaf43b7e5a711bcec6e88456eb46074cdf8aad7c96a75eb7aa6", "mesh_nodes": 349777, "mesh_tetrahedra": 1903228, "n_free": 18629, "nnz": 179089}
+  },
+  "diagnostic_scheduler_time_limit": "00:45:00",
+  "direct_n_free_max": 25000,
+  "solution_relative_l2_max": 0.000001,
+  "inheritance": "unchanged compact mesh, physics, solver tolerances, threads and per-worker resource caps; one 160 GiB job, toy capped at 600 s/6 GiB then local0 at 1200 s/120 GiB",
+  "automatic_retries": 0,
+  "automatic_feasibility_expansion": false,
+  "training_may_start": false,
+  "claim_eligible": false,
+  "reference_qualified": false
+}

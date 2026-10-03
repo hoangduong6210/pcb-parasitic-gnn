@@ -1,11 +1,15 @@
 ---
 title: TCAD Compact-Support Recovery Method
-status: RUNNING; frozen single-sentinel feasibility protocol
+status: REJECTED; frozen protocol retained after incomplete execution
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # TCAD Compact-Support Recovery Method
+
+Execution closed at the local0 AMG cap before a capacitance result; see the
+[terminal evidence](../evidence/TCAD-Cps-Support-Recovery.md). The contract
+below is preserved unchanged, not amended to admit that failure.
 
 ## Question and unchanged contract
 

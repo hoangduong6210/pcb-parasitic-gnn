@@ -1,11 +1,17 @@
 ---
 title: TCAD Compact-Support Recovery Runbook
-status: RUNNING; smoke passed; feasibility and finalizer submitted
+status: REJECTED; execution closed; runbook retained for provenance
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # TCAD Compact-Support Recovery Runbook
+
+Both submitted jobs are terminal and the study is incomplete at its AMG cap.
+Do not resubmit this frozen chain or increase its limits. The
+[evidence page](../evidence/TCAD-Cps-Support-Recovery.md) records the archive;
+the separately versioned [AMG diagnostic](TCAD-Cps-AMG-Diagnostic.md) is the
+next bounded step.
 
 Follow the [method](../methods/TCAD-Cps-Compact-Support-Recovery.md) and record
 outcomes in [recovery evidence](../evidence/TCAD-Cps-Support-Recovery.md).

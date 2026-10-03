@@ -7,6 +7,28 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD support failure archived; AMG diagnostic preparation on 2026-10-02
+
+The owner requested continuation. Support job `7647612` stopped at local0 AMG
+operator complexity, before CG; finalizer `7647619` retained incomplete coverage.
+Both jobs are terminal and their ten-file closure is archived and checked.
+The [support evidence](../evidence/TCAD-Cps-Support-Recovery.md) owns the exact
+failure and hashes. Earlier RUNNING observations below are historical.
+
+A separately versioned [AMG diagnostic](../methods/TCAD-Cps-AMG-Diagnostic.md)
+now tests one predeclared prolongation setting with the original worker caps,
+exact recorded matrix identity and a direct comparator. This is local
+preparation, not a submitted job or a repaired feasibility result. Last remote
+`main` verified: `f62607eb442a7ccc51ae81f5ca03407f1e8d7fe0`.
+Next: no-solver validation, freeze and publication before bounded SLURM execution.
+No heavy computation ran on login; no training or paper claim was opened.
+
+Preparation validation subsequently passed all 148 focused no-solver tests,
+the prose audit, shell syntax and terminal-archive reconstruction checks. The
+new source is frozen; its [evidence page](../evidence/TCAD-Cps-AMG-Diagnostic.md)
+owns the lock hash. Publication and numerical execution are still pending at
+this checkpoint.
+
 ## TCAD single-sentinel support recovery submitted on 2026-10-02
 
 Compact-support smoke `7647608` passed its same-matrix backend checks and

@@ -1,11 +1,16 @@
 ---
 title: Bounded Compact-Support Feasibility After the TCAD Pilot
-status: RUNNING; owner-authorized bounded recovery submitted
+status: REJECTED; bounded trial incomplete; original decision preserved
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # Bounded Compact-Support Feasibility After the TCAD Pilot
+
+The bounded trial is now closed at the local0 AMG operator-complexity cap,
+before CG or a capacitance result. Its [evidence](../evidence/TCAD-Cps-Support-Recovery.md)
+is retained; this does not establish compact-support accuracy or infeasibility
+under every solver policy. The decision below records the original trial.
 
 The owner requested the next step after the original three-sentinel pilot
 stopped at the mesh-node cap. Preserve that rejected pilot, its frozen source

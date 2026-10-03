@@ -1,0 +1,131 @@
+{
+  "arms": {
+    "local0": {
+      "arm": {
+        "far_size_mm": 4.0,
+        "level": 0,
+        "name": "local0",
+        "pad_mm": 16.0,
+        "support": "compact"
+      },
+      "elapsed_s": 400.0775431881193,
+      "failure": "worker exited 1; retain stderr",
+      "files_sha256": {
+        "local0.stderr": "f63c1d09a4e1d1756c07bc4a429d0bd4e0e99ad6bd099d92ce776bc1a156c179",
+        "local0.stdout": "0726f91d664f599d8bbfc65df75145c9f820346aa35fdbeaf788a987ffd8c2ff"
+      },
+      "observed_peak_rss_gib": 3.264820098876953,
+      "passed": false,
+      "returncode": 1
+    }
+  },
+  "failure": null,
+  "layout_id": 597,
+  "lock_sha256": "b79411aeb3e327a96b61c0a746fae3ec2d4774542677eaff8cafa9616f45fd39",
+  "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+  "passed": false,
+  "phase": "feasibility",
+  "protocol_sha256": "15460aa39a19d1edf8981d0c54768d4970e88ec5782c1118c5537c2bbde3b3c9",
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1"
+    },
+    "python": "3.9.21",
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "1"
+    }
+  },
+  "scheduler": {
+    "Account": "pgs0407",
+    "AccrueTime": "2026-10-03T02:00:58",
+    "AllocNode:Sid": "ascend-login01:457187",
+    "AllocTRES": "cpu=41,mem=160G,node=1,billing=41",
+    "BatchFlag": "1",
+    "BatchHost": "a0102",
+    "CPUs/Task": "41",
+    "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "Contiguous": "0",
+    "CoreSpec": "*",
+    "Deadline": "N/A",
+    "DelayBoot": "00:00:00",
+    "Dependency": "(null)",
+    "EligibleTime": "2026-10-03T02:00:58",
+    "EndTime": "2026-10-03T05:00:59",
+    "ExcNodeList": "(null)",
+    "ExitCode": "0:0",
+    "Features": "(null)",
+    "GroupId": "PGS0407(9475)",
+    "JobId": "7647612",
+    "JobName": "tcad-support-feas",
+    "JobState": "RUNNING",
+    "LastSchedEval": "2026-10-03T02:00:59",
+    "Licenses": "(null)",
+    "LicensesAlloc": "(null)",
+    "MCS_label": "N/A",
+    "MinCPUsNode": "41",
+    "MinMemoryNode": "160G",
+    "MinTmpDiskNode": "0",
+    "Network": "(null)",
+    "Nice": "0",
+    "NodeList": "a0102",
+    "NtasksPerN:B:S:C": "0:0:*:1",
+    "NumCPUs": "41",
+    "NumNodes": "1",
+    "NumTasks": "1",
+    "OverSubscribe": "OK",
+    "Partition": "nextgen",
+    "PreemptEligibleTime": "2026-10-03T02:00:59",
+    "PreemptTime": "None",
+    "Priority": "300000534",
+    "QOS": "ascend-default",
+    "Reason": "None",
+    "Reboot": "0",
+    "ReqB:S:C:T": "0:0:*:*",
+    "ReqNodeList": "(null)",
+    "ReqTRES": "cpu=1,mem=160G,node=1,billing=1",
+    "Requeue": "0",
+    "Restarts": "0",
+    "RunTime": "00:00:01",
+    "Scheduler": "Backfill",
+    "SecsPreSuspend": "0",
+    "Socks/Node": "*",
+    "StartTime": "2026-10-03T02:00:59",
+    "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "StdIn": "/dev/null",
+    "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "SubmitTime": "2026-10-03T02:00:58",
+    "SuspendTime": "None",
+    "TimeLimit": "03:00:00",
+    "TimeMin": "N/A",
+    "TresPerTask": "cpu=1",
+    "UserId": "binben14(51204)",
+    "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN"
+  },
+  "smoke": {
+    "accounting": [
+      {
+        "AllocCPUS": "3",
+        "ElapsedRaw": "8",
+        "ExitCode": "0:0",
+        "JobID": "7647608",
+        "NodeList": "a0202",
+        "ReqMem": "8G",
+        "Restarts": "0",
+        "State": "COMPLETED"
+      }
+    ],
+    "attempt_sha256": "8b0723383c6c840901f60d148a048d1e64eb990d437fdff3a21854cdba66980c",
+    "job_id": "7647608"
+  },
+  "source_commit": "546fb480a451e143178c49b1fa3e4b3ecd39f774"
+}

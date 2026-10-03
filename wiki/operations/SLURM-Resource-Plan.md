@@ -7,6 +7,16 @@ paper_source: false
 
 # SLURM Resource Plan
 
+## TCAD same-matrix AMG diagnostic
+
+Both prior TCAD reference chains are closed and incomplete. The
+[AMG diagnostic](TCAD-Cps-AMG-Diagnostic.md) requests one 160 GiB, 45-minute
+job with one scientific thread. It runs a toy worker capped at 600 seconds and
+6 GiB RSS, then local0 capped at 1,200 seconds and 120 GiB RSS. Original mesh
+and operator-complexity caps are unchanged. Direct comparison shares each
+worker's budget and is additionally limited to 25,000 free unknowns. No array,
+automatic retry, full-pilot extension or training is authorized.
+
 ## TCAD reference pilot
 
 The original pilot is terminal and incomplete at its mesh-node cap. The

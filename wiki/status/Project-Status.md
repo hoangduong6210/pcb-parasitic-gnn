@@ -17,6 +17,10 @@ the largest sentinel hit the frozen mesh-node cap. No job in this pilot chain
 remains active. Terminal evidence is now archived; the owner authorized a
 separately versioned [compact-support feasibility study](../methods/TCAD-Cps-Compact-Support-Recovery.md)
 on the failed largest sentinel, with original caps unchanged.
+That study also closed incomplete, at the local0 AMG-complexity cap before CG.
+Its terminal evidence is archived. The next bounded implementation is a
+[same-matrix AMG diagnostic](../methods/TCAD-Cps-AMG-Diagnostic.md), not a full
+feasibility rerun or authorization to train.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -45,7 +49,8 @@ instead of calling one column ground truth.
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
 | TCAD reference-qualification continuation | `REJECTED PILOT; REVIEW PENDING` | Smoke validated; two sentinels complete, third stopped at the frozen mesh-node cap; finalizer rejects incomplete coverage; no convergence claim or training authorization |
-| TCAD compact-support recovery | `RUNNING; FEASIBILITY SUBMITTED` | New same-matrix smoke passed; largest-sentinel job and finalizer submitted; support sensitivity pending; no cap increase or automatic full-pilot expansion |
+| TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
+| TCAD same-matrix AMG diagnostic | `VALIDATED SOURCE; EXECUTION PENDING` | One new preconditioner candidate, exact matrix identities and direct comparator; unchanged worker caps; no qualified reference or automatic expansion |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

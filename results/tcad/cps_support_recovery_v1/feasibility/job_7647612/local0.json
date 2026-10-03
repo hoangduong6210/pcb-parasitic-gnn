@@ -1,0 +1,18 @@
+{
+  "arm": {
+    "far_size_mm": 4.0,
+    "level": 0,
+    "name": "local0",
+    "pad_mm": 16.0,
+    "support": "compact"
+  },
+  "elapsed_s": 400.0775431881193,
+  "failure": "worker exited 1; retain stderr",
+  "files_sha256": {
+    "local0.stderr": "f63c1d09a4e1d1756c07bc4a429d0bd4e0e99ad6bd099d92ce776bc1a156c179",
+    "local0.stdout": "0726f91d664f599d8bbfc65df75145c9f820346aa35fdbeaf788a987ffd8c2ff"
+  },
+  "observed_peak_rss_gib": 3.264820098876953,
+  "passed": false,
+  "returncode": 1
+}
