@@ -65,6 +65,13 @@ with no skips. Only synthetic, source and metadata work ran on login. The
 investigation of the cost of meshing fixed-potential conductor interiors; it
 does not alter or cancel this allocation.
 
+The submission/collector checkpoint was published and remote-hash verified as
+`e8b3da2bf4925f79945384216e5b60283d65645d`. At 07:19:25 UTC the same job was
+still RUNNING, zero restarts, 594 elapsed seconds. Its attempt receipt still
+contains only the passed toy; local1 remains in explicit optimization. Unchanged
+native log output is not a terminal observation. No timeout, final sentinel
+mesh or repeat result is inferred from that unchanged log.
+
 ## Implementation on 2026-10-03
 
 The preceding isolation archive and research decision are published; the later

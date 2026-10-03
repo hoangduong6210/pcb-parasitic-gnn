@@ -7,6 +7,19 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Submission checkpoint published and allocation rechecked on 2026-10-03
+
+Submission/collector checkpoint `e8b3da2bf4925f79945384216e5b60283d65645d` is
+published and remote-hash verified. At 07:19:25 UTC both scheduler queries
+still reported job `7651765` RUNNING on `a0157`, zero restarts, 594 elapsed
+seconds. Toy remains the sole completed mode; local1 is still in explicit
+optimization and no fresh repeat has begun. The running source remains
+`9e6bdf817004436a938fe8bdb99c34b7ccef5d75`, separate from main's documentation
+and collector updates. The 6,994-file manifest passed, as did the 287-test
+regression and subsequent wiki/prose checks. No reference or training gate is
+opened. Next: recheck this same live allocation, then collect terminal evidence;
+do not restart it because native log output has not changed.
+
 ## Explicit HXT optimizer submitted on 2026-10-03
 
 Source `9e6bdf817004436a938fe8bdb99c34b7ccef5d75` is published and remotely
