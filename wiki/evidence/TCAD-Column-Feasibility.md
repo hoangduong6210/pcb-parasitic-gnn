@@ -7,6 +7,24 @@ paper_source: false
 
 # TCAD Column Feasibility Implementation Evidence
 
+## Terminal checkpoint published on 2026-10-03
+
+At **13:49:51 UTC**, GitHub main and local HEAD were verified as
+`4060fd4b2d13111bd39e419a8f9058b8a32ac40c`. All 30 terminal members,
+the additive collector and terminal regression tests are published. The
+7,230-file manifest, 556-test frozen suite, 342-test terminal suite, final
+55-test wiki/prose recheck and standalone prose audit passed. Internal agent
+instructions remain ignored/untracked. Three completed archive/wiki/terminal
+fixture roots were inspected and removed; all scientific evidence and source
+worktrees remain preserved.
+
+The sentinel-capacity rejection is unchanged. Next: a separately frozen
+sizing/capacity diagnostic of the preserved geometry and field configuration,
+through SLURM, before any replacement policy. Do not increase caps, infer a
+validated sentinel packet from native logs or retry this frozen candidate.
+Publication does not qualify a field or admit a paper claim. Earlier statements
+about pending terminal publication below are historical, not open blockers.
+
 ## Terminal capacity rejection on 2026-10-03
 
 At **13:40:09 UTC**, job **7653784** was absent from the queue and accounting

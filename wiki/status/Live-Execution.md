@@ -7,6 +7,25 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column terminal checkpoint published on 2026-10-03
+
+At 13:49:51 UTC GitHub main and local HEAD were verified as
+`4060fd4b2d13111bd39e419a8f9058b8a32ac40c`. The 30-member terminal
+archive, additive collector and rejection evidence are published. The
+7,230-file manifest, 556 frozen tests, 342 terminal tests, final 55-test
+wiki/prose recheck and prose audit passed. Agent guidance remains untracked.
+Three inspected completed archive/wiki/terminal fixture roots were removed;
+all scientific data and execution worktrees remain preserved.
+
+No job is active. The [evidence owner](../evidence/TCAD-Column-Feasibility.md)
+records toy success and sentinel capture-cap failure; repeat did not run.
+Next: separately specify/freeze a sizing/capacity diagnosis using the preserved
+CAD/sizing/log evidence. All real geometry/mesh analysis remains SLURM-only.
+Do not raise caps or retry the rejected policy. File quota remains near its
+limit; check headroom before a new checkout without deleting scientific data.
+This goal turn made implementation, native-execution and preservation progress;
+the full TCAD goal remains active and incomplete.
+
 ## Column sentinel capacity rejection on 2026-10-03
 
 At 13:40:09 UTC job **7653784** was terminal `FAILED/2:0`, zero restarts,
