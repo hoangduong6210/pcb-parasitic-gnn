@@ -1,0 +1,38 @@
+STAGE={"stage": "canonical_geometry_verified", "elapsed_s": 6.929560089949518, "peak_rss_gib": 0.048679351806640625, "n_traces": 2, "cad_report_sha256": "ffbf35380c0d76c808a49d79309b8830e34091e887b7f59c33c56045ce7e33ad"}
+STAGE={"stage": "planar_inputs_preserved", "elapsed_s": 7.102783729787916, "peak_rss_gib": 0.057468414306640625, "surfaces": 3}
+Info    : Cannot bind existing OpenCASCADE surface 2 to second tag 3
+Info    : Could not preserve tag of 2D object 3 (->2)
+STAGE={"stage": "planar_cad_preserved", "elapsed_s": 7.1441917268093675, "peak_rss_gib": 0.059421539306640625, "cad_sha256": "3c5107ee9cb8e12f42d7c18739690d0fd0d185cd22bd758ded8973065c3dbc1b"}
+STAGE={"stage": "planar_cad_verified", "elapsed_s": 7.1452022339217365, "peak_rss_gib": 0.059421539306640625, "entity_counts": {"0": 8, "1": 8, "2": 2}}
+STAGE={"stage": "sizing_fields_preserved", "elapsed_s": 7.147416960913688, "peak_rss_gib": 0.059421539306640625, "sizing_sha256": "1052fb921f69c7ff643d1aba8213083af4901b2289d60485b9ee549b85b102a5"}
+STAGE={"stage": "probe_state_before_preserved", "elapsed_s": 7.1500562857836485, "peak_rss_gib": 0.059421539306640625}
+Info    : Running Plugin(MeshSizeFieldView)...
+Info    : Done running Plugin(MeshSizeFieldView)
+Info    : Running Plugin(MeshSizeFieldView)...
+Info    : Done running Plugin(MeshSizeFieldView)
+STAGE={"stage": "sizing_probe_preserved", "elapsed_s": 7.225255580851808, "peak_rss_gib": 0.061374664306640625, "probe_sha256": "3344ae5ee5698913d505c0974b1b61740797f7bf372442c37433b08dc5782617"}
+STAGE={"stage": "probe_state_after_preserved", "elapsed_s": 7.2278926118742675, "peak_rss_gib": 0.061374664306640625}
+STAGE={"stage": "probe_state_restored", "elapsed_s": 7.2279262049123645, "peak_rss_gib": 0.061374664306640625}
+STAGE={"stage": "sizing_probe_verified", "elapsed_s": 7.228697832906619, "peak_rss_gib": 0.061374664306640625, "point_count": 60}
+STAGE={"stage": "planar_mesh_generate_started", "elapsed_s": 7.22871962399222, "peak_rss_gib": 0.061374664306640625, "dimension": 2}
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 1 (Line)
+Info    : [ 20%] Meshing curve 2 (Line)
+Info    : [ 30%] Meshing curve 3 (Line)
+Info    : [ 40%] Meshing curve 4 (Line)
+Info    : [ 60%] Meshing curve 5 (Line)
+Info    : [ 70%] Meshing curve 6 (Line)
+Info    : [ 80%] Meshing curve 7 (Line)
+Info    : [ 90%] Meshing curve 8 (Line)
+Info    : Done meshing 1D (Wall 0.00648444s, CPU 0.001264s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 2 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 3 (Plane, Delaunay)
+Info    : Done meshing 2D (Wall 0.00697081s, CPU 0.002725s)
+Info    : 201 nodes 460 elements
+STAGE={"stage": "planar_mesh_generate_finished", "elapsed_s": 7.246937755960971, "peak_rss_gib": 0.062351226806640625, "dimension": 2}
+STAGE={"stage": "planar_packet_preserved", "elapsed_s": 7.272025563986972, "peak_rss_gib": 0.06332778930664062, "packet_sha256": "7175b0c2ef05448e5fd2072959e98c9d985c3810c80ddb173c40f32caa98032f", "payload_bytes": 27136}
+STAGE={"stage": "planar_cad_unchanged", "elapsed_s": 7.274305764818564, "peak_rss_gib": 0.06332778930664062}
+STAGE={"stage": "column_plan_preserved", "elapsed_s": 7.683752506971359, "peak_rss_gib": 0.06332778930664062, "planning_feasible": true, "planning_checks": {"node_upper_bound": true, "tetrahedron_count": true, "jacobian_condition_bound": true, "prospective_mesh_volume": true}}
+STAGE={"stage": "gmsh_finalized", "elapsed_s": 7.684183404780924, "peak_rss_gib": 0.06332778930664062}
+RESULT={"report_sha256": "fb03c462100fc137020481b15e048cecf675453ebffef3ce6366e5299e65541f", "report_bytes": 13502, "planning_feasible": true, "planar_mesh_generated": true, "bundle": {"manifest_sha256": "c016351d8c9343e8b872958447903297f0508495e4fff2098382467416463324", "packet_sha256": "7175b0c2ef05448e5fd2072959e98c9d985c3810c80ddb173c40f32caa98032f", "payload_bytes": 27136}, "source_commit": "5a6eb0d7d48114a9d96e15e968ffa54727127c97", "lock_sha256": "6dd9567573dff42854a79a9df16e8c65c97e899aa61fd2c8b365c5ad5fe12d41", "protocol_sha256": "5ce71ce4b556deedada58591051faf429117e70e74e052e3538fdf875ab1bed6", "scheduler": {"JobId": "7655921", "JobName": "tcad-edge-feasibility-v2", "UserId": "binben14(51204)", "GroupId": "PGS0407(9475)", "MCS_label": "N/A", "Priority": "300000534", "Nice": "0", "Account": "pgs0407", "QOS": "ascend-default", "JobState": "RUNNING", "Reason": "None", "Dependency": "(null)", "Requeue": "0", "Restarts": "0", "BatchFlag": "1", "Reboot": "0", "ExitCode": "0:0", "RunTime": "00:00:17", "TimeLimit": "00:35:00", "TimeMin": "N/A", "SubmitTime": "2026-10-03T16:21:45", "EligibleTime": "2026-10-03T16:21:45", "AccrueTime": "2026-10-03T16:21:45", "StartTime": "2026-10-03T16:21:49", "EndTime": "2026-10-03T16:56:49", "Deadline": "N/A", "PreemptEligibleTime": "2026-10-03T16:21:49", "PreemptTime": "None", "SuspendTime": "None", "SecsPreSuspend": "0", "LastSchedEval": "2026-10-03T16:21:49", "Scheduler": "Backfill", "Partition": "nextgen", "AllocNode:Sid": "ascend-login02:3512585", "ReqNodeList": "(null)", "ExcNodeList": "(null)", "NodeList": "a0113", "BatchHost": "a0113", "NumNodes": "1", "NumCPUs": "3", "NumTasks": "1", "CPUs/Task": "3", "ReqB:S:C:T": "0:0:*:*", "ReqTRES": "cpu=1,mem=8G,node=1,billing=1", "AllocTRES": "cpu=3,mem=8G,node=1,billing=3", "Socks/Node": "*", "NtasksPerN:B:S:C": "0:0:*:1", "CoreSpec": "*", "MinCPUsNode": "3", "MinMemoryNode": "8G", "MinTmpDiskNode": "0", "Features": "(null)", "DelayBoot": "00:00:00", "OverSubscribe": "OK", "Contiguous": "0", "Licenses": "(null)", "LicensesAlloc": "(null)", "Network": "(null)", "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "StdIn": "/dev/null", "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "TresPerTask": "cpu=1"}, "runtime": {"python": "3.9.21", "packages": {"gmsh": "4.15.2", "numpy": "2.0.2", "pyamg": "5.3.0", "scikit-fem": "11.0.0", "scipy": "1.13.1"}, "threads": {"BLIS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "NUMEXPR_NUM_THREADS": "1", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "PCB_GNN_GMSH_THREADS": "1", "OMP_DYNAMIC": "FALSE"}}, "mode": "toy", "stages": ["canonical_geometry_verified", "planar_inputs_preserved", "planar_cad_preserved", "planar_cad_verified", "sizing_fields_preserved", "probe_state_before_preserved", "sizing_probe_preserved", "probe_state_after_preserved", "probe_state_restored", "sizing_probe_verified", "planar_mesh_generate_started", "planar_mesh_generate_finished", "planar_packet_preserved", "planar_cad_unchanged", "column_plan_preserved", "gmsh_finalized"], "elapsed_s": 13.902423123829067, "peak_rss_gib": 0.06528091430664062, "volume_mesh_generated": false, "boundary_contract_passed": false, "field_solver_executed": false, "reference_qualified": false, "training_may_start": false, "claim_eligible": false}

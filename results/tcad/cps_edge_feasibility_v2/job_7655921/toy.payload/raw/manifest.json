@@ -1,0 +1,160 @@
+{
+  "arrays": {
+    "coordinates_mm": {
+      "bytes": 4824,
+      "chunks": [
+        {
+          "bytes": 4824,
+          "name": "coordinates_mm.0000.bin",
+          "offset": 0,
+          "sha256": "8ce59155a79ffac7510cc04d7245f8b3c576736762f7f90d490644c5bf425922"
+        }
+      ],
+      "dtype": "<f8",
+      "shape": [
+        201,
+        3
+      ]
+    },
+    "line_curves": {
+      "bytes": 592,
+      "chunks": [
+        {
+          "bytes": 592,
+          "name": "line_curves.0000.bin",
+          "offset": 0,
+          "sha256": "b42710d32e72c006671ea15f7baeb0ad7aaa3db050212a97c2a1d58c93cb7533"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        74
+      ]
+    },
+    "line_nodes": {
+      "bytes": 1184,
+      "chunks": [
+        {
+          "bytes": 1184,
+          "name": "line_nodes.0000.bin",
+          "offset": 0,
+          "sha256": "a99d05108239343a38364f45750b8970b14eb77a89816aa70780e29f1f8a546a"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        74,
+        2
+      ]
+    },
+    "line_tags": {
+      "bytes": 592,
+      "chunks": [
+        {
+          "bytes": 592,
+          "name": "line_tags.0000.bin",
+          "offset": 0,
+          "sha256": "452b04143bad81088669b2eb95118349bc962d33be79d542c1e38e192cf893d4"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        74
+      ]
+    },
+    "node_dimension": {
+      "bytes": 1608,
+      "chunks": [
+        {
+          "bytes": 1608,
+          "name": "node_dimension.0000.bin",
+          "offset": 0,
+          "sha256": "ae406ad476043405b58001bc75681c5ae8aaf1bc8ecec8741e97c3d07d401be9"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        201
+      ]
+    },
+    "node_entity": {
+      "bytes": 1608,
+      "chunks": [
+        {
+          "bytes": 1608,
+          "name": "node_entity.0000.bin",
+          "offset": 0,
+          "sha256": "a907862cb93d928f6748200d7cb9d4a25b8a04b0bc12c97e794f2e5ddf4e3a33"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        201
+      ]
+    },
+    "node_tags": {
+      "bytes": 1608,
+      "chunks": [
+        {
+          "bytes": 1608,
+          "name": "node_tags.0000.bin",
+          "offset": 0,
+          "sha256": "3d40a811d691059680f53d2930758e288f062f94c5e9afc36654ee7e84b28cd5"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        201
+      ]
+    },
+    "triangle_nodes": {
+      "bytes": 9072,
+      "chunks": [
+        {
+          "bytes": 9072,
+          "name": "triangle_nodes.0000.bin",
+          "offset": 0,
+          "sha256": "efff0be33645e2d681e4520139142fffebe3c46eac131674aa1d70e80f286441"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        378,
+        3
+      ]
+    },
+    "triangle_surfaces": {
+      "bytes": 3024,
+      "chunks": [
+        {
+          "bytes": 3024,
+          "name": "triangle_surfaces.0000.bin",
+          "offset": 0,
+          "sha256": "413163510591f7c488fd4ffe7b09f29fae9bdcca918b14adf8437f33a043f9aa"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        378
+      ]
+    },
+    "triangle_tags": {
+      "bytes": 3024,
+      "chunks": [
+        {
+          "bytes": 3024,
+          "name": "triangle_tags.0000.bin",
+          "offset": 0,
+          "sha256": "6fbb42f62d63e99bcd0385f9d057259845eb2f868268cf40768d7b2d57cd24dc"
+        }
+      ],
+      "dtype": "<i8",
+      "shape": [
+        378
+      ]
+    }
+  },
+  "packet_sha256": "7175b0c2ef05448e5fd2072959e98c9d985c3810c80ddb173c40f32caa98032f",
+  "payload_bytes": 27136,
+  "schema": "pcb-gnn.column-planar-bundle.v1"
+}

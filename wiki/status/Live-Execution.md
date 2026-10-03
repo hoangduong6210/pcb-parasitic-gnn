@@ -7,6 +7,49 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local v2 terminal checkpoint on 2026-10-03
+
+At 16:27:32 UTC job **7655921** was confirmed `COMPLETED/0:0`, zero
+restarts, 316 seconds, and absent from the queue. Toy, sentinel and fresh repeat
+passed their declared probe, planar audit and prospective column gates, with
+exact sentinel report/bundle repeat. All 101 terminal members are preserved
+and checked. The [evidence owner](../evidence/TCAD-Edge-Feasibility-v2.md)
+records the limited scope: no volume connectivity, field or reference result.
+Terminal regression and publication are next, then a new bounded 3D column/
+boundary qualification. No scientific job is active. This turn made concrete
+implementation, native validation and preservation progress; the full TCAD
+goal remains active and incomplete. Current terminal receipts are local.
+
+Terminal regression passed **260 tests, zero skips**, including archived
+native-result inspection; the prose audit passed. Four inspected completed
+fixture roots were removed without affecting scientific evidence or source
+worktrees. Final manifest/member checks and publication are next. The next
+scientific gate remains full 3D connectivity/boundary qualification, not a field
+or learning run.
+
+## Edge-local v2 published and submitted on 2026-10-03
+
+At 16:21:00 UTC GitHub main and local HEAD matched
+`5a6eb0d7d48114a9d96e15e968ffa54727127c97`. Final checks passed the
+7,358-file manifest, prose audit and 55 wiki/prose tests. The 533-file sparse
+checkout passed source/wrapper/runtime metadata preflight. One submission at
+16:21:45 UTC returned **job 7655921**, observed running on `a0113` at
+16:21:59 UTC. Monitor the same bounded toy/sentinel/repeat attempt; no retries,
+cap changes or field work are allowed. The
+[evidence owner](../evidence/TCAD-Edge-Feasibility-v2.md) records bindings.
+Source is published; current receipts remain local. The full TCAD goal remains
+active and incomplete.
+
+At 16:22:52 UTC the same attempt had accepted toy and reached sentinel sizing
+after the CAD audit. The evidence owner records the scoped toy outcome. The
+collector passed 24 synthetic tests with one pre-collection skip; continue
+monitoring the same job without retry or premature feasibility claims.
+
+At 16:25:43 UTC the parent had accepted both toy and sentinel. Sentinel passed
+its native probe, observed-state restoration, planar audit and all four
+prospective column checks. Fresh repeat is still required before closing the
+study. The same job remains active; no volume mesh or field solve is allowed.
+
 ## Edge-local v2 source frozen on 2026-10-03
 
 The [new integration](../evidence/TCAD-Edge-Feasibility-v2.md) has a fixed

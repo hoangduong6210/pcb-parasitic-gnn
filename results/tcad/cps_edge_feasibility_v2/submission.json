@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.edge-feasibility-submission.v2",
+  "job_id": "7655921",
+  "source_commit": "5a6eb0d7d48114a9d96e15e968ffa54727127c97",
+  "lock_sha256": "6dd9567573dff42854a79a9df16e8c65c97e899aa61fd2c8b365c5ad5fe12d41",
+  "protocol_sha256": "5ce71ce4b556deedada58591051faf429117e70e74e052e3538fdf875ab1bed6",
+  "submitted_utc": "2026-10-03T16:21:45Z",
+  "wrapper": "code/jobs/submit_tcad_cps_edge_feasibility_v2.sh",
+  "execution_worktree": ".internal/tcad-cps-edge-feasibility-v2",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "scope": "Native model-backed sizing probes, planar audit and unchanged prospective column gates; no volume mesh or field"
+}

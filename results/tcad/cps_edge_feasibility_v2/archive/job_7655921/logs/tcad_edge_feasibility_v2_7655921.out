@@ -1,0 +1,1 @@
+{"attempt": "results/tcad/cps_edge_feasibility_v2/job_7655921", "complete": true, "repeatability_passed": true, "diagnostic_passed": true, "planning_feasible": true, "volume_mesh_generated": false, "boundary_contract_passed": false, "field_solver_executed": false, "reference_qualified": false, "training_may_start": false, "claim_eligible": false}

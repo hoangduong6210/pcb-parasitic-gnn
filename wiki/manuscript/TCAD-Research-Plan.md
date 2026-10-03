@@ -19,10 +19,13 @@ an electrical result. The separate
 native integration failure: its list-based field-probe view lacked required
 model-entity support, stopping before toy meshing. The separate
 [tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md) has now
-passed through SLURM with exact fresh repeat. Next: newly frozen
-[real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md)
-retaining its own native probes before meshing. Do not bypass probes, tune sizing, raise caps
-or retry the failed source. Full mesh/field/sensitivity checks remain required.
+passed through SLURM with exact fresh repeat. The separately frozen
+[real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md) has now
+passed native probes, planar audit and prospective column gates with exact
+fresh repeat. Next: a new bounded 3D column-connectivity and complete boundary
+qualification from preserved planar packets and canonical planes. Do not bypass
+gates, tune sizing, raise caps or retry failed source. Full volume/field/
+sensitivity checks remain required before any new reference or learning claim.
 This remains reference engineering, not the paper's learning-method novelty.
 
 ## Continuing goal authorized on 2026-10-03

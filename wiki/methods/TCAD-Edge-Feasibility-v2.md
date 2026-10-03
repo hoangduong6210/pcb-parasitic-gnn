@@ -1,6 +1,6 @@
 ---
 title: TCAD Edge-Local Planar Feasibility v2
-status: PROPOSED; model-backed probe integration
+status: VALIDATED; planar and prospective column gates only
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -48,4 +48,15 @@ payload caps. Freeze and publish the new source before one SLURM attempt.
 On 2026-10-03 the prior published checkpoint was reverified locally with a clean
 worktree and no active owner jobs. Implementation and synthetic negative tests
 are in progress; no v2 native attempt has run. The full TCAD goal remains active
-and incomplete. New results will be recorded in an indexed evidence owner.
+and incomplete. Implementation and frozen regression subsequently passed;
+the [evidence owner](../evidence/TCAD-Edge-Feasibility-v2.md) records source
+publication and the single bounded SLURM submission. Results remain pending.
+
+## Outcome and remaining boundary
+
+The bounded native study subsequently passed toy, sentinel and fresh-repeat
+gates with byte-identical sentinel reports and raw bundles. The evidence owner
+records counts, probe coverage, source/archive identities and limitations.
+This establishes the declared planar/prospective-column feasibility only.
+Actual 3D connectivity, full terminal/outer boundary coverage and field accuracy
+remain unqualified and require a new frozen study, not an expanded retry.

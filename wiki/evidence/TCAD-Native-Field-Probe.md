@@ -91,6 +91,12 @@ no scientific job remains active.
 
 ## Next scientific action
 
+The subsequently frozen [real-layout integration](TCAD-Edge-Feasibility-v2.md)
+has now passed its own native probe, planar audit and prospective column gates
+with exact fresh repeat. Its evidence owner records the separate scope and
+remaining 3D/field qualification. The original prospective integration plan
+below is retained as the transition boundary, not an unrun current task.
+
 Integrate the qualified model-backed adapter into a **newly versioned/frozen
 edge-local feasibility study**, preserving the original failed source and
 archive. Keep the same distance/size definition, inherited near/far/transition,

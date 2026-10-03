@@ -79,7 +79,7 @@ paper_source: false
 | [TCAD Native Field Probe](methods/TCAD-Native-Field-Probe.md) | Model-backed field evaluation and isolated probe cleanup contract |
 | [TCAD Native Field Probe Evidence](evidence/TCAD-Native-Field-Probe.md) | Passed tiny native API checks and exact repeat; real-layout meshing remains unqualified |
 | [TCAD Edge-Local Feasibility v2](methods/TCAD-Edge-Feasibility-v2.md) | Qualified model-backed probe integration with unchanged planar/column gates |
-| [TCAD Edge-Local v2 Evidence](evidence/TCAD-Edge-Feasibility-v2.md) | Versioned integration, source freeze and native attempt receipts |
+| [TCAD Edge-Local v2 Evidence](evidence/TCAD-Edge-Feasibility-v2.md) | Passed planar/prospective column gates and exact repeat; 3D/field qualification remains |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

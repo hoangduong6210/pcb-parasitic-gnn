@@ -78,10 +78,12 @@ exact repeat and a checked archive. The separately specified
 native SLURM execution, but its probe adapter failed before toy meshing. The
 preserved failure led to a separate
 [tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md), which
-now passes with exact fresh repeat. Next is newly frozen
-[real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md)
-with mandatory native probes; the sizing hypothesis remains untested. This is not a
-capture-cap increase or an accuracy claim; native log
+now passes with exact fresh repeat. The separately frozen
+[real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md) has also
+passed its native probe, planar audit and prospective column gates with exact
+fresh repeat and a checked archive. Next is a new bounded 3D connectivity and
+boundary qualification using the preserved planar packets and canonical planes.
+The pass is not a capture-cap increase or an accuracy claim; native log
 totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as

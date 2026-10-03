@@ -240,3 +240,12 @@ directories, 67 pytest links and nine regular files, whose hashes matched the
 three reproducible prose-audit forms. No scientific output, source worktree,
 Git object or private recovery archive was removed. The separate broader v2
 regression root was untouched. These disposable fixtures can be regenerated.
+
+After v2 terminal regression, four further completed roots were inspected and
+removed: `edge-v2-prefreeze.SSRcBe`, `edge-v2-frozen.oHwTgT`,
+`edge-v2-publication-wiki.RFI7VF`, and `edge-v2-archive-tests.NqbSMQ`. They held
+31 directories, 143 pytest links and 23 regular files. The latter were the
+three reproducible prose forms plus synthetic duplicate-result logs and mocked
+watchdog receipts, checked against the reference tests and matching hashes in
+both regression roots. No scientific output, source worktree, Git object or
+private recovery archive was removed. Fixtures remain regenerable from tests.
