@@ -53,6 +53,14 @@ files. One submission at 14:30:25 UTC returned **job 7655072**. No retries or
 policy changes occurred. Source is published; terminal records remain local
 pending a later push.
 
+At 14:40:40 UTC GitHub main and local HEAD were verified as
+`b9a4f8c82645652324c435666c5ed70b59336ec6`. The full 17-member terminal
+archive, additive collector/tests and diagnostic interpretation are published.
+The 7,262-file manifest, final 55-test wiki/prose recheck and prose audit passed;
+all archive members are tracked and internal agent files are absent. This
+terminal checkpoint remains the scientific publication anchor; later operational
+receipt commits do not alter its immutable execution source or artifacts.
+
 ## Terminal observations on 2026-10-03
 
 Accounting at 14:32:24 UTC reported `COMPLETED/0:0`, zero restarts, 78 seconds,

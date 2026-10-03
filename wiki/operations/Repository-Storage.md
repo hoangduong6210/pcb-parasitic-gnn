@@ -7,6 +7,49 @@ paper_source: false
 
 # Repository Storage and Immutable Evidence
 
+## Terminal publication headroom on 2026-10-03
+
+At terminal publication the account was near its file limit. Two completed
+fixture roots, `sizing-budget-final-wiki.jK3Ufk` and `q1-archive-tests.hybwFZ`,
+were inspected and removed: only pytest links/directories and the same three
+hash-matched prose fixtures remained. Four further inspected roots contained
+only empty fixture directories and pytest links: `tcad-isolation-archive.oxO1rc`,
+`tcad-postopt-archive.ST6T2e`, `hxt-archive-tests.c3XniE`, and
+`hxt-archive-tests.fzhuVF`. No scientific data/worktree was removed.
+
+Supplementary incremental-pack job `7655163` was submitted at 14:41:44 UTC
+against clean published main `b9a4f8c82645652324c435666c5ed70b59336ec6`.
+It stayed PENDING for priority. Account usage then fell to 997,844 files at
+14:45:42 UTC through activity outside this operation. Since headroom had
+returned, the still-PENDING job was cancelled at 14:46:14 UTC. Accounting
+reported `CANCELLED by 51204`, zero elapsed time, zero allocated CPUs and no
+assigned node. No supplementary packing/fsck occurred. The
+[cancelled-operation receipt](../../results/operations/git_pack_sizing_20261003/receipt.json)
+preserves that distinction; the earlier successful pack is unchanged.
+
+The owner subsequently authorized deletion of the sibling `Hoang/Da-Yeh Journal/`
+directory to recover file quota. Inspection found one independent repository
+with uncommitted changes and no linked external worktree. A private single-file
+recovery archive under `Hoang/.recovery/` preserved it before deletion.
+Guarded SLURM job `7655220`, submitted at 14:50:58 UTC, completed with
+`COMPLETED/0:0`, zero restarts, 61 seconds, one CPU and 1 GiB on `a0347`.
+No archive generation, comparison or deletion ran on the login node.
+
+The exact requested directory contained 681 directories, 6,244 regular files
+and four symlinks (396,762,447 apparent bytes). The source inventory hash was
+identical before/after archive creation; `tar --compare` passed before removal.
+The 159,340,677-byte private recovery file is
+`Hoang/.recovery/dayeh-journal-20261003-job_7655220.tar.gz`, mode 0600,
+SHA-256 `a6f670a6e732bc34b776a743be0de110dfc90559cceb98f4f49217b1de853ac7`.
+It includes the sibling repository and its uncommitted changes. The original
+directory is absent and can be restored from this archive. No GNN scientific
+artifact or execution worktree was removed. The
+[operation receipt](../../results/operations/dayeh_recovery_delete_20261003/receipt.json)
+records the exact checks and outcome. Original script/logs stay in `.internal/`;
+no sibling content or recovery archive is committed here. Account file quota
+also changes through other activity, so do not equate entry count with a
+measured account-wide quota reduction.
+
 ## Post-column incremental pack on 2026-10-03
 
 The next continuation began with 999,940 of 1,000,000 account files and 326

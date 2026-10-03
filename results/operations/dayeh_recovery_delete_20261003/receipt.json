@@ -1,0 +1,23 @@
+{
+  "schema": "pcb-gnn.owner-authorized-storage-cleanup.v1",
+  "scope": "owner-requested sibling directory removal after a private verified recovery archive; no GNN scientific data deletion",
+  "requested_target_relative_to_hoang": "Da-Yeh Journal",
+  "job_id": "7655220",
+  "submitted_utc": "2026-10-03T14:50:58Z",
+  "observed_terminal_utc": "2026-10-03T14:52:33Z",
+  "accounting": "7655220|COMPLETED|0:0|0|61|1|1G|a0347",
+  "script_sha256": "a377a063e614f17a17a03602e70ef3c3221dc5a6a27b94e1af612a94334f4124",
+  "target_inventory_sha256_before_and_after_archive": "843f84ce947d8d3e14a7da14b11ef1e4f4674b2fbf10c0fa58dd33ac26b9ccec",
+  "target_entries": {"directories": 681, "regular_files": 6244, "symlinks": 4},
+  "target_apparent_bytes": 396762447,
+  "recovery_archive_relative_to_hoang": ".recovery/dayeh-journal-20261003-job_7655220.tar.gz",
+  "recovery_archive_sha256": "a6f670a6e732bc34b776a743be0de110dfc90559cceb98f4f49217b1de853ac7",
+  "recovery_archive_bytes": 159340677,
+  "recovery_archive_mode": "600",
+  "archive_compared_against_unchanged_source_before_removal": true,
+  "uncommitted_sibling_work_preserved_in_archive": true,
+  "requested_directory_removed": true,
+  "gnn_scientific_artifacts_removed": false,
+  "gnn_execution_worktrees_removed": false,
+  "recovery_archive_committed": false
+}

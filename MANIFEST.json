@@ -9,7 +9,7 @@
     "figures": 12,
     "logs": 172,
     "protocols": 59,
-    "results": 6330,
+    "results": 6332,
     "root": 11,
     "tests": 96,
     "wiki": 102
@@ -33601,6 +33601,11 @@
       "sha256": "3d578a6411a06ee28bc9a15e962619439e307be0116f80cd2645d01445a282fd"
     },
     {
+      "path": "results/operations/dayeh_recovery_delete_20261003/receipt.json",
+      "bytes": 1309,
+      "sha256": "e61dbb637f62bc0244b0988b8e29eff1abf4998659ab1c17af09a8dec30e0925"
+    },
+    {
       "path": "results/operations/git_pack_20261003/receipt.json",
       "bytes": 1242,
       "sha256": "9ff9962f804362bbbf803bd82e46738a67ff355fafe0af374e2879aa36236836"
@@ -33609,6 +33614,11 @@
       "path": "results/operations/git_pack_column_20261003/receipt.json",
       "bytes": 1241,
       "sha256": "9553d28da63b25a9b01974b6ac872d68c34da0091f6a77e7dcc790ea81222580"
+    },
+    {
+      "path": "results/operations/git_pack_sizing_20261003/receipt.json",
+      "bytes": 657,
+      "sha256": "3e1952fa2566f84ac3198c17da37a2434a97a35651be5e58858bb5998322128f"
     },
     {
       "path": "results/proof_updates/jobs/claim_proof/job_51174495/raw_solver_timings.jsonl",
@@ -35987,8 +35997,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Sizing-Budget.md",
-      "bytes": 7251,
-      "sha256": "ed8b564788e62abd4c48888c4032dd4c35613d1c4e522b6fc6722eb2095b6754"
+      "bytes": 7774,
+      "sha256": "00fa5c192a00e6d39598bdc177ee9208d2a7fc0fc136654607d2eb2e1a909d1a"
     },
     {
       "path": "wiki/governance/License-and-Assets.md",
@@ -36187,8 +36197,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 8948,
-      "sha256": "414594e8a938c2e7465adb733fb8622a38a332ff55706293d9a6fca99da09869"
+      "bytes": 11710,
+      "sha256": "683b9389f54f19d45a8f4bd25c15dcf02c62c6cc9364e914128cd85b4956549a"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -36307,8 +36317,8 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 109924,
-      "sha256": "c15e5feeb4d8908a645c088156d9dda883da6e9d9d2ac6692a816cf029fac001"
+      "bytes": 111516,
+      "sha256": "0633fe9c0a38afc4963a6a23f1302122c1f62fe08bf518bb33cb5642f31e227e"
     },
     {
       "path": "wiki/status/Project-Status.md",
@@ -36326,6 +36336,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7262,
-  "total_bytes": 1008476338
+  "n_files": 7264,
+  "total_bytes": 1008483181
 }

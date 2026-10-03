@@ -7,6 +7,31 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Sizing terminal publication and storage follow-up on 2026-10-03
+
+At 14:40:40 UTC GitHub main and local HEAD matched
+`b9a4f8c82645652324c435666c5ed70b59336ec6`. The diagnostic archive,
+collector/tests and wiki interpretation are published. Final checks passed the
+7,262-file manifest, 55 wiki/prose tests and the prose audit. Internal agent
+files remain untracked. No scientific job is active.
+
+Account file quota briefly reached its limit. Supplementary packing job
+`7655163` remained PENDING and was cancelled before execution at 14:46:14 UTC
+after independent account activity restored headroom. No additional packing
+or integrity check ran. The owner then explicitly requested removal of the
+sibling `Hoang/Da-Yeh Journal/` directory. Its uncommitted work was preserved
+in a private single-file recovery archive before scoped deletion. Separate
+guarded SLURM job **7655220** completed with `COMPLETED/0:0`, zero restarts,
+61 seconds on `a0347`; archive comparison and unchanged source-inventory checks
+passed before removal. The exact requested directory is absent and recoverable
+from `Hoang/.recovery/dayeh-journal-20261003-job_7655220.tar.gz`. No GNN scientific
+artifact or execution worktree was removed. The
+[storage owner](../operations/Repository-Storage.md) records the receipt and
+archive identity. No job from this turn remains active. Final operational
+receipt checks/publication are next; the scientific archive is already published.
+The full TCAD goal remains active; the scientific next step is the separately
+specified edge-local sizing hypothesis on the evidence page.
+
 ## Sizing-budget diagnostic completed on 2026-10-03
 
 At 14:32:24 UTC job **7655072** was terminal `COMPLETED/0:0`, zero restarts,

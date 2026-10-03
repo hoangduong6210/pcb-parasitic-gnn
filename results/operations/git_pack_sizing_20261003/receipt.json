@@ -1,0 +1,15 @@
+{
+  "schema": "pcb-gnn.git-maintenance.v1",
+  "scope": "supplementary incremental packing; cancelled before execution when account headroom returned",
+  "source_commit": "b9a4f8c82645652324c435666c5ed70b59336ec6",
+  "job_id": "7655163",
+  "submitted_utc": "2026-10-03T14:41:44Z",
+  "observed_terminal_utc": "2026-10-03T14:46:14Z",
+  "accounting": "7655163|CANCELLED by 51204|0:0|0|0|0|8G|None assigned",
+  "script_sha256": "7cffc9f6a950d9007afe63f30b41d3b87a7ca789685ff28851a61093d68be074",
+  "executed": false,
+  "packing_performed": false,
+  "full_git_fsck_performed": false,
+  "scientific_artifacts_removed": false,
+  "source_worktrees_removed": false
+}
