@@ -7,6 +7,11 @@ paper_source: false
 
 # Project Status
 
+The owner set a continuing [Q1 journal goal](Q1-Journal-Goal.md) on 2026-10-03,
+with TCAD preferred. Research implementation may proceed through the frozen
+scientific gates; journal acceptance, claim admission and author release are
+not inferred from that instruction.
+
 The owner approved implementation on 2026-10-02 with TCAD as the target.
 Stage 1 of the [TCAD research plan](../manuscript/TCAD-Research-Plan.md) now has
 a geometry-selected panel and bounded local-refinement pilot implementation.
@@ -23,12 +28,15 @@ Its terminal evidence is archived. The subsequent
 successfully on toy and local0 without widening worker caps. No job in that
 chain remains active. Terminal evidence is now archived, and the owner approved
 a new [seven-arm sensitivity implementation](../methods/TCAD-Cps-AMG-Feasibility.md).
-The frozen source is published and remote-hash verified; its new smoke passed.
-The seven-arm job is now running, with an afterany finalizer queued. A sparse
-execution checkout preserves the locked source while avoiding the file-count
-quota that blocked a full checkout. The
+The frozen source is published and remote-hash verified; its new smoke and
+fresh local0 passed. The seven-arm job then closed incomplete at local1's
+mesh-generation time cap; its afterany finalizer retained the failure. Both
+jobs are terminal and the complete terminal artifact closure is archived. A
+sparse execution checkout preserves the locked source while avoiding the
+file-count quota that blocked a full checkout. The
 [feasibility evidence](../evidence/TCAD-Cps-AMG-Feasibility.md) owns source,
-smoke and scheduler receipts. Terminal sensitivity review remains pending.
+smoke and scheduler receipts. A separately versioned mesh-generation diagnostic
+is next; no sensitivity conclusion is available from the incomplete study.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
@@ -60,7 +68,7 @@ instead of calling one column ground truth.
 | TCAD reference-qualification continuation | `REJECTED PILOT; REVIEW PENDING` | Smoke validated; two sentinels complete, third stopped at the frozen mesh-node cap; finalizer rejects incomplete coverage; no convergence claim or training authorization |
 | TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
 | TCAD same-matrix AMG diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy and local0 passed exact-system/direct comparison within unchanged worker caps; no mesh-converged reference or automatic expansion |
-| TCAD AMG seven-arm feasibility | `RUNNING; SMOKE VALIDATED` | Published frozen source; seven fresh sentinel arms and afterany finalizer submitted; inherited caps and sensitivity gates; no training or paper claim |
+| TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

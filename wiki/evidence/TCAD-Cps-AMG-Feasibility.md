@@ -1,6 +1,6 @@
 ---
 title: TCAD AMG Feasibility Evidence
-status: RUNNING; smoke validated; seven-arm feasibility submitted
+status: REJECTED; incomplete mesh-timeout study; terminal archive checked
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -114,3 +114,63 @@ pins source, lock, smoke and storage scope. Source remains the published
 is updated separately. Next: terminal coverage and sensitivity review, then
 preserve every outcome. No panel expansion, reference qualification, training
 or paper claim is enabled.
+
+## Terminal inspection and archive on 2026-10-03
+
+Job `7650556` terminated `FAILED/2:0`, zero restarts, after 1,615 scheduler
+seconds on `a0199`. Fresh local0 passed with the diagnostic's exact system
+identity; the
+[local0 receipt](../../results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local0.json)
+records 410.4705544260796 parent-observed seconds and 3.2724609375 GiB peak RSS.
+Its successful backend result does not complete the study.
+
+Local1 exceeded the unchanged 1,200-second worker cap. The parent terminated
+its process group, recorded return code -9, elapsed 1200.51880231197 seconds
+and observed peak RSS 3.623119354248047 GiB. The
+[failed receipt](../../results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local1.json)
+and raw log end at `mesh_generate_started`; neither `mesh_generated` nor
+matrix assembly, AMG setup, CG or a capacitance result was emitted. The log
+does not locate the delay within Gmsh's internal meshing substeps. This is a
+wall-time failure during meshing, not an observed AMG or mesh-node-cap failure.
+No quota error appears in the failed worker's empty stderr.
+
+A small geometry-only check evaluated the dielectric-box center of mass by
+subtracting the disjoint conductor-box volumes from the outer box. For layout
+597 and pad 16 mm, the center did not fall inside any conductor bounding box
+under the inherited classification tolerance. This does not reproduce OCC
+classification or validate all meshes; it only rules out that particular
+metadata-level suspicion for this input. No meshing or solve ran on login.
+
+Finalizer `7650557` terminated `FAILED/2:0`, zero restarts, after three seconds
+on `a0104`. Its
+[summary](../../results/tcad/cps_amg_feasibility_v1/finalize/job_7650557/summary.json)
+retains local0 success and local1 failure, incomplete coverage, no sensitivity
+comparisons, and false reference/training/claim flags. Local2, repeat2, pad20,
+far2 and support1 were not run. Both jobs are terminal; no active job remains
+in this chain.
+
+The additive collector checked terminal accounting, source/runtime/geometry,
+the admitted smoke, exact files, raw-log hashes, per-arm receipts and finalizer
+reconstruction without numerical replay. Its
+[20-file archive](../../results/tcad/cps_amg_feasibility_v1/archive/feasibility_7650556/manifest.json)
+includes the previously collected smoke plus every attempt/finalizer file and
+four terminal scheduler logs. Manifest SHA-256:
+`d476cbf411192c4b4c109dfcb98551afe2ed39eb994211f19fdda04a65c628bc`.
+Attempt SHA-256:
+`b65a8c7dcb02c527d8cf05af1cd531a9128d6e37ad95e3109a94cbea4c0e8874`.
+Summary SHA-256:
+`d4fd2d665f6c5d411374596ac8c3b12951ef3dd4e7ecf40024582f04ec59357d`.
+No original source, limit or rejected evidence was overwritten.
+
+Collector preparation passed 79 no-solver archive/wiki/prose tests after the
+fixture-quota recovery documented in the
+[runbook](../operations/TCAD-Cps-AMG-Feasibility.md); the actual archive check
+then passed. A terminal regression test was added for this exact failure.
+The subsequent complete focused suite passed all 216 no-solver tests,
+including the new terminal regression, earlier frozen-study contracts,
+reproducibility, journal, wiki and prose checks; the prose audit also passed.
+
+Next: a separately frozen mesh-generation diagnostic with native meshing-stage
+logs and a bounded alternative mesher, before any new field-solver study.
+The [continuation plan](../manuscript/TCAD-Research-Plan.md) owns this next
+decision. No three-sentinel expansion or training is justified by this outcome.

@@ -7,6 +7,47 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD AMG feasibility closed at meshing time cap on 2026-10-03
+
+Feasibility `7650556` and finalizer `7650557` are terminal `FAILED/2:0`, zero
+restarts. Local0 passed, but local1 exhausted its unchanged worker time limit
+while the log still showed mesh generation. No local1 algebraic solve or
+capacitance was produced; five later arms were not run. The finalizer correctly
+retained incomplete coverage and no sensitivity conclusion. The
+[evidence page](../evidence/TCAD-Cps-AMG-Feasibility.md) owns exact measurements,
+hashes and the checked 20-file terminal archive. No job in this chain is active.
+
+The continuing [TCAD goal](Q1-Journal-Goal.md) remains active. Next: freeze a
+bounded mesh-generation diagnostic with better stage logging and one documented
+alternative mesher; do not raise caps or reopen the rejected attempt. The
+[related-work audit](../references/TCAD-Related-Work-Audit.md) now records prior
+graph-extraction, multi-fidelity EM and uncertainty-guided design methods.
+No novelty, reference qualification, training or new paper claim is admitted.
+These goal/terminal updates are local pending validation and publication;
+last remotely verified main is `0e6ab8ad0611df7c080a90666212a32f3e64591b`.
+
+The subsequent 216-test focused no-solver suite and prose audit passed. The
+new archive check reconstructs the exact terminal failure; software validation
+does not promote the incomplete study to a sensitivity result. Publication of
+this goal/archive checkpoint is the next repository action.
+
+## Continuing Q1 journal goal activated on 2026-10-03
+
+The owner requested a continuing Q1-journal goal, with TCAD retained as the
+preferred target. The [goal record](Q1-Journal-Goal.md) defines standing research
+authorization, scientific gates and the author-confirmed submission boundary.
+This supersedes the need for a new chat approval for each normal implementation
+step, but does not waive source freezing, failed-evidence retention, resource
+ceilings, claim admission or SLURM-only heavy computation.
+
+At the first check, feasibility `7650556` remained RUNNING and finalizer
+`7650557` PENDING on its dependency. Fresh local0 had passed; coverage remained
+incomplete and no sensitivity conclusion was available. The active source
+remains `b8d4b891d15d4dc7c261e92c310bc3273218daa6`; submission/wiki receipt
+publication was verified at `0e6ab8ad0611df7c080a90666212a32f3e64591b`.
+Next: terminal collection and bounded follow-up according to observed gates,
+with primary-source contribution review proceeding alongside the active job.
+
 ## TCAD AMG seven-arm feasibility submitted on 2026-10-03
 
 Source `b8d4b891d15d4dc7c261e92c310bc3273218daa6` is published and remote-hash

@@ -1,11 +1,15 @@
 ---
 title: TCAD Compact-Support Feasibility with the Tested AMG Candidate
-status: VALIDATED; source frozen; numerical feasibility pending
+status: REJECTED; initial execution incomplete; source preserved
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Compact-Support Feasibility with the Tested AMG Candidate
+
+The first execution closed incomplete at the local1 mesh-generation wall-time
+cap. Its [terminal evidence](../evidence/TCAD-Cps-AMG-Feasibility.md) is archived.
+The specification below remains frozen; no gate is relaxed after the failure.
 
 ## Decision and unchanged scope
 

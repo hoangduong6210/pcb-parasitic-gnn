@@ -1,0 +1,83 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "8",
+      "ExitCode": "0:0",
+      "JobID": "7650458",
+      "NodeList": "a0102",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "COMPLETED"
+    },
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "1615",
+      "ExitCode": "2:0",
+      "JobID": "7650556",
+      "NodeList": "a0199",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "FAILED"
+    },
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "3",
+      "ExitCode": "2:0",
+      "JobID": "7650557",
+      "NodeList": "a0104",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "diagnosis": {
+    "attempt_sha256": "b65a8c7dcb02c527d8cf05af1cd531a9128d6e37ad95e3109a94cbea4c0e8874",
+    "automatic_expansion": false,
+    "claim_eligible": false,
+    "comparisons": {},
+    "complete": false,
+    "continuum_convergence_established": false,
+    "feasibility_passed": false,
+    "observed_arms": {
+      "local0": {
+        "failure": null,
+        "passed": true
+      },
+      "local1": {
+        "failure": "worker wall-time cap exceeded",
+        "passed": false
+      }
+    },
+    "reference_qualified": false,
+    "summary_sha256": "d4fd2d665f6c5d411374596ac8c3b12951ef3dd4e7ecf40024582f04ec59357d",
+    "three_sentinel_qualification": false,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_amg_feasibility_v1/archive/feasibility_7650556/logs/tcad_amg_feasibility_7650556.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_amg_feasibility_v1/archive/feasibility_7650556/logs/tcad_amg_feasibility_7650556.out": "dae843fc99ba0c508354688fa2b34e34cd521eb0cd6ec02b1434132bc958d0ff",
+    "results/tcad/cps_amg_feasibility_v1/archive/feasibility_7650556/logs/tcad_amg_finalize_7650557.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_amg_feasibility_v1/archive/feasibility_7650556/logs/tcad_amg_finalize_7650557.out": "950104d6b8483ba0574fac4655a3e975a37318f1c405b430bde4f394a8dba61b",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/attempt.json": "b65a8c7dcb02c527d8cf05af1cd531a9128d6e37ad95e3109a94cbea4c0e8874",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local0.json": "ef1fdc1d74aeedb3d6e6c54eee3ef16c53f31bc674f9c7bc2fe9281810aaea88",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local0.stderr": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local0.stdout": "87e731eebac4cddc31ffb0e04bdef58107a84a80d1bd74f2887a5eacd8a5c112",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local1.json": "8b52a554c336edf16975af0ed74a5efeea2ece5483919e48b1b3bc54ba938f72",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_amg_feasibility_v1/feasibility/job_7650556/local1.stdout": "0cffce16f1386b3223fee27290857b8fabf0232de41ba416e8b615cff62bbf14",
+    "results/tcad/cps_amg_feasibility_v1/finalize/job_7650557/sacct.txt": "3a1a5c51b41bef375e94825f2352b2bf8c69ebbede87532beab2f2b53d4d35b9",
+    "results/tcad/cps_amg_feasibility_v1/finalize/job_7650557/summary.json": "d4fd2d665f6c5d411374596ac8c3b12951ef3dd4e7ecf40024582f04ec59357d",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/attempt.json": "dae0319e5a94fbaad92b92d54405089c9b999a85a2bcd2849d3c2e1e815dc2de",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.json": "e37df8168c428962daf790ccefc6f26567c4242e9b1e8cf0e826b628c7aa7a49",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.stderr": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/smoke.stdout": "a9a582cd188a43769d4cd25480690f19a22a564b464d54dbc839f6309f78da7c",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/tcad_amg_smoke_7650458.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/tcad_amg_smoke_7650458.out": "57426ae4d51e6f2200ad0d57e1257cba9946153fe6b7111ad3bdab99902d4fbf",
+    "results/tcad/cps_amg_feasibility_v1/smoke/job_7650458/terminal.json": "f5a707e44daec2cce9b1a44754f2fcca1e07ac694a9742e746dc3eda0501ba88"
+  },
+  "lock_sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906",
+  "schema": "pcb-gnn.tcad-amg-feasibility-archive.v1",
+  "scope": "single-sentinel finite sensitivity only; no reference or training admission",
+  "source_commit": "b8d4b891d15d4dc7c261e92c310bc3273218daa6"
+}

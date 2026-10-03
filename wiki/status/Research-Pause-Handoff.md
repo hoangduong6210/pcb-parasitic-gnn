@@ -1,7 +1,7 @@
 ---
 title: Research Pause and Handoff
-status: historical pause; TCAD planning resumed
-last_updated: 2026-10-02
+status: historical pause; TCAD planning resumed; continuing Q1 research goal active
+last_updated: 2026-10-03
 paper_source: false
 ---
 
@@ -9,13 +9,14 @@ paper_source: false
 
 ## Current state
 
-The owner resumed TCAD planning on 2026-10-02. The
-[continuation plan](../manuscript/TCAD-Research-Plan.md) proposes a new
-capacitance-reference qualification study; no new experiment has been submitted.
+The owner resumed TCAD planning on 2026-10-02 and authorized a continuing
+[Q1 journal goal](Q1-Journal-Goal.md) on 2026-10-03. The
+[continuation plan](../manuscript/TCAD-Research-Plan.md) is now in implementation;
+the [live record](Live-Execution.md) owns the active new reference-study chain.
 All prior dataset-generation, accuracy, latency, fixed-baseline and
 coordinate-update chains in [Project Status](Project-Status.md) remain closed.
-The scheduler query during this planning task returned no jobs for the project
-user. No solver run, model training, recovery, admission or finalizer should be
+The no-job observation during the initial planning task was historical, not the
+current scheduler state. No solver run, model training, recovery, admission or finalizer should be
 resumed merely because an older entry says `RUNNING`, `PENDING`, or "next".
 Those entries are dated historical observations.
 
@@ -100,13 +101,14 @@ These are new studies, not incomplete stages of the closed pipelines:
 
 ## Resume procedure
 
-Planning has resumed; the remaining protocol and execution gates below apply
-before the first new computational job. The editable TCAD manuscript is in
+Research has resumed; the protocol and execution gates below apply to every
+new study. The editable TCAD manuscript is in
 [`Paper/Paper_TCAD/`](../../Paper/Paper_TCAD/); it is not a new research release.
 
-1. Start from immutable tag `journal-snapshot-1.1.1`, verify it against the published
-   remote, then verify the journal snapshot and repository manifests recorded by
-   that release. Do not resume from an old detached execution worktree.
+1. Preserve immutable tag `journal-snapshot-1.1.1` as the released manuscript
+   anchor. For ongoing work, verify the latest main publication and the exact
+   frozen source of each active study against the live record. Do not resume
+   a closed study from an old detached execution worktree.
 2. Choose exactly one deferred question and give it a new protocol identity.
    Existing accepted artifacts remain immutable inputs or comparators.
 3. Update the owning dataset, method, status, and decision pages before running

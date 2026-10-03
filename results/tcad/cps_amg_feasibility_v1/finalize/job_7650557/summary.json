@@ -1,0 +1,144 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "1615",
+      "ExitCode": "2:0",
+      "JobID": "7650556",
+      "NodeList": "a0199",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "accounting_sha256": "3a1a5c51b41bef375e94825f2352b2bf8c69ebbede87532beab2f2b53d4d35b9",
+  "attempt_sha256": "b65a8c7dcb02c527d8cf05af1cd531a9128d6e37ad95e3109a94cbea4c0e8874",
+  "automatic_expansion": false,
+  "claim_eligible": false,
+  "comparisons": {},
+  "complete": false,
+  "continuum_convergence_established": false,
+  "errors": [
+    "AMG feasibility did not complete with zero exit and restarts"
+  ],
+  "feasibility_job_id": "7650556",
+  "feasibility_passed": false,
+  "lock_sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906",
+  "observed_arms": {
+    "local0": {
+      "failure": null,
+      "passed": true
+    },
+    "local1": {
+      "failure": "worker wall-time cap exceeded",
+      "passed": false
+    }
+  },
+  "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+  "protocol_sha256": "81a391e89b89bf6cd8a271997b8103430e9b52a70a72fbbef67fd822e4a2c63e",
+  "reference_qualified": false,
+  "runtime": {
+    "packages": {
+      "gmsh": "4.15.2",
+      "numpy": "2.0.2",
+      "pyamg": "5.3.0",
+      "scikit-fem": "11.0.0",
+      "scipy": "1.13.1"
+    },
+    "python": "3.9.21",
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_DYNAMIC": "FALSE",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "PCB_GNN_GMSH_THREADS": "1"
+    }
+  },
+  "scheduler": {
+    "Account": "pgs0407",
+    "AccrueTime": "2026-10-03T04:56:05",
+    "AllocNode:Sid": "ascend-login02:860298",
+    "AllocTRES": "cpu=3,mem=8G,node=1,billing=3",
+    "BatchFlag": "1",
+    "BatchHost": "a0104",
+    "CPUs/Task": "3",
+    "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "Contiguous": "0",
+    "CoreSpec": "*",
+    "Deadline": "N/A",
+    "DelayBoot": "00:00:00",
+    "Dependency": "(null)",
+    "EligibleTime": "2026-10-03T04:56:05",
+    "EndTime": "2026-10-03T05:11:30",
+    "ExcNodeList": "(null)",
+    "ExitCode": "0:0",
+    "Features": "(null)",
+    "GroupId": "PGS0407(9475)",
+    "JobId": "7650557",
+    "JobName": "tcad-amg-final",
+    "JobState": "RUNNING",
+    "LastSchedEval": "2026-10-03T04:56:30",
+    "Licenses": "(null)",
+    "LicensesAlloc": "(null)",
+    "MCS_label": "N/A",
+    "MinCPUsNode": "3",
+    "MinMemoryNode": "8G",
+    "MinTmpDiskNode": "0",
+    "Network": "(null)",
+    "Nice": "0",
+    "NodeList": "a0104",
+    "NtasksPerN:B:S:C": "0:0:*:1",
+    "NumCPUs": "3",
+    "NumNodes": "1",
+    "NumTasks": "1",
+    "OverSubscribe": "OK",
+    "Partition": "nextgen",
+    "PreemptEligibleTime": "2026-10-03T04:56:30",
+    "PreemptTime": "None",
+    "Priority": "300000537",
+    "QOS": "ascend-default",
+    "Reason": "None",
+    "Reboot": "0",
+    "ReqB:S:C:T": "0:0:*:*",
+    "ReqNodeList": "(null)",
+    "ReqTRES": "cpu=1,mem=8G,node=1,billing=1",
+    "Requeue": "0",
+    "Restarts": "0",
+    "RunTime": "00:00:01",
+    "Scheduler": "Backfill",
+    "SecsPreSuspend": "0",
+    "Socks/Node": "*",
+    "StartTime": "2026-10-03T04:56:30",
+    "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "StdIn": "/dev/null",
+    "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN",
+    "SubmitTime": "2026-10-03T04:28:49",
+    "SuspendTime": "None",
+    "TimeLimit": "00:15:00",
+    "TimeMin": "N/A",
+    "TresPerTask": "cpu=1",
+    "UserId": "binben14(51204)",
+    "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN"
+  },
+  "smoke": {
+    "accounting": [
+      {
+        "AllocCPUS": "3",
+        "ElapsedRaw": "8",
+        "ExitCode": "0:0",
+        "JobID": "7650458",
+        "NodeList": "a0102",
+        "ReqMem": "8G",
+        "Restarts": "0",
+        "State": "COMPLETED"
+      }
+    ],
+    "attempt_sha256": "dae0319e5a94fbaad92b92d54405089c9b999a85a2bcd2849d3c2e1e815dc2de",
+    "job_id": "7650458"
+  },
+  "source_commit": "b8d4b891d15d4dc7c261e92c310bc3273218daa6",
+  "three_sentinel_qualification": false,
+  "training_may_start": false
+}

@@ -7,7 +7,22 @@ paper_source: false
 
 # SLURM Resource Plan
 
+## Proposed mesh-generation diagnostic
+
+The [next bounded work package](../manuscript/TCAD-Research-Plan.md) tests a
+single HXT mesher candidate with native stage logs, not another field solve.
+A toy worker plus local1 and its fresh repeat have inherited 600/1,200/1,200
+second ceilings. Plan one 160 GiB, 55-minute job, one scientific thread, no
+array or retry. Memory and mesh ceilings remain those of the preceding smoke
+and sentinel workers. This resource plan is not a submission receipt: source,
+protocol, guards and repeatability rules still need their own freeze.
+
 ## TCAD seven-arm AMG feasibility
+
+The initial chain is now terminal and incomplete at local1's meshing time cap;
+the [evidence record](../evidence/TCAD-Cps-AMG-Feasibility.md) owns measured use
+and the preserved archive. The specifications below are unchanged historical
+ceilings, not permission to retry the failed job with more time.
 
 The owner-approved [new study](TCAD-Cps-AMG-Feasibility.md) preserves the
 single-sentinel support study's resource contract: 8 GiB/15-minute smoke and

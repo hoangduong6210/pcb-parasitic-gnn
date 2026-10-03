@@ -1,6 +1,6 @@
 ---
 title: TCAD AMG Feasibility Runbook
-status: RUNNING; smoke validated; seven-arm feasibility submitted
+status: REJECTED; terminal archive checked; no active job
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -59,3 +59,23 @@ and overwrites are rejected. Timeout/RSS overflow terminates the worker process
 group. Finalization verifies identities, exact coverage, raw-log hashes and
 terminal accounting before scalar sensitivity assessment on compute.
 Retain every failure. No further job is submitted automatically.
+
+## Terminal preservation
+
+The additive collector
+`code/experiments/proofs/archive_tcad_cps_amg_feasibility_v1.py` targets this
+first source-bound chain. It requires terminal accounting for smoke, feasibility
+and finalizer, checks exact arm/file coverage, prerequisites, raw logs, source,
+runtime and finalizer scalar reconstruction, and copies bytes without overwrite.
+Its `--check` mode reviews the tracked archive without a field solve. A
+complete negative sensitivity outcome remains negative; incomplete coverage
+remains incomplete. This collector is not part of the already frozen execution
+source and cannot modify it.
+
+The first collector-test run on 2026-10-03 encountered file-count quota while
+retaining synthetic fixtures. Only that newly generated fixture directory was
+removed (710 reproducible test files); scientific artifacts and worktrees were
+untouched. Collector tests now remove their own temporary fixtures after each
+case, bounding peak file use. An invalid-NaN fixture writer and an outdated
+status-prefix mismatch were corrected before rerunning validation. These were
+test/preparation issues, not a changed solver result.

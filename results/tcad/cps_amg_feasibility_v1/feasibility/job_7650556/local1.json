@@ -1,0 +1,18 @@
+{
+  "arm": {
+    "far_size_mm": 4.0,
+    "level": 1,
+    "name": "local1",
+    "pad_mm": 16.0,
+    "support": "compact"
+  },
+  "elapsed_s": 1200.51880231197,
+  "failure": "worker wall-time cap exceeded",
+  "files_sha256": {
+    "local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local1.stdout": "0cffce16f1386b3223fee27290857b8fabf0232de41ba416e8b615cff62bbf14"
+  },
+  "observed_peak_rss_gib": 3.623119354248047,
+  "passed": false,
+  "returncode": -9
+}

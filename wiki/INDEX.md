@@ -18,12 +18,14 @@ paper_source: false
 | [Research System Map](architecture/Research-System-Map.md) | End-to-end data, solver, model, evidence, and publication flow |
 | [License and Asset Boundaries](governance/License-and-Assets.md) | Source, dependency, vendor, figure, and publication licensing |
 | [Technical Source Map](references/Technical-Source-Map.md) | Bibliography topics, keys, and citation review |
+| [TCAD Related-Work Audit](references/TCAD-Related-Work-Audit.md) | Primary-source access, overlapping prior methods and unproven contribution hypotheses |
 
 ## Status, scope, and decisions
 
 | Page | Owns |
 |---|---|
 | [Project Status](status/Project-Status.md) | Scientific lifecycle and current blockers |
+| [Q1 Journal Goal](status/Q1-Journal-Goal.md) | Standing research authorization, progress gates and author-release boundary |
 | [Live Execution](status/Live-Execution.md) | Closed dated scheduler history; historical state words are not resume instructions |
 | [Research Pause and Handoff](status/Research-Pause-Handoff.md) | Historical pause, preserved release anchors and current resume boundary |
 | [Repository Author Attribution](status/Author-Attribution.md) | GitHub identity mapping, verification, and immutable-history boundary |

@@ -1,11 +1,63 @@
 ---
 title: TCAD Research Continuation Plan
-status: RUNNING; Stage 1 implementation approved; later stages conditional
+status: RUNNING; continuing Q1 goal authorized; scientific gates retained
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Research Continuation Plan
+
+## Continuing goal authorized on 2026-10-03
+
+The owner requested autonomous continuation toward a Q1 journal, prioritizing
+TCAD. The [goal record](../status/Q1-Journal-Goal.md) defines the standing scope
+and completion evidence. Subsequent ordinary implementation steps no longer
+need a separate chat approval, but later studies still require their declared
+scientific prerequisites and new frozen protocols. Earlier dated statements
+about stage-specific approval retain their historical meaning. No gate in an
+already frozen experiment is changed by this instruction.
+
+The [related-work audit](../references/TCAD-Related-Work-Audit.md) now identifies
+direct prior art in multi-fidelity EM optimization and newer graph/fidelity
+surrogates. Generic multi-fidelity graph learning is not the novelty claim.
+Original-method review and compatible statistical multi-fidelity controls are
+required before any later acquisition study.
+
+## Next implementation after the meshing timeout: 2026-10-03
+
+The seven-arm AMG study closed incomplete at local1's mesh-generation time
+limit; its [terminal archive](../evidence/TCAD-Cps-AMG-Feasibility.md) is checked.
+This result separates the immediate resource bottleneck from the successful
+coarse AMG check, but does not identify Gmsh's slow internal substep. A new
+mesh-only diagnostic is the next work package; no failed job is resubmitted.
+
+Test one alternative: Gmsh `Mesh.Algorithm3D=10` (HXT), retaining geometry,
+Box fields, local sizes, padding, random seed and one-thread settings. The
+[pinned-version Gmsh manual](https://gmsh.info/doc/texinfo/#Choosing-the-right-unstructured-algorithm)
+describes HXT as a Delaunay reimplementation supporting general size fields;
+the [option definition](https://gmsh.info/doc/texinfo/#Mesh-options) identifies
+algorithm 10. This motivates a bounded test, not a prediction that HXT will
+fix this geometry or meet the caps. Enable native meshing logs to distinguish
+1D, 2D and 3D progress if a worker times out again.
+
+The planned sequence is a mesh-only toy smoke, fresh layout-597 local1 and a
+fresh identical local1 repeat. Inherit toy limits of 600 seconds, 6 GiB RSS,
+300,000 nodes and 1,500,000 tetrahedra; inherit sentinel limits of 1,200 seconds,
+120 GiB RSS, 3,000,000 nodes and 20,000,000 tetrahedra per worker. The aggregate
+worker ceiling is 3,000 seconds; a single 160 GiB, 55-minute SLURM allocation
+can contain this bounded sequence. No matrix assembly, AMG/CG or field solve
+belongs in this probe. Record native logs, stage times, geometry/runtime,
+effective mesh options, region/mesh counts and ordered mesh fingerprints.
+
+Freeze code, protocol, exact file closure, repeatability rule and source before
+submission. Require complete bounded mesh generation and identical fresh-repeat
+fingerprints to consider a later solver study. A changed mesher generates a new
+discretization: old matrix hashes and capacitances cannot be reused as results
+for it. A pass would authorize preparation of new source-bound backend and
+sensitivity checks, not qualify a reference or open training. Failure stops
+the probe and is archived without another unrecorded candidate or wider cap.
+This is a pre-implementation specification; no mesh-probe source is frozen or
+new probe job submitted at this checkpoint.
 
 ## Research question
 
