@@ -7,6 +7,22 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Arithmetic terminal checkpoint published on 2026-10-03
+
+At 10:40:37 UTC GitHub main and local HEAD were verified as
+`8d58afefffaa2660f0b2d7f9d9e4319c3faf514a`. All 17 archive members are
+tracked; the 7,115-file repository manifest passed. The 443-test source and
+182-test terminal regressions, then the 55-test wiki/prose recheck, passed.
+Internal agent instructions remain ignored/untracked. The two final completed
+synthetic-fixture directories were removed; all evidence/worktrees remain.
+
+At 10:39:32 UTC accounting reconfirmed the same completed diagnostic; its queue
+record had expired, not restarted. No job is active. The full journal goal
+remains active and incomplete. Next: layer-aligned candidate feasibility,
+preserving geometry and predeclaring quality/boundary gates before another
+SLURM study. Account file use is near its limit; check quota before any new
+checkout. Earlier pending-publication statements below are historical.
+
 ## Exact-arithmetic diagnosis terminal and archived on 2026-10-03
 
 At 10:29:33 UTC job `7652241` was terminal `COMPLETED/0:0`, zero restarts,

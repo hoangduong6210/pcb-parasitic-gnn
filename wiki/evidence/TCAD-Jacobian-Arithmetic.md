@@ -84,6 +84,15 @@ Two completed synthetic collector/wiki fixture directories were removed;
 all source worktrees and scientific evidence remain preserved. Publication
 follows the final wiki/prose and tracked-manifest checks.
 
+At **10:40:37 UTC**, the terminal checkpoint was published and remotely
+verified as `8d58afefffaa2660f0b2d7f9d9e4319c3faf514a`. Every archive member
+is tracked; the 7,115-file manifest, final 55 wiki/prose tests and prose audit
+passed. Two final completed synthetic-fixture directories were removed without
+removing scientific artifacts. Accounting at 10:39:32 UTC reconfirmed the same
+completed job; its expired queue record is not a retry. Frozen execution source
+remains `8168208a1248befcaf72a56ed139bf17d230ca56`. No mesh, field, reference,
+training or claim admission follows from publication.
+
 ## Research decision
 
 Keep the old rejection and its failed tolerance. Do not rerun the optimizer,
