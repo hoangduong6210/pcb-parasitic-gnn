@@ -62,6 +62,12 @@ prose audit passed. At 09:57:41 UTC, accounting still reported the same terminal
 state; the short-lived queue record had expired, not restarted. Publication
 of this terminal checkpoint follows these checks.
 
+At 10:01:36 UTC the complete terminal checkpoint was published and remote-hash
+verified as `b426b0afaa1b3d6dd51b3412d3345ee30cfd1910`. Every archive member
+is Git-tracked and the 7,085-file manifest passed. Raw native bytes were not
+reformatted. Execution source remains `3187f810557957aa6c2188db2174c295d5a6c21a`;
+publication does not convert the rejected diagnostic into a qualified mesh.
+
 The raw/post signed minima alone do not identify the mismatching tetrahedra
 or prove whether the discrepancy is rounding, conditioning, an API convention
 or an implementation defect. Native positivity is not independent accuracy.

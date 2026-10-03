@@ -7,6 +7,22 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Boundary-mesh terminal checkpoint published on 2026-10-03
+
+At 10:01:36 UTC GitHub main and local HEAD were verified as
+`b426b0afaa1b3d6dd51b3412d3345ee30cfd1910`. This publishes the complete
+31-member terminal closure, both native packets, additive collector and updated
+research decision. Every archive member is tracked; the 7,085-file manifest
+passed. All 655 selected tests and subsequent 55-test wiki/prose rechecks passed.
+Internal agent instructions remain ignored/untracked. Two post-terminal
+synthetic-fixture directories were removed after their tests completed; all
+scientific evidence and execution checkouts remain preserved.
+
+No job in this chain is active. The full TCAD goal remains incomplete and
+active. Next: bounded, source-frozen SLURM arithmetic diagnosis of the identical
+archived raw/final coordinates, without a new mesh or tolerance change. Earlier
+pending-publication statements below are historical, not remaining blockers.
+
 ## Boundary-mesh attempt terminal and archived on 2026-10-03
 
 At 09:46:48 UTC, job `7652212` was terminal `FAILED/2:0`, zero restarts and
