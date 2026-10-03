@@ -188,3 +188,16 @@ removed: `hxt-isolation-tests.W0cOVg`, `hxt-isolation-tests.vGS9Ma`,
 Those four held seven directories, 92 pytest links and the three hash-matched
 prose fixtures. Scientific artifacts and execution worktrees were unchanged.
 Observed file use after the latter cleanup was 999,689 of 1,000,000.
+
+## Edge preparation fixture cleanup on 2026-10-03
+
+Five completed task-generated roots under `.internal/` were inspected and
+removed: `edge-sizing-math.CjigOf`, `edge-sizing-math-fixed.hZaW1J`,
+`edge-prefreeze.moio0y`, `edge-prefreeze-fixed.kKFZcK`, and
+`edge-feasibility-integration.TddnC8`. Their eight directories, 69 pytest links
+and three tiny text fixtures contained no scientific output or worktree.
+The three regular files were read and matched the reproducible prose-audit
+fixtures. The running frozen regression used a separate untouched root.
+No scientific data, Git object, execution worktree or private recovery archive
+was removed. Earlier observed account use was 995,578 of 1,000,000 files;
+other account activity can change quota independently.

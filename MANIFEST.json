@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 373,
+    "code": 379,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 59,
+    "protocols": 61,
     "results": 6332,
     "root": 11,
-    "tests": 96,
-    "wiki": 102
+    "tests": 98,
+    "wiki": 104
   },
   "files": [
     {
@@ -1236,6 +1236,11 @@
       "sha256": "a53e3f3c715e2f4ee9cd4f835688569ee37dddfe22a8df112342634691a4ffb5"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_edge_feasibility.py",
+      "bytes": 18714,
+      "sha256": "791820551a1260a1902fe6f077822efdee48fb0a2f7c802891640e317806c9c6"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_hxt_isolation.py",
       "bytes": 8233,
       "sha256": "0a1ea46274c632e05d64c3cb14ef0d8160cd0265faa15d1d72fe3080190d2f45"
@@ -1304,6 +1309,11 @@
       "path": "code/experiments/proofs/tcad_cps_dielectric_mesh.py",
       "bytes": 11399,
       "sha256": "e3e51bf00c3a49ba23089d1cd265b80e69f18876cf0e65b812a2858cd4e17783"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_edge_feasibility.py",
+      "bytes": 7084,
+      "sha256": "c596faaea562bdbc326e72259c480574e5bd72bdeb6ba5180709c7315056caf9"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_hxt_isolation.py",
@@ -1976,6 +1986,11 @@
       "sha256": "ed00d482904140a4a40c120b805c378f11caeecb255cac0797733e7f73217c29"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_edge_feasibility.sh",
+      "bytes": 732,
+      "sha256": "c4186f7770227d3201c9719a8474544176d7648cf10565614d43c54863aa1a76"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_hxt_isolation.sh",
       "bytes": 691,
       "sha256": "1d9468139daab4be3ba75140e729c8b878aca924ee7ca1c0483195c950994118"
@@ -2319,6 +2334,21 @@
       "path": "code/solvers/tcad_cps_dielectric_topology.py",
       "bytes": 6214,
       "sha256": "004e52167dccbc152c3ece3371455b5444264d281fd12f698a7bd33d92b5496a"
+    },
+    {
+      "path": "code/solvers/tcad_cps_edge_builder.py",
+      "bytes": 7239,
+      "sha256": "ed4f16cc57ee943c08ed90528a14a4976153e15196e557a0ed308def65357431"
+    },
+    {
+      "path": "code/solvers/tcad_cps_edge_sizing.py",
+      "bytes": 12811,
+      "sha256": "145c44e299ac88ab1551326341345263cdf7ba67482cd2cafc86395cb893c47a"
+    },
+    {
+      "path": "code/solvers/tcad_cps_edge_worker.py",
+      "bytes": 2061,
+      "sha256": "cd20adb526887619f2c43c8b64ab017a2d005786e8aeb7f2f9d4eee2897865b3"
     },
     {
       "path": "code/solvers/tcad_cps_hxt_isolation_worker.py",
@@ -3579,6 +3609,16 @@
       "path": "protocols/tcad_cps_dielectric_mesh_v1.lock.json",
       "bytes": 34135,
       "sha256": "8cf23148f56da0b36580c286c20880b23891c305abd4f43656dfd99e8c13fcc1"
+    },
+    {
+      "path": "protocols/tcad_cps_edge_feasibility_v1.json",
+      "bytes": 3822,
+      "sha256": "16472fe0dc5f6ca880df1e7766330b3a884276ae5c4d1fdce5ba61b4e5027cea"
+    },
+    {
+      "path": "protocols/tcad_cps_edge_feasibility_v1.lock.json",
+      "bytes": 62291,
+      "sha256": "7427e553dba07e8e8ba565342b27a7e891ed6e04d0fc00ac0bbd126fb641af6c"
     },
     {
       "path": "protocols/tcad_cps_hxt_isolation_v1.json",
@@ -35721,6 +35761,16 @@
       "sha256": "f824a7436577fa3ee804c1daeeb323f849463d32887aae58f09c8e943db0d5e3"
     },
     {
+      "path": "tests/test_tcad_cps_edge_feasibility.py",
+      "bytes": 18099,
+      "sha256": "f99dee668a8ac85e6013f7a4855e3cf96a4d0939585f437e2951cef4da8f9ae4"
+    },
+    {
+      "path": "tests/test_tcad_cps_edge_sizing.py",
+      "bytes": 11465,
+      "sha256": "8ef50e9e38ac6ec096a5fdcdaa2caaa5f404c636fd6da06e882350945c4a345f"
+    },
+    {
       "path": "tests/test_tcad_cps_hxt_isolation.py",
       "bytes": 17850,
       "sha256": "81fab26786f7dab89c083d1d66983c47be0c62ba7051baaab48c4e90893521c3"
@@ -35837,8 +35887,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 20091,
-      "sha256": "cc8f35e18f13b5badcb0e9c962b3534556357863a36ce721bccddbf488c4ef05"
+      "bytes": 20394,
+      "sha256": "f3d8be3a540204c5e7a378321f570b586c7c90065a3f8e6f11ac43be3cc6d910"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -35969,6 +36019,11 @@
       "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
       "bytes": 9139,
       "sha256": "e7e0761f660fa63b8c2cc49c6aee56f88aa5b64e3fe346048dc3ff72dc8b6731"
+    },
+    {
+      "path": "wiki/evidence/TCAD-Edge-Feasibility.md",
+      "bytes": 1501,
+      "sha256": "0e6e86dc66dbb0f022fe77aac65a06a8ba1e06e397e3c529b98c12be5aaf991e"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
@@ -36151,6 +36206,11 @@
       "sha256": "ac3637f862f09a3d8dfa90cfde961426ed8a02b208b007e243c881f162f02d98"
     },
     {
+      "path": "wiki/methods/TCAD-Edge-Feasibility.md",
+      "bytes": 4780,
+      "sha256": "1435d9cbdb4b697e8f1baff5f528a2a30da2460309cd48a1780416727f4133f0"
+    },
+    {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
       "bytes": 4734,
       "sha256": "359a616e64be64c7865e41fa9402c3f126cfa0edd972425aab58dc6dc3309d22"
@@ -36197,8 +36257,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 11710,
-      "sha256": "683b9389f54f19d45a8f4bd25c15dcf02c62c6cc9364e914128cd85b4956549a"
+      "bytes": 12473,
+      "sha256": "0302c560a3a723d8373f329a104d71460dc3a13b12761317c2644c9b29843eba"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -36317,18 +36377,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 111516,
-      "sha256": "0633fe9c0a38afc4963a6a23f1302122c1f62fe08bf518bb33cb5642f31e227e"
+      "bytes": 113186,
+      "sha256": "d9d76b2639ee6aaa18aad16998c362d019e9ee9827a3b93ef0676865787b4063"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 15028,
-      "sha256": "e5dbe24a13345f30b2f5d832404abc688d2b6406726f06a024880615f9bc9691"
+      "bytes": 15179,
+      "sha256": "0d337721e935ebb13e496705e873323784cb0e10d2202caf25bcb5444954aa86"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 6008,
-      "sha256": "0732495a0a2fce675017c3966b2ce1e83046a1393f40f796150292b1e39e5102"
+      "bytes": 6129,
+      "sha256": "255661cc88534f77c763213be4cdd8d187e6aad94ecec375a653aec79b692190"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -36336,6 +36396,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7264,
-  "total_bytes": 1008483181
+  "n_files": 7276,
+  "total_bytes": 1008636788
 }

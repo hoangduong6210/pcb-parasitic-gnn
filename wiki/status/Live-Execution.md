@@ -7,6 +7,34 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local source frozen on 2026-10-03
+
+The [new study](../evidence/TCAD-Edge-Feasibility.md) has a fixed 454-dependency
+lock and passed **496 frozen tests, zero skips**; the 495-test pre-freeze suite
+had one expected lock skip. The prose audit passed. No actual layout probe or
+native mesh has run and no scientific job is active. Publish the source, verify
+a fresh sparse checkout, then submit one bounded SLURM attempt. Five inspected
+completed fixture roots were removed without affecting scientific data,
+worktrees or recovery archives. These records remain local pending publication;
+the full TCAD goal remains active and incomplete.
+
+## Edge-local sizing preparation on 2026-10-03
+
+At 14:56:37 UTC this continuation reverified clean local HEAD and GitHub main
+at `ec59ac1a05fcfdce6037bcc93065acf9bc7e6571`; the owner's queue was empty.
+The preceding goal turn made concrete SLURM diagnostic, evidence-publication
+and authorized recoverable storage-cleanup progress. The full TCAD goal
+remains active and incomplete; storage headroom is available.
+
+The [edge-local contract](../methods/TCAD-Edge-Feasibility.md) and guarded
+integration implement a new finite-perimeter distance field, independently
+checked native probes, explicit fallback disabling and unchanged original
+column/quality/capacity gates. Initial integration passed 74 synthetic tests
+with one pre-lock skip. Finish negative tests, freeze/publish source, verify a
+fresh sparse checkout, then submit one bounded SLURM study. No actual layout
+probe or new native mesh has run; no scientific job is active. Preparation
+records remain local. No cap increase, retry, paper export or claim admission.
+
 ## Sizing terminal publication and storage follow-up on 2026-10-03
 
 At 14:40:40 UTC GitHub main and local HEAD matched

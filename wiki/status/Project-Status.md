@@ -77,8 +77,10 @@ Toy passed, but sentinel exceeded the frozen planar capture cap; repeat did not
 run. The rejected attempt is archived and published; the separate
 [sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) completed with exact
 repeat. Its unchanged full-column budget is tighter than the capture cap.
-Next: separately specify edge-local sizing with coarser face interiors as a
-hypothesis, retaining count/quality gates and later field-sensitivity checks.
+The separate [edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md)
+now has a defined analytic field, independent native probes and guarded
+integration. Negative tests and source freeze precede its bounded SLURM study;
+count/quality gates and later field-sensitivity checks remain required.
 Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.
 The canonical preservation boundaries remain in
