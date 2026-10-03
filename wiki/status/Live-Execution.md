@@ -7,6 +7,42 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column sentinel capacity rejection on 2026-10-03
+
+At 13:40:09 UTC job **7653784** was terminal `FAILED/2:0`, zero restarts,
+54 seconds, and absent from the queue. Toy passed its planar and prospective
+checks; sentinel generation exceeded the frozen planar-node capture cap.
+The [evidence owner](../evidence/TCAD-Column-Feasibility.md) distinguishes
+native log counts from independently audited quantities. Repeat was correctly
+omitted after failure. No volume mesh, field or reference was produced.
+
+The additive terminal collector passed 24 synthetic tests with one expected
+pre-collection skip; all 30 terminal members are now in a checked byte-only
+archive. Next: terminal regression/publication, then separately specify a
+sizing/capacity diagnosis.
+Do not raise the cap or retry the rejected candidate. No scientific job is
+active; the full TCAD goal remains active and incomplete. Four more inspected
+completed fixture roots were removed to retain storage headroom; no scientific
+artifact or worktree was removed. Terminal records remain local pending push.
+
+The terminal regression passed all 342 tests with zero skips, including actual
+archive byte/metadata validation. The prose audit passed; the owner's queue was
+empty at 13:46:41 UTC and accounting reconfirmed the same failed attempt. Final
+manifest/tracked-member verification and publication are next. The scientific
+next step remains a separately frozen sizing/capacity diagnosis, not a retry.
+
+## Column source published and submitted on 2026-10-03
+
+Source `00607c6fa1d5bc0367ca808879ecf47e78e1f456` was remotely verified
+at 13:36:52 UTC after 556 frozen tests and the final 55-test wiki/prose recheck
+passed. The 387-file sparse checkout passed source/wrapper/runtime preflight.
+One submission at 13:38:10 UTC returned **job 7653784**. Monitor this same
+bounded 2D/column job; do not retry or tune it. The
+[evidence owner](../evidence/TCAD-Column-Feasibility.md) records exact bindings.
+Execution source is published; submission/monitoring receipts remain local.
+Three additional completed test roots were inspected/removed without deleting
+scientific data or worktrees. The full TCAD goal remains active and incomplete.
+
 ## Column source frozen on 2026-10-03
 
 The guarded 2D/column integration passed **556 frozen regression tests, zero

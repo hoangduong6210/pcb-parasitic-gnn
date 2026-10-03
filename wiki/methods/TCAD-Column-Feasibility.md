@@ -1,6 +1,6 @@
 ---
 title: TCAD Planar Footprint and Column Feasibility Contract
-status: PROPOSED candidate; guarded source frozen and synthetic contracts validated
+status: REJECTED candidate; native toy passed but sentinel exceeded capture cap
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -15,13 +15,14 @@ propagates a planar mesh through layers; it is not fully local 3D adaptation
 and may fail capacity or quality. Canonical conductor boxes, finite Neumann
 outer boundary, primary/secondary potentials and dielectric physics stay fixed.
 
-The implementation now includes arithmetic, native CAD/mesh readers, a guarded
-2D builder, raw-array bundles and a prospective column planner. Validation so
-far uses tiny synthetic fixtures and a fake native API only. The real native
-kernel has not been called for this candidate. Protocol/source are now frozen;
-publication and real-input feasibility remain pending. Library entries refuse
-execution; the worker and builder verify allocation, source and runtime before
-native imports or real geometry processing. Real work is SLURM-only.
+The implementation includes arithmetic, native CAD/mesh readers, a guarded 2D
+builder, raw-array bundles and a prospective column planner. Frozen source
+passed synthetic regression and then ran through SLURM: toy passed, but the
+sentinel exceeded the predeclared planar capture cap. This candidate is rejected
+and the study incomplete; see the [evidence owner](../evidence/TCAD-Column-Feasibility.md).
+Library entries refuse execution; worker and builder verify allocation, source
+and runtime before native imports or real geometry processing. Real work is
+SLURM-only. The original protocol/source and all produced outputs stay fixed.
 
 ## Complete footprint ownership
 
@@ -168,8 +169,15 @@ binary data is capped at 64 MiB. The complete report and packet must repeat
 byte-identically, excluding resource telemetry. No retries or automatic tuning.
 Track `planar_mesh_generated` separately from `volume_mesh_generated`.
 
-Synthetic integration/negative regression has passed on the source lock.
-Publish source before the bounded SLURM study. Only then may native work run. A
+Synthetic regression passed and the bounded study has ended in sentinel
+capacity rejection. Do not enlarge the cap or rerun this frozen policy. Next,
+specify a separate sizing/capacity diagnosis using the preserved CAD, sizing
+and log evidence. Any actual geometry/field-size analysis belongs to a new
+guarded SLURM diagnostic. Do not infer audited sentinel triangles, condition
+numbers or column counts from a mixed-element native log. Diagnose the sizing
+footprint and prospective count budget before proposing a replacement policy;
+the current evidence does not establish which sizing mechanism caused the
+excess. A
 later full 3D facet/terminal/volume audit, analytic field, same-mesh restriction
 and sensitivity study remain separate prerequisites. These are reference
 engineering steps, not a novel GNN contribution or an admitted paper claim.

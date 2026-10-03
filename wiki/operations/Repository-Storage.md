@@ -68,3 +68,13 @@ reproducible prose fixtures. The fixture sizes/hashes were checked against the
 same test forms above; no test process was active at removal. No scientific
 artifact, archive, Git object or execution worktree was removed. Observed file
 use afterward was 999,313 of 1,000,000; other account activity can affect quota.
+
+Three new completed integration/regression fixture roots were subsequently
+inspected and removed: `column-integration-expanded.aJA6bJ`,
+`column-prefreeze-regression.OPi2zN`, and `column-frozen-regression.rJc0Wf`.
+After the sparse checkout, four older completed roots were also inspected and
+removed: `hxt-isolation-tests.W0cOVg`, `hxt-isolation-tests.vGS9Ma`,
+`hxt-frozen-tests.O95t07`, and `hxt-archive-regression.BMcOPG`.
+Those four held seven directories, 92 pytest links and the three hash-matched
+prose fixtures. Scientific artifacts and execution worktrees were unchanged.
+Observed file use after the latter cleanup was 999,689 of 1,000,000.

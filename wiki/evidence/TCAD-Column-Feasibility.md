@@ -1,11 +1,75 @@
 ---
 title: TCAD Column Feasibility Implementation Evidence
-status: PROPOSED candidate; guarded native integration under synthetic validation
+status: REJECTED candidate; sentinel planar capture cap exceeded
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Column Feasibility Implementation Evidence
+
+## Terminal capacity rejection on 2026-10-03
+
+At **13:40:09 UTC**, job **7653784** was absent from the queue and accounting
+reported `FAILED/2:0`, zero restarts, 54 seconds, three allocated CPUs and
+8 GiB on `a0113`. The script requested one CPU and all numerical threads were
+pinned to one. Toy completed its planar audit and prospective checks; sentinel
+native generation completed but extraction rejected its node count. Native
+stdout reports **261,884 nodes**, above the frozen **200,000-node** planar
+capture cap. Its 550,830 reported elements are a mixed-dimension total, **not**
+a verified triangle count. This is a capacity rejection, not a timeout.
+
+The frozen stop policy omitted `repeat1` after the sentinel worker failure.
+The study is incomplete, repeatability untested and planning feasibility false.
+Toy's raw packet, complete CAD/plan report and all sentinel CAD/sizing/log files
+are retained in the execution checkout. No sentinel raw array bundle exists:
+the cap check deliberately precedes extraction/bundle writing. Do not claim a
+sentinel topology, quality or 3D-count result from its native log.
+
+The additive byte-only collector passed 24 synthetic tests before collection.
+All **30 terminal members** are preserved under the
+[terminal manifest](../../results/tcad/cps_column_feasibility_v1/archive/job_7653784/manifest.json),
+SHA-256 `69e90937ffa35c26ebbea73b583582adc4e88232b375ebdfc358797769362183`.
+This binds receipts, full/partial mode outputs, raw toy arrays, native logs and
+terminal scheduler accounting. Byte/metadata closure passed; no real arrays
+were numerically replayed on login.
+
+The preserved toy report contains 321 planar nodes, 618 triangles and 74 lines;
+its prospective full column-node bound is 5,136 and its tetrahedron count is
+25,434. All its prospective checks passed. These are toy-specific observations,
+not sentinel feasibility or field qualification. Toy packet SHA-256:
+`56acaa832497bbdf20e59085adddc64f931784635a49d7ceb7b6a3f6ed00f14c`;
+complete report SHA-256:
+`f718c5cb0997fbe9886f3f41846d70e90404e8f53e406a5d3a596d9d28b1af88`.
+
+Terminal regression/publication are next. Do not raise the cap or retry the
+frozen candidate. A separately specified sizing/capacity diagnosis is needed before
+any replacement construction; projected sizing is a hypothesis to investigate,
+not yet an established cause of the excessive count. No 3D mesh, field solve,
+reference, training or admitted claim was produced. Terminal records are local.
+
+The terminal regression passed **342 tests, zero skips**, in 87.69 seconds,
+including the actual archive's byte/metadata check. The prose audit passed.
+Accounting was reconfirmed and the owner's queue was empty at 13:46:41 UTC.
+Final manifest/tracked-member checks and publication follow. Execution source
+and its lock remain unchanged; no rejected result has been repaired or retried.
+
+## Published source and submission on 2026-10-03
+
+At **13:36:52 UTC**, GitHub main and local HEAD were verified as
+`00607c6fa1d5bc0367ca808879ecf47e78e1f456`. This publishes the frozen
+source, protocol/lock and synthetic validation, not a scientific result. The
+556-test frozen suite, final 55-test wiki/prose check, standalone prose audit
+and 7,197-file manifest passed. Internal agent instructions remain untracked.
+Three further inspected completed integration/regression fixture directories
+were removed; scientific artifacts and execution worktrees remain preserved.
+
+A 387-file sparse execution checkout passed source/wrapper/runtime preflight.
+One submission at **13:38:10 UTC** returned job **7653784**. The
+[submission receipt](../../results/tcad/cps_column_feasibility_v1/submission.json)
+binds the execution commit, lock and protocol. Monitor this job without retries
+or tuning and preserve all complete/partial outputs. Submission does not imply
+planar success, 3D mesh qualification or field accuracy. Submission/monitoring
+records are local while the execution source is published.
 
 ## Native integration preparation on 2026-10-03
 

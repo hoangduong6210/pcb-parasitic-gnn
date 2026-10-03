@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.column-feasibility-submission.v1",
+  "job_id": "7653784",
+  "source_commit": "00607c6fa1d5bc0367ca808879ecf47e78e1f456",
+  "lock_sha256": "72900550aba333843037e28239fcedae83f8109e35470bba48815494dc3effb0",
+  "protocol_sha256": "0e6451fb9ab44151c46090ef06ef4796bbe4c786a44d264fd545dcce18bd1149",
+  "submitted_at_utc": "2026-10-03 13:38:10 UTC",
+  "execution_worktree": ".internal/tcad-cps-column-feasibility-v1",
+  "source_remotely_verified_at_utc": "2026-10-03 13:36:52 UTC",
+  "modes": ["toy", "local1", "repeat1"],
+  "scope": "Native 2D mesh audit and prospective column capacity/conditioning; no volume mesh or field",
+  "automatic_retries": 0
+}

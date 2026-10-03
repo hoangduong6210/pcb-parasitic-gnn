@@ -69,10 +69,10 @@ failed its declared gates and is archived without generating a 3D mesh.
 The separate [midpoint/face-band study](../evidence/TCAD-Layer-Grid-Dyadic.md)
 also completed and is archived: condition gates pass, but sentinel capacity
 still fails. The [column contract](../evidence/TCAD-Column-Feasibility.md) now
-has exact arithmetic, native 2D provenance/mesh audit, raw bundles and guarded
-integration with synthetic checks. Its separate feasibility protocol/source
-lock is frozen; finish regression/publication before one bounded SLURM study.
-No native column candidate has run. Do not relax the
+has completed its guarded native study: toy passed, but sentinel exceeded the
+frozen planar capture cap. Repeat was omitted after that failure. Archive and
+publish the rejected attempt, then separately diagnose sizing/capacity before
+a replacement policy; native log totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as
 accurate capacitance. Only a later complete sensitivity pass can open a new

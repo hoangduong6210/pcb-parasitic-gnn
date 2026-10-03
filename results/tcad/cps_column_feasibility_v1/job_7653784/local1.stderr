@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-column-feasibility-v1/code/solvers/tcad_cps_column_worker.py", line 49, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-column-feasibility-v1/code/solvers/tcad_cps_column_worker.py", line 38, in main
+    result = build(mode, progress, c.attempt_directory(os.environ["SLURM_JOB_ID"]) / f"{mode}.payload")
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-column-feasibility-v1/code/solvers/tcad_cps_column_builder.py", line 127, in build
+    packet = mesh.read_native(gmsh, after, p["worker_limits"][mode])
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-column-feasibility-v1/code/solvers/tcad_cps_column_mesh.py", line 92, in read_native
+    raise ValueError("native planar node cap exceeded")
+ValueError: native planar node cap exceeded

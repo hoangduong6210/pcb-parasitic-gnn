@@ -1,0 +1,15 @@
+{
+  "elapsed_s": 14.522650626953691,
+  "failure": "worker exited 1; preserve all partial output",
+  "files_sha256": {
+    "local1.payload/cad.json": "9067babc5e111ab5cbd891742d63aeb14fb980e1e2db2980892dc3713d05ea82",
+    "local1.payload/inputs.json": "e49bbfa8699ee5bde7bae425ba1d3faeb90089e6ad758987bd1546a8d33e677e",
+    "local1.payload/sizing.json": "36dbc2fea10c3f94cddd2b9596bc3bed46fc4d539a6caad859320626b680d57f",
+    "local1.stderr": "e22347ffd13d73815bc354603f11f7f71806469a27f27864f7fe8c8e2ef3ef41",
+    "local1.stdout": "2a34540d04079b336a7439b26ec87069031fa38daeb1d6f1f1e8ac43ee55b86a"
+  },
+  "mode": "local1",
+  "observed_peak_rss_gib": 0.1309356689453125,
+  "passed": false,
+  "returncode": 1
+}

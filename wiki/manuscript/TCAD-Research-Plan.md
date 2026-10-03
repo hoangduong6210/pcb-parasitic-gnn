@@ -43,10 +43,11 @@ avoids the full x/y coordinate product. This is a design hypothesis, not a
 validated mesh. Geometry, original caps and prior failed gates remain preserved.
 The [exact column contract](../evidence/TCAD-Column-Feasibility.md) is now
 implemented with ownership, count, shared-facet and element-map condition
-checks, native 2D provenance/mesh audit and guarded integration. Its separate
-feasibility source/protocol is frozen and synthetic regression has passed.
-Publish and verify source before one bounded SLURM study; no actual column
-mesh has been tested yet.
+checks, native 2D provenance/mesh audit and guarded integration. The frozen
+study passed toy checks but exceeded the sentinel planar capture cap, so its
+repeat did not run. Preserve/publish the negative result, then separately
+diagnose sizing and count budgets before a replacement policy. No volume mesh,
+field, learning or paper claim follows from this incomplete study.
 The sequence below records the earlier CAD, mesh and arithmetic observations.
 
 ## Preserved decision after explicit-optimizer timeout: 2026-10-03
