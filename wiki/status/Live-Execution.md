@@ -7,6 +7,21 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Column-volume source-only checkpoint published on 2026-10-03
+
+At 17:21:15 UTC GitHub main and local HEAD matched
+`adc48b6703a17a626f6966209916befabd02e0d3`. The construction/audit core,
+synthetic tests and scoped wiki evidence are published. Final checks passed the
+7,467-file manifest, prose audit and 55 wiki/prose tests after the broader
+regression. Internal agent guidance remains untracked. No actual volume mesh
+or field result follows from these source-only tests; no new scientific job is
+active. The [evidence owner](../evidence/TCAD-Column-Volume-Mesh.md) records
+limitations. Next implement bounded chunked preservation, input/source bindings,
+guarded workers/watchdog and byte-only terminal collection, then freeze/publish
+before one SLURM toy/sentinel/repeat qualification. The full TCAD goal remains
+active and incomplete. This turn made implementation, regression and repository
+publication progress; source publication is not a completed journal goal.
+
 ## Column-volume qualification preparation on 2026-10-03
 
 At 16:37:39 UTC local HEAD and GitHub main matched

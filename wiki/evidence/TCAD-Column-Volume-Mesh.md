@@ -67,7 +67,13 @@ and native-style padded metadata do not change the generated volume geometry.
 
 ## Remaining execution prerequisites
 
-Publish the tested source-only core, then implement bounded
+The tested source-only core was published as
+`adc48b6703a17a626f6966209916befabd02e0d3`, with matching local/GitHub main
+confirmed at 17:21:15 UTC. Final checks passed the 7,467-file manifest, prose
+audit and 55 wiki/prose tests. This is not an execution lock or a qualified
+real-volume result. Prior frozen sources and evidence remain unchanged.
+
+Next implement bounded
 chunked volume payload preservation, source/archive bindings, guarded workers,
 watchdog and byte-only terminal collection. Freeze resource and payload limits
 before a single toy/sentinel/fresh-repeat SLURM study. Preserve each slab before
