@@ -78,7 +78,8 @@ exact repeat and a checked archive. The separately specified
 native SLURM execution, but its probe adapter failed before toy meshing. The
 preserved failure led to a separate
 [tiny native API qualification](../evidence/TCAD-Native-Field-Probe.md), which
-now passes with exact fresh repeat. Next is newly frozen real-layout integration
+now passes with exact fresh repeat. Next is newly frozen
+[real-layout integration](../evidence/TCAD-Edge-Feasibility-v2.md)
 with mandatory native probes; the sizing hypothesis remains untested. This is not a
 capture-cap increase or an accuracy claim; native log
 totals do not qualify a sentinel mesh. Do not relax the

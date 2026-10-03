@@ -229,3 +229,14 @@ and 15 regular files contained only reproducible fixtures; every regular-file
 hash matched one of the three inspected prose-audit forms. The still-running
 terminal regression used a separate untouched root. All scientific data,
 execution worktrees, Git objects and private recovery archives remain intact.
+
+## Edge-local v2 preparation cleanup on 2026-10-03
+
+Five inspected completed fixture roots were removed:
+`field-probe-api-terminal-regression.pm1Mea`,
+`field-probe-api-terminal-wiki.OoA72i`, `field-probe-api-receipt-wiki.R2rJB7`,
+`edge-v2-initial.EKuBG0`, and `edge-v2-contract.8N62Ye`. They held 14
+directories, 67 pytest links and nine regular files, whose hashes matched the
+three reproducible prose-audit forms. No scientific output, source worktree,
+Git object or private recovery archive was removed. The separate broader v2
+regression root was untouched. These disposable fixtures can be regenerated.

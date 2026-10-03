@@ -7,6 +7,29 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local v2 source frozen on 2026-10-03
+
+The [new integration](../evidence/TCAD-Edge-Feasibility-v2.md) has a fixed
+530-dependency lock and passed **565 frozen tests, zero skips**, following
+563 pre-freeze tests with one expected lock skip and an additional protocol-type
+check. The prose audit and wrapper syntax check passed. No scientific job is
+active and no v2 native work has run. Publish the source, verify a fresh sparse
+checkout and submit one bounded SLURM toy/sentinel/repeat attempt. Original
+science, caps and prior evidence remain unchanged. These records are local
+pending publication; the full TCAD goal remains active and incomplete.
+
+## Edge-local v2 preparation on 2026-10-03
+
+At 16:10:59 UTC local HEAD remained clean at
+`4c4fa0a690e0404dc01e592f78edd9736eb4ec52`; the owner queue was empty.
+The preceding turn made native API qualification and publication progress.
+The [new integration](../methods/TCAD-Edge-Feasibility-v2.md) will preserve all
+edge-v1 scientific/resource gates and replace only the unsupported probe API
+with the qualified model-backed adapter and expanded preservation checks.
+Implement and test, freeze/publish, then submit one bounded SLURM attempt.
+No v2 native work has run; these preparation records are local. The full TCAD
+goal remains active and incomplete.
+
 ## Native field-probe terminal checkpoint published on 2026-10-03
 
 At 16:05:01 UTC GitHub main and local HEAD matched
