@@ -82,6 +82,14 @@ regression had already passed 263 tests. Two completed collector/wiki fixture
 directories were removed; scientific files/worktrees were retained. Final
 wiki/prose and tracked-manifest checks precede terminal publication.
 
+At **11:27:41 UTC** this complete terminal checkpoint was published and
+remote-hash verified as `5d71ba471e6c6560b1177f36c3848a1798cfad43`. All 17
+archive members are tracked; the 7,147-file manifest, final 55 wiki/prose tests
+and prose audit passed. Two final completed synthetic-fixture directories were
+removed; no scientific data or source worktree was removed. Accounting at
+11:25:20 UTC reconfirmed the same terminal result, and the queue was empty.
+Execution source remains `4454a3178ab247e81dafd9d5ae4e29ef0c2a95e7`.
+
 ## Next decision
 
 Do not generate this tensor grid or retry the frozen source. Separate mandatory

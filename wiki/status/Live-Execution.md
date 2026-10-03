@@ -7,6 +7,22 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Layer-grid terminal checkpoint published on 2026-10-03
+
+At 11:27:41 UTC GitHub main and local HEAD were verified as
+`5d71ba471e6c6560b1177f36c3848a1798cfad43`. All 17 terminal archive members
+are tracked, and the 7,147-file manifest passed. The 263-test frozen-source
+suite, 167-test terminal regression and final 55-test wiki/prose recheck passed.
+Internal agent instructions remain ignored/untracked. The final two completed
+synthetic-fixture directories were removed; all scientific files/worktrees remain.
+
+At 11:25:20 UTC accounting reconfirmed the same completed planning job and the
+owner's queue was empty. Diagnosis completion does not admit the rejected
+projected-support candidate. Next: implement and prospectively freeze canonical
+interval midpoint/face-band refinement, preserving geometry and existing gates.
+The full TCAD goal stays active and incomplete. Earlier pending-publication
+statements below are historical, not remaining blockers.
+
 ## Layer-grid planning terminal and archived on 2026-10-03
 
 At 11:13:19 UTC job `7652593` was terminal `COMPLETED/0:0`, zero restarts,
