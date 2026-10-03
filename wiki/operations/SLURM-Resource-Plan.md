@@ -7,6 +7,16 @@ paper_source: false
 
 # SLURM Resource Plan
 
+## Dielectric-domain CAD prerequisite
+
+The [CAD-only runbook](TCAD-Dielectric-CAD-Diagnostic.md) specifies one 8 GiB,
+15-minute allocation and one scientific thread, without meshing or solving.
+Three sequential fresh workers have 180-second/6-GiB limits and stop at the
+first failure; aggregate worker ceiling is 540 seconds. No array, requeue or
+automatic retry. CAD construction remains prohibited on login. Source freeze
+and verified publication precede submission; the evidence page owns scheduler
+receipts. This specification does not imply native execution or a usable mesh.
+
 ## Mesh-generation diagnostic
 
 The [optimization-isolation runbook](TCAD-HXT-Optimization-Isolation.md) is now

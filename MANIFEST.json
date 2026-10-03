@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 323,
+    "code": 329,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 45,
+    "protocols": 47,
     "results": 6178,
     "root": 11,
-    "tests": 74,
-    "wiki": 86
+    "tests": 75,
+    "wiki": 88
   },
   "files": [
     {
@@ -1186,6 +1186,11 @@
       "sha256": "f88ad441215e55a4c9ae43f39f6f683aaccb57d011cd1652406b900540303d60"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_dielectric_cad.py",
+      "bytes": 7645,
+      "sha256": "51e7d37c9e326ffc2b35b6df6699e81966c4998bf53b4efbe98cbe574c427817"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_hxt_isolation.py",
       "bytes": 8233,
       "sha256": "0a1ea46274c632e05d64c3cb14ef0d8160cd0265faa15d1d72fe3080190d2f45"
@@ -1219,6 +1224,11 @@
       "path": "code/experiments/proofs/tcad_cps_amg_feasibility.py",
       "bytes": 7885,
       "sha256": "586604c256116c5a5b1ca5aefca5f8654df43a9957c798332176074253e5e1df"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_dielectric_cad.py",
+      "bytes": 7263,
+      "sha256": "c7ddad16f930e86981ae0416187ebccfa637e0dcfca81dc5ba16d75098c56920"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_hxt_isolation.py",
@@ -1856,6 +1866,11 @@
       "sha256": "8f49573fd79dc607e7d5db750ac343afdb9553abd6032400e7011da5604b5e94"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_dielectric_cad.sh",
+      "bytes": 697,
+      "sha256": "c3789524c69a0f489b593b98d9ea020bac3c22d980580ed2d9184c03ace5d44c"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_hxt_isolation.sh",
       "bytes": 691,
       "sha256": "1d9468139daab4be3ba75140e729c8b878aca924ee7ca1c0483195c950994118"
@@ -2104,6 +2119,21 @@
       "path": "code/solvers/tcad_cps_amg_worker.py",
       "bytes": 7498,
       "sha256": "f11b64a5c3d08e3a8a2d81f8cb5986f782260a980646871a0484a83505bcfa04"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_cad_builder.py",
+      "bytes": 6512,
+      "sha256": "c0841ff5f0882aed4b640fdc151586a1338ee5699033c25f36ec249ff66b6538"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_cad_metadata.py",
+      "bytes": 11534,
+      "sha256": "e2ac316fa78c91cf2ac29326f48c2dc3e1503db0e57a5337d087b147c6ed5c21"
+    },
+    {
+      "path": "code/solvers/tcad_cps_dielectric_cad_worker.py",
+      "bytes": 2547,
+      "sha256": "ccd2c84bcc01f7ff55cf25e93d81427c69ca2a070753134b37dcfdc8942b40a7"
     },
     {
       "path": "code/solvers/tcad_cps_dielectric_topology.py",
@@ -3299,6 +3329,16 @@
       "path": "protocols/tcad_cps_amg_feasibility_v1.lock.json",
       "bytes": 17628,
       "sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906"
+    },
+    {
+      "path": "protocols/tcad_cps_dielectric_cad_v1.json",
+      "bytes": 1962,
+      "sha256": "b365cc75f843b3a6461047393c4ae6e5db9fa102950b090f14267ed032e9d29e"
+    },
+    {
+      "path": "protocols/tcad_cps_dielectric_cad_v1.lock.json",
+      "bytes": 30320,
+      "sha256": "29484923fc973e1a670aac598a4826ad0e48f51fe89eb72e07f67a766c058792"
     },
     {
       "path": "protocols/tcad_cps_hxt_isolation_v1.json",
@@ -34561,6 +34601,11 @@
       "sha256": "469e7fba80771da5a24e2488b1dc8af5e30afe2b4d7e85989189230b1c30d3ff"
     },
     {
+      "path": "tests/test_tcad_cps_dielectric_cad.py",
+      "bytes": 24274,
+      "sha256": "084d71b27e520f171050e22abf82a1c4b582320a3bfa5f753a6db1953b1e4dcc"
+    },
+    {
       "path": "tests/test_tcad_cps_dielectric_topology.py",
       "bytes": 5991,
       "sha256": "f824a7436577fa3ee804c1daeeb323f849463d32887aae58f09c8e943db0d5e3"
@@ -34637,8 +34682,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 17432,
-      "sha256": "cc14752fc1d7b9f8bb8072196a47a1dcf3d56e983abd94f8d2d2c53d38c7a022"
+      "bytes": 17767,
+      "sha256": "324a681cf01eea7371e33c2efaf288cc8254ed14d996437b59e23442ebc0825e"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -34756,9 +34801,14 @@
       "sha256": "3ecc855c56a1996a463819676a905e1a75a505b2757339e1eea06e34bbeaab6d"
     },
     {
+      "path": "wiki/evidence/TCAD-Dielectric-CAD-Diagnostic.md",
+      "bytes": 4799,
+      "sha256": "c4802c6694710cef23d2adf25f97220c2f97b1ba513d7fee01d7ecd95d71e63d"
+    },
+    {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
-      "bytes": 9863,
-      "sha256": "b7bdb0a85c06015c61a3bb9c4dfae5ab8412a0216a51aded6cf2af284d562127"
+      "bytes": 10452,
+      "sha256": "3a03721c7b4325ed2159ba8f632b59dd35178fa29b7833586dc5291ff9a11e7a"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Optimization-Isolation.md",
@@ -34807,8 +34857,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 27860,
-      "sha256": "3031581d032cb6cc802514acba7fa88db7d6ebb49ed4b462014e938b9a9e1d19"
+      "bytes": 28261,
+      "sha256": "c477eecf8c159d456719be16216ce66d43913d13078f3199113c152eef49ae06"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -34902,8 +34952,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Dielectric-Only-Formulation.md",
-      "bytes": 6831,
-      "sha256": "dd37cf1f8b8375f3f741525518e046aa1a481d6d8f08ddd2cbba11665c0a57a0"
+      "bytes": 8288,
+      "sha256": "970def220107e466fc7bc213d7440816d2b1501befb8685e159851703970d36c"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -34937,8 +34987,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 13011,
-      "sha256": "f32a207696530333a3179ef0052ee95ecdfd787a1f1be54db12d062d40c75648"
+      "bytes": 13593,
+      "sha256": "efd328e2f88ab4e1f92480a4e17df992e9f43f3b8a812689ac3125ceea6f762a"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -34969,6 +35019,11 @@
       "path": "wiki/operations/TCAD-Cps-Support-Recovery.md",
       "bytes": 4015,
       "sha256": "36d370f9a5c878a6c2975ccea27e6a7d9c82e7a03ae3350aea5e9fadd83048a2"
+    },
+    {
+      "path": "wiki/operations/TCAD-Dielectric-CAD-Diagnostic.md",
+      "bytes": 3147,
+      "sha256": "fd91e8a826f492101c8dbf819576b78a2808085b954f533c5c76ac43d6fb155c"
     },
     {
       "path": "wiki/operations/TCAD-HXT-Explicit-Optimization.md",
@@ -35037,13 +35092,13 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 71145,
-      "sha256": "77e910d64dec91aeb7d4e6d8763c9b2afe741cb13263e00e218f991fdce06c08"
+      "bytes": 73133,
+      "sha256": "0770aba2c80c6772d3df33932660268227d7a4fbab126bd4f29d9fe11778ca4f"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 11884,
-      "sha256": "2e41b16663c2d255311da7de913bc7797d70277f62f2a66659e767d125ef914f"
+      "bytes": 12155,
+      "sha256": "b89500bd0577f398a73e849b3387ad1247ccb193c03aabc87d42dc3a2884d45e"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
@@ -35056,6 +35111,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7008,
-  "total_bytes": 988239237
+  "n_files": 7019,
+  "total_bytes": 988345560
 }

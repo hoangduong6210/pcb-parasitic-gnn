@@ -1,6 +1,6 @@
 ---
 title: TCAD Dielectric-Only Formulation Contract
-status: PROPOSED; abstract topology validator implemented; no CAD execution
+status: PROPOSED; guarded CAD adapter implemented; native execution pending
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -13,6 +13,9 @@ excluding fixed-potential conductor interiors produces a usable discretization
 within unchanged resource ceilings. No speed, quality or novelty claim follows
 from the proposal. The optimizer's bottleneck has not been attributed solely
 to conductor interiors; dielectric slivers may remain after their removal.
+The archived raw toy actually has its nonpositive signed-condition observation
+in dielectric, as recorded on the linked evidence page. Removing metal volume
+is therefore not assumed to eliminate the mesh-quality failure.
 
 ## Electrical quantity and equivalence boundary
 
@@ -46,6 +49,13 @@ sets inside the enclosing-box descendants; dielectric is their complement.
 Verify input/output map association against the pinned native API before the
 adapter is frozen. No inference from an output volume number is sufficient.
 
+The [separate CAD implementation](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
+now binds correspondence in source-confirmed object-then-tool order. It uses
+one enclosing box followed by the individual canonical trace boxes, without
+net fusion. The geometry contract rejects volumetric trace overlap; keeping
+per-trace provenance permits bounds/volume checks that an aggregate net label
+would obscure. This changes construction bookkeeping, not conductor geometry.
+
 Read each volume's boundary independently from each face's upward adjacency.
 Require exact entity coverage and agreement between these two incidence maps.
 The [Gmsh API](https://gmsh.info/doc/texinfo/#gmsh_002fmodel_002fgetAdjacencies)
@@ -70,13 +80,22 @@ removal, mesh, field, reference, training and claim flags false. Its synthetic
 fixtures are not closed CAD solids. It cannot detect edge/vertex shorts,
 incorrect coordinates, zero area, overlapping solids or dishonest provenance.
 
-Before actual removal, the future guarded adapter must independently verify
+Before actual removal, the guarded adapter must independently verify
 canonical geometry, positive volume/area, box containment and the six outer
 planes. Never label an unidentified hole as outer merely because it has one
 owner. Remove conductor volumes nonrecursively, preserve interface surfaces,
 and remove only proven orphan lower-dimensional entities. After synchronization,
 check the exact retained volume/face incidence and reachability of all surface,
 curve and point entities. No recursive removal that erases needed interfaces.
+
+The implemented CAD-only path captures full native entity records for all four
+dimensions: tag, type, bounding box, measure and independent incidence. Replay
+checks each trace's fragment-volume sum and bounds, total enclosing volume,
+six outer-plane area sums, net surface/edge/vertex separation, and exact
+retained entity closure. Remaining entity metadata must be unchanged except
+for adjacency to removed parents. Input net separation, coordinate/measure
+tolerances, entity caps and CAD options are pinned in its new protocol. This
+does not relax any old mesh-quality threshold or prove meshing feasibility.
 
 After meshing, require all extracted nodes to be used, supported tetrahedral
 types only, exact boundary-triangle coverage of the tetrahedral boundary,
@@ -104,8 +123,10 @@ must detect net shorts even when no whole face is shared.
    review and admission.
 
 No native geometry, meshing, solving or fitting was performed for this contract.
-The next implementation is the guarded adapter and its fake-native tests;
-numerical qualification and any learning contribution remain future work.
+The guarded adapter and fake-native integration now exist. Next are source
+freeze, verified publication and the bounded CAD-only SLURM diagnostic under
+its [runbook](../operations/TCAD-Dielectric-CAD-Diagnostic.md). Boundary-aware
+meshing, numerical qualification and a learning contribution remain future work.
 
 ## Validation checkpoint on 2026-10-03
 

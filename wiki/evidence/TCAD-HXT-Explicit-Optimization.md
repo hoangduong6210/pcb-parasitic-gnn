@@ -93,6 +93,15 @@ No tolerance was changed to obtain the positive observation. Near-degenerate
 positive elements still prevent inferring reliable conditioning or reference
 accuracy from this mesh-only test.
 
+A later metadata-only review for the dielectric formulation inspected the
+archived toy's `result.quality_before.regions`: dielectric contains the single
+nonpositive raw signed-condition observation, minimum
+-2.295723906874384e-16, with minimum determinant 1.0842021724855044e-18 mm^3.
+Both metal regions have zero nonpositive raw signed-condition observations.
+Thus even the toy rejection is not solely a conductor-interior defect. The
+new CAD prerequisite cannot establish that removing conductor interiors fixes
+mesh quality; boundary-aware meshing still requires independent evidence.
+
 An additive terminal collector and 24 passing synthetic archive tests now
 exist in main, separate from the running frozen source. Collection requires
 terminal accounting and exact frozen receipt/log checks; no archive has yet

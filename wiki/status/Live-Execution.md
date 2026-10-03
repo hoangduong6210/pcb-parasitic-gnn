@@ -7,6 +7,40 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Guarded dielectric-domain CAD implementation on 2026-10-03
+
+The previous goal turn made concrete progress and published its terminal/
+formulation checkpoint. Main was reverified at
+`b1f8527e244786cb9f038d6f85763e00845fe669` before this work. The goal remains
+active; no prior failed study is reopened.
+
+The [new CAD evidence page](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
+records separate builder, metadata replay, worker, bounded parent and SLURM
+wrapper implementation. Initial fake-native tests passed 57 cases with the
+source-lock check deferred until freeze. Expanded validation is underway;
+no native CAD, mesh or solve has run and no new job is submitted yet. Next:
+complete regression, freeze/publish source, then execute the CAD prerequisite
+under its own 8-GiB/15-minute contract. A CAD pass cannot qualify the reference,
+open training or substitute for the later boundary-aware mesh/field study.
+
+Expanded CAD tests subsequently passed 72 cases with one pre-freeze lock skip;
+CAD/topology/wiki/prose passed 206 together. Prior-source regression also
+passed before the last three cases were added. Source freeze and full
+post-freeze verification follow; native execution remains unperformed.
+
+The subsequent freeze binds 223 dependencies. Protocol and lock hashes are
+owned by the CAD evidence page. No previous source or raw evidence changed;
+post-freeze regression and verified publication remain submission prerequisites.
+
+A metadata-only recheck also locates the old toy's raw nonpositive signed
+condition in dielectric, not in metal. The explicit-optimizer evidence page
+owns that observation. CAD-domain validation must not be interpreted as a
+demonstrated cure for the mesher's slivers; the later mesh study stays separate.
+
+Post-freeze validation then passed all 442 selected tests with no skips. Prose
+and wrapper checks passed. Next: verified source publication and sparse-checkout
+validation, then one CAD-only submission. No new native result is inferred.
+
 ## Terminal/formulation checkpoint published on 2026-10-03
 
 At 07:49:55 UTC, local HEAD and GitHub main were both verified as

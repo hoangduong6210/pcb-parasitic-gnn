@@ -91,6 +91,7 @@ paper_source: false
 | [TCAD Mesh-Probe Evidence](evidence/TCAD-Cps-Mesh-Probe.md) | Source validation, scheduler receipts and mesh-only outcome boundaries |
 | [TCAD HXT Isolation Evidence](evidence/TCAD-HXT-Optimization-Isolation.md) | Separate source validation and bounded optimization-isolation receipts |
 | [TCAD HXT Explicit-Optimization Evidence](evidence/TCAD-HXT-Explicit-Optimization.md) | Source validation and bounded post-optimization diagnostic receipts |
+| [TCAD Dielectric CAD Evidence](evidence/TCAD-Dielectric-CAD-Diagnostic.md) | Native-domain adapter validation, source mapping decision and later CAD-only receipts |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
 ## Reproduction and operation
@@ -109,6 +110,7 @@ paper_source: false
 | [TCAD Mesh-Probe Runbook](operations/TCAD-Cps-Mesh-Probe.md) | One bounded SLURM allocation, fresh mesh-only workers and exact terminal review |
 | [TCAD HXT Isolation Runbook](operations/TCAD-HXT-Optimization-Isolation.md) | Source-bound unoptimized mesh/quality diagnostic with unchanged resource caps |
 | [TCAD HXT Explicit-Optimization Runbook](operations/TCAD-HXT-Explicit-Optimization.md) | Guarded fresh-extraction diagnostic, unchanged ceilings and no field solving |
+| [TCAD Dielectric CAD Runbook](operations/TCAD-Dielectric-CAD-Diagnostic.md) | Guarded domain construction, full topology preservation and no meshing or field solve |
 | [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots

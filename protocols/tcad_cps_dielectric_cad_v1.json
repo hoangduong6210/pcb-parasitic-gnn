@@ -1,0 +1,48 @@
+{
+  "schema": "pcb-gnn.tcad-cps-dielectric-cad.v1",
+  "protocol_name": "tcad-cps-dielectric-cad-domain-diagnostic-v1",
+  "scope": "native CAD domain/provenance/interface/removal checks only; no meshing or field solving",
+  "parent_protocol_sha256": "723bb110b8d7c67d0274883583c527827a3326aab88b300d34bf555fa006ecae",
+  "terminal_archive_sha256": "e76884fc13e7b721eb671b995598080031318f1bfc77016ce9039b26196527be",
+  "modes": ["toy", "local1", "repeat1"],
+  "cad_options": {
+    "General.NumThreads": 1,
+    "General.Terminal": 1,
+    "General.Verbosity": 5,
+    "Geometry.OCCParallel": 0,
+    "Geometry.OCCBooleanPreserveNumbering": 1,
+    "Geometry.OCCBoundsUseStl": 0,
+    "Geometry.Tolerance": 1e-8,
+    "Geometry.ToleranceBoolean": 0
+  },
+  "geometry_checks": {
+    "coordinate_atol_mm": 1e-6,
+    "measure_rtol": 1e-8,
+    "measure_atol_native": 1e-9,
+    "entity_count_max_per_dimension": 10000,
+    "input_net_separation_min_mm": 4e-6,
+    "outer_planes": 6,
+    "require_plane_surfaces": true,
+    "require_line_curves": true
+  },
+  "allocation": {
+    "account": "pgs0407",
+    "partition": "nextgen",
+    "cpus_per_task": 1,
+    "mem_gib": 8,
+    "time_limit": "00:15:00"
+  },
+  "worker_limits": {"worker_timeout_s": 180, "rss_gib_max": 6},
+  "worker_budget_s": 540,
+  "fragment_inputs": "one enclosing box object followed by canonical per-trace box tools in layout order; no centroid classification or net fusion",
+  "removal": "nonrecursive metal-volume removal, then only proven orphan metal-boundary faces/curves/points in descending dimension",
+  "repeatability_rule": "exact full CAD report SHA-256 across fresh local1/repeat1 processes, including provenance, pre/post geometry, options and removed entities",
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "mesh_generated": false,
+  "mesh_feasible": false,
+  "field_solver_executed": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

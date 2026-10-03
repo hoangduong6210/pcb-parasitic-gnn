@@ -45,6 +45,12 @@ physics. Real geometry/mesh work remains gated on new guarded source, tests,
 frozen protocol and SLURM execution. This is a reference-engineering step,
 not a new GNN contribution. The prior optimizer design below is historical.
 
+The [guarded CAD-only implementation](../evidence/TCAD-Dielectric-CAD-Diagnostic.md)
+now captures/replays native provenance and complete pre/post entity topology.
+Its geometry prerequisite is separate from a mesh feasibility result. Validate,
+freeze and publish this source before its one bounded SLURM diagnostic; later
+boundary-aware meshing and field equivalence still require separate protocols.
+
 ## Preserved implementation after the toy quality rejection: 2026-10-03
 
 The [unoptimized HXT diagnostic](../evidence/TCAD-HXT-Optimization-Isolation.md)
