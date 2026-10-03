@@ -201,3 +201,11 @@ fixtures. The running frozen regression used a separate untouched root.
 No scientific data, Git object, execution worktree or private recovery archive
 was removed. Earlier observed account use was 995,578 of 1,000,000 files;
 other account activity can change quota independently.
+
+After terminal regression, four further completed roots were inspected and
+removed: `edge-frozen.vRLlJk`, `edge-publication-wiki.m8TZWc`,
+`edge-archive-tests.6oRm85`, and `edge-terminal-regression.v3xFfp`. Their 13
+directories, 101 pytest links and nine tiny regular files contained only
+reproducible fixtures; the regular-file contents/hashes matched the three
+prose-audit forms. No test process was active. All scientific data, archives
+and source worktrees remain preserved.

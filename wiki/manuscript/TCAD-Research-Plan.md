@@ -14,9 +14,13 @@ archived with a rejected sentinel. The subsequent
 [sizing-budget diagnostic](../evidence/TCAD-Sizing-Budget.md) completed through
 SLURM and repeated exactly on archived inputs. Its full-column budget is tighter
 than the planar capture cap; it provides neither a qualified sentinel mesh nor
-an electrical result. Next: separately specify an edge-local sizing hypothesis
-with coarser face interiors, unchanged count/quality gates and later independent
-field/sensitivity checks. Do not retry or raise caps on the rejected Box policy.
+an electrical result. The separate
+[edge-local study](../evidence/TCAD-Edge-Feasibility.md) now has a preserved
+native integration failure: its list-based field-probe view lacked required
+model-entity support, stopping before toy meshing. Next: a separately specified
+tiny native API qualification through SLURM, then a newly frozen integration
+only if that prerequisite passes. Do not bypass probes, tune sizing, raise caps
+or retry the failed source. Full mesh/field/sensitivity checks remain required.
 This remains reference engineering, not the paper's learning-method novelty.
 
 ## Continuing goal authorized on 2026-10-03

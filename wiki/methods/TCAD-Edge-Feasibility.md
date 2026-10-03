@@ -1,6 +1,6 @@
 ---
 title: TCAD Edge-Local Planar Feasibility
-status: PROPOSED
+status: REJECTED; initial native probe integration
 last_updated: 2026-10-03
 paper_source: false
 ---
@@ -84,3 +84,14 @@ include full 3D boundary/terminal/volume/conditioning audits, an analytic-box
 check, same-mesh field restrictions, charge/energy/residual checks and mesh/
 domain sensitivity. Reference, training and manuscript-claim gates stay closed.
 The [evidence owner](../evidence/TCAD-Edge-Feasibility.md) records execution state.
+
+## Native compatibility correction after the first attempt
+
+The frozen list-based probe adapter failed before meshing. The source review
+above verified parser/plugin entry points but missed `Field::putOnView`'s
+entity-access requirement. The evidence owner records the deeper source trace,
+preserved terminal failure and required model-backed native API qualification.
+Do not treat the synthetic fake API as proof that a list view is supported.
+The analytic sizing definition remains a hypothesis; no native distance or
+mesh result passed. A corrected adapter needs a new frozen source/protocol and
+SLURM qualification before any real-layout study, without bypassing the probe.

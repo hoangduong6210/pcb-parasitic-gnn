@@ -74,9 +74,11 @@ frozen planar capture cap. Repeat was omitted after that failure. The rejected
 attempt is archived and published. A separate
 [sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) has completed with
 exact repeat and a checked archive. The separately specified
-[edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md) now has
-guarded integration awaiting source freeze and bounded SLURM execution. This
-is not a capture-cap increase or an accuracy claim; native log
+[edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md) reached
+native SLURM execution, but its probe adapter failed before toy meshing. The
+preserved failure requires a separate tiny native API qualification, then new
+frozen integration; the sizing hypothesis remains untested. This is not a
+capture-cap increase or an accuracy claim; native log
 totals do not qualify a sentinel mesh. Do not relax the
 rejected tolerance or silently snap geometry. Mesh and dielectric-only
 field qualification remain, without treating CAD or positive element quality as

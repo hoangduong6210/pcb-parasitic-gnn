@@ -4,14 +4,14 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 379,
+    "code": 380,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
     "protocols": 61,
-    "results": 6332,
+    "results": 6344,
     "root": 11,
-    "tests": 98,
+    "tests": 99,
     "wiki": 104
   },
   "files": [
@@ -744,6 +744,11 @@
       "path": "code/experiments/proofs/archive_tcad_cps_dielectric_mesh_v1.py",
       "bytes": 8632,
       "sha256": "2eb163adb43e82688bd5955587c9c8c90c5b2c54715e191c873574985ea82dee"
+    },
+    {
+      "path": "code/experiments/proofs/archive_tcad_cps_edge_feasibility_v1.py",
+      "bytes": 8885,
+      "sha256": "4b32d321eb23eece056fc2ed52114a411cccbadc94ae6a1dfe9d8babe9aa139f"
     },
     {
       "path": "code/experiments/proofs/archive_tcad_cps_hxt_isolation_v1.py",
@@ -34386,6 +34391,66 @@
       "sha256": "1396b352b201dc4d787aec4f9e7a3f16f5a4d8551692d54a91650d687ba96511"
     },
     {
+      "path": "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/logs/tcad_edge_feasibility_7655656.err",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/logs/tcad_edge_feasibility_7655656.out",
+      "bytes": 353,
+      "sha256": "873a6789e57f0a1a1201a1c5fb9d385edb1867d936a72a7536b9f1d69cf2826d"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/manifest.json",
+      "bytes": 2731,
+      "sha256": "07a609427373a633f0ef765c3afe53ad88816da0e2383d9d66a89686eb0c0ad8"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/sacct.txt",
+      "bytes": 35,
+      "sha256": "2d5cde2ab4da8a3620e0a5eb0946a10b9a87cc319110cbed0040eb8976ee9355"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/attempt.json",
+      "bytes": 3781,
+      "sha256": "2c7ebbacc4af89997697e830735134887645028f0a2ba7d8c42bfd0f1b139900"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.json",
+      "bytes": 690,
+      "sha256": "c3188bbc45697bf827eb2a92798ce51647d3eb71c895efe50566ced0f4c28229"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/cad.json",
+      "bytes": 7229,
+      "sha256": "5f669c1bcfd097777920abebb89e48aa2c25bea2457fda59a4c964428e7a2492"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/inputs.json",
+      "bytes": 4441,
+      "sha256": "f1ffa798102e4e61946d57aed6042540c85a446c9bbe82cd4147e3d5d2737835"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/sizing.json",
+      "bytes": 2337,
+      "sha256": "63540b5521e666a4a088e6de7f69fff9b67aaeaf999e4ad539f1fd84df16bfcf"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.stderr",
+      "bytes": 1406,
+      "sha256": "6bf2ad075ba3c9f5e3ee5d6fca3eb5b80469c16fa3e6cd50c5111681652067b2"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.stdout",
+      "bytes": 1060,
+      "sha256": "40afe931b31ea894e4607643bafaca86a29c01dd12de60ecd80b01b29973ae1e"
+    },
+    {
+      "path": "results/tcad/cps_edge_feasibility_v1/submission.json",
+      "bytes": 699,
+      "sha256": "2b81c22b7ad634d9c69490a20c1a46cf643d1a4befe7f8f1bae3aeaf02cc00ab"
+    },
+    {
       "path": "results/tcad/cps_hxt_isolation_v1/archive/job_7651659/logs/tcad_hxt_isolation_7651659.err",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -35761,6 +35826,11 @@
       "sha256": "f824a7436577fa3ee804c1daeeb323f849463d32887aae58f09c8e943db0d5e3"
     },
     {
+      "path": "tests/test_tcad_cps_edge_archive.py",
+      "bytes": 7281,
+      "sha256": "5bb1bec4dab6e12e24855ab29c0c9b8ae9cf8ed39b2033ea775b176c5ab8bd37"
+    },
+    {
       "path": "tests/test_tcad_cps_edge_feasibility.py",
       "bytes": 18099,
       "sha256": "f99dee668a8ac85e6013f7a4855e3cf96a4d0939585f437e2951cef4da8f9ae4"
@@ -35887,8 +35957,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 20394,
-      "sha256": "f3d8be3a540204c5e7a378321f570b586c7c90065a3f8e6f11ac43be3cc6d910"
+      "bytes": 20402,
+      "sha256": "b57ec59987f6a55efd069ef5d53b161c6a8791719c0f864c9eaa03ea75fefc2b"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -36022,8 +36092,8 @@
     },
     {
       "path": "wiki/evidence/TCAD-Edge-Feasibility.md",
-      "bytes": 1501,
-      "sha256": "0e6e86dc66dbb0f022fe77aac65a06a8ba1e06e397e3c529b98c12be5aaf991e"
+      "bytes": 5231,
+      "sha256": "1731a544956631702455289dc225fa6acb5c5ff19ff2b457739c64522e13cdca"
     },
     {
       "path": "wiki/evidence/TCAD-HXT-Explicit-Optimization.md",
@@ -36097,8 +36167,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 33004,
-      "sha256": "080b309f96b312d0539caa5b5f2e8866f61021d0386d1727fce0ac9e49649e64"
+      "bytes": 33268,
+      "sha256": "fdd573e3d4aab85efb915db941cefc0030515b149abbb0fcb2bae53a0fc53a28"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -36207,8 +36277,8 @@
     },
     {
       "path": "wiki/methods/TCAD-Edge-Feasibility.md",
-      "bytes": 4780,
-      "sha256": "1435d9cbdb4b697e8f1baff5f528a2a30da2460309cd48a1780416727f4133f0"
+      "bytes": 5493,
+      "sha256": "0c53570f21a553ddad9d958d4ef31e71d19a0e0b69a4ea504437b19f212a5ebc"
     },
     {
       "path": "wiki/methods/TCAD-HXT-Explicit-Optimization.md",
@@ -36257,8 +36327,8 @@
     },
     {
       "path": "wiki/operations/Repository-Storage.md",
-      "bytes": 12473,
-      "sha256": "0302c560a3a723d8373f329a104d71460dc3a13b12761317c2644c9b29843eba"
+      "bytes": 12952,
+      "sha256": "55c8022eeaf440a3f7e56a5b8abd483fb5af984c888ae6e80043f4276a4cde14"
     },
     {
       "path": "wiki/operations/Research-Workflow.md",
@@ -36377,18 +36447,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 113186,
-      "sha256": "d9d76b2639ee6aaa18aad16998c362d019e9ee9827a3b93ef0676865787b4063"
+      "bytes": 115372,
+      "sha256": "e7612cc292e6738c42729547bc5ade775abaaf9e847324fba7ddd190ab53c122"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 15179,
-      "sha256": "0d337721e935ebb13e496705e873323784cb0e10d2202caf25bcb5444954aa86"
+      "bytes": 15342,
+      "sha256": "748b2de370d1bf15de72007b895b030baebd54c82ca5053f61bf16284f72cf7f"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 6129,
-      "sha256": "255661cc88534f77c763213be4cdd8d187e6aad94ecec375a653aec79b692190"
+      "bytes": 6272,
+      "sha256": "e60cc09a4d2217b9dcaf7db7c0f9dc3a32022b3724623386441fd1b69f86579c"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -36396,6 +36466,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 7276,
-  "total_bytes": 1008636788
+  "n_files": 7290,
+  "total_bytes": 1008685402
 }

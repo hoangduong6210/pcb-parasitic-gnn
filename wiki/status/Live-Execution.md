@@ -7,6 +7,42 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Edge-local probe integration failure on 2026-10-03
+
+At 15:27:37 UTC job **7655656** was terminal `FAILED/2:0`, zero restarts,
+31 seconds, and absent from the queue. The toy stopped at the first native
+sizing probe, before meshing; sentinel/repeat did not run. The
+[evidence owner](../evidence/TCAD-Edge-Feasibility.md) distinguishes the API
+failure from a sizing or capacity rejection and records the source-backed
+entity-access diagnosis. Fake-native tests had missed that requirement.
+
+The additive collector passed 24 synthetic tests with one pre-collection skip
+and preserved all 11 terminal members. Terminal regression/publication is next,
+then a separately specified tiny native API qualification under SLURM. Do not
+bypass the probe, change sizing/caps, edit frozen source or rerun this attempt.
+No scientific job is active; the full TCAD goal remains active/incomplete.
+This turn made guarded integration, native failure isolation and evidence
+preservation progress; terminal records remain local pending publication.
+
+Terminal regression passed **248 tests, zero skips**, including actual archive
+byte/metadata validation. The prose audit passed and the owner's queue was
+empty at 15:33:47 UTC. Four inspected completed fixture roots were removed;
+scientific data, archives and worktrees remain. Final manifest/member checks
+and publication are next. The scientific next step remains a separately frozen
+tiny native API qualification, not an automatic retry of this failed source.
+
+## Edge-local source published and submitted on 2026-10-03
+
+At 15:25:49 UTC GitHub main and local HEAD matched
+`5afbe79dd138208eb423dabe652c4afda8498af4`. The 7,276-file manifest,
+prose audit and final 55-test wiki/prose check passed; agent guidance remains
+untracked. The 457-file sparse checkout passed source/wrapper/runtime metadata
+preflight. One submission at 15:26:49 UTC returned **job 7655656**. Monitor the
+same bounded native 2D/column attempt, retaining all failures and closed field/
+reference gates. Source is published; current receipts are local. The
+[evidence owner](../evidence/TCAD-Edge-Feasibility.md) records bindings. The full
+TCAD goal remains active and incomplete.
+
 ## Edge-local source frozen on 2026-10-03
 
 The [new study](../evidence/TCAD-Edge-Feasibility.md) has a fixed 454-dependency

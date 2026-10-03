@@ -1,0 +1,50 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "3",
+      "ElapsedRaw": "31",
+      "ExitCode": "2:0",
+      "JobID": "7655656",
+      "NodeList": "a0113",
+      "ReqMem": "8G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "attempt_sha256": "2c7ebbacc4af89997697e830735134887645028f0a2ba7d8c42bfd0f1b139900",
+  "diagnosis": {
+    "boundary_contract_passed": false,
+    "claim_eligible": false,
+    "complete": false,
+    "diagnostic_passed": false,
+    "field_solver_executed": false,
+    "observed_modes": {
+      "toy": {
+        "failure": "worker exited 1; preserve all partial output",
+        "passed": false
+      }
+    },
+    "planning_feasible": false,
+    "reference_qualified": false,
+    "repeatability_passed": false,
+    "training_may_start": false,
+    "volume_mesh_generated": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/logs/tcad_edge_feasibility_7655656.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/logs/tcad_edge_feasibility_7655656.out": "873a6789e57f0a1a1201a1c5fb9d385edb1867d936a72a7536b9f1d69cf2826d",
+    "results/tcad/cps_edge_feasibility_v1/archive/job_7655656/sacct.txt": "2d5cde2ab4da8a3620e0a5eb0946a10b9a87cc319110cbed0040eb8976ee9355",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/attempt.json": "2c7ebbacc4af89997697e830735134887645028f0a2ba7d8c42bfd0f1b139900",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.json": "c3188bbc45697bf827eb2a92798ce51647d3eb71c895efe50566ced0f4c28229",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/cad.json": "5f669c1bcfd097777920abebb89e48aa2c25bea2457fda59a4c964428e7a2492",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/inputs.json": "f1ffa798102e4e61946d57aed6042540c85a446c9bbe82cd4147e3d5d2737835",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.payload/sizing.json": "63540b5521e666a4a088e6de7f69fff9b67aaeaf999e4ad539f1fd84df16bfcf",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.stderr": "6bf2ad075ba3c9f5e3ee5d6fca3eb5b80469c16fa3e6cd50c5111681652067b2",
+    "results/tcad/cps_edge_feasibility_v1/job_7655656/toy.stdout": "40afe931b31ea894e4607643bafaca86a29c01dd12de60ecd80b01b29973ae1e",
+    "results/tcad/cps_edge_feasibility_v1/submission.json": "2b81c22b7ad634d9c69490a20c1a46cf643d1a4befe7f8f1bae3aeaf02cc00ab"
+  },
+  "lock_sha256": "7427e553dba07e8e8ba565342b27a7e891ed6e04d0fc00ac0bbd126fb641af6c",
+  "schema": "pcb-gnn.edge-feasibility-archive.v1",
+  "scope": "byte-preserved planar/column attempt; no 3D mesh, field or reference qualification",
+  "source_commit": "5afbe79dd138208eb423dabe652c4afda8498af4"
+}

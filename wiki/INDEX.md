@@ -75,7 +75,7 @@ paper_source: false
 | [TCAD Sizing Budget Diagnostic](methods/TCAD-Sizing-Budget.md) | Exact projected coverage, descriptive workload indices and unchanged vertical budgets |
 | [TCAD Sizing Budget Evidence](evidence/TCAD-Sizing-Budget.md) | Separately frozen archived-input diagnosis; no native retry or candidate selection |
 | [TCAD Edge-Local Feasibility](methods/TCAD-Edge-Feasibility.md) | Finite perimeter-distance sizing, independent native probes and unchanged column gates |
-| [TCAD Edge-Local Evidence](evidence/TCAD-Edge-Feasibility.md) | Separately specified guarded planar candidate; no reference or accuracy claim |
+| [TCAD Edge-Local Evidence](evidence/TCAD-Edge-Feasibility.md) | Preserved native probe API failure before meshing; sizing hypothesis remains untested |
 | [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |

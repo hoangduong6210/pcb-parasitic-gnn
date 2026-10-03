@@ -1,0 +1,15 @@
+{
+  "elapsed_s": 12.520117882872,
+  "failure": "worker exited 1; preserve all partial output",
+  "files_sha256": {
+    "toy.payload/cad.json": "5f669c1bcfd097777920abebb89e48aa2c25bea2457fda59a4c964428e7a2492",
+    "toy.payload/inputs.json": "f1ffa798102e4e61946d57aed6042540c85a446c9bbe82cd4147e3d5d2737835",
+    "toy.payload/sizing.json": "63540b5521e666a4a088e6de7f69fff9b67aaeaf999e4ad539f1fd84df16bfcf",
+    "toy.stderr": "6bf2ad075ba3c9f5e3ee5d6fca3eb5b80469c16fa3e6cd50c5111681652067b2",
+    "toy.stdout": "40afe931b31ea894e4607643bafaca86a29c01dd12de60ecd80b01b29973ae1e"
+  },
+  "mode": "toy",
+  "observed_peak_rss_gib": 0.044429779052734375,
+  "passed": false,
+  "returncode": 1
+}

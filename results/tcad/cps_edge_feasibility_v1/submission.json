@@ -1,0 +1,13 @@
+{
+  "schema": "pcb-gnn.edge-feasibility-submission.v1",
+  "job_id": "7655656",
+  "source_commit": "5afbe79dd138208eb423dabe652c4afda8498af4",
+  "lock_sha256": "7427e553dba07e8e8ba565342b27a7e891ed6e04d0fc00ac0bbd126fb641af6c",
+  "protocol_sha256": "16472fe0dc5f6ca880df1e7766330b3a884276ae5c4d1fdce5ba61b4e5027cea",
+  "submitted_at_utc": "2026-10-03 15:26:49 UTC",
+  "execution_worktree": ".internal/tcad-cps-edge-feasibility-v1",
+  "source_remotely_verified_at_utc": "2026-10-03 15:25:49 UTC",
+  "modes": ["toy", "local1", "repeat1"],
+  "scope": "Native finite-perimeter distance/size probes, audited 2D mesh and unchanged prospective column gates; no 3D mesh or field",
+  "automatic_retries": 0
+}

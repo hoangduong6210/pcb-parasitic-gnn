@@ -78,8 +78,10 @@ run. The rejected attempt is archived and published; the separate
 [sizing-budget diagnosis](../evidence/TCAD-Sizing-Budget.md) completed with exact
 repeat. Its unchanged full-column budget is tighter than the capture cap.
 The separate [edge-local sizing hypothesis](../evidence/TCAD-Edge-Feasibility.md)
-now has a defined analytic field, independent native probes and guarded
-integration. Negative tests and source freeze precede its bounded SLURM study;
+completed its first guarded SLURM attempt, but the native probe adapter failed
+on toy before meshing. Its list view lacked required model-entity access; this
+is not a sizing/capacity result. The failure is preserved. Next is a separately
+specified tiny native API qualification before any new real-layout attempt;
 count/quality gates and later field-sensitivity checks remain required.
 Do not raise caps or claim a sentinel mesh
 audit from native log totals. No volume mesh or field was produced.

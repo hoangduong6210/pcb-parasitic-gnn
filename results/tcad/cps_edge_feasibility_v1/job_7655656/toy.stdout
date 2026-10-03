@@ -1,0 +1,8 @@
+STAGE={"stage": "canonical_geometry_verified", "elapsed_s": 6.255577262956649, "peak_rss_gib": 0.048336029052734375, "n_traces": 2, "cad_report_sha256": "ffbf35380c0d76c808a49d79309b8830e34091e887b7f59c33c56045ce7e33ad"}
+STAGE={"stage": "planar_inputs_preserved", "elapsed_s": 6.442127441056073, "peak_rss_gib": 0.056148529052734375, "surfaces": 3}
+Info    : Cannot bind existing OpenCASCADE surface 2 to second tag 3
+Info    : Could not preserve tag of 2D object 3 (->2)
+STAGE={"stage": "planar_cad_preserved", "elapsed_s": 6.482907680096105, "peak_rss_gib": 0.059078216552734375, "cad_sha256": "3c5107ee9cb8e12f42d7c18739690d0fd0d185cd22bd758ded8973065c3dbc1b"}
+STAGE={"stage": "planar_cad_verified", "elapsed_s": 6.48398356908001, "peak_rss_gib": 0.059078216552734375, "entity_counts": {"0": 8, "1": 8, "2": 2}}
+STAGE={"stage": "sizing_fields_preserved", "elapsed_s": 6.485886332113296, "peak_rss_gib": 0.059078216552734375, "sizing_sha256": "1052fb921f69c7ff643d1aba8213083af4901b2289d60485b9ee549b85b102a5"}
+Info    : Running Plugin(MeshSizeFieldView)...
