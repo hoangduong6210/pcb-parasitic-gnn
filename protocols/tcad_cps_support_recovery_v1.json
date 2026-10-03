@@ -1,0 +1,31 @@
+{
+  "schema": "pcb-gnn.tcad-cps-support-recovery.v1",
+  "protocol_name": "tcad-cps-compact-support-feasibility-v1",
+  "scope": "largest-sentinel feasibility only; not a repaired three-layout qualification",
+  "parent_protocol_sha256": "28319620b514d90776b4b3706c85c508c8b166e25be3ad9e05040dde7d5e307e",
+  "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd",
+  "archive_sha256": "253a0443a9c46efa5db5dc2dd3c9924196fef7a6aa9504f173081b11ccd9ad76",
+  "layout_id": 597,
+  "geometry_sha256": "182904bb9bb83f11637fef78a36acc99ed7b25c0b58a6c6d7ddf815c94b87c7d",
+  "compact_support": {"box_expansion_mm": 0.055, "transition_thickness_mm": 0.5},
+  "wide_support": {"box_expansion_mm": 0.11, "transition_thickness_mm": 1.5},
+  "recovery_arms": [
+    {"name": "local0", "level": 0, "pad_mm": 16.0, "far_size_mm": 4.0, "support": "compact"},
+    {"name": "local1", "level": 1, "pad_mm": 16.0, "far_size_mm": 4.0, "support": "compact"},
+    {"name": "local2", "level": 2, "pad_mm": 16.0, "far_size_mm": 4.0, "support": "compact"},
+    {"name": "repeat2", "level": 2, "pad_mm": 16.0, "far_size_mm": 4.0, "support": "compact"},
+    {"name": "pad20", "level": 2, "pad_mm": 20.0, "far_size_mm": 4.0, "support": "compact"},
+    {"name": "far2", "level": 2, "pad_mm": 16.0, "far_size_mm": 2.0, "support": "compact"},
+    {"name": "support1", "level": 1, "pad_mm": 16.0, "far_size_mm": 4.0, "support": "wide"}
+  ],
+  "inheritance": "physics, near-size ladder, solver, runtime and all worker/scheduler caps unchanged from parent; single feasibility job replaces array",
+  "feasibility_sensitivity_pct_max": 5.0,
+  "support_comparison": "100*abs(support1-local1)/abs(local1); intermediate-level diagnostic only",
+  "resource_caps_may_increase": false,
+  "reuse_old_results_as_new_arms": false,
+  "automatic_retries": 0,
+  "automatic_three_sentinel_expansion": false,
+  "training_may_start": false,
+  "claim_eligible": false,
+  "continuum_convergence_established": false
+}

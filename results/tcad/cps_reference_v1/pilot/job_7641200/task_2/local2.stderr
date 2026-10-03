@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/tcad_cps_reference_worker.py", line 127, in <module>
+    main()
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/tcad_cps_reference_worker.py", line 109, in main
+    result = fem_cps_3d_diagnostics(
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/fem_capacitance_3d.py", line 337, in fem_cps_3d_diagnostics
+    m, elem_region = _build_mesh(
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/fem_capacitance_3d.py", line 124, in _build_mesh
+    _progress(progress, "mesh_generated", n_nodes=len(node_tags))
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/fem_capacitance_3d.py", line 30, in _progress
+    callback(stage, payload)
+  File "/users/PGS0407/binben14/VietHuy/Hoang/GNN parasitic/.internal/tcad-cps-reference-v1-jsonfix/code/solvers/tcad_cps_reference_worker.py", line 106, in progress
+    raise ValueError(f"frozen {cap} exceeded")
+ValueError: frozen mesh_nodes_max exceeded

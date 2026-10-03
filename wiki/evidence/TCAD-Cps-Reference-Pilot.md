@@ -1,11 +1,71 @@
 ---
 title: TCAD Capacitance Reference Pilot Evidence
-status: RUNNING; smoke validated; pilot and finalizer submitted
+status: REJECTED; pilot coverage incomplete at the frozen mesh-node cap
 last_updated: 2026-10-02
 paper_source: false
 ---
 
 # TCAD Capacitance Reference Pilot Evidence
+
+## Terminal archive and separately versioned next step
+
+Following the owner's request to implement the next step, the terminal pilot
+and finalizer were archived byte-for-byte in the main checkout. The
+[59-file manifest](../../results/tcad/cps_reference_v1/archive/pilot_7641200/manifest.json)
+includes failed outcomes and terminal accounting. Archive reconstruction and
+raw-log/result binding checks passed. The original source and worktree remain
+unchanged; the original pilot is still rejected for incomplete coverage.
+The [compact-support recovery](TCAD-Cps-Support-Recovery.md) is a separate,
+single-sentinel feasibility study with unchanged resource caps, not a repair
+or replacement of the original numerical results. Earlier statements that the
+terminal archive was pending describe the preceding status inspection only.
+
+## Terminal status inspection on 2026-10-02
+
+Read-only observation at 2026-10-03 01:02 UTC (2026-10-02 in the project
+timezone): the pilot and finalizer have left the queue. Terminal accounting
+reports the following, all with zero restarts:
+
+| Task | Layout | State / exit | Elapsed seconds | Completed arms |
+|---|---:|---|---:|---|
+| 7641200_0 | 874 | COMPLETED / 0:0 | 2906 | All six |
+| 7641200_1 | 1369 | COMPLETED / 0:0 | 3951 | All six |
+| 7641200_2 | 597 | FAILED / 2:0 | 1691 | local0 and local1 only |
+| 7641201 | Finalizer | FAILED / 2:0 | 2 | Incomplete-coverage summary retained |
+
+For layout 597, local2 generated 3,452,236 mesh nodes, above the frozen
+3,000,000-node cap. The worker raised `frozen mesh_nodes_max exceeded` before
+matrix assembly; it did not produce a local2 capacitance. Its logged peak RSS
+was 11.932788848876953 GiB, below the 120 GiB worker cap. The parent recorded
+1169.003894195892 seconds for that arm, below the 1,200-second timeout. The
+observed stop is therefore the node cap, not an out-of-memory event, timeout or
+recurrence of the earlier JSON serialization error. Repeat2, pad20 and far2
+were not attempted for this layout, in accordance with the stop rule.
+
+The finalizer wrote `complete=false`, `pilot_passed=false`, empty comparisons
+and a task-2 terminal-coverage error. Its nonzero exit reflects the failed
+coverage gate; no separate finalizer exception was logged. Successful execution
+of the first two layouts is not acceptance of the three-layout sensitivity
+study. No convergence claim, full-panel expansion, training or paper result is
+enabled.
+
+Artifacts remain in the unchanged execution worktree
+`.internal/tcad-cps-reference-v1-jsonfix/`, under
+`results/tcad/cps_reference_v1/`. The final summary at
+`finalize/job_7641201/summary.json` has SHA-256
+`659248d247f43011951166465e15213003d884e94a4b8eacd56692c2f8a0ffa1`;
+task 2's `pilot/job_7641200/task_2/attempt.json` has SHA-256
+`470e9cc3b04e1bba6529b235cf9452b88da90e2579c267b0a173032f9ff75701`.
+The terminal pilot archive has not yet been copied into tracked main-branch
+evidence. This status inspection only reads scheduler records, JSON and logs;
+it does not rerun numerical finalization or launch a recovery job.
+
+Next decision: review the mesh-size and runtime growth of the largest sentinel
+before defining a separately versioned recovery. Preserve the rejected pilot;
+do not silently raise caps, drop layout 597 or report two-layout statistics as
+the planned three-layout result. The status wiki update is local and uncommitted;
+remote `main` was rechecked at `163c6fce7e11a576bb9476948fb1349fa255e73c`.
+The earlier entries below are historical observations, not current queue state.
 
 ## Preparation on 2026-10-02
 

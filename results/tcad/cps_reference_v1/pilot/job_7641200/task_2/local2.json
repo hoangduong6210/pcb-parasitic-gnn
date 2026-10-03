@@ -1,0 +1,17 @@
+{
+  "arm": {
+    "far_size_mm": 4.0,
+    "level": 2,
+    "name": "local2",
+    "pad_mm": 16.0
+  },
+  "elapsed_s": 1169.003894195892,
+  "failure": "worker exited 1; retain stderr",
+  "files_sha256": {
+    "local2.stderr": "e89e2f8a079777f87213cf72277b345f729c81e1626a77674fa088b31dee0d7c",
+    "local2.stdout": "fb1b179fff32915bb4f7604841f7ebf632873c044de0daca3303156f61331a4a"
+  },
+  "observed_peak_rss_gib": 11.932788848876953,
+  "passed": false,
+  "returncode": 1
+}

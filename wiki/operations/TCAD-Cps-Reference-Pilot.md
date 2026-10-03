@@ -1,6 +1,6 @@
 ---
 title: TCAD Capacitance Reference Pilot Runbook
-status: RUNNING; smoke validated; bounded pilot submitted
+status: REJECTED; pilot terminal with incomplete coverage; no active chain
 last_updated: 2026-10-02
 paper_source: false
 ---

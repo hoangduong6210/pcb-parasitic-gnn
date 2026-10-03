@@ -9,6 +9,13 @@ paper_source: false
 
 ## TCAD reference pilot
 
+The original pilot is terminal and incomplete at its mesh-node cap. The
+[compact-support recovery](TCAD-Cps-Support-Recovery.md) uses the same resource
+caps for one sentinel only: one 160 GiB, three-hour feasibility job with seven
+sequential fresh workers, plus 8 GiB/15-minute smoke and finalizer jobs. This
+is not an automatic repeat of the three-task array. Its maximum numerical
+worker time is 8,400 seconds; no timeout or mesh-node ceiling is increased.
+
 The approved new [pilot runbook](TCAD-Cps-Reference-Pilot.md) fixes the resource
 contract before any solve: one requested scientific CPU, 8 GiB/15 min for the
 smoke and finalizer; 160 GiB/3 h per pilot task, array 0–2%1. Each pilot worker

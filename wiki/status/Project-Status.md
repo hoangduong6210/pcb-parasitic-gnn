@@ -12,6 +12,11 @@ Stage 1 of the [TCAD research plan](../manuscript/TCAD-Research-Plan.md) now has
 a geometry-selected panel and bounded local-refinement pilot implementation.
 The [pilot evidence record](../evidence/TCAD-Cps-Reference-Pilot.md) owns the
 current validation, publication and scheduler state; no new result is admitted.
+The first pilot is now terminal and incomplete: two sentinels completed, while
+the largest sentinel hit the frozen mesh-node cap. No job in this pilot chain
+remains active. Terminal evidence is now archived; the owner authorized a
+separately versioned [compact-support feasibility study](../methods/TCAD-Cps-Compact-Support-Recovery.md)
+on the failed largest sentinel, with original caps unchanged.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
 remain closed; a new protocol does not continue a historical `PENDING` entry.
@@ -39,7 +44,8 @@ instead of calling one column ground truth.
 
 | Work product | Lifecycle | Scientific use |
 |---|---|---|
-| TCAD reference-qualification continuation | `RUNNING; PILOT SUBMITTED` | Smoke validated; three-task SLURM pilot and finalizer submitted; no reference-qualification claim or training authorization |
+| TCAD reference-qualification continuation | `REJECTED PILOT; REVIEW PENDING` | Smoke validated; two sentinels complete, third stopped at the frozen mesh-node cap; finalizer rejects incomplete coverage; no convergence claim or training authorization |
+| TCAD compact-support recovery | `RUNNING; IMPLEMENTATION` | Separate largest-sentinel feasibility; no mixing with original results, no cap increase or automatic full-pilot expansion |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

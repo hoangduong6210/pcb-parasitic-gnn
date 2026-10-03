@@ -7,6 +7,37 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## TCAD compact-support implementation on 2026-10-02
+
+The owner requested the next step. The rejected pilot's 59-file terminal
+closure has been archived and checked, including the failed sentinel and
+finalizer. A separately versioned
+[compact-support recovery](../evidence/TCAD-Cps-Support-Recovery.md) now targets
+only layout 597, keeps the original mesh-node/time/memory caps and adds a
+wider-support control. Initial no-solver tests and archive checks passed.
+Next: finish frozen-source validation and publication, then submit a new SLURM
+smoke before the single-sentinel feasibility job and afterany finalizer.
+No new recovery computation has been submitted at this checkpoint; no old
+source, evidence, paper or unrelated scheduler job has been changed.
+
+## TCAD pilot terminal inspection on 2026-10-02
+
+Read-only status check at 2026-10-03 01:02 UTC: tasks `7641200_0` and
+`7641200_1` completed all six arms, but `7641200_2` failed at local2 because
+layout 597 exceeded the frozen mesh-node cap. Finalizer `7641201` retained an
+incomplete-coverage summary and exited nonzero. This chain has no active jobs;
+the [evidence record](../evidence/TCAD-Cps-Reference-Pilot.md) owns exact counts,
+terminal states, failure diagnosis and hashes. The first two completed tasks
+do not establish the planned three-layout convergence result.
+
+No protocol, cap, solver or paper was changed and no new job was submitted in
+this status review. The rejected artifacts remain in the frozen execution
+worktree pending tracked terminal collection and a separately versioned
+recovery decision. Wiki observations are updated locally, not committed or
+pushed; remote `main` is still verified at
+`163c6fce7e11a576bb9476948fb1349fa255e73c`. Research review continues, but the
+pilot execution below is now closed. All earlier queue states are historical.
+
 ## TCAD smoke validated; pilot submitted on 2026-10-02
 
 Recovery smoke `7641193` completed `0:0`, zero restarts, on `a0102` in six

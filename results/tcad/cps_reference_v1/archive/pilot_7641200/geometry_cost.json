@@ -1,0 +1,184 @@
+{
+  "rows": [
+    {
+      "arms": [
+        {
+          "elapsed_s": 685.7868497578893,
+          "failure": null,
+          "mesh_generation_elapsed_s": 620.3216475178488,
+          "mesh_nodes": 1988298,
+          "name": "far2",
+          "passed": true,
+          "peak_rss_gib": 18.495304107666016
+        },
+        {
+          "elapsed_s": 67.58383676386438,
+          "failure": null,
+          "mesh_generation_elapsed_s": 60.986040487885475,
+          "mesh_nodes": 224330,
+          "name": "local0",
+          "passed": true,
+          "peak_rss_gib": 2.1171340942382812
+        },
+        {
+          "elapsed_s": 217.25179505790584,
+          "failure": null,
+          "mesh_generation_elapsed_s": 199.1312759600114,
+          "mesh_nodes": 681989,
+          "name": "local1",
+          "passed": true,
+          "peak_rss_gib": 6.278800964355469
+        },
+        {
+          "elapsed_s": 638.7372868249658,
+          "failure": null,
+          "mesh_generation_elapsed_s": 583.8482771199197,
+          "mesh_nodes": 1852164,
+          "name": "local2",
+          "passed": true,
+          "peak_rss_gib": 17.050716400146484
+        },
+        {
+          "elapsed_s": 647.2565382421017,
+          "failure": null,
+          "mesh_generation_elapsed_s": 590.8807945221197,
+          "mesh_nodes": 1853899,
+          "name": "pad20",
+          "passed": true,
+          "peak_rss_gib": 17.062923431396484
+        },
+        {
+          "elapsed_s": 646.2406100069638,
+          "failure": null,
+          "mesh_generation_elapsed_s": 590.5869559289422,
+          "mesh_nodes": 1852164,
+          "name": "repeat2",
+          "passed": true,
+          "peak_rss_gib": 17.032997131347656
+        }
+      ],
+      "attempt_sha256": "5d324c64f22d4a9800f687cc978ec0b29c350faaf40debb33b61389f9297b40b",
+      "geometry_sha256": "1505e4594b9302120cefe3c72878170343fd1dfb25df8b0bda96520c70f015fa",
+      "layout_id": 874,
+      "minimum_projected_interlayer_gap_mm": 0.10999999999999999,
+      "n_conductors": 13,
+      "sum_expanded_box_volume_mm3": {
+        "0.055": 163.9081935617211,
+        "0.11": 280.63406402633717
+      },
+      "volume_proxy_warning": "sum counts overlaps repeatedly; excludes transition layer; not a node-count prediction"
+    },
+    {
+      "arms": [
+        {
+          "elapsed_s": 933.0534908259287,
+          "failure": null,
+          "mesh_generation_elapsed_s": 844.850038335193,
+          "mesh_nodes": 2554104,
+          "name": "far2",
+          "passed": true,
+          "peak_rss_gib": 23.782428741455078
+        },
+        {
+          "elapsed_s": 82.62071230798028,
+          "failure": null,
+          "mesh_generation_elapsed_s": 75.90947614097968,
+          "mesh_nodes": 284714,
+          "name": "local0",
+          "passed": true,
+          "peak_rss_gib": 2.6710243225097656
+        },
+        {
+          "elapsed_s": 266.30662660393864,
+          "failure": null,
+          "mesh_generation_elapsed_s": 242.84472529403865,
+          "mesh_nodes": 876287,
+          "name": "local1",
+          "passed": true,
+          "peak_rss_gib": 8.063007354736328
+        },
+        {
+          "elapsed_s": 878.0505750100128,
+          "failure": null,
+          "mesh_generation_elapsed_s": 803.2016377218533,
+          "mesh_nodes": 2388879,
+          "name": "local2",
+          "passed": true,
+          "peak_rss_gib": 21.97909164428711
+        },
+        {
+          "elapsed_s": 891.5108488150872,
+          "failure": null,
+          "mesh_generation_elapsed_s": 814.8739215859678,
+          "mesh_nodes": 2389952,
+          "name": "pad20",
+          "passed": true,
+          "peak_rss_gib": 22.000675201416016
+        },
+        {
+          "elapsed_s": 897.5111205719877,
+          "failure": null,
+          "mesh_generation_elapsed_s": 821.8586460079532,
+          "mesh_nodes": 2388879,
+          "name": "repeat2",
+          "passed": true,
+          "peak_rss_gib": 21.99030303955078
+        }
+      ],
+      "attempt_sha256": "070def5f81acaae31db97a2c6a709b8767300dd7628809ac929d0ff7bd7f9a7c",
+      "geometry_sha256": "a3ddfa8d9c7ce1b69f947dc2efda4a5c07b9a694b1e902a4158f12e5e10e212a",
+      "layout_id": 1369,
+      "minimum_projected_interlayer_gap_mm": 0.10999999999999988,
+      "n_conductors": 17,
+      "sum_expanded_box_volume_mm3": {
+        "0.055": 211.56217661190757,
+        "0.11": 362.24710639110015
+      },
+      "volume_proxy_warning": "sum counts overlaps repeatedly; excludes transition layer; not a node-count prediction"
+    },
+    {
+      "arms": [
+        {
+          "elapsed_s": 126.13382806582376,
+          "failure": null,
+          "mesh_generation_elapsed_s": 115.44123355182819,
+          "mesh_nodes": 415896,
+          "name": "local0",
+          "passed": true,
+          "peak_rss_gib": 3.8829574584960938
+        },
+        {
+          "elapsed_s": 392.90870320401154,
+          "failure": null,
+          "mesh_generation_elapsed_s": 360.6212070349138,
+          "mesh_nodes": 1263430,
+          "name": "local1",
+          "passed": true,
+          "peak_rss_gib": 11.638687133789062
+        },
+        {
+          "elapsed_s": 1169.003894195892,
+          "failure": "worker exited 1; retain stderr",
+          "mesh_generation_elapsed_s": 1160.2981817459222,
+          "mesh_nodes": 3452236,
+          "name": "local2",
+          "passed": false,
+          "peak_rss_gib": 11.932788848876953
+        }
+      ],
+      "attempt_sha256": "470e9cc3b04e1bba6529b235cf9452b88da90e2579c267b0a173032f9ff75701",
+      "geometry_sha256": "182904bb9bb83f11637fef78a36acc99ed7b25c0b58a6c6d7ddf815c94b87c7d",
+      "layout_id": 597,
+      "minimum_projected_interlayer_gap_mm": 0.10999999999999997,
+      "n_conductors": 26,
+      "sum_expanded_box_volume_mm3": {
+        "0.055": 312.7560307049313,
+        "0.11": 538.3658428070789
+      },
+      "volume_proxy_warning": "sum counts overlaps repeatedly; excludes transition layer; not a node-count prediction"
+    }
+  ],
+  "schema": "pcb-gnn.tcad-cps-v1-geometry-cost.v1",
+  "scope": "geometry and operational cost review; no sensitivity aggregation or numerical replay",
+  "target_values_used_for_support_choice": false
+}

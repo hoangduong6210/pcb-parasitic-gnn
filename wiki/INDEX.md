@@ -30,6 +30,7 @@ paper_source: false
 | [Limitations](LIMITATIONS.md) | Boundaries that apply across papers and claims |
 | [Cps Multi-Fidelity Decision](decisions/0001-cps-multifidelity.md) | Accepted R3/R4 policy and consequences |
 | [Deterministic FEM Reference Qualification](decisions/0002-deterministic-fem-reference.md) | Version boundary, staged one-thread gates, and stop rules |
+| [Compact Mesh Support Decision](decisions/0005-tcad-compact-mesh-support.md) | Largest-sentinel recovery without widening the rejected pilot's caps |
 
 ## Datasets and geometry
 
@@ -49,6 +50,7 @@ paper_source: false
 | [FastHenry Inductance](methods/FastHenry-Inductance.md) | Inductance reference and winding aggregation |
 | [FEM Cps Reference](methods/FEM-Cps-Reference.md) | Electrostatic formulation and numerical gates |
 | [TCAD Reference Qualification](methods/TCAD-Cps-Reference-Qualification.md) | Geometry-only panel, local mesh policy, finite sensitivity and stop gates |
+| [TCAD Compact-Support Recovery](methods/TCAD-Cps-Compact-Support-Recovery.md) | New single-sentinel mesh-support diagnostic and non-qualification boundary |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |
@@ -73,6 +75,7 @@ paper_source: false
 | [Corpus V4 FEM-v2 Coordinate-Update Ablation](results/Corpus-V4-FEM-v2-Coordinate-Ablation.md) | Admitted version-scoped three-arm result, paired differences and trained symmetry |
 | [Evidence Ledger](evidence/Evidence-Ledger.md) | Job identifiers, commits, paths, hashes, and claim links |
 | [TCAD Reference Pilot Evidence](evidence/TCAD-Cps-Reference-Pilot.md) | New pilot source, attempt receipts and explicit non-claim boundary |
+| [TCAD Compact-Support Evidence](evidence/TCAD-Cps-Support-Recovery.md) | Rejected-pilot archive, recovery source and scheduler receipts |
 | [FEM Convergence Ledger](evidence/FEM-Convergence-Ledger.md) | Per-layout convergence values |
 
 ## Reproduction and operation
@@ -85,6 +88,7 @@ paper_source: false
 | [SLURM Resource Plan](operations/SLURM-Resource-Plan.md) | Frozen allocations and wall-time estimates |
 | [SLURM Submission Playbook](operations/SLURM-Submission-Playbook.md) | Exact cluster submission, monitoring, and recovery steps |
 | [TCAD Reference Pilot Runbook](operations/TCAD-Cps-Reference-Pilot.md) | Frozen three-sentinel SLURM chain, resource caps and evidence retention |
+| [TCAD Support Recovery Runbook](operations/TCAD-Cps-Support-Recovery.md) | Separate source freeze and smoke–single-sentinel–finalizer SLURM chain |
 | [Coordinate Ablation Recovery Replay](operations/E3-Recovery-Replay.md) | Eight-thread admission, held-out finalization and tracked archive replay |
 
 ## Publication source and snapshots
