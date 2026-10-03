@@ -101,3 +101,12 @@ does not waive actual-layout probes. Then submit the toy/sentinel/fresh repeat
 once through SLURM. No automatic retry, cap increase or accuracy claim follows.
 Full 3D boundary/terminal/volume and field/sensitivity qualification still
 precede references, learning and paper claims. The full TCAD goal is incomplete.
+
+## Terminal publication receipt
+
+At 16:05:01 UTC on 2026-10-03, local HEAD and GitHub main were verified as
+`8079beef10b4cbb2df73c4f865d0838048b1cb0a`. The 43-member archive,
+collector/tests and scoped API result are published. Final checks passed the
+7,347-file manifest, prose audit and 55 wiki/prose tests. No scientific job is
+active. The next step is newly frozen real-layout integration; no paper export,
+reference admission or relaxation of a prior failed gate occurred.

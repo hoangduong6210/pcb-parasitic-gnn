@@ -7,6 +7,20 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Native field-probe terminal checkpoint published on 2026-10-03
+
+At 16:05:01 UTC GitHub main and local HEAD matched
+`8079beef10b4cbb2df73c4f865d0838048b1cb0a`. The 43-member terminal
+archive, collector/tests and scoped synthetic native result are published.
+Final verification passed the 7,347-file manifest, prose audit and 55 wiki/prose
+tests; agent guidance remains untracked. No scientific job is active.
+The [evidence owner](../evidence/TCAD-Native-Field-Probe.md) records the passed
+API/value/observed-state checks and exact repeat, without a mesh or field claim.
+This turn made concrete implementation, native qualification and publication
+progress; the full TCAD goal remains active and incomplete. Next: a separately
+versioned/frozen real-layout edge-local integration, keeping all original
+geometry, sizing, capacity and quality gates and native probes on every mode.
+
 ## Native field-probe qualification completed on 2026-10-03
 
 At 15:59:03 UTC job **7655811** was terminal `COMPLETED/0:0`, zero restarts,
