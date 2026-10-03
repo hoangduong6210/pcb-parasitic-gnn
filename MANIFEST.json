@@ -4,15 +4,15 @@
   "sections": {
     ".github": 1,
     "Paper": 94,
-    "code": 306,
+    "code": 310,
     "datasets": 12,
     "figures": 12,
     "logs": 172,
-    "protocols": 39,
+    "protocols": 41,
     "results": 6145,
     "root": 11,
-    "tests": 66,
-    "wiki": 74
+    "tests": 67,
+    "wiki": 77
   },
   "files": [
     {
@@ -1171,6 +1171,11 @@
       "sha256": "f88ad441215e55a4c9ae43f39f6f683aaccb57d011cd1652406b900540303d60"
     },
     {
+      "path": "code/experiments/proofs/run_tcad_cps_mesh_probe.py",
+      "bytes": 8078,
+      "sha256": "b0edf72116a0aa0e3583deef30abbcdd8cb14dcee7811c167d91c9b83315ecda"
+    },
+    {
       "path": "code/experiments/proofs/run_tcad_cps_reference.py",
       "bytes": 10244,
       "sha256": "7b6750e88ba6cf5d2029e0fa3af8f9b48734f2964d76e538e8b8f60dca9ae65b"
@@ -1189,6 +1194,11 @@
       "path": "code/experiments/proofs/tcad_cps_amg_feasibility.py",
       "bytes": 7885,
       "sha256": "586604c256116c5a5b1ca5aefca5f8654df43a9957c798332176074253e5e1df"
+    },
+    {
+      "path": "code/experiments/proofs/tcad_cps_mesh_probe.py",
+      "bytes": 9111,
+      "sha256": "39ab7bc214de2d8c5ba3459a38f632ed959febaaa1783f235d5f7cdd4babf94e"
     },
     {
       "path": "code/experiments/proofs/tcad_cps_reference.py",
@@ -1811,6 +1821,11 @@
       "sha256": "8f49573fd79dc607e7d5db750ac343afdb9553abd6032400e7011da5604b5e94"
     },
     {
+      "path": "code/jobs/submit_tcad_cps_mesh_probe.sh",
+      "bytes": 673,
+      "sha256": "2483cf9deb5faae8b82e8ae91e84f8adb258bee19dd4b9447e9a5279e2336544"
+    },
+    {
       "path": "code/jobs/submit_tcad_cps_reference_pilot.sh",
       "bytes": 767,
       "sha256": "0f06179d5117a2498466822a8d0a0b53bb52fc3cfa8286960dfd3bf659fc2441"
@@ -2044,6 +2059,11 @@
       "path": "code/solvers/tcad_cps_amg_worker.py",
       "bytes": 7498,
       "sha256": "f11b64a5c3d08e3a8a2d81f8cb5986f782260a980646871a0484a83505bcfa04"
+    },
+    {
+      "path": "code/solvers/tcad_cps_mesh_probe_worker.py",
+      "bytes": 5950,
+      "sha256": "ef2a1c6154521ad3a611e7d187847c0eaf7489080aba548f9f0804c5a668eb0e"
     },
     {
       "path": "code/solvers/tcad_cps_reference_worker.py",
@@ -3214,6 +3234,16 @@
       "path": "protocols/tcad_cps_amg_feasibility_v1.lock.json",
       "bytes": 17628,
       "sha256": "00f5b0f6b9d825597286edcb2e51ae0ac3c9bb1b557c6f33169c79ad24d31906"
+    },
+    {
+      "path": "protocols/tcad_cps_mesh_probe_v1.json",
+      "bytes": 1385,
+      "sha256": "6d578ef74dc41d73b6ecde70415f18a8b33e6daa8d498ad5d8d8effa71c4a04a"
+    },
+    {
+      "path": "protocols/tcad_cps_mesh_probe_v1.lock.json",
+      "bytes": 21910,
+      "sha256": "7c9b9f79a85444b5bb4c8620a48810bb3a6da6b493a77f546752f866c5aa0af8"
     },
     {
       "path": "protocols/tcad_cps_reference_v1.json",
@@ -34281,6 +34311,11 @@
       "sha256": "469e7fba80771da5a24e2488b1dc8af5e30afe2b4d7e85989189230b1c30d3ff"
     },
     {
+      "path": "tests/test_tcad_cps_mesh_probe.py",
+      "bytes": 18231,
+      "sha256": "a1d2d99c1e3bc61d6a101bc83844837b84f7722e2d2e037d1ff95ba70c647ccc"
+    },
+    {
       "path": "tests/test_tcad_cps_reference.py",
       "bytes": 10573,
       "sha256": "1637ce41bbf6a69187fcb169fc1a07dd236501cdb093805624fbfc373c0958ac"
@@ -34317,8 +34352,8 @@
     },
     {
       "path": "wiki/INDEX.md",
-      "bytes": 15458,
-      "sha256": "5556374e23396765774e5e8b431ec132e840a20cd63bc72f120b3ef2461a1bdf"
+      "bytes": 15887,
+      "sha256": "c731438f7b8324ee2ba3512d6f75e6d7609b4931af83f4c431731c024bd1bf2e"
     },
     {
       "path": "wiki/LIMITATIONS.md",
@@ -34421,6 +34456,11 @@
       "sha256": "40c0ab7654d471e938cc32a63930966e17f81235e29a6011e360c78ed311aa13"
     },
     {
+      "path": "wiki/evidence/TCAD-Cps-Mesh-Probe.md",
+      "bytes": 2207,
+      "sha256": "04ef8cde568b7b04ab675f462c644df341ca2b0f308105d26e1ab3296149f2ae"
+    },
+    {
       "path": "wiki/evidence/TCAD-Cps-Reference-Pilot.md",
       "bytes": 11602,
       "sha256": "984feb3d4628c98e76f89f9d835dd7fabeae6b57de0d4d84df38ce9b2606cd02"
@@ -34472,8 +34512,8 @@
     },
     {
       "path": "wiki/manuscript/TCAD-Research-Plan.md",
-      "bytes": 17970,
-      "sha256": "4e772fcab599f8a09e882b3a15e5639639978522079a97912f944130803971cc"
+      "bytes": 18132,
+      "sha256": "09ee05bd3b847b57c051b93fc860745679ef6ba3c05469c6845500a5eb687fe1"
     },
     {
       "path": "wiki/methods/Corpus-V4-Accuracy-Protocol.md",
@@ -34556,6 +34596,11 @@
       "sha256": "3392a5d340689dc46c07b2586e3758f7e3f3b5c8a2b0b65f52c6bd0e8569f300"
     },
     {
+      "path": "wiki/methods/TCAD-Cps-Mesh-Probe.md",
+      "bytes": 2628,
+      "sha256": "862d2767c94c1a7dddb5090d7f1d2fb4a7f59e728eee277c77fc554403cd2639"
+    },
+    {
       "path": "wiki/methods/TCAD-Cps-Reference-Qualification.md",
       "bytes": 5687,
       "sha256": "156598718d8ff88fcc2c4c35563d6dfd0b6734a101254daace3620fd4ad61ebf"
@@ -34577,8 +34622,8 @@
     },
     {
       "path": "wiki/operations/SLURM-Resource-Plan.md",
-      "bytes": 11955,
-      "sha256": "37624b85c6ee9ecadda87669c167dfd6e8bf8c665cb2211a930cd6bb70f1e10f"
+      "bytes": 12035,
+      "sha256": "be6b09a541a443ae52bf07ce7ec4108de17a1bc7549ade2c14e40a85a4e53f68"
     },
     {
       "path": "wiki/operations/SLURM-Submission-Playbook.md",
@@ -34594,6 +34639,11 @@
       "path": "wiki/operations/TCAD-Cps-AMG-Feasibility.md",
       "bytes": 4574,
       "sha256": "380829892f34ddc8086a8ccad2217d212b52b6e891579dc1eaa09ea856822263"
+    },
+    {
+      "path": "wiki/operations/TCAD-Cps-Mesh-Probe.md",
+      "bytes": 2795,
+      "sha256": "0db25a2984d14c459d6ec3b3e3193b6b30380fe8cd360d1601413ae6beee0fa9"
     },
     {
       "path": "wiki/operations/TCAD-Cps-Reference-Pilot.md",
@@ -34657,18 +34707,18 @@
     },
     {
       "path": "wiki/status/Live-Execution.md",
-      "bytes": 55307,
-      "sha256": "20950152a6d749440e43c5f0ae581e05a3fed21fe4a5a23f56b7cd63068405f2"
+      "bytes": 56524,
+      "sha256": "640082ae8f3d46d3054fa24a552370030c32b8143e323e0502c416b496ca14df"
     },
     {
       "path": "wiki/status/Project-Status.md",
-      "bytes": 10184,
-      "sha256": "09e3af108e498c5e2a6f339debc26123816447c6b75181cb4292e6bd50243d73"
+      "bytes": 10438,
+      "sha256": "67f7c89288ea4bbcc78e9e21aadee3ef5d017765b06580b45101c40ca3c8b8be"
     },
     {
       "path": "wiki/status/Q1-Journal-Goal.md",
-      "bytes": 4575,
-      "sha256": "e7378b2788e1dba3c96e52ecf9d74b8089c1b8817990c68f7039ec6ce63e5629"
+      "bytes": 4670,
+      "sha256": "b6001ba2131d648a80f07d88936428ab935b6ad483c4e896186b17121194c5df"
     },
     {
       "path": "wiki/status/Research-Pause-Handoff.md",
@@ -34676,6 +34726,6 @@
       "sha256": "b7788ce4f28e1d1dd7e203d961cc6bbbdccc1500dff6b53e469dcc32c7bf5529"
     }
   ],
-  "n_files": 6932,
-  "total_bytes": 987634073
+  "n_files": 6942,
+  "total_bytes": 987709278
 }

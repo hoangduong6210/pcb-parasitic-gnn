@@ -56,8 +56,10 @@ discretization: old matrix hashes and capacitances cannot be reused as results
 for it. A pass would authorize preparation of new source-bound backend and
 sensitivity checks, not qualify a reference or open training. Failure stops
 the probe and is archived without another unrecorded candidate or wider cap.
-This is a pre-implementation specification; no mesh-probe source is frozen or
-new probe job submitted at this checkpoint.
+The [mesh-only implementation](../methods/TCAD-Cps-Mesh-Probe.md) now follows
+this specification. Its [evidence record](../evidence/TCAD-Cps-Mesh-Probe.md)
+owns validation, source freeze, publication and subsequent scheduler receipts;
+implementation alone is not a numerical outcome.
 
 ## Research question
 

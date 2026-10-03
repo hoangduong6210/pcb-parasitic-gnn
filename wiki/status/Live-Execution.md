@@ -7,6 +7,26 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## Mesh-only HXT implementation checkpoint on 2026-10-03
+
+The owner reaffirmed TCAD as the research priority. The continuing goal remains
+active. The previous goal/archive commit is now remotely verified at
+`c3072822369878798bd903dfefdc00313dad1131`; older pending-publication statements
+below are historical. No job in the prior TCAD chain remains active.
+
+The separately versioned [HXT probe](../methods/TCAD-Cps-Mesh-Probe.md) now has
+an implementation, bounded SLURM wrapper and no-solver regression tests. It
+will run a toy and two fresh identical local1 meshes, with unchanged per-worker
+caps and no field solver. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md)
+owns validation and later submission receipts. Next: complete tests, freeze
+and publish source, then submit the single bounded job from a sparse checkout.
+No new job, numerical result, training or paper claim exists at this checkpoint.
+
+Subsequent source freeze passed all 54 mesh-probe tests, following 247 passing
+TCAD/wiki/prose tests with one pre-freeze skip. The new lock binds 158 files;
+prose, shell syntax and old archive checks passed. Publication and submission
+are next; source remains separate from the previous rejected study.
+
 ## TCAD AMG feasibility closed at meshing time cap on 2026-10-03
 
 Feasibility `7650556` and finalizer `7650557` are terminal `FAILED/2:0`, zero

@@ -1,0 +1,23 @@
+{
+  "schema": "pcb-gnn.tcad-cps-mesh-probe.v1",
+  "protocol_name": "tcad-cps-hxt-mesh-generation-probe-v1",
+  "scope": "one alternative mesher on toy and largest-sentinel local1 with a fresh repeat; no field solve",
+  "parent_protocol_sha256": "81a391e89b89bf6cd8a271997b8103430e9b52a70a72fbbef67fd822e4a2c63e",
+  "terminal_archive_sha256": "d476cbf411192c4b4c109dfcb98551afe2ed39eb994211f19fdda04a65c628bc",
+  "candidate_mesh_options": {"Mesh.Algorithm3D": 10},
+  "native_log_options": {"General.Terminal": 1, "General.Verbosity": 5},
+  "required_build_feature": "hxt",
+  "modes": ["toy", "local1", "repeat1"],
+  "scheduler_time_limit": "00:55:00",
+  "worker_budget_s": 3000,
+  "mesh_fingerprint_schema": "pcb-gnn.ordered-tet-mesh.v1",
+  "fingerprint_arrays": "C-order coordinates_m <f8, tetrahedra <i8, element_region |i1; labelled dtype/shape headers and exact bytes",
+  "repeatability_rule": "local1/repeat1 exact ordered mesh SHA-256, mesh counts, region counts and effective mesh-policy SHA-256",
+  "inheritance": "unchanged geometry, compact Box fields, near sizes, padding, random seed, one thread and all per-worker time/RSS/mesh caps; only 3D mesher and nonnumerical logging options change",
+  "field_solver_executed": false,
+  "automatic_retries": 0,
+  "automatic_expansion": false,
+  "reference_qualified": false,
+  "training_may_start": false,
+  "claim_eligible": false
+}

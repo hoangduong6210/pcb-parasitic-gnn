@@ -57,7 +57,8 @@ source identities, scheduler state and preservation receipts.
 ## Immediate continuation
 
 The seven-arm study is now archived and incomplete: local1 timed out before
-mesh completion. Freeze a separately identified mesh-generation diagnostic;
+mesh completion. A [separately identified mesh-only HXT diagnostic](../methods/TCAD-Cps-Mesh-Probe.md)
+is now implemented for source freezing and bounded SLURM execution;
 retain caps and distinguish meshing cost from algebraic error or discretization
 sensitivity. Only a later complete sensitivity pass can open a new
 three-sentinel protocol and then the development panel, without substituting

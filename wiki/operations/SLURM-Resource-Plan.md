@@ -7,15 +7,16 @@ paper_source: false
 
 # SLURM Resource Plan
 
-## Proposed mesh-generation diagnostic
+## Mesh-generation diagnostic
 
 The [next bounded work package](../manuscript/TCAD-Research-Plan.md) tests a
 single HXT mesher candidate with native stage logs, not another field solve.
 A toy worker plus local1 and its fresh repeat have inherited 600/1,200/1,200
 second ceilings. Plan one 160 GiB, 55-minute job, one scientific thread, no
 array or retry. Memory and mesh ceilings remain those of the preceding smoke
-and sentinel workers. This resource plan is not a submission receipt: source,
-protocol, guards and repeatability rules still need their own freeze.
+and sentinel workers. The [implemented runbook](TCAD-Cps-Mesh-Probe.md) governs
+source freezing and submission; its linked evidence page owns actual scheduler
+receipts. This resource specification does not itself report a submitted job.
 
 ## TCAD seven-arm AMG feasibility
 

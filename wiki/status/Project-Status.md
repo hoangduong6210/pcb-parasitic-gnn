@@ -35,8 +35,10 @@ jobs are terminal and the complete terminal artifact closure is archived. A
 sparse execution checkout preserves the locked source while avoiding the
 file-count quota that blocked a full checkout. The
 [feasibility evidence](../evidence/TCAD-Cps-AMG-Feasibility.md) owns source,
-smoke and scheduler receipts. A separately versioned mesh-generation diagnostic
-is next; no sensitivity conclusion is available from the incomplete study.
+smoke and scheduler receipts. A separately versioned
+[mesh-only HXT probe](../methods/TCAD-Cps-Mesh-Probe.md) is now implemented and
+under validation before source freezing and SLURM submission; no sensitivity
+conclusion is available from the incomplete study.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
@@ -69,6 +71,7 @@ instead of calling one column ground truth.
 | TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
 | TCAD same-matrix AMG diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy and local0 passed exact-system/direct comparison within unchanged worker caps; no mesh-converged reference or automatic expansion |
 | TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
+| TCAD mesh-only HXT probe | `PROPOSED; IMPLEMENTED` | Toy and fresh local1 repeat protocol; no field solve, cap increase or numerical result yet |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |
