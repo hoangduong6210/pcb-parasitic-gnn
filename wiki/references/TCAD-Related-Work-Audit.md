@@ -36,6 +36,13 @@ papers nor inserts unreviewed citations into a released manuscript.
 
 ## Revised working hypothesis, not a novelty assertion
 
+The [subsequent original-method review](TCAD-Multi-Fidelity-Method-Review.md)
+now distinguishes joint paired-resolution learning, latent-feature transfer,
+simple fine-tuning and FEM-convergence learning. It also establishes that
+matched data-generation cost is already used in prior graph/multi-fidelity
+work. The access table above is the initial scoping checkpoint; the linked
+review owns later full-method access and remaining reproduction constraints.
+
 The inference from these sources is that a generic combination of GNN,
 multi-fidelity labels, uncertainty and optimization is not a sufficient TCAD
 contribution statement. The narrower question remains whether an explicit

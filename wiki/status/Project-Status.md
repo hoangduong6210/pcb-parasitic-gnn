@@ -36,9 +36,11 @@ sparse execution checkout preserves the locked source while avoiding the
 file-count quota that blocked a full checkout. The
 [feasibility evidence](../evidence/TCAD-Cps-AMG-Feasibility.md) owns source,
 smoke and scheduler receipts. A separately versioned
-[mesh-only HXT probe](../methods/TCAD-Cps-Mesh-Probe.md) is now source-frozen,
-published and running through SLURM. Its toy passed and sentinel coverage is
-pending; no sensitivity conclusion is available from the incomplete study.
+[mesh-only HXT probe](../methods/TCAD-Cps-Mesh-Probe.md) also closed incomplete:
+toy passed, but local1 reached its time cap during 3D improvement and the repeat
+was not run. Its 11-file terminal closure is archived. A new bounded
+optimization-isolation diagnostic is proposed; no sensitivity conclusion is
+available from either incomplete study.
 Backend agreement does not qualify a reference or authorize training.
 The canonical preservation boundaries remain in
 [Research Pause and Handoff](Research-Pause-Handoff.md). Completed pipelines
@@ -71,7 +73,7 @@ instead of calling one column ground truth.
 | TCAD compact-support recovery | `REJECTED; INCOMPLETE` | Local0 exceeded the frozen AMG-complexity cap before CG; terminal failure archived; all sensitivity checks remain unavailable |
 | TCAD same-matrix AMG diagnostic | `VALIDATED; TERMINAL ARCHIVE CHECKED` | Toy and local0 passed exact-system/direct comparison within unchanged worker caps; no mesh-converged reference or automatic expansion |
 | TCAD AMG seven-arm feasibility | `REJECTED; TERMINAL ARCHIVE CHECKED` | Smoke and local0 passed; local1 hit the mesh-generation time cap; five arms unrun; no sensitivity, training or paper claim |
-| TCAD mesh-only HXT probe | `RUNNING; TOY PASSED` | Published source; sentinel and fresh-repeat coverage pending; no field solving or cap increase |
+| TCAD mesh-only HXT probe | `REJECTED; TERMINAL ARCHIVE CHECKED` | Toy passed; local1 timed out in native 3D improvement; repeat unrun; no field solving or cap increase |
 | TCAD working draft | `WORKING DRAFT` | Author-reported Codex disclosure; inherited scientific results unchanged |
 | v0 through v2 layouts and labels | `ARCHIVAL / SUPERSEDED` | Feasibility-stage pipeline history only |
 | Geometry-valid 1,500-layout root | `FINALIZED` | Geometry root for current work |

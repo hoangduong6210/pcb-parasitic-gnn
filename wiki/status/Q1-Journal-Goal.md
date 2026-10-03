@@ -41,8 +41,8 @@ commitments require the owner's confirmation.
 
 | Milestone | Completion evidence | Current state |
 |---|---|---|
-| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | Seven-arm study rejected incomplete at meshing timeout; terminal archive checked; no qualified reference |
-| Contribution and prior art | Source-checked comparison defining what is new, what is inherited and which published methods are comparable | Initial primary-source audit records substantial overlap; full-method review and novelty validation remain |
+| Numerical reference | Terminal sensitivity/repeatability coverage on the declared panel, bounded costs, matched independent check, and scoped reference interpretation | Seven-arm and HXT studies rejected incomplete at meshing timeout; archives checked; independent-adapter scope mismatch documented; no qualified reference |
+| Contribution and prior art | Source-checked comparison defining what is new, what is inherited and which published methods are comparable | Full-method graph U-Net/transfer review changes comparator requirements; extraction/co-kriging access and novelty validation remain |
 | Controlled learning | Frozen new evaluation geometries and grouped splits; low-only, high-only and multi-fidelity controls at matched costs; tuned pooled/graph baselines | Conditional on reference and protocol gates |
 | CAD design outcome | Locked screening task, independently evaluated finalists, regret/constraint/cost accounting including failed queries | Conditional on reference and model acceptance |
 | Scientific admission | Complete evidence closure and reviewed claim wording, including negative results and limitations | Existing admitted claims preserved; no new TCAD claim admitted |
@@ -58,9 +58,10 @@ source identities, scheduler state and preservation receipts.
 
 The seven-arm study is now archived and incomplete: local1 timed out before
 mesh completion. A [separately identified mesh-only HXT diagnostic](../methods/TCAD-Cps-Mesh-Probe.md)
-is now source-frozen, published and running through bounded SLURM execution;
-retain caps and distinguish meshing cost from algebraic error or discretization
-sensitivity. Only a later complete sensitivity pass can open a new
+also closed incomplete during 3D mesh improvement. The source-checked
+[next diagnostic](../manuscript/TCAD-Research-Plan.md) isolates that optimization
+stage, retaining caps and adding mesh-quality observations without field
+solving. Only a later complete sensitivity pass can open a new
 three-sentinel protocol and then the development panel, without substituting
 old-policy results. Continue the
 [primary-source audit](../references/TCAD-Related-Work-Audit.md) alongside this

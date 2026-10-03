@@ -23,7 +23,47 @@ surrogates. Generic multi-fidelity graph learning is not the novelty claim.
 Original-method review and compatible statistical multi-fidelity controls are
 required before any later acquisition study.
 
+The [original-method review](../references/TCAD-Multi-Fidelity-Method-Review.md)
+adds distinct latent-conditioning and simple fine-tuning controls, and separates
+geometry-only inference from charged low-fidelity solver-assisted screening.
+Prior graph methods already compare matched data-generation cost, so that
+evaluation practice is not itself the new contribution. These requirements
+inform a later frozen learning protocol; they do not bypass reference gates.
+
 ## Next implementation after the meshing timeout: 2026-10-03
+
+The initial HXT probe has since closed incomplete; the following new decision
+supersedes its execution instruction while preserving the original design below.
+
+### Follow-up after the HXT improvement timeout
+
+The [checked HXT archive](../evidence/TCAD-Cps-Mesh-Probe.md) locates the new
+timeout after completed 1D/2D meshing and during 3D improvement. Inspection of
+the [official Gmsh 4.15.2 source archive](https://gmsh.info/src/gmsh-4.15.2-source.tgz)
+on 2026-10-03 found `src/mesh/meshGRegionHxt.cpp` passing `Mesh.Optimize` into
+HXT's optimization flag. In `contrib/hxt/tetMesh/src/hxt_tetMesh.c`, that flag
+controls a separate optimization branch after boundary recovery and size-field
+refinement. Source was streamed for reading, not compiled or installed. This
+supports a targeted diagnostic, not a conclusion that optimization is optional
+for accurate field solving.
+
+Prepare one separately versioned mesh-only candidate with `Mesh.Optimize=0`,
+leaving HXT, geometry, size fields, seed, threads and caps unchanged. Keep toy,
+local1 and its fresh repeat, the 600/1,200/1,200-second worker ceilings and a
+single 160 GiB/55-minute allocation. Add predeclared finite-element quality
+and region diagnostics, including invalid/degenerate-element checks, before
+interpreting a completed mesh. Freeze the exact quality measure and gates from
+the pinned API before execution. Preserve logs, times, arrays' fingerprints and
+all failures; do not reuse the incomplete predecessor's counts or hashes.
+
+This intentionally unoptimized diagnostic isolates a costly stage. Completion
+and repeatability do not prove usable conditioning or discretization accuracy.
+Any later algebraic, charge/energy or sensitivity study requires separate
+source-bound qualification. Do not substitute an unoptimized mesh for the
+reference, reduce quality requirements after results, or raise worker caps.
+No follow-up source is frozen and no new job is submitted at this checkpoint.
+
+### Preserved initial HXT specification
 
 The seven-arm AMG study closed incomplete at local1's mesh-generation time
 limit; its [terminal archive](../evidence/TCAD-Cps-AMG-Feasibility.md) is checked.
@@ -213,7 +253,10 @@ The frozen protocol should specify:
 5. A matched independent extractor on a small subset where material, boundary
    and terminal definitions can be aligned. Numerical disagreement must be
    investigated before assigning a reference label; agreement alone is not
-   fabricated-board validation.
+   fabricated-board validation. The
+   [independent capacitance contract](../methods/TCAD-Independent-Capacitance-Contract.md)
+   records concrete legacy geometry and electrical-quantity mismatches that
+   a new adapter must resolve before any comparison.
 6. An explicit stop decision. If refinement or resource gates fail, retain the
    fixed-fidelity interpretation, investigate the discretization, and do not
    start a new corpus or predictive claim on an unqualified reference.

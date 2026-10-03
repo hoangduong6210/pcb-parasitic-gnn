@@ -7,6 +7,55 @@ paper_source: false
 
 # Live Execution Snapshot
 
+## HXT mesh probe closed at improvement time cap on 2026-10-03
+
+Job `7651463` is terminal `FAILED/2:0`, zero restarts. Toy passed; local1 hit
+the unchanged worker time cap during native HXT 3D improvement, without a
+completed mesh. The fresh repeat was not run. The
+[evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns the exact measurements
+and checked 11-file archive. No job in this chain remains active.
+
+The original-method review and independent-capacitance contract are new
+research constraints, not paper claims. Inspection
+of the pinned Gmsh source identifies an explicit switch for the observed HXT
+optimization stage; the [research plan](../manuscript/TCAD-Research-Plan.md)
+proposes a separate bounded isolation test with mesh-quality diagnostics.
+No new job or solver study has been submitted. Source/caps and all rejected
+evidence remain immutable; training and reference qualification stay closed.
+Archive/review publication is pending at this local checkpoint; last verified
+remote main is `d572441e98ae98e1adcb1a62ca9f45c15ae05a66`.
+
+Subsequent validation passed all 276 selected no-solver tests, prose checks,
+both archive checks and the unchanged execution lock. Two ended test runs'
+temporary fixtures were removed to conserve file-count quota; all 136 deleted
+synthetic files are regenerable and no research artifact was removed. Next
+repository action is publication of this terminal/research checkpoint.
+
+## HXT monitoring and original-method review on 2026-10-03
+
+At 05:46:49 UTC job `7651463` remained RUNNING; toy passed and local1 was in
+native HXT 3D mesh improvement. No complete sentinel mesh or fresh-repeat
+result existed. The [evidence record](../evidence/TCAD-Cps-Mesh-Probe.md) now
+documents an additive terminal collector and its initial no-solver tests.
+Source `3a680844d06a46fcf0c8c3698a2a169a86990c00` and its caps are unchanged.
+Submission-receipt publication was remotely verified at
+`d572441e98ae98e1adcb1a62ca9f45c15ae05a66`.
+
+The [original-method review](../references/TCAD-Multi-Fidelity-Method-Review.md)
+finds that paired-resolution GNNs, low-fidelity latent transfer and matched
+data-generation-cost controls are already published. It changes the proposed
+comparator set and distinguishes geometry-only from solver-assisted inference;
+no algorithmic novelty is admitted. Next: terminal collection and outcome-led
+reference work, with extraction/co-kriging method gaps still open. No new job,
+training, claim or paper export was started.
+
+Source inspection also found that the historical FastCap/FasterCap wrappers
+use a different stackup convention and electrical quantity. The
+[independent-comparison contract](../methods/TCAD-Independent-Capacitance-Contract.md)
+records a metadata-only toy mismatch and the required terminal/boundary
+alignment. No old adapter was modified or executed as a solver; existing
+admitted fixed-fidelity targets are not relabelled.
+
 ## Mesh-only HXT probe submitted on 2026-10-03
 
 Source `3a680844d06a46fcf0c8c3698a2a169a86990c00` is published and remote-hash

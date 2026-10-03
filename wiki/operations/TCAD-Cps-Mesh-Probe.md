@@ -1,11 +1,16 @@
 ---
 title: TCAD Mesh-Only HXT Probe Runbook
-status: RUNNING; published source submitted; terminal review pending
+status: REJECTED; terminal closure checked; historical runbook retained
 last_updated: 2026-10-03
 paper_source: false
 ---
 
 # TCAD Mesh-Only HXT Probe Runbook
+
+The single frozen attempt is terminal and incomplete; the linked evidence
+page owns its checked archive. The execution instructions below are retained
+for reproducibility, not permission to rerun the failed attempt. Use the
+collector's `--check` mode for current metadata-only validation.
 
 This runbook executes only the [mesh-only method](../methods/TCAD-Cps-Mesh-Probe.md).
 Meshing is heavy work and must run on a verified SLURM compute node, never on
@@ -43,3 +48,18 @@ numerical replay. No array, automatic retry or cap increase is enabled.
    update the [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md), live status
    and repository publication receipts. Mesh feasibility is not field accuracy,
    reference qualification, training permission or a paper claim.
+
+The additive collector is
+`code/experiments/proofs/archive_tcad_cps_mesh_probe_v1.py`. After terminal
+accounting, pass `--source-root .internal/tcad-cps-mesh-probe-v1` from main;
+use `--check` for subsequent metadata-only validation. It verifies the pinned
+execution commit, lock, frozen receipt validator, terminal accounting and
+submission identity before copying. No source-lock change or field computation
+is part of collection. An infrastructure failure outside the controlled
+terminal-state contract remains a separate incident, not a fabricated pass.
+
+Before publication, verify that every manifest member and the archive manifest
+are Git-tracked. The scheduler `.out` file matches an existing ignore pattern
+and needs an explicit scoped add. Preserve native log trailing whitespace;
+exclude only the two raw worker stdout paths from whitespace lint and verify
+their immutable hashes instead. Never normalize raw evidence to satisfy lint.

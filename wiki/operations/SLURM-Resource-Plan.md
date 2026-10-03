@@ -9,6 +9,12 @@ paper_source: false
 
 ## Mesh-generation diagnostic
 
+The first HXT probe is now terminal and incomplete at local1's worker time
+cap. The [evidence page](../evidence/TCAD-Cps-Mesh-Probe.md) owns accounting and
+the archive. The proposed optimization-isolation follow-up retains the same
+worker ceilings and single-allocation specification below, but requires a new
+protocol, source and lock; it is not a retry of this job.
+
 The [next bounded work package](../manuscript/TCAD-Research-Plan.md) tests a
 single HXT mesher candidate with native stage logs, not another field solve.
 A toy worker plus local1 and its fresh repeat have inherited 600/1,200/1,200

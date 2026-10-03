@@ -1,0 +1,114 @@
+STAGE={"stage": "geometry_validated", "elapsed_s": 0.884020684985444, "peak_rss_gib": 0.07244110107421875, "n_traces": 2}
+STAGE={"stage": "occ_fragmented", "elapsed_s": 1.1046506790444255, "peak_rss_gib": 0.08318328857421875, "n_volumes": 3}
+STAGE={"stage": "mesh_generate_started", "elapsed_s": 1.1056539230048656, "peak_rss_gib": 0.08318328857421875, "h_min": 0.05600000000000001, "h_max": 2.0, "mesh_policy": {"options": {"Mesh.Algorithm": 5.0, "Mesh.Algorithm3D": 10.0, "Mesh.MeshSizeFromPoints": 0.0, "Mesh.MeshSizeFromCurvature": 0.0, "Mesh.MeshSizeExtendFromBoundary": 0.0, "Mesh.RandomSeed": 1.0, "Mesh.MeshSizeMin": 0.12, "Mesh.MeshSizeMax": 1.0, "General.NumThreads": 1.0, "Mesh.MaxNumThreads1D": 1.0, "Mesh.MaxNumThreads2D": 1.0, "Mesh.MaxNumThreads3D": 1.0}, "boxes": [{"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.010000000000000002, "ZMax": 0.19, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}, {"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.19000000000000003, "ZMax": 0.37000000000000005, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}], "near_size_mm": 0.12, "far_size_mm": 1.0, "pad_mm": 2.0}, "native_log_options": {"General.Terminal": 1.0, "General.Verbosity": 5.0}, "gmsh_build_options": "64Bit ALGLIB[contrib] ANN[contrib] Bamg Blas[petsc] Blossom Cgns DIntegration Dlopen DomHex Eigen[contrib] Fltk Gmm[contrib] Hxt Jpeg Kbipack Lapack[petsc] LinuxJoystick MathEx[contrib] Med Mesh Metis[contrib] Mmg Mpeg Netgen Nii2mesh ONELAB ONELABMetamodel OpenCASCADE OpenCASCADE-CAF OpenGL OpenMP OptHom PETSc Parser Plugins Png Post QuadMeshingTools QuadTri Solver TetGen/BR TinyXML2[contrib] Untangle Voro++[contrib] WinslowUntangler Zlib tinyobjloader", "inherited_h_min_h_max_overridden": true}
+Info    : Meshing 1D...
+Info    : [  0%] Meshing curve 13 (Line)
+Info    : [ 10%] Meshing curve 14 (Line)
+Info    : [ 10%] Meshing curve 15 (Line)
+Info    : [ 10%] Meshing curve 16 (Line)
+Info    : [ 20%] Meshing curve 17 (Line)
+Info    : [ 20%] Meshing curve 18 (Line)
+Info    : [ 20%] Meshing curve 19 (Line)
+Info    : [ 20%] Meshing curve 20 (Line)
+Info    : [ 30%] Meshing curve 21 (Line)
+Info    : [ 30%] Meshing curve 22 (Line)
+Info    : [ 30%] Meshing curve 23 (Line)
+Info    : [ 40%] Meshing curve 24 (Line)
+Info    : [ 40%] Meshing curve 25 (Line)
+Info    : [ 40%] Meshing curve 26 (Line)
+Info    : [ 40%] Meshing curve 27 (Line)
+Info    : [ 50%] Meshing curve 28 (Line)
+Info    : [ 50%] Meshing curve 29 (Line)
+Info    : [ 50%] Meshing curve 30 (Line)
+Info    : [ 60%] Meshing curve 31 (Line)
+Info    : [ 60%] Meshing curve 32 (Line)
+Info    : [ 60%] Meshing curve 33 (Line)
+Info    : [ 60%] Meshing curve 34 (Line)
+Info    : [ 70%] Meshing curve 35 (Line)
+Info    : [ 70%] Meshing curve 36 (Line)
+Info    : [ 70%] Meshing curve 37 (Line)
+Info    : [ 70%] Meshing curve 38 (Line)
+Info    : [ 80%] Meshing curve 39 (Line)
+Info    : [ 80%] Meshing curve 40 (Line)
+Info    : [ 80%] Meshing curve 41 (Line)
+Info    : [ 90%] Meshing curve 42 (Line)
+Info    : [ 90%] Meshing curve 43 (Line)
+Info    : [ 90%] Meshing curve 44 (Line)
+Info    : [ 90%] Meshing curve 45 (Line)
+Info    : [100%] Meshing curve 46 (Line)
+Info    : [100%] Meshing curve 47 (Line)
+Info    : [100%] Meshing curve 48 (Line)
+Info    : Done meshing 1D (Wall 0.00758689s, CPU 0.001149s)
+Info    : Meshing 2D...
+Info    : [  0%] Meshing surface 7 (Plane, Delaunay)
+Info    : [ 10%] Meshing surface 8 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 9 (Plane, Delaunay)
+Info    : [ 20%] Meshing surface 10 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 11 (Plane, Delaunay)
+Info    : [ 30%] Meshing surface 12 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 13 (Plane, Delaunay)
+Info    : [ 40%] Meshing surface 14 (Plane, Delaunay)
+Info    : [ 50%] Meshing surface 15 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 16 (Plane, Delaunay)
+Info    : [ 60%] Meshing surface 17 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 18 (Plane, Delaunay)
+Info    : [ 70%] Meshing surface 19 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 20 (Plane, Delaunay)
+Info    : [ 80%] Meshing surface 21 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 22 (Plane, Delaunay)
+Info    : [ 90%] Meshing surface 23 (Plane, Delaunay)
+Info    : [100%] Meshing surface 24 (Plane, Delaunay)
+Info    : Done meshing 2D (Wall 0.0409177s, CPU 0.029588s)
+Info    : Meshing 3D...
+Info    : 3D Meshing 3 volumes with 1 connected component
+Info    : Input mesh hash 49a803b66b19a647
+Info    : Creating an empty mesh with 1221 vertices
+Info    : Initialization of tet. mesh
+Info    : Delaunay of       1217 points on   1 threads - mesh.nvert: 4         
+Info    : Recovering 8 missing facet(s)
+Info    : Recover Delaunay
+Info    : All volumes of the BRep were found and colorized accordingly
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of       1469 points on   1 threads - mesh.nvert: 1221      
+Info    :           -       1445 points filtered
+Info    :           =         24 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of        107 points on   1 threads - mesh.nvert: 1245      
+Info    :           -        100 points filtered
+Info    :           =          7 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Delaunay of         10 points on   1 threads - mesh.nvert: 1252      
+Info    :           -          9 points filtered
+Info    :           =          1 points added
+Info    : Computing mesh sizes...
+Info    : Done computing mesh sizes
+Info    : Improving       1814 tet. on   1 thrd (S & ER)
+Info    : Improving       1576 tet. on   1 thrd (S & ER)
+Info    : Improving       1519 tet. on   1 thrd (S & ER)
+Info    : Improving       1499 tet. on   1 thrd (S & ER)
+Info    : Improving       1496 tet. on   1 thrd (GSC)
+Info    : Improving       1469 tet. on   1 thrd (S & ER)
+Info    : Improving       1471 tet. on   1 thrd (S & ER)
+Info    : Improving       1471 tet. on   1 thrd (S & ER)
+Info    : Improving       1471 tet. on   1 thrd (S & ER)
+Info    : Improving       1471 tet. on   1 thrd (GSC)
+Info    : Improving       1471 tet. on   1 thrd (S & ER)
+Info    :  	Final tet. mesh contains 6635 tetrahedra
+Info    :  	Final tet. mesh contains 1253 vertices
+Info    : tEmptyMesh  	 = 	    0.011
+Info    : tVerifyBnd  	 = 	    0.001
+Info    : tBndRecovery	 = 	    0.012
+Info    : tConvertMesh	 = 	    0.001
+Info    : tRefine     	 = 	    0.004
+Info    : tOptimize   	 = 	    1.250
+Info    : Done meshing 3D (Wall 1.3145s, CPU 1.2739s)
+Info    : 1253 nodes 8933 elements
+STAGE={"stage": "mesh_generated", "elapsed_s": 2.4796724640764296, "peak_rss_gib": 0.09001922607421875, "n_nodes": 1253}
+STAGE={"stage": "mesh_extracted", "elapsed_s": 2.4821419520303607, "peak_rss_gib": 0.09001922607421875, "n_tetrahedra": 6199}
+STAGE={"stage": "gmsh_finalized", "elapsed_s": 2.4848465609829873, "peak_rss_gib": 0.09001922607421875}
+STAGE={"stage": "skfem_mesh_created", "elapsed_s": 2.4852377648930997, "peak_rss_gib": 0.09001922607421875}
+STAGE={"stage": "mesh_fingerprinted", "elapsed_s": 2.4883486279286444, "peak_rss_gib": 0.09001922607421875, "mesh_fingerprint_schema": "pcb-gnn.ordered-tet-mesh.v1", "mesh_sha256": "d812442abf9c9756cbbbfa2900e789e84b483eec4282a1b9d458b452c80b53df", "mesh_nodes": 1253, "mesh_tetrahedra": 6199, "region_tetrahedra": {"dielectric": 3507, "primary": 1345, "secondary": 1347}}
+RESULT={"source_commit": "3a680844d06a46fcf0c8c3698a2a169a86990c00", "lock_sha256": "7c9b9f79a85444b5bb4c8620a48810bb3a6da6b493a77f546752f866c5aa0af8", "protocol_sha256": "6d578ef74dc41d73b6ecde70415f18a8b33e6daa8d498ad5d8d8effa71c4a04a", "panel_sha256": "260127de27e670f4104e4a60e3d90444fefe0c6a435189c0d037fb1e0fc0d9dd", "mesh_fingerprint_schema": "pcb-gnn.ordered-tet-mesh.v1", "mesh_sha256": "d812442abf9c9756cbbbfa2900e789e84b483eec4282a1b9d458b452c80b53df", "mesh_nodes": 1253, "mesh_tetrahedra": 6199, "region_tetrahedra": {"dielectric": 3507, "primary": 1345, "secondary": 1347}, "mode": "toy", "layout_id": "smoke", "geometry_sha256": "26130e1fc8563dcae261f56a43a36459ffefcdd06c7c4145fb3ad0a6bb6fb452", "arm": {"name": "smoke", "level": 0, "pad_mm": 2.0, "far_size_mm": 1.0, "support": "compact"}, "mesh_policy": {"options": {"Mesh.Algorithm": 5.0, "Mesh.Algorithm3D": 10.0, "Mesh.MeshSizeFromPoints": 0.0, "Mesh.MeshSizeFromCurvature": 0.0, "Mesh.MeshSizeExtendFromBoundary": 0.0, "Mesh.RandomSeed": 1.0, "Mesh.MeshSizeMin": 0.12, "Mesh.MeshSizeMax": 1.0, "General.NumThreads": 1.0, "Mesh.MaxNumThreads1D": 1.0, "Mesh.MaxNumThreads2D": 1.0, "Mesh.MaxNumThreads3D": 1.0}, "boxes": [{"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.010000000000000002, "ZMax": 0.19, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}, {"XMin": 1.945, "XMax": 4.055, "YMin": 1.945, "YMax": 3.055, "ZMin": 0.19000000000000003, "ZMax": 0.37000000000000005, "VIn": 0.12, "VOut": 1.0, "Thickness": 0.5}], "near_size_mm": 0.12, "far_size_mm": 1.0, "pad_mm": 2.0}, "mesh_policy_sha256": "c2b0d5b8b0cba9be48f0312ab3096f61b1105b4fa4f1ddc28551ad2cfc282d69", "native_log_options": {"General.Terminal": 1.0, "General.Verbosity": 5.0}, "gmsh_build_options": "64Bit ALGLIB[contrib] ANN[contrib] Bamg Blas[petsc] Blossom Cgns DIntegration Dlopen DomHex Eigen[contrib] Fltk Gmm[contrib] Hxt Jpeg Kbipack Lapack[petsc] LinuxJoystick MathEx[contrib] Med Mesh Metis[contrib] Mmg Mpeg Netgen Nii2mesh ONELAB ONELABMetamodel OpenCASCADE OpenCASCADE-CAF OpenGL OpenMP OptHom PETSc Parser Plugins Png Post QuadMeshingTools QuadTri Solver TetGen/BR TinyXML2[contrib] Untangle Voro++[contrib] WinslowUntangler Zlib tinyobjloader", "stages": ["geometry_validated", "occ_fragmented", "mesh_generate_started", "mesh_generated", "mesh_extracted", "gmsh_finalized", "skfem_mesh_created", "mesh_fingerprinted"], "field_solver_executed": false, "elapsed_s": 3.416435627033934, "peak_rss_gib": 0.0904083251953125, "scheduler": {"JobId": "7651463", "JobName": "tcad-hxt-mesh", "UserId": "binben14(51204)", "GroupId": "PGS0407(9475)", "MCS_label": "N/A", "Priority": "300000534", "Nice": "0", "Account": "pgs0407", "QOS": "ascend-default", "JobState": "RUNNING", "Reason": "None", "Dependency": "(null)", "Requeue": "0", "Restarts": "0", "BatchFlag": "1", "Reboot": "0", "ExitCode": "0:0", "RunTime": "00:00:04", "TimeLimit": "00:55:00", "TimeMin": "N/A", "SubmitTime": "2026-10-03T05:35:11", "EligibleTime": "2026-10-03T05:35:11", "AccrueTime": "2026-10-03T05:35:11", "StartTime": "2026-10-03T05:35:16", "EndTime": "2026-10-03T06:30:16", "Deadline": "N/A", "PreemptEligibleTime": "2026-10-03T05:35:16", "PreemptTime": "None", "SuspendTime": "None", "SecsPreSuspend": "0", "LastSchedEval": "2026-10-03T05:35:16", "Scheduler": "Backfill", "Partition": "nextgen", "AllocNode:Sid": "ascend-login02:1200932", "ReqNodeList": "(null)", "ExcNodeList": "(null)", "NodeList": "a0157", "BatchHost": "a0157", "NumNodes": "1", "NumCPUs": "41", "NumTasks": "1", "CPUs/Task": "41", "ReqB:S:C:T": "0:0:*:*", "ReqTRES": "cpu=1,mem=160G,node=1,billing=1", "AllocTRES": "cpu=41,mem=160G,node=1,billing=41", "Socks/Node": "*", "NtasksPerN:B:S:C": "0:0:*:1", "CoreSpec": "*", "MinCPUsNode": "41", "MinMemoryNode": "160G", "MinTmpDiskNode": "0", "Features": "(null)", "DelayBoot": "00:00:00", "OverSubscribe": "OK", "Contiguous": "0", "Licenses": "(null)", "LicensesAlloc": "(null)", "Network": "(null)", "Command": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "WorkDir": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "StdErr": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "StdIn": "/dev/null", "StdOut": "/users/PGS0407/binben14/VietHuy/Hoang/GNN", "TresPerTask": "cpu=1"}, "runtime": {"python": "3.9.21", "packages": {"gmsh": "4.15.2", "numpy": "2.0.2", "pyamg": "5.3.0", "scikit-fem": "11.0.0", "scipy": "1.13.1"}, "threads": {"BLIS_NUM_THREADS": "1", "MKL_NUM_THREADS": "1", "NUMEXPR_NUM_THREADS": "1", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1", "PCB_GNN_GMSH_THREADS": "1", "OMP_DYNAMIC": "FALSE"}}}

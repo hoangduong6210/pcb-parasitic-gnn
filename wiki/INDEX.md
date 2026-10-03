@@ -19,6 +19,7 @@ paper_source: false
 | [License and Asset Boundaries](governance/License-and-Assets.md) | Source, dependency, vendor, figure, and publication licensing |
 | [Technical Source Map](references/Technical-Source-Map.md) | Bibliography topics, keys, and citation review |
 | [TCAD Related-Work Audit](references/TCAD-Related-Work-Audit.md) | Primary-source access, overlapping prior methods and unproven contribution hypotheses |
+| [TCAD Multi-Fidelity Method Review](references/TCAD-Multi-Fidelity-Method-Review.md) | Original-method distinctions, comparator compatibility, access and measured-cost contracts |
 
 ## Status, scope, and decisions
 
@@ -56,6 +57,7 @@ paper_source: false
 | [TCAD Same-Matrix AMG Diagnostic](methods/TCAD-Cps-AMG-Diagnostic.md) | One fixed preconditioner candidate with unchanged worker caps and direct comparison |
 | [TCAD AMG Feasibility](methods/TCAD-Cps-AMG-Feasibility.md) | Seven fresh compact/wide-support arms with the tested preconditioner and unchanged caps |
 | [TCAD Mesh-Only HXT Probe](methods/TCAD-Cps-Mesh-Probe.md) | Single mesher candidate, bounded fresh-repeat fingerprints and no field solving |
+| [TCAD Independent Capacitance Contract](methods/TCAD-Independent-Capacitance-Contract.md) | Legacy adapter geometry mismatch, terminal/field-domain estimands and cross-solver qualification requirements |
 | [FEM Mesh Repeatability](methods/FEM-Repeatability.md) | Fresh-mesh repeatability design, fixed panel, gates, and decision rule |
 | [Geometry Family Splits](methods/Geometry-Family-Splits.md) | Leakage-resistant splits and uncertainty units |
 | [Corpus V4 Accuracy Protocol](methods/Corpus-V4-Accuracy-Protocol.md) | Frozen 5 by 5 training, leakage, checkpoint, metric, and reporting contract |

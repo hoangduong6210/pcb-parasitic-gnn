@@ -1,0 +1,53 @@
+{
+  "accounting": [
+    {
+      "AllocCPUS": "41",
+      "ElapsedRaw": "1212",
+      "ExitCode": "2:0",
+      "JobID": "7651463",
+      "NodeList": "a0157",
+      "ReqMem": "160G",
+      "Restarts": "0",
+      "State": "FAILED"
+    }
+  ],
+  "attempt_sha256": "63f21e6461c50f2757929c1edbc1af8d8711984655a37d9d3e3044a34b3b5e29",
+  "diagnosis": {
+    "automatic_expansion": false,
+    "claim_eligible": false,
+    "complete": false,
+    "field_solver_executed": false,
+    "mesh_feasible": false,
+    "observed_modes": {
+      "local1": {
+        "failure": "worker wall-time cap exceeded",
+        "passed": false
+      },
+      "toy": {
+        "failure": null,
+        "passed": true
+      }
+    },
+    "reference_qualified": false,
+    "repeatability_passed": false,
+    "terminal_admission_pending": true,
+    "training_may_start": false
+  },
+  "files_sha256": {
+    "results/tcad/cps_mesh_probe_v1/archive/job_7651463/logs/tcad_mesh_probe_7651463.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_mesh_probe_v1/archive/job_7651463/logs/tcad_mesh_probe_7651463.out": "73b3e97a372b688f9e8123ef36d780706b537cae97de3691e2ef95a6184e52a4",
+    "results/tcad/cps_mesh_probe_v1/archive/job_7651463/sacct.txt": "8efcce16f31f0b201fa2a23164e6d8bc9ce0ff13143b459efce45e4b9281d5c1",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/attempt.json": "63f21e6461c50f2757929c1edbc1af8d8711984655a37d9d3e3044a34b3b5e29",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/local1.json": "fa62d3bd47dc1ef010b161d92eb631f5adaee080e8fe19e5b08edc47c53042f7",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/local1.stdout": "43451780c88406bac9cca654bee0efb44173739dfa019dbff4c4f48fffd43528",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/toy.json": "d0b7657f3debf0b5bd96cd997128d87f443e14198afc996ce864599e76ef5841",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/toy.stderr": "4425fc76cedee2e0a64912aad1c589b3d94f127054a511b90480b97594af6399",
+    "results/tcad/cps_mesh_probe_v1/job_7651463/toy.stdout": "3a2ec5081380d2b57ec0dd2e4a44a9aee9e8a7c88af537c9c34dcec27b81ce26",
+    "results/tcad/cps_mesh_probe_v1/submission.json": "086d602c85fb454484f9f0e32a749931bc42cb4a9df95e9c840c3e0d8f6d4ce7"
+  },
+  "lock_sha256": "7c9b9f79a85444b5bb4c8620a48810bb3a6da6b493a77f546752f866c5aa0af8",
+  "schema": "pcb-gnn.tcad-cps-mesh-probe-archive.v1",
+  "scope": "mesh generation and exact fresh-repeat identity only; no field or reference claim",
+  "source_commit": "3a680844d06a46fcf0c8c3698a2a169a86990c00"
+}

@@ -1,0 +1,12 @@
+{
+  "elapsed_s": 1200.2080947358627,
+  "failure": "worker wall-time cap exceeded",
+  "files_sha256": {
+    "local1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "local1.stdout": "43451780c88406bac9cca654bee0efb44173739dfa019dbff4c4f48fffd43528"
+  },
+  "mode": "local1",
+  "observed_peak_rss_gib": 3.4741554260253906,
+  "passed": false,
+  "returncode": -9
+}

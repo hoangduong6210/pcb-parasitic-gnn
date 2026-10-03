@@ -1,6 +1,6 @@
 ---
 title: TCAD Mesh-Only HXT Probe
-status: RUNNING; frozen mesh-only diagnostic
+status: REJECTED; incomplete mesh-only diagnostic; specification preserved
 last_updated: 2026-10-03
 paper_source: false
 ---
